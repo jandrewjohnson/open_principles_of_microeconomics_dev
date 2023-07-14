@@ -1,0 +1,249 @@
+---
+jupyter: python3
+---
+
+# Earth Economy Modeling
+
+## Overview
+
+* What is Earth-Economy modeling?
+
+* How does this relate to big data
+
+* Example research topics that use big data
+
+* How does this connect to econometrics?
+
+* Big data examples from my research
+
+## To succeed in using this book
+
+::: {.r-fit-text}  
+::: {.incremental}
+
+* Necessary to succeed: mastering software and code\.
+
+  * Applied Economics itself is shifting in this direction\.
+
+    * More focus on code expertise\.
+
+    * Distinguishes us \(in a very positive way\) from traditional Econ programs\.
+
+* In this book, we will use both R and Python
+
+  * R is dominant in applied econometrics \(and thus is the basis of our department's coding approach\)
+
+  * Other disciplines \(including machine learning\) use R much less
+
+  * In your career\, you will likely have to learn new coding languages\.
+
+    * Let's become bilingual\!
+
+* I will lead the Python\-specific component of the course
+
+  * Will walk you through installation\, language basics etc\.\, and then use it apply machine\-learning models to big data
+
+:::
+:::
+
+## Your computer
+
+::: {.r-fit-text}
+- This course will build a modern "scientific computing stack" that is emerging among leading academics and open-source practitioners as an extremly powerful tool. We will work through installation of the programming language and several supporting tools\. 
+
+- It is possible to use a PC\, Mac or Linux for this course\, though all examples will be given on a PC\.  Becoming skilled in Big Data is partly about mastering the tools and it will be your responsibility to come to class with your computer setup in a way for you to succeed\. We will discuss any setup steps necessary in the lecture before it is to be used\.
+
+:::
+
+
+## What is big data?
+
+::: {.r-fit-text}
+
+* Big data means many things to different groups
+
+  * Standard definition: Data sets that are so large or complex that traditional data processing applications are inadequate
+
+    * Streams of data \(e\.g\.\, video collected by a self\-driving car\)
+
+    * Massive consumer data \(they are watching you\)
+
+    * Remotely sensed data \(satellites or drones taking pictures of the earth\)
+
+    * Traditional data\, but just really big\.
+
+* Many related subfields also constitute "what is" big data\.
+
+  * Machine learning \(core to this course\)
+
+  * Artificial Intelligence \(AI\)
+
+  * Technological advancement in computer science and hardware
+
+  * Econometrics exactly as we've done before\, but just with bigger tables\.
+
+:::
+
+## Why should economists care about "big data"?
+
+In the very least, it can create many new sources of useful data.
+
+## But also for Voice  Analysis
+::: {.r-fit-text}
+![](../img/2023-01-03-13-45-48.png)
+
+
+Our input is time-series of amplitude of different pitches
+
+But to be useful data, we probably want to know what is the **MEANING**? Here there are useful methods in Natural Language Processing.
+:::
+
+
+## Image Analysis
+
+![](../img/2023-01-03-13-46-08.png)
+
+## Categorization
+
+![](../img/2023-01-03-13-46-17.png)
+
+## Even image generation
+
+![](../img/2023-01-03-13-46-31.png)
+
+## Sentiment Analysis
+
+![](../img/2023-01-03-13-47-06.png)
+
+## Big data from remote sensing (satellites)
+
+![](../img/2023-01-03-13-47-26.png)
+
+* Creates terabytes of information per day
+
+  * Can assess economic factor like poverty
+
+  * Or environmental factors like freshwater availability
+
+* Data types:
+
+  * Raster data \(matrices of spatial values\)
+
+  * Vector data \(link databases of survey data to georeferenced household locations\)
+
+
+
+## NLCD
+
+![](../img/2023-01-03-13-47-57.png)
+
+
+## NLCD Zoomed
+
+![](../img/2023-01-03-13-48-14.png)
+
+
+
+## NLCD Zoomed 2
+
+added some text here.
+
+![](../img/2023-01-03-13-48-28.png)
+
+
+
+## NLCD Zoomed 3
+
+![](../img/2023-01-03-13-49-02.png)
+
+
+
+# How does this connect to econometrics?
+
+## 1.) Lots of data, same old econometrics
+
+When  __n__  is very large \(or both  __n__  and  __k__  are\)
+
+![](../img/2023-01-03-13-51-08.png)
+
+## 2.) New prediction approaches
+
+
+![](../img/2023-01-03-13-51-36.png)
+
+
+
+## So we've got better models and huge data. What's the risk?
+
+:::: {.columns}
+
+::: {.column width="70%"}
+* Requires rethinking what it means to be 'good' at prediction\.
+
+  * In econometrics\, we often measure our prediction quality using  __in\-sample __ analysis\. For example\, with R2\.
+
+  * Normally we cheer when our p\-values are tiny\.
+
+  * With big data\, our p\-values are \(almost\) ALWAYS tiny\.
+
+    * Is this a good thing?
+:::
+
+::: {.column width="30%"}
+* In the Python component of the course\, we're going to introduce a new metric of prediction quality\.
+
+  * __Out\-of\-sample__  prediction quality through cross\-validation\.
+
+  * Has been around forever of course\, but big data greatly improves opportunities our ability to do cross\-validation\.
+
+:::
+::::
+
+
+## Big Data improves opportunities for cross-validation
+
+
+Cross-validation splitting and folding:
+
+We'll learn this soon\.
+
+![](../img/2023-01-03-13-52-01.png)
+
+
+
+## Model complexity
+
+
+* With big data, you can make your model very, very complex
+
+  * What is the risk of this?
+
+    * Prediction error  __out of sample__  _ _ gets worse
+
+
+![](../img/2023-01-03-13-52-19.png)
+
+## Another term: overfitting vs underfitting
+
+* Overfitting a model: making the model overly complex to that accuracy falls on the test data\.
+
+  * We will talk about ways to methodologically hit the "sweet spot" of model complexity\.
+
+![](../img/2023-01-03-13-52-49.png)
+
+
+
+
+## Criticism of Big Data
+
+
+
+* Predicting the world with big data means we're focused \(obsessed?\) by how the world was    _in the past _   \(or at best\, present\)
+
+  * Embeds racism\, sexism\, etc\.
+
+  * Enables algorithmic discrimination
+
+* Big data: not actually new \-\- just bigger\.
+
+

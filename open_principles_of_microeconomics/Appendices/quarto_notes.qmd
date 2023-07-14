@@ -1,0 +1,23 @@
+
+
+
+## Cross References
+For tables produced by executable code cells, include a label with a tbl- prefix to make them cross-referenceable. For example:
+
+```{python}
+#| label: tbl-planets
+#| tbl-cap: Planets
+
+from IPython.display import Markdown
+# from tabulate import tabulate
+# table = [["Sun",696000,1989100000],
+#          ["Earth",6371,5973.6],
+#          ["Moon",1737,73.5],
+#          ["Mars",3390,641.85]]
+# Markdown(tabulate(
+#   table, 
+#   headers=["Planet","R (km)", "mass (x 10^29 kg)"]
+# ))
+
+
+```
