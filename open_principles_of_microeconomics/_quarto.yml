@@ -1,56 +1,27 @@
 project:
   type: book
-  output-dir: ../rendered_big_data_for_economists
+  output-dir: ../RENDERED_open_principles_of_microeconomics
 
 book:
-  title: "Big Data for Economists "
+  title: "Open Principles of Microeconomics"
   author: "Justin Johnson"
-  date: "2023-06-28"
+  date: "2023-10-10"
   page-navigation: true
 
   chapters: 
   - index.qmd
+    
 
-  - part: Introduction      
-    chapters:
-      - Introduction/introduction_big_data.ipynb
-      # - Introduction/introduction_big_data_slides.ipynb
-      
-
-  - part: Python
+  - part: Welcome to Economics!
     chapters:       
-      - Python_Introduction/python_setup.ipynb
-      - Python_Introduction/jupyter_intro.ipynb
-      - Python_Introduction/python_assignment_0.ipynb
-      - Python_Introduction/python_basics.ipynb
-      - Python_Introduction/numpy_arrays.ipynb
-      - Python_Introduction/pandas_tables.ipynb
-      - Python_Introduction/gdal_rasters.ipynb
-      - Python_Introduction/python_assignment_1.ipynb
-
-  - part: Machine Learning
+      - 1-introduction.qmd
+      - 1-1-what-is-economics-and-why-is-it-important.qmd
+      - 1-3-how-economists-use-theories-and-models-to-understand-economic-issues.qmd
+  - part: Choice in a World of Scarcity
     chapters:
-      - Machine_Learning/introduction_big_data.ipynb
-      - Machine_Learning/linear_regression.ipynb
-      - Machine_Learning/support_vector_machines.ipynb
-      - Machine_Learning/regularization_intro.ipynb
-      - Machine_Learning/regularization_with_lasso.ipynb
-      - Machine_Learning/neural_networks_intro.ipynb
-      - Machine_Learning/nn_multilayer_perceptron.ipynb
+      - 2-introduction-to-choice-in-a-world-of-scarcity.qmd
 
-  - part: Spatial Analysis
-    chapters:
-      - Spatial_Analysis/spatial_data_intro.ipynb
-      - Spatial_Analysis/classification_intro.ipynb
-      - Spatial_Analysis/lulc_classification.ipynb
-      - Spatial_Analysis/python_assignment_2.ipynb
 
-  - part: Appendices
-    chapters:
-      - Appendices/hosting_notes.ipynb
-      - Appendices/quarto_notes.qmd
-
-bibliography: references.bib
 
 execute:
   freeze: true
