@@ -20,6 +20,9 @@ By the end of this section, you will be able to:
 - Explain the importance of economic theories and models
 - Describe goods and services markets and labor markets
 
+
+![John Maynard Keynes   One of the most influential economists in modern times was John Maynard Keynes. (Credit: “John Maynard Keynes” by IMF/Wikimedia Commons, Public Domain)](images/sec1_3_fig1_6.png){width=70% #fig-1_6}
+
 John Maynard Keynes (1883–1946), one of the greatest economists of the twentieth century, pointed out that economics is not just a subject area but also a way of thinking. Keynes (@fig-1_6) famously wrote in the introduction to a fellow economist’s book: “[Economics] is a method rather than a doctrine, an apparatus of the mind, a technique of thinking, which helps its possessor to draw correct conclusions.” In other words, economics teaches you how to think, not what to think.
 
 ---
@@ -37,6 +40,8 @@ Sometimes economists use the term **model** instead of theory. Strictly speaking
 For example, an architect who is planning a major office building will often build a physical model that sits on a tabletop to show how the entire city block will look after the new building is constructed. Companies often build models of their new products, which are more rough and unfinished than the final product, but can still demonstrate how the new product will work.
 
 A good model to start with in economics is the **circular flow diagram** (@fig-1_7). It pictures the economy as consisting of two groups—households and firms—that interact in two markets: the **goods and services market** in which firms sell and households buy and the **labor market** in which households sell labor to business firms or other employees.
+
+![The Circular Flow Diagram   The circular flow diagram shows how households and firms interact in the goods and services market, and in the labor market. The direction of the arrows shows that in the goods and services market, households receive goods and services and pay firms for them. In the labor market, households provide labor and receive payment from firms through wages, salaries, and benefits.](images/sec1_3_fig1_7.png){width=80% #fig-1_7}
 
 Firms produce and sell goods and services to households in the market for goods and services (or product market). Arrow “A” indicates this. Households pay for goods and services, which becomes the revenues to firms. Arrow “B” indicates this. Arrows A and B represent the two sides of the product market. Where do households obtain the income to buy goods and services? They provide the labor and other resources (e.g., land, capital, raw materials) firms need to produce goods and services in the market for inputs (or factors of production). Arrow “C” indicates this. In return, firms pay for the inputs (or resources) they use in the form of wages and other factor payments. Arrow “D” indicates this. Arrows “C” and “D” represent the two sides of the factor market.
 
