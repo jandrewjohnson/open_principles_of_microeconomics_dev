@@ -40,6 +40,8 @@ Data is very important in economics because it describes and measures the issues
 
 For more information about how to use FRED, see the variety of [videos](https://www.youtube.com/watch?v=kYd51YutYqo) on YouTube starting with this introduction.
 
+![**Scarcity of Resources**   People experiencing homelessness are a stark reminder that scarcity of resources is real. (Credit: "Pittsburgh Homeless" by "daveyinn"/Flickr Creative Commons, CC BY 2.0)](images/sec1_1_fig1_2.png){width=70% #fig-1_2}
+
 If you still do not believe that scarcity is a problem, consider the following: Does everyone require food to eat? Does everyone need a decent place to live? Does everyone have access to healthcare? In every country in the world, there are people who are hungry, homeless (for example, those who call park benches their beds, as @fig-1_2 shows), and in need of healthcare, just to focus on a few critical goods and services. Why is this the case? It is because of scarcity. Let's delve into the concept of scarcity a little deeper, because it is crucial to understanding economics.
 
 # The Problem of Scarcity
@@ -56,6 +58,8 @@ Visit this [website](https://stateimpact.npr.org/texas/2013/08/02/how-10-western
 
 Every society, at every level, must make choices about how to use its resources. Families must decide whether to spend their money on a new car or a fancy vacation. Towns must choose whether to put more of the budget into police and fire protection or into the school system. Nations must decide whether to devote more funds to national defense or to protecting the environment. In most cases, there just isn't enough money in the budget to do everything. How do we use our limited resources the best way possible, that is, to obtain the most goods and services we can? There are a couple of options. First, we could each produce everything we each consume. Alternatively, we could each produce some of what we want to consume, and "trade" for the rest of what we want. Let's explore these options. Why do we not each just produce all of the things we consume? Think back to pioneer days, when individuals knew how to do so much more than we do today, from building their homes, to growing their crops, to hunting for food, to repairing their equipment. Most of us do not know how to do all---or any---of those things, but it is not because we could not learn. Rather, we do not have to. The reason why is something called the *division and specialization of labor,* a production innovation first put forth by Adam Smith (@fig-1_3) in his book, *The Wealth of Nations*.
 
+![**Adam Smith**   Adam Smith introduced the idea of dividing labor into discrete tasks. (Credit: "Adam Smith" by Cadell and Davies (1811), John Horsburgh (1828), or R.C. Bell (1872)/Wikimedia Commons, Public Domain)](images/sec1_1_fig1_3.png){width=70% #fig-1_3}
+
 # The Division of and Specialization of Labor
 
 
@@ -65,6 +69,7 @@ To illustrate division of labor, Smith counted how many tasks went into making a
 
 Modern businesses divide tasks as well. Even a relatively simple business like a restaurant divides the task of serving meals into a range of jobs like top chef, sous chefs, less-skilled kitchen help, servers to wait on the tables, a greeter at the door, janitors to clean up, and a business manager to handle paychecks and bills—not to mention the economic connections a restaurant has with suppliers of food, furniture, kitchen equipment, and the building where it is located. A complex business like a large manufacturing factory, such as the shoe factory (@fig-1_4), or a hospital can have hundreds of job classifications.
 
+![**Division of Labor**      Workers on an assembly line are an example of the divisions of labor. (Credit: "Red Wing Shoe Factory Tour" by Nina Hale/Flickr Creative Commons, CC BY 2.0)](images/sec1_1_fig1_4.png){width=70% #fig-1_4}
 
 # Why the Division of Labor Increases Production
 
@@ -85,6 +90,10 @@ Specialization only makes sense, though, if workers can use the pay they receive
 You do not have to know anything about electronics or sound systems to play music—you just buy an iPod or MP3 player, download the music, and listen. You do not have to know anything about artificial fibers or the construction of sewing machines if you need a jacket—you just buy the jacket and wear it. You do not need to know anything about internal combustion engines to operate a car—you just get in and drive. Instead of trying to acquire all the knowledge and skills involved in producing all of the goods and services that you wish to consume, the market allows you to learn a specialized set of skills and then use the pay you receive to buy the goods and services you need or want. This is how our modern society has evolved into a strong economy.
 
 # Why Study Economics?
+
+![Esther Duflo, Abhijit Banerjee, and Michael Kremer   Esther Duflo, Abhijit Banerjee (both from Massachusetts Institute of Technology), and Michael Kremer (University of Chicago) were awarded the Nobel Prize for groundbreaking work in which they established experimental methods to understand poverty and outcomes of initiatives to address it. (Credit: modification of work by U.S. Embassy Sweden/Wikimedia Commons, CC BY 2.0; Financial Times/Wikimedia Commons, CC BY 2.0; U.S. Embassy Sweden/Flickr Creative Commons, CC BY 2.0)](images/sec1_1_fig1_5.png){width=70% #fig-1_5}
+
+
 
 Now that you have an overview on what economics studies, let’s quickly discuss why you are right to study it. Economics is not primarily a collection of facts to memorize, although there are plenty of important concepts to learn. Instead, think of economics as a collection of questions to answer or puzzles to work. Most importantly, economics provides the tools to solve those puzzles.
 
