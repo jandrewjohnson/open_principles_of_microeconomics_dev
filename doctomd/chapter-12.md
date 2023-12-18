@@ -110,7 +110,7 @@ try to extricate themselves from this situation.
 
 [13](http://openstax.org/books/principles-microeconomics-3e/pages/12-self-check-questions#fs-idm84125904).
 
-a.  ![](media/rId45.jpeg){width="3.5in" height="2.725in"}
+a.  ![](media/chapter-12_rId45.jpeg){width="3.5in" height="2.725in"}
 
 b.  Of the choices provided, P, R, and S demonstrate productive
     efficiency. These are the choices on the production possibility

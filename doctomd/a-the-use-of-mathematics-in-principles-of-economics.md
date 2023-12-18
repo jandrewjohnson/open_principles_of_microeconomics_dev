@@ -98,7 +98,7 @@ points are plotted and a line is drawn through them.
 
 Table A1 Values for the Slope Intercept Equation
 
-![](media/rId26.jpeg){width="3.25in" height="2.52in"}
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId26.jpeg){width="3.25in" height="2.52in"}
 
 Figure A1 Slope and the Algebra of Straight Lines This line graph has
 *x* on the horizontal axis and y on the vertical axis. The
@@ -277,7 +277,7 @@ are --0.5 for demand and 0.2 for supply. If you draw the graphs
 carefully, you will see that where they cross (Qs = Qd), the price is
 \$2 and the quantity is 12, just like the algebra predicted.
 
-![](media/rId47.jpeg){width="3.25in" height="1.8499989063867017in"}
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId47.jpeg){width="3.25in" height="1.8499989063867017in"}
 
 Figure A2 Supply and Demand Graph The equations for Qd and Qs are
 displayed graphically by the sloped lines.
@@ -380,7 +380,7 @@ other line shows the relationship for girls. This kind of graph is
 widely used by healthcare providers to check whether a child's physical
 development is roughly on track.
 
-![](media/rId61.jpeg){width="3.25in" height="3.2083333333333335in"}
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId61.jpeg){width="3.25in" height="3.2083333333333335in"}
 
 Figure A3 The Length-Weight Relationship for American Boys and Girls The
 line graph shows the relationship between height and weight for boys and
@@ -409,7 +409,7 @@ only 0.023 kilograms. The thin air at high altitudes explains why many
 mountain climbers need to use oxygen tanks as they reach the top of a
 mountain.
 
-![](media/rId64.jpeg){width="4.88in" height="3.31in"}
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId64.jpeg){width="4.88in" height="3.31in"}
 
 Figure A4 Altitude-Air Density Relationship This line graph shows the
 relationship between altitude, measured in meters above sea level, and
@@ -453,7 +453,7 @@ unemployment rate declined from the early 1990s to the end of the 1990s,
 before rising and then falling back in the early 2000s, and then rising
 sharply during the recession from 2008--2009.
 
-![](media/rId68.jpeg){width="3.058333333333333in"
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId68.jpeg){width="3.058333333333333in"
 height="2.2083333333333335in"}
 
 Figure A5 U.S. Unemployment Rate, 1975--2014 This graph provides a quick
@@ -481,7 +481,7 @@ group.
 
 Table A4 U.S. Age Distribution, 1970, 2000, and 2030 (projected)
 
-![](media/rId73.jpeg){width="6.5in" height="5.135in"}
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId73.jpeg){width="6.5in" height="5.135in"}
 
 Figure A6 Pie Graphs of the U.S. Age Distribution (numbers in millions)
 The three pie graphs illustrate the division of total population into
@@ -511,7 +511,7 @@ populous countries in the world, seeing how the bars on the graph tower
 over the other countries helps illustrate the magnitude of the
 difference between the sizes of national populations.
 
-![](media/rId77.jpeg){width="5.025in" height="2.075in"}
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId77.jpeg){width="5.025in" height="2.075in"}
 
 Figure A7 Leading Countries of the World by Population, 2015 (in
 millions) The graph shows the 12 countries of the world with the largest
@@ -536,7 +536,7 @@ population in each age group. It is sometimes easier for a reader to run
 their eyes across several bar graphs, comparing the shaded areas, rather
 than trying to compare several pie graphs.
 
-![](media/rId80.jpeg){width="5.83in" height="5.495in"}
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId80.jpeg){width="5.83in" height="5.495in"}
 
 Figure A8 U.S. Population with Bar Graphs Population data can be
 represented in different ways. (a) Shows three bars for each year,
@@ -584,18 +584,18 @@ A10](#CNX_Econ_A01_023), and [Figure A11](#CNX_Econ_A01_017). These
 graphs all illustrate the unemployment rate---but from different
 perspectives.
 
-![](media/rId83.jpeg){width="4.866666666666666in"
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId83.jpeg){width="4.866666666666666in"
 height="6.658333333333333in"}
 
 Figure A9
 
-![](media/rId85.jpeg){width="4.9in" height="7.958333333333333in"}
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId85.jpeg){width="4.9in" height="7.958333333333333in"}
 
 Figure A10 Presenting Unemployment Rates in Different Ways, All of Them
 Accurate Simply changing the width and height of the area in which data
 is displayed can alter the perception of the data.
 
-![](media/rId88.jpeg){width="6.5in" height="5.47in"}
+![](media/a-the-use-of-mathematics-in-principles-of-economics_rId88.jpeg){width="6.5in" height="5.47in"}
 
 Figure A11 Presenting Unemployment Rates in Different Ways, All of Them
 Accurate Simply changing the width and height of the area in which data

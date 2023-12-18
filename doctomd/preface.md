@@ -175,9 +175,9 @@ clarify concepts and provide opportunities for graphical interpretation.
 Many graphs are shown with accompanying data tables and explanations of
 the drivers and consequences of change.
 
-![](media/rId36.jpeg){width="3.25in" height="2.52in"}
+![](media/preface_rId36.jpeg){width="3.25in" height="2.52in"}
 
-![](media/rId38.jpeg){width="4.88in" height="4.91in"}
+![](media/preface_rId38.jpeg){width="4.88in" height="4.91in"}
 
 #### Pedagogical foundation
 
@@ -372,7 +372,7 @@ are established early in the course. To that end, OpenStax has created
 an interactive to aid with academic integrity discussions in your
 course.
 
-![](media/rId61.jpeg){width="3.6458333333333335in"
+![](media/preface_rId61.jpeg){width="3.6458333333333335in"
 height="1.1756047681539807in"}
 
 Visit our [academic integrity

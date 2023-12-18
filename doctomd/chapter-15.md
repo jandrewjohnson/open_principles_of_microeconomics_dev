@@ -11,7 +11,7 @@ Jonathon's options for working and total income are shown in the
 following table. His labor-leisure diagram is shown in the figure
 following the table.
 
-![](media/rId23.jpeg){width="3.25in" height="2.805in"}
+![](media/chapter-15_rId23.jpeg){width="3.25in" height="2.805in"}
 
 [3](http://openstax.org/books/principles-microeconomics-3e/pages/15-self-check-questions#ch14mod02_sques02).
 
@@ -22,7 +22,7 @@ labor-leisure diagram is shown in the figure following the table.
 \$10,000). "Opportunity set before program" slopes downward from (0,
 \$9,000) to (1,500, \$0).
 
-![](media/rId27.jpeg){width="3.25in" height="2.68in"}
+![](media/chapter-15_rId27.jpeg){width="3.25in" height="2.68in"}
 
 [4](http://openstax.org/books/principles-microeconomics-3e/pages/15-self-check-questions#ch14mod03_sques01).
 
@@ -70,7 +70,7 @@ distribution in 1979 was closer to the perfect equality line than the
 income distribution in 1991---that is, the United Kingdom income
 distribution became more unequal over time.
 
-![](media/rId37.jpeg){width="3.25in" height="2.28in"}
+![](media/chapter-15_rId37.jpeg){width="3.25in" height="2.28in"}
 
 [8](http://openstax.org/books/principles-microeconomics-3e/pages/15-self-check-questions#ch14mod04_sques03).
 
@@ -88,7 +88,7 @@ figure illustrates these two labor markets. The combination of lower
 wages for low-wage labor and higher wages for high-wage labor means
 greater inequality.
 
-![](media/rId41.jpeg){width="6.5in" height="2.51in"}
+![](media/chapter-15_rId41.jpeg){width="6.5in" height="2.51in"}
 
 [9](http://openstax.org/books/principles-microeconomics-3e/pages/15-self-check-questions#ch14mod04_sques04).
 
@@ -103,7 +103,7 @@ illustrates these two labor markets. In the market for high-wage labor,
 a skills program will shift supply to the right, which will tend to
 drive down wages for high-skill workers.
 
-![](media/rId45.jpeg){width="6.5in" height="2.51in"}
+![](media/chapter-15_rId45.jpeg){width="6.5in" height="2.51in"}
 
 [10](http://openstax.org/books/principles-microeconomics-3e/pages/15-self-check-questions#ch14mod05_sques01).
 

@@ -58,7 +58,7 @@ For more information about how to use FRED, see the variety of
 [videos](https://openstax.org/l/FRED_intro) on YouTube starting with
 this introduction.
 
-![](media/rId28.jpeg){width="6.5in" height="4.883333333333334in"}
+![](media/1-1-what-is-economics-and-why-is-it-important_rId28.jpeg){width="6.5in" height="4.883333333333334in"}
 
 Figure 1.2 Scarcity of Resources People experiencing homelessness are a
 stark reminder that scarcity of resources is real. (Credit: \"Pittsburgh
@@ -109,7 +109,7 @@ to. The reason why is something called *the division and specialization
 of labor*, a production innovation first put forth by Adam Smith
 ([Figure 1.3](#CNX_Econ_C01_008)) in his book, *The Wealth of Nations*.
 
-![](media/rId34.jpeg){width="6.5in" height="9.7in"}
+![](media/1-1-what-is-economics-and-why-is-it-important_rId34.jpeg){width="6.5in" height="9.7in"}
 
 Figure 1.3 Adam Smith Adam Smith introduced the idea of dividing labor
 into discrete tasks. (Credit: \"Adam Smith\" by Cadell and Davies
@@ -145,7 +145,7 @@ located. A complex business like a large manufacturing factory, such as
 the shoe factory ([Figure 1.4](#CNX_Econ_C01_009)), or a hospital can
 have hundreds of job classifications.
 
-![](media/rId40.jpeg){width="6.5in" height="4.333332239720035in"}
+![](media/1-1-what-is-economics-and-why-is-it-important_rId40.jpeg){width="6.5in" height="4.333332239720035in"}
 
 Figure 1.4 Division of Labor Workers on an assembly line are an example
 of the divisions of labor. (Credit: \"Red Wing Shoe Factory Tour\" by
@@ -228,7 +228,7 @@ modern society has evolved into a strong economy.
 
 ### Why Study Economics?
 
-![](media/rId53.jpeg){width="6.34in" height="2.63in"}
+![](media/1-1-what-is-economics-and-why-is-it-important_rId53.jpeg){width="6.34in" height="2.63in"}
 
 Figure 1.5 Esther Duflo, Abhijit Banerjee, and Michael Kremer Esther
 Duflo, Abhijit Banerjee (both from Massachusetts Institute of

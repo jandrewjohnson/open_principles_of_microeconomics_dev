@@ -37,7 +37,7 @@ a.  If the firms form a cartel, they will act like a monopoly, choosing
     monopoly quantity) and average cost, as shown in the following
     figure.
 
--   ![](media/rId25.jpeg){width="4.88in" height="2.38in"}
+-   ![](media/chapter-10_rId25.jpeg){width="4.88in" height="2.38in"}
 
 b.  The firms will expand output and cut price as long as there are
     profits remaining. The long-run equilibrium will occur at the point
@@ -45,7 +45,7 @@ b.  The firms will expand output and cut price as long as there are
     earn zero economic profits due to "cutthroat competition," as shown
     in the next figure.
 
--   ![](media/rId27.jpeg){width="4.88in" height="2.38in"}
+-   ![](media/chapter-10_rId27.jpeg){width="4.88in" height="2.38in"}
 
 c.  Pc \> Pcc. Qc \< Qcc. Profit for the cartel is positive and large.
     Profit for cutthroat competition is zero.
