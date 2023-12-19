@@ -53,13 +53,13 @@ of identifying the drivers who are low-risk, medium-risk, or high-risk.
 The total damage incurred by car accidents in this group of 100 drivers
 will be \$186,000, that is:
 
-$$
-\begin{aligned}
-\text { Total damage } & =(60 \times \$ 100)+(30 \times \$ 1,000)+(10 \times \$ 15,000) \\
-& =\$ 6,000+\$ 30,000+\$ 150,000 \\
-& =\$ 186,000
-\end{aligned}
-$$
+![multiline equation row 1 Total damage equals left parenthesis 60 times
+dollar sign 100 right parenthesis plus left parenthesis 30 times dollar
+sign 1,000 right parenthesis plus left parenthesis 10 times dollar sign
+15,000 right parenthesis row 2 Blank equals dollar sign 6,000 plus
+dollar sign 30,000 plus dollar sign 150,000 row 3 Blank equals dollar
+sign 186,000](media/rId24.png){width="4.375in"
+height="0.6145833333333334in"}
 
 If each of the 100 drivers pays a \$1,860 premium each year, the
 insurance company will collect the \$186,000 that is needed to cover the
