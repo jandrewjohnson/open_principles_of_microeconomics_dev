@@ -26,9 +26,9 @@ demanded, not just the price.
 The income elasticity of demand is the percentage change in quantity
 demanded divided by the percentage change in income.
 
-![multiline equation row 1 Income elasticity of demand equals percent
-sign change in quantity demanded divided by percent sign change in
-income](media/rId23.png){width="3.7395833333333335in" height="0.25in"}
+$$
+\text { Income elasticity of demand }=\frac{\% \text { change in quantity demanded }}{\% \text { change in income }}
+$$
 
 For most products, most of the time, the income elasticity of demand is
 positive: that is, a rise in income will cause an increase in the
@@ -69,10 +69,9 @@ Specifically, the cross-price elasticity of demand is the percentage
 change in the quantity of good A that is demanded as a result of a
 percentage change in the price of good B.
 
-![multiline equation row 1 Cross minus price elasticity of demand equals
-percent sign change in Qd of good cap A divided by percent sign change
-in price of good cap B](media/rId31.png){width="3.7916666666666665in"
-height="0.25in"}
+$$
+\text { Cross-price elasticity of demand }=\frac{\% \text { change in } \mathrm{Qd} \text { of good } \mathrm{A}}{\% \text { change in price of good } \mathrm{B}}
+$$
 
 Substitute goods have positive cross-price elasticities of demand: if
 good A is a substitute for good B, like coffee and tea, then a higher
@@ -89,9 +88,9 @@ elasticity of labor supply---that is, the percentage change in hours
 worked divided by the percentage change in wages---will reflect the
 shape of the labor supply curve. Specifically:
 
-![multiline equation row 1 Elasticity of labor supply equals percent
-sign change in quantity of labor supplied divided by percent sign change
-in wage](media/rId36.png){width="3.84375in" height="0.25in"}
+$$
+\text { Elasticity of labor supply }=\frac{\% \text { change in quantity of labor supplied }}{\% \text { change in wage }}
+$$
 
 The wage elasticity of labor supply for teenage workers is generally
 fairly elastic: that is, a certain percentage change in wages will lead
@@ -107,10 +106,9 @@ the percentage change in the quantity of savings divided by the
 percentage change in interest rates---will describe the shape of the
 supply curve for financial capital. That is:
 
-![multiline equation row 1 Elasticity of savings equals percent sign
-change in quantity of financial savings divided by percent sign change
-in interest rate](media/rId39.png){width="3.6145833333333335in"
-height="0.25in"}
+$$
+\text { Elasticity of savings }=\frac{\% \text { change in quantity of financial savings }}{\% \text { change in interest rate }}
+$$
 
 Sometimes laws are proposed that seek to increase the quantity of
 savings by offering tax breaks so that the return on savings is higher.
@@ -153,6 +151,16 @@ of some kind.
 
 Table 5.4 Formulas for Calculating Elasticity
 
+\begin{array}{|l|}
+\hline \text { Income elasticity of demand }=\frac{\% \text { change in Qd }}{\% \text { change in income }} \\
+\hline \text { Cross-price elasticity of demand }=\frac{\% \text { change in Qd of good } \mathrm{A}}{\% \text { change in price of good } \mathrm{B}} \\
+\hline \text { Wage elasticity of labor supply }=\frac{\% \text { change in quantity of labor supplied }}{\% \text { change in wage }} \\
+\hline \text { Wage elasticity of labor demand }=\frac{\% \text { change in quantity of labor demanded }}{\% \text { change in wage }} \\
+\hline \text { Interest rate elasticity of savings }=\frac{\% \text { change in quantity of savings }}{\% \text { change in interest rate }} \\
+\hline \text { Interest rate elasticity of borrowing }=\frac{\% \text { change in quantity of borrowing }}{\% \text { change in interest rate }} \\
+\hline
+\end{array}
+
 ### Bring It Home {#bring-it-home .Heading3Grey}
 
 #### That Will Be How Much? {#that-will-be-how-much .Heading4Grey}
@@ -183,15 +191,14 @@ increase, this could result in the loss of about 600,000 existing
 subscribers. Using the elasticity of demand formula, it is easy to see
 company officials expected an inelastic response:
 
-![multiline equation row 1 Blank equals en dash 600,000 slash left
-bracket left parenthesis 24 million plus 24.6 million right parenthesis
-slash two right bracket divided by dollar sign six slash left bracket
-left parenthesis dollar sign 10 plus dollar sign 16 right parenthesis
-slash two right bracket row 2 Blank equals en dash 600,000 slash 24.3
-million divided by dollar sign six slash dollar sign 13 row 3 Blank
-equals en dash 0.025 divided by 0.46 row 4 Blank equals en dash
-0.05](media/rId48.png){width="2.1770833333333335in"
-height="1.0729166666666667in"}
+$$
+\begin{aligned}
+& =\frac{-600,000 /[(24 \text { million }+24.6 \text { million }) / 2]}{\$ 6 /[(\$ 10+\$ 16) / 2]} \\
+& =\frac{-600,000 / 24.3 \text { million }}{\$ 6 / \$ 13} \\
+& =\frac{-0.025}{0.46} \\
+& =-0.05
+\end{aligned}
+$$
 
 In addition, Netflix officials had anticipated the price increase would
 have little impact on attracting new customers. Netflix anticipated

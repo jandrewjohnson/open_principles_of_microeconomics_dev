@@ -64,20 +64,24 @@ Eryn's legal practice be profitable?
 Step 1. First you have to calculate the costs. You can take what you
 know about explicit costs and total them:
 
-![multiline equation row 1 Office rental colon dollar sign 50,000 row 2
-Law clerk prime s salary colon plus dollar sign 35,000 bar bar bar bar
-bar bar bar bar bar bar bar bar row 3 Total explicit costs colon dollar
-sign 85,000](media/rId29.png){width="2.21875in"
-height="0.7291666666666666in"}
+$$
+\begin{array}{ll}
+\text { Office rental : } & \$ 50,000 \\
+\text { Law clerk's salary : } & +\$ 35,000 \\
+\hline \text { Total explicit costs : } & \$ 85,000
+\end{array}
+$$
 
 Step 2. Subtracting the explicit costs from the revenue gives you the
 accounting profit.
 
-![multiline equation row 1 Revenues colon dollar sign 200,000 row 2
-Explicit costs colon en dash dollar sign 85,000 bar bar bar bar bar bar
-bar bar bar bar bar bar row 3 Accounting profit colon dollar sign
-115,000](media/rId31.png){width="2.1354166666666665in"
-height="0.7291666666666666in"}
+$$
+\begin{array}{ll}
+\text { Revenues : } & \$ 200,000 \\
+\text { Explicit costs : } & -\$ 85,000 \\
+\hline \text { Accounting profit : } & \$ 115,000
+\end{array}
+$$
 
 However, these calculations consider only the explicit costs. To open
 her own practice, Eryn would have to quit her current job, where she is
@@ -87,11 +91,13 @@ opening her own firm.
 Step 3. You need to subtract both the explicit and implicit costs to
 determine the true economic profit:
 
-![multiline equation row 1 Economic profit equals total revenues en dash
-explicit costs en dash implicit costs row 2 Blank equals dollar sign
-200,000 en dash dollar sign 85,000 en dash dollar sign 125,000 row 3
-Blank equals en dash dollar sign 10,000 per
-year](media/rId33.png){width="4.375in" height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { Economic profit } & =\text { total revenues }- \text { explicit costs }- \text { implicit costs } \\
+& =\$ 200,000-\$ 85,000-\$ 125,000 \\
+& =-\$ 10,000 \text { per year }
+\end{aligned}
+$$
 
 Eryn would be losing \$10,000 per year. That does not mean she would not
 want to open her own business, but it does mean she would be earning

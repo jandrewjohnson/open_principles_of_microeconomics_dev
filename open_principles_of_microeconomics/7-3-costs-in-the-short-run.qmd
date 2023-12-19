@@ -366,26 +366,29 @@ price in the market. If we divide profit by the quantity of output
 produced we get average profit, also known as the firm's *profit
 margin*. Expanding the equation for profit gives:
 
-![multiline equation row 1 average profit equals profit divided by
-quantity produced row 2 Blank equals total revenue en dash total cost
-divided by quantity produced row 3 Blank equals total revenue divided by
-quantity produced en dash total cost divided by quantity produced row 4
-Blank equals average revenue en dash average
-cost](media/rId54.png){width="3.2395833333333335in"
-height="1.0416666666666667in"}
+$$
+\begin{aligned}
+\text { average profit } & =\frac{\text { profit }}{\text { quantity produced }} \\
+& =\frac{\text { total revenue }- \text { total cost }}{\text { quantity produced }} \\
+& =\frac{\text { total revenue }}{\text { quantity produced }}-\frac{\text { total cost }}{\text { quantity produced }} \\
+& =\text { average revenue }- \text { average cost }
+\end{aligned}
+$$
 
 However, note that:
 
-![multiline equation row 1 average revenue equals price times quantity
-produced divided by quantity produced row 2 Blank equals
-price](media/rId56.png){width="2.6354166666666665in"
-height="0.4583333333333333in"}
+$$
+\begin{aligned}
+\text { average revenue } & =\frac{\text { price } \times \text { quantity produced }}{\text { quantity produced }} \\
+& =\text { price }
+\end{aligned}
+$$
 
 Thus:
 
-![multiline equation row 1 average profit equals price en dash average
-cost](media/rId58.png){width="2.4791666666666665in"
-height="0.16666666666666666in"}
+$$
+\text { average profit }=\text { price }- \text { average cost }
+$$
 
 This is the firm's profit margin. This definition implies that if the
 market price is above average cost, average profit, and thus total

@@ -1,0 +1,436 @@
+# 2-1
+rId31
+$$
+\begin{aligned}
+\text { Budget } & =\mathrm{P}_1 \times \mathrm{Q}_1+\mathrm{P}_2 \times \mathrm{Q}_2 \\
+\$ 10 \text { budget } & =\$ 2 \text { per burger } \times \text { quantity of burgers }+\$ 0.50 \text { per bus ticket } \times \text { quantity of bus tickets } \\
+\$ 10 & =\$ 2 \times \mathrm{Q}_{\text {burgers }}+\$ 0.50 \times \mathrm{Q}_{\text {bus tickets }}
+\end{aligned}
+$$
+
+
+rId33
+$$
+y=b+m x
+$$
+
+rId35
+
+$$
+\$ 10=\$ 2 \times Q_{\text {burgers }}+\$ 0.50 \times Q_{\text {bus tickets }}
+$$
+
+rId37
+
+$$
+\begin{aligned}
+2 \times 10 & =2 \times 2 \times Q_{\text {burgers }}+2 \times 0.5 \times Q_{\text {bus tickets }} \\
+20 & =4 \times Q_{\text {burgers }}+1 \times Q_{\text {bus tickets }}
+\end{aligned}
+$$
+
+rId39
+$$
+20-Q_{\text {bus tickets }}=4 \times Q_{\text {burgers }}
+$$
+
+
+rId41
+$$
+\begin{aligned}
+5-0.25 \times \mathrm{Q}_{\text {bus tickets }} & =\mathrm{Q}_{\text {burgers }} \\
+& \text { or } \\
+\mathrm{Q}_{\text {burgers }} & =5-0.25 \times \mathrm{Q}_{\text {bus tickets }}
+\end{aligned}
+$$
+
+# 5-1
+
+rId32
+$$
+\begin{array}{r}
+\% \text { change in quantity }=\frac{\mathrm{Q}_2-\mathrm{Q}_1}{\left(\mathrm{Q}_2+\mathrm{Q}_1\right) / 2} \times 100 \\
+\% \text { change in price }=\frac{\mathrm{P}_2-\mathrm{P}_1}{\left(\mathrm{P}_2+\mathrm{P}_1\right) / 2} \times 100
+\end{array}
+$$
+
+rId38
+$$
+\begin{aligned}
+\% \text { change in quantity } & =\frac{3,000-2,800}{(3,000+2,800) / 2} \times 100 \\
+& =\frac{200}{2,900} \times 100 \\
+& =6.9 \\
+\% \text { change in price } & =\frac{60-70}{(60+70) / 2} \times 100 \\
+& =\frac{-10}{65} \times 100 \\
+& =-15.4 \\
+\text { Price Elasticity of Demand } & =\frac{6.9 \%}{-15.4 \%} \\
+& =0.45
+\end{aligned}
+$$
+
+rId40
+
+$$
+\text { Price Elasticity of Demand }=\frac{\% \text { change in quantity }}{\% \text { change in price }}
+$$
+
+rId43
+
+$$
+\begin{array}{r}
+\% \text { change in quantity }=\frac{\mathrm{Q}_2-\mathrm{Q}_1}{\left(\mathrm{Q}_2+\mathrm{Q}_1\right) / 2} \times 100 \\
+\% \text { change in price }=\frac{\mathrm{P}_2-\mathrm{P}_1}{\left(\mathrm{P}_2+\mathrm{P}_1\right) / 2} \times 100
+\end{array}
+$$
+
+rId45
+
+$$
+\begin{aligned}
+& \% \text { change in quantity }=\frac{1,600-1,800}{(1,600+1,800) / 2} \times 100 \\
+& =\frac{-200}{1,700} \times 100 \\
+& =-11.76 \\
+& \% \text { change in price }=\frac{130-120}{(130+120) / 2} \times 100 \\
+& =\frac{10}{125} \times 100 \\
+& =8.0 \\
+&
+\end{aligned}
+$$
+
+rId47
+$$
+\begin{aligned}
+\text { Price Elasticity of Demand } & =\frac{\% \text { change in quantity }}{\% \text { change in price }} \\
+& =\frac{-11.76}{8} \\
+& =1.47
+\end{aligned}
+$$
+
+rId58
+
+$$
+\begin{aligned}
+\% \text { change in quantity } & =\frac{13,000-10,000}{(13,000+10,000) / 2} \times 100 \\
+& =\frac{3,000}{11,500} \times 100 \\
+& =26.1 \\
+\% \text { change in price } & =\frac{\$ 700-\$ 650}{(\$ 700+\$ 650) / 2} \times 100 \\
+& =\frac{50}{675} \times 100 \\
+& =7.4 \\
+\text { Price Elasticity of Supply } & =\frac{26.1 \%}{7.4 \%} \\
+& =3.53
+\end{aligned}
+$$
+
+# 5-4
+
+rId23
+$$
+\text { Income elasticity of demand }=\frac{\% \text { change in quantity demanded }}{\% \text { change in income }}
+$$
+
+rId31
+
+$$
+\text { Cross-price elasticity of demand }=\frac{\% \text { change in } \mathrm{Qd} \text { of good } \mathrm{A}}{\% \text { change in price of good } \mathrm{B}}
+$$
+
+rId36
+
+$$
+\text { Elasticity of labor supply }=\frac{\% \text { change in quantity of labor supplied }}{\% \text { change in wage }}
+$$
+
+rId39
+
+$$
+\text { Elasticity of savings }=\frac{\% \text { change in quantity of financial savings }}{\% \text { change in interest rate }}
+$$
+
+rId43
+
+$$
+\text { Income elasticity of demand }=\frac{\% \text { change in } \mathrm{Qd}}{\% \text { change in income }}
+$$
+
+rID44
+
+$$
+\text { Wage elasticity of labor supply }=\frac{\% \text { change in quantity of labor supplied }}{\% \text { change in wage }}
+$$
+
+rId45
+
+$$
+\text { Wage elasticity of labor demand }=\frac{\% \text { change in quantity of labor demanded }}{\% \text { change in wage }}
+$$
+
+rId46
+
+$$
+\text { Interest rate elasticity of savings }=\frac{\% \text { change in quantity of savings }}{\% \text { change in interest rate }}
+$$
+
+
+rId47
+
+$$
+\text { Interest rate elasticity of borrowing }=\frac{\% \text { change in quantity of borrowing }}{\% \text { change in interest rate }}
+$$
+
+rId48
+
+$$
+\begin{aligned}
+& =\frac{-600,000 /[(24 \text { million }+24.6 \text { million }) / 2]}{\$ 6 /[(\$ 10+\$ 16) / 2]} \\
+& =\frac{-600,000 / 24.3 \text { million }}{\$ 6 / \$ 13} \\
+& =\frac{-0.025}{0.46} \\
+& =-0.05
+\end{aligned}
+$$
+
+table 5.4
+$$
+\begin{array}{|l|}
+\hline \text { Income elasticity of demand }=\frac{\% \text { change in Qd }}{\% \text { change in income }} \\
+\hline \text { Cross-price elasticity of demand }=\frac{\% \text { change in Qd of good } \mathrm{A}}{\% \text { change in price of good } \mathrm{B}} \\
+\hline \text { Wage elasticity of labor supply }=\frac{\% \text { change in quantity of labor supplied }}{\% \text { change in wage }} \\
+\hline \text { Wage elasticity of labor demand }=\frac{\% \text { change in quantity of labor demanded }}{\% \text { change in wage }} \\
+\hline \text { Interest rate elasticity of savings }=\frac{\% \text { change in quantity of savings }}{\% \text { change in interest rate }} \\
+\hline \text { Interest rate elasticity of borrowing }=\frac{\% \text { change in quantity of borrowing }}{\% \text { change in interest rate }} \\
+\hline
+\end{array}
+$$
+
+# 6-1
+
+rId31
+
+$$
+\mathrm{MU}=\frac{\text { change in total utility }}{\text { change in quantity }}
+$$
+
+rId40
+
+$$
+\text { marginal utility per dollar }=\frac{\text { marginal utility }}{\text { price }}
+$$
+
+rId45
+
+$$
+\frac{\mathrm{MU}_1}{\mathrm{P}_1}=\frac{\mathrm{MU}_2}{\mathrm{P}_2}
+$$
+
+rId47
+
+$$
+\begin{aligned}
+& \frac{22}{\$ 14}=\frac{11}{\$ 7} \\
+& 1.6=1.6
+\end{aligned}
+$$
+
+rId51
+
+$$
+\frac{\mathrm{P}_1}{\mathrm{P}_2}=\frac{\mathrm{MU}_1}{\mathrm{MU}_2}
+$$
+
+# 7-1
+
+rId29
+
+$$
+\begin{array}{ll}
+\text { Office rental : } & \$ 50,000 \\
+\text { Law clerk's salary : } & +\$ 35,000 \\
+\hline \text { Total explicit costs : } & \$ 85,000
+\end{array}
+$$
+
+rId31
+
+$$
+\begin{array}{ll}
+\text { Revenues : } & \$ 200,000 \\
+\text { Explicit costs : } & -\$ 85,000 \\
+\hline \text { Accounting profit : } & \$ 115,000
+\end{array}
+$$
+
+rId33
+
+$$
+\begin{aligned}
+\text { Economic profit } & =\text { total revenues }- \text { explicit costs }- \text { implicit costs } \\
+& =\$ 200,000-\$ 85,000-\$ 125,000 \\
+& =-\$ 10,000 \text { per year }
+\end{aligned}
+$$
+
+# 7-3
+
+rId54
+
+$$
+\begin{aligned}
+\text { average profit } & =\frac{\text { profit }}{\text { quantity produced }} \\
+& =\frac{\text { total revenue }- \text { total cost }}{\text { quantity produced }} \\
+& =\frac{\text { total revenue }}{\text { quantity produced }}-\frac{\text { total cost }}{\text { quantity produced }} \\
+& =\text { average revenue }- \text { average cost }
+\end{aligned}
+$$
+
+rId56
+
+$$
+\begin{aligned}
+\text { average revenue } & =\frac{\text { price } \times \text { quantity produced }}{\text { quantity produced }} \\
+& =\text { price }
+\end{aligned}
+$$
+
+rId58
+
+$$
+\text { average profit }=\text { price }- \text { average cost }
+$$
+
+# 8-2
+
+rId24
+
+$$
+\begin{aligned}
+\text { Profit } & =\text { Total revenue }- \text { Total cost } \\
+& =(\text { Price }) \text { (Quantity produced })-(\text { Average cost }) \text { (Quantity produced })
+\end{aligned}
+$$
+
+rId52
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue }- \text { total cost } \\
+& =(85)(\$ 5.00)-(85)(\$ 3.50) \\
+& =\$ 127.50
+\end{aligned}
+$$
+
+rId54
+
+$$
+\begin{aligned}
+\text { profit } & =(\text { price-average cost }) \times \text { quantity } \\
+& =(\$ 5.00-\$ 3.50) \times 85 \\
+& =\$ 127.50
+\end{aligned}
+$$
+
+rId57
+
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue-total cost } \\
+& =(75)(\$ 2.75)-(75)(\$ 2.75) \\
+& =\$ 0
+\end{aligned}
+$$
+
+rId59
+
+$$
+\begin{aligned}
+\text { profit } & =(\text { price-average cost }) \times \text { quantity } \\
+& =(\$ 2.75-\$ 2.75) \times 75 \\
+& =\$ 0
+\end{aligned}
+$$
+
+rId61
+
+$$
+\begin{aligned}
+\text { profit } & =(\text { total revenue }- \text { total cost }) \\
+& =(65)(\$ 2.00)-(65)(\$ 2.73) \\
+& =-\$ 47.45
+\end{aligned}
+$$
+
+rId63 
+
+$$
+\begin{aligned}
+\text { profit } & =(\text { price-average cost }) \times \text { quantity } \\
+& =(\$ 2.00-\$ 2.73) \times 65 \\
+& =-\$ 47.45
+\end{aligned}
+$$
+
+rId68
+
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue }-(\text { fixed costs }+ \text { variable cost }) \\
+& =0-\$ 10,000 \\
+& =-\$ 10,000
+\end{aligned}
+$$
+
+rId70
+
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue }-(\text { fixed costs }+ \text { variable cost }) \\
+& =\$ 10,000-(\$ 10,000+\$ 15,000) \\
+& =-\$ 15,000
+\end{aligned}
+$$
+
+rId72
+
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue }-(\text { fixed costs }+ \text { variable cost }) \\
+& =\$ 20,000-(\$ 10,000+\$ 15,000) \\
+& =-\$ 5,000
+\end{aligned}
+$$
+
+# 9-2
+
+rId44
+
+$$
+\begin{aligned}
+\mathrm{MC} & =\frac{\$ 775-\$ 500}{1} \\
+& =\$ 275
+\end{aligned}
+$$
+
+rId46
+
+$$
+\mathrm{MR}=\frac{\text { change in total revenue }}{\text { change in quantity sold }}
+$$
+
+rId48
+
+$$
+\begin{aligned}
+\mathrm{MR} & =\frac{\$ 2200-\$ 1200}{1} \\
+& =\$ 1000
+\end{aligned}
+$$
+
+# 16-2
+
+rId24
+
+$$
+\begin{aligned}
+\text { Total damage } & =(60 \times \$ 100)+(30 \times \$ 1,000)+(10 \times \$ 15,000) \\
+& =\$ 6,000+\$ 30,000+\$ 150,000 \\
+& =\$ 186,000
+\end{aligned}
+$$
+

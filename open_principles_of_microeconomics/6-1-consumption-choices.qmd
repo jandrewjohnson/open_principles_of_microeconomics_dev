@@ -22,6 +22,27 @@ on a variety of items, as shown. These patterns will vary for specific
 households by differing levels of family income, by geography, and by
 preferences.
 
+$$
+\begin{array}{|l|l|}
+\hline \text { Average Household Income before Taxes } & \mathbf{\$ 6 2 , 4 8 1} \\
+\hline \text { Average Annual Expenditures } & \mathbf{\$ 4 8 . 1 0 9} \\
+\hline \text { Food at home } & \$ 3,264 \\
+\hline \text { Food away from home } & \$ 2,505 \\
+\hline \text { Housing } & \$ 16,557 \\
+\hline \text { Apparel and services } & \$ 1,700 \\
+\hline \text { Transportation } & \$ 7,677 \\
+\hline \text { Healthcare } & \$ 3,157 \\
+\hline \text { Entertainment } & \$ 2,504 \\
+\hline \text { Education } & \$ 1,074 \\
+\hline \text { Personal insurance and pensions } & \$ 5,357 \\
+\hline \begin{array}{l}
+\text { All else: alcohol, tobacco, reading, personal care, cash contributions, } \\
+\text { miscellaneous }
+\end{array} & \$ 3,356 \\
+\hline
+\end{array}
+$$
+
 Table 6.1 U.S. Consumption Choices in 2015 (Source:
 http://www.bls.gov/cex/csxann13.pdf)
 
@@ -79,9 +100,9 @@ decreasing rate. The third column shows marginal utility, which is the
 additional utility provided by one additional unit of consumption. This
 equation for marginal utility is:
 
-![multiline equation row 1 MU equals change in total utility divided by
-change in quantity](media/rId31.png){width="1.5625in"
-height="0.23958333333333334in"}
+$$
+\mathrm{MU}=\frac{\text { change in total utility }}{\text { change in quantity }}
+$$
 
 Notice that marginal utility diminishes as additional units are
 consumed, which means that each subsequent unit of a good consumed
@@ -107,11 +128,57 @@ that total utility is also the sum of the marginal utilities. Read the
 next Work It Out feature for instructions on how to calculate total
 utility.
 
+$$
+\begin{array}{|l|l|l|l|l|l|}
+\hline \begin{array}{l}
+\text { T-Shirts } \\
+\text { (Quantity) }
+\end{array} & \begin{array}{l}
+\text { Total } \\
+\text { Utility }
+\end{array} & \begin{array}{l}
+\text { Marginal } \\
+\text { Utility }
+\end{array} & \begin{array}{l}
+\text { Movies } \\
+\text { (Quantity) }
+\end{array} & \begin{array}{l}
+\text { Total } \\
+\text { Utility }
+\end{array} & \begin{array}{l}
+\text { Marginal } \\
+\text { Utility }
+\end{array} \\
+\hline \mathbf{1} & 22 & 22 & \mathbf{1} & 16 & 16 \\
+\hline \mathbf{2} & 43 & 21 & \mathbf{2} & 31 & 15 \\
+\hline \mathbf{3} & 63 & 20 & \mathbf{3} & 45 & 14 \\
+\hline \mathbf{4} & 81 & 18 & \mathbf{4} & 58 & 13 \\
+\hline \mathbf{5} & 97 & 16 & \mathbf{5} & 70 & 12 \\
+\hline \mathbf{6} & 111 & 14 & \mathbf{6} & 81 & 11 \\
+\hline \mathbf{7} & 123 & 12 & \mathbf{7} & 91 & 10 \\
+\hline \mathbf{8} & 133 & 10 & \mathbf{8} & 100 & 9 \\
+\hline
+\end{array}
+$$
+
 Table 6.2 Total and Marginal Utility
 
 [Table 6.3](#Table_06_03) looks at each point on the budget constraint
 in [Figure 6.2](#CNX_Econ_C06_001), and adds up José's total utility for
 five possible combinations of T-shirts and movies.
+
+$$
+\begin{aligned}
+&\begin{array}{|l|l|l|l|}
+\hline \text { Point } & \text { T-Shirts } & \text { Movies } & \text { Total Utility } \\
+\hline \text { P } & 4 & 0 & 81+0=81 \\
+\hline \text { Q } & 3 & 2 & 63+31=94 \\
+\hline \text { R } & 2 & 4 & 43+58=101 \\
+\hline \text { S } & 1 & 6 & 22+81=103 \\
+\hline \text{T} & 0 & 8 & 0+100=100 \\
+\end{array}
+\end{aligned}
+$$
 
 Table 6.3 Finding the Choice with the Highest Utility
 
@@ -213,9 +280,9 @@ amount of additional utility José receives divided by the product\'s
 price. [Table 6.5](#Table_06_05) shows the marginal utility per dollar
 for José\'s T shirts and movies.
 
-![multiline equation row 1 marginal utility per dollar equals marginal
-utility divided by price](media/rId40.png){width="2.7916666666666665in"
-height="0.23958333333333334in"}
+$$
+\text { marginal utility per dollar }=\frac{\text { marginal utility }}{\text { price }}
+$$
 
 If José wants to maximize the utility he gets from his limited budget,
 he will always purchase the item with the greatest marginal utility per
@@ -264,18 +331,20 @@ item with the greatest marginal utility per dollar spent, when your
 budget is exhausted, the utility maximizing choice should occur where
 the marginal utility per dollar spent is the same for both goods.
 
-![multiline equation row 1 MU sub one divided by cap P sub one equals MU
-sub two divided by cap P sub
-two](media/rId45.png){width="0.7708333333333334in"
-height="0.22916666666666666in"}
+$$
+\frac{\mathrm{MU}_1}{\mathrm{P}_1}=\frac{\mathrm{MU}_2}{\mathrm{P}_2}
+$$
 
 A sensible economizer will pay twice as much for something only if, in
 the marginal comparison, the item confers twice as much utility. Notice
 that the formula for the table above is:
 
-![multiline equation row 1 22 divided by dollar sign 14 equals 11
-divided by dollar sign seven row 2 1.6 equals
-1.6](media/rId47.png){width="0.6041666666666666in" height="0.4375in"}
+$$
+\begin{aligned}
+& \frac{22}{\$ 14}=\frac{11}{\$ 7} \\
+& 1.6=1.6
+\end{aligned}
+$$
 
 The following Work It Out feature provides step by step guidance for
 this concept of utility-maximizing choices.
@@ -284,10 +353,7 @@ this concept of utility-maximizing choices.
 
 #### Maximizing Utility {#maximizing-utility .Heading4Grey}
 
-The general rule, ![multiline equation row 1 MU sub one divided by cap P
-sub one equals MU sub two divided by cap P sub
-two](media/rId45.png){width="0.7708333333333334in"
-height="0.22916666666666666in"}, means that the last dollar spent on
+The general rule, $\frac{\mathrm{MU}_1}{\mathrm{P}_1}=\frac{\mathrm{MU}_2}{\mathrm{P}_2}$, means that the last dollar spent on
 each good provides exactly the same marginal utility. This is the case
 at point S. So:
 
@@ -319,10 +385,9 @@ of good 1 by the price of good 2, at the utility-maximizing point this
 will equal the marginal utility of good 1 divided by the marginal
 utility of good 2.
 
-![multiline equation row 1 cap P sub one divided by cap P sub two equals
-MU sub one divided by MU sub
-two](media/rId51.png){width="0.6666666666666666in"
-height="0.22916666666666666in"}
+$$
+\frac{\mathrm{P}_1}{\mathrm{P}_2}=\frac{\mathrm{MU}_1}{\mathrm{MU}_2}
+$$
 
 Along the budget constraint, the total price of the two goods remains
 the same, so the ratio of the prices does not change. However, the
