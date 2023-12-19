@@ -61,7 +61,7 @@ Costs and Industry
 Structure](http://openstax.org/books/principles-microeconomics-3e/pages/7-introduction-to-production-costs-and-industry-structure)
 chapter.
 
-![](media/rId29.jpeg){width="4.88in" height="2.435in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId29.jpeg){width="4.88in" height="2.435in"}
 
 Figure 8.2 Total Cost and Total Revenue at the Raspberry Farm Total
 revenue for a perfectly competitive firm is a straight line sloping up.
@@ -209,7 +209,7 @@ because the reductions in marginal cost will exceed the reductions in
 marginal revenue. The firm's profit-maximizing choice of output will
 occur where MR = MC (or at a choice close to that point).
 
-![](media/rId38.jpeg){width="4.88in" height="2.605in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId38.jpeg){width="4.88in" height="2.605in"}
 
 Figure 8.3 Marginal Revenues and Marginal Costs at the Raspberry Farm:
 Individual Farmer For a perfectly competitive firm, the marginal revenue
@@ -221,7 +221,7 @@ marginal returns at low levels of output, but is eventually
 upward-sloping at higher levels of output as diminishing marginal
 returns kick in.
 
-![](media/rId41.jpeg){width="4.88in" height="2.655in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId41.jpeg){width="4.88in" height="2.655in"}
 
 Figure 8.4 Supply, Demand, and Equilibrium Price in the Market for
 Raspberries The equilibrium price of raspberries is determined through
@@ -283,7 +283,7 @@ intersects marginal cost at a level equal to the average cost curve, and
 (c) where price intersects marginal cost at a level below the average
 cost curve.
 
-![](media/rId49.jpeg){width="6.5in" height="5.935in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId49.jpeg){width="6.5in" height="5.935in"}
 
 Figure 8.5 Price and Average Cost at the Raspberry Farm In (a), price
 intersects marginal cost above the average cost curve. Since price is
@@ -523,7 +523,7 @@ output, total revenues would be \$90 (quantity of 60 times price of
 the farm shuts down, it must pay only its fixed costs of \$62, so
 shutting down is preferable to selling at a price of \$1.50 per pack.
 
-![](media/rId74.jpeg){width="6.5in" height="2.73in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId74.jpeg){width="6.5in" height="2.73in"}
 
 Figure 8.6 The Shutdown Point for the Raspberry Farm In (a), the farm
 produces at a level of 65. It is making losses of \$47.50, but price is
@@ -596,7 +596,7 @@ as given, the profit-maximizing firm chooses the output level where
 price or marginal revenue, which are the same thing for a perfectly
 competitive firm, is equal to marginal cost: P = MR = MC.
 
-![](media/rId79.jpeg){width="4.88in" height="3.38in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId79.jpeg){width="4.88in" height="3.38in"}
 
 Figure 8.7 Profit, Loss, Shutdown We can divide the marginal cost curve
 into three zones, based on where it is crossed by the average cost and

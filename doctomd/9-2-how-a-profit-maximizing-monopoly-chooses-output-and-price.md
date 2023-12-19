@@ -36,7 +36,7 @@ from the viewpoint of the perfectly competitive firm, it could sell
 either a relatively low quantity like Ql or a relatively high quantity
 like Qh at the market price P.
 
-![](media/rId23.jpeg){width="6.5in" height="2.575in"}
+![](media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId23.jpeg){width="6.5in" height="2.575in"}
 
 Figure 9.3 The Perceived Demand Curve for a Perfect Competitor and a
 Monopolist (a) A perfectly competitive firm perceives the demand curve
@@ -136,7 +136,7 @@ Competition](http://openstax.org/books/principles-microeconomics-3e/pages/8-intr
 that is, total costs rise and the curve grows steeper as output
 increases, as the final column of [Table 9.2](#Table_09_02) shows.
 
-![](media/rId32.jpeg){width="4.88in" height="2.52in"}
+![](media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId32.jpeg){width="4.88in" height="2.52in"}
 
 Figure 9.4 Total Revenue and Total Cost for the HealthPill Monopoly
 Total revenue for the monopoly firm called HealthPill first rises, then
@@ -230,7 +230,7 @@ price is proportionally more than the increase in greater quantity of
 sales, causing a situation where more sales bring in less revenue. In
 other words, marginal revenue is negative.
 
-![](media/rId40.jpeg){width="4.88in" height="2.2249989063867015in"}
+![](media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId40.jpeg){width="4.88in" height="2.2249989063867015in"}
 
 Figure 9.5 Marginal Revenue and Marginal Cost for the HealthPill
 Monopoly For a monopoly like HealthPill, marginal revenue decreases as
@@ -402,7 +402,7 @@ demand curve. [Table 9.5](#eip-806) shows the data for these curves.
 
 Table 9.5
 
-![](media/rId55.jpeg){width="4.88in" height="3.02in"}
+![](media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId55.jpeg){width="4.88in" height="3.02in"}
 
 Figure 9.6 Illustrating Profits at the HealthPill Monopoly This figure
 begins with the same marginal revenue and marginal cost curves from the
@@ -458,7 +458,7 @@ fact, one obvious sign of a possible monopoly is when a firm earns
 profits year after year, while doing more or less the same thing,
 without ever seeing increased competition eroding those profits.
 
-![](media/rId58.jpeg){width="4.145in" height="2.605in"}
+![](media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId58.jpeg){width="4.145in" height="2.605in"}
 
 Figure 9.7 How a Profit-Maximizing Monopoly Decides Price In Step 1, the
 monopoly chooses the profit-maximizing level of output Q~1~, by choosing
@@ -498,7 +498,7 @@ twice as fast as demand, so that the horizontal intercept of MR is
 halfway to the horizontal intercept of demand. You can see this in the
 [Figure 9.8](#CNX_Econ_C09_009).
 
-![](media/rId61.jpeg){width="3.25in" height="2.365in"}
+![](media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId61.jpeg){width="3.25in" height="2.365in"}
 
 Figure 9.8 The Monopolist's Marginal Revenue Curve versus Demand Curve
 Because the market demand curve is conditional, the marginal revenue

@@ -8,7 +8,7 @@ By the end of this section, you will be able to:
 -   Explain the importance of economic theories and models
 -   Describe goods and services markets and labor markets
 
-![](media/rId22.jpeg){width="6.5in" height="7.8in"}
+![](media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId22.jpeg){width="6.5in" height="7.8in"}
 
 Figure 1.6 John Maynard Keynes One of the most influential economists in
 modern times was John Maynard Keynes. (Credit: "John Maynard Keynes" by
@@ -60,7 +60,7 @@ goods and services market in which firms sell and households buy and the
 labor market in which households sell labor to business firms or other
 employees.
 
-![](media/rId33.jpeg){width="3.2666666666666666in"
+![](media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId33.jpeg){width="3.2666666666666666in"
 height="2.2533333333333334in"}
 
 Figure 1.7 The Circular Flow Diagram The circular flow diagram shows how

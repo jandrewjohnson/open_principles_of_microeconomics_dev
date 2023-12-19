@@ -80,7 +80,7 @@ or reserves. The companies typically invest in fairly safe, liquid (easy
 to convert into cash) investments, as the insurance companies need to be
 able to readily access these funds when a major disaster strikes.
 
-![](media/rId26.jpeg){width="4.88in" height="1.0449989063867016in"}
+![](media/16-2-insurance-and-imperfect-information_rId26.jpeg){width="4.88in" height="1.0449989063867016in"}
 
 Figure 16.2 An Insurance Company: What Comes In, What Goes Out Money
 flows into an insurance company through premiums and investments and out

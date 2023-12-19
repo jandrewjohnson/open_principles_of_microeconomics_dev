@@ -50,7 +50,7 @@ where José spends of all of his money on T-shirts and no movies
 --8/4=--2. The specific choices along the budget constraint line show
 the combinations of affordable T-shirts and movies.
 
-![](media/rId26.jpeg){width="4.88in" height="2.505in"}
+![](media/6-1-consumption-choices_rId26.jpeg){width="4.88in" height="2.505in"}
 
 Figure 6.2 A Choice between Consumption Goods José has income of \$56.
 Movies cost \$7 and T-shirts cost \$14. The points on the budget

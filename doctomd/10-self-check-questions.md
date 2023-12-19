@@ -20,7 +20,7 @@ Consider the curve in the figure below, which shows the market demand,
 marginal cost, and marginal revenue curve for firms in an oligopolistic
 industry. In this example, we assume firms have zero fixed costs.
 
-![](media/rId28.jpeg){width="3.25in" height="2.38in"}
+![](media/10-self-check-questions_rId28.jpeg){width="3.25in" height="2.38in"}
 
 Figure 10.6
 

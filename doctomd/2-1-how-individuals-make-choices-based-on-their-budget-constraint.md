@@ -16,7 +16,7 @@ between bus tickets for getting to work and the burgers that he eats for
 lunch. Burgers cost \$2 each, and bus tickets are 50 cents each. We can
 see Alphonso\'s budget problem in [Figure 2.2](#CNX_Econ_C02_001).
 
-![](media/rId22.jpeg){width="3.25in" height="1.445in"}
+![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId22.jpeg){width="3.25in" height="1.445in"}
 
 Figure 2.2 The Budget Constraint: Alphonso's Consumption Choice
 Opportunity Frontier Each point on the budget constraint represents a

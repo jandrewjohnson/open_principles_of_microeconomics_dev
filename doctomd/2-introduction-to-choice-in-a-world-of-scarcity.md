@@ -1,4 +1,4 @@
-![](media/rId20.jpeg){width="6.34in" height="4.86in"}
+![](media/2-introduction-to-choice-in-a-world-of-scarcity_rId20.jpeg){width="6.34in" height="4.86in"}
 
 Figure 2.1 Choices and Tradeoffs In general, the higher the degree, the
 higher the salary, so why aren't more people pursuing higher degrees?

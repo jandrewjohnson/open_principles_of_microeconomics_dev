@@ -159,7 +159,7 @@ fifth column. For example, with two barbers the total cost is: \$160 +
 
 Table 7.9 Output and Total Costs
 
-![](media/rId34.jpeg){width="3.25in" height="2.185in"}
+![](media/7-3-costs-in-the-short-run_rId34.jpeg){width="3.25in" height="2.185in"}
 
 Figure 7.7 How Output Affects Total Costs At zero production, the fixed
 costs of \$160 are still present. As production increases, variable
@@ -230,7 +230,7 @@ costs. These new measures analyze costs on a per-unit (rather than a
 total) basis and are reflected in the curves in [Figure
 7.8](#CNX_Econ_C07_003).
 
-![](media/rId41.jpeg){width="2.79in" height="2.29in"}
+![](media/7-3-costs-in-the-short-run_rId41.jpeg){width="2.79in" height="2.29in"}
 
 Figure 7.8 Cost Curves at the Clip Joint We can also present the
 information on total costs, fixed cost, and variable cost on a per-unit

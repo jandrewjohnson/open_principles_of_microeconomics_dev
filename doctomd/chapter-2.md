@@ -20,7 +20,7 @@ intercept is half as much. In short, the budget constraint rotates
 clockwise around the vertical intercept, steepening as it goes and the
 opportunity cost of bus tickets increases.
 
-![](media/rId21.jpeg){width="3.25in" height="1.36in"}
+![](media/chapter-2_rId21.jpeg){width="3.25in" height="1.36in"}
 
 [2](http://openstax.org/books/principles-microeconomics-3e/pages/2-self-check-questions#fs-idp42902064).
 

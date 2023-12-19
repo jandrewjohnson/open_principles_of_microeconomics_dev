@@ -89,7 +89,7 @@ a.  Start by plotting the points on a sketch diagram and then drawing a
     line through them. The following figure illustrates the average
     costs of production of semiconductors.
 
--   ![](media/rId31.jpeg){width="3.25in" height="2.75in"}
+-   ![](media/chapter-19_rId31.jpeg){width="3.25in" height="2.75in"}
 
     The curve illustrates economies of scale by showing that as the
     scale increases---that is, as production at this particular factory

@@ -47,7 +47,7 @@ exploit.
 
 Yes, all curves have normal shapes.
 
-![](media/rId31.jpeg){width="4.88in" height="2.475in"}
+![](media/chapter-11_rId31.jpeg){width="4.88in" height="2.475in"}
 
 [7](http://openstax.org/books/principles-microeconomics-3e/pages/11-self-check-questions#fs-idm151696144).
 

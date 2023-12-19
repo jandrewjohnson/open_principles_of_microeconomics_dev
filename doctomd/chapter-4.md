@@ -65,19 +65,19 @@ effect in creating excess supply (as measured by the entire area inside
 the dotted lines on the graph, from D to S) if it is substantially above
 the equilibrium price. This is illustrated in the following figure.
 
-![](media/rId37.jpeg){width="3.25in" height="2.725in"}
+![](media/chapter-4_rId37.jpeg){width="3.25in" height="2.725in"}
 
 It will have a lesser effect if it is slightly above the equilibrium
 price. This is illustrated in the next figure.
 
-![](media/rId39.jpeg){width="3.25in" height="2.705in"}
+![](media/chapter-4_rId39.jpeg){width="3.25in" height="2.705in"}
 
 It will have no effect if it is set either slightly or substantially
 below the equilibrium price, since an equilibrium price above a price
 floor will not be affected by that price floor. The following figure
 illustrates these situations.
 
-![](media/rId41.jpeg){width="6.5in" height="3.047655293088364in"}
+![](media/chapter-4_rId41.jpeg){width="6.5in" height="3.047655293088364in"}
 
 [10](http://openstax.org/books/principles-microeconomics-3e/pages/4-self-check-questions#fs-idm48819088).
 
@@ -86,13 +86,13 @@ has no effect on prices below that level. It will have its biggest
 effect in creating excess demand if it is substantially below the
 equilibrium price. The following figure illustrates these situations.
 
-![](media/rId45.jpeg){width="6.5in" height="3.1126049868766406in"}
+![](media/chapter-4_rId45.jpeg){width="6.5in" height="3.1126049868766406in"}
 
 When the price ceiling is set substantially or slightly above the
 equilibrium price, it will have no effect on creating excess demand. The
 following figure illustrates these situations.
 
-![](media/rId47.jpeg){width="6.5in" height="3.127594050743657in"}
+![](media/chapter-4_rId47.jpeg){width="6.5in" height="3.127594050743657in"}
 
 [11](http://openstax.org/books/principles-microeconomics-3e/pages/4-self-check-questions#fs-idp29140256).
 

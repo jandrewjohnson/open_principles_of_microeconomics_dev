@@ -1,4 +1,4 @@
-![](media/rId20.jpeg){width="6.5in" height="2.57in"}
+![](media/1-introduction_rId20.jpeg){width="6.5in" height="2.57in"}
 
 Figure 1.1 Do You Use Facebook? Economics is greatly impacted by how
 well information travels through society. Today, social media giants

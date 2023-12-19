@@ -63,7 +63,7 @@ quantity and average price) for both cases.
 Let's calculate the elasticity between points A and B and between points
 G and H as [Figure 5.2](#CNX_Econ_C05_003) shows.
 
-![](media/rId35.jpeg){width="4.88in" height="3.215in"}
+![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId35.jpeg){width="4.88in" height="3.215in"}
 
 Figure 5.2 Calculating the Price Elasticity of Demand We calculate the
 price elasticity of demand as the percentage change in quantity divided
@@ -167,7 +167,7 @@ When the price increases to \$700 per month, the landlord supplies
 13,000 units into the market. By what percentage does apartment supply
 increase? What is the price sensitivity?
 
-![](media/rId54.jpeg){width="3.25in" height="2.635in"}
+![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId54.jpeg){width="3.25in" height="2.635in"}
 
 Figure 5.3 Price Elasticity of Supply We calculate the price elasticity
 of supply as the percentage change in quantity divided by the percentage
