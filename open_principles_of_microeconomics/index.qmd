@@ -1,0 +1,5 @@
+# Preface {.unnumbered}
+
+# Welcome to Open Principles of Microeconomics!
+
+This is a new open textbook, based on the third edition of OpenStax.org's excellent work. I have made some changes to the text, and added some new material that draws from my previous years experience teaching Applied Economics 1101: Principles of Microeconomics at the University of Minnesota. This is a work in progress and will be finished by January 2024.
