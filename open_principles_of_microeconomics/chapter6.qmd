@@ -1,0 +1,902 @@
+### 6.1 Consumption Choices
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Calculate total utility
+-   Propose decisions that maximize utility
+-   Explain marginal utility and the significance of diminishing
+    marginal utility
+
+Information on the consumption choices of Americans is available from
+the Consumer Expenditure Survey carried out by the U.S. Bureau of Labor
+Statistics. [Table 6.1](#Table_06_01) shows spending patterns for the
+average U.S. household. The first row shows income and, after taxes and
+personal savings are subtracted, it shows that, in 2015, the average
+U.S. household spent \$48,109 on consumption. The table then breaks down
+consumption into various categories. The average U.S. household spent
+roughly one-third of its consumption on shelter and other housing
+expenses, another one-third on food and vehicle expenses, and the rest
+on a variety of items, as shown. These patterns will vary for specific
+households by differing levels of family income, by geography, and by
+preferences.
+
+Table 6.1 U.S. Consumption Choices in 2015 (Source:
+http://www.bls.gov/cex/csxann13.pdf)
+
+#### Total Utility and Diminishing Marginal Utility
+
+To understand how a household will make its choices, economists look at
+what consumers can afford, as shown in a budget constraint (or budget
+line), and the total utility or satisfaction derived from those choices.
+In a budget constraint line, the quantity of one good is on the
+horizontal axis and the quantity of the other good on the vertical axis.
+The budget constraint line shows the various combinations of two goods
+that are affordable given consumer income. Consider José\'s situation,
+shown in [Figure 6.2](#CNX_Econ_C06_001). José likes to collect T-shirts
+and watch movies.
+
+In [Figure 6.2](#CNX_Econ_C06_001) we show the quantity of T-shirts on
+the horizontal axis while we show the quantity of movies on the vertical
+axis. If José had unlimited income or goods were free, then he could
+consume without limit. However, José, like all of us, faces a budget
+constraint. José has a total of \$56 to spend. The price of T-shirts is
+\$14 and the price of movies is \$7. Notice that the vertical intercept
+of the budget constraint line is at eight movies and zero T-shirts
+(\$56/\$7=8). The horizontal intercept of the budget constraint is four,
+where José spends of all of his money on T-shirts and no movies
+(\$56/14=4). The slope of the budget constraint line is rise/run or
+--8/4=--2. The specific choices along the budget constraint line show
+the combinations of affordable T-shirts and movies.
+
+![](media/6-1-consumption-choices_rId26.jpeg){width="4.88in" height="2.505in"}
+
+Figure 6.2 A Choice between Consumption Goods José has income of \$56.
+Movies cost \$7 and T-shirts cost \$14. The points on the budget
+constraint line show the combinations of affordable movies and T-shirts.
+
+José wishes to choose the combination that will provide him with the
+greatest utility, which is the term economists use to describe a
+person's level of satisfaction or happiness with their choices.
+
+Let's begin with an assumption, which we will discuss in more detail
+later, that José can measure his own utility with something called
+*utils*. (It is important to note that you cannot make comparisons
+between the utils of individuals. If one person gets 20 utils from a cup
+of coffee and another gets 10 utils, this does not mean than the first
+person gets more enjoyment from the coffee than the other or that they
+enjoy the coffee twice as much. The reason why is that utils are
+subjective to an individual. The way one person measures utils is not
+the same as the way someone else does.) [Table 6.2](#Table_06_02) shows
+how José's utility is connected with his T-shirt or movie consumption.
+The first column of the table shows the quantity of T-shirts consumed.
+The second column shows the total utility, or total amount of
+satisfaction, that José receives from consuming that number of T-shirts.
+The most common pattern of total utility, in this example, is that
+consuming additional goods leads to greater total utility, but at a
+decreasing rate. The third column shows marginal utility, which is the
+additional utility provided by one additional unit of consumption. This
+equation for marginal utility is:
+
+![multiline equation row 1 MU equals change in total utility divided by
+change in quantity](media/rId31.png){width="1.5625in"
+height="0.23958333333333334in"}
+
+Notice that marginal utility diminishes as additional units are
+consumed, which means that each subsequent unit of a good consumed
+provides less *additional* utility. For example, the first T-shirt José
+picks is his favorite and it gives him an addition of 22 utils. The
+fourth T-shirt is just something to wear when all his other clothes are
+in the wash and yields only 18 additional utils. This is an example of
+the law of diminishing marginal utility, which holds that the additional
+utility decreases with each unit added. Diminishing marginal utility is
+another example of the more general law of diminishing returns we
+learned earlier in the chapter on [Choice in a World of
+Scarcity](http://openstax.org/books/principles-microeconomics-3e/pages/2-introduction-to-choice-in-a-world-of-scarcity).
+
+The rest of [Table 6.2](#Table_06_02) shows the quantity of movies that
+José attends, and his total and marginal utility from seeing each movie.
+Total utility follows the expected pattern: it increases as the number
+of movies that José watches rises. Marginal utility also follows the
+expected pattern: each additional movie brings a smaller gain in utility
+than the previous one. The first movie José attends is the one he wanted
+to see the most, and thus provides him with the highest level of utility
+or satisfaction. The fifth movie he attends is just to kill time. Notice
+that total utility is also the sum of the marginal utilities. Read the
+next Work It Out feature for instructions on how to calculate total
+utility.
+
+Table 6.2 Total and Marginal Utility
+
+[Table 6.3](#Table_06_03) looks at each point on the budget constraint
+in [Figure 6.2](#CNX_Econ_C06_001), and adds up José's total utility for
+five possible combinations of T-shirts and movies.
+
+Table 6.3 Finding the Choice with the Highest Utility
+
+#### Work It Out {#work-it-out .Heading3Grey}
+
+##### Calculating Total Utility {#calculating-total-utility .Heading4Grey}
+
+Let's look at how José makes his decision in more detail.
+
+Step 1. Observe that, at point Q (for example), José consumes three
+T-shirts and two movies.
+
+Step 2. Look at [Table 6.2](#Table_06_02). You can see from the fourth
+row/second column that three T-shirts are worth 63 utils. Similarly, the
+second row/fifth column shows that two movies are worth 31 utils.
+
+Step 3. From this information, you can calculate that point Q has a
+total utility of 94 (63 + 31).
+
+Step 4. You can repeat the same calculations for each point on [Table
+6.3](#Table_06_03), in which the total utility numbers are shown in the
+last column.
+
+For José, the highest total utility for all possible combinations of
+goods occurs at point S, with a total utility of 103 from consuming one
+T-shirt and six movies.
+
+#### Choosing with Marginal Utility
+
+Most people approach their utility-maximizing combination of choices in
+a step-by-step way. This approach is based on looking at the tradeoffs,
+measured in terms of marginal utility, of consuming less of one good and
+more of another.
+
+For example, say that José starts off thinking about spending all his
+money on T-shirts and choosing point P, which corresponds to four
+T-shirts and no movies, as [Figure 6.2](#CNX_Econ_C06_001) illustrates.
+José chooses this starting point randomly as he has to start somewhere.
+Then he considers giving up the last T-shirt, the one that provides him
+the least marginal utility, and using the money he saves to buy two
+movies instead. [Table 6.4](#Table_06_04) tracks the step-by-step series
+of decisions José needs to make (*Key*: T-shirts are \$14, movies are
+\$7, and income is \$56). The following Work It Out feature explains how
+marginal utility can affect decision making.
+
+Table 6.4 A Step-by-Step Approach to Maximizing Utility
+
+#### Work It Out {#work-it-out-1 .Heading3Grey}
+
+##### Decision Making by Comparing Marginal Utility {#decision-making-by-comparing-marginal-utility .Heading4Grey}
+
+José could use the following thought process (if he thought in utils) to
+make his decision regarding how many T-shirts and movies to purchase:
+
+Step 1. From [Table 6.2](#Table_06_02), José can see that the marginal
+utility of the fourth T-shirt is 18. If José gives up the fourth
+T-shirt, then he loses 18 utils.
+
+Step 2. Giving up the fourth T-shirt, however, frees up \$14 (the price
+of a T-shirt), allowing José to buy the first two movies (at \$7 each).
+
+Step 3. José knows that the marginal utility of the first movie is 16
+and the marginal utility of the second movie is 15. Thus, if José moves
+from point P to point Q, he gives up 18 utils (from the T-shirt), but
+gains 31 utils (from the movies).
+
+Step 4. Gaining 31 utils and losing 18 utils is a net gain of 13. This
+is just another way of saying that the total utility at Q (94 according
+to the last column in [Table 6.3](#Table_06_03)) is 13 more than the
+total utility at P (81).
+
+Step 5. Thus, for José, it makes sense to give up the fourth T-shirt in
+order to buy two movies.
+
+José clearly prefers point Q to point P. Now repeat this step-by-step
+process of decision making with marginal utilities. José thinks about
+giving up the third T-shirt and surrendering a marginal utility of 20,
+in exchange for purchasing two more movies that promise a combined
+marginal utility of 27. José prefers point R to point Q. What if José
+thinks about going beyond R to point S? Giving up the second T-shirt
+means a marginal utility loss of 21, and the marginal utility gain from
+the fifth and sixth movies would combine to make a marginal utility gain
+of 23, so José prefers point S to R.
+
+However, if José seeks to go beyond point S to point T, he finds that
+the loss of marginal utility from giving up the first T-shirt is 22,
+while the marginal utility gain from the last two movies is only a total
+of 19. If José were to choose point T, his utility would fall to 100.
+Through these stages of thinking about marginal tradeoffs, José again
+concludes that S, with one T-shirt and six movies, is the choice that
+will provide him with the highest level of total utility. This
+step-by-step approach will reach the same conclusion regardless of
+José's starting point.
+
+We can develop a more systematic way of using this approach by focusing
+on satisfaction per dollar. If an item costing \$5 yields 10 utils, then
+it's worth 2 utils per dollar spent. Marginal utility per dollar is the
+amount of additional utility José receives divided by the product\'s
+price. [Table 6.5](#Table_06_05) shows the marginal utility per dollar
+for José\'s T shirts and movies.
+
+![multiline equation row 1 marginal utility per dollar equals marginal
+utility divided by price](media/rId40.png){width="2.7916666666666665in"
+height="0.23958333333333334in"}
+
+If José wants to maximize the utility he gets from his limited budget,
+he will always purchase the item with the greatest marginal utility per
+dollar of expenditure (assuming he can afford it with his remaining
+budget). José starts with no purchases. If he purchases a T-shirt, the
+marginal utility per dollar spent will be 1.6. If he purchases a movie,
+the marginal utility per dollar spent will be 2.3. Therefore, José's
+first purchase will be the movie. Why? Because it gives him the highest
+marginal utility per dollar and is affordable. Next, José will purchase
+another movie. Why? Because the marginal utility of the next movie
+(2.14) is greater than the marginal utility of the next T-shirt (1.6).
+Note that when José has no T- shirts, the next one is the first one.
+José will continue to purchase the next good with the highest marginal
+utility per dollar until he exhausts his budget. He will continue
+purchasing movies because they give him a greater \"bang for the buck\"
+until the sixth movie which gives the same marginal utility per dollar
+as the first T-shirt purchase. José has just enough budget to purchase
+both. So in total, José will purchase six movies and one T-shirt.
+
+Table 6.5 Marginal Utility per Dollar
+
+#### A Rule for Maximizing Utility
+
+This process of decision making suggests a rule to follow when
+maximizing utility. Since the price of T-shirts is twice as high as the
+price of movies, to maximize utility the last T-shirt that José chose
+needs to provide exactly twice the marginal utility (MU) of the last
+movie. If the last T-shirt provides less than twice the marginal utility
+of the last movie, then the T-shirt is providing less "bang for the
+buck" (i.e., marginal utility per dollar spent) than José would receive
+from spending the same money on movies. If this is so, José should trade
+the T-shirt for more movies to increase his total utility.
+
+If the last T-shirt provides more than twice the marginal utility of the
+last movie, then the T-shirt is providing more "bang for the buck" or
+marginal utility per dollar, than if the money were spent on movies. As
+a result, José should buy more T-shirts. Notice that at José's optimal
+choice of point S, the marginal utility from the first T-shirt, of 22 is
+exactly twice the marginal utility of the sixth movie, which is 11. At
+this choice, the marginal utility per dollar is the same for both goods.
+This is a tell-tale signal that José has found the point with highest
+total utility.
+
+We can write this argument as a general rule: If you always choose the
+item with the greatest marginal utility per dollar spent, when your
+budget is exhausted, the utility maximizing choice should occur where
+the marginal utility per dollar spent is the same for both goods.
+
+![multiline equation row 1 MU sub one divided by cap P sub one equals MU
+sub two divided by cap P sub
+two](media/rId45.png){width="0.7708333333333334in"
+height="0.22916666666666666in"}
+
+A sensible economizer will pay twice as much for something only if, in
+the marginal comparison, the item confers twice as much utility. Notice
+that the formula for the table above is:
+
+![multiline equation row 1 22 divided by dollar sign 14 equals 11
+divided by dollar sign seven row 2 1.6 equals
+1.6](media/rId47.png){width="0.6041666666666666in" height="0.4375in"}
+
+The following Work It Out feature provides step by step guidance for
+this concept of utility-maximizing choices.
+
+#### Work It Out {#work-it-out-2 .Heading3Grey}
+
+##### Maximizing Utility {#maximizing-utility .Heading4Grey}
+
+The general rule, ![multiline equation row 1 MU sub one divided by cap P
+sub one equals MU sub two divided by cap P sub
+two](media/rId45.png){width="0.7708333333333334in"
+height="0.22916666666666666in"}, means that the last dollar spent on
+each good provides exactly the same marginal utility. This is the case
+at point S. So:
+
+Step 1. If we traded a dollar more of movies for a dollar more of
+T-shirts, the marginal utility gained from T-shirts would exactly offset
+the marginal utility lost from fewer movies. In other words, the net
+gain would be zero.
+
+Step 2. Products, however, usually cost more than a dollar, so we cannot
+trade a dollar's worth of movies. The best we can do is trade two movies
+for another T-shirt, since in this example T-shirts cost twice what a
+movie does.
+
+Step 3. If we trade two movies for one T-shirt, we would end up at point
+R (two T-shirts and four movies).
+
+Step 4. Choice 4 in [Table 6.4](#Table_06_04) shows that if we move to
+point R, we would gain 21 utils from one more T-shirt, but lose 23 utils
+from two fewer movies, so we would end up with less total utility at
+point R.
+
+In short, the general rule shows us the utility-maximizing choice, which
+is called the consumer equilibrium.
+
+There is another equivalent way to think about this. We can also express
+the general rule as *the ratio of the prices of the two goods should be
+equal to the ratio of the marginal utilities.* When we divide the price
+of good 1 by the price of good 2, at the utility-maximizing point this
+will equal the marginal utility of good 1 divided by the marginal
+utility of good 2.
+
+![multiline equation row 1 cap P sub one divided by cap P sub two equals
+MU sub one divided by MU sub
+two](media/rId51.png){width="0.6666666666666666in"
+height="0.22916666666666666in"}
+
+Along the budget constraint, the total price of the two goods remains
+the same, so the ratio of the prices does not change. However, the
+marginal utility of the two goods changes with the quantities consumed.
+At the optimal choice of one T-shirt and six movies, point S, the ratio
+of marginal utility to price for T-shirts (22:14) matches the ratio of
+marginal utility to price for movies (of 11:7).
+
+#### Measuring Utility with Numbers
+
+This discussion of utility began with an assumption that it is possible
+to place numerical values on utility, an assumption that may seem
+questionable. You can buy a thermometer for measuring temperature at the
+hardware store, but what store sells a "utilimometer" for measuring
+utility? While measuring utility with numbers is a convenient assumption
+to clarify the explanation, the key assumption is not that an outside
+party can measure utility but only that individuals can decide which of
+two alternatives they prefer.
+
+To understand this point, think back to the step-by-step process of
+finding the choice with highest total utility by comparing the marginal
+utility you gain and lose from different choices along the budget
+constraint. As José compares each choice along his budget constraint to
+the previous choice, what matters is not the specific numbers that he
+places on his utility---or whether he uses any numbers at all---but only
+that he personally can identify which choices he prefers.
+
+In this way, the step-by-step process of choosing the highest level of
+utility resembles rather closely how many people make consumption
+decisions. We think about what will make us the happiest. We think about
+what things cost. We think about buying a little more of one item and
+giving up a little of something else. We choose what provides us with
+the greatest level of satisfaction. The vocabulary of comparing the
+points along a budget constraint and total and marginal utility is just
+a set of tools for discussing this everyday process in a clear and
+specific manner. It is welcome news that specific utility numbers are
+not central to the argument, since a good utilimometer is hard to find.
+Do not worry---while we cannot measure utils, by the end of the next
+module, we will have transformed our analysis into something we can
+measure---demand.
+
+
+### 6.2 How Changes in Income and Prices Affect Consumption Choices
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Explain how income, prices, and preferences affect consumer choices
+-   Contrast the substitution effect and the income effect
+-   Utilize concepts of demand to analyze consumer choices
+-   Apply utility-maximizing choices to governments and businesses
+
+Just as we can use utility and marginal utility to discuss making
+consumer choices along a budget constraint, we can also use these ideas
+to think about how consumer choices change when the budget constraint
+shifts in response to changes in income or price. Because we can use the
+budget constraint framework to analyze how quantities demanded change
+because of price movements, the budget constraint model can illustrate
+the underlying logic behind demand curves.
+
+#### How Changes in Income Affect Consumer Choices
+
+Let's begin with a concrete example illustrating how changes in income
+level affect consumer choices. [Figure 6.3](#CNX_Econ_C06_002) shows a
+budget constraint that represents Kimberly's choice between concert
+tickets at \$50 each and getting away overnight to a bed-and-breakfast
+for \$200 per night. Kimberly has \$1,000 per year to spend between
+these two choices. After thinking about her total utility and marginal
+utility and applying the decision rule that the ratio of the marginal
+utilities to the prices should be equal between the two products,
+Kimberly chooses point M, with eight concerts and three overnight
+getaways as her utility-maximizing choice.
+
+![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId23.jpeg){width="3.25in" height="2.535in"}
+
+Figure 6.3 How a Change in Income Affects Consumption Choices The
+utility-maximizing choice on the original budget constraint is M. The
+dashed horizontal and vertical lines extending through point M allow you
+to see at a glance whether the quantity consumed of goods on the new
+budget constraint is higher or lower than on the original budget
+constraint. On the new budget constraint, Kimberly will make a choice
+like N if both goods are normal goods. If overnight stays is an inferior
+good, Kimberly will make a choice like P. If concert tickets are an
+inferior good, Kimberly will make a choice like Q.
+
+Now, assume that the income Kimberly has to spend on these two items
+rises to \$2,000 per year, causing her budget constraint to shift out to
+the right. How does this rise in income alter her utility-maximizing
+choice? Kimberly will again consider the utility and marginal utility
+that she receives from concert tickets and overnight getaways and seek
+her utility-maximizing choice on the new budget line, but how will her
+new choice relate to her original choice?
+
+We can replace the possible choices along the new budget constraint into
+three groups, which the dashed horizontal and vertical lines that pass
+through the original choice M in the figure divide. All choices on the
+upper left of the new budget constraint that are to the left of the
+vertical dashed line, like choice P with two overnight stays and 32
+concert tickets, involve less of the good on the horizontal axis but
+much more of the good on the vertical axis. All choices to the right of
+the vertical dashed line and above the horizontal dashed line---like
+choice N with five overnight getaways and 20 concert tickets---have more
+consumption of both goods. Finally, all choices that are to the right of
+the vertical dashed line but below the horizontal dashed line, like
+choice Q with four concerts and nine overnight getaways, involve less of
+the good on the vertical axis but much more of the good on the
+horizontal axis.
+
+All of these choices are theoretically possible, depending on Kimberly's
+personal preferences as expressed through the total and marginal utility
+she would receive from consuming these two goods. When income rises, the
+most common reaction is to purchase more of both goods, like choice N,
+which is to the upper right relative to Kimberly's original choice M,
+although exactly how much more of each good will vary according to
+personal taste. Conversely, when income falls, the most typical reaction
+is to purchase less of both goods. As we defined in the chapter on
+[Demand and
+Supply](http://openstax.org/books/principles-microeconomics-3e/pages/3-introduction-to-demand-and-supply)
+and again in the chapter on
+[Elasticity](http://openstax.org/books/principles-microeconomics-3e/pages/5-introduction-to-elasticity),
+we call goods and services normal goods when a rise in income leads to a
+rise in the quantity consumed of that good and a fall in income leads to
+a fall in quantity consumed.
+
+However, depending on Kimberly's preferences, a rise in income could
+cause consumption of one good to increase while consumption of the other
+good declines. A choice like P means that a rise in income caused her
+quantity consumed of overnight stays to decline, while a choice like Q
+would mean that a rise in income caused her quantity of concerts to
+decline. Goods where demand declines as income rises (or conversely,
+where the demand rises as income falls) are called "inferior goods." An
+inferior good occurs when people trim back on a good as income rises,
+because they can now afford the more expensive choices that they prefer.
+For example, a higher-income household might eat fewer hamburgers or be
+less likely to buy a used car, and instead eat more steak and buy a new
+car.
+
+#### How Price Changes Affect Consumer Choices
+
+For analyzing the possible effect of a change in price on consumption,
+let's again use a concrete example. [Figure 6.4](#CNX_Econ_C06_003)
+represents Sergei\'s consumer choice, who chooses between purchasing
+baseball bats and cameras. A price increase for baseball bats would have
+no effect on the ability to purchase cameras, but it would reduce the
+number of bats Sergei could afford to buy. Thus a price increase for
+baseball bats, the good on the horizontal axis, causes the budget
+constraint to rotate inward, as if on a hinge, from the vertical axis.
+As in the previous section, the point labeled M represents the
+originally preferred point on the original budget constraint, which
+Sergei has chosen after contemplating his total utility and marginal
+utility and the tradeoffs involved along the budget constraint. In this
+example, the units along the horizontal and vertical axes are not
+numbered, so the discussion must focus on whether Sergei will consume
+more or less of certain goods, not on numerical amounts.
+
+![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId33.jpeg){width="4.88in" height="2.295in"}
+
+Figure 6.4 How a Change in Price Affects Consumption Choices The
+original utility-maximizing choice is M. When the price rises, the
+budget constraint rotates clockwise. The dashed lines make it possible
+to see at a glance whether the new consumption choice involves less of
+both goods, or less of one good and more of the other. The new possible
+choices would be fewer baseball bats and more cameras, like point H, or
+less of both goods, as at point J. Choice K would mean that the higher
+price of bats led to exactly the same quantity of bat consumption, but
+fewer cameras. Theoretically possible, but unlikely in the real world,
+we rule out choices like L because they would mean that a higher price
+for baseball bats means a greater consumption of baseball bats.
+
+After the price increase, Sergei will make a choice along the new budget
+constraint. Again, we can divide his choices into three segments by the
+dashed vertical and horizontal lines. In the upper left portion of the
+new budget constraint, at a choice like H, Sergei consumes more cameras
+and fewer bats. In the central portion of the new budget constraint, at
+a choice like J, he consumes less of both goods. At the right-hand end,
+at a choice like L, he consumes more bats but fewer cameras.
+
+The typical response to higher prices is that a person chooses to
+consume less of the product with the higher price. This occurs for two
+reasons, and both effects can occur simultaneously. The substitution
+effect occurs when a price changes and consumers have an incentive to
+consume less of the good with a relatively higher price and more of the
+good with a relatively lower price. The income effect is that a higher
+price means, in effect, the buying power of income has been reduced
+(even though actual income has not changed), which leads to buying less
+of the good (when the good is normal). In this example, the higher price
+for baseball bats would cause Sergei to buy fewer bats for both reasons.
+Exactly how much will a higher price for bats cause Sergei\'s bat
+consumption to fall? [Figure 6.4](#CNX_Econ_C06_003) suggests a range of
+possibilities. Sergei might react to a higher price for baseball bats by
+purchasing the same quantity of bats, but cutting his camera
+consumption. This choice is the point K on the new budget constraint,
+straight below the original choice M. Alternatively, Sergei might react
+by dramatically reducing his bat purchases and instead buy more cameras.
+
+The key is that it would be imprudent to assume that a change in the
+price of one good will only affect consumption of that good. In our
+example, since Sergei purchases all his products out of the same budget,
+a change in the price of baseball bats can also have a range of effects,
+either positive or negative, on his purchases of cameras. Since Sergei
+purchases all his products out of the same budget, a change in the price
+of one good can also have a range of effects, either positive or
+negative, on the quantity consumed of other goods.
+
+In short, a higher price typically causes reduced consumption of the
+good in question, but it can affect the consumption of other goods as
+well.
+
+#### Link It Up {#link-it-up .Heading3Grey}
+
+Read this [article](http://openstax.org/l/vending) about the potential
+of variable prices in vending machines.
+
+#### The Foundations of Demand Curves
+
+Changes in the price of a good lead the budget constraint to rotate. A
+rotation in the budget constraint means that when individuals are
+seeking their highest utility, the quantity that is demanded of that
+good will change. In this way, the logical foundations of demand
+curves---which show a connection between prices and quantity
+demanded---are based on the underlying idea of individuals seeking
+utility. [Figure 6.5](#CNX_Econ_C06_004) (a) shows a budget constraint
+with a choice between housing and "everything else." (Putting
+"everything else" on the vertical axis can be a useful approach in some
+cases, especially when the focus of the analysis is on one particular
+good.) We label the preferred choice on the original budget constraint
+that provides the highest possible utility M~0~. The other three budget
+constraints represent successively higher prices for housing of P~1~,
+P~2~, and P~3~. As the budget constraint rotates in, and in, and in
+again, we label the utility-maximizing choices M~1~, M~2~, and M~3~, and
+the quantity demanded of housing falls from Q~0~ to Q~1~ to Q~2~ to
+Q~3~.
+
+![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId42.jpeg){width="3.25in" height="5.085in"}
+
+Figure 6.5 The Foundations of a Demand Curve: An Example of Housing (a)
+As the price increases from P~0~ to P~1~ to P~2~ to P~3~, the budget
+constraint on the upper part of the diagram rotates clockwise. The
+utility-maximizing choice changes from M~0~ to M~1~ to M~2~ to M~3~. As
+a result, the quantity demanded of housing shifts from Q~0~ to Q~1~ to
+Q~2~ to Q~3~, *ceteris paribus*. (b) The demand curve graphs each
+combination of the price of housing and the quantity of housing
+demanded, *ceteris paribus*. The quantities of housing are the same at
+the points on both (a) and (b). Thus, the original price of housing
+(P~0~) and the original quantity of housing (Q~0~) appear on the demand
+curve as point E~0~. The higher price of housing (P~1~) and the
+corresponding lower quantity demanded of housing (Q~1~) appear on the
+demand curve as point E~1~.
+
+Thus, as the price of housing rises, the budget constraint rotates
+clockwise and the quantity consumed of housing falls, *ceteris paribus*
+(meaning, with all other things being the same). We graph this
+relationship---the price of housing rising from P~0~ to P~1~ to P~2~ to
+P~3~, while the quantity of housing demanded falls from Q~0~ to Q~1~ to
+Q~2~ to Q~3~---on the demand curve in [Figure 6.5](#CNX_Econ_C06_004)
+(b). The vertical dashed lines stretching between the top and bottom of
+[Figure 6.5](#CNX_Econ_C06_004) show that the quantity of housing
+demanded at each point is the same in both (a) and (b). We ultimately
+determine the shape of a demand curve by the underlying choices about
+maximizing utility subject to a budget constraint. While economists may
+not be able to measure "utils," they can certainly measure price and
+quantity demanded.
+
+#### Applications in Government and Business
+
+The budget constraint framework for making utility-maximizing choices
+offers a reminder that people can react to a change in price or income
+in a range of different ways. For example, in the winter months of 2005,
+costs for heating homes increased significantly in many parts of the
+country as prices for natural gas and electricity soared, due in large
+part to the disruption caused by Hurricanes Katrina and Rita. Some
+people reacted by reducing the quantity demanded of energy; for example,
+by turning down the thermostats in their homes by a few degrees and
+wearing a heavier sweater inside. Even so, many home heating bills rose,
+so people adjusted their consumption in other ways, too. As you learned
+in the chapter on
+[Elasticity](http://openstax.org/books/principles-microeconomics-3e/pages/5-introduction-to-elasticity),
+the short run demand for home heating is generally inelastic. Each
+household cut back on what it valued least on the margin. For some it
+might have been some dinners out, or a vacation, or postponing buying a
+new refrigerator or a new car. Sharply higher energy prices can have
+effects beyond the energy market, leading to a widespread reduction in
+purchasing throughout the rest of the economy.
+
+A similar issue arises when the government imposes taxes on certain
+products, such as on gasoline, cigarettes, and alcohol. Say that a tax
+on alcohol leads to a higher price at the liquor store. The higher price
+of alcohol causes the budget constraint to pivot left, and alcoholic
+beverage consumption is likely to decrease. However, people may also
+react to the higher price of alcoholic beverages by cutting back on
+other purchases. For example, they might cut back on snacks at
+restaurants like chicken wings and nachos. It would be unwise to assume
+that the liquor industry is the only one affected by the tax on
+alcoholic beverages. Read the next Clear It Up to learn about how who
+controls the household income influences buying decisions.
+
+#### The Unifying Power of the Utility-Maximizing Budget Set Framework
+
+An interaction between prices, budget constraints, and personal
+preferences determine household choices. The flexible and powerful
+terminology of utility-maximizing gives economists a vocabulary for
+bringing these elements together.
+
+Not even economists believe that people walk around mumbling about their
+marginal utilities before they walk into a shopping mall, accept a job,
+or make a deposit in a savings account. However, economists do believe
+that individuals seek their own satisfaction or utility and that people
+often decide to try a little less of one thing and a little more of
+another. If we accept these assumptions, then the idea of
+utility-maximizing households facing budget constraints becomes highly
+plausible.
+
+#### Clear It Up {#clear-it-up .Heading3Grey}
+
+##### Does who controls household income make a difference? {#does-who-controls-household-income-make-a-difference .Heading4Grey}
+
+In the mid-1970s, the United Kingdom made an interesting policy change
+in its "child allowance" policy. This program provides a fixed amount of
+money per child to every family, regardless of family income.
+Traditionally, the child allowance had been distributed to families by
+withholding less in taxes from the paycheck of the family wage
+earner---typically the father in this time period. The new policy
+instead provided the child allowance as a cash payment to the mother. As
+a result of this change, households have the same level of income and
+face the same prices in the market, but the money is more likely to be
+in the mother\'s purse than in the father\'s wallet.
+
+Should this change in policy alter household consumption patterns? Basic
+models of consumption decisions, of the sort that we examined in this
+chapter, assume that it does not matter which parent or guardian
+receives the money, because both seek to maximize the family\'s utility
+as a whole. In effect, this model assumes that everyone in the family
+has the same makeup or has the same preferences.
+
+There has not been extensive research on diverse family structures and
+guardian/parent sex and gender related to spending. However, the older
+research on families with one man and one woman parent indicates that
+gender does affect spending decisions. When the mother controls a larger
+share of family income a number of studies, in the United Kingdom and in
+a wide variety of other countries, have found that the family tends to
+spend more on restaurant meals, child care, and women's clothing, and
+less on alcohol and tobacco. As the mother controls a larger share of
+household resources, children's health improves, too. These findings
+suggest that when providing assistance to families, in high-income
+countries and low-income countries alike, the monetary amount of
+assistance is not all that matters: it also matters which family member
+actually receives the money.
+
+The budget constraint framework serves as a constant reminder to think
+about the full range of effects that can arise from changes in income or
+price, not just effects on the one product that might seem most
+immediately affected.
+
+
+### 6.3 Behavioral Economics: An Alternative Framework for Consumer Choice
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Evaluate the reasons for making intertemporal choices
+-   Interpret an intertemporal budget constraint
+-   Analyze why people in America tend to save such a small percentage
+    of their income
+
+As we know, people sometimes make decisions that seem "irrational" and
+not in their own best interest. People's decisions can seem inconsistent
+from one day to the next and they even deliberately ignore ways to save
+money or time. The traditional economic models assume rationality, which
+means that people take all available information and make consistent and
+informed decisions that are in their best interest. (In fact, economics
+professors often delight in pointing out so-called "irrational behavior"
+each semester to their new students, and present economics as a way to
+become more rational.)
+
+However, a new group of economists, known as behavioral economists,
+argue that the traditional method omits something important: people's
+state of mind. For example, one can think differently about money if one
+is feeling revenge, optimism, or loss. These are not necessarily
+irrational states of mind, but part of a range of emotions that can
+affect anyone on a given day. In addition, actions under these
+conditions are predictable, if one better understands the underlying
+environment. Behavioral economics seeks to enrich our understanding of
+decision-making by integrating the insights of psychology into
+economics. It does this by investigating how given dollar amounts can
+mean different things to individuals depending on the situation. This
+can lead to decisions that appear outwardly inconsistent, or irrational,
+to the outside observer.
+
+The way the mind works, according to this view, may seem inconsistent to
+traditional economists but is actually far more complex than an
+unemotional cost-benefit adding machine. For example, a traditional
+economist would say that if you lost a \$10 bill today, and also
+received an extra \$10 in your paycheck, you should feel perfectly
+neutral. After all, --\$10 + \$10 = \$0. You are the same financially as
+you were before. However, behavioral economists have conducted research
+that shows many people will feel some negative emotion, such as anger or
+frustration, after those two things happen. We tend to focus more on the
+loss than the gain. We call this loss aversion, where a \$1 loss pains
+us 2.25 times more than a \$1 gain helps us, according to the economists
+Daniel Kahneman and Amos Tversky in a famous 1979 article in the journal
+*Econometrica*. This insight has implications for investing, as people
+tend to "overplay" the stock market by reacting more to losses than to
+gains. This behavior looks irrational to traditional economists, but is
+consistent once we understand better how the mind works, these
+economists argue.
+
+Traditional economists also assume human beings have complete self
+control, but, for instance, people will buy cigarettes by the pack
+instead of the carton even though the carton saves them money, to keep
+usage down. They purchase locks for their refrigerators and overpay on
+taxes to force themselves to save. In other words, we protect ourselves
+from our worst temptations but pay a price to do so. One way behavioral
+economists are responding to this is by establishing ways for people to
+keep themselves free of these temptations. This includes what we call
+"nudges" toward more rational behavior rather than mandatory regulations
+from government. For example, up to 20 percent of new employees do not
+enroll in retirement savings plans immediately, because of
+procrastination or feeling overwhelmed by the different choices. Some
+companies are now moving to a new system, where employees are
+automatically enrolled unless they "opt out." Almost no-one opts out in
+this program and employees begin saving at the early years, which are
+most critical for retirement.
+
+Another area that seems illogical is the idea of mental accounting, or
+putting dollars in different mental categories where they take different
+values. Economists typically consider dollars to be fungible, or having
+equal value to the individual, regardless of the situation.
+
+You might, for instance, think of the \$25 you found in the street
+differently from the \$25 you earned from three hours working in a fast
+food restaurant. You might treat the street money as "mad money" with
+little rational regard to getting the best value. This is in one sense
+strange, since it is still equivalent to three hours of hard work in the
+restaurant. Yet the "easy come-easy go" mentality replaces the rational
+economizer because of the situation, or context, in which you attained
+the money.
+
+In another example of mental accounting that seems inconsistent to a
+traditional economist, a person could carry a credit card debt of
+\$1,000 that has a 15% yearly interest cost, and simultaneously have a
+\$2,000 savings account that pays only 2% per year. That means she pays
+\$150 a year to the credit card company, while collecting only \$40
+annually in bank interest, so she loses \$110 a year. That doesn't seem
+wise.
+
+The "rational" decision would be to pay off the debt, since a \$1,000
+savings account with \$0 in debt is the equivalent net worth, and she
+would now net \$20 per year. Curiously, it is not uncommon for people to
+ignore this advice, since they will treat a loss to their savings
+account as higher than the benefit of paying off their credit card. They
+do not treat the dollars as fungible so it looks irrational to
+traditional economists.
+
+Which view is right, the behavioral economists' or the traditional view?
+Both have their advantages, but behavioral economists have at least
+identified trying to describe and explain behavior that economists have
+historically dismissed as irrational. If most of us are engaged in some
+"irrational behavior," perhaps there are deeper underlying reasons for
+this behavior in the first place.
+
+#### Bring It Home {#bring-it-home .Heading3Grey}
+
+##### Making Choices {#making-choices .Heading4Grey}
+
+In what category did consumers worldwide increase their spending during
+the Great Recession? Higher education. According to the United Nations
+Educational, Scientific, and Cultural Organization (UNESCO), enrollment
+in colleges and universities rose one-third in China and almost
+two-thirds in Saudi Arabia, nearly doubled in Pakistan, tripled in
+Uganda, and surged by three million---18 percent---in the United States.
+Why were consumers willing to spend on education during lean times? Both
+individuals and countries view higher education as the way to
+prosperity. Many feel that increased earnings are a significant benefit
+of attending college.
+
+U.S. Bureau of Labor Statistics data from May 2012 supports this view,
+as [Figure 6.6](#CNX_Econ_C06_010) shows. They show a positive
+correlation between earnings and education. The data also indicate that
+unemployment rates fall with higher levels of education and training.
+
+Why spend the money to go to college during recession? Because if you
+are unemployed (or underemployed, working fewer hours than you would
+like), the opportunity cost of your time is low. If you're unemployed,
+you don't have to give up work hours and income by going to college.
+
+![](media/6-3-behavioral-economics-an-alternative-framework-for-consumer-choice_rId25.jpeg){width="6.36in" height="3.275in"}
+
+Figure 6.6 The Impact of Education on Earnings and Unemployment Rates,
+2012 Those with the highest degrees in 2012 had substantially lower
+unemployment rates; whereas, those with the least formal education
+suffered from the highest unemployment rates. The national median
+average weekly income was \$815, and the nation unemployment average in
+2012 was 6.8%. (Source: U.S. Bureau of Labor Statistics, May 22, 2013)
+
+
+![](media/6-introduction-to-consumer-choices_rId20.jpeg){width="6.5in" height="3.6999989063867016in"}
+
+Figure 6.1 Investment Choices We generally view higher education as a
+good investment, if one can afford it, regardless of the state of the
+economy. (Credit: modification of "Commencement" by
+roanokecollege/Flickr, CC BY 2.0)
+
+#### Chapter Objectives {#chapter-objectives .Heading3Grey}
+
+In this chapter, you will learn about:
+
+-   Consumption Choices
+-   How Changes in Income and Prices Affect Consumption Choices
+-   How Consumer Choices Might Not Always be Rational
+
+### Introduction to Consumer Choices
+
+#### Bring It Home {#bring-it-home .Heading3Grey}
+
+##### Making Choices {#making-choices .Heading4Grey}
+
+The 2008--2009 Great Recession touched families around the globe. In too
+many countries, workers found themselves out of a job. In developed
+countries, unemployment compensation provided a safety net, but families
+still saw a marked decrease in disposable income and had to make tough
+spending decisions. Of course, non-essential, discretionary spending was
+the first to go.
+
+Even so, there was one particular category that saw a universal increase
+in spending world-wide during that time---an 18% uptick in the United
+States, specifically. You might guess that consumers began eating more
+meals at home, increasing grocery store spending; however, the Bureau of
+Labor Statistics' Consumer Expenditure Survey, which tracks U.S. food
+spending over time, showed "real total food spending by U.S. households
+declined five percent between 2006 and 2009." So, it was not groceries.
+What product would people around the world demand more of during tough
+economic times, and more importantly, why? (Find out at chapter's end.)
+
+That question leads us to this chapter's topic---analyzing how consumers
+make choices and how changes affect those choices. For instance, do
+changes in prices matter more or less than changes in a consumer's
+income? Can a small change in circumstances alter the consumers'
+perception of a product or even of their own resources? While many
+choices may seem straightforward, there is often much more to consider.
+
+Microeconomics seeks to understand the behavior of individual economic
+agents such as individuals and businesses. Economists believe that we
+can analyze individuals' decisions, such as what goods and services to
+buy, as choices we make within certain budget constraints. Generally,
+consumers are trying to get the most for their limited budget. In
+economic terms they are trying to maximize total utility, or
+satisfaction, given their budget constraint.
+
+Everyone has their own personal tastes and preferences. The French say:
+*Chacun à son goût*, or "Each to his own taste." An old Latin saying
+states, *De gustibus non est disputandum* or "There's no disputing about
+taste." If people base their decisions on their own tastes and personal
+preferences, however, then how can economists hope to analyze the
+choices consumers make?
+
+An economic explanation for why people make different choices begins
+with accepting the proverbial wisdom that tastes are a matter of
+personal preference. However, economists also believe that the choices
+people make are influenced by their incomes, by the prices of goods and
+services they consume, and by factors like where they live. This chapter
+introduces the economic theory of how consumers make choices about what
+goods and services to buy with their limited income.
+
+The analysis in this chapter will build on the budget constraint that we
+introduced in the [Choice in a World of
+Scarcity](http://openstax.org/books/principles-microeconomics-3e/pages/2-introduction-to-choice-in-a-world-of-scarcity)
+chapter. This chapter will also illustrate how economic theory provides
+a tool to systematically look at the full range of possible consumption
+choices to predict how consumption responds to changes in prices or
+incomes. After reading this chapter, consult the appendix [Indifference
+Curves](http://openstax.org/books/principles-microeconomics-3e/pages/b-indifference-curves)
+to learn more about representing utility and choice through indifference
+curves.
+
+

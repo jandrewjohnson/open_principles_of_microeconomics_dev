@@ -4,7 +4,7 @@ import os
 import re
 
 # Define the directories
-code_dir = "C:\\Users\\lifengren\\Teaching\\APEC1101\\open_principles_of_microeconomics_dev"
+code_dir = "C:/Users/lifengren/Teaching/priciple_econ/open_principles_of_microeconomics_dev/importing_openstax"
 doctomd_dir = os.path.join(code_dir, "doctomd")
 
 # Function to replace image references in a Markdown file
