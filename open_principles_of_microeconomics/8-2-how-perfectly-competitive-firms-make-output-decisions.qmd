@@ -14,12 +14,12 @@ A perfectly competitive firm has only one major decision to
 make---namely, what quantity to produce. To understand this, consider a
 different way of writing out the basic definition of profit:
 
-$$
-\begin{aligned}
-\text { Profit } & =\text { Total revenue }- \text { Total cost } \\
-& =(\text { Price }) \text { (Quantity produced })-(\text { Average cost }) \text { (Quantity produced })
-\end{aligned}
-$$
+![multiline equation line 1 Profit equals Total revenue minus Total cost
+line 2 equals left parenthesis Price right parenthesis times left
+parenthesis Quantity produced right parenthesis minus left parenthesis
+Average cost right parenthesis times left parenthesis Quantity produced
+right parenthesis](media/rId24.png){width="5.15625in"
+height="0.3958333333333333in"}
 
 Since a perfectly competitive firm must accept the price for its output
 as determined by the product's market demand and supply, it cannot
@@ -312,22 +312,21 @@ top.
 
 We calculate this as:
 
-$$
-\begin{aligned}
-\text { profit } & =\text { total revenue }- \text { total cost } \\
-& =(85)(\$ 5.00)-(85)(\$ 3.50) \\
-& =\$ 127.50
-\end{aligned}
-$$
+![multiline equation row 1 profit equals total revenue minus total cost
+row 2 Blank equals left parenthesis 85 right parenthesis times left
+parenthesis dollar sign 5.00 right parenthesis minus left parenthesis 85
+right parenthesis times left parenthesis dollar sign 3.50 right
+parenthesis row 3 Blank equals dollar sign
+127.50](media/rId52.png){width="2.5208333333333335in"
+height="0.6145833333333334in"}
 
 Or, we can calculate it as:
-$$
-\begin{aligned}
-\text { profit } & =(\text { price-average cost }) \times \text { quantity } \\
-& =(\$ 5.00-\$ 3.50) \times 85 \\
-& =\$ 127.50
-\end{aligned}
-$$
+
+![multiline equation row 1 profit equals left parenthesis price en dash
+average cost right parenthesis times quantity row 2 Blank equals left
+parenthesis dollar sign 5.00 en dash dollar sign 3.50 right parenthesis
+times 85 row 3 Blank equals dollar sign
+127.50](media/rId54.png){width="3.0in" height="0.6145833333333334in"}
 
 Now consider [Figure 8.5](#CNX_Econ_C08_014) (b), where the price has
 fallen to \$2.75 for a pack of frozen raspberries. Again, the perfectly
@@ -348,23 +347,21 @@ point E, over to the vertical axis and down to the origin. It should be
 clear that the rectangles for total revenue and total cost are the same.
 Thus, the firm is making zero profit. The calculations are as follows:
 
-$$
-\begin{aligned}
-\text { profit } & =\text { total revenue-total cost } \\
-& =(75)(\$ 2.75)-(75)(\$ 2.75) \\
-& =\$ 0
-\end{aligned}
-$$
+![multiline equation row 1 profit equals total revenue en dash total
+cost row 2 Blank equals left parenthesis 75 right parenthesis left
+parenthesis dollar sign 2.75 right parenthesis en dash left parenthesis
+75 right parenthesis left parenthesis dollar sign 2.75 right parenthesis
+row 3 Blank equals dollar sign zero](media/rId57.png){width="2.4375in"
+height="0.6145833333333334in"}
 
 Or, we can calculate it as:
 
-$$
-\begin{aligned}
-\text { profit } & =(\text { price-average cost }) \times \text { quantity } \\
-& =(\$ 2.75-\$ 2.75) \times 75 \\
-& =\$ 0
-\end{aligned}
-$$
+![multiline equation row 1 profit equals left parenthesis price en dash
+average cost right parenthesis times quantity row 2 Blank equals left
+parenthesis dollar sign 2.75 en dash dollar sign 2.75 right parenthesis
+times 75 row 3 Blank equals dollar sign
+zero](media/rId59.png){width="2.9791666666666665in"
+height="0.6145833333333334in"}
 
 In [Figure 8.5](#CNX_Econ_C08_014) (c), the market price has fallen
 still further to \$2.00 for a pack of frozen raspberries. At this price,
@@ -383,23 +380,21 @@ negative profit) will be the rose-shaded rectangle.
 
 The calculations are:
 
-$$
-\begin{aligned}
-\text { profit } & =(\text { total revenue }- \text { total cost }) \\
-& =(65)(\$ 2.00)-(65)(\$ 2.73) \\
-& =-\$ 47.45
-\end{aligned}
-$$
+![multiline equation row 1 profit equals left parenthesis total revenue
+en dash total cost right parenthesis row 2 Blank equals left parenthesis
+65 right parenthesis left parenthesis dollar sign 2.00 right parenthesis
+en dash left parenthesis 65 right parenthesis left parenthesis dollar
+sign 2.73 right parenthesis row 3 Blank equals en dash dollar sign
+47.45](media/rId61.png){width="2.6041666666666665in"
+height="0.6145833333333334in"}
 
 Or:
 
-$$
-\begin{aligned}
-\text { profit } & =(\text { price-average cost }) \times \text { quantity } \\
-& =(\$ 2.00-\$ 2.73) \times 65 \\
-& =-\$ 47.45
-\end{aligned}
-$$
+![multiline equation row 1 profit equals left parenthesis price en dash
+average cost right parenthesis times quantity row 2 Blank equals left
+parenthesis dollar sign 2.00 en dash dollar sign 2.73 right parenthesis
+times 65 row 3 Blank equals en dash dollar sign
+47.45](media/rId63.png){width="3.0in" height="0.6145833333333334in"}
 
 If the market price that perfectly competitive firm receives leads it to
 produce at a quantity where the price is greater than average cost, the
@@ -461,46 +456,42 @@ scenario 3 the revenue that the center can earn is high enough that the
 losses diminish when it remains open, so the center should remain open
 in the short run.
 
----
+  -----------------------------------------------------------------------
+  **Scenario 1**
 
-**Scenario 1**
+  If the center shuts down now, revenues are zero but it will not incur
+  any variable costs and would only need to pay fixed costs of \$10,000.
 
-If the center shuts down now, revenues are zero but it will not incur any variable costs and would only need to pay fixed costs of \$10,000.
+  ![multiline equation line 1 profit equals total revenue en dash left
+  parenthesis fixed costs plus variable cost right parenthesis line 2
+  equals zero en dash dollar sign 10,000 line 3 equals en dash dollar
+  sign 10,000](media/rId68.png){width="3.5208333333333335in"
+  height="0.6145833333333334in"}
 
-$$
-\begin{aligned}
-\text { profit } & =\text { total revenue }-(\text { fixed costs }+ \text { variable cost }) \\
-& =0-\$ 10,000 \\
-& =-\$ 10,000
-\end{aligned}
-$$
+  **Scenario 2**
 
-**Scenario 2**
+  The center earns revenues of \$10,000, and variable costs are \$15,000.
+  The center should shut down now.
 
-The center earns revenues of \$10,000, and variable costs are \$15,000.
-The center should shut down now.
+  ![multiline equation line 1 profit equals total revenue en dash left
+  parenthesis fixed costs plus variable cost right parenthesis line 2
+  equals dollar sign 10,000 en dash left parenthesis dollar sign 10,000
+  plus dollar sign 15,000 right parenthesis line 3 equals en dash dollar
+  sign 15,000](media/rId70.png){width="3.625in"
+  height="0.6145833333333334in"}
 
-$$
-\begin{aligned}
-\text { profit } & =\text { total revenue }-(\text { fixed costs }+ \text { variable cost }) \\
-& =\$ 10,000-(\$ 10,000+\$ 15,000) \\
-& =-\$ 15,000
-\end{aligned}
-$$
+  **Scenario 3**
 
-**Scenario 3**
+  The center earns revenues of \$20,000, and variable costs are \$15,000.
+  The center should continue in business.
 
-The center earns revenues of \$20,000, and variable costs are \$15,000.
-The center should continue in business.
-
-$$
-\begin{aligned}
-\text { profit } & =\text { total revenue }-(\text { fixed costs }+ \text { variable cost }) \\
-& =\$ 20,000-(\$ 10,000+\$ 15,000) \\
-& =-\$ 5,000
-\end{aligned}
-$$
----
+  ![multiline equation line 1 profit equals total revenue en dash left
+  parenthesis fixed costs plus variable cost right parenthesis line 2
+  equals dollar sign 20,000 en dash left parenthesis dollar sign 10,000
+  plus dollar sign 15,000 right parenthesis line 3 equals en dash dollar
+  sign 5,000](media/rId72.png){width="3.625in"
+  height="0.6145833333333334in"}
+  -----------------------------------------------------------------------
 
 Table 8.5 Should the Yoga Center Shut Down Now or Later?
 

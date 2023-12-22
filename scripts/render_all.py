@@ -6,18 +6,41 @@ cwd = os.path.abspath(os.getcwd())
 print('Current working directory:', cwd)
 
 book_name = 'open_principles_of_microeconomics'
-os.chdir(book_name)
-print('Changed working directory to:', book_name)
+book_dir = os.path.join('..', book_name)
+
 
 render_book = 1
-if render_book:   
-    always_render = True
-    render_prefix = 'RENDERED_'
-    render_dir = render_prefix + book_name
-    if not hb.path_exists(render_dir, verbose=True) or always_render:
-        hb.create_directories(render_dir)
-        os.system("quarto render .")
+if render_book:  
     
+    os.chdir(book_dir)
+    print('Changed working directory to:', book_name)
+ 
+    always_render = True
+    render_prefix = 'HTML_'
+    render_dir = os.path.join('..', render_prefix + book_name)
+    
+    
+    hb.create_directories(render_dir)
+    
+    render_whole_book = False
+    if render_whole_book:
+        command = "quarto render . "
+        print(command)
+        os.system(command)
+    else:
+        qmd_files = hb.list_filtered_paths_recursively('.', include_extensions=['.qmd'])   
+        for qmd_file in qmd_files:
+            
+            target_path = os.path.join(render_dir, hb.replace_ext(qmd_file, '.html'))
+            
+            if always_render or not os.path.exists(target_path):
+                if hb.path_needs_rerender(qmd_file, target_path):
+                    command = "quarto render \"" + qmd_file + "\" --to html"
+                    print(command)
+                    os.system(command)
+            
+            # os.system("quarto render .")
+        
 render_slides = 0
 slides_input_dir = '.'
 if render_slides:
@@ -77,6 +100,6 @@ if render_slides:
             
 
             
-
+print('Script complete.')
             
 5

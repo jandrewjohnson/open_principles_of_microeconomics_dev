@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../hazelbean/hazelbean_dev"
+		},
+	],
+	"settings": {
+		"files.autoSave": "onFocusChange",
+		"python.analysis.extraPaths": [
+			"../../../global_invest/global_invest_dev",
+			"../../../gtap_invest/gtap_invest_dev",
+			"../../../gtappy/gtappy_dev",
+			"../../../hazelbean/hazelbean_dev",
+			"../../../seals/seals_dev",
+		],
+		"python.autoComplete.extraPaths": [
+			"../../../global_invest/global_invest_dev",
+			"../../../gtap_invest/gtap_invest_dev",
+			"../../../gtappy/gtappy_dev",
+			"../../../hazelbean/hazelbean_dev",
+			"../../../seals/seals_dev",
+		]
+		
+	}
+}
