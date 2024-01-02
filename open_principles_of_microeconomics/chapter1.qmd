@@ -1,3 +1,68 @@
+# Chapter 1 - Welcome to Economics!
+![](media/1-introduction_rId20.jpeg){width="6.5in" height="2.57in"}
+
+Figure 1.1 Do You Use Facebook? Economics is greatly impacted by how
+well information travels through society. Today, social media giants
+Twitter, Facebook, and Instagram are major forces on the information
+super highway. (Credit: modification of \"Social Media Mixed Icons -
+Banner\" by Blogtrepreneur/Flickr, CC BY 2.0)
+
+#### Chapter Objectives {#chapter-objectives .Heading3Grey}
+
+In this chapter, you will learn about:
+
+-   What Is Economics, and Why Is It Important?
+-   Microeconomics and Macroeconomics
+-   How Economists Use Theories and Models to Understand Economic Issues
+-   How Economies Can Be Organized: An Overview of Economic Systems
+
+### Introduction
+
+#### Bring It Home {#bring-it-home .Heading3Grey}
+
+##### Information Overload in the Information Age {#information-overload-in-the-information-age .Heading4Grey}
+
+To post or not to post? Every day we are faced with a myriad of
+decisions, from what to have for breakfast, to which show to stream, to
+the more complex---"Should I double major and add possibly another
+semester of study to my education?" Our response to these choices
+depends on the information we have available at any given moment.
+Economists call this "imperfect" because we rarely have all the data we
+need to make perfect decisions. Despite the lack of perfect information,
+we still make hundreds of decisions a day.
+
+Streams, sponsors, and social media are altering the process by which we
+make choices, how we spend our time, which movies we see, which products
+we buy, and more. Whether they read the reviews or just check the
+ratings, it\'s unlikely for Americans to make many significant decisions
+without these information streams.
+
+As you will see in this course, what happens in economics is affected by
+how well and how fast information disseminates through a society, such
+as how quickly information travels through Facebook. "Economists love
+nothing better than when deep and liquid markets operate under
+conditions of perfect information," says Jessica Irvine, National
+Economics Editor for News Corp Australia.
+
+This leads us to the topic of this chapter, an introduction to the world
+of making decisions, processing information, and understanding behavior
+in markets ---the world of economics. Each chapter in this book will
+start with a discussion about current (or sometimes past) events and
+revisit it at chapter's end---to "bring home" the concepts in play.
+
+What is economics and why should you spend your time learning it? After
+all, there are other disciplines you could be studying, and other ways
+you could be spending your time. As the Bring it Home feature just
+mentioned, making choices is at the heart of what economists study, and
+your decision to take this course is as much as economic decision as
+anything else.
+
+Economics is probably not what you think. It is not primarily about
+money or finance. It is not primarily about business. It is not
+mathematics. What is it then? It is both a subject area and a way of
+viewing the world.
+
+
 ### 1.1 What Is Economics, and Why Is It Important?
 
 #### Learning Objectives
@@ -297,7 +362,7 @@ illuminate the different choices.
 
 #### Learning Objectives
 
-By the end of this section, you will be able to: 
+By the end of this section, you will be able to:
 
 -   Describe microeconomics
 -   Describe macroeconomics
@@ -637,6 +702,22 @@ rough measures can be useful for discerning trends. In 2015, 101 of the
 decades, the overall trend has been a *higher level of economic freedom
 around the world*.
 
+| Rank | Most Economic Freedom | Least Economic Freedom |
+|------|-----------------------|------------------------|
+| 1    | Hong Kong             | Timor-Leste            |
+| 2    | Singapore             | Democratic Republic of Congo |
+| 3    | New Zealand           | Argentina              |
+| 4    | Switzerland           | Equatorial Guinea      |
+| 5    | Australia             | Iran                   |
+| 6    | Canada                | Republic of Congo      |
+| 7    | Chile                 | Eritrea                |
+| 8    | Ireland               | Turkmenistan           |
+| 9    | Estonia               | Zimbabwe               |
+| 10   | United Kingdom        | Venezuela              |
+| 11   | United States         | Cuba                   |
+| 12   | Denmark               | North Korea            |
+
+
 Table 1.1 Economic Freedoms, 2016 (Source: The Heritage Foundation, 2016
 Index of Economic Freedom, Country Rankings,
 http://www.heritage.org/index/ranking)
@@ -699,6 +780,24 @@ domestic product (GDP) measures the size of total production in an
 economy. Thus, the ratio of exports divided by GDP measures what share
 of a country's total economic production is sold in other countries.
 
+| Country        | 2010 | 2011 | 2012 | 2013 | 2014 | 2015 |
+|----------------|------|------|------|------|------|------|
+| **Higher Income Countries** |      |      |      |      |      |      |
+| United States  | 12.4 | 13.6 | 13.6 | 13.5 | 13.5 | 12.6 |
+| Belgium        | 76.2 | 81.4 | 82.2 | 82.8 | 84   | 84.4 |
+| Canada         | 29.1 | 30.7 | 30   | 30.1 | 31.7 | 31.5 |
+| France         | 26   | 27.8 | 28.1 | 28.3 | 29   | 30   |
+| **Middle Income Countries** |      |      |      |      |      |      |
+| Brazil         | 10.9 | 11.9 | 12.6 | 12.6 | 11.2 | 13   |
+| Mexico         | 29.9 | 31.2 | 32.6 | 31.7 | 32.3 | 35.3 |
+| South Korea    | 49.4 | 55.7 | 56.3 | 53.9 | 50.3 | 45.9 |
+| **Lower Income Countries** |      |      |      |      |      |      |
+| Chad           | 36.8 | 38.9 | 36.9 | 32.2 | 34.2 | 29.8 |
+| China          | 29.4 | 28.5 | 27.3 | 26.4 | 23.9 | 22.4 |
+| India          | 22   | 23.9 | 24   | 24.8 | 22.9 | -    |
+| Nigeria        | 25.3 | 31.3 | 31.4 | 18   | 18.4 | -    |
+
+
 Table 1.2 The Extent of Globalization (exports/GDP) (Source:
 http://databank.worldbank.org/data/)
 
@@ -759,69 +858,5 @@ are not available to cover other stories or complete other tasks.
 Information provides the necessary knowledge to make the best possible
 decisions on how to utilize scarce resources. Welcome to the world of
 economics!
-
-
-![](media/1-introduction_rId20.jpeg){width="6.5in" height="2.57in"}
-
-Figure 1.1 Do You Use Facebook? Economics is greatly impacted by how
-well information travels through society. Today, social media giants
-Twitter, Facebook, and Instagram are major forces on the information
-super highway. (Credit: modification of \"Social Media Mixed Icons -
-Banner\" by Blogtrepreneur/Flickr, CC BY 2.0)
-
-#### Chapter Objectives {#chapter-objectives .Heading3Grey}
-
-In this chapter, you will learn about:
-
--   What Is Economics, and Why Is It Important?
--   Microeconomics and Macroeconomics
--   How Economists Use Theories and Models to Understand Economic Issues
--   How Economies Can Be Organized: An Overview of Economic Systems
-
-### Introduction
-
-#### Bring It Home {#bring-it-home .Heading3Grey}
-
-##### Information Overload in the Information Age {#information-overload-in-the-information-age .Heading4Grey}
-
-To post or not to post? Every day we are faced with a myriad of
-decisions, from what to have for breakfast, to which show to stream, to
-the more complex---"Should I double major and add possibly another
-semester of study to my education?" Our response to these choices
-depends on the information we have available at any given moment.
-Economists call this "imperfect" because we rarely have all the data we
-need to make perfect decisions. Despite the lack of perfect information,
-we still make hundreds of decisions a day.
-
-Streams, sponsors, and social media are altering the process by which we
-make choices, how we spend our time, which movies we see, which products
-we buy, and more. Whether they read the reviews or just check the
-ratings, it\'s unlikely for Americans to make many significant decisions
-without these information streams.
-
-As you will see in this course, what happens in economics is affected by
-how well and how fast information disseminates through a society, such
-as how quickly information travels through Facebook. "Economists love
-nothing better than when deep and liquid markets operate under
-conditions of perfect information," says Jessica Irvine, National
-Economics Editor for News Corp Australia.
-
-This leads us to the topic of this chapter, an introduction to the world
-of making decisions, processing information, and understanding behavior
-in markets ---the world of economics. Each chapter in this book will
-start with a discussion about current (or sometimes past) events and
-revisit it at chapter's end---to "bring home" the concepts in play.
-
-What is economics and why should you spend your time learning it? After
-all, there are other disciplines you could be studying, and other ways
-you could be spending your time. As the Bring it Home feature just
-mentioned, making choices is at the heart of what economists study, and
-your decision to take this course is as much as economic decision as
-anything else.
-
-Economics is probably not what you think. It is not primarily about
-money or finance. It is not primarily about business. It is not
-mathematics. What is it then? It is both a subject area and a way of
-viewing the world.
 
 

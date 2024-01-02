@@ -1,5 +1,4 @@
 import os
-import hazelbean as hb
 import zipfile
 import shutil
 import subprocess

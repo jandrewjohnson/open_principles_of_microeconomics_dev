@@ -67,7 +67,7 @@ know about explicit costs and total them:
 ![multiline equation row 1 Office rental colon dollar sign 50,000 row 2
 Law clerk prime s salary colon plus dollar sign 35,000 bar bar bar bar
 bar bar bar bar bar bar bar bar row 3 Total explicit costs colon dollar
-sign 85,000](media/rId29.png){width="2.21875in"
+sign 85,000](media/7-1-explicit-and-implicit-costs-and-accounting-and-economic-profit_rId29.png){width="2.21875in"
 height="0.7291666666666666in"}
 
 Step 2. Subtracting the explicit costs from the revenue gives you the
@@ -76,7 +76,7 @@ accounting profit.
 ![multiline equation row 1 Revenues colon dollar sign 200,000 row 2
 Explicit costs colon en dash dollar sign 85,000 bar bar bar bar bar bar
 bar bar bar bar bar bar row 3 Accounting profit colon dollar sign
-115,000](media/rId31.png){width="2.1354166666666665in"
+115,000](media/7-1-explicit-and-implicit-costs-and-accounting-and-economic-profit_rId31.png){width="2.1354166666666665in"
 height="0.7291666666666666in"}
 
 However, these calculations consider only the explicit costs. To open
@@ -91,7 +91,7 @@ determine the true economic profit:
 explicit costs en dash implicit costs row 2 Blank equals dollar sign
 200,000 en dash dollar sign 85,000 en dash dollar sign 125,000 row 3
 Blank equals en dash dollar sign 10,000 per
-year](media/rId33.png){width="4.375in" height="0.6145833333333334in"}
+year](media/7-1-explicit-and-implicit-costs-and-accounting-and-economic-profit_rId33.png){width="4.375in" height="0.6145833333333334in"}
 
 Eryn would be losing \$10,000 per year. That does not mean she would not
 want to open her own business, but it does mean she would be earning

@@ -39,7 +39,7 @@ product slash change in variable output row 2 Blank Blank change in
 total product equals 275 square feet negative 200 square feet row 3
 Blank Blank change in total product equals 75 square feet row 4 marginal
 product equals 75 square feet prefix slash one worker row 5 marginal
-product equals 75](media/rId29.png){width="5.645833333333333in"
+product equals 75](media/chapter-7_rId29.png){width="5.645833333333333in"
 height="1.0729166666666667in"}
 
 [6](http://openstax.org/books/principles-microeconomics-3e/pages/7-self-check-questions#fs-idm79135792).

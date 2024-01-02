@@ -58,7 +58,7 @@ dollar sign 100 right parenthesis plus left parenthesis 30 times dollar
 sign 1,000 right parenthesis plus left parenthesis 10 times dollar sign
 15,000 right parenthesis row 2 Blank equals dollar sign 6,000 plus
 dollar sign 30,000 plus dollar sign 150,000 row 3 Blank equals dollar
-sign 186,000](media/rId24.png){width="4.375in"
+sign 186,000](media/16-2-insurance-and-imperfect-information_rId24.png){width="4.375in"
 height="0.6145833333333334in"}
 
 If each of the 100 drivers pays a \$1,860 premium each year, the

@@ -28,7 +28,7 @@ demanded divided by the percentage change in income.
 
 ![multiline equation row 1 Income elasticity of demand equals percent
 sign change in quantity demanded divided by percent sign change in
-income](media/rId23.png){width="3.7395833333333335in" height="0.25in"}
+income](media/5-4-elasticity-in-areas-other-than-price_rId23.png){width="3.7395833333333335in" height="0.25in"}
 
 For most products, most of the time, the income elasticity of demand is
 positive: that is, a rise in income will cause an increase in the
@@ -71,7 +71,7 @@ percentage change in the price of good B.
 
 ![multiline equation row 1 Cross minus price elasticity of demand equals
 percent sign change in Qd of good cap A divided by percent sign change
-in price of good cap B](media/rId31.png){width="3.7916666666666665in"
+in price of good cap B](media/5-4-elasticity-in-areas-other-than-price_rId31.png){width="3.7916666666666665in"
 height="0.25in"}
 
 Substitute goods have positive cross-price elasticities of demand: if
@@ -91,7 +91,7 @@ shape of the labor supply curve. Specifically:
 
 ![multiline equation row 1 Elasticity of labor supply equals percent
 sign change in quantity of labor supplied divided by percent sign change
-in wage](media/rId36.png){width="3.84375in" height="0.25in"}
+in wage](media/5-4-elasticity-in-areas-other-than-price_rId36.png){width="3.84375in" height="0.25in"}
 
 The wage elasticity of labor supply for teenage workers is generally
 fairly elastic: that is, a certain percentage change in wages will lead
@@ -109,7 +109,7 @@ supply curve for financial capital. That is:
 
 ![multiline equation row 1 Elasticity of savings equals percent sign
 change in quantity of financial savings divided by percent sign change
-in interest rate](media/rId39.png){width="3.6145833333333335in"
+in interest rate](media/5-4-elasticity-in-areas-other-than-price_rId39.png){width="3.6145833333333335in"
 height="0.25in"}
 
 Sometimes laws are proposed that seek to increase the quantity of
@@ -190,7 +190,7 @@ left parenthesis dollar sign 10 plus dollar sign 16 right parenthesis
 slash two right bracket row 2 Blank equals en dash 600,000 slash 24.3
 million divided by dollar sign six slash dollar sign 13 row 3 Blank
 equals en dash 0.025 divided by 0.46 row 4 Blank equals en dash
-0.05](media/rId48.png){width="2.1770833333333335in"
+0.05](media/5-4-elasticity-in-areas-other-than-price_rId48.png){width="2.1770833333333335in"
 height="1.0729166666666667in"}
 
 In addition, Netflix officials had anticipated the price increase would

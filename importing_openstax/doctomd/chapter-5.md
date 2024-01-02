@@ -14,7 +14,7 @@ parenthesis 80 plus 70 right parenthesis division sign two times times
 100 row 5 Blank equals 10 divided by 75 times times 100 row 6 Blank
 equals 13.33 row 7 Elasticity of Demand equals en dash 7.41 percent sign
 divided by 13.33 percent sign row 8 Blank equals
-0.56](media/rId21.png){width="2.8854166666666665in"
+0.56](media/chapter-5_rId21.png){width="2.8854166666666665in"
 height="2.0208333333333335in"}
 
 The demand curve is inelastic in this area; that is, its elasticity
@@ -31,7 +31,7 @@ parenthesis 100 plus 90 right parenthesis division sign two times times
 100 row 5 Blank equals 10 divided by 95 times times 100 row 6 Blank
 equals 10.53 row 7 Elasticity of Demand equals en dash 8.7 percent sign
 divided by 10.53 percent sign row 8 Blank equals
-0.83](media/rId23.png){width="2.8854166666666665in" height="2.03125in"}
+0.83](media/chapter-5_rId23.png){width="2.8854166666666665in" height="2.03125in"}
 
 The demand curve is inelastic in this area; that is, its elasticity
 value is less than one.
@@ -45,7 +45,7 @@ en dash 1800 divided by 1700 times times 100 row 2 Blank equals en dash
 times times 100 row 5 Blank equals 10 divided by 125 times times 100 row
 6 Blank equals 8.00 row 7 Elasticity of Demand equals en dash 11.76
 percent sign divided by 8.00 percent sign row 8 Blank equals en dash
-1.47](media/rId25.png){width="2.6145833333333335in" height="1.96875in"}
+1.47](media/chapter-5_rId25.png){width="2.6145833333333335in" height="1.96875in"}
 
 The demand curve is elastic in this interval.
 
@@ -63,7 +63,7 @@ parenthesis dollar sign nine plus dollar sign eight right parenthesis
 division sign two times times 100 row 5 Blank equals one divided by 8.5
 times times 100 row 6 Blank equals 11.76 row 7 Elasticity of Supply
 equals 33.33 percent sign divided by 11.76 percent sign row 8 Blank
-equals 2.83](media/rId29.png){width="2.65625in" height="2.03125in"}
+equals 2.83](media/chapter-5_rId29.png){width="2.65625in" height="2.03125in"}
 
 The supply curve is elastic in this area; that is, its elasticity value
 is greater than one.
@@ -80,7 +80,7 @@ parenthesis dollar sign 11 plus dollar sign 10 right parenthesis
 division sign two times times 100 row 5 Blank equals one divided by 10.5
 times times 100 row 6 Blank equals 9.52 row 7 Elasticity of Demand
 equals 9.52 percent sign divided by 9.52 percent sign row 8 Blank equals
-1.0](media/rId31.png){width="2.7708333333333335in" height="2.03125in"}
+1.0](media/chapter-5_rId31.png){width="2.7708333333333335in" height="2.03125in"}
 
 The supply curve has unitary elasticity in this area.
 
@@ -96,7 +96,7 @@ dollar sign 13 plus dollar sign 12 right parenthesis division sign two
 times times 100 row 5 Blank equals one divided by 12.5 times times 100
 row 6 Blank equals 8.0 row 7 Elasticity of Supply equals 5.13 percent
 sign divided by 8.0 percent sign row 8 Blank equals
-0.64](media/rId33.png){width="2.7708333333333335in" height="2.03125in"}
+0.64](media/chapter-5_rId33.png){width="2.7708333333333335in" height="2.03125in"}
 
 The supply curve is inelastic in this region of the supply curve.
 
@@ -151,7 +151,7 @@ times 100 row 6 Blank equals left bracket 38,000 en dash 25,000 right
 bracket slash left bracket left parenthesis 38,000 plus 25,000 right
 parenthesis slash two right bracket times 100 row 7 Blank equals 13
 slash 31.5 times 100 row 8 Blank equals
-41.27](media/rId47.png){width="6.395833333333333in"
+41.27](media/chapter-5_rId47.png){width="6.395833333333333in"
 height="1.7708333333333333in"}
 
 In this example, bread is an inferior good because its consumption falls

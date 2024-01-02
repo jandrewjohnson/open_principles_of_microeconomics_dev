@@ -15,7 +15,7 @@ algebra. The equation for a budget line is:
 
 ![multiline equation row 1 Budget equals cap P sub RT postfix times cap
 Q sub RT plus cap P sub PC times cap Q sub
-PC](media/rId21.png){width="2.53125in" height="0.16666666666666666in"}
+PC](media/chapter-6_rId21.png){width="2.53125in" height="0.16666666666666666in"}
 
 where P and Q are price and quantity of round trips (~RT~) and phone
 calls (~PC~) (per minute). In Jeremy's case the equation for the budget
@@ -27,7 +27,7 @@ dollar sign 10 divided by dollar sign .05 equals dollar sign two cap Q
 sub RT prefix plus dollar sign .05 cap Q sub PC divided by dollar sign
 .05 row 3 200 equals 40 cap Q sub RT prefix plus cap Q sub PC row 4 cap
 Q sub PC equals 200 negative 40 cap Q sub
-RT](media/rId23.png){width="2.3229166666666665in"
+RT](media/chapter-6_rId23.png){width="2.3229166666666665in"
 height="0.9270833333333334in"}
 
 If we choose zero through five round trips (column 1), the table below

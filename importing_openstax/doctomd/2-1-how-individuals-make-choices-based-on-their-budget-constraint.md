@@ -119,19 +119,19 @@ sign 10 budget equals dollar sign two per burger times quantity of
 burgers plus dollar sign 0.50 per bus ticket times quantity of bus
 tickets row 3 dollar sign 10 equals dollar sign two times cap Q sub
 burgers times plus dollar sign 0.50 times cap Q sub bus
-tickets](media/rId31.png){width="6.5in" height="0.6176006124234471in"}
+tickets](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId31.png){width="6.5in" height="0.6176006124234471in"}
 
 Step 3. Using a little algebra, we can turn this into the familiar
 equation of a line:
 
 ![multiline equation row 1 y equals b plus
-mx](media/rId33.png){width="0.84375in" height="0.16666666666666666in"}
+mx](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId33.png){width="0.84375in" height="0.16666666666666666in"}
 
 For Alphonso, this is:
 
 ![multiline equation row 1 dollar sign 10 equals dollar sign two times
 cap Q sub burgers plus dollar sign 0.50 times cap Q sub bus
-tickets](media/rId35.png){width="2.78125in"
+tickets](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId35.png){width="2.78125in"
 height="0.17708333333333334in"}
 
 Step 4. Simplify the equation. Begin by multiplying both sides of the
@@ -140,13 +140,13 @@ equation by 2:
 ![multiline equation row 1 two times 10 equals two times two times cap Q
 sub burgers times plus two times 0.5 times cap Q sub bus tickets row 2
 20 equals four times cap Q sub burgers times plus one times cap Q sub
-bus tickets](media/rId37.png){width="3.3645833333333335in"
+bus tickets](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId37.png){width="3.3645833333333335in"
 height="0.4270833333333333in"}
 
 Step 5. Subtract one bus ticket from both sides:
 
 ![multiline equation row 1 20 en dash cap Q sub bus tickets equals four
-times cap Q sub burgers](media/rId39.png){width="1.9270833333333333in"
+times cap Q sub burgers](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId39.png){width="1.9270833333333333in"
 height="0.17708333333333334in"}
 
 Divide each side by 4 to yield the answer:
@@ -154,7 +154,7 @@ Divide each side by 4 to yield the answer:
 ![multiline equation row 1 five en dash 0.25 times cap Q sub bus tickets
 equals cap Q sub burgers row 2 Blank or Blank row 3 cap Q sub burgers
 equals five en dash 0.25 times cap Q sub bus
-tickets](media/rId41.png){width="2.9583333333333335in"
+tickets](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId41.png){width="2.9583333333333335in"
 height="0.6666666666666666in"}
 
 Step 6. Notice that this equation fits the budget constraint in [Figure

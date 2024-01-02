@@ -311,13 +311,13 @@ marginal cost of the second unit will be:
 
 ![multiline equation row 1 MC equals dollar sign 775 en dash dollar sign
 500 divided by one row 2 Blank equals dollar sign
-275](media/rId44.png){width="1.0104166666666667in" height="0.4375in"}
+275](media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId44.png){width="1.0104166666666667in" height="0.4375in"}
 
 Step 3. Remember that, similarly, marginal revenue is the change in
 total revenue from selling a small amount of additional output.
 
 ![multiline equation row 1 MR equals change in total revenue divided by
-change in quantity sold](media/rId46.png){width="1.6354166666666667in"
+change in quantity sold](media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId46.png){width="1.6354166666666667in"
 height="0.23958333333333334in"}
 
 Step 4. Note that in [Table 9.3](#Table_09_03), as output increases from
@@ -326,7 +326,7 @@ result, the marginal revenue of the second unit will be:
 
 ![multiline equation row 1 MR equals dollar sign 2200 en dash dollar
 sign 1200 divided by one row 2 Blank equals dollar sign
-1000](media/rId48.png){width="1.125in" height="0.4375in"}
+1000](media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId48.png){width="1.125in" height="0.4375in"}
 
   ---------------------------------------------------------------------------
   **Quantity**\   **Marginal     **Marginal     **Marginal     **Total

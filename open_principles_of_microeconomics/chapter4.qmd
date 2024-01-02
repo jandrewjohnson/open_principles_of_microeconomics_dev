@@ -1,3 +1,77 @@
+# Chapter 4 - Labor and Financial Markets
+![](media/4-introduction-to-labor-and-financial-markets_rId20.jpeg){width="6.5in" height="3.933333333333333in"}
+
+Figure 4.1 People often think of demand and supply in relation to goods,
+but labor markets, such as the nursing profession, can also apply to
+this analysis. (Credit: modification of \"Hospital do Subúrbio\" by
+Jaques Wagner Governador/Flickr Creative Commons, CC BY 2.0)
+
+#### Chapter Objectives {#chapter-objectives .Heading3Grey}
+
+In this chapter, you will learn about:
+
+-   Demand and Supply at Work in Labor Markets
+-   Demand and Supply in Financial Markets
+-   The Market System as an Efficient Mechanism for Information
+
+### Introduction to Labor and Financial Markets
+
+#### Bring It Home {#bring-it-home .Heading3Grey}
+
+##### Baby Boomers Come of Age {#baby-boomers-come-of-age .Heading4Grey}
+
+According to the 2020 Census, 22% of the U.S. population was 60 years
+old or older, which means that more than 74 million people have reached
+an age when they will need increased medical care.
+
+The baby boomer population, the group born between 1946 and 1964, is
+comprised of more than 71 million people who have already reached
+retirement age or will soon reach retirement. As this population grows
+older, they will be faced with common healthcare issues such as heart
+conditions, arthritis, and Alzheimer's that may require hospitalization,
+long-term, or at-home nursing care. Aging baby boomers and advances in
+life-saving and life-extending technologies will increase the demand for
+healthcare and nursing. Additionally, the Affordable Care Act, which
+expands access to healthcare for millions of Americans, has further
+increased the demand.
+
+These data tell us, as economists, that the market for healthcare
+professionals, and nurses in particular, will face several challenges.
+Our study of supply and demand will help us to analyze what might happen
+in the labor market for nursing and other healthcare professionals, as
+we will discuss in the second half of this case at the end of the
+chapter.
+
+The theories of supply and demand do not apply just to markets for
+goods. They apply to any market, even markets for things we may not
+think of as goods and services like labor and financial services. Labor
+markets are markets for employees or jobs. Financial services markets
+are markets for saving or borrowing.
+
+When we think about demand and supply curves in goods and services
+markets, it is easy to picture the demanders and suppliers: businesses
+produce the products and households buy them. Who are the demanders and
+suppliers in labor and financial service markets? In labor markets job
+seekers (individuals) are the suppliers of labor, while firms and other
+employers who hire labor are the demanders for labor. In financial
+markets, any individual or firm who saves contributes to the supply of
+money, and any entity that borrows (person, firm, or government)
+contributes to the demand for money.
+
+As a college student, you most likely participate in both labor and
+financial markets. Employment is a fact of life for most college
+students: According to the National Center for Educational Statistics,
+in 2018 43% of full-time college students and 81% of part-time college
+students were employed. Most college students are also heavily involved
+in financial markets, primarily as borrowers. As of the 2018--19 school
+year, 43% of full-time undergraduate students were receiving loan aid to
+help finance their education, and those loans averaged \$7,300 per year.
+Many students also borrow for other expenses, like purchasing a car. As
+this chapter will illustrate, we can analyze labor markets and financial
+markets with the same tools we use to analyze demand and supply in the
+goods markets.
+
+
 ### 4.1 Demand and Supply at Work in Labor Markets
 
 #### Learning Objectives
@@ -30,6 +104,8 @@ equilibrium in this labor market. The demand and supply schedules in
 [Table 4.1](#Table_04_01) list the quantity supplied and quantity
 demanded of nurses at different salaries.
 
+
+
 ![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId24.jpeg){width="4.88in" height="2.68in"}
 
 Figure 4.2 Labor Market Example: Demand and Supply for Nurses in
@@ -44,6 +120,15 @@ excess supply or surplus of nurses would exist. At a below-equilibrium
 salary of \$75,000, quantity supplied declines to 34,000, while the
 quantity demanded at the lower wage increases to 47,000 nurses. At this
 below-equilibrium salary, excess demand or a shortage exists.
+
+| Annual Salary | Quantity Demanded | Quantity Supplied |
+|---------------|-------------------|-------------------|
+| $70,000       | 52,000            | 27,000            |
+| $75,000       | 47,000            | 34,000            |
+| $80,000       | 44,000            | 38,000            |
+| $85,000       | 41,000            | 41,000            |
+| $90,000       | 40,000            | 45,000            |
+| $95,000       | 39,000            | 48,000            |
 
 Table 4.1 Demand and Supply of Nurses in Minneapolis-St.
 Paul-Bloomington
@@ -148,6 +233,16 @@ demand for labor will decrease, or shift to the left. [Table
 labor, demand can also increase or decrease (shift) in response to
 several factors.
 
+| Factors	| Results| 
+|----------------|-------------------|
+| Demand for Output| 	When the demand for the good produced (output) increases, both the output price and profitability increase. As a result, producers demand more labor to ramp up production.| 
+| Education and Training| 	A well-trained and educated workforce causes an increase in the demand for that labor by employers. Increased levels of productivity within the workforce will cause the demand for labor to shift to the right. If the workforce is not well-trained or educated, employers will not hire from within that labor pool, since they will need to spend a significant amount of time and money training that workforce. Demand for such will shift to the left.| 
+| Technology| 	Technology changes can act as either substitutes for or complements to labor. When technology acts as a substitute, it replaces the need for the number of workers an employer needs to hire. For example, word processing decreased the number of typists needed in the workplace. This shifted the demand curve for typists left. An increase in the availability of certain technologies may increase the demand for labor. Technology that acts as a complement to labor will increase the demand for certain types of labor, resulting in a rightward shift of the demand curve. For example, the increased use of word processing and other software has increased the demand for information technology professionals who can resolve software and hardware issues related to a firm’s network. More and better technology will increase demand for skilled workers who know how to use technology to enhance workplace productivity. Those workers who do not adapt to changes in technology will experience a decrease in demand.| 
+| Number of Companies| 	An increase in the number of companies producing a given product will increase the demand for labor resulting in a shift to the right. A decrease in the number of companies producing a given product will decrease the demand for labor resulting in a shift to the left.| 
+| Government Regulations| 	Complying with government regulations can increase or decrease the demand for labor at any given wage. In the healthcare industry, government rules may require that nurses be hired to carry out certain medical procedures. This will increase the demand for nurses. Less-trained healthcare workers would be prohibited from carrying out these procedures, and the demand for these workers will shift to the left.| 
+| Price and Availability of Other Inputs| 	Labor is not the only input into the production process. For example, a salesperson at a call center needs a telephone and a computer terminal to enter data and record sales. If prices of other inputs fall, production will become more profitable and suppliers will demand more labor to increase production. This will cause a rightward shift in the demand curve for labor. The opposite is also true. Higher prices for other inputs lower demand for labor.| 
+
+
 Table 4.2 Factors That Can Shift Demand
 
 #### Link It Up {#link-it-up .Heading3Grey}
@@ -165,6 +260,12 @@ leisure activities at every given price level. The higher the wage, the
 more labor is willing to work and forego leisure activities. [Table
 4.3](#Table_04_03) lists some of the factors that will cause the supply
 to increase or decrease.
+
+| Factors	| Results| 
+|----------------|-------------------|
+| Number of Workers| 	An increased number of workers will cause the supply curve to shift to the right. An increased number of workers can be due to several factors, such as immigration, increasing population, an aging population, and changing demographics. Policies that encourage immigration will increase the supply of labor, and vice versa. Population grows when birth rates exceed death rates. This eventually increases supply of labor when the former reach working age. Another example of changing demographics is more women working outside of the home, which increases the supply of labor.| 
+| Required Education| 	The more required education, the lower the supply. There is a lower supply of PhD mathematicians than of high school mathematics teachers; there is a lower supply of cardiologists than of primary care physicians; and there is a lower supply of physicians than of nurses.| 
+| Government Policies| 	Government policies can also affect the supply of labor for jobs. Alternatively, the government may support rules that set high qualifications for certain jobs: academic training, certificates or licenses, or experience. When these qualifications are made tougher, the number of qualified workers will decrease at any given wage. On the other hand, the government may also subsidize training or even reduce the required level of qualifications. For example, government might offer subsidies for nursing schools or nursing students. Such provisions would shift the supply curve of nurses to the right. In addition, government policies that change the relative desirability of working versus not working also affect the labor supply. These include unemployment benefits, maternity leave, child care benefits, and welfare policy. For example, child care benefits may increase the labor supply of working mothers. Long term unemployment benefits may discourage job searching for unemployed workers. All these policies must therefore be carefully designed to minimize any negative labor supply effects.| 
 
 Table 4.3 Factors that Can Shift Supply
 
@@ -302,6 +403,16 @@ equilibrium in this labor market is a wage of \$10/hour and a quantity
 of 1,200 workers, shown at point E. Imposing a wage floor at \$12/hour
 leads to an excess supply of labor. At that wage, the quantity of labor
 supplied is 1,600 and the quantity of labor demanded is only 700.
+
+| Wage   | Quantity Labor Demanded | Quantity Labor Supplied |
+|--------|-------------------------|-------------------------|
+| $8/hr  | 1,900                   | 500                     |
+| $9/hr  | 1,500                   | 900                     |
+| $10/hr | 1,200                   | 1,200                   |
+| $11/hr | 900                     | 1,400                   |
+| $12/hr | 700                     | 1,600                   |
+| $13/hr | 500                     | 1,800                   |
+| $14/hr | 400                     | 1,900                   |
 
 Table 4.4 Living Wage: Example of a Price Floor
 
@@ -485,6 +596,15 @@ demanded would decrease to \$480 billion. At a below-equilibrium
 interest rate like 13%, the quantity of financial capital demanded would
 increase to \$700 billion, but the quantity of financial capital
 supplied would decrease to \$510 billion.
+
+| Interest Rate (%) | Quantity of Financial Capital Demanded (Borrowing) ($ billions) | Quantity of Financial Capital Supplied (Lending) ($ billions) |
+|-------------------|--------------------------------------------------------------------|------------------------------------------------------------------|
+| 11                | $800                                                               | $420                                                             |
+| 13                | $700                                                               | $510                                                             |
+| 15                | $600                                                               | $600                                                             |
+| 17                | $550                                                               | $660                                                             |
+| 19                | $500                                                               | $720                                                             |
+| 21                | $480                                                               | $750                                                             |
 
 Table 4.5 Demand and Supply for Borrowing Money with Credit Cards
 
@@ -899,78 +1019,5 @@ representation is less than Qe~1~, but more than the initial Qe~0~.
 While we do not know if the number of nurses will increase or decrease
 relative to their initial employment, we know they will have higher
 salaries.
-
-
-![](media/4-introduction-to-labor-and-financial-markets_rId20.jpeg){width="6.5in" height="3.933333333333333in"}
-
-Figure 4.1 People often think of demand and supply in relation to goods,
-but labor markets, such as the nursing profession, can also apply to
-this analysis. (Credit: modification of \"Hospital do Subúrbio\" by
-Jaques Wagner Governador/Flickr Creative Commons, CC BY 2.0)
-
-#### Chapter Objectives {#chapter-objectives .Heading3Grey}
-
-In this chapter, you will learn about:
-
--   Demand and Supply at Work in Labor Markets
--   Demand and Supply in Financial Markets
--   The Market System as an Efficient Mechanism for Information
-
-### Introduction to Labor and Financial Markets
-
-#### Bring It Home {#bring-it-home .Heading3Grey}
-
-##### Baby Boomers Come of Age {#baby-boomers-come-of-age .Heading4Grey}
-
-According to the 2020 Census, 22% of the U.S. population was 60 years
-old or older, which means that more than 74 million people have reached
-an age when they will need increased medical care.
-
-The baby boomer population, the group born between 1946 and 1964, is
-comprised of more than 71 million people who have already reached
-retirement age or will soon reach retirement. As this population grows
-older, they will be faced with common healthcare issues such as heart
-conditions, arthritis, and Alzheimer's that may require hospitalization,
-long-term, or at-home nursing care. Aging baby boomers and advances in
-life-saving and life-extending technologies will increase the demand for
-healthcare and nursing. Additionally, the Affordable Care Act, which
-expands access to healthcare for millions of Americans, has further
-increased the demand.
-
-These data tell us, as economists, that the market for healthcare
-professionals, and nurses in particular, will face several challenges.
-Our study of supply and demand will help us to analyze what might happen
-in the labor market for nursing and other healthcare professionals, as
-we will discuss in the second half of this case at the end of the
-chapter.
-
-The theories of supply and demand do not apply just to markets for
-goods. They apply to any market, even markets for things we may not
-think of as goods and services like labor and financial services. Labor
-markets are markets for employees or jobs. Financial services markets
-are markets for saving or borrowing.
-
-When we think about demand and supply curves in goods and services
-markets, it is easy to picture the demanders and suppliers: businesses
-produce the products and households buy them. Who are the demanders and
-suppliers in labor and financial service markets? In labor markets job
-seekers (individuals) are the suppliers of labor, while firms and other
-employers who hire labor are the demanders for labor. In financial
-markets, any individual or firm who saves contributes to the supply of
-money, and any entity that borrows (person, firm, or government)
-contributes to the demand for money.
-
-As a college student, you most likely participate in both labor and
-financial markets. Employment is a fact of life for most college
-students: According to the National Center for Educational Statistics,
-in 2018 43% of full-time college students and 81% of part-time college
-students were employed. Most college students are also heavily involved
-in financial markets, primarily as borrowers. As of the 2018--19 school
-year, 43% of full-time undergraduate students were receiving loan aid to
-help finance their education, and those loans averaged \$7,300 per year.
-Many students also borrow for other expenses, like purchasing a car. As
-this chapter will illustrate, we can analyze labor markets and financial
-markets with the same tools we use to analyze demand and supply in the
-goods markets.
 
 

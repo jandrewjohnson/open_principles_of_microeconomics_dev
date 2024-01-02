@@ -12,91 +12,27 @@ book:
 
   chapters: 
   - index.qmd
-
-
-
-  - part: 1-Welcome to Economics!
-    chapters:
-      - chapter1.qmd
-
-  - part: 2-Choice in a World of Scarcity
-    chapters:
-      - chapter2.qmd
-
-  - part: 3-Demand and Supply
-    chapters:
-      - chapter3.qmd
-
-  - part: 4-Labor and Financial Markets
-    chapters:
-      - chapter4.qmd
-
-  - part: 5-Elasticity
-    chapters:
-      - chapter5.qmd
-
-  - part: 6-Consumer Choices
-    chapters:
-      - chapter6.qmd
-
-  - part: 7-Production, Costs, and Industry Structure
-    chapters:
-      - chapter7.qmd
-
-  - part: 8-Perfect Competition
-    chapters:
-      - chapter8.qmd
-
-  - part: 9-Monopoly
-    chapters:
-      - chapter9.qmd
-
-  - part: 10-Monopolistic Competition and Oligopoly
-    chapters:
-      - chapter10.qmd
-
-  - part: 11-Monopoly and Antitrust Policy
-    chapters:
-      - chapter11.qmd
-
-  - part: 12-Environmental Protection and Negative Externalities
-    chapters:
-      - chapter12.qmd
-
-  - part: 13-Positive Externalities and Public Goods
-    chapters:
-      - chapter13.qmd
-
-  - part: 14-Labor Markets and Income
-    chapters:
-      - chapter14.qmd
-
-  - part: 15-Poverty and Economic Inequality
-    chapters:
-      - chapter15.qmd
-
-  - part: 16-Information, Risk, and Insurance
-    chapters:
-      - chapter16.qmd
-
-  - part: 17-Financial Markets
-    chapters:
-      - chapter17.qmd
-
-  - part: 18-Public Economy
-    chapters:
-    - chapter18.qmd
-
-  - part: 19-International Trade
-    chapters:
-    - chapter19.qmd
-
-  - part: 20-Globalization and Protectionism
-    - chapter20.qmd
-
-
-
-
+  - chapter1.qmd
+  - chapter2.qmd
+  - chapter3.qmd
+  - chapter4.qmd
+  - chapter5.qmd
+  - chapter6.qmd
+  - chapter7.qmd
+  - chapter8.qmd
+  - chapter9.qmd
+  - chapter10.qmd
+  - chapter11.qmd
+  - chapter12.qmd
+  - chapter13.qmd
+  - chapter14.qmd
+  - chapter15.qmd
+  - chapter16.qmd
+  - chapter17.qmd
+  - chapter18.qmd
+  - chapter19.qmd
+  - chapter20.qmd
+    
 execute:
   freeze: true
   cache: true
