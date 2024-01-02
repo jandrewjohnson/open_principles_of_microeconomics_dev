@@ -49,6 +49,9 @@ format:
   #   theme: cosmo
   pdf:
     documentclass: scrreprt
+    toc: true
+    toc-depth: 2
+    number-sections: false
 
 
 
