@@ -1,5 +1,5 @@
-# Chapter 11 - Monopoly and Antitrust Policy
-![](media/11-introduction-to-monopoly-and-antitrust-policy_rId20.jpeg){width="6.5in" height="2.6666666666666665in"}
+# Chapter 11 - Monopoly and Antitrust Policy {#sec-chapter-11}
+![](media/11-introduction-to-monopoly-and-antitrust-policy_rId20.jpeg){width="6.5in" height="2.6666666666666665in" #fig-11_1}
 
 Figure 11.1 Oligopoly versus Competitors in the Marketplace Large
 corporations, such as the natural gas producer Kinder Morgan, can bring
@@ -125,12 +125,12 @@ merger or acquisition where at least one of the firms is above a minimum
 size of sales (a threshold that moves up gradually over time, and was at
 \$101 million in 2022), or certain other conditions are met, they are
 required under law to notify the U.S. Federal Trade Commission (FTC).
-The left-hand panel of [Figure 11.2](#CNX_Econ_C11_004) (a) shows the
+The left-hand panel of [Figure 11.2](#fig-11_2) (a) shows the
 number of mergers submitted for review to the FTC each year from 1999 to
 2012. Mergers follow the business cycle, falling after the 2001
 recession, peaking in 2007 as the Great Recession struck, and then
 rising since 2009. The right-hand panel of [Figure
-11.2](#CNX_Econ_C11_004) (b) shows the distribution of those mergers
+11.2](#fig-11_2) (b) shows the distribution of those mergers
 submitted for review in 2015 as measured by the size of the transaction.
 It is important to remember that this total leaves out many small
 mergers under \$50 million, which companies only need to report in
@@ -138,7 +138,7 @@ certain limited circumstances. In 2012, 26 percent of all reported
 merger and acquisition transactions exceeded \$500 million, while 11
 percent exceeded \$1 billion.
 
-![](media/11-1-corporate-mergers_rId24.jpeg){width="6.5in" height="2.827823709536308in"}
+![](media/11-1-corporate-mergers_rId24.jpeg){width="6.5in" height="2.827823709536308in" #fig-11_2}
 
 Figure 11.2 Number and Size of Mergers (a) The number of mergers grew
 from 2003 to 2007, then fell dramatically during the 2008-2009 Great
@@ -242,19 +242,26 @@ power in an industry. An early tool was the concentration ratio, which
 measures the combined market share (or percent of total industry sales)
 which is accounted for by the largest firms (typically the top four to
 eight). For an explanation of how high market concentrations can create
-inefficiencies in an economy, refer to
-[Monopoly](http://openstax.org/books/principles-microeconomics-3e/pages/9-introduction-to-a-monopoly).
+inefficiencies in an economy, refer to @sec-chapter-9.
 
 Say that the market for replacing broken automobile windshields in a
-certain city has 18 firms with the market shares in [Table
-11.1](#Table_11_01), where the market share is each firm's proportion of
+certain city has 18 firms with the market shares in @tbl-table_11_1, where the market share is each firm's proportion of
 total sales in that market. We calculate the four-firm concentration
 ratio by adding the market shares of the four largest firms: in this
 case, 16 + 10 + 8 + 6 = 40. We do not consider this concentration ratio
 especially high, because the largest four firms have less than half the
 market.
 
-Table 11.1 Calculating Concentration Ratios from Market Shares
+| Company Name                          | Market Share                           |
+|---------------------------------------|----------------------------------------|
+| Smooth as Glass Repair Company        | 16% of the market                      |
+| The Auto Glass Doctor Company         | 10% of the market                      |
+| Your Car Shield Company               | 8% of the market                       |
+| Seven firms (each with 6%)            | 42% of the market, combined            |
+| Eight firms (each with 3%)            | 24% of the market, combined            |
+| Then the four-firm concentration ratio | 16 + 10 + 8 + 6 = 40                  |
+
+: Calculating Concentration Ratios from Market Shares {#tbl-table_11_1}
 
 The concentration ratio approach can help to clarify some of the
 fuzziness over deciding when a merger might affect competition. For
@@ -270,7 +277,7 @@ eyebrow among antitrust regulators.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/Google_FTC) to read an
+Visit this [website](https://business.time.com/2013/01/04/googles-federal-antitrust-deal-cheered-by-some-jeered-by-others/) to read an
 article about Google's run-in with the FTC.
 
 #### The Herfindahl-Hirschman Index
@@ -302,8 +309,7 @@ of extremely small competitors, the HHI value might drop as low as 100
 or even less. Calculate the HHI for an industry with 100 firms that each
 have 1% of the market. In this case, the HHI is 100(1^2^) = 100.
 
-Step 3. Calculate the HHI for the industry in [Table
-11.1](#Table_11_01). In this case, the HHI is 16^2^ + 10^2^ + 8^2^ +
+Step 3. Calculate the HHI for the industry in @tbl-table_11_1. In this case, the HHI is 16^2^ + 10^2^ + 8^2^ +
 7(6^2^) + 8(3^2^) = 744.
 
 Step 4. Note that the HHI gives greater weight to large firms.
@@ -318,15 +324,26 @@ much higher at 77^2^ + 23(1^2^) = 5,952.
 Step 6. Note that the near-monopolist in the second industry drives up
 the HHI measure of industrial concentration.
 
-Step 7. Review [Table 11.2](#Table_11_02) which gives some examples of
+Step 7. Review @tbl-table_11_2 which gives some examples of
 the four-firm concentration ratio and the HHI in various U.S. industries
 in 2016. (You can find market share data from multiple industry sources.
 Data in the table are from: Statista.com (for wireless), *The Wall
 Street Journal* (for automobiles), Gartner.com (for computers) and the
 U.S. Bureau of Transportation Statistics (for airlines).)
 
-Table 11.2 Examples of Concentration Ratios and HHIs in the U.S.
-Economy, 2016
+| U.S. Industry       | Four-Firm Ratio | HHI   |
+|----------------------|-----------------|-------|
+| Wireless             | 98              | 2,736 |
+| Largest five:(Verizon, AT&T, Sprint, T-Mobile, US Cellular) | - | -     |
+| Personal Computers   | 76              | 1,234 |
+| Largest five: (HP, Lenovo, Dell, Asus, Apple, Acer) | -       | -     |
+| Airlines             | 69              | 1,382 |
+| Largest five: (American, Southwest, Delta, United, JetBlue) | -   | -     |
+| Automobiles          | 58              | 1,099 |
+| Largest five: (Ford, GM, Toyota, Chrysler, Nissan) | -           | -     |
+
+: Examples of Concentration Ratios and HHIs in the U.S.
+Economy, 2016 {#tbl-table_11_2}
 
 In the 1980s, the FTC followed these guidelines: If a merger would
 result in an HHI of less than 1,000, the FTC would probably approve it.
@@ -405,8 +422,7 @@ Federal Trade Commission decided to block the merger. After two years of
 legal battles, the FTC eventually allowed the merger in 2009 under the
 conditions that Whole Foods sell off the Wild Oats brand name and a
 number of individual stores, to preserve competition in certain local
-markets. For more on the difficulties of defining markets, refer to
-[Monopoly](http://openstax.org/books/principles-microeconomics-3e/pages/9-introduction-to-a-monopoly).
+markets. For more on the difficulties of defining markets, refer to @sec-chapter-9.
 
 This new approach to antitrust regulation involves detailed analysis of
 specific markets and companies, instead of defining a market and
@@ -512,8 +528,7 @@ may often bundle a number of different programs, even when the buyer
 wants only a few. Think about the software that is included in a new
 computer purchase, for example.
 
-Recall from the chapter on
-[Monopoly](http://openstax.org/books/principles-microeconomics-3e/pages/9-introduction-to-a-monopoly)
+Recall from @sec-chapter-9
 that predatory pricing occurs when the existing firm (or firms) reacts
 to a new firm by dropping prices very low, until the new firm is driven
 out of the market, at which point the existing firm raises prices again.
@@ -623,14 +638,13 @@ each with its own set of phone wires running through the neighborhood.
 #### The Choices in Regulating a Natural Monopoly
 
 What then is the appropriate competition policy for a natural monopoly?
-[Figure 11.3](#CNX_Econ_C11_003) illustrates the case of natural
+[Figure 11.3](#fig-11_3) illustrates the case of natural
 monopoly, with a market demand curve that cuts through the
 downward-sloping portion of the average cost curve. Points A, B, C, and
-F illustrate four of the main choices for regulation. [Table
-11.3](#Table_11_05) outlines the regulatory choices for dealing with a
+F illustrate four of the main choices for regulation. @tbl-table_11_3 outlines the regulatory choices for dealing with a
 natural monopoly.
 
-![](media/11-3-regulating-natural-monopolies_rId24.jpeg){width="3.25in" height="2.5in"}
+![](media/11-3-regulating-natural-monopolies_rId24.jpeg){width="3.25in" height="2.5in" #fig-11_3}
 
 Figure 11.3 Regulatory Choices in Dealing with Natural Monopoly A
 natural monopoly will maximize profits by producing at the quantity
@@ -646,10 +660,22 @@ price of 3.5, the firm will incur losses. The most likely choice is
 point F, where the firm is required to produce a quantity of 6 and
 charge a price of 6.5.
 
-Table 11.3 Regulatory Choices in Dealing with Natural Monopoly (\*We
+| Quantity | Price | Total Revenue* | Marginal Revenue | Total Cost | Marginal Cost | Average Cost |
+|----------|-------|-----------------|-------------------|------------|----------------|--------------|
+| 1        | 14.7  | 14.7            | 14.7              | 11.0       | -              | 11.00        |
+| 2        | 12.4  | 24.7            | 10.0              | 19.5       | 8.5            | 9.75         |
+| 3        | 10.6  | 31.7            | 7.0               | 25.5       | 6.0            | 8.50         |
+| 4        | 9.3   | 37.2            | 5.5               | 31.0       | 5.5            | 7.75         |
+| 5        | 8.0   | 40.0            | 2.8               | 35.0       | 4.0            | 7.00         |
+| 6        | 6.5   | 39.0            | –1.0              | 39.0       | 4.0            | 6.50         |
+| 7        | 5.0   | 35.0            | –4.0              | 42.0       | 3.0            | 6.00         |
+| 8        | 3.5   | 28.0            | –7.0              | 45.5       | 3.5            | 5.70         |
+| 9        | 2.0   | 18.0            | –10.0             | 49.5       | 4.0            | 5.5          |
+
+: Regulatory Choices in Dealing with Natural Monopoly (\*We
 obtain total revenue by multiplying price and quantity. However, we have
 rounded some of the price values in this table for ease of
-presentation.)
+presentation.) {#tbl-table_11_3}
 
 The first possibility is to leave the natural monopoly alone. In this
 case, the monopoly will follow its normal approach to maximizing
@@ -713,14 +739,13 @@ output and price with the political pressures, time constraints, and
 limited information of the real world is much harder than identifying
 the point on a graph. For more on the problems that can arise from a
 centrally determined price, see the discussion of price floors and price
-ceilings in [Demand and
-Supply](http://openstax.org/books/principles-microeconomics-3e/pages/3-introduction-to-demand-and-supply).
+ceilings in @sec-chapter-3.
 
 #### Cost-Plus versus Price Cap Regulation
 
 Regulators of public utilities for many decades followed the general
 approach of attempting to choose a point like F in [Figure
-11.3](#CNX_Econ_C11_003). They calculated the average cost of production
+11.3](#fig-11_3). They calculated the average cost of production
 for the water or electricity companies, added in an amount for the
 normal rate of profit the firm should expect to earn, and set the price
 for consumers accordingly. This method was known as cost-plus
@@ -787,8 +812,7 @@ is hard to know where to stop.
 Beginning in the 1970s, it became clear to policymakers of all political
 leanings that the existing price regulation was not working well. The
 United States carried out a great policy experiment---the deregulation
-that we discussed in
-[Monopoly](http://openstax.org/books/principles-microeconomics-3e/pages/9-introduction-to-a-monopoly)---removing
+that we discussed in @sec-chapter-9 ---removing
 government controls over prices and quantities produced in airlines,
 railroads, trucking, intercity bus travel, natural gas, and bank
 interest rates. The Clear It Up discusses the outcome of deregulation in

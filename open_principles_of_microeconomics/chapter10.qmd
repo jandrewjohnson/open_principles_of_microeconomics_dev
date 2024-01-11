@@ -1,5 +1,5 @@
-# Chapter 10 - Monopolistic Competition and Oligopoly
-![](media/10-introduction-to-monopolistic-competition-and-oligopoly_rId20.jpeg){width="6.5in" height="4.116666666666666in"}
+# Chapter 10 - Monopolistic Competition and Oligopoly {#sec-chapter-10}
+![](media/10-introduction-to-monopolistic-competition-and-oligopoly_rId20.jpeg){width="6.5in" height="4.116666666666666in" #fig-10_1}
 
 Figure 10.1 Competing Brands? The laundry detergent market is one that
 is characterized neither as perfect competition nor monopoly. (Credit:
@@ -126,12 +126,8 @@ Harvard University who published *The Economics of Monopolistic
 Competition*. The second was Joan Robinson of Cambridge University who
 published *The Economics of Imperfect Competition*. Robinson
 subsequently became interested in macroeconomics and she became a
-prominent Keynesian, and later a post-Keynesian economist. (See the
-[Welcome to
-Economics!](http://openstax.org/books/principles-microeconomics-3e/pages/1-introduction)
-and [The Keynesian
-Perspective](http://openstax.org/books/principles-economics-3e/pages/25-introduction-to-the-keynesian-perspective)
-chapters for more on Keynes.)
+prominent Keynesian, and later a post-Keynesian economist. (See @sec-chapter-1
+for more on Keynes.)
 
 #### Differentiated Products
 
@@ -172,14 +168,14 @@ competition.
 
 A monopolistically competitive firm perceives a demand for its goods
 that is an intermediate case between monopoly and competition. [Figure
-10.2](#CNX_Econ_C10_008) offers a reminder that the demand curve that a
+10.2](#fig-10_2) offers a reminder that the demand curve that a
 perfectly competitive firm faces is perfectly elastic or flat, because
 the perfectly competitive firm can sell any quantity it wishes at the
 prevailing market price. In contrast, the demand curve, as faced by a
 monopolist, is the market demand curve, since a monopolist is the only
 firm in the market, and hence is downward sloping.
 
-![](media/10-1-monopolistic-competition_rId33.jpeg){width="6.5in" height="2.305in"}
+![](media/10-1-monopolistic-competition_rId33.jpeg){width="6.5in" height="2.305in" #fig-10_2}
 
 Figure 10.2 Perceived Demand for Firms in Different Competitive Settings
 The demand curve that a perfectly competitive firm faces is perfectly
@@ -263,10 +259,10 @@ the Authentic Chinese Pizza store, which serves pizza with cheese, sweet
 and sour sauce, and your choice of vegetables and meats. Although
 Authentic Chinese Pizza must compete against other pizza businesses and
 restaurants, it has a differentiated product. The firm's perceived
-demand curve is downward sloping, as [Figure 10.3](#CNX_Econ_C10_004)
-shows and the first two columns of [Table 10.1](#Table_10_01).
+demand curve is downward sloping, as [Figure 10.3](#fig-10_3)
+shows and the first two columns of @tbl-table_10_1.
 
-![](media/10-1-monopolistic-competition_rId40.jpeg){width="4.88in" height="2.755in"}
+![](media/10-1-monopolistic-competition_rId40.jpeg){width="4.88in" height="2.755in" #fig-10_3}
 
 Figure 10.3 How a Monopolistic Competitor Chooses its Profit Maximizing
 Output and Price To maximize profits, the Authentic Chinese Pizza shop
@@ -274,14 +270,24 @@ would choose a quantity where marginal revenue equals marginal cost, or
 Q where MR = MC. Here it would choose a quantity of 40 and a price of
 \$16.
 
-Table 10.1 Revenue and Cost Schedule
+| Quantity | Price | Total Revenue | Marginal Revenue | Total Cost | Marginal Cost | Average Cost |
+|----------|-------|---------------|-------------------|------------|----------------|--------------|
+| 10       | $23   | $230          | $23               | $340       | $34            | $34          |
+| 20       | $20   | $400          | $17               | $400       | $6             | $20          |
+| 30       | $18   | $540          | $14               | $480       | $8             | $16          |
+| 40       | $16   | $640          | $10               | $580       | $10            | $14.50       |
+| 50       | $14   | $700          | $6                | $700       | $12            | $14          |
+| 60       | $12   | $720          | $2                | $840       | $14            | $14          |
+| 70       | $10   | $700          | –$2               | $1,020     | $18            | $14.57       |
+| 80       | $8    | $640          | –$6               | $1,280     | $26            | $16          |
+
+: 10.1 Revenue and Cost Schedule {#tbl-table_10_1}
 
 We can multiply the combinations of price and quantity at each point on
 the demand curve to calculate the total revenue that the firm would
-receive, which is in the third column of [Table 10.1](#Table_10_01). We
+receive, which is in the third column of @tbl-table_10_1. We
 calculate marginal revenue, in the fourth column, as the change in total
-revenue divided by the change in quantity. The final columns of [Table
-10.1](#Table_10_01) show total cost, marginal cost, and average cost. As
+revenue divided by the change in quantity. The final columns of @tbl-table_10_1 show total cost, marginal cost, and average cost. As
 always, we calculate marginal cost by dividing the change in total cost
 by the change in quantity, while we calculate average cost by dividing
 total cost by quantity. The following Work It Out feature shows how
@@ -327,10 +333,10 @@ it should charge a price of \$16 per pizza for a quantity of 40.
 Once the firm has chosen price and quantity, it's in a position to
 calculate total revenue, total cost, and profit. At a quantity of 40,
 the price of \$16 lies above the average cost curve, so the firm is
-making economic profits. From [Table 10.1](#Table_10_01) we can see
+making economic profits. From @tbl-table_10_1 we can see
 that, at an output of 40, the firm's total revenue is \$640 and its
 total cost is \$580, so profits are \$60. In [Figure
-10.3](#CNX_Econ_C10_004), the firm's total revenues are the rectangle
+10.3](#fig-10_3), the firm's total revenues are the rectangle
 with the quantity of 40 on the horizontal axis and the price of \$16 on
 the vertical axis. The firm's total costs are the light shaded rectangle
 with the same quantity of 40 on the horizontal axis but the average cost
@@ -373,7 +379,7 @@ will change the profit-maximizing quantity that the firm chooses to
 produce, since marginal revenue will then equal marginal cost at a lower
 quantity.
 
-[Figure 10.4](#CNX_Econ_C10_009) (a) shows a situation in which a
+[Figure 10.4](#fig-10_4) (a) shows a situation in which a
 monopolistic competitor was earning a profit with its original perceived
 demand curve (D~0~). The intersection of the marginal revenue curve
 (MR~0~) and marginal cost curve (MC) occurs at point S, corresponding to
@@ -382,7 +388,7 @@ price P~0~. The combination of price P~0~ and quantity Q~0~ lies above
 the average cost curve, which shows that the firm is earning positive
 economic profits.
 
-![](media/10-1-monopolistic-competition_rId47.jpeg){width="6.5in" height="2.68in"}
+![](media/10-1-monopolistic-competition_rId47.jpeg){width="6.5in" height="2.68in" #fig-10_4}
 
 Figure 10.4 Monopolistic Competition, Entry, and Exit (a) At P~0~ and
 Q~0~, the monopolistically competitive firm in this figure is making a
@@ -417,7 +423,7 @@ of new entry will drive down economic profits to zero in the long run.
 Remember that zero economic profit is not equivalent to zero accounting
 profit. A zero economic profit means the firm's accounting profit is
 equal to what its resources could earn in their next best use. [Figure
-10.4](#CNX_Econ_C10_009) (b) shows the reverse situation, where a
+10.4](#fig-10_4) (b) shows the reverse situation, where a
 monopolistically competitive firm is originally losing money. The
 adjustment to long-run equilibrium is analogous to the previous example.
 The economic losses lead to firms exiting, which will result in
@@ -711,8 +717,7 @@ prisoner's dilemma goes like this:
 > strong, and the prisoners will end up with only two years in jail
 > each.
 
-The game theory situation facing the two prisoners is in [Table
-10.2](#Table_10_03). To understand the dilemma, first consider the
+The game theory situation facing the two prisoners is in @tbl-table_10_2. To understand the dilemma, first consider the
 choices from Prisoner A's point of view. If A believes that B will
 confess, then A should confess, too, so as to not get stuck with the
 eight years in prison. However, if A believes that B will not confess,
@@ -726,7 +731,12 @@ individual (or firm) will pursue regardless of the other individual's
 self-interest, both are likely to confess, and end up being sentenced to
 a total of 10 years of jail time between them.
 
-Table 10.2 The Prisoner's Dilemma Problem
+|                  | Prisoner B - Remain Silent (Cooperate)   | Prisoner B - Confess (Do Not Cooperate)  |
+|------------------|-----------------------------------------|-------------------------------------------|
+| **Prisoner A - Remain Silent (Cooperate)**   | A gets 2 years, B gets 2 years             | A gets 8 years, B gets 1 year              |
+| **Prisoner A - Confess (Do Not Cooperate)**   | A gets 1 year, B gets 8 years             | A gets 5 years, B gets 5 years             |
+
+: The Prisoner's Dilemma Problem {#tbl-table_10_2}
 
 The game is called a dilemma because if the two prisoners had cooperated
 by both remaining silent, they would only have been incarcerated for two
@@ -742,21 +752,25 @@ The members of an oligopoly can face a prisoner's dilemma, also. If each
 of the oligopolists cooperates in holding down output, then high
 monopoly profits are possible. Each oligopolist, however, must worry
 that while it is holding down output, other firms are taking advantage
-of the high price by raising output and earning higher profits. [Table
-10.3](#Table_10_04) shows the prisoner's dilemma for a two-firm
+of the high price by raising output and earning higher profits. @tbl-table_10_3 shows the prisoner's dilemma for a two-firm
 oligopoly---known as a duopoly. If Firms A and B both agree to hold down
 output, they are acting together as a monopoly and will each earn
 \$1,000 in profits. However, both firms' dominant strategy is to
 increase output, in which case each will earn \$400 in profits.
 
-Table 10.3 A Prisoner's Dilemma for Oligopolists
+|                  | Firm B - Hold Down Output (Cooperate)   | Firm B - Increase Output (Do Not Cooperate)  |
+|------------------|-----------------------------------------|----------------------------------------------|
+| **Firm A - Hold Down Output (Cooperate)**   | A gets $1,000, B gets $1,000               | A gets $200, B gets $1,500                  |
+| **Firm A - Increase Output (Do Not Cooperate)**   | A gets $1,500, B gets $200               | A gets $400, B gets $400                    |
+
+: A Prisoner's Dilemma for Oligopolists {#tbl-table_10_3}
 
 Can the two firms trust each other? Consider the situation of Firm A:
 
 -   If A thinks that B will cheat on their agreement and increase
     output, then A will increase output, too, because for A the profit
     of \$400 when both firms increase output (the bottom right-hand
-    choice in [Table 10.3](#Table_10_04)) is better than a profit of
+    choice in @tbl-table_10_3) is better than a profit of
     only \$200 if A keeps output low and B raises output (the upper
     right-hand choice in the table).
 -   If A thinks that B will cooperate by holding down output, then A may
@@ -845,7 +859,7 @@ cannot sue Nigeria in court and force it to stop.
 #### Link It Up {#link-it-up .Heading3Grey}
 
 Visit the Organization of the Petroleum Exporting Countries
-[website](http://openstax.org/l/OPEC) and learn more about its history
+[website](https://www.opec.org/opec_web/en/about_us/24.htm) and learn more about its history
 and how it defines itself.
 
 Because oligopolists cannot sign a legally enforceable contract to act
@@ -856,7 +870,7 @@ agreed quantity of output.
 
 One example of the pressure these firms can exert on one another is the
 kinked demand curve, in which competing oligopoly firms commit to match
-price cuts, but not price increases. [Figure 10.5](#CNX_Econ_C10_007)
+price cuts, but not price increases. [Figure 10.5](#fig-10_5)
 shows this situation. Say that an oligopoly airline has agreed with the
 rest of a cartel to provide a quantity of 10,000 seats on the New York
 to Los Angeles route, at a price of \$500. This choice defines the kink
@@ -880,7 +894,7 @@ which the cartel successfully manages to hold down output, increase
 price, and share a monopoly level of profits even without any legally
 enforceable agreement.
 
-![](media/10-2-oligopoly_rId51.jpeg){width="3.25in" height="2.465in"}
+![](media/10-2-oligopoly_rId51.jpeg){width="3.25in" height="2.465in" #fig-10_5}
 
 Figure 10.5 A Kinked Demand Curve Consider a member firm in an oligopoly
 cartel that is supposed to produce a quantity of 10,000 and sell at a
@@ -931,8 +945,7 @@ The task of public policy with regard to competition is to sort through
 these multiple realities, attempting to encourage behavior that is
 beneficial to the broader society and to discourage behavior that only
 adds to the profits of a few large companies, with no corresponding
-benefit to consumers. [Monopoly and Antitrust
-Policy](http://openstax.org/books/principles-microeconomics-3e/pages/11-introduction-to-monopoly-and-antitrust-policy)
+benefit to consumers. @sec-chapter-11
 discusses the delicate judgments that go into this task.
 
 #### Bring It Home {#bring-it-home .Heading3Grey}

@@ -1,5 +1,5 @@
-# Chapter 4 - Labor and Financial Markets
-![](media/4-introduction-to-labor-and-financial-markets_rId20.jpeg){width="6.5in" height="3.933333333333333in"}
+# Chapter 4 - Labor and Financial Markets {#sec-chapter-4}
+![](media/4-introduction-to-labor-and-financial-markets_rId20.jpeg){width="6.5in" height="3.933333333333333in" #fig-4_1}
 
 Figure 4.1 People often think of demand and supply in relation to goods,
 but labor markets, such as the nursing profession, can also apply to
@@ -99,14 +99,14 @@ In 2020, nearly 41,000 registered nurses worked in the Minneapolis-St.
 Paul-Bloomington, Minnesota-Wisconsin metropolitan area, according to
 the BLS. They worked for a variety of employers: hospitals, doctors'
 offices, schools, health clinics, and nursing homes. [Figure
-4.2](#CNX_Econ_C04_001) illustrates how demand and supply determine
+4.2](#fig-4_2) illustrates how demand and supply determine
 equilibrium in this labor market. The demand and supply schedules in
-[Table 4.1](#Table_04_01) list the quantity supplied and quantity
+@tbl-table_4_1 list the quantity supplied and quantity
 demanded of nurses at different salaries.
 
 
 
-![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId24.jpeg){width="4.88in" height="2.68in"}
+![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId24.jpeg){width="4.88in" height="2.68in" #fig-4_2}
 
 Figure 4.2 Labor Market Example: Demand and Supply for Nurses in
 Minneapolis-St. Paul-Bloomington The demand curve (D) of those employers
@@ -130,8 +130,8 @@ below-equilibrium salary, excess demand or a shortage exists.
 | $90,000       | 40,000            | 45,000            |
 | $95,000       | 39,000            | 48,000            |
 
-Table 4.1 Demand and Supply of Nurses in Minneapolis-St.
-Paul-Bloomington
+: Demand and Supply of Nurses in Minneapolis-St.
+Paul-Bloomington {#tbl-table_4_1}
 
 The horizontal axis shows the quantity of nurses hired. In this example
 we measure labor by number of workers, but another common way to measure
@@ -163,7 +163,7 @@ At equilibrium, the quantity supplied and the quantity demanded are
 equal. Thus, every employer who wants to hire a nurse at this
 equilibrium wage can find a willing worker, and every nurse who wants to
 work at this equilibrium salary can find a job. In [Figure
-4.2](#CNX_Econ_C04_001), the supply curve (S) and demand curve (D)
+4.2](#fig-4_2), the supply curve (S) and demand curve (D)
 intersect at the equilibrium point (E). The equilibrium quantity of
 nurses in the Minneapolis-St. Paul-Bloomington area is 41,000, and the
 equilibrium salary is \$86,000 per year. This example simplifies the
@@ -228,8 +228,7 @@ Here are some examples of derived demand for labor:
 As the demand for the goods and services increases, the demand for labor
 will increase, or shift to the right, to meet employers' production
 requirements. As the demand for the goods and services decreases, the
-demand for labor will decrease, or shift to the left. [Table
-4.2](#Table_04_02) shows that in addition to the derived demand for
+demand for labor will decrease, or shift to the left. @tbl-table_4_2 shows that in addition to the derived demand for
 labor, demand can also increase or decrease (shift) in response to
 several factors.
 
@@ -242,12 +241,11 @@ several factors.
 | Government Regulations| 	Complying with government regulations can increase or decrease the demand for labor at any given wage. In the healthcare industry, government rules may require that nurses be hired to carry out certain medical procedures. This will increase the demand for nurses. Less-trained healthcare workers would be prohibited from carrying out these procedures, and the demand for these workers will shift to the left.| 
 | Price and Availability of Other Inputs| 	Labor is not the only input into the production process. For example, a salesperson at a call center needs a telephone and a computer terminal to enter data and record sales. If prices of other inputs fall, production will become more profitable and suppliers will demand more labor to increase production. This will cause a rightward shift in the demand curve for labor. The opposite is also true. Higher prices for other inputs lower demand for labor.| 
 
-
-Table 4.2 Factors That Can Shift Demand
+: Factors That Can Shift Demand {#tbl-table_4_2}
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Click [here](http://openstax.org/l/Futurework) to read more about
+Click [here](https://www.bls.gov/careeroutlook/2000/Summer/art04.pdf) to read more about
 "Trends and Challenges for Work in the 21^st^ Century."
 
 #### Shifts in Labor Supply
@@ -257,8 +255,7 @@ The higher the price, the greater the quantity supplied and the lower
 the price, the less quantity supplied. The supply curve models the
 tradeoff between supplying labor into the market or using time in
 leisure activities at every given price level. The higher the wage, the
-more labor is willing to work and forego leisure activities. [Table
-4.3](#Table_04_03) lists some of the factors that will cause the supply
+more labor is willing to work and forego leisure activities. @tbl-table_4_3 lists some of the factors that will cause the supply
 to increase or decrease.
 
 | Factors	| Results| 
@@ -267,7 +264,7 @@ to increase or decrease.
 | Required Education| 	The more required education, the lower the supply. There is a lower supply of PhD mathematicians than of high school mathematics teachers; there is a lower supply of cardiologists than of primary care physicians; and there is a lower supply of physicians than of nurses.| 
 | Government Policies| 	Government policies can also affect the supply of labor for jobs. Alternatively, the government may support rules that set high qualifications for certain jobs: academic training, certificates or licenses, or experience. When these qualifications are made tougher, the number of qualified workers will decrease at any given wage. On the other hand, the government may also subsidize training or even reduce the required level of qualifications. For example, government might offer subsidies for nursing schools or nursing students. Such provisions would shift the supply curve of nurses to the right. In addition, government policies that change the relative desirability of working versus not working also affect the labor supply. These include unemployment benefits, maternity leave, child care benefits, and welfare policy. For example, child care benefits may increase the labor supply of working mothers. Long term unemployment benefits may discourage job searching for unemployed workers. All these policies must therefore be carefully designed to minimize any negative labor supply effects.| 
 
-Table 4.3 Factors that Can Shift Supply
+: Factors that Can Shift Supply {#tbl-table_4_3}
 
 A change in salary will lead to a movement along labor demand or labor
 supply curves, but it will not shift those curves. However, other events
@@ -290,18 +287,17 @@ more information, communicate more easily, and juggle a wider array of
 responsibilities. How will the new technologies affect the wages of
 high-skill and low-skill workers? For this question, the four-step
 process of analyzing how shifts in supply or demand affect a market
-(introduced in [Demand and
-Supply](http://openstax.org/books/principles-microeconomics-3e/pages/3-introduction-to-demand-and-supply))
+(introduced in @sec-chapter-3)
 works in this way:
 
 Step 1. What did the markets for low-skill labor and high-skill labor
 look like before the arrival of the new technologies? In [Figure
-4.3](#CNX_Econ_C04_009) (a) and [Figure 4.3](#CNX_Econ_C04_009) (b),
+4.3](#CNX_Econ_C04_009) (a) and [Figure 4.3](#fig-4_3) (b),
 S~0~ is the original supply curve for labor and D~0~ is the original
 demand curve for labor in each market. In each graph, the original point
 of equilibrium, E~0~, occurs at the price W~0~ and the quantity Q~0~.
 
-![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId39.jpeg){width="6.5in" height="2.855in"}
+![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId39.jpeg){width="6.5in" height="2.855in" #fig-4_3}
 
 Figure 4.3 Technology and Wages: Applying Demand and Supply (a) The
 demand for low-skill labor shifts to the left when technology can do the
@@ -339,7 +335,7 @@ the U.S. economy is due to improvements in technology.
 
 #### Link It Up {#link-it-up-1 .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/oldtechjobs) to read about
+Visit this [website](https://readwrite.com/10-technology-skills-no-longer-in-demand/#awesm=~og2BuP53pqBEMo) to read about
 ten tech skills that have lost relevance in today's workforce.
 
 #### Price Floors in the Labor Market: Living Wages and Minimum Wages
@@ -379,7 +375,7 @@ the city or employees of firms that the city hires be paid at least a
 certain wage that is usually a few dollars per hour above the U.S.
 minimum wage.
 
-[Figure 4.4](#CNX_Econ_C04_004) illustrates the situation of a city
+[Figure 4.4](#fig-4_4) illustrates the situation of a city
 considering a living wage law. For simplicity, we assume that there is
 no federal minimum wage. The wage appears on the vertical axis, because
 the wage is the price in the labor market. Before the passage of the
@@ -393,10 +389,10 @@ price floor, the quantity supplied exceeds the quantity demanded, and a
 surplus of labor exists in this market. For workers who continue to have
 a job at a higher salary, life has improved. For those who were willing
 to work at the old wage rate but lost their jobs with the wage increase,
-life has not improved. [Table 4.4](#Table_04_04) shows the differences
+life has not improved. @tbl-table_4_4 shows the differences
 in supply and demand at different wages.
 
-![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId48.jpeg){width="3.25in" height="2.49in"}
+![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId48.jpeg){width="3.25in" height="2.49in" #fig-4_4}
 
 Figure 4.4 A Living Wage: Example of a Price Floor The original
 equilibrium in this labor market is a wage of \$10/hour and a quantity
@@ -414,7 +410,7 @@ supplied is 1,600 and the quantity of labor demanded is only 700.
 | $13/hr | 500                     | 1,800                   |
 | $14/hr | 400                     | 1,900                   |
 
-Table 4.4 Living Wage: Example of a Price Floor
+: Living Wage: Example of a Price Floor {#tbl-table_4_4}
 
 #### The Minimum Wage as an Example of a Price Floor
 
@@ -501,9 +497,7 @@ worked.
 
 Of course, these arguments do not prove that raising the minimum wage is
 necessarily a good idea either. There may well be other, better public
-policy options for helping low-wage workers. (The [Poverty and Economic
-Inequality](http://openstax.org/books/principles-microeconomics-3e/pages/15-introduction-to-poverty-and-economic-inequality)
-chapter discusses some possibilities.) The lesson from this maze of
+policy options for helping low-wage workers. (The @sec-chapter-15 discusses some possibilities.) The lesson from this maze of
 minimum wage arguments is that complex social problems rarely have
 simple answers. Even those who agree on how a proposed economic policy
 affects quantity demanded and quantity supplied may still disagree on
@@ -538,10 +532,7 @@ make financial investments, which is the same thing), whether
 individuals or businesses, are on the supply side of the financial
 market. Those who borrow money are on the demand side of the financial
 market. For a more detailed treatment of the different kinds of
-financial investments like bank accounts, stocks and bonds, see the
-[Financial
-Markets](http://openstax.org/books/principles-microeconomics-3e/pages/17-introduction-to-financial-markets)
-chapter.
+financial investments like bank accounts, stocks and bonds, see @sec-chapter-17.
 
 #### Who Demands and Who Supplies in Financial Markets?
 
@@ -572,16 +563,15 @@ is 15% per year. Thus, Americans pay tens of billions of dollars every
 year in interest on their credit cards---plus basic fees for the credit
 card or fees for late payments.
 
-[Figure 4.5](#CNX_Econ_C04_005) illustrates demand and supply in the
+[Figure 4.5](#fig-4_5) illustrates demand and supply in the
 financial market for credit cards. The horizontal axis of the financial
 market shows the quantity of money loaned or borrowed in this market.
 The vertical or price axis shows the rate of return, which in the case
-of credit card borrowing we can measure with an interest rate. [Table
-4.5](#Table_04_05) shows the quantity of financial capital that
+of credit card borrowing we can measure with an interest rate. @tbl-table_4_5 shows the quantity of financial capital that
 consumers demand at various interest rates and the quantity that credit
 card firms (often banks) are willing to supply.
 
-![](media/4-2-demand-and-supply-in-financial-markets_rId25.jpeg){width="4.88in" height="2.53in"}
+![](media/4-2-demand-and-supply-in-financial-markets_rId25.jpeg){width="4.88in" height="2.53in" #fig-4_5}
 
 Figure 4.5 Demand and Supply for Borrowing Money with Credit Cards In
 this market for credit card borrowing, the demand curve (D) for
@@ -606,7 +596,7 @@ supplied would decrease to \$510 billion.
 | 19                | $500                                                               | $720                                                             |
 | 21                | $480                                                               | $750                                                             |
 
-Table 4.5 Demand and Supply for Borrowing Money with Credit Cards
+: Demand and Supply for Borrowing Money with Credit Cards {#tbl-table_4_5}
 
 The laws of demand and supply continue to apply in the financial
 markets. According to the law of demand, a higher rate of return (that
@@ -623,7 +613,7 @@ increase.
 #### Equilibrium in Financial Markets
 
 In the financial market for credit cards in [Figure
-4.5](#CNX_Econ_C04_005), the supply curve (S) and the demand curve (D)
+4.5](#fig-4_5), the supply curve (S) and the demand curve (D)
 cross at the equilibrium point (E). The equilibrium occurs at an
 interest rate of 15%, where the quantity of funds demanded and the
 quantity supplied are equal at an equilibrium quantity of \$600 billion.
@@ -652,7 +642,7 @@ will face economic pressures to creep up toward the equilibrium level.
 The FRED database publishes some two dozen measures of interest rates,
 including interest rates on credit cards, automobile loans, personal
 loans, mortgage loans, and more. You can find these at the FRED
-[website](https://openstax.org/l/FRED_stlouis).
+[website](https://fred.stlouisfed.org/categories/22).
 
 #### Shifts in Demand and Supply in Financial Markets
 
@@ -729,13 +719,13 @@ capital in U.S. financial markets?
 
 Step 1. Draw a diagram showing demand and supply for financial capital
 that represents the original scenario in which foreign investors are
-pouring money into the U.S. economy. [Figure 4.6](#CNX_Econ_C04_014)
+pouring money into the U.S. economy. [Figure 4.6](#fig-4_6)
 shows a demand curve, D, and a supply curve, S, where the supply of
 capital includes the funds arriving from foreign investors. The original
 equilibrium E~0~ occurs at interest rate R~0~ and quantity of financial
 investment Q~0~.
 
-![](media/4-2-demand-and-supply-in-financial-markets_rId37.jpeg){width="3.25in" height="2.535in"}
+![](media/4-2-demand-and-supply-in-financial-markets_rId37.jpeg){width="3.25in" height="2.535in" #fig-4_6}
 
 Figure 4.6 The United States as a Global Borrower Before U.S. Debt
 Uncertainty The graph shows the demand for financial capital from and
@@ -754,9 +744,9 @@ as more risky.
 Step 3. Will supply increase or decrease? When the enthusiasm of foreign
 investors' for investing their money in the U.S. economy diminishes, the
 supply of financial capital shifts to the left. [Figure
-4.7](#CNX_Econ_C04_006) shows the supply curve shift from S~0~ to S~1~.
+4.7](#fig-4_7) shows the supply curve shift from S~0~ to S~1~.
 
-![](media/4-2-demand-and-supply-in-financial-markets_rId40.jpeg){width="3.25in" height="2.535in"}
+![](media/4-2-demand-and-supply-in-financial-markets_rId40.jpeg){width="3.25in" height="2.535in" #fig-4_7}
 
 Figure 4.7 The United States as a Global Borrower Before and After U.S.
 Debt Uncertainty The graph shows the demand for financial capital and
@@ -800,7 +790,7 @@ borrow on their credit cards and who do not repay on time or at all.
 These companies also point out that cardholders can avoid paying
 interest if they pay their bills on time.
 
-Consider the credit card market as [Figure 4.8](#CNX_Econ_C04_007)
+Consider the credit card market as [Figure 4.8](#fig-4_8)
 illustrates. In this financial market, the vertical axis shows the
 interest rate (which is the price in the financial market). Demanders in
 the credit card market are households and businesses. Suppliers are the
@@ -810,7 +800,7 @@ the underlying economic relationships. Imagine a law imposes a price
 ceiling that holds the interest rate charged on credit cards at the rate
 Rc, which lies below the interest rate R~0~ that would otherwise have
 prevailed in the market. The horizontal dashed line at interest rate
-R~c~ in [Figure 4.8](#CNX_Econ_C04_007) shows the price ceiling. The
+R~c~ in [Figure 4.8](#fig-4_8) shows the price ceiling. The
 demand and supply model predicts that at the lower price ceiling
 interest rate, the quantity demanded of credit card debt will increase
 from its original level of Q~0~ to Qd; however, the quantity supplied of
@@ -820,7 +810,7 @@ Consequently, a number of people who want to have credit cards and are
 willing to pay the prevailing interest rate will find that companies are
 unwilling to issue cards to them. The result will be a credit shortage.
 
-![](media/4-2-demand-and-supply-in-financial-markets_rId46.jpeg){width="3.25in" height="2.52in"}
+![](media/4-2-demand-and-supply-in-financial-markets_rId46.jpeg){width="3.25in" height="2.52in" #fig-4_8}
 
 Figure 4.8 Credit Card Interest Rates: Another Price Ceiling Example The
 original intersection of demand D and supply S occurs at equilibrium
@@ -868,10 +858,7 @@ supply models.
 ##### Why are demand and supply curves important? {#why-are-demand-and-supply-curves-important .Heading4Grey}
 
 The demand and supply model is the second fundamental diagram for this
-course. (The opportunity set model that we introduced in the [Choice in
-a World of
-Scarcity](http://openstax.org/books/principles-microeconomics-3e/pages/2-introduction-to-choice-in-a-world-of-scarcity)
-chapter was the first.) Just as it would be foolish to try to learn the
+course. (The opportunity set model that we introduced in the @sec-chapter-2 was the first.) Just as it would be foolish to try to learn the
 arithmetic of long division by memorizing every possible combination of
 numbers that can be divided by each other, it would be foolish to try to
 memorize every specific example of demand and supply in this chapter,
@@ -881,7 +868,7 @@ demand and supply diagrams have many labels, they are fundamentally the
 same in their logic. Your goal should be to understand the underlying
 model so you can use it to analyze *any* market.
 
-[Figure 4.9](#CNX_Econ_C04_008) displays a generic demand and supply
+[Figure 4.9](#fig-4_9) displays a generic demand and supply
 curve. The horizontal axis shows the different measures of quantity: a
 quantity of a good or service, or a quantity of labor for a given job,
 or a quantity of financial capital. The vertical axis shows a measure of
@@ -908,7 +895,7 @@ time, the overall impact will depend on the degree of the shifts. When
 there are multiple variables, economists isolate each change and analyze
 it independently.
 
-![](media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId24.jpeg){width="3.25in" height="2.785in"}
+![](media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId24.jpeg){width="3.25in" height="2.785in" #fig-4_9}
 
 Figure 4.9 Demand and Supply Curves The figure displays a generic demand
 and supply curve. The horizontal axis shows the different measures of
@@ -984,13 +971,13 @@ throughout the economy.
 The theory of supply and demand can explain what happens in the labor
 markets and suggests that the demand for nurses will increase as
 healthcare needs of baby boomers increase, as [Figure
-4.10](#CNX_Econ_C04_015) shows. The impact of that increase will result
+4.10](#fig-4_10) shows. The impact of that increase will result
 in an average salary higher than the \$75,330 earned in 2020 referenced
 in the first part of this case. The new equilibrium (E~1~) will be at
 the new equilibrium price (Pe~1~).Equilibrium quantity will also
 increase from Qe~0~ to Qe~1~.
 
-![](media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId29.jpeg){width="3.25in" height="2.535in"}
+![](media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId29.jpeg){width="3.25in" height="2.535in" #fig-4_10}
 
 Figure 4.10 Impact of Increasing Demand for Nurses 2020--2030 In 2020,
 the median salary for nurses was \$75,330. As demand for services
@@ -1001,15 +988,15 @@ equilibrium salary increases from Pe~0~ to Pe~1~.
 Suppose that as the demand for nurses increases, the supply shrinks due
 to an increasing number of nurses entering retirement and increases in
 the tuition of nursing degrees. The leftward shift of the supply curve
-in [Figure 4.11](#CNX_Econ_C04_016) captures the impact of a decreasing
+in [Figure 4.11](#fig-4_11) captures the impact of a decreasing
 supply of nurses. The shifts in the two curves result in higher salaries
 for nurses, but the overall impact on the quantity of nurses is
 uncertain, as it depends on the relative shifts of supply and demand.
 
-![](media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId32.jpeg){width="3.25in" height="2.535in"}
+![](media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId32.jpeg){width="3.25in" height="2.535in" #fig-4_11}
 
 Figure 4.11 Impact of Decreasing Supply of Nurses between 2020 and 2030
-The increase in demand for nurses shown in Figure 4.10 leads to both
+The increase in demand for nurses shown in [Figure 4.10](#fig-4_10) leads to both
 higher prices and higher quantities demanded. As nurses retire from the
 work force, the supply of nurses decreases, causing a leftward shift in
 the supply curve and higher salaries for nurses at Pe~2~. The net effect

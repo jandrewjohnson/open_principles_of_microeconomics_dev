@@ -32,6 +32,11 @@ book:
   - chapter18.qmd
   - chapter19.qmd
   - chapter20.qmd
+  appendices: 
+  - a-the-use-of-mathematics-in-principles-of-economics.qmd
+  - b-indifference-curves.qmd
+  - c-present-discounted-value.qmd
+
     
 execute:
   freeze: true

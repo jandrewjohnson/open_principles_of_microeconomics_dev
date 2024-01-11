@@ -1,5 +1,5 @@
-# Chapter 5 - Elasticity
-![](media/5-introduction-to-elasticity_rId20.jpeg){width="6.5in" height="4.335in"}
+# Chapter 5 - Elasticity {#sec-chapter-5}
+![](media/5-introduction-to-elasticity_rId20.jpeg){width="6.5in" height="4.335in" #fig-5_1}
 
 Figure 5.1 On-Demand Media Pricing Many on-demand Internet streaming
 media providers, such as Netflix, have introduced tiered pricing for
@@ -115,21 +115,27 @@ elastic, inelastic, and unitary. Because price and quantity demanded
 move in opposite directions, price elasticity of demand is always a
 negative number. Therefore, price elasticity of demand is usually
 reported as its absolute value, without a negative sign. The summary in
-[Table 5.1](#Table_05_01) is assuming absolute values for price
+@tbl-table_5_1 is assuming absolute values for price
 elasticity of demand. An elastic demand or elastic supply is one in
 which the elasticity is greater than one, indicating a high
 responsiveness to changes in price. Elasticities that are less than one
 indicate low responsiveness to price changes and correspond to inelastic
 demand or inelastic supply. Unitary elasticities indicate proportional
-responsiveness of either demand or supply, as [Table 5.1](#Table_05_01)
+responsiveness of either demand or supply, as @tbl-table_5_1
 summarizes.
 
-Table 5.1 Elastic, Inelastic, and Unitary: Three Cases of Elasticity
+| If . . .                                      | Then . . .                                        | And It Is Called . . . |
+|-----------------------------------------------|---------------------------------------------------|------------------------|
+| "% change in quantity" > "% change in price"   | "% change in quantity" / "% change in price" > 1  | Elastic                |
+| "% change in quantity" = "% change in price"   | "% change in quantity" / "% change in price" = 1  | Unitary                |
+| "% change in quantity" < "% change in price"   | "% change in quantity" / "% change in price" < 1  | Inelastic              |
+
+: 5.1 Elastic, Inelastic, and Unitary: Three Cases of Elasticity {#tbl-table_5_1}
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
 Before we delve into the details of elasticity, enjoy this
-[article](http://openstax.org/l/Super_Bowl) on elasticity and ticket
+[article](https://www.forbes.com/sites/prishe/2013/09/19/super-bowl-xlviii-pricing-a-lesson-in-demand-elasticity/?sh=6ae6f1c2796f) on elasticity and ticket
 prices at the Super Bowl.
 
 To calculate elasticity along a demand or supply curve economists use
@@ -137,8 +143,12 @@ the average percent change in both quantity and price. This is called
 the Midpoint Method for Elasticity, and is represented in the following
 equations:
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId32.png){width="2.7083333333333335in"
-height="0.5520833333333334in"}
+$$
+\begin{array}{r}
+\% \text { change in quantity }=\frac{\mathrm{Q}_2-\mathrm{Q}_1}{\left(\mathrm{Q}_2+\mathrm{Q}_1\right) / 2} \times 100 \\
+\% \text { change in price }=\frac{\mathrm{P}_2-\mathrm{P}_1}{\left(\mathrm{P}_2+\mathrm{P}_1\right) / 2} \times 100
+\end{array}
+$$
 
 The advantage of the Midpoint Method is that one obtains the same
 elasticity between two price points whether there is a price increase or
@@ -148,9 +158,9 @@ quantity and average price) for both cases.
 #### Calculating Price Elasticity of Demand
 
 Let's calculate the elasticity between points A and B and between points
-G and H as [Figure 5.2](#CNX_Econ_C05_003) shows.
+G and H as [Figure 5.2](#fig-5_2) shows.
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId35.jpeg){width="4.88in" height="3.215in"}
+![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId35.jpeg){width="4.88in" height="3.215in" #fig-5_2}
 
 Figure 5.2 Calculating the Price Elasticity of Demand We calculate the
 price elasticity of demand as the percentage change in quantity divided
@@ -159,7 +169,18 @@ by the percentage change in price.
 First, apply the formula to calculate the elasticity as price decreases
 from \$70 at point B to \$60 at point A:
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId38.png){width="3.5729166666666665in" height="2.0625in"}
+$$
+\begin{aligned}
+\% \text { change in quantity } & =\frac{3,000-2,800}{(3,000+2,800) / 2} \times 100 \\
+& =\frac{200}{2,900} \times 100 \\
+& =6.9 \\
+\% \text { change in price } & =\frac{60-70}{(60+70) / 2} \times 100 \\
+& =\frac{-10}{65} \times 100 \\
+& =-15.4 \\
+\text { Price Elasticity of Demand } & =\frac{6.9 \%}{-15.4 \%} \\
+& =0.45
+\end{aligned}
+$$
 
 Therefore, the elasticity of demand between these two points is
 $\frac{\ \ \ \ 6.9\%}{–15.4\%}$ which is 0.45, an amount smaller than
@@ -187,28 +208,49 @@ calculating the price elasticity of demand.
 ##### Finding the Price Elasticity of Demand {#finding-the-price-elasticity-of-demand .Heading4Grey}
 
 Calculate the price elasticity of demand using the data in [Figure
-5.2](#CNX_Econ_C05_003) for an increase in price from G to H. Has the
+5.2](#fig-5_2) for an increase in price from G to H. Has the
 elasticity increased or decreased?
 
 Step 1. We know that:
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId40.png){width="3.1354166666666665in" height="0.25in"}
+$$
+\text { Price Elasticity of Demand }=\frac{\% \text { change in quantity }}{\% \text { change in price }}
+$$
 
 Step 2. From the Midpoint Formula we know that:
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId43.png){width="2.7083333333333335in"
-height="0.5520833333333334in"}
+$$
+\begin{array}{r}
+\% \text { change in quantity }=\frac{\mathrm{Q}_2-\mathrm{Q}_1}{\left(\mathrm{Q}_2+\mathrm{Q}_1\right) / 2} \times 100 \\
+\% \text { change in price }=\frac{\mathrm{P}_2-\mathrm{P}_1}{\left(\mathrm{P}_2+\mathrm{P}_1\right) / 2} \times 100
+\end{array}
+$$
 
 Step 3. So we can use the values provided in the figure in each
 equation:
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId45.png){width="2.9583333333333335in"
-height="1.5520833333333333in"}
+$$
+\begin{aligned}
+& \% \text { change in quantity }=\frac{1,600-1,800}{(1,600+1,800) / 2} \times 100 \\
+& =\frac{-200}{1,700} \times 100 \\
+& =-11.76 \\
+& \% \text { change in price }=\frac{130-120}{(130+120) / 2} \times 100 \\
+& =\frac{10}{125} \times 100 \\
+& =8.0 \\
+&
+\end{aligned}
+$$
 
 Step 4. Then, we can use those values to determine the price elasticity
 of demand:
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId47.png){width="3.1354166666666665in" height="0.75in"}
+$$
+\begin{aligned}
+\text { Price Elasticity of Demand } & =\frac{\% \text { change in quantity }}{\% \text { change in price }} \\
+& =\frac{-11.76}{8} \\
+& =1.47
+\end{aligned}
+$$
 
 Therefore, the elasticity of demand from G to is H 1.47. The magnitude
 of the elasticity has increased (in absolute value) as we moved up along
@@ -221,12 +263,12 @@ curve.
 #### Calculating the Price Elasticity of Supply
 
 Assume that an apartment rents for \$650 per month and at that price the
-landlord rents 10,000 units as [Figure 5.3](#CNX_Econ_C05_023) shows.
+landlord rents 10,000 units as [Figure 5.3](#fig-5_3) shows.
 When the price increases to \$700 per month, the landlord supplies
 13,000 units into the market. By what percentage does apartment supply
 increase? What is the price sensitivity?
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId54.jpeg){width="3.25in" height="2.635in"}
+![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId54.jpeg){width="3.25in" height="2.635in" #fig-5_3}
 
 Figure 5.3 Price Elasticity of Supply We calculate the price elasticity
 of supply as the percentage change in quantity divided by the percentage
@@ -234,8 +276,18 @@ change in price.
 
 Using the Midpoint Method,
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId58.png){width="3.5833333333333335in"
-height="2.0833333333333335in"}
+$$
+\begin{aligned}
+\% \text { change in quantity } & =\frac{13,000-10,000}{(13,000+10,000) / 2} \times 100 \\
+& =\frac{3,000}{11,500} \times 100 \\
+& =26.1 \\
+\% \text { change in price } & =\frac{\$ 700-\$ 650}{(\$ 700+\$ 650) / 2} \times 100 \\
+& =\frac{50}{675} \times 100 \\
+& =7.4 \\
+\text { Price Elasticity of Supply } & =\frac{26.1 \%}{7.4 \%} \\
+& =3.53
+\end{aligned}
+$$
 
 Again, as with the elasticity of demand, the elasticity of supply is not
 followed by any units. Elasticity is a ratio of one percentage change to
@@ -253,7 +305,7 @@ slope fits into this calculation, read the following Clear It Up box.
 It is a common mistake to confuse the slope of either the supply or
 demand curve with its elasticity. The slope is the rate of change in
 units along the curve, or the rise/run (change in y over the change in
-x). For example, in [Figure 5.2](#CNX_Econ_C05_003), at each point shown
+x). For example, in [Figure 5.2](#fig-5_2), at each point shown
 on the demand curve, price drops by \$10 and the number of units
 demanded increases by 200 compared to the point to its left. The slope
 is --10/200 along the entire demand curve and does not change. The price
@@ -304,7 +356,7 @@ unitary elasticity. We will describe each case. Infinite elasticity or
 perfect elasticity refers to the extreme case where either the quantity
 demanded (Qd) or supplied (Qs) changes by an infinite amount in response
 to any change in price at all. In both cases, the supply and the demand
-curve are horizontal as [Figure 5.4](#CNX_Econ_C05_006) shows. While
+curve are horizontal as [Figure 5.4](#fig-5_4) shows. While
 perfectly elastic supply curves are for the most part unrealistic, goods
 with readily available inputs and whose production can easily expand
 will feature highly elastic supply curves. Examples include pizza,
@@ -314,7 +366,7 @@ individuals' income, and goods with many substitutes are likely to have
 highly elastic demand curves. Examples of such goods are Caribbean
 cruises and sports vehicles.
 
-![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId25.jpeg){width="4.88in" height="2.115in"}
+![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId25.jpeg){width="4.88in" height="2.115in" #fig-5_4}
 
 Figure 5.4 Infinite Elasticity The horizontal lines show that an
 infinite quantity will be demanded or supplied at a specific price. This
@@ -324,7 +376,7 @@ responsive to price changes, moving from zero for prices close to P to
 infinite when prices reach P.
 
 Zero elasticity or perfect inelasticity, as [Figure
-5.5](#CNX_Econ_C05_008) depicts, refers to the extreme case in which a
+5.5](#fig-5_5) depicts, refers to the extreme case in which a
 percentage change in price, no matter how large, results in zero change
 in quantity. While a perfectly inelastic supply is an extreme example,
 goods with limited supply of inputs are likely to feature highly
@@ -335,7 +387,7 @@ necessities with no close substitutes are likely to have highly
 inelastic demand curves. This is the case of life-saving drugs and
 gasoline.
 
-![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId30.jpeg){width="4.88in" height="2.0999989063867015in"}
+![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId30.jpeg){width="4.88in" height="2.0999989063867015in" #fig-5_5}
 
 Figure 5.5 Zero Elasticity The vertical supply curve and vertical demand
 curve show that there will be zero percentage change in quantity (a)
@@ -343,7 +395,7 @@ demanded or (b) supplied, regardless of the price.
 
 Constant unitary elasticity, in either a supply or demand curve, occurs
 when a price change of one percent results in a quantity change of one
-percent. [Figure 5.6](#CNX_Econ_C05_016) shows a demand curve with
+percent. [Figure 5.6](#fig-5_6) shows a demand curve with
 constant unit elasticity. Using the midpoint method, you can calculate
 that between points A and B on the demand curve, the price changes by
 66.7% and quantity demanded also changes by 66.7%. Hence, the elasticity
@@ -359,7 +411,7 @@ As a result, a demand curve with constant unitary elasticity moves from
 a steeper slope on the left and a flatter slope on the right---and a
 curved shape overall.
 
-![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId34.jpeg){width="4.875in" height="4.008333333333334in"}
+![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId34.jpeg){width="4.875in" height="4.008333333333334in" #fig-5_6}
 
 Figure 5.6 A Constant Unitary Elasticity Demand Curve A demand curve
 with constant unitary elasticity will be a curved line. Notice how price
@@ -377,7 +429,7 @@ expands the denominator in the elasticity calculation of the percentage
 change in quantity.
 
 Consider the price changes moving up the supply curve in [Figure
-5.7](#CNX_Econ_C05_017). From points D to E to F and to G on the supply
+5.7](#fig-5_7). From points D to E to F and to G on the supply
 curve, each step of \$1.50 is the same in absolute value. However, if we
 measure the price changes in percentage change terms, using the midpoint
 method, they are also decreasing, from 28.6% to 22.2% to 18.2%, because
@@ -389,7 +441,7 @@ the horizontal axis exactly match the percentage price increases on the
 vertical axis---so this supply curve has a constant unitary elasticity
 at all points.
 
-![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId37.jpeg){width="4.88in" height="2.685in"}
+![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId37.jpeg){width="4.88in" height="2.685in" #fig-5_7}
 
 Figure 5.7 A Constant Unitary Elasticity Supply Curve A constant unitary
 elasticity supply curve is a straight line reaching up from the origin.
@@ -415,11 +467,35 @@ most important. Let's explore how elasticity relates to revenue and
 pricing, both in the long and short run. First, let's look at the
 elasticities of some common goods and services.
 
-[Table 5.2](#Table_05_04) shows a selection of demand elasticities for
+@tbl-table_5_2 shows a selection of demand elasticities for
 different goods and services drawn from a variety of different studies
 by economists, listed in order of increasing elasticity.
 
-Table 5.2 Some Selected Elasticities of Demand
+| Goods and Services                     | Elasticity of Price |
+|---------------------------------------|---------------------|
+| Housing                               | 0.12                |
+| Transatlantic air travel (economy class) | 0.12              |
+| Rail transit (rush hour)               | 0.15                |
+| Electricity                           | 0.20                |
+| Taxi cabs                             | 0.22                |
+| Gasoline                              | 0.35                |
+| Transatlantic air travel (first class) | 0.40                |
+| Wine                                  | 0.55                |
+| Beef                                  | 0.59                |
+| Transatlantic air travel (business class) | 0.62              |
+| Kitchen and household appliances      | 0.63                |
+| Cable TV (basic rural)                 | 0.69               |
+| Chicken                               | 0.64               |
+| Soft drinks                           | 0.70               |
+| Beer                                  | 0.80               |
+| New vehicle                           | 0.87               |
+| Rail transit (off-peak)               | 1.00               |
+| Computer                              | 1.44               |
+| Cable TV (basic urban)                 | 1.51               |
+| Cable TV (premium)                     | 1.77               |
+| Restaurant meals                      | 2.27               |
+
+: Some Selected Elasticities of Demand {#tbl-table_5_2}
 
 Note that demand for necessities such as housing and electricity is
 inelastic, while items that are not necessities such as restaurant meals
@@ -430,7 +506,7 @@ quantity of housing demanded.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Read this [article](http://openstax.org/l/Movietickets) for an example
+Read this [article](https://business.time.com/2013/02/19/movie-ticket-prices-hit-all-time-high-in-2012-why-thats-probably-good-for-moviegoers/) for an example
 of price elasticity that may have affected you.
 
 #### Does Raising Price Bring in More Revenue?
@@ -454,7 +530,7 @@ The key concept in thinking about collecting the most revenue is the
 price elasticity of demand. Total revenue is price times the quantity of
 tickets sold. Imagine that the band starts off thinking about a certain
 price, which will result in the sale of a certain quantity of tickets.
-The three possibilities are in [Table 5.3](#Table_05_05). If demand is
+The three possibilities are in @tbl-table_5_3. If demand is
 elastic at that price level, then the band should cut the price, because
 the percentage drop in price will result in an even larger percentage
 increase in the quantity sold---thus raising total revenue. However, if
@@ -467,7 +543,14 @@ offset a moderate percentage change in the price---so the band will earn
 the same revenue whether it (moderately) increases or decreases the
 ticket price.
 
-Table 5.3 Will the Band Earn More Revenue by Changing Ticket Prices?
+
+| If Demand Is . . . | Then . . . | Therefore . . . |
+|--------------------|------------|------------------|
+| Elastic            | % "change in Qd" > % "change in P"  | A given % rise in P will be more than offset by a larger % fall in Q so that total revenue (P × Q) falls. |
+| Unitary            | % "change in Qd" = % "change in P"  | A given % rise in P will be exactly offset by an equal % fall in Q so that total revenue (P × Q) is unchanged. |
+| Inelastic          | % "change in Qd" < % "change in P"  | A given % rise in P will cause a smaller % fall in Q so that total revenue (P × Q) rises. |
+
+: Will the Band Earn More Revenue by Changing Ticket Price {#tbl-table_5_3}
 
 What if the band keeps cutting price, because demand is elastic, until
 it reaches a level where it sells all 15,000 seats in the available
@@ -508,20 +591,18 @@ plays a key role in answering these questions.
 Imagine that as a consumer of legal pharmaceutical products, you read a
 newspaper story that a technological breakthrough in the production of
 aspirin has occurred, so that every aspirin factory can now produce
-aspirin more cheaply. What does this discovery mean to you? [Figure
-5.8](#CNX_Econ_C05_019) illustrates two possibilities. In [Figure
-5.8](#CNX_Econ_C05_019) (a), the demand curve is highly inelastic. In
+aspirin more cheaply. What does this discovery mean to you? [Figure 5.8](#fig-5_8) illustrates two possibilities. In [Figure 5.8](#fig-5_8) (a), the demand curve is highly inelastic. In
 this case, a technological breakthrough that shifts supply to the right,
 from S~0~ to S~1~, so that the equilibrium shifts from E~0~ to E~1~,
 creates a substantially lower price for the product with relatively
-little impact on the quantity sold. In [Figure 5.8](#CNX_Econ_C05_019)
+little impact on the quantity sold. In [Figure 5.8](#fig-5_8)
 (b), the demand curve is highly elastic. In this case, the technological
 breakthrough leads to a much greater quantity sold in the market at very
 close to the original price. Consumers benefit more, in general, when
 the demand curve is more inelastic because the shift in the supply
 results in a much lower price for consumers.
 
-![](media/5-3-elasticity-and-pricing_rId27.jpeg){width="4.88in" height="2.935in"}
+![](media/5-3-elasticity-and-pricing_rId27.jpeg){width="4.88in" height="2.935in" #fig-5_8}
 
 Figure 5.8 Passing along Cost Savings to Consumers Cost-saving gains
 cause supply to shift out to the right from S~0~ to S~1~; that is, at
@@ -533,7 +614,7 @@ Consumers benefit in either case, from a greater quantity at a lower
 price, but the benefit is greater when demand is inelastic, as in (a).
 
 Aspirin producers may find themselves in a nasty bind here. The
-situation in [Figure 5.8](#CNX_Econ_C05_019), with extremely inelastic
+situation in [Figure 5.8](#fig-5_8), with extremely inelastic
 demand, means that a new invention may cause the price to drop
 dramatically while quantity changes little. As a result, the new
 production technology can lead to a drop in the revenue that firms earn
@@ -545,7 +626,7 @@ cost-saving technology, other firms that do can drive them out of
 business.
 
 Since demand for food is generally inelastic, farmers may often face the
-situation in [Figure 5.8](#CNX_Econ_C05_019) (a). That is, a surge in
+situation in [Figure 5.8](#fig-5_8) (a). That is, a surge in
 production leads to a severe drop in price that can actually decrease
 the total revenue that farmers receive. Conversely, poor weather or
 other conditions that cause a terrible year for farm production can
@@ -579,7 +660,7 @@ the left with an inelastic demand curve, leading to much higher prices.
 Conversely, when Vietnam entered the world coffee market as a major
 producer in the late 1990s, the supply curve shifted out to the right.
 With a highly inelastic demand curve, coffee prices fell dramatically.
-[Figure 5.8](#CNX_Econ_C05_019) (a) illustrates this situation.
+[Figure 5.8](#fig-5_8) (a) illustrates this situation.
 
 Elasticity also reveals whether firms can pass higher costs that they
 incur on to consumers. Addictive substances, for which demand is
@@ -589,8 +670,7 @@ inelastic among regular smokers who are somewhat addicted. Economic
 research suggests that increasing cigarette prices by 10% leads to about
 a 3% reduction in the quantity of cigarettes that adults smoke, so the
 elasticity of demand for cigarettes is 0.3. If society increases taxes
-on companies that produce cigarettes, the result will be, as in [Figure
-5.9](#CNX_Econ_C05_020) (a), that the supply curve shifts from S~0~ to
+on companies that produce cigarettes, the result will be, as in [Figure 5.9](#fig-5_9) (a), that the supply curve shifts from S~0~ to
 S~1~. However, as the equilibrium moves from E~0~ to E~1~, governments
 mainly pass along these taxes to consumers in the form of higher prices.
 These higher taxes on cigarettes will raise tax revenue for the
@@ -601,7 +681,7 @@ achieve it by shifting this inelastic demand back to the left, perhaps
 with public programs to discourage cigarette use or to help people to
 quit. For example, anti-smoking advertising campaigns have shown some
 ability to reduce smoking. However, if cigarette demand were more
-elastic, as in [Figure 5.9](#CNX_Econ_C05_020) (b), then an increase in
+elastic, as in [Figure 5.9](#fig-5_9) (b), then an increase in
 taxes that shifts supply from S~0~ to S~1~ and equilibrium from E~0~ to
 E~1~ would reduce the quantity of cigarettes smoked substantially. Youth
 smoking seems to be more elastic than adult smoking---that is, the
@@ -609,7 +689,7 @@ quantity of youth smoking will fall by a greater percentage than the
 quantity of adult smoking in response to a given percentage increase in
 price.
 
-![](media/5-3-elasticity-and-pricing_rId31.jpeg){width="6.5in" height="2.965in"}
+![](media/5-3-elasticity-and-pricing_rId31.jpeg){width="6.5in" height="2.965in" #fig-5_9}
 
 Figure 5.9 Passing along Higher Costs to Consumers Higher costs, like a
 higher tax on cigarette companies for the example we gave in the text,
@@ -656,10 +736,10 @@ passes on to the sellers. If the supply was elastic and sellers had the
 possibility of reorganizing their businesses to avoid supplying the
 taxed good, the tax burden on the sellers would be much smaller. The tax
 would result in a much lower quantity sold instead of lower prices
-received. [Figure 5.10](#CNX_Econ_C05_025) illustrates this relationship
+received. [Figure 5.10](#fig-5_10) illustrates this relationship
 between the tax incidence and elasticity of demand and supply.
 
-![](media/5-3-elasticity-and-pricing_rId37.jpeg){width="6.5in" height="2.74in"}
+![](media/5-3-elasticity-and-pricing_rId37.jpeg){width="6.5in" height="2.74in" #fig-5_10}
 
 Figure 5.10 Elasticity and Tax Incidence An excise tax introduces a
 wedge between the price paid by consumers (Pc) and the price received by
@@ -672,7 +752,7 @@ tax incidence on consumers Pc -- Pe is larger than the tax incidence on
 producers Pe -- Pp. The more elastic the demand and supply curves, the
 lower the tax revenue.
 
-In [Figure 5.10](#CNX_Econ_C05_025) (a), the supply is inelastic and the
+In [Figure 5.10](#fig-5_10) (a), the supply is inelastic and the
 demand is elastic, such as in the example of beachfront hotels. While
 consumers may have other vacation choices, sellers can't easily move
 their businesses. By introducing a tax, the government essentially
@@ -693,11 +773,11 @@ incidence on the consumers is given by the difference between the price
 paid Pc and the initial equilibrium price Pe. The tax incidence on the
 sellers is given by the difference between the initial equilibrium price
 Pe and the price they receive after the tax is introduced Pp. In [Figure
-5.10](#CNX_Econ_C05_025) (a), the tax burden falls disproportionately on
+5.10](#fig-5_10) (a), the tax burden falls disproportionately on
 the sellers, and a larger proportion of the tax revenue (the shaded
 area) is due to the resulting lower price received by the sellers than
 by the resulting higher prices paid by the buyers. [Figure
-5.10](#CNX_Econ_C05_025) (b) describes the example of the tobacco excise
+5.10](#fig-5_10) (b) describes the example of the tobacco excise
 tax where the supply is more elastic than demand. The tax incidence now
 falls disproportionately on consumers, as shown by the large difference
 between the price they pay, Pc, and the initial equilibrium price, Pe.
@@ -734,7 +814,7 @@ appliances, or install more insulation in your home. As a result, the
 elasticity of demand for energy is somewhat inelastic in the short run,
 but much more elastic in the long run.
 
-[Figure 5.11](#CNX_Econ_C05_021) is an example, based roughly on
+[Figure 5.11](#fig-5_11) is an example, based roughly on
 historical experience, for the responsiveness of Qd to price changes. In
 1973, the price of crude oil was \$12 per barrel and total consumption
 in the U.S. economy was 17 million barrels per day. That year, the
@@ -743,12 +823,12 @@ Countries (OPEC) cut off oil exports to the United States for six months
 because the Arab members of OPEC disagreed with the U.S. support for
 Israel. OPEC did not bring exports back to their earlier levels until
 1975---a policy that we can interpret as a shift of the supply curve to
-the left in the U.S. petroleum market. [Figure 5.11](#CNX_Econ_C05_021)
-(a) and [Figure 5.11](#CNX_Econ_C05_021) (b) show the same original
+the left in the U.S. petroleum market. [Figure 5.11](#fig-5_11)
+(a) and [Figure 5.11](#fig-5_11) (b) show the same original
 equilibrium point and the same identical shift of a supply curve to the
 left from S~0~ to S~1~.
 
-![](media/5-3-elasticity-and-pricing_rId42.jpeg){width="6.5in" height="2.985in"}
+![](media/5-3-elasticity-and-pricing_rId42.jpeg){width="6.5in" height="2.985in" #fig-5_11}
 
 Figure 5.11 How a Shift in Supply Can Affect Price or Quantity The
 intersection (E~0~) between demand curve D and supply curve S~0~ is the
@@ -763,12 +843,12 @@ with more inelastic demand, or in a new equilibrium with only a small
 increase in price and a relatively larger reduction in quantity, as in
 (b), with more elastic demand.
 
-[Figure 5.11](#CNX_Econ_C05_021) (a) shows inelastic demand for oil in
+[Figure 5.11](#fig-5_11) (a) shows inelastic demand for oil in
 the short run similar to that which existed for the United States in
-1973. In [Figure 5.11](#CNX_Econ_C05_021) (a), the new equilibrium
+1973. In [Figure 5.11](#fig-5_11) (a), the new equilibrium
 (E~1~) occurs at a price of \$25 per barrel, roughly double the price
 before the OPEC shock, and an equilibrium quantity of 16 million barrels
-per day. [Figure 5.11](#CNX_Econ_C05_021) (b) shows what the outcome
+per day. [Figure 5.11](#fig-5_11) (b) shows what the outcome
 would have been if the U.S. demand for oil had been more elastic, a
 result more likely over the long term. This alternative equilibrium
 (E~1~) would have resulted in a smaller price increase to \$14 per
@@ -828,7 +908,9 @@ demanded, not just the price.
 The income elasticity of demand is the percentage change in quantity
 demanded divided by the percentage change in income.
 
-![](media/5-4-elasticity-in-areas-other-than-price_rId23.png){width="3.7395833333333335in" height="0.25in"}
+$$
+\text { Income elasticity of demand }=\frac{\% \text { change in quantity demanded }}{\% \text { change in income }}
+$$
 
 For most products, most of the time, the income elasticity of demand is
 positive: that is, a rise in income will cause an increase in the
@@ -840,8 +922,7 @@ steak instead, or those with a higher income might buy less cheap wine
 and more imported beer. When the income elasticity of demand is
 negative, we call the good an inferior good.
 
-We introduced the concepts of normal and inferior goods in [Demand and
-Supply](http://openstax.org/books/principles-microeconomics-3e/pages/3-introduction-to-demand-and-supply).
+We introduced the concepts of normal and inferior goods in @sec-chapter-3.
 A higher level of income causes a demand curve to shift to the right for
 a normal good, which means that the income elasticity of demand is
 positive. How far the demand shifts depends on the income elasticity of
@@ -869,8 +950,9 @@ Specifically, the cross-price elasticity of demand is the percentage
 change in the quantity of good A that is demanded as a result of a
 percentage change in the price of good B.
 
-![](media/5-4-elasticity-in-areas-other-than-price_rId31.png){width="3.7916666666666665in"
-height="0.25in"}
+$$
+\text { Cross-price elasticity of demand }=\frac{\% \text { change in } \mathrm{Qd} \text { of good } \mathrm{A}}{\% \text { change in price of good } \mathrm{B}}
+$$
 
 Substitute goods have positive cross-price elasticities of demand: if
 good A is a substitute for good B, like coffee and tea, then a higher
@@ -887,7 +969,9 @@ elasticity of labor supply---that is, the percentage change in hours
 worked divided by the percentage change in wages---will reflect the
 shape of the labor supply curve. Specifically:
 
-![](media/5-4-elasticity-in-areas-other-than-price_rId36.png){width="3.84375in" height="0.25in"}
+$$
+\text { Elasticity of labor supply }=\frac{\% \text { change in quantity of labor supplied }}{\% \text { change in wage }}
+$$
 
 The wage elasticity of labor supply for teenage workers is generally
 fairly elastic: that is, a certain percentage change in wages will lead
@@ -903,8 +987,9 @@ the percentage change in the quantity of savings divided by the
 percentage change in interest rates---will describe the shape of the
 supply curve for financial capital. That is:
 
-![](media/5-4-elasticity-in-areas-other-than-price_rId39.png){width="3.6145833333333335in"
-height="0.25in"}
+$$
+\text { Elasticity of savings }=\frac{\% \text { change in quantity of financial savings }}{\% \text { change in interest rate }}
+$$
 
 Sometimes laws are proposed that seek to increase the quantity of
 savings by offering tax breaks so that the return on savings is higher.
@@ -930,7 +1015,7 @@ is the percentage change in tax collections derived from a given
 percentage change in spending on tax enforcement?
 
 With all of the elasticity concepts that we have just described, some of
-which are in [Table 5.4](#Table_05_08), the possibility of confusion
+which are in @tbl-table_5_4, the possibility of confusion
 arises. When you hear the phrases "elasticity of demand" or "elasticity
 of supply," they refer to the elasticity with respect to price.
 Sometimes, either to be extremely clear or because economists are
@@ -945,7 +1030,15 @@ one variable, almost always a price or money variable, and how it causes
 a percentage change in another variable, typically a quantity variable
 of some kind.
 
-Table 5.4 Formulas for Calculating Elasticity
+| Income elasticity of demand $=\frac{\% \text { change in Qd }}{\% \text { change in income }}$ |
+| :--- |
+| Cross-price elasticity of demand $=\frac{\% \text { change in Qd of good A }}{\% \text { change in price of good } \mathrm{B}}$ |
+| Wage elasticity of labor supply $=\frac{\% \text { change in quantity of labor supplied }}{\% \text { change in wage }}$ |
+| Wage elasticity of labor demand $=\frac{\% \text { change in quantity of labor demanded }}{\% \text { change in wage }}$ |
+| Interest rate elasticity of savings $=\frac{\% \text { change in quantity of savings }}{\% \text { change in interest rate }}$ |
+| Interest rate elasticity of borrowing $=\frac{\% \text { change in quantity of borrowing }}{\% \text { change in interest rate }}$ |
+
+: Formulas for Calculating Elasticity {#tbl-table_5_4}
 
 #### Bring It Home {#bring-it-home .Heading3Grey}
 
@@ -977,8 +1070,14 @@ increase, this could result in the loss of about 600,000 existing
 subscribers. Using the elasticity of demand formula, it is easy to see
 company officials expected an inelastic response:
 
-![](media/5-4-elasticity-in-areas-other-than-price_rId48.png){width="2.1770833333333335in"
-height="1.0729166666666667in"}
+$$
+\begin{aligned}
+& =\frac{-600,000 /[(24 \text { million }+24.6 \text { million }) / 2]}{\$ 6 /[(\$ 10+\$ 16) / 2]} \\
+& =\frac{-600,000 / 24.3 \text { million }}{\$ 6 / \$ 13} \\
+& =\frac{-0.025}{0.46} \\
+& =-0.05
+\end{aligned}
+$$
 
 In addition, Netflix officials had anticipated the price increase would
 have little impact on attracting new customers. Netflix anticipated

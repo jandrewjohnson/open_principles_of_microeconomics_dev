@@ -1,5 +1,5 @@
-# Chapter 18 - Public Economy
-![](media/18-introduction-to-public-economy_rId20.jpeg){width="6.5in" height="3.875in"}
+# Chapter 18 - Public Economy {#sec-chapter-18}
+![](media/18-introduction-to-public-economy_rId20.jpeg){width="6.5in" height="3.875in" #fig-18_1}
 
 Figure 18.1 Domestic Tires? While these tires may all appear similar,
 some are made in the United States and others are not. Those that are
@@ -224,7 +224,7 @@ families of unemployed people and those experiencing poverty.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/votergroups) to see a
+Visit this [website](https://www.pewresearch.org/short-reads/2020/11/06/2020-election-reveals-two-broad-voting-coalitions-fundamentally-at-odds/) to see a
 breakdown of how different groups voted in 2020.
 
 There have been many proposals to encourage greater voter turnout:
@@ -267,8 +267,7 @@ imported from China that would increase the price by 35 percent in its
 first year, 30 percent in its second year, and 25 percent in its third
 year. Interestingly, the U.S. companies that make tires did not favor
 this step, because most of them also import tires from China and other
-countries. (See [Globalization and
-Protectionism](http://openstax.org/books/principles-microeconomics-3e/pages/20-introduction-to-globalization-and-protectionism)
+countries. (See @sec-chapter-20
 for more on tariffs.) However, the United Steelworkers union, which had
 seen jobs in the tire industry fall by 5,000 over the previous five
 years, lobbied fiercely for the tariff. With this tariff, the cost of
@@ -289,13 +288,10 @@ likely to lobby much more fiercely to avoid \$8 million in costs than
 the average person is to argue for \$10 worth of benefits.
 
 As this example suggests, we can relate the problem of special interests
-in politics to an issue we raised in [Environmental Protection and
-Negative
-Externalities](http://openstax.org/books/principles-microeconomics-3e/pages/12-introduction-to-environmental-protection-and-negative-externalities)
+in politics to an issue we raised in @sec-chapter-12
 about economic policy with respect to negative externalities and
 pollution---the problem called regulatory capture (which we defined in
-[Monopoly and Antitrust
-Policy](http://openstax.org/books/principles-microeconomics-3e/pages/11-introduction-to-monopoly-and-antitrust-policy)).
+@sec-chapter-11).
 In legislative bodies and agencies that write laws and regulations about
 how much corporations will pay in taxes, or rules for safety in the
 workplace, or instructions on how to satisfy environmental regulations,
@@ -309,7 +305,7 @@ considerable influence over the regulators.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/lobbying) to read about
+Visit this [website](https://www.opensecrets.org/federal-lobbying) to read about
 lobbying.
 
 In the early 2000s, about 40 million people in the United States were
@@ -548,11 +544,11 @@ planning to celebrate New Year's Day together. They agree to vote on the
 menu, choosing from three entrees, and they agree that the majority vote
 wins. With three families, it seems reasonable that one producing choice
 will get a 2--1 majority. What if, however, their vote ends up looking
-like [Table 18.1](#Table_18_01)?
+like @tbl-table_18_1?
 
 Clearly, the three families disagree on their first choice. However, the
 problem goes even deeper. Instead of looking at all three choices at
-once, compare them two at a time. (See [Figure 18.2](#CNX_Econ_C18_001))
+once, compare them two at a time. (See [Figure 18.2](#fig-18_2))
 In a vote of turkey versus beef, turkey wins by 2--1. In a vote of beef
 versus lasagna, beef wins 2--1. If turkey beats beef, and beef beats
 lasagna, then it might seem only logical that turkey must also beat
@@ -563,7 +559,7 @@ Actually, no. Beef beats lasagna. In other words, the majority view may
 not win. Clearly, as any car salesperson will tell you, the way one
 presents choices to us influences our decisions.
 
-![](media/18-3-flaws-in-the-democratic-system-of-government_rId25.jpeg){width="3.25in" height="2.69in"}
+![](media/18-3-flaws-in-the-democratic-system-of-government_rId25.jpeg){width="3.25in" height="2.69in" #fig-18_2}
 
 Figure 18.2 A Voting Cycle Given these choices, voting will struggle to
 produce a majority outcome. Turkey is favored over roast beef by 2--1
@@ -572,7 +568,13 @@ beef and roast beef beats lasagna, then it might seem that turkey must
 beat lasagna, too. However, given these preferences, lasagna is favored
 over turkey by 2--1.
 
-Table 18.1 Circular Preferences
+|                 | The Ortega Family | The Schmidt Family | The Alexander Family |
+|-----------------|-------------------|---------------------|----------------------|
+| First Choice    | Turkey            | Roast beef          | Lasagna              |
+| Second Choice   | Roast beef        | Lasagna             | Turkey               |
+| Third Choice    | Lasagna           | Turkey              | Roast beef           |
+
+: Circular Preferences {#tbl-table_18_1}
 
 We call the situation in which Choice A is preferred by a majority over
 Choice B, Choice B is preferred by a majority over Choice C, and Choice
@@ -739,11 +741,8 @@ this tariff. Workers in U.S. tire manufacturing firms earned about
 U.S. consumers, the cost of saving one job amounted to \$926,500!
 
 This tariff caused a net decline in U.S. social surplus. (We discuss
-total surplus in the [Demand and
-Supply](http://openstax.org/books/principles-microeconomics-3e/pages/3-introduction-to-demand-and-supply)
-chapter, and tariffs in the [Introduction to International
-Trade](http://openstax.org/books/principles-microeconomics-3e/pages/19-introduction-to-international-trade)
-chapter.) Instead of saving jobs, it cost jobs, and those jobs that it
+total surplus in the @sec-chapter-3
+chapter, and tariffs in the @sec-chapter-19.) Instead of saving jobs, it cost jobs, and those jobs that it
 saved cost many times more than the people working in them could ever
 hope to earn. Why would the government do this?
 

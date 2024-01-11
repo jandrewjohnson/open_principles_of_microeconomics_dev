@@ -1,5 +1,5 @@
-# Chapter 16 - Information, Risk, and Insurance
-![](media/16-introduction-to-information-risk-and-insurance_rId20.jpeg){width="6.5in" height="3.908333333333333in"}
+# Chapter 16 - Information, Risk, and Insurance {#sec-chapter-16}
+![](media/16-introduction-to-information-risk-and-insurance_rId20.jpeg){width="6.5in" height="3.908333333333333in" #fig-16_1}
 
 Figure 16.1 Former President Obama's Health Care Reform The Patient
 Protection and Affordable Care Act (PPACA), more commonly known as
@@ -267,10 +267,7 @@ would see it, is the subject of the following Clear It Up feature.)
 
 The idea that higher prices might cause a greater quantity demanded and
 that lower prices might cause a lower quantity demanded runs exactly
-counter to the basic model of demand and supply (as we outlined in the
-[Demand and
-Supply](http://openstax.org/books/principles-microeconomics-3e/pages/3-introduction-to-demand-and-supply)
-chapter). These contrary effects, however, will reach natural limits. At
+counter to the basic model of demand and supply (as we outlined in @sec-chapter-3. These contrary effects, however, will reach natural limits. At
 some point, if the price is high enough, the quantity demanded will
 decline. Conversely, when the price declines far enough, buyers will
 increasingly find value even if the quality is lower. In addition,
@@ -509,10 +506,18 @@ Many people have several kinds of insurance: health insurance that pays
 when they receive medical care; car insurance that pays if their car is
 in an automobile accident; house or renter's insurance that pays for
 stolen possessions or items damaged by fire; and life insurance, which
-pays for the family if the insured individual dies. [Table
-16.1](#Table_16_01) lists a set of insurance markets.
+pays for the family if the insured individual dies. @tbl-table_16_1 lists a set of insurance markets.
 
-Table 16.1 Some Insurance Markets
+| Type of Insurance         | Who Pays for It?               | It Pays Out When . . .                                   |
+|---------------------------|--------------------------------|---------------------------------------------------------|
+| Health insurance          | Employers and individuals      | Medical expenses are incurred                             |
+| Life insurance            | Employers and individuals      | Policyholder dies                                         |
+| Automobile insurance      | Individuals                    | Car is damaged, stolen, or causes damage to others         |
+| Property and homeowner’s insurance | Homeowners and renters | Dwelling is damaged or burglarized                         |
+| Liability insurance       | Firms and individuals           | An injury occurs for which you are partly responsible    |
+| Malpractice insurance     | Doctors, lawyers, and other professionals | A poor quality of service is provided that causes harm to others |
+
+: Some Insurance Markets {#tbl-table_16_1}
 
 All insurance involves imperfect information in both an obvious way and
 in a deeper way. At an obvious level, we cannot predict future events
@@ -540,8 +545,13 @@ of identifying the drivers who are low-risk, medium-risk, or high-risk.
 The total damage incurred by car accidents in this group of 100 drivers
 will be \$186,000, that is:
 
-![](media/16-2-insurance-and-imperfect-information_rId24.png){width="4.375in"
-height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { Total damage } & =(60 \times \$ 100)+(30 \times \$ 1,000)+(10 \times \$ 15,000) \\
+& =\$ 6,000+\$ 30,000+\$ 150,000 \\
+& =\$ 186,000
+\end{aligned}
+$$
 
 If each of the 100 drivers pays a \$1,860 premium each year, the
 insurance company will collect the \$186,000 that is needed to cover the
@@ -553,7 +563,7 @@ rates than the individual would be able to get, thus increasing the
 benefit to consumers of becoming insured and saving the insurance
 company itself money when it pays out claims.
 
-Insurance companies receive income, as [Figure 16.2](#CNX_Econ_C16_001)
+Insurance companies receive income, as [Figure 16.2](#fig-16_2)
 shows, from insurance premiums and investment income. The companies
 derive income from investing the funds that insurance companies received
 in the past but did not pay out as insurance claims in prior years. The
@@ -562,7 +572,7 @@ or reserves. The companies typically invest in fairly safe, liquid (easy
 to convert into cash) investments, as the insurance companies need to be
 able to readily access these funds when a major disaster strikes.
 
-![](media/16-2-insurance-and-imperfect-information_rId26.jpeg){width="4.88in" height="1.0449989063867016in"}
+![](media/16-2-insurance-and-imperfect-information_rId26.jpeg){width="4.88in" height="1.0449989063867016in" #fig-16_2}
 
 Figure 16.2 An Insurance Company: What Comes In, What Goes Out Money
 flows into an insurance company through premiums and investments and out
@@ -735,7 +745,7 @@ moral hazard will remain a problem.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/healtheconomics) to read
+Visit this [website](https://hub.jhu.edu/gazette/2013/june/this-month-books-douglas-hough-health-care/) to read
 about the relationship between health care and behavioral economics.
 
 #### The Adverse Selection Problem
@@ -800,7 +810,7 @@ The moral hazard problem with health insurance is that when people have
 insurance, they will demand higher quantities of health care. In the
 United States, private healthcare insurance tends to encourage an
 ever-greater demand for healthcare services, which healthcare providers
-are happy to fulfill. [Table 16.2](#Table_16_02) shows that on a
+are happy to fulfill. @tbl-table_16_2 shows that on a
 per-person basis, U.S. healthcare spending towers above healthcare
 spending of other countries. Note that while healthcare expenditures in
 the United States are far higher than healthcare expenditures in other
@@ -833,9 +843,17 @@ provider by preventing providers from denying individuals based on
 preexisting conditions. The Patient Protection and Affordable Care Act
 adopted this approach, which we will discuss later on in this chapter.
 
-Table 16.2 A Comparison of Health Care Spending per Person, Life
+| Country          | Health Care Spending per Person | Life Expectancy at Birth (Male) | Life Expectancy at Birth (Female) | Infant Mortality Rate (Male & Female), per 1,000 |
+|------------------|---------------------------------|---------------------------------|-----------------------------------|------------------------------------------------|
+| United States    | $10,948                         | 75.5                            | 80.2                              | 5.7                                            |
+| Germany          | $6,731                          | 79.0                            | 83.7                              | 3.2                                            |
+| France           | $5,564                          | 79.2                            | 85.3                              | 3.5                                            |
+| Canada           | $5,370                          | 80.0                            | 84.2                              | 4.4                                            |
+| United Kingdom   | $5,268                          | 78.4                            | 82.4                              | 3.7                                            |
+
+: A Comparison of Health Care Spending per Person, Life
 Expectancy at Birth, and Infant Mortality, 2020 (Source: 2020 OECD study
-and World Fact Book)
+and World Fact Book) {#tbl-table_16_2}
 
 At its best, the largely private U.S. system of health insurance and
 healthcare delivery provides an extraordinarily high quality of care,

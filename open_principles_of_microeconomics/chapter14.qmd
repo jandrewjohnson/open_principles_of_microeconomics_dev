@@ -1,5 +1,5 @@
-# Chapter 14 - Labor Markets and Income
-![](media/14-introduction-to-labor-markets-and-income_rId20.jpeg){width="6.5in" height="3.5in"}
+# Chapter 14 - Labor Markets and Income {#sec-chapter-14}
+![](media/14-introduction-to-labor-markets-and-income_rId20.jpeg){width="6.5in" height="3.5in" #fig-14_1}
 
 Figure 14.1 What determines incomes? In the U.S., income is primarily
 based on one\'s value to an employer, which depends in part on
@@ -47,9 +47,7 @@ us.
 In a market economy like the United States, income comes from ownership
 of the means of production: resources or assets. More precisely, one's
 income is a function of two things: the quantity of each resource one
-owns, and the value society places on those resources. Recall from the
-chapter on [Production, Costs, and Industry
-Structure](http://openstax.org/books/principles-microeconomics-3e/pages/7-introduction-to-production-costs-and-industry-structure),
+owns, and the value society places on those resources. Recall from @sec-chapter-7,
 each factor of production has an associated factor payment. For the
 majority of us, the most important resource we own is our labor. Thus,
 most of our income is wages, salaries, commissions, tips and other types
@@ -130,9 +128,13 @@ more cubic feet of dirt in an hour with a backhoe than with a shovel.
 Thus, we can define the demand for labor as the marginal product of
 labor times the value of that output to the firm.
 
-Table 14.1 Marginal Product of Labor
+| # Workers (L) | 1 | 2 | 3 | 4 |
+|---------------|---|---|---|---|
+| MPL           | 4 | 3 | 2 | 1 |
 
-![](media/14-1-the-theory-of-labor-markets_rId24.jpeg){width="3.255in" height="2.405in"}
+: Marginal Product of Labor {#tbl-table_14_1}
+
+![](media/14-1-the-theory-of-labor-markets_rId24.jpeg){width="3.255in" height="2.405in" #fig-14_2}
 
 Figure 14.2 Marginal Product of Labor Because of fixed capital, the
 marginal product of labor declines as the employer hires additional
@@ -145,15 +147,21 @@ the product. Thus,
 
 Demand for Labor = MP~L~ x P = Value of the Marginal Product of Labor
 
-We show this in [Table 14.2](#eip-258), which is an expanded version of
-[Table 14.1](#eip-147)
+We show this in @tbl-table_14_2, which is an expanded version of
+@tbl-table_14_1
 
-Table 14.2 Value of the Marginal Product of Labor
+| # Workers (L) | 1 | 2 | 3 | 4 |
+|---------------|---|---|---|---|
+| MPL           | 4 | 3 | 2 | 1 |
+| Price of Output | $4 | $4 | $4 | $4 |
+| VMPL          | $16 | $12 | $8 | $4 |
+
+: Value of the Marginal Product of Labor {#tbl-table_14_2}
 
 Note that the value of each additional worker is less than the value of
 the ones who came before.
 
-![](media/14-1-the-theory-of-labor-markets_rId27.jpeg){width="3.25in" height="2.455in"}
+![](media/14-1-the-theory-of-labor-markets_rId27.jpeg){width="3.25in" height="2.455in" #fig-14_3}
 
 Figure 14.3 Value of the Marginal Product of Labor For firms operating
 in a competitive output market, the value of additional output sold is
@@ -177,7 +185,7 @@ labor, as Figure 14.3 shows.
 Given the market wage, profit maximizing firms hire workers up to the
 point where: W~mkt~ = VMP~L~
 
-![](media/14-1-the-theory-of-labor-markets_rId31.jpeg){width="3.255in" height="2.405in"}
+![](media/14-1-the-theory-of-labor-markets_rId31.jpeg){width="3.255in" height="2.405in" #fig-14_4}
 
 Figure 14.4 Equilibrium Employment for Firms in a Competitive Labor
 Market In a perfectly competitive labor market, firms can hire all the
@@ -210,9 +218,15 @@ marginal revenue.
 
 The Demand for Labor = MP~L~ x MR = Marginal Revenue Product
 
-Table 14.3 Marginal Revenue Product
+| # Workers (L) | 1 | 2 | 3 | 4 |
+|---------------|---|---|---|---|
+| MPL           | 4 | 3 | 2 | 1 |
+| Marginal Revenue | $4 | $3 | $2 | $1 |
+| MRPL          | $16 | $9 | $4 | $1 |
 
-![](media/14-1-the-theory-of-labor-markets_rId38.jpeg){width="3.25in" height="2.455in"}
+: Marginal Revenue Product {#tbl-table_14_3}
+
+![](media/14-1-the-theory-of-labor-markets_rId38.jpeg){width="3.25in" height="2.455in" #fig-14_5}
 
 Figure 14.5 Marginal Revenue Product For firms with some market power in
 their output market, the value of additional output sold is the firm's
@@ -224,9 +238,9 @@ Everything else remains the same as we described above in the discussion
 of the labor demand in perfectly competitive labor markets. Given the
 market wage, profit-maximizing firms will hire workers up to the point
 where the market wage equals the marginal revenue product, as [Figure
-14.6](#CNX_Econ2e_C15_009) shows.
+14.6](#fig-14_6) shows.
 
-![](media/14-1-the-theory-of-labor-markets_rId41.jpeg){width="3.25in" height="2.405in"}
+![](media/14-1-the-theory-of-labor-markets_rId41.jpeg){width="3.25in" height="2.405in" #fig-14_6}
 
 Figure 14.6 Equilibrium Level of Employment for Firms with Market Power
 For firms with market power in their output market, they choose the
@@ -242,7 +256,7 @@ industry.
 
 ##### Do Profit Maximizing Employers Exploit Labor? {#do-profit-maximizing-employers-exploit-labor .Heading4Grey}
 
-If you look back at [Figure 14.4](#CNX_Econ_C15_003), you will see that
+If you look back at [Figure 14.4](#fig-14_4), you will see that
 the firm pays only the last worker it hires what they're worth to the
 firm. Every other worker brings in more revenue than the firm pays them.
 This has sometimes led to the claim that employers exploit workers
@@ -258,8 +272,7 @@ excessive profits, but that is a different topic of discussion.
 
 #### What Determines the Going Market Wage Rate?
 
-In the chapter on [Labor and Financial
-Markets](http://openstax.org/books/principles-microeconomics-3e/pages/4-introduction-to-labor-and-financial-markets),
+In @sec-chapter-4,
 we learned that the labor market has demand and supply curves like other
 markets. The demand for labor curve is a downward sloping function of
 the wage rate. The market demand for labor is the horizontal sum of all
@@ -270,7 +283,7 @@ appropriate skills may change jobs, and vacancies will attract people
 from outside the geographic area. The market supply of labor is the
 horizontal summation of all individuals' supplies of labor.
 
-![](media/14-1-the-theory-of-labor-markets_rId48.jpeg){width="3.25in" height="2.405in"}
+![](media/14-1-the-theory-of-labor-markets_rId48.jpeg){width="3.25in" height="2.405in" #fig-14_7}
 
 Figure 14.7 The Market Wage Rate In a competitive labor market, the
 equilibrium wage and employment level are determined where the market
@@ -278,12 +291,12 @@ demand for labor equals the market supply of labor.
 
 Like all equilibrium prices, the market wage rate is determined through
 the interaction of supply and demand in the labor market. Thus, we can
-see in [Figure 14.7](#CNX_Econ_C15_010) for competitive markets the wage
+see in [Figure 14.7](#fig-14_7) for competitive markets the wage
 rate and number of workers hired.
 
 The FRED database has a great deal of data on labor markets, starting at
 [the wage rate and number of workers
-hired](https://openstax.org/l/cat10).
+hired](https://fred.stlouisfed.org/categories/10).
 
 The United States Census Bureau for the Bureau of Labor Statistics
 publishes *The Current Population Survey*, which is a monthly survey of
@@ -348,12 +361,29 @@ of the following:
 -   Setting a limit on the number of immigrant workers from other
     countries
 
-[Table 14.4](#eip-416) lists some prominent U.S. workplace protection
+@tbl-table_14_4 lists some prominent U.S. workplace protection
 laws. Many of the laws listed in the table were only the start of labor
 market regulations in these areas and have been followed, over time, by
 other related laws, regulations, and court rulings.
 
-Table 14.4 Prominent U.S. Workplace Protection Laws
+| Law                                                  | Protection                                                                                                                                                   |
+|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| National Labor-Management Relations Act of 1935      | Establishes procedures for establishing a union that firms are obligated to follow; sets up the National Labor Relations Board for deciding disputes          |
+| Social Security Act of 1935                           | Under Title III, establishes a state-run system of unemployment insurance, in which workers pay into a state fund when they are employed and received benefits for a time when they are unemployed                        |
+| Fair Labor Standards Act of 1938                      | Establishes the minimum wage, limits on child labor, and rules requiring payment of overtime pay for those in jobs that are paid by the hour and exceed 40 hours per week                                                |
+| Taft-Hartley Act of 1947                             | Allows states to decide whether all workers at a firm can be required to join a union as a condition of employment; in the case of a disruptive union strike, permits the president to declare a “cooling-off period” during which workers have to return to work           |
+| Civil Rights Act of 1964                              | Title VII of the Act prohibits discrimination in employment on the basis of race, gender, national origin, religion, or sexual orientation                                                                                 |
+| Occupational Health and Safety Act of 1970             | Creates the Occupational Safety and Health Administration (OSHA), which protects workers from physical harm in the workplace                                      |
+| Employee Retirement and Income Security Act of 1974   | Regulates employee pension rules and benefits                                                                                                                |
+| Pregnancy Discrimination Act of 1978                  | Prohibits discrimination against women in the workplace who are planning to get pregnant or who are returning to work after pregnancy                               |
+| Immigration Reform and Control Act of 1986             | Prohibits hiring of illegal immigrants; requires employers to ask for proof of citizenship; protects rights of legal immigrants                                    |
+| Worker Adjustment and Retraining Notification Act of 1988 | Requires employers with more than 100 employees to provide written notice 60 days before plant closings or large layoffs                                    |
+| Americans with Disabilities Act of 1990               | Prohibits discrimination against those with disabilities and requires reasonable accommodations for them on the job                                              |
+| Family and Medical Leave Act of 1993                  | Allows employees to take up to 12 weeks of unpaid leave per year for family reasons, including birth or family illness                                            |
+| Pension Protection Act of 2006                       | Penalizes firms for underfunding their pension plans and gives employees more information about their pension accounts                                          |
+| Lilly Ledbetter Fair Pay Act of 2009                  | Restores protection for pay discrimination claims on the basis of sex, race, national origin, age, religion, or disability                                       |
+
+: Prominent U.S. Workplace Protection Laws {#tbl-table_14_4}
 
 There are two sources of imperfect competition in labor markets. These
 are demand side sources, that is, labor market power by employers, and
@@ -397,10 +427,15 @@ understand by introducing a new concept: the marginal cost of labor. The
 marginal cost of labor is the cost to the firm of hiring one more
 worker. However, here is the thing: we assume that the firm is
 determining how many workers to hire in total. They are not hiring
-sequentially. Let's look how this plays out with the example in [Table
-14.5](#eip-142).
+sequentially. Let's look how this plays out with the example in @tbl-table_14_5.
 
-Table 14.5 The Marginal Cost of Labor
+| Supply of Labor        | 1                | 2                | 3                | 4                | 5                |
+|------------------------|------------------|------------------|------------------|------------------|------------------|
+| Wage Rate              | $1 per hour      | $2 per hour      | $3 per hour      | $4 per hour      | $5 per hour      |
+| Total Cost of Labor    | $1               | $4               | $9               | $16              | $25              |
+| Marginal Cost of Labor | $1               | $3               | $5               | $7               | $9               |
+
+: The Marginal Cost of Labor {#tbl-table_14_5}
 
 There are a couple of things to notice from the table. First, the
 marginal cost increases faster than the wage rate. In fact, for any
@@ -409,7 +444,7 @@ than the wage. This is because to hire one more worker requires paying a
 higher wage rate, not just for the new worker but for all the previous
 hires also. We can see this graphically in Figure 14.7.
 
-![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId24.jpeg){width="3.255in" height="2.405in"}
+![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId24.jpeg){width="3.255in" height="2.405in" #fig-14_8}
 
 Figure 14.8 The Marginal Cost of Labor Since monopsonies are the sole
 demander for labor, they face the market supply curve for labor. In
@@ -420,7 +455,7 @@ additional labor is greater than the wage, and thus for any level of
 employment (above the first worker), MC~L~ is above the Market Supply of
 Labor.
 
-![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId27.jpeg){width="3.255in" height="2.405in"}
+![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId27.jpeg){width="3.255in" height="2.405in" #fig-14_9}
 
 Figure 14.9 Labor Market Outcomes Under Monopsony A monopsony will hire
 workers up to the point Lm where its demand for labor equals the
@@ -429,7 +464,7 @@ supply curve of labor necessary to obtain Lm workers.
 
 If the firm wants to maximize profits, it will hire labor up to the
 point Lm where D~L~ = VMP (or MRP) = MC~L~, as [Figure
-14.9](#CNX_Econ2e_C15_012) shows. Then, the supply curve for labor shows
+14.9](#fig-14_9) shows. Then, the supply curve for labor shows
 the wage the firm will have to pay to attract Lm workers. Graphically,
 we can draw a vertical line up from Lm to the Supply Curve for the label
 and then read the wage Wm off the vertical axis to the left.
@@ -442,7 +477,7 @@ monopsony may be rare, many employers have some degree of market power
 in labor markets. The outcomes for those employers will be qualitatively
 similar though not as extreme as monopsony.
 
-![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId30.jpeg){width="3.25in" height="2.465in"}
+![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId30.jpeg){width="3.25in" height="2.465in" #fig-14_10}
 
 Figure 14.10 Comparison of labor market outcomes: Monopsony vs. Perfect
 Competition A monopsony hires fewer workers (Lm) than would be hired in
@@ -511,11 +546,24 @@ In summary, the percentage of workers belonging to a union is higher for
 men than women; higher for Black than for White or Hispanic people;
 higher for the 45--64 age range; and higher among workers in government
 and manufacturing than workers in agriculture or service-oriented jobs.
-[Table 14.6](#eip-232) lists the largest U.S. labor unions and their
+@tbl-table_14_6 lists the largest U.S. labor unions and their
 membership.
 
-Table 14.6 The Largest American Unions in 2021 (Source: U.S. Department
-of Labor and individual union websites)
+| Union                                                       | Membership   |
+|-------------------------------------------------------------|--------------|
+| National Education Association (NEA)                        | 3.0 million  |
+| Service Employees International Union (SEIU)                | 2.0 million  |
+| American Federation of Teachers (AFT)                       | 1.7 million  |
+| International Brotherhood of Teamsters (IBT)                | 1.4 million  |
+| The American Federation of State, County, and Municipal Workers (AFSCME) | 1.6 million  |
+| United Food and Commercial Workers International Union      | 1.3 million  |
+| International Brotherhood of Electrical Workers (IBEW)      | 775,000      |
+| United Steelworkers                                         | 625,000      |
+| International Association of Machinists and Aerospace Workers | 569,000      |
+| International Union, United Automobile, Aerospace and Agricultural Implement Workers of America (UAW) | 408,000      |
+
+: The Largest American Unions in 2021 (Source: U.S. Department
+of Labor and individual union websites) {#tbl-table_14_6}
 
 In terms of pay, benefits, and hiring, U.S. unions offer a good news/bad
 news story. The good news for unions and their members is that their
@@ -523,13 +571,13 @@ members earn about 20% more than nonunion workers, even after adjusting
 for factors such as years of work experience and education level. The
 bad news for unions is that the share of U.S. workers who belong to a
 labor union has been steadily declining for 50 years, as [Figure
-14.11](#CNX_Econ_C15_001) shows. About one-quarter of all U.S. workers
+14.11](#fig-14_11) shows. About one-quarter of all U.S. workers
 belonged to a union in the mid-1950s, but only 10.3% of U.S. workers are
 union members today. If you leave out government workers (which includes
 teachers in public schools), only 6.1% of the workers employed by
 private firms now work for a union.
 
-![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId23.jpeg){width="4.875in" height="2.455in"}
+![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId23.jpeg){width="4.875in" height="2.455in" #fig-14_11}
 
 Figure 14.11 Percentage of Wage and Salary Workers Who Are Union Members
 The share of wage and salary workers who belong to unions rose sharply
@@ -554,14 +602,14 @@ an industry must negotiate with a single union, and no firm is allowed
 to hire nonunion labor. If no labor union existed in this market, then
 equilibrium (E) in the labor market would occur at the intersection of
 the demand for labor (D) and the supply of labor (S) as we see in
-[Figure 14.12](#eip-idm993448640). This is the same result as we showed
+[Figure 14.12](#fig-14_12). This is the same result as we showed
 in Figure 14.6 above. The union can, however, threaten that, unless
 firms agree to the wages they demand, the workers will strike. As a
 result, the labor union manages to achieve, through negotiations with
 the firms, a union wage of Wu for its members, above what the
 equilibrium wage would otherwise have been.
 
-![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId26.jpeg){width="3.25in" height="2.89in"}
+![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId26.jpeg){width="3.25in" height="2.89in" #fig-14_12}
 
 Figure 14.12 Union Wage Negotiations Without a union, the equilibrium at
 E would have involved the wage We and the quantity of labor Qe. However,
@@ -611,8 +659,7 @@ training and apprenticeship programs.
 
 In addition, firms that are confronted with union demands for higher
 wages may choose production methods that involve more physical capital
-and less labor, resulting in increased labor productivity. [Table
-14.7](#eip-431) provides an example. Assume that a firm can produce a
+and less labor, resulting in increased labor productivity. @tbl-table_14_7 provides an example. Assume that a firm can produce a
 home exercise cycle with three different combinations of labor and
 manufacturing equipment. Say that the firm pays labor \$16 an hour
 (including benefits) and the machines for manufacturing cost \$200 each.
@@ -634,7 +681,13 @@ in machinery, then union workers can be more productive because they are
 working with more or better physical capital equipment than the typical
 nonunion worker. However, the firm will need to hire fewer workers.
 
-Table 14.7 Three Production Choices to Manufacture a Home Exercise Cycle
+| Hours of Labor | Number of Machines | Cost of Labor + Cost of Machine $16/hour | Cost of Labor + Cost of Machine $20/hour | Cost of Labor + Cost of Machine $24/hour |
+|----------------|---------------------|--------------------------------------------|--------------------------------------------|--------------------------------------------|
+| 30             | 3                   | $480 + $600 = $1,080                       | $600 + $600 = $1,200                       | $720 + $600 = $1,320                       |
+| 40             | 2                   | $640 + $400 = $1,040                       | $800 + $400 = $1,200                       | $960 + $400 = $1,360                       |
+| 50             | 1                   | $800 + $200 = $1,000                       | $1,000 + $200 = $1,200                     | $1,200 + $200 = $1,400                     |
+
+: Three Production Choices to Manufacture a Home Exercise Cycle {#tbl-table_14_7}
 
 In some cases, unions have discouraged the use of labor-saving physical
 capital equipment---out of the reasonable fear that new machinery will
@@ -695,7 +748,7 @@ Let's discuss each of these four explanations in more detail.
 A first possible explanation for the decline in the share of U.S.
 workers belonging to unions involves the patterns of job growth in the
 manufacturing and service sectors of the economy as [Figure
-14.13](#fs-123456) shows. The U.S. economy had about 15 million
+14.13](#fig-14_13) shows. The U.S. economy had about 15 million
 manufacturing jobs in 1960. This total rose to 19 million by the late
 1970s and then declined to 17 million in 2013. Meanwhile, the number of
 jobs in service industries (including government employment) rose from
@@ -706,12 +759,12 @@ happening where the unions were. It is interesting to note that
 government workers comprise several of the biggest unions in the
 country, including the American Federation of State, County and
 Municipal Employees (AFSCME); the Service Employees International Union;
-and the National Education Association. [Table 14.8](#eip-471) lists the
+and the National Education Association. @tbl-table_14_8 lists the
 membership of each of these unions. Outside of government employees,
 however, unions have not had great success in organizing the service
 sector.
 
-![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId35.jpeg){width="6.5in" height="3.855in"}
+![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId35.jpeg){width="6.5in" height="3.855in" #fig-14_13}
 
 Figure 14.13 The Growth of Service Jobs Jobs in services have increased
 dramatically for more than the past 50 years. Jobs in government have
@@ -747,7 +800,7 @@ increasing government social benefits and regulation of the workplace.
 Clearly there are cultural differences between countries as to their
 acceptance of unions in the workplace. The share of the population
 belonging to unions in other countries is very high compared with the
-share in the United States. [Table 14.8](#eip-471) shows the proportion
+share in the United States. @tbl-table_14_8 shows the proportion
 of workers in a number of the world's high-income economies who belong
 to unions. The United States is near the bottom, along with France and
 Spain. The last column shows union coverage, defined as including those
@@ -758,8 +811,20 @@ countries, the wages of many workers who do not officially belong to a
 union are still determined by collective bargaining between unions and
 firms.
 
-Table 14.8 International Comparisons of Union Membership and Coverage in
-2012 (Source, CIA World Factbook, retrieved from www.cia.gov)
+| Country        | Union Density: Percentage of Workers Belonging to a Union | Union Coverage: Percentage of Workers Whose Wages Are Determined by Union Bargaining |
+|----------------|------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Austria        | 37%                                                        | 99%                                                                                      |
+| France         | 9%                                                         | 95%                                                                                      |
+| Germany        | 26%                                                        | 63%                                                                                      |
+| Japan          | 22%                                                        | 23%                                                                                      |
+| Netherlands    | 25%                                                        | 82%                                                                                      |
+| Spain          | 11.3%                                                      | 81%                                                                                      |
+| Sweden         | 82%                                                        | 92%                                                                                      |
+| United Kingdom  | 29%                                                        | 35%                                                                                      |
+| United States   | 11.1%                                                      | 12.5%                                                                                    |
+
+: International Comparisons of Union Membership and Coverage in
+2012 (Source, CIA World Factbook, retrieved from www.cia.gov) {#tbl-table_14_8}
 
 These international differences in union membership suggest a fourth
 reason for the decline of union membership in the United States: perhaps
@@ -802,7 +867,7 @@ legal environments and cultural attitudes toward unions.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/fastfoodwages) to read more
+Visit this [website](https://www.theguardian.com/money/2021/jan/15/us-fast-food-workers-plan-strike-15-an-hour-minimum-wage) to read more
 about recent protests regarding minimum wage for fast food employees.
 
 
@@ -819,14 +884,14 @@ What happens when there is market power on both sides of the labor
 market, in other words, when a union meets a monopsony? Economists call
 such a situation a bilateral monopoly.
 
-![](media/14-4-bilateral-monopoly_rId23.jpeg){width="3.25in" height="2.405in"}
+![](media/14-4-bilateral-monopoly_rId23.jpeg){width="3.25in" height="2.405in" #fig-14_14}
 
 Figure 14.14 Bilateral Monopoly Employment, L\*, will be lower in a
 bilateral monopoly than in a competitive labor market, but the
 equilibrium wage is indeterminate, somewhere in the range between Wu,
 what the union would choose, and Wm, what the monopsony would choose.
 
-[Figure 14.14](#fs-4465) is a combination of Figure 14.6 and Figure
+[Figure 14.14](#fig-14_14) is a combination of Figure 14.6 and Figure
 14.11. A monopsony wants to reduce wages as well as employment, Wm and
 L\* in the figure. A union wants to increase wages, but at the cost of
 lower employment, Wu and L\* in the figure. Since both sides want to
@@ -892,7 +957,7 @@ and government data.
 #### Earnings Gaps by Race and Gender
 
 A possible signal of labor market discrimination is when an employer
-pays one group less than another. [Figure 14.15](#CNX_Econ_C15_001)
+pays one group less than another. [Figure 14.15](#fig-14_15)
 shows the average wage of Black workers as a ratio of the average wage
 of White workers and the average wage of female workers as a ratio of
 the average wage of male workers. Research by the economists Francine
@@ -904,7 +969,7 @@ diminished in the 1970s, but grew again so that current differences are
 as wide as they were nearly 70 years ago. In both gender and race, an
 earnings gap remains.
 
-![](media/14-5-employment-discrimination_rId25.jpeg){width="4.88in" height="2.655in"}
+![](media/14-5-employment-discrimination_rId25.jpeg){width="4.88in" height="2.655in" #fig-14_15}
 
 Figure 14.15 Wage Ratios by Sex and Race The ratio of wages for Black
 workers to White workers rose substantially in the late 1960s and
@@ -935,7 +1000,7 @@ similar job, with similar educational attainment, and with similar
 expertise.
 
 The FRED database includes earnings data at [earnings by age, gender and
-race/ethnicity](https://openstax.org/l/33501).
+race/ethnicity](https://fred.stlouisfed.org/categories/33501).
 
 As stated previously and as we will see below, not every instance of a
 wage gap or employment inequity is a product of overt discrimination on
@@ -1042,7 +1107,7 @@ can take steps to address them.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](https://openstax.org/l/numberswomen) to read more
+Visit this [website](https://www.representwomen.org/2022_gender_parity_index#us_overview) to read more
 about the persistently low numbers of women in executive roles in
 business and in the U.S. Congress.
 
@@ -1064,7 +1129,7 @@ However, the earnings gap between Black and White workers has not
 changed as much as the earnings gap between men and women has in the
 last half century. The remaining racial gap seems related both to
 continuing differences in education levels and to the presence of
-discrimination. [Table 14.9](#Table_15_06) shows that the percentage of
+discrimination. @tbl-table_14_9 shows that the percentage of
 Black people who complete a four-year college degree remains
 substantially lower than the percentage of White people who complete
 college. According to the U.S. Census, both White and Black people have
@@ -1086,9 +1151,14 @@ Further, as the following Clear It Up feature explains, there is
 evidence to support that discrimination in the housing market is
 connected to employment discrimination.
 
-Table 14.9 Educational Attainment by Race and Ethnicity for Individuals
+|                                 | White | Hispanic | Black | Asian |
+|---------------------------------|-------|----------|-------|-------|
+| Completed four years of high school or more | 93.8% | 73.0%    | 87.2% | 91.0% |
+| Completed four years of college or more     | 37.6% | 16.8%    | 23.7% | 54.7% |
+
+: Educational Attainment by Race and Ethnicity for Individuals
 Aged 18 and Above in 2019 (Source:
-https://www.census.gov/content/census/en/data/tables/2019/demo/educational-attainment/cps-detailed-tables.html)
+<https://www.census.gov/content/census/en/data/tables/2019/demo/educational-attainment/cps-detailed-tables.html>) {#tbl-table_14_9}
 
 #### Clear It Up {#clear-it-up-1 .Heading3Grey}
 
@@ -1197,7 +1267,7 @@ end such discrimination in the future.
 
 #### Link It Up {#link-it-up-1 .Heading3Grey}
 
-Read this [article](http://openstax.org/l/censusincome) to learn more
+Read this [article](https://www.cnbc.com/2020/09/18/new-census-data-reveals-no-progress-has-been-made-closing-the-gender-pay-gap.html) to learn more
 about wage discrimination.
 
 #### Public Policies to Reduce Discrimination
@@ -1257,7 +1327,7 @@ Commission (EEOC) enforces this type of redress.
 #### An Increasingly Diverse Workforce
 
 Racial and ethnic diversity is on the rise in the U.S. population and
-workforce. As [Figure 14.16](#CNX_Econ_C15_006) shows, while the White
+workforce. As [Figure 14.16](#fig-14_16) shows, while the White
 Americans comprised 78% of the population in 2012, the U.S. Bureau of
 the Census projects that Whites will comprise 69% of the U.S. population
 by 2060. Forecasters predict that the proportion of U.S. citizens who
@@ -1266,7 +1336,7 @@ to expected changes in the population, workforce diversity is increasing
 as the women who entered the workforce in the 1970s and 1980s are now
 moving up the promotion ladders within their organizations.
 
-![](media/14-5-employment-discrimination_rId54.jpeg){width="4.88in" height="2.68in"}
+![](media/14-5-employment-discrimination_rId54.jpeg){width="4.88in" height="2.68in" #fig-14_16}
 
 Figure 14.16 Projected Changes in America's Racial and Ethnic Diversity
 This figure shows projected changes in the ethnic makeup of the U.S.
@@ -1283,9 +1353,8 @@ different genders and between ethnic groups will rise and that workers
 will be less productive as a result. Anti-discrimination policy, at its
 best, seeks to help society move toward the more optimistic outcome.
 
-The FRED database includes data on foreign and native born civilian
-[population](https://openstax.org/l/104) and [labor
-force](https://openstax.org/l/32442).
+The FRED database includes data on foreign and native born civilian [population](https://fred.stlouisfed.org/categories/104) and [labor
+force](https://fred.stlouisfed.org/categories/32442).
 
 
 ### 14.6 Immigration
@@ -1307,7 +1376,7 @@ those topics, economists have insights and research to offer.
 Supporters and opponents of immigration look at the same data and see
 different patterns. Those who express concern about immigration levels
 to the United States point to graphics like [Figure
-14.17](#CNX_Econ_C15_002) which shows total inflows of immigrants decade
+14.17](#fig-14_17) which shows total inflows of immigrants decade
 by decade through the twentieth and into the twenty-first century.
 Clearly, the level of immigration has been high and rising in recent
 years, reaching and exceeding the towering levels of the early twentieth
@@ -1318,7 +1387,7 @@ tripled during the twentieth century, the seemingly high levels in
 immigration in the 1990s and 2000s look relatively smaller when they are
 divided by the population.
 
-![](media/14-6-immigration_rId21.jpeg){width="5.3in" height="2.41in"}
+![](media/14-6-immigration_rId21.jpeg){width="5.3in" height="2.41in" #fig-14_17}
 
 Figure 14.17 Immigration Since 1900 The number of immigrants in each
 decade declined between 1900 and the 1940s, rose sharply through 2009
@@ -1399,7 +1468,7 @@ low-skilled immigrants.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/nber) to obtain more context
+Visit this [website](https://www.nber.org/papers/w11547) to obtain more context
 regarding immigration.
 
 #### Proposals for Immigration Reform
@@ -1436,11 +1505,8 @@ overall population about the desirability of immigration, it is unlikely
 that any significant immigration reform will take place in the near
 future.
 
-The FRED database includes data on the national origin of the civilian
-population
-[(https://fred.stlouisfed.org/categories/104)](https://fred.stlouisfed.org/categories/104)
-and labor force
-[(https://fred.stlouisfed.org/categories/32442)](https://fred.stlouisfed.org/categories/32442).
+The FRED database includes data on the national origin of the 
+[civilian population](https://fred.stlouisfed.org/categories/104) and [labor force](https://fred.stlouisfed.org/categories/32442).
 
 #### Bring It Home {#bring-it-home .Heading3Grey}
 

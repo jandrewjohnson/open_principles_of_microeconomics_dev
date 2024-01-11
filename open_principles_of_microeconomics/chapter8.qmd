@@ -1,5 +1,5 @@
-# Chapter 8 - Perfect Competition
-![](media/8-introduction-to-perfect-competition_rId20.jpeg){width="6.5in" height="4.335in"}
+# Chapter 8 - Perfect Competition {#sec-chapter-8}
+![](media/8-introduction-to-perfect-competition_rId20.jpeg){width="6.5in" height="4.335in" #fig-8_1}
 
 Figure 8.1 Depending on the competition and prices offered, a soybean
 farmer may choose to grow a different crop. (Credit: modification
@@ -64,9 +64,8 @@ and the type of products that they sell. Economists refer to this as an
 industry\'s market structure. In this chapter, we focus on perfect
 competition. However, in other chapters we will examine other industry
 types:
-[Monopoly](http://openstax.org/books/principles-microeconomics-3e/pages/9-introduction-to-a-monopoly)
-and [Monopolistic Competition and
-Oligopoly](http://openstax.org/books/principles-microeconomics-3e/pages/10-introduction-to-monopolistic-competition-and-oligopoly).
+@sec-chapter-9
+and @sec-chapter-10.
 
 
 ### 8.1 Perfect Competition and Why It Matters
@@ -116,13 +115,12 @@ markets are small roadside produce markets and small organic farmers.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/commodities) that reveals the
+Visit this [website](https://www.cnn.com/markets) that reveals the
 current value of various commodities.
 
 This chapter examines how profit-seeking firms decide how much to
 produce in perfectly competitive markets. Such firms will analyze their
-costs as we discussed in the chapter on [Production, Costs and Industry
-Structure](http://openstax.org/books/principles-microeconomics-3e/pages/7-introduction-to-production-costs-and-industry-structure).
+costs as we discussed in @sec-chapter-7.
 In the short run, the perfectly competitive firm will seek the quantity
 of output where profits are highest or, if profits are not possible,
 where losses are lowest.
@@ -151,8 +149,12 @@ A perfectly competitive firm has only one major decision to
 make---namely, what quantity to produce. To understand this, consider a
 different way of writing out the basic definition of profit:
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId24.png){width="5.15625in"
-height="0.3958333333333333in"}
+$$
+\begin{aligned}
+\text { Profit } & =\text { Total revenue }- \text { Total cost } \\
+& =(\text { Price }) \text { (Quantity produced })-(\text { Average cost }) \text { (Quantity produced })
+\end{aligned}
+$$
 
 Since a perfectly competitive firm must accept the price for its output
 as determined by the product's market demand and supply, it cannot
@@ -182,19 +184,16 @@ so on. If, for example, the price of frozen raspberries doubles to \$8
 per pack, then sales of one pack of raspberries will be \$8, two packs
 will be \$16, three packs will be \$24, and so on.
 
-[Table 8.1](#ch08mod02_tab01) shows total revenue and total costs for
+@tbl-table_8_1 shows total revenue and total costs for
 the raspberry farm; these data also appear in [Figure
-8.2](#CNX_Econ_C08_001). The horizontal axis shows the quantity of
+8.2](#fig-8_2). The horizontal axis shows the quantity of
 frozen raspberries produced in packs. The vertical axis shows both total
 revenue and total costs, measured in dollars. The total cost curve
 intersects with the vertical axis at a value that shows the level of
 fixed costs, and then slopes upward. All these cost curves follow the
-same characteristics as the curves that we covered in the [Production,
-Costs and Industry
-Structure](http://openstax.org/books/principles-microeconomics-3e/pages/7-introduction-to-production-costs-and-industry-structure)
-chapter.
+same characteristics as the curves that we covered in @sec-chapter-7.
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId29.jpeg){width="4.88in" height="2.435in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId29.jpeg){width="4.88in" height="2.435in" #fig-8_2}
 
 Figure 8.2 Total Cost and Total Revenue at the Raspberry Farm Total
 revenue for a perfectly competitive firm is a straight line sloping up.
@@ -235,7 +234,7 @@ between total revenue and total cost is largest.
   120               \$715             \$480             \$−235
   -----------------------------------------------------------------------
 
-Table 8.1 Total Cost and Total Revenue at the Raspberry Farm
+: Total Cost and Total Revenue at the Raspberry Farm {#tbl-table_8_1}
 
 Based on its total revenue and total cost curves, a perfectly
 competitive firm like the raspberry farm can calculate the quantity of
@@ -243,8 +242,8 @@ output that will provide the highest level of profit. At any given
 quantity, total revenue minus total cost will equal profit. One way to
 determine the most profitable quantity to produce is to see at what
 quantity total revenue exceeds total cost by the largest amount. [Figure
-8.2](#CNX_Econ_C08_001) shows total revenue, total cost and profit using
-the data from [Table 8.1](#ch08mod02_tab01). The vertical gap between
+8.2](#fig-8_2) shows total revenue, total cost and profit using
+the data from @tbl-table_8_1. The vertical gap between
 total revenue and total cost is profit, for example, at Q = 60, TR = 240
 and TC = 165. The difference is 75, which is the height of the profit
 curve at that output level. The firm doesn't make a profit at every
@@ -254,7 +253,7 @@ output, the firm will be making losses. At output levels from 40 to 100,
 total revenues exceed total costs, so the firm is earning profits.
 However, at any output greater than 100, total costs again exceed total
 revenues and the firm is making increasing losses. Total profits appear
-in the final column of [Table 8.1](#ch08mod02_tab01). Maximum profit
+in the final column of @tbl-table_8_1. Maximum profit
 occurs at an output between 70 and 80, when profit equals \$90.
 
 A higher price would mean that total revenue would be higher for every
@@ -286,9 +285,8 @@ observe how it affects profits. In economic terms, this practical
 approach to maximizing profits means examining how changes in production
 affect marginal revenue and marginal cost.
 
-[Figure 8.3](#CNX_Econ_C08_002) presents the marginal revenue and
-marginal cost curves based on the total revenue and total cost in [Table
-8.1](#ch08mod02_tab01). The marginal revenue curve shows the additional
+[Figure 8.3](#fig-8_3) presents the marginal revenue and
+marginal cost curves based on the total revenue and total cost in @tbl-table_8_1. The marginal revenue curve shows the additional
 revenue gained from selling one more unit. As mentioned before, a firm
 in perfect competition faces a perfectly elastic demand curve for its
 product---that is, the firm's demand curve is a horizontal line drawn at
@@ -297,7 +295,7 @@ curve is the same as the firm's demand curve: Every time a consumer
 demands one more unit, the firm sells one more unit and revenue
 increases by exactly the same amount equal to the market price. In this
 example, every time the firm sells a pack of frozen raspberries, the
-firm's revenue increases by \$4. [Table 8.2](#ch08mod02_tab02) shows an
+firm's revenue increases by \$4. @tbl-table_8_2 shows an
 example of this. This condition only holds for price taking firms in
 perfect competition where:
 
@@ -307,7 +305,14 @@ The formula for marginal revenue is:
 
 $\text{marginal~revenue~=~}\frac{\text{change~in~total~revenue}}{\text{change~in~quantity}}$
 
-Table 8.2
+| Price | Quantity | Total Revenue | Marginal Revenue |
+|-------|----------|---------------|-------------------|
+| $4    | 1        | $4            | -                 |
+| $4    | 2        | $8            | $4               |
+| $4    | 3        | $12           | $4               |
+| $4    | 4        | $16           | $4               |
+
+: Marginal Revenue for a Price-Taking Firm {#tbl-table_8_2}
 
 Notice that marginal revenue does not change as the firm produces more
 output. That is because under perfect competition, the price is
@@ -327,8 +332,8 @@ $\text{marginal~cost~=~}\frac{\text{change~in~total~cost}}{\text{change~in~quant
 Ordinarily, marginal cost changes as the firm produces a greater
 quantity.
 
-In the raspberry farm example, in [Figure 8.3](#CNX_Econ_C08_002) and
-[Table 8.3](#ch08mod02_tab03), marginal cost at first declines as
+In the raspberry farm example, in [Figure 8.3](#fig-8_3) and
+@tbl-table_8_3, marginal cost at first declines as
 production increases from 10 to 20 to 30 to 40 packs of
 raspberries---which represents the area of increasing marginal returns
 that is not uncommon at low levels of production. At some point, though,
@@ -342,25 +347,41 @@ because the reductions in marginal cost will exceed the reductions in
 marginal revenue. The firm's profit-maximizing choice of output will
 occur where MR = MC (or at a choice close to that point).
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId38.jpeg){width="4.88in" height="2.605in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId38.jpeg){width="4.88in" height="2.605in" #fig-8_3}
 
 Figure 8.3 Marginal Revenues and Marginal Costs at the Raspberry Farm:
 Individual Farmer For a perfectly competitive firm, the marginal revenue
 (MR) curve is a horizontal line because it is equal to the price of the
 good, which is determined by the market, as [Figure
-8.4](#CNX_Econ_C08_015) illustrates. The marginal cost (MC) curve is
+8.4](#fig-8_4) illustrates. The marginal cost (MC) curve is
 sometimes initially downward-sloping, if there is a region of increasing
 marginal returns at low levels of output, but is eventually
 upward-sloping at higher levels of output as diminishing marginal
 returns kick in.
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId41.jpeg){width="4.88in" height="2.655in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId41.jpeg){width="4.88in" height="2.655in" #fig-8_4}
 
 Figure 8.4 Supply, Demand, and Equilibrium Price in the Market for
 Raspberries The equilibrium price of raspberries is determined through
 the interaction of market supply and market demand at \$4.00.
 
-Table 8.3 Marginal Revenues and Marginal Costs at the Raspberry Farm
+| Quantity | Total Cost | Marginal Cost | Total Revenue | Marginal Revenue | Profit |
+|----------|------------|---------------|---------------|-------------------|--------|
+| 0        | $62        | -             | $0            | $4                | -$62    |
+| 10       | $90        | $2.80         | $40           | $4                | -$50    |
+| 20       | $110       | $2.00         | $80           | $4                | -$30    |
+| 30       | $126       | $1.60         | $120          | $4                | -$6     |
+| 40       | $138       | $1.20         | $160          | $4                | $22     |
+| 50       | $150       | $1.20         | $200          | $4                | $50     |
+| 60       | $165       | $1.50         | $240          | $4                | $75     |
+| 70       | $190       | $2.50         | $280          | $4                | $90     |
+| 80       | $230       | $4.00         | $320          | $4                | $90     |
+| 90       | $296       | $6.60         | $360          | $4                | $64     |
+| 100      | $400       | $10.40        | $400          | $4                | $0      |
+| 110      | $550       | $15.00        | $440          | $4                | -$110   |
+| 120      | $715       | $16.50        | $480          | $4                | -$235   |
+
+: Marginal Revenues and Marginal Costs at the Raspberry Farm {#tbl-table_8_3}
 
 In this example, the marginal revenue and marginal cost curves cross at
 a price of \$4 and a quantity of 80 produced. If the farmer started out
@@ -381,7 +402,7 @@ cost---that is, where MR = MC. This occurs at Q = 80 in the figure.
 
 ##### Does Profit Maximization Occur at a Range of Output or a Specific Level of Output?  {#does-profit-maximization-occur-at-a-range-of-output-or-a-specific-level-of-output .Heading4Grey}
 
-[Table 8.1](#ch08mod02_tab01) shows that maximum profit occurs at any
+@tbl-table_8_1 shows that maximum profit occurs at any
 output level between 70 and 80 units of output. But MR = MC occurs only
 at 80 units of output. How can we explain this slight discrepancy? As
 long as MR \> MC, a profit-seeking firm should keep expanding
@@ -408,15 +429,15 @@ the average cost of production, the profit margin is negative and the
 firm will suffer losses. You might think that, in this situation, the
 firm may want to shut down immediately. Remember, however, that the firm
 has already paid for fixed costs, such as equipment, so it may continue
-to produce for a while and incur a loss. [Table 8.3](#ch08mod02_tab03)
-continues the raspberry farm example. [Figure 8.5](#CNX_Econ_C08_014)
+to produce for a while and incur a loss. @tbl-table_8_3
+continues the raspberry farm example. [Figure 8.5](#fig-8_5)
 illustrates the three possible scenarios: (a) where price intersects
 marginal cost at a level above the average cost curve, (b) where price
 intersects marginal cost at a level equal to the average cost curve, and
 (c) where price intersects marginal cost at a level below the average
 cost curve.
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId49.jpeg){width="6.5in" height="5.935in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId49.jpeg){width="6.5in" height="5.935in" #fig-8_5}
 
 Figure 8.5 Price and Average Cost at the Raspberry Farm In (a), price
 intersects marginal cost above the average cost curve. Since price is
@@ -430,7 +451,7 @@ First consider a situation where the price is equal to \$5 for a pack of
 frozen raspberries. The rule for a profit-maximizing perfectly
 competitive firm is to produce the level of output where Price= MR = MC,
 so the raspberry farmer will produce a quantity of approximately 85,
-which is labeled as E\' in [Figure 8.5](#CNX_Econ_C08_014) (a). Remember
+which is labeled as E\' in [Figure 8.5](#fig-8_5) (a). Remember
 that the area of a rectangle is equal to its base multiplied by its
 height. The farm's total revenue at this price will be shown by the
 rectangle from the origin over to a quantity of 85 packs (the base) up
@@ -445,14 +466,25 @@ top.
 
 We calculate this as:
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId52.png){width="2.5208333333333335in"
-height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue }- \text { total cost } \\
+& =(85)(\$ 5.00)-(85)(\$ 3.50) \\
+& =\$ 127.50
+\end{aligned}
+$$
 
 Or, we can calculate it as:
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId54.png){width="3.0in" height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { profit } & =(\text { price-average cost }) \times \text { quantity } \\
+& =(\$ 5.00-\$ 3.50) \times 85 \\
+& =\$ 127.50
+\end{aligned}
+$$
 
-Now consider [Figure 8.5](#CNX_Econ_C08_014) (b), where the price has
+Now consider [Figure 8.5](#fig-8_5) (b), where the price has
 fallen to \$2.75 for a pack of frozen raspberries. Again, the perfectly
 competitive firm will choose the level of output where Price = MR = MC,
 but in this case, the quantity produced will be 75. At this price and
@@ -471,15 +503,25 @@ point E, over to the vertical axis and down to the origin. It should be
 clear that the rectangles for total revenue and total cost are the same.
 Thus, the firm is making zero profit. The calculations are as follows:
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId57.png){width="2.4375in"
-height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue-total cost } \\
+& =(75)(\$ 2.75)-(75)(\$ 2.75) \\
+& =\$ 0
+\end{aligned}
+$$
 
 Or, we can calculate it as:
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId59.png){width="2.9791666666666665in"
-height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { profit } & =(\text { price-average cost }) \times \text { quantity } \\
+& =(\$ 2.75-\$ 2.75) \times 75 \\
+& =\$ 0
+\end{aligned}
+$$
 
-In [Figure 8.5](#CNX_Econ_C08_014) (c), the market price has fallen
+In [Figure 8.5](#fig-8_5) (c), the market price has fallen
 still further to \$2.00 for a pack of frozen raspberries. At this price,
 marginal revenue intersects marginal cost at a quantity of 65. The
 farm's total revenue at this price will be shown by the large shaded
@@ -496,12 +538,23 @@ negative profit) will be the rose-shaded rectangle.
 
 The calculations are:
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId61.png){width="2.6041666666666665in"
-height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { profit } & =(\text { total revenue }- \text { total cost }) \\
+& =(65)(\$ 2.00)-(65)(\$ 2.73) \\
+& =-\$ 47.45
+\end{aligned}
+$$
 
 Or:
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId63.png){width="3.0in" height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { profit } & =(\text { price-average cost }) \times \text { quantity } \\
+& =(\$ 2.00-\$ 2.73) \times 65 \\
+& =-\$ 47.45
+\end{aligned}
+$$
 
 If the market price that perfectly competitive firm receives leads it to
 produce at a quantity where the price is greater than average cost, the
@@ -510,9 +563,15 @@ produce at a quantity where price equals average cost, which occurs at
 the minimum point of the AC curve, then the firm earns zero profits.
 Finally, if the price the firm receives leads it to produce at a
 quantity where the price is less than average cost, the firm will earn
-losses. [Table 8.4](#ch08mod02_tab04) summarizes this.
+losses. @tbl-table_8_4 summarizes this.
 
-Table 8.4
+| If...            | Then...                          |
+|------------------|----------------------------------|
+| Price > ATC      | Firm earns an economic profit    |
+| Price = ATC      | Firm earns zero economic profit  |
+| Price < ATC      | Firm earns a loss                |
+
+: Summary of Profit Conditions for a Perfectly Competitive Firm {#tbl-table_8_4}
 
 #### Clear It Up {#clear-it-up .Heading3Grey}
 
@@ -538,7 +597,7 @@ As an example, consider the situation of the Yoga Center, which has
 signed a contract to rent space that costs \$10,000 per month. If the
 firm decides to operate, its marginal costs for hiring yoga teachers is
 \$15,000 for the month. If the firm shuts down, it must still pay the
-rent, but it would not need to hire labor. [Table 8.5](#ch08mod02_tab05)
+rent, but it would not need to hire labor. @tbl-table_8_5
 shows three possible scenarios. In the first scenario, the Yoga Center
 does not have any clients, and therefore does not make any revenues, in
 which case it faces losses of \$10,000 equal to the fixed costs. In the
@@ -569,29 +628,44 @@ in the short run.
   If the center shuts down now, revenues are zero but it will not incur
   any variable costs and would only need to pay fixed costs of \$10,000.
 
-  ![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId68.png){width="3.5208333333333335in"
-  height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue }-(\text { fixed costs }+ \text { variable cost }) \\
+& =0-\$ 10,000 \\
+& =-\$ 10,000
+\end{aligned}
+$$
 
   **Scenario 2**
 
   The center earns revenues of \$10,000, and variable costs are \$15,000.
   The center should shut down now.
 
-  ![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId70.png){width="3.625in"
-  height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue }-(\text { fixed costs }+ \text { variable cost }) \\
+& =\$ 10,000-(\$ 10,000+\$ 15,000) \\
+& =-\$ 15,000
+\end{aligned}
+$$
 
   **Scenario 3**
 
   The center earns revenues of \$20,000, and variable costs are \$15,000.
   The center should continue in business.
 
-  ![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId72.png){width="3.625in"
-  height="0.6145833333333334in"}
+$$
+\begin{aligned}
+\text { profit } & =\text { total revenue }-(\text { fixed costs }+ \text { variable cost }) \\
+& =\$ 20,000-(\$ 10,000+\$ 15,000) \\
+& =-\$ 5,000
+\end{aligned}
+$$
   -----------------------------------------------------------------------
 
-Table 8.5 Should the Yoga Center Shut Down Now or Later?
+: Should the Yoga Center Shut Down Now or Later? {#tbl-table_8_5}
 
-[Figure 8.6](#CNX_Econ_C08_012) illustrates the lesson that remaining
+[Figure 8.6](#fig-8_6) illustrates the lesson that remaining
 open requires the price to exceed the firm's average variable cost. When
 the firm is operating below the break-even point, where price equals
 average cost, it is operating at a loss so it faces two options:
@@ -609,7 +683,7 @@ variable cost. This means that at the current price the farm can pay all
 its variable costs, and have some revenue left over to pay some of the
 fixed costs. So the loss represents the part of the fixed costs the farm
 can't pay, which is less than the entire fixed costs. However, if the
-price declined to \$1.50 per pack, as [Figure 8.6](#CNX_Econ_C08_012)
+price declined to \$1.50 per pack, as [Figure 8.6](#fig-8_6)
 (b) shows, and if the firm applied its rule of producing where P = MR =
 MC, it would produce a quantity of 60. This price is below average
 variable cost for this level of output. If the farmer cannot pay workers
@@ -619,7 +693,7 @@ output, total revenues would be \$90 (quantity of 60 times price of
 the farm shuts down, it must pay only its fixed costs of \$62, so
 shutting down is preferable to selling at a price of \$1.50 per pack.
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId74.jpeg){width="6.5in" height="2.73in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId74.jpeg){width="6.5in" height="2.73in" #fig-8_6}
 
 Figure 8.6 The Shutdown Point for the Raspberry Farm In (a), the farm
 produces at a level of 65. It is making losses of \$47.50, but price is
@@ -628,7 +702,7 @@ revenues are \$90 and total cost is \$165, for overall losses of \$75.
 If the farm shuts down, it must pay only its fixed costs of \$62.
 Shutting down is preferable to selling at a price of \$1.50 per pack.
 
-Looking at [Table 8.6](#ch08mod02_tab06), if the price falls below about
+Looking at @tbl-table_8_6, if the price falls below about
 \$1.72, the minimum average variable cost, the firm must shut down.
 
   -----------------------------------------------------------------------
@@ -663,7 +737,7 @@ Looking at [Table 8.6](#ch08mod02_tab06), if the price falls below about
   120               \$5.44            \$5.96            \$31.50
   -----------------------------------------------------------------------
 
-Table 8.6 Cost of Production for the Raspberry Farm
+: Cost of Production for the Raspberry Farm {#tbl-table_8_6}
 
 The intersection of the average variable cost curve and the marginal
 cost curve, which shows the price below which the firm would lack enough
@@ -686,13 +760,13 @@ summarize, if:
 #### Short-Run Outcomes for Perfectly Competitive Firms
 
 The average cost and average variable cost curves divide the marginal
-cost curve into three segments, as [Figure 8.7](#CNX_Econ_C08_008)
+cost curve into three segments, as [Figure 8.7](#fig-8_7)
 shows. At the market price, which the perfectly competitive firm accepts
 as given, the profit-maximizing firm chooses the output level where
 price or marginal revenue, which are the same thing for a perfectly
 competitive firm, is equal to marginal cost: P = MR = MC.
 
-![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId79.jpeg){width="4.88in" height="3.38in"}
+![](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId79.jpeg){width="4.88in" height="3.38in" #fig-8_7}
 
 Figure 8.7 Profit, Loss, Shutdown We can divide the marginal cost curve
 into three zones, based on where it is crossed by the average cost and
@@ -738,11 +812,10 @@ the average variable cost curve becomes the firm's supply curve.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Watch this [video](http://openstax.org/l/foodprice) that addresses how
+Watch this [video](https://www.pbs.org/video/pbs-newshour-food-prices-rise-across-the-us-due-to-drought/) that addresses how
 drought in the United States can impact food prices across the world.
 
-As we discussed in the chapter on [Demand and
-Supply](http://openstax.org/books/principles-microeconomics-3e/pages/3-introduction-to-demand-and-supply),
+As we discussed in @sec-chapter-3,
 many of the reasons that supply curves shift relate to underlying
 changes in costs. For example, a lower price of key inputs or new
 technologies that reduce production costs cause supply to shift to the
@@ -763,17 +836,24 @@ following Work It Out feature will walk you through an example.
 ##### At What Price Should the Firm Continue Producing in the Short Run? {#at-what-price-should-the-firm-continue-producing-in-the-short-run .Heading4Grey}
 
 To determine the short-run economic condition of a firm in perfect
-competition, follow the steps outlined below. Use the data in [Table
-8.7](#ch08mod02_tab07).
+competition, follow the steps outlined below. Use the data in @tbl-table_8_7.
 
-Table 8.7
+| Q  | P  | TFC | TVC | TC | AVC | ATC | MC | TR | Profits |
+|----|----|-----|-----|----|-----|-----|----|----|---------|
+| 0  | $28| $20 | $0  | -  | -   | -   | -  | -  | -       |
+| 1  | $28| $20 | $20 | -  | -   | -   | -  | -  | -       |
+| 2  | $28| $20 | $25 | -  | -   | -   | -  | -  | -       |
+| 3  | $28| $20 | $35 | -  | -   | -   | -  | -  | -       |
+| 4  | $28| $20 | $52 | -  | -   | -   | -  | -  | -       |
+| 5  | $28| $20 | $80 | -  | -   | -   | -  | -  | -       |
+
+: Data for the Firm in Perfect Competition {#tbl-table_8_7}
 
 Step 1. Determine the cost structure for the firm. For a given total
 fixed costs and variable costs, calculate total cost, average variable
 cost, average total cost, and marginal cost. Follow the formulas given
-in the [Production, Costs, and Industry
-Structure](http://openstax.org/books/principles-microeconomics-3e/pages/7-introduction-to-production-costs-and-industry-structure)
-chapter. These calculations are in [Table 8.8](#ch08mod02_tab08).
+in the @sec-chapter-7
+chapter. These calculations are in @tbl-table_8_8.
 
   ----------------------------------------------------------------------------------------------------------
   Q        P        TFC      TVC      TC\               AVC\             ATC\              MC\
@@ -798,29 +878,55 @@ chapter. These calculations are in [Table 8.8](#ch08mod02_tab08).
                                                                                            (5−4)= \$28
   ----------------------------------------------------------------------------------------------------------
 
-Table 8.8
+: Calculations for the Firm in Perfect Competition {#tbl-table_8_8}
 
 Step 2. Determine the market price that the firm receives for its
 product. Since the firm in perfect competition is a price taker, the
 market price is constant. With the given price, calculate total revenue
 as equal to price multiplied by quantity for all output levels produced.
 In this example, the given price is \$28. You can see that in the second
-column of [Table 8.9](#ch08mod02_tab09).
+column of @tbl-table_8_9.
 
-Table 8.9
+| Quantity | Price | Total Revenue (P × Q) |
+|----------|-------|------------------------|
+| 0        | $28   | $28×0 = $0              |
+| 1        | $28   | $28×1 = $28             |
+| 2        | $28   | $28×2 = $56             |
+| 3        | $28   | $28×3 = $84             |
+| 4        | $28   | $28×4 = $112            |
+| 5        | $28   | $28×5 = $140            |
+
+: Total Revenue for the Firm in Perfect Competition {#tbl-table_8_9}
 
 Step 3. Calculate profits as total cost subtracted from total revenue,
-as [Table 8.10](#ch08mod02_tab10) shows.
+as @tbl-table_8_10 shows.
 
-Table 8.10
+| Quantity | Total Revenue | Total Cost | Profits (TR - TC) |
+|----------|---------------|------------|---------------------|
+| 0        | $0            | $20        | $0 - $20 = -$20      |
+| 1        | $28           | $40        | $28 - $40 = -$12     |
+| 2        | $56           | $45        | $56 - $45 = $11      |
+| 3        | $84           | $55        | $84 - $55 = $29      |
+| 4        | $112          | $72        | $112 - $72 = $40     |
+| 5        | $140          | $100       | $140 - $100 = $40    |
+
+: Profits for the Firm in Perfect Competition {#tbl-table_8_10}
 
 Step 4. To find the profit-maximizing output level, look at the Marginal
-Cost column (at every output level produced), as [Table
-8.11](#ch08mod02_tab11) shows, and determine where it is equal to the
+Cost column (at every output level produced), as @tbl-table_8_11 shows, and determine where it is equal to the
 market price. The output level where price equals the marginal cost is
 the output level that maximizes profits.
 
-Table 8.11
+| Q   | P   | TFC | TVC | TC  | AVC   | ATC   | MC  | TR  | Profits |
+| --- | --- | --- | --- | --- | ----- | ----- | --- | --- | ------- |
+| 0   | $28 | $20 | $0  | $20 | -     | -     | -   | $0  | -$20    |
+| 1   | $28 | $20 | $20 | $40 | $20.00 | $40.00 | $20 | $28 | -$12    |
+| 2   | $28 | $20 | $25 | $45 | $12.50 | $22.50 | $5  | $56 | $11     |
+| 3   | $28 | $20 | $35 | $55 | $11.67 | $18.33 | $10 | $84 | $29     |
+| 4   | $28 | $20 | $52 | $72 | $13.00 | $18.00 | $17 | $112 | $40   |
+| 5   | $28 | $20 | $80 | $100 | $16.40 | $20.40 | $28 | $140 | $40  |
+
+: Marginal Cost for the Firm in Perfect Competition {#tbl-table_8_11}
 
 Step 5. Once you have determined the profit-maximizing output level (in
 this case, output quantity 5), you can look at the amount of profits
@@ -1008,20 +1114,20 @@ total costs. This can be due to an improvement in technology in the
 entire industry or an increase in the education of employees. High-tech
 industries may be a good example of a decreasing cost market.
 
-[Figure 8.8](#CNX_Econ_C08_013) (a) presents the case of an adjustment
+[Figure 8.8](#fig-8_8) (a) presents the case of an adjustment
 process in a constant-cost industry. Whenever there are output
 expansions in this type of industry, the long-run outcome implies more
 output produced at exactly the same original price. Note that supply was
 able to increase to meet the increased demand. When we join the before
 and after long-run equilibriums, the resulting line is the long run
 supply (LRS) curve in perfectly competitive markets. In this case, it is
-a flat curve. [Figure 8.8](#CNX_Econ_C08_013) (b) and [Figure
-8.8](#CNX_Econ_C08_013) (c) present the cases for an increasing cost and
+a flat curve. [Figure 8.8](#fig-8_8) (b) and [Figure
+8.8](#fig-8_8) (c) present the cases for an increasing cost and
 decreasing cost industry, respectively. For an increasing cost industry,
 the LRS is upward sloping, while for a decreasing cost industry, the LRS
 is downward sloping.
 
-![](media/8-3-entry-and-exit-decisions-in-the-long-run_rId32.jpeg){width="6.5in" height="1.98in"}
+![](media/8-3-entry-and-exit-decisions-in-the-long-run_rId32.jpeg){width="6.5in" height="1.98in" #fig-8_8}
 
 Figure 8.8 Adjustment Process in a Constant-Cost Industry In (a), demand
 increased and supply met it. Notice that the supply increase is equal to
@@ -1048,8 +1154,7 @@ When profit-maximizing firms in perfectly competitive markets combine
 with utility-maximizing consumers, something remarkable happens: the
 resulting quantities of outputs of goods and services demonstrate both
 productive and allocative efficiency (terms that we first introduced in
-([Choice in a World of
-Scarcity](http://openstax.org/books/principles-microeconomics-3e/pages/2-introduction-to-choice-in-a-world-of-scarcity))
+(@sec-chapter-2)
 .
 
 Productive efficiency means producing without waste, so that the choice
@@ -1133,7 +1238,7 @@ that arise from these real-world problems.
 
 ##### A Dime a Dozen {#a-dime-a-dozen .Heading4Grey}
 
-A quick glance at [Table 8.12](#ch08mod04_tab01) reveals the dramatic
+A quick glance at @tbl-table_8_12 reveals the dramatic
 increase in North Dakota corn production---almost a tenfold increase
 since 1972. Recent allocation of land to corn (as of mid-2019) is
 estimated to have increased to more than 4 million acres. Taking into
@@ -1142,7 +1247,12 @@ bushels per acre as wheat, it is obvious there has been a significant
 increase in bushels of corn. Why the increase in corn acreage?
 Converging prices.
 
-Table 8.12 (Source: USDA National Agricultural Statistics Service)
+| Year | Corn (millions of acres) |
+|------|---------------------------|
+| 1972 | 495,000                   |
+| 2013 | 3,850,000                 |
+
+: Corn Acreage in North Dakota {#tbl-table_8_12}
 
 Historically, wheat prices have been higher than corn prices, offsetting
 wheat's lower yield per acre. However, in recent years wheat and corn

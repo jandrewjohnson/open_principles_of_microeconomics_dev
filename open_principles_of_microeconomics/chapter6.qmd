@@ -1,5 +1,5 @@
-# Chapter 6 - Consumer Choices
-![](media/6-introduction-to-consumer-choices_rId20.jpeg){width="6.5in" height="3.6999989063867016in"}
+# Chapter 6 - Consumer Choices {#sec-chapter-6}
+![](media/6-introduction-to-consumer-choices_rId20.jpeg){width="6.5in" height="3.6999989063867016in" #fig-6_1}
 
 Figure 6.1 Investment Choices We generally view higher education as a
 good investment, if one can afford it, regardless of the state of the
@@ -68,13 +68,11 @@ introduces the economic theory of how consumers make choices about what
 goods and services to buy with their limited income.
 
 The analysis in this chapter will build on the budget constraint that we
-introduced in the [Choice in a World of
-Scarcity](http://openstax.org/books/principles-microeconomics-3e/pages/2-introduction-to-choice-in-a-world-of-scarcity)
+introduced in the @sec-chapter-2
 chapter. This chapter will also illustrate how economic theory provides
 a tool to systematically look at the full range of possible consumption
 choices to predict how consumption responds to changes in prices or
-incomes. After reading this chapter, consult the appendix [Indifference
-Curves](http://openstax.org/books/principles-microeconomics-3e/pages/b-indifference-curves)
+incomes. After reading this chapter, consult @sec-appendix-b
 to learn more about representing utility and choice through indifference
 curves.
 
@@ -92,7 +90,7 @@ By the end of this section, you will be able to:
 
 Information on the consumption choices of Americans is available from
 the Consumer Expenditure Survey carried out by the U.S. Bureau of Labor
-Statistics. [Table 6.1](#Table_06_01) shows spending patterns for the
+Statistics. @tbl-table_6_1 shows spending patterns for the
 average U.S. household. The first row shows income and, after taxes and
 personal savings are subtracted, it shows that, in 2015, the average
 U.S. household spent \$48,109 on consumption. The table then breaks down
@@ -103,8 +101,21 @@ on a variety of items, as shown. These patterns will vary for specific
 households by differing levels of family income, by geography, and by
 preferences.
 
-Table 6.1 U.S. Consumption Choices in 2015 (Source:
-http://www.bls.gov/cex/csxann13.pdf)
+| Average Household Income before Taxes    | $62,481                                        |
+|-----------------------------------------------|-----------------------------------------------------|
+| **Average Annual Expenditures**               | **$48,109**                                        |
+| Food at home                                  | $3,264                                             |
+| Food away from home                           | $2,505                                             |
+| Housing                                       | $16,557                                            |
+| Apparel and services                          | $1,700                                             |
+| Transportation                                | $7,677                                             |
+| Healthcare                                    | $3,157                                             |
+| Entertainment                                 | $2,504                                             |
+| Education                                     | $1,074                                             |
+| Personal insurance and pensions               | $5,357                                             |
+| All else: alcohol, tobacco, reading, personal care, cash contributions, miscellaneous | $3,356 |
+
+: U.S. Consumption Choices in 2015 (Source:http://www.bls.gov/cex/csxann13.pdf) {#tbl-table_6_1}
 
 #### Total Utility and Diminishing Marginal Utility
 
@@ -115,10 +126,10 @@ In a budget constraint line, the quantity of one good is on the
 horizontal axis and the quantity of the other good on the vertical axis.
 The budget constraint line shows the various combinations of two goods
 that are affordable given consumer income. Consider José\'s situation,
-shown in [Figure 6.2](#CNX_Econ_C06_001). José likes to collect T-shirts
+shown in [Figure 6.2](#fig-6_2). José likes to collect T-shirts
 and watch movies.
 
-In [Figure 6.2](#CNX_Econ_C06_001) we show the quantity of T-shirts on
+In [Figure 6.2](#fig-6_2) we show the quantity of T-shirts on
 the horizontal axis while we show the quantity of movies on the vertical
 axis. If José had unlimited income or goods were free, then he could
 consume without limit. However, José, like all of us, faces a budget
@@ -131,7 +142,7 @@ where José spends of all of his money on T-shirts and no movies
 --8/4=--2. The specific choices along the budget constraint line show
 the combinations of affordable T-shirts and movies.
 
-![](media/6-1-consumption-choices_rId26.jpeg){width="4.88in" height="2.505in"}
+![](media/6-1-consumption-choices_rId26.jpeg){width="4.88in" height="2.505in" #fig-6_2}
 
 Figure 6.2 A Choice between Consumption Goods José has income of \$56.
 Movies cost \$7 and T-shirts cost \$14. The points on the budget
@@ -149,7 +160,7 @@ of coffee and another gets 10 utils, this does not mean than the first
 person gets more enjoyment from the coffee than the other or that they
 enjoy the coffee twice as much. The reason why is that utils are
 subjective to an individual. The way one person measures utils is not
-the same as the way someone else does.) [Table 6.2](#Table_06_02) shows
+the same as the way someone else does.) @tbl-table_6_2 shows
 how José's utility is connected with his T-shirt or movie consumption.
 The first column of the table shows the quantity of T-shirts consumed.
 The second column shows the total utility, or total amount of
@@ -160,8 +171,9 @@ decreasing rate. The third column shows marginal utility, which is the
 additional utility provided by one additional unit of consumption. This
 equation for marginal utility is:
 
-![](media/6-1-consumption-choices_rId31.png){width="1.5625in"
-height="0.23958333333333334in"}
+$$
+\mathrm{MU}=\frac{\text { change in total utility }}{\text { change in quantity }}
+$$
 
 Notice that marginal utility diminishes as additional units are
 consumed, which means that each subsequent unit of a good consumed
@@ -172,10 +184,9 @@ in the wash and yields only 18 additional utils. This is an example of
 the law of diminishing marginal utility, which holds that the additional
 utility decreases with each unit added. Diminishing marginal utility is
 another example of the more general law of diminishing returns we
-learned earlier in the chapter on [Choice in a World of
-Scarcity](http://openstax.org/books/principles-microeconomics-3e/pages/2-introduction-to-choice-in-a-world-of-scarcity).
+learned earlier in @sec-chapter-2.
 
-The rest of [Table 6.2](#Table_06_02) shows the quantity of movies that
+The rest of @tbl-table_6_2 shows the quantity of movies that
 José attends, and his total and marginal utility from seeing each movie.
 Total utility follows the expected pattern: it increases as the number
 of movies that José watches rises. Marginal utility also follows the
@@ -187,13 +198,32 @@ that total utility is also the sum of the marginal utilities. Read the
 next Work It Out feature for instructions on how to calculate total
 utility.
 
-Table 6.2 Total and Marginal Utility
+| T-Shirts (Quantity) | Total Utility | Marginal Utility | Movies (Quantity) | Total Utility | Marginal Utility |
+|----------------------|---------------|-------------------|---------------------|--------------|-------------------|
+| 1                    | 22            | 22                | 1                   | 16           | 16                |
+| 2                    | 43            | 21                | 2                   | 31           | 15                |
+| 3                    | 63            | 20                | 3                   | 45           | 14                |
+| 4                    | 81            | 18                | 4                   | 58           | 13                |
+| 5                    | 97            | 16                | 5                   | 70           | 12                |
+| 6                    | 111           | 14                | 6                   | 81           | 11                |
+| 7                    | 123           | 12                | 7                   | 91           | 10                |
+| 8                    | 133           | 10                | 8                   | 100          | 9                 |
 
-[Table 6.3](#Table_06_03) looks at each point on the budget constraint
-in [Figure 6.2](#CNX_Econ_C06_001), and adds up José's total utility for
+: Total and Marginal Utility {#tbl-table_6_2}
+
+@tbl-table_6_3 looks at each point on the budget constraint
+in [Figure 6.2](#fig-6_2), and adds up José's total utility for
 five possible combinations of T-shirts and movies.
 
-Table 6.3 Finding the Choice with the Highest Utility
+| Point | T-Shirts | Movies | Total Utility |
+|-------|----------|--------|---------------|
+| P     | 4        | 0      | 81 + 0 = 81   |
+| Q     | 3        | 2      | 63 + 94 = 94  |
+| R     | 2        | 4      | 43 + 58 = 101 |
+| S     | 1        | 6      | 22 + 81 = 103 |
+| T     | 0        | 8      | 0 + 100 = 100 |
+
+: Finding the Choice with the Highest Utility {#tbl-table_6_3}
 
 #### Work It Out {#work-it-out .Heading3Grey}
 
@@ -204,15 +234,14 @@ Let's look at how José makes his decision in more detail.
 Step 1. Observe that, at point Q (for example), José consumes three
 T-shirts and two movies.
 
-Step 2. Look at [Table 6.2](#Table_06_02). You can see from the fourth
+Step 2. Look at @tbl-table_6_3. You can see from the fourth
 row/second column that three T-shirts are worth 63 utils. Similarly, the
 second row/fifth column shows that two movies are worth 31 utils.
 
 Step 3. From this information, you can calculate that point Q has a
 total utility of 94 (63 + 31).
 
-Step 4. You can repeat the same calculations for each point on [Table
-6.3](#Table_06_03), in which the total utility numbers are shown in the
+Step 4. You can repeat the same calculations for each point on @tbl-table_6_3, in which the total utility numbers are shown in the
 last column.
 
 For José, the highest total utility for all possible combinations of
@@ -228,16 +257,24 @@ more of another.
 
 For example, say that José starts off thinking about spending all his
 money on T-shirts and choosing point P, which corresponds to four
-T-shirts and no movies, as [Figure 6.2](#CNX_Econ_C06_001) illustrates.
+T-shirts and no movies, as [Figure 6.2](#fig-6_2) illustrates.
 José chooses this starting point randomly as he has to start somewhere.
 Then he considers giving up the last T-shirt, the one that provides him
 the least marginal utility, and using the money he saves to buy two
-movies instead. [Table 6.4](#Table_06_04) tracks the step-by-step series
+movies instead. @tbl-table_6_4 tracks the step-by-step series
 of decisions José needs to make (*Key*: T-shirts are \$14, movies are
 \$7, and income is \$56). The following Work It Out feature explains how
 marginal utility can affect decision making.
 
-Table 6.4 A Step-by-Step Approach to Maximizing Utility
+| Try   | Which Has                          | Total Utility                                        | Marginal Gain and Loss of Utility, Compared with Previous Choice                 | Conclusion                   |
+|-------|------------------------------------|------------------------------------------------------|-------------------------------------------------------------------------------------|-------------------------------|
+| Choice 1: P | 4 T-shirts and 0 movies        | 81 from 4 T-shirts + 0 from 0 movies = 81             | –                                                                                   | –                             |
+| Choice 2: Q | 3 T-shirts and 2 movies        | 63 from 3 T-shirts + 31 from 2 movies = 94            | Loss of 18 from 1 less T-shirt, but gain of 31 from 2 more movies, for a net utility gain of 13    | Q is preferred over P         |
+| Choice 3: R | 2 T-shirts and 4 movies        | 43 from 2 T-shirts + 58 from 4 movies = 101           | Loss of 20 from 1 less T-shirt, but gain of 27 from 2 more movies, for a net utility gain of 7     | R is preferred over Q         |
+| Choice 4: S | 1 T-shirt and 6 movies         | 22 from 1 T-shirt + 81 from 6 movies = 103            | Loss of 21 from 1 less T-shirt, but gain of 23 from 2 more movies, for a net utility gain of 2      | S is preferred over R         |
+| Choice 5: T | 0 T-shirts and 8 movies         | 0 from 0 T-shirts + 100 from 8 movies = 100           | Loss of 22 from 1 less T-shirt, but gain of 19 from 2 more movies, for a net utility loss of 3     | S is preferred over T         |
+
+: A Step-by-Step Approach to Maximizing Utility {#tbl-table_6_4}
 
 #### Work It Out {#work-it-out-1 .Heading3Grey}
 
@@ -246,7 +283,7 @@ Table 6.4 A Step-by-Step Approach to Maximizing Utility
 José could use the following thought process (if he thought in utils) to
 make his decision regarding how many T-shirts and movies to purchase:
 
-Step 1. From [Table 6.2](#Table_06_02), José can see that the marginal
+Step 1. From @tbl-table_6_2, José can see that the marginal
 utility of the fourth T-shirt is 18. If José gives up the fourth
 T-shirt, then he loses 18 utils.
 
@@ -260,7 +297,7 @@ gains 31 utils (from the movies).
 
 Step 4. Gaining 31 utils and losing 18 utils is a net gain of 13. This
 is just another way of saying that the total utility at Q (94 according
-to the last column in [Table 6.3](#Table_06_03)) is 13 more than the
+to the last column in @tbl-table_6_3) is 13 more than the
 total utility at P (81).
 
 Step 5. Thus, for José, it makes sense to give up the fourth T-shirt in
@@ -290,11 +327,12 @@ We can develop a more systematic way of using this approach by focusing
 on satisfaction per dollar. If an item costing \$5 yields 10 utils, then
 it's worth 2 utils per dollar spent. Marginal utility per dollar is the
 amount of additional utility José receives divided by the product\'s
-price. [Table 6.5](#Table_06_05) shows the marginal utility per dollar
+price. @tbl-table_6_5 shows the marginal utility per dollar
 for José\'s T shirts and movies.
 
-![](media/6-1-consumption-choices_rId40.png){width="2.7916666666666665in"
-height="0.23958333333333334in"}
+$$
+\text { marginal utility per dollar }=\frac{\text { marginal utility }}{\text { price }}
+$$
 
 If José wants to maximize the utility he gets from his limited budget,
 he will always purchase the item with the greatest marginal utility per
@@ -314,7 +352,17 @@ until the sixth movie which gives the same marginal utility per dollar
 as the first T-shirt purchase. José has just enough budget to purchase
 both. So in total, José will purchase six movies and one T-shirt.
 
-Table 6.5 Marginal Utility per Dollar
+| Quantity of T-Shirts | Total Utility | Marginal Utility | Marginal Utility per Dollar | Quantity of Movies | Total Utility | Marginal Utility | Marginal Utility per Dollar |
+|-----------------------|---------------|-------------------|-----------------------------|--------------------|---------------|-------------------|-----------------------------|
+| 1                     | 22            | 22                | 22/$14=1.6                   | 1                  | 16            | 16                | 16/$7=2.3                   |
+| 2                     | 43            | 21                | 21/$14=1.5                   | 2                  | 31            | 15                | 15/$7=2.14                  |
+| 3                     | 63            | 20                | 20/$14=1.4                   | 3                  | 45            | 14                | 14/$7=2                     |
+| 4                     | 81            | 18                | 18/$14=1.3                   | 4                  | 58            | 13                | 13/$7=1.9                   |
+| 5                     | 97            | 16                | 16/$14=1.1                   | 5                  | 70            | 12                | 12/$7=1.7                   |
+| 6                     | 111           | 14                | 14/$14=1                    | 6                  | 81            | 11                | 11/$7=1.6                   |
+| 7                     | 123           | 12                | 12/$14=1.2                   | 7                  | 91            | 10                | 10/$7=1.4                   |
+
+: Marginal Utility per Dollar {#tbl-table_6_5}
 
 #### A Rule for Maximizing Utility
 
@@ -343,14 +391,20 @@ item with the greatest marginal utility per dollar spent, when your
 budget is exhausted, the utility maximizing choice should occur where
 the marginal utility per dollar spent is the same for both goods.
 
-![](media/6-1-consumption-choices_rId45.png){width="0.7708333333333334in"
-height="0.22916666666666666in"}
+$$
+\frac{\mathrm{MU}_1}{\mathrm{P}_1}=\frac{\mathrm{MU}_2}{\mathrm{P}_2}
+$$
 
 A sensible economizer will pay twice as much for something only if, in
 the marginal comparison, the item confers twice as much utility. Notice
 that the formula for the table above is:
 
-![](media/6-1-consumption-choices_rId47.png){width="0.6041666666666666in" height="0.4375in"}
+$$
+\begin{aligned}
+& \frac{22}{\$ 14}=\frac{11}{\$ 7} \\
+& 1.6=1.6
+\end{aligned}
+$$
 
 The following Work It Out feature provides step by step guidance for
 this concept of utility-maximizing choices.
@@ -359,8 +413,7 @@ this concept of utility-maximizing choices.
 
 ##### Maximizing Utility {#maximizing-utility .Heading4Grey}
 
-The general rule, ![](media/6-1-consumption-choices_rId45.png){width="0.7708333333333334in"
-height="0.22916666666666666in"}, means that the last dollar spent on
+The general rule, $\frac{\mathrm{MU}_1}{\mathrm{P}_1}=\frac{\mathrm{MU}_2}{\mathrm{P}_2}$, means that the last dollar spent on
 each good provides exactly the same marginal utility. This is the case
 at point S. So:
 
@@ -377,7 +430,7 @@ movie does.
 Step 3. If we trade two movies for one T-shirt, we would end up at point
 R (two T-shirts and four movies).
 
-Step 4. Choice 4 in [Table 6.4](#Table_06_04) shows that if we move to
+Step 4. Choice 4 in @tbl-table_6_4 shows that if we move to
 point R, we would gain 21 utils from one more T-shirt, but lose 23 utils
 from two fewer movies, so we would end up with less total utility at
 point R.
@@ -392,8 +445,9 @@ of good 1 by the price of good 2, at the utility-maximizing point this
 will equal the marginal utility of good 1 divided by the marginal
 utility of good 2.
 
-![](media/6-1-consumption-choices_rId51.png){width="0.6666666666666666in"
-height="0.22916666666666666in"}
+$$
+\frac{\mathrm{P}_1}{\mathrm{P}_2}=\frac{\mathrm{MU}_1}{\mathrm{MU}_2}
+$$
 
 Along the budget constraint, the total price of the two goods remains
 the same, so the ratio of the prices does not change. However, the
@@ -458,7 +512,7 @@ the underlying logic behind demand curves.
 #### How Changes in Income Affect Consumer Choices
 
 Let's begin with a concrete example illustrating how changes in income
-level affect consumer choices. [Figure 6.3](#CNX_Econ_C06_002) shows a
+level affect consumer choices. [Figure 6.3](#fig-6_3) shows a
 budget constraint that represents Kimberly's choice between concert
 tickets at \$50 each and getting away overnight to a bed-and-breakfast
 for \$200 per night. Kimberly has \$1,000 per year to spend between
@@ -468,7 +522,7 @@ utilities to the prices should be equal between the two products,
 Kimberly chooses point M, with eight concerts and three overnight
 getaways as her utility-maximizing choice.
 
-![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId23.jpeg){width="3.25in" height="2.535in"}
+![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId23.jpeg){width="3.25in" height="2.535in" #fig-6_3}
 
 Figure 6.3 How a Change in Income Affects Consumption Choices The
 utility-maximizing choice on the original budget constraint is M. The
@@ -510,11 +564,8 @@ most common reaction is to purchase more of both goods, like choice N,
 which is to the upper right relative to Kimberly's original choice M,
 although exactly how much more of each good will vary according to
 personal taste. Conversely, when income falls, the most typical reaction
-is to purchase less of both goods. As we defined in the chapter on
-[Demand and
-Supply](http://openstax.org/books/principles-microeconomics-3e/pages/3-introduction-to-demand-and-supply)
-and again in the chapter on
-[Elasticity](http://openstax.org/books/principles-microeconomics-3e/pages/5-introduction-to-elasticity),
+is to purchase less of both goods. As we defined in @sec-chapter-3
+and again in @sec-chapter-5,
 we call goods and services normal goods when a rise in income leads to a
 rise in the quantity consumed of that good and a fall in income leads to
 a fall in quantity consumed.
@@ -535,7 +586,7 @@ car.
 #### How Price Changes Affect Consumer Choices
 
 For analyzing the possible effect of a change in price on consumption,
-let's again use a concrete example. [Figure 6.4](#CNX_Econ_C06_003)
+let's again use a concrete example. [Figure 6.4](#fig-6_4)
 represents Sergei\'s consumer choice, who chooses between purchasing
 baseball bats and cameras. A price increase for baseball bats would have
 no effect on the ability to purchase cameras, but it would reduce the
@@ -550,7 +601,7 @@ example, the units along the horizontal and vertical axes are not
 numbered, so the discussion must focus on whether Sergei will consume
 more or less of certain goods, not on numerical amounts.
 
-![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId33.jpeg){width="4.88in" height="2.295in"}
+![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId33.jpeg){width="4.88in" height="2.295in" #fig-6_4}
 
 Figure 6.4 How a Change in Price Affects Consumption Choices The
 original utility-maximizing choice is M. When the price rises, the
@@ -583,7 +634,7 @@ price means, in effect, the buying power of income has been reduced
 of the good (when the good is normal). In this example, the higher price
 for baseball bats would cause Sergei to buy fewer bats for both reasons.
 Exactly how much will a higher price for bats cause Sergei\'s bat
-consumption to fall? [Figure 6.4](#CNX_Econ_C06_003) suggests a range of
+consumption to fall? [Figure 6.4](#fig-6_4) suggests a range of
 possibilities. Sergei might react to a higher price for baseball bats by
 purchasing the same quantity of bats, but cutting his camera
 consumption. This choice is the point K on the new budget constraint,
@@ -605,7 +656,7 @@ well.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Read this [article](http://openstax.org/l/vending) about the potential
+Read this [article](https://www.nytimes.com/1999/10/28/business/variable-price-coke-machine-being-tested.html) about the potential
 of variable prices in vending machines.
 
 #### The Foundations of Demand Curves
@@ -616,7 +667,7 @@ seeking their highest utility, the quantity that is demanded of that
 good will change. In this way, the logical foundations of demand
 curves---which show a connection between prices and quantity
 demanded---are based on the underlying idea of individuals seeking
-utility. [Figure 6.5](#CNX_Econ_C06_004) (a) shows a budget constraint
+utility. [Figure 6.5](#fig-6_5) (a) shows a budget constraint
 with a choice between housing and "everything else." (Putting
 "everything else" on the vertical axis can be a useful approach in some
 cases, especially when the focus of the analysis is on one particular
@@ -628,7 +679,7 @@ again, we label the utility-maximizing choices M~1~, M~2~, and M~3~, and
 the quantity demanded of housing falls from Q~0~ to Q~1~ to Q~2~ to
 Q~3~.
 
-![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId42.jpeg){width="3.25in" height="5.085in"}
+![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId42.jpeg){width="3.25in" height="5.085in" #fig-6_5}
 
 Figure 6.5 The Foundations of a Demand Curve: An Example of Housing (a)
 As the price increases from P~0~ to P~1~ to P~2~ to P~3~, the budget
@@ -649,9 +700,9 @@ clockwise and the quantity consumed of housing falls, *ceteris paribus*
 (meaning, with all other things being the same). We graph this
 relationship---the price of housing rising from P~0~ to P~1~ to P~2~ to
 P~3~, while the quantity of housing demanded falls from Q~0~ to Q~1~ to
-Q~2~ to Q~3~---on the demand curve in [Figure 6.5](#CNX_Econ_C06_004)
+Q~2~ to Q~3~---on the demand curve in [Figure 6.5](#fig-6_5)
 (b). The vertical dashed lines stretching between the top and bottom of
-[Figure 6.5](#CNX_Econ_C06_004) show that the quantity of housing
+[Figure 6.5](#fig-6_5) show that the quantity of housing
 demanded at each point is the same in both (a) and (b). We ultimately
 determine the shape of a demand curve by the underlying choices about
 maximizing utility subject to a budget constraint. While economists may
@@ -670,8 +721,7 @@ people reacted by reducing the quantity demanded of energy; for example,
 by turning down the thermostats in their homes by a few degrees and
 wearing a heavier sweater inside. Even so, many home heating bills rose,
 so people adjusted their consumption in other ways, too. As you learned
-in the chapter on
-[Elasticity](http://openstax.org/books/principles-microeconomics-3e/pages/5-introduction-to-elasticity),
+in @sec-chapter-5,
 the short run demand for home heating is generally inelastic. Each
 household cut back on what it valued least on the margin. For some it
 might have been some dinners out, or a vacation, or postponing buying a
@@ -872,7 +922,7 @@ prosperity. Many feel that increased earnings are a significant benefit
 of attending college.
 
 U.S. Bureau of Labor Statistics data from May 2012 supports this view,
-as [Figure 6.6](#CNX_Econ_C06_010) shows. They show a positive
+as [Figure 6.6](#fig-6_6) shows. They show a positive
 correlation between earnings and education. The data also indicate that
 unemployment rates fall with higher levels of education and training.
 
@@ -881,7 +931,7 @@ are unemployed (or underemployed, working fewer hours than you would
 like), the opportunity cost of your time is low. If you're unemployed,
 you don't have to give up work hours and income by going to college.
 
-![](media/6-3-behavioral-economics-an-alternative-framework-for-consumer-choice_rId25.jpeg){width="6.36in" height="3.275in"}
+![](media/6-3-behavioral-economics-an-alternative-framework-for-consumer-choice_rId25.jpeg){width="6.36in" height="3.275in" #fig-6_6}
 
 Figure 6.6 The Impact of Education on Earnings and Unemployment Rates,
 2012 Those with the highest degrees in 2012 had substantially lower

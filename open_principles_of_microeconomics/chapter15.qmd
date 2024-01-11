@@ -1,5 +1,5 @@
-# Chapter 15 - Poverty and Economic Inequality
-![](media/15-introduction-to-poverty-and-economic-inequality_rId20.jpeg){width="6.5in" height="3.275in"}
+# Chapter 15 - Poverty and Economic Inequality {#sec-chapter-15}
+![](media/15-introduction-to-poverty-and-economic-inequality_rId20.jpeg){width="6.5in" height="3.275in" #fig-15_1}
 
 Figure 15.1 Occupying Wall Street On September 17, 2011, Occupy Wall
 Street began in New York City's Wall Street financial district. (Credit:
@@ -108,7 +108,7 @@ represent the same buying power over time. The U.S. poverty line in 2021
 ranged from \$12,880 for a single individual to \$26,500 for a household
 of four people.
 
-[Figure 15.2](#CNX_Econ_C14_001) shows the U.S. poverty rate over time;
+[Figure 15.2](#fig-15_2) shows the U.S. poverty rate over time;
 that is, the percentage of the population below the poverty line in any
 given year. The poverty rate declined through the 1960s, rose in the
 early 1980s and early 1990s, but seems to have been slightly lower since
@@ -116,7 +116,7 @@ the mid-1990s. However, in no year in the last six decades has the
 poverty rate been less than 10.5% of the U.S. population---that is, at
 best almost one American in nine is below the poverty line. In recent
 years, the poverty rate peaked at 15.1% in 2010, before dropping to
-10.5% in 2019. [Table 15.1](#ch14mod01_tab01) compares poverty rates for
+10.5% in 2019. @tbl-table_15_1 compares poverty rates for
 different groups in 2011. As you will see when we delve further into
 these numbers, poverty rates are relatively low for White people, for
 the elderly, for the well-educated, and for male-headed households.
@@ -128,10 +128,10 @@ are White people.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/povertyprogram) for more
+Visit this [website](https://www.census.gov/library/publications/2021/demo/p60-273.html) for more
 information on U.S. poverty.
 
-![](media/15-1-drawing-the-poverty-line_rId30.jpeg){width="4.88in" height="2.71in"}
+![](media/15-1-drawing-the-poverty-line_rId30.jpeg){width="4.88in" height="2.71in" #fig-15_2}
 
 Figure 15.2 The U.S. Poverty Rate since 1960 The poverty rate fell
 dramatically during the 1960s, rose in the early 1980s and early 1990s,
@@ -140,7 +140,18 @@ and, after declining in the 1990s through mid-2000s, rose to 15.1% in
 poverty rate declined to 10.5%, before rising to 11.4% in 2020 due to
 the onset of the COVID-19 pandemic in 2020. (Source: U.S. Census Bureau)
 
-Table 15.1 Poverty Rates by Group, 2020
+| Group                  | Poverty Rate |
+|------------------------|--------------|
+| Females                | 12.6%        |
+| Males                  | 10.2%        |
+| White (Non-Hispanic)   | 8.2%         |
+| Black                  | 19.5%        |
+| Hispanic               | 17.0%        |
+| Under age 18           | 16.1%        |
+| Ages 18–64             | 10.4%        |
+| Ages 65+               | 9.0%         |
+
+: Poverty Rates by Group, 2020 {#tbl-table_15_1}
 
 The concept of a poverty line raises many tricky questions. In a vast
 country like the United States, should there be a national poverty line?
@@ -171,7 +182,7 @@ line of \$20,090 annually for a family of three works out to \$18.35 per
 person per day.
 
 Clearly, many people around the world are far poorer than Americans, as
-[Table 15.2](#ch14mod01_tab02) shows. China and India both have more
+@tbl-table_15_2 shows. China and India both have more
 than a billion people; Nigeria is the most populous country in Africa;
 and Egypt is the most populous country in the Middle East. In all four
 of those countries, in the mid-2000s, a substantial share of the
@@ -182,8 +193,17 @@ those countries can be very different from those costs in the United
 States, so the \$2 and \$2.50 figures may mean greater purchasing power
 than they would in the United States.)
 
-Table 15.2 Poverty Lines for Low-Income Countries, mid-2000s (Source:
-https://datatopics.worldbank.org/world-development-indicators/themes/poverty-and-inequality.html)
+| Country | Year | Percentage of Population with Income Less Than $1.90/Day/Person | Percentage of Population with Income Less Than $3.20/Day/Person |
+|---------|------|---------------------------------------------------------------------|---------------------------------------------------------------------|
+| Brazil  | 2019 | 4.6%                                                                | 9.1%                                                                |
+| China   | 2017 | 0.5%                                                                | 5.4%                                                                |
+| Egypt   | 2017 | 3.8%                                                                | 28.9%                                                               |
+| India   | 2011 | 22.5%                                                               | 61.7%                                                               |
+| Mexico  | 2018 | 1.7%                                                                | 6.5%                                                                |
+| Nigeria | 2018 | 39.1%                                                               | 71.0%                                                               |
+
+: Poverty Lines for Low-Income Countries, mid-2000s (Source:
+https://datatopics.worldbank.org/world-development-indicators/themes/poverty-and-inequality.html) {#tbl-table_15_2}
 
 Any poverty line will be somewhat arbitrary, and it is useful to have a
 poverty line whose basic definition does not change much over time. If
@@ -218,7 +238,7 @@ government support. As a result, the person experiences no net gain for
 working. Economists call this problem the poverty trap.
 
 Consider the situation a single-parent family faces. [Figure
-15.3](#CNX_Econ_C14_002) illustrates a single mother (earning \$8 an
+15.3](#fig-15_3) illustrates a single mother (earning \$8 an
 hour) with two children. First, consider the labor-leisure budget
 constraint that this family faces in a situation without government
 assistance. On the horizontal axis is hours of leisure (or time spent
@@ -239,10 +259,10 @@ Now suppose that a government antipoverty program guarantees every
 family with a single mother and two children \$18,000 in income. This is
 represented on the graph by a horizontal line at \$18,000. With this
 program, each time the mother earns \$1,000, the government will deduct
-\$1,000 of its support. [Table 15.3](#ch14mod02_tab03) shows what will
+\$1,000 of its support. @tbl-table_15_3 shows what will
 happen at each combination of work and government support.
 
-![](media/15-2-the-poverty-trap_rId25.jpeg){width="3.25in" height="2.795in"}
+![](media/15-2-the-poverty-trap_rId25.jpeg){width="3.25in" height="2.795in" #fig-15_3}
 
 Figure 15.3 The Poverty Trap in Action The original choice is 500 hours
 of leisure, 2,000 hours of work at point A, and income of \$16,000. With
@@ -252,7 +272,16 @@ the family provides, say, 2,300 hours of work does its income rise above
 the guaranteed level of \$18,000---and even then, the marginal gain to
 income from working many hours is small.
 
-Table 15.3 Total Income at Various Combinations of Work and Support
+| Amount Worked (hours) | Total Earnings | Government Support | Total Income |
+|------------------------|-----------------|---------------------|--------------|
+| 0                      | 0               | $18,000             | $18,000      |
+| 500                    | $4,000          | $14,000             | $18,000      |
+| 1,000                  | $8,000          | $10,000             | $18,000      |
+| 1,500                  | $12,000         | $6,000              | $18,000      |
+| 2,000                  | $16,000         | $2,000              | $18,000      |
+| 2,500                  | $20,000         | 0                   | $20,000      |
+
+: Total Income at Various Combinations of Work and Support {#tbl-table_15_3}
 
 The new budget line, with the antipoverty program in place, is the
 horizontal and heavy line that is flat at \$18,000. If the mother does
@@ -279,17 +308,17 @@ amount instead. Imposing requirements for work as a condition of
 receiving benefits and setting a time limit on benefits can also reduce
 the harshness of the poverty trap.
 
-[Figure 15.4](#CNX_Econ_C14_003) illustrates a government program that
+[Figure 15.4](#fig-15_4) illustrates a government program that
 guarantees \$18,000 in income, even for those who do not work at all,
 but then reduces this amount by 50 cents for each \$1 earned. The new,
-higher budget line in [Figure 15.4](#CNX_Econ_C14_003) shows that, with
+higher budget line in [Figure 15.4](#fig-15_4) shows that, with
 this program, additional hours of work will bring some economic gain.
 Because of the reduction in government income when an individual works,
 an individual earning \$8.00 will really net only \$4.00 per hour. The
 vertical intercept of this higher budget constraint line is at \$28,000
 (\$18,000 + 2,500 hours × \$4.00 = \$28,000). The horizontal intercept
 is at the point on the graph where \$18,000 and 2500 hours of leisure is
-set. [Table 15.4](#ch14mod02_tab04) shows the total income differences
+set. @tbl-table_15_4 shows the total income differences
 with various choices of labor and leisure.
 
 However, this type of program raises other issues. First, even if it
@@ -309,7 +338,7 @@ Still, it may be preferable in the long run to spend more money on a
 program that retains a greater incentive to work, rather than spending
 less money on a program that nearly eliminates any gains from working.
 
-![](media/15-2-the-poverty-trap_rId28.jpeg){width="3.25in" height="3.225in"}
+![](media/15-2-the-poverty-trap_rId28.jpeg){width="3.25in" height="3.225in" #fig-15_4}
 
 Figure 15.4 Loosening the Poverty Trap: Reducing Government Assistance
 by 50 Cents for Every \$1 Earned On the original labor-leisure
@@ -325,8 +354,17 @@ However, it is possible that the recipients will choose a point on the
 new budget set like S, with less work, more leisure, and greater income,
 or a point like R, with the same work and greater income.
 
-Table 15.4 The Labor-Leisure Tradeoff with Assistance Reduced by 50
-Cents for Every Dollar Earned
+| Amount Worked (hours) | Total Earnings | Government Support | Total Income |
+|------------------------|-----------------|---------------------|--------------|
+| 0                      | 0               | $18,000             | $18,000      |
+| 500                    | $4,000          | $16,000             | $20,000      |
+| 1,000                  | $8,000          | $14,000             | $22,000      |
+| 1,500                  | $12,000         | $12,000             | $24,000      |
+| 2,000                  | $16,000         | $10,000             | $26,000      |
+| 2,500                  | $20,000         | $8,000              | $28,000      |
+
+: The Labor-Leisure Tradeoff with Assistance Reduced by 50
+Cents for Every Dollar Earned {#tbl-table_15_4}
 
 The next module will consider a variety of government support programs
 focused specifically on people experiencing poverty, including welfare,
@@ -371,7 +409,7 @@ Temporary Assistance for Needy Families (TANF).
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/Clinton_speech) to watch a
+Visit this [website](https://www.youtube.com/watch?v=-4bk27lHqBo) to watch a
 video of President Bill Clinton's Welfare Reform speech.
 
 TANF brought several dramatic changes in how welfare operated. Under the
@@ -445,12 +483,12 @@ reduced at all (but neither is it increased) as earnings rise from
 amount received from the credit is reduced by 21.06 cents, until the
 credit phases out completely at an income level of \$46,227.
 
-[Figure 15.5](#CNX_Econ_C14_007) illustrates that the earned income tax
+[Figure 15.5](#fig-15_5) illustrates that the earned income tax
 credits, child tax credits, and the TANF program all cost the federal
 government money---either in direct outlays or in loss of tax revenues.
 CTC stands for the government tax cuts for the child tax credit.
 
-![](media/15-3-the-safety-net_rId31.jpeg){width="4.88in" height="2.855in"}
+![](media/15-3-the-safety-net_rId31.jpeg){width="4.88in" height="2.855in" #fig-15_5}
 
 Figure 15.5 Real Federal Spending on CTC, EITC, and TANF, 1975--2016
 EITC increased from under \$10 billion in the late 1980s to almost \$42
@@ -521,14 +559,14 @@ pandemic in early 2020.
 The federal government deploys a range of income security programs that
 it funds through departments such as Health and Human Services,
 Agriculture, and Housing and Urban Development (HUD) (see [Figure
-15.6](#CNX_Econ_C14_012)). According to the Office of Management and
+15.6](#fig-15_6)). According to the Office of Management and
 Budget, collectively, these three departments provided an estimated \$62
 billion of aid through programs such as supplemental feeding programs
 for women and children, subsidized housing, and energy assistance. The
 federal government also transfers funds to individual states through
 special grant programs.
 
-![](media/15-3-the-safety-net_rId38.jpeg){width="4.239998906386702in" height="3.04in"}
+![](media/15-3-the-safety-net_rId38.jpeg){width="4.239998906386702in" height="3.04in" #fig-15_6}
 
 Figure 15.6 Expenditure Comparison of TANF, SNAP, HUD, and Other Income
 Security Programs, 1988--2013 (est.) Total expenditures on income
@@ -584,12 +622,12 @@ also helped to encourage those on welfare to enter the labor force. As
 of 2014, approximately 69.7 million people participated in Medicaid. Of
 those enrolled, almost half are children. Healthcare expenditures,
 however, are highest for the elderly population, which comprises
-approximately 25% of participants. As [Figure 15.7](#CNX_Econ_C14_008)
+approximately 25% of participants. As [Figure 15.7](#fig-15_7)
 (a) indicates, the largest number of households that enroll in Medicaid
 are those with children. Lower-income adults are the next largest group
 enrolled in Medicaid at 28%. People who are blind or have a disability
 account for 16% of those enrolled, and seniors are 9% of those enrolled.
-[Figure 15.7](#CNX_Econ_C14_008) (b) shows how much actual Medicaid
+[Figure 15.7](#fig-15_7) (b) shows how much actual Medicaid
 dollars the government spends for each group. Out of total Medicaid
 spending, the government spends more on seniors (20%) and people who are
 blind or have a disability (44%). Thus, 64% of all Medicaid spending
@@ -597,7 +635,7 @@ goes to seniors, those who are blind, and people with disabilities.
 Children receive 21% of all Medicaid spending, followed by adults at
 15%.
 
-![](media/15-3-the-safety-net_rId45.jpeg){width="6.5in" height="2.38in"}
+![](media/15-3-the-safety-net_rId45.jpeg){width="6.5in" height="2.38in" #fig-15_7}
 
 Figure 15.7 Medicaid Enrollment and Spending Part (a) shows the Medicaid
 enrollment by different populations, with children comprising the
@@ -672,12 +710,10 @@ fifth or 20%, the second quintile is the next lowest, and so on. We can
 measure income inequality by comparing what share of the total income
 each quintile earns.
 
-U.S. income distribution by quintile appears in [Table
-15.5](#ch14mod04_tab07). In 2020, for example, the bottom quintile of
+U.S. income distribution by quintile appears in @tbl-table_15_5. In 2020, for example, the bottom quintile of
 the income distribution received 3.2% of income; the second quintile
 received 8.1%; the third quintile, 14.0%; the fourth quintile, 22.6%;
-and the top quintile, 52.2%. The final column of [Table
-15.5](#ch14mod04_tab07) shows what share of income went to households in
+and the top quintile, 52.2%. The final column of @tbl-table_15_5 shows what share of income went to households in
 the top 5% of the income distribution: 23.0% in 2020. Over time, from
 the late 1960s to the early 1980s, the top fifth of the income
 distribution typically received between about 43% to 44% of all income.
@@ -687,15 +723,30 @@ income going to the top fifth to an increase in the share of income
 going to the top 5%. The quintile measure shows how income inequality
 has increased in recent decades.
 
-Table 15.5 Share of Aggregate Income Received by Each Fifth and Top 5%
+| Year | Lowest Quintile | Second Quintile | Third Quintile | Fourth Quintile | Highest Quintile | Top 5% |
+|------|------------------|------------------|-----------------|------------------|-------------------|--------|
+| 1967 | 4.0              | 10.8             | 17.3            | 24.2             | 43.6              | 17.2   |
+| 1970 | 4.1              | 10.8             | 17.4            | 24.5             | 43.3              | 16.6   |
+| 1975 | 4.3              | 10.4             | 17.0            | 24.7             | 43.6              | 16.5   |
+| 1980 | 4.2              | 10.2             | 16.8            | 24.7             | 44.1              | 16.5   |
+| 1985 | 3.9              | 9.8              | 16.2            | 24.4             | 45.6              | 17.6   |
+| 1990 | 3.8              | 9.6              | 15.9            | 24.0             | 46.6              | 18.5   |
+| 1995 | 3.7              | 9.1              | 15.2            | 23.3             | 48.7              | 21.0   |
+| 2000 | 3.6              | 8.9              | 14.8            | 23.0             | 49.8              | 22.1   |
+| 2005 | 3.4              | 8.6              | 14.6            | 23.0             | 50.4              | 22.2   |
+| 2010 | 3.3              | 8.5              | 14.6            | 23.4             | 50.3              | 21.3   |
+| 2015 | 3.1              | 8.2              | 14.3            | 23.2             | 51.1              | 22.1   |
+| 2020 | 3.0              | 8.1              | 14.0            | 22.6             | 52.2              | 23.0   |
+
+: Share of Aggregate Income Received by Each Fifth and Top 5%
 of Households, 1967--2020 (Source: U.S. Census Bureau,
 https://www.census.gov/data/tables/time-series/demo/income-poverty/historical-income-households.html,
-Table H-1, All Races.)
+Table H-1, All Races.) {#tbl-table_15_5}
 
 It can also be useful to divide the income distribution in ways other
 than quintiles; for example, into tenths or even into percentiles (that
 is, hundredths). A more detailed breakdown can provide additional
-insights. For example, the last column of [Table 15.5](#ch14mod04_tab07)
+insights. For example, the last column of @tbl-table_15_5
 shows the income received by the top 5% of the income distribution.
 Between 1980 and 2020, the share of income going to the top 5% increased
 by 6.5 percentage points (from 16.5% in 1980 to 23.0% in 2020). From
@@ -709,12 +760,12 @@ all the income in the United States in 2020.
 We can present the data on income inequality in various ways. For
 example, you could draw a bar graph that showed the share of income
 going to each fifth of the income distribution. [Figure
-15.8](#CNX_Econ_C14_004) presents an alternative way of showing
+15.8](#fig-15_8) presents an alternative way of showing
 inequality data in a Lorenz curve. This curve shows the cumulative share
 of population on the horizontal axis and the cumulative percentage of
 total income received on the vertical axis.
 
-![](media/15-4-income-inequality-measurement-and-causes_rId28.jpeg){width="3.25in" height="2.28in"}
+![](media/15-4-income-inequality-measurement-and-causes_rId28.jpeg){width="3.25in" height="2.28in" #fig-15_8}
 
 Figure 15.8 The Lorenz Curve A Lorenz curve graphs the cumulative shares
 of income received by everyone up to a certain quintile. The income
@@ -723,7 +774,7 @@ income distribution in 2020---that is, the U.S. income distribution
 became more unequal over time.
 
 Every Lorenz curve diagram begins with a line sloping up at a 45-degree
-angle. We show it as a dashed line in [Figure 15.8](#CNX_Econ_C14_004).
+angle. We show it as a dashed line in [Figure 15.8](#fig-15_8).
 The points along this line show what perfect equality of the income
 distribution looks like. It would mean, for example, that the bottom 20%
 of the income distribution receives 20% of the total income, the bottom
@@ -732,7 +783,7 @@ U.S. data on inequality for 1980 and 2020.
 
 The trick in graphing a Lorenz curve is that you must change the shares
 of income for each specific quintile, which we show in the first and
-third columns of numbers in [Table 15.6](#ch14mod04_tab08), into
+third columns of numbers in @tbl-table_15_6, into
 cumulative income, which we show in the second and fourth columns of
 numbers. For example, the bottom 40% of the cumulative income
 distribution will be the sum of the first and second quintiles; the
@@ -741,12 +792,20 @@ first, second, and third quintiles, and so on. The final entry in the
 cumulative income column needs to be 100%, because by definition, 100%
 of the population receives 100% of the income.
 
-Table 15.6 Calculating the Lorenz Curve
+| Income Category   | Share of Income in 1980 (%) | Cumulative Share of Income in 1980 (%) | Share of Income in 2020 (%) | Cumulative Share of Income in 2020 (%) |
+|-------------------|-----------------------------|----------------------------------------|-----------------------------|----------------------------------------|
+| First quintile    | 4.2                         | 4.2                                    | 3.0                         | 3.0                                    |
+| Second quintile   | 10.2                        | 14.4                                   | 8.1                         | 11.1                                   |
+| Third quintile    | 16.8                        | 31.2                                   | 14.0                        | 25.1                                   |
+| Fourth quintile   | 24.7                        | 55.9                                   | 22.6                        | 47.7                                   |
+| Fifth quintile    | 44.1                        | 100.0                                  | 52.2                        | 100.0                                  |
+
+: Calculating the Lorenz Curve {#tbl-table_15_6}
 
 In a Lorenz curve diagram, a more unequal distribution of income will
 loop farther down and away from the 45-degree line, while a more equal
 distribution of income will move the line closer to the 45-degree line.
-[Figure 15.8](#CNX_Econ_C14_004) illustrates the greater inequality of
+[Figure 15.8](#fig-15_8) illustrates the greater inequality of
 the U.S. income distribution between 1980 and 2020 because the Lorenz
 curve for 2020 is farther from the 45-degree line than the Lorenz curve
 for 1980. The Lorenz curve is a useful way of presenting the quintile
@@ -759,7 +818,7 @@ countries compared to the United States.
 ##### How does economic inequality vary around the world? {#how-does-economic-inequality-vary-around-the-world .Heading4Grey}
 
 The U.S. economy has a relatively high degree of income inequality by
-global standards. As [Table 15.7](#ch14mod04_tab09) shows, based on a
+global standards. As @tbl-table_15_7 shows, based on a
 variety of national surveys for a selection of years in the second
 decade of this century, the U.S. economy has greater inequality than
 Germany (along with most Western European countries). The region of the
@@ -769,16 +828,27 @@ inequality in the United States is higher than in some of the low-income
 countries of the world, like India and Nigeria, as well as in some
 middle-income countries, like China and Russia.
 
-Table 15.7 Income Distribution in Select Countries (Source: U.S. data
+| Country        | Survey Year | First Quintile | Second Quintile | Third Quintile | Fourth Quintile | Fifth Quintile |
+|----------------|-------------|----------------|-----------------|----------------|-----------------|----------------|
+| United States  | 2020        | 3.0%           | 8.1%            | 14.0%          | 22.6%           | 52.2%          |
+| Germany        | 2016        | 7.6%           | 12.8%           | 17.1%          | 22.8%           | 39.6%          |
+| Brazil         | 2019        | 3.1%           | 7.4%            | 12.3%          | 19.4%           | 57.8%          |
+| Mexico         | 2018        | 5.4%           | 9.5%            | 13.5%          | 20.0%           | 51.7%          |
+| China          | 2016        | 6.5%           | 10.7%           | 15.3%          | 22.2%           | 45.3%          |
+| India          | 2011        | 8.1%           | 11.7%           | 15.2%          | 20.5%           | 44.4%          |
+| Russia         | 2018        | 7.1%           | 11.2%           | 15.2%          | 21.4%           | 45.1%          |
+| Nigeria        | 2018        | 7.1%           | 11.6%           | 16.2%          | 22.7%           | 42.4%          |
+
+: Income Distribution in Select Countries (Source: U.S. data
 from U.S. Census Bureau Table H-1. Other data from The World Bank
 Poverty and Inequality Data Base,
-https://datatopics.worldbank.org/world-development-indicators/themes/poverty-and-inequality.html)
+https://datatopics.worldbank.org/world-development-indicators/themes/poverty-and-inequality.html) {#tbl-table_15_7}
 
  
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/inequality/) to watch a video
+Visit this [website](https://www.youtube.com/watch?v=uWSxzjyMNpU) to watch a video
 of wealth inequality across the world.
 
 #### Causes of Growing Inequality: The Changing Composition of American Households
@@ -810,7 +880,7 @@ inequality across households in recent decades.
 
 #### Link It Up {#link-it-up-1 .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/US_wealth) to watch a video
+Visit this [website](https://www.youtube.com/watch?v=TOxuip4f7TQ) to watch a video
 that illustrates the distribution of wealth in the United States.
 
 #### Causes of Growing Inequality: A Shift in the Distribution of Wages
@@ -838,7 +908,7 @@ Education Statistics, in recent decades, the supply of U.S. workers with
 college degrees has increased substantially. For example, 840,000
 four-year bachelor's degrees were conferred on Americans in 1970. In
 2018--2019, 2.0 million such degrees were conferred---an increase of
-over 138%. In [Figure 15.9](#CNX_Econ_C14_006), this shift in supply to
+over 138%. In [Figure 15.9](#fig-15_9), this shift in supply to
 the right, from S~0~ to S~1~, by itself should result in a lower
 equilibrium wage for high-skilled labor. Thus, we can explain the
 increase in the price of high-skilled labor by a greater demand, like
@@ -846,7 +916,7 @@ the movement from D~0~ to D~1~. Evidently, combining both the increase
 in supply and in demand has resulted in a shift from E~0~ to E~1~, and a
 resulting higher wage.
 
-![](media/15-4-income-inequality-measurement-and-causes_rId40.jpeg){width="4.88in" height="2.71in"}
+![](media/15-4-income-inequality-measurement-and-causes_rId40.jpeg){width="4.88in" height="2.71in" #fig-15_9}
 
 Figure 15.9 Why Would Wages Rise for High-Skilled Labor? The proportion
 of workers attending college has increased in recent decades, so the
@@ -1000,10 +1070,18 @@ Public policy can attempt to build a ladder of opportunities so that,
 even though all children will never come from identical families and
 attend identical schools, each child has a reasonable opportunity to
 attain an economic niche in society based on their interests, desires,
-talents, and efforts. [Table 15.8](#ch14mod05_02_tab13) shows some of
+talents, and efforts. @tbl-table_15_8 shows some of
 those initiatives.
 
-Table 15.8 Public Policy Initiatives
+| Children                                     | College Level                                           | Adults                                               |
+|----------------------------------------------|---------------------------------------------------------|------------------------------------------------------|
+| • Improved day care                         | • Widespread loans and grants for those in financial need | • Opportunities for retraining and acquiring new skills |
+| • Enrichment programs for preschoolers      | • Public support for a range of institutions from two-year community colleges to large research universities | • Prohibiting discrimination in job markets and housing on the basis of race, gender, age, and disability |
+| • Improved public schools                   | -                                                       | -                                                    |
+| • After school and community activities     | -                                                       | -                                                    |
+| • Internships and apprenticeships           | -                                                       | -                                                    |
+
+: Public Policy Initiatives {#tbl-table_15_8}
 
 Some have called the United States a land of opportunity. Although the
 general idea of a ladder of opportunity for all citizens continues to
@@ -1044,14 +1122,14 @@ certain level of income can eliminate or reduce the incentive to work.
 An extremely high degree of redistribution, with very high taxes on the
 rich, would be likely to discourage work and entrepreneurship. Thus, it
 is common to draw the tradeoff between economic output and equality, as
-[Figure 15.10](#CNX_Econ_C14_009) (a) shows. In this formulation, if
+[Figure 15.10](#fig-15_10) (a) shows. In this formulation, if
 society wishes a high level of economic output, like point A, it must
 also accept a high degree of inequality. Conversely, if society wants a
 high level of equality, like point B, it must accept a lower level of
 economic output because of reduced incentives for production.
 
 This view of the tradeoff between economic output and equality may be
-too pessimistic, and [Figure 15.10](#CNX_Econ_C14_009) (b) presents an
+too pessimistic, and [Figure 15.10](#fig-15_10) (b) presents an
 alternate vision. Here, the tradeoff between economic output and
 equality first slopes up, in the vicinity of choice C, suggesting that
 certain programs might increase both output and economic equality. For
@@ -1074,7 +1152,7 @@ ceilings and shut off international trade. From this viewpoint, policies
 to reduce inequality may help economic output by building social support
 for allowing markets to operate.
 
-![](media/15-5-government-policies-to-reduce-income-inequality_rId36.jpeg){width="6.5in" height="2.495in"}
+![](media/15-5-government-policies-to-reduce-income-inequality_rId36.jpeg){width="6.5in" height="2.495in" #fig-15_10}
 
 Figure 15.10 The Tradeoff between Incentives and Economic Equality (a)
 Society faces a trade-off where any attempt to move toward greater
@@ -1086,7 +1164,7 @@ little impact on economic output, like the movement from choice D to E.
 However, at some point, too aggressive a push for equality will tend to
 reduce economic output, as in the shift from E to F.
 
-The tradeoff in [Figure 15.10](#CNX_Econ_C14_009) (b) then flattens out
+The tradeoff in [Figure 15.10](#fig-15_10) (b) then flattens out
 in the area between points D and E, which reflects the pattern that a
 number of countries that provide similar levels of income to their
 citizens---the United States, Canada, European Union nations, Japan, and

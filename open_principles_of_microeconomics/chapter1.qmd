@@ -1,4 +1,4 @@
-# Chapter 1 - Welcome to Economics!
+# Chapter 1 - Welcome to Economics! {#sec-chapter-1}
 ![](media/1-introduction_rId20.jpeg){width="6.5in" height="2.57in"}
 
 Figure 1.1 Do You Use Facebook? Economics is greatly impacted by how
@@ -102,7 +102,7 @@ we will generally use data from the St. Louis Federal Reserve Bank\'s
 FRED database. FRED is very user friendly. It allows you to display data
 in tables or charts, and you can easily download it into spreadsheet
 form if you want to use the data for other purposes. The [FRED
-website](https://openstax.org/l/FRED/) includes data on nearly 400,000
+website](https://fred.stlouisfed.org/categories/12) includes data on nearly 400,000
 domestic and international variables over time, in the following broad
 categories:
 
@@ -120,10 +120,10 @@ categories:
     database)
 
 For more information about how to use FRED, see the variety of
-[videos](https://openstax.org/l/FRED_intro) on YouTube starting with
+[videos](https://www.youtube.com/watch?v=TaQWUgGG7V4&list=PLKcwEC4jDwiN5sOIay2qkpjTuvRTvkdso) on YouTube starting with
 this introduction.
 
-![](media/1-1-what-is-economics-and-why-is-it-important_rId28.jpeg){width="6.5in" height="4.883333333333334in"}
+![](media/1-1-what-is-economics-and-why-is-it-important_rId28.jpeg){width="6.5in" height="4.883333333333334in" #fig_1_2}
 
 Figure 1.2 Scarcity of Resources People experiencing homelessness are a
 stark reminder that scarcity of resources is real. (Credit: \"Pittsburgh
@@ -134,7 +134,7 @@ following: Does everyone require food to eat? Does everyone need a
 decent place to live? Does everyone have access to healthcare? In every
 country in the world, there are people who are hungry, homeless (for
 example, those who call park benches their beds, as [Figure
-1.2](#CNX_Econ_C01_003) shows), and in need of healthcare, just to focus
+1.2](#fig_1_2) shows), and in need of healthcare, just to focus
 on a few critical goods and services. Why is this the case? It is
 because of scarcity. Let's delve into the concept of scarcity a little
 deeper, because it is crucial to understanding economics.
@@ -150,8 +150,7 @@ things we want. This is because of scarcity. So how do we solve it?
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/drought) to read about how
-the United States is dealing with scarcity in resources.
+Visit this [website](https://stateimpact.npr.org/texas/2013/08/02/how-10-western-cities-are-dealing-with-water-scarcity-and-drought/) to read about how the United States is dealing with scarcity in resources.
 
 Every society, at every level, must make choices about how to use its
 resources. Families must decide whether to spend their money on a new
@@ -172,9 +171,9 @@ equipment. Most of us do not know how to do all---or any---of those
 things, but it is not because we could not learn. Rather, we do not have
 to. The reason why is something called *the division and specialization
 of labor*, a production innovation first put forth by Adam Smith
-([Figure 1.3](#CNX_Econ_C01_008)) in his book, *The Wealth of Nations*.
+([Figure 1.3](#fig_1_3)) in his book, *The Wealth of Nations*.
 
-![](media/1-1-what-is-economics-and-why-is-it-important_rId34.jpeg){width="6.5in" height="9.7in"}
+![](media/1-1-what-is-economics-and-why-is-it-important_rId34.jpeg){width="6.5in" height="9.7in" #fig_1_3}
 
 Figure 1.3 Adam Smith Adam Smith introduced the idea of dividing labor
 into discrete tasks. (Credit: \"Adam Smith\" by Cadell and Davies
@@ -207,10 +206,10 @@ up, and a business manager to handle paychecks and bills---not to
 mention the economic connections a restaurant has with suppliers of
 food, furniture, kitchen equipment, and the building where it is
 located. A complex business like a large manufacturing factory, such as
-the shoe factory ([Figure 1.4](#CNX_Econ_C01_009)), or a hospital can
+the shoe factory ([Figure 1.4](#fig_1_4)), or a hospital can
 have hundreds of job classifications.
 
-![](media/1-1-what-is-economics-and-why-is-it-important_rId40.jpeg){width="6.5in" height="4.333332239720035in"}
+![](media/1-1-what-is-economics-and-why-is-it-important_rId40.jpeg){width="6.5in" height="4.333332239720035in" #fig_1_4}
 
 Figure 1.4 Division of Labor Workers on an assembly line are an example
 of the divisions of labor. (Credit: \"Red Wing Shoe Factory Tour\" by
@@ -293,7 +292,7 @@ modern society has evolved into a strong economy.
 
 #### Why Study Economics?
 
-![](media/1-1-what-is-economics-and-why-is-it-important_rId53.jpeg){width="6.34in" height="2.63in"}
+![](media/1-1-what-is-economics-and-why-is-it-important_rId53.jpeg){width="6.34in" height="2.63in" #fig_1_5}
 
 Figure 1.5 Esther Duflo, Abhijit Banerjee, and Michael Kremer Esther
 Duflo, Abhijit Banerjee (both from Massachusetts Institute of
@@ -470,7 +469,7 @@ By the end of this section, you will be able to:
 -   Explain the importance of economic theories and models
 -   Describe goods and services markets and labor markets
 
-![](media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId22.jpeg){width="6.5in" height="7.8in"}
+![](media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId22.jpeg){width="6.5in" height="7.8in" #fig_1_6}
 
 Figure 1.6 John Maynard Keynes One of the most influential economists in
 modern times was John Maynard Keynes. (Credit: "John Maynard Keynes" by
@@ -478,7 +477,7 @@ IMF/Wikimedia Commons, Public Domain)
 
 John Maynard Keynes (1883--1946), one of the greatest economists of the
 twentieth century, pointed out that economics is not just a subject area
-but also a way of thinking. Keynes ([Figure 1.6](#CNX_Econ_C01_004))
+but also a way of thinking. Keynes ([Figure 1.6](#fig_1_6))
 famously wrote in the introduction to a fellow economist's book:
 "\[Economics\] is a method rather than a doctrine, an apparatus of the
 mind, a technique of thinking, which helps its possessor to draw correct
@@ -487,7 +486,7 @@ what to think.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Watch this [video](http://openstax.org/l/Keynes) about John Maynard
+Watch this [video](https://www.youtube.com/watch?v=ZRvaxUNDTKY) about John Maynard
 Keynes and his influence on economics.
 
 Economists see the world through a different lens than anthropologists,
@@ -516,14 +515,14 @@ and unfinished than the final product, but can still demonstrate how the
 new product will work.
 
 A good model to start with in economics is the circular flow diagram
-([Figure 1.7](#CNX_Econ_C01_002)). It pictures the economy as consisting
+([Figure 1.7](#fig_1_7)). It pictures the economy as consisting
 of two groups---households and firms---that interact in two markets: the
 goods and services market in which firms sell and households buy and the
 labor market in which households sell labor to business firms or other
 employees.
 
 ![](media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId33.jpeg){width="3.2666666666666666in"
-height="2.2533333333333334in"}
+height="2.2533333333333334in" #fig_1_7}
 
 Figure 1.7 The Circular Flow Diagram The circular flow diagram shows how
 households and firms interact in the goods and services market, and in
@@ -610,7 +609,7 @@ farmers who grow the crops using traditional methods. What you produce
 is what you consume. Because tradition drives the way of life, there is
 little economic progress or development.
 
-![](media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId23.jpeg){width="6.5in" height="4.316666666666666in"}
+![](media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId23.jpeg){width="6.5in" height="4.316666666666666in" #fig_1_8}
 
 Figure 1.8 A Command Economy Ancient Egypt was an example of a command
 economy. (Credit: \"Pyramids at Giza\" by Jay Bergesen/Flickr Creative
@@ -620,7 +619,7 @@ Command economies are very different. In a command economy, economic
 effort is devoted to goals passed down from a ruler or ruling class.
 Ancient Egypt was a good example: a large part of economic life was
 devoted to building pyramids, like those in [Figure
-1.8](#CNX_Econ_C01_005), for the pharaohs. Medieval manor life is
+1.8](#fig_1_8), for the pharaohs. Medieval manor life is
 another example: the lord provided the land for growing crops and
 protection in the event of war. In return, vassals provided labor and
 soldiers to do the lord's bidding. In the last century, communism
@@ -632,7 +631,7 @@ decides what methods of production to use and sets wages for workers.
 The government provides many necessities like healthcare and education
 for free. Currently, Cuba and North Korea have command economies.
 
-![](media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId27.jpeg){width="6.5in" height="6.533333333333333in"}
+![](media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId27.jpeg){width="6.5in" height="6.533333333333333in" #fig_1_9}
 
 Figure 1.9 A Market Economy Nothing says "market" more than The New York
 Stock Exchange. (Credit: work by Erik Drost/Flickr Creative Commons, CC
@@ -643,7 +642,7 @@ economic decisions, market economies have a very decentralized
 structure. A market is an institution that brings together buyers and
 sellers of goods or services, who may be either individuals or
 businesses. The New York Stock Exchange ([Figure
-1.9](#CNX_Econ_C01_006)) is a prime example of a market which brings
+1.9](#fig_1_9)) is a prime example of a market which brings
 buyers and sellers together. In a market economy, decision-making is
 decentralized. Market economies are based on private enterprise: the
 private individuals or groups of private individuals own and operate the
@@ -686,7 +685,7 @@ scores are politically biased. However, the index and others like it
 provide a useful resource for critical discussion of economic freedom.
 
 The 2016 Heritage Foundation's Index of Economic Freedom report ranked
-178 countries around the world: [Table 1.1](#Table_01_01) lists some
+178 countries around the world: @tbl-table_01_01 lists some
 examples of the most free and the least free countries. Although
 technically not a separate country, Hong Kong has been granted a degree
 of autonomy such that, for purposes of measuring economic statistics, it
@@ -718,9 +717,7 @@ around the world*.
 | 12   | Denmark               | North Korea            |
 
 
-Table 1.1 Economic Freedoms, 2016 (Source: The Heritage Foundation, 2016
-Index of Economic Freedom, Country Rankings,
-http://www.heritage.org/index/ranking)
+: Economic Freedoms, 2016 (Source: The Heritage Foundation, 2016 Index of Economic Freedom, Country Rankings, http://www.heritage.org/index/ranking) {#tbl-table_01_01} 
 
 #### Regulations: The Rules of the Game
 
@@ -743,7 +740,7 @@ straightforward choice between all market or all government, but instead
 involves a balancing act over the appropriate combination of market
 freedom and government rules.
 
-![](media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId35.jpeg){width="6.5in" height="4.333332239720035in"}
+![](media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId35.jpeg){width="6.5in" height="4.333332239720035in" #fig_1_10}
 
 Figure 1.10 Globalization Cargo ships are one mode of transportation for
 shipping goods in the global economy. (Credit: \"Cargo Ship\" by Raul
@@ -759,7 +756,7 @@ other words, international trade and financial capital flows.
 
 Globalization has occurred for a number of reasons. Improvements in
 shipping, as illustrated by the container ship in [Figure
-1.10](#CNX_Econ_C01_007), and air cargo have driven down transportation
+1.10](#fig_1_10), and air cargo have driven down transportation
 costs. Innovations in computing and telecommunications have made it
 easier and cheaper to manage long-distance economic connections of
 production and sales. Many valuable products and services in the modern
@@ -770,7 +767,7 @@ can be transported over telephones and computer networks at ever-lower
 costs. Finally, international agreements and treaties between countries
 have encouraged greater trade.
 
-[Table 1.2](#Table_01_02) presents one measure of globalization. It
+@tbl-table_01_02 presents one measure of globalization. It
 shows the percentage of domestic economic production that was exported
 for a selection of countries from 2010 to 2015, according to an entity
 known as The World Bank. Exports are the goods and services that one
@@ -797,9 +794,9 @@ of a country's total economic production is sold in other countries.
 | India          | 22   | 23.9 | 24   | 24.8 | 22.9 | -    |
 | Nigeria        | 25.3 | 31.3 | 31.4 | 18   | 18.4 | -    |
 
+: The Extent of Globalization (exports/GDP) (Source:
+http://databank.worldbank.org/data/) {#tbl-table_01_02}
 
-Table 1.2 The Extent of Globalization (exports/GDP) (Source:
-http://databank.worldbank.org/data/)
 
 In recent decades, the export/GDP ratio has generally risen, both
 worldwide and for the U.S. economy. Interestingly, the share of U.S.
@@ -812,7 +809,7 @@ division of labor, specialization, and economies of scale. In this
 sense, the enormous U.S. economy is less affected by globalization than
 most other countries.
 
-[Table 1.2](#Table_01_02) indicates that many medium and low income
+@tbl-table_01_02 indicates that many medium and low income
 countries around the world, like Mexico and China, have also experienced
 a surge of globalization in recent decades. If an astronaut in orbit
 could put on special glasses that make all economic transactions visible
@@ -828,9 +825,7 @@ European Union (i.e. Brexit), and the election of Donald J. Trump for
 President of the United States.
 
 Hopefully, you now have an idea about economics. Before you move to any
-other chapter of study, be sure to read the very important appendix to
-this chapter called [The Use of Mathematics in Principles of
-Economics](http://openstax.org/books/principles-microeconomics-3e/pages/a-the-use-of-mathematics-in-principles-of-economics).
+other chapter of study, be sure to read the very important @sec-appendix-a for additional discussion.
 It is essential that you learn more about how to read and use models in
 economics.
 

@@ -1,5 +1,5 @@
-# Chapter 2 - Choice in a World of Scarcity
-![](media/2-introduction-to-choice-in-a-world-of-scarcity_rId20.jpeg){width="6.34in" height="4.86in"}
+# Chapter 2 - Choice in a World of Scarcity {#sec-chapter-2}
+![](media/2-introduction-to-choice-in-a-world-of-scarcity_rId20.jpeg){width="6.34in" height="4.86in" #fig-2_1}
 
 Figure 2.1 Choices and Tradeoffs In general, the higher the degree, the
 higher the salary, so why aren't more people pursuing higher degrees?
@@ -92,9 +92,9 @@ amount of income to spend on the things they need and want. Suppose
 Alphonso has \$10 in spending money each week that he can allocate
 between bus tickets for getting to work and the burgers that he eats for
 lunch. Burgers cost \$2 each, and bus tickets are 50 cents each. We can
-see Alphonso\'s budget problem in [Figure 2.2](#CNX_Econ_C02_001).
+see Alphonso\'s budget problem in [Figure 2.2](#fig-2_2).
 
-![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId22.jpeg){width="3.25in" height="1.445in"}
+![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId22.jpeg){width="3.25in" height="1.445in" #fig-2_2}
 
 Figure 2.2 The Budget Constraint: Alphonso's Consumption Choice
 Opportunity Frontier Each point on the budget constraint represents a
@@ -152,7 +152,7 @@ give up things they desire to obtain other things they desire more.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-View this [website](http://openstax.org/l/linestanding) for an example
+View this [website](http://www.linestanding.com/) for an example
 of opportunity cost---paying someone else to wait in line for you.
 
 A fundamental principle of economics is that every choice has an
@@ -165,17 +165,14 @@ human existence.
 
 The following Work It Out feature shows a step-by-step analysis of a
 budget constraint calculation. Read through it to understand another
-important concept---slope---that we further explain in the appendix [The
-Use of Mathematics in Principles of
-Economics](http://openstax.org/books/principles-microeconomics-3e/pages/a-the-use-of-mathematics-in-principles-of-economics).
+important concept---slope---that we further explain in the @sec-appendix-a.
 
 #### Work It Out {#work-it-out .Heading3Grey}
 
 ##### Understanding Budget Constraints {#understanding-budget-constraints .Heading4Grey}
 
 Budget constraints are easy to understand if you apply a little math.
-The appendix [The Use of Mathematics in Principles of
-Economics](http://openstax.org/books/principles-microeconomics-3e/pages/a-the-use-of-mathematics-in-principles-of-economics)
+The @sec-appendix-a
 explains all the math you are likely to need in this book. Therefore, if
 math is not your strength, you might want to take a look at the
 appendix.
@@ -191,39 +188,58 @@ to spend.
 Step 2. Apply the budget constraint equation to the scenario. In
 Alphonso's case, this works out to be:
 
-![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId31.png){width="6.5in" height="0.6176006124234471in"}
+$$
+\begin{aligned}
+\text { Budget } & =\mathrm{P}_1 \times \mathrm{Q}_1+\mathrm{P}_2 \times \mathrm{Q}_2 \\
+\$ 10 \text { budget } & =\$ 2 \text { per burger } \times \text { quantity of burgers }+\$ 0.50 \text { per bus ticket } \times \text { quantity of bus tickets } \\
+\$ 10 & =\$ 2 \times \mathrm{Q}_{\text {burgers }}+\$ 0.50 \times \mathrm{Q}_{\text {bus tickets }}
+\end{aligned}
+$$
 
 Step 3. Using a little algebra, we can turn this into the familiar
 equation of a line:
 
-![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId33.png){width="0.84375in" height="0.16666666666666666in"}
+$$
+y=b+m x
+$$
 
 For Alphonso, this is:
 
-![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId35.png){width="2.78125in"
-height="0.17708333333333334in"}
+$$
+\$ 10=\$ 2 \times Q_{\text {burgers }}+\$ 0.50 \times Q_{\text {bus tickets }}
+$$
 
 Step 4. Simplify the equation. Begin by multiplying both sides of the
 equation by 2:
 
-![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId37.png){width="3.3645833333333335in"
-height="0.4270833333333333in"}
+$$
+\begin{aligned}
+2 \times 10 & =2 \times 2 \times Q_{\text {burgers }}+2 \times 0.5 \times Q_{\text {bus tickets }} \\
+20 & =4 \times Q_{\text {burgers }}+1 \times Q_{\text {bus tickets }}
+\end{aligned}
+$$
 
 Step 5. Subtract one bus ticket from both sides:
 
-![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId39.png){width="1.9270833333333333in"
-height="0.17708333333333334in"}
+$$
+20-Q_{\text {bus tickets }}=4 \times Q_{\text {burgers }}
+$$
 
 Divide each side by 4 to yield the answer:
 
-![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId41.png){width="2.9583333333333335in"
-height="0.6666666666666666in"}
+$$
+\begin{aligned}
+5-0.25 \times \mathrm{Q}_{\text {bus tickets }} & =\mathrm{Q}_{\text {burgers }} \\
+& \text { or } \\
+\mathrm{Q}_{\text {burgers }} & =5-0.25 \times \mathrm{Q}_{\text {bus tickets }}
+\end{aligned}
+$$
 
 Step 6. Notice that this equation fits the budget constraint in [Figure
-2.2](#CNX_Econ_C02_001). The vertical intercept is 5 and the slope is
+2.2](#fig-2_2). The vertical intercept is 5 and the slope is
 --0.25, just as the equation says. If you plug 20 bus tickets into the
 equation, you get 0 burgers. If you plug other numbers of bus tickets
-into the equation, you get the results (see [Table 2.1](#Table_02_01)),
+into the equation, you get the results (see @tbl-table_2_1),
 which are the points on Alphonso's budget constraint.
 
 
@@ -236,7 +252,7 @@ which are the points on Alphonso's budget constraint.
 | E     | 1                           | 16                                    |
 | F     | 0                           | 20                                    |
 
-Table 2.1
+: Step 6 {#tbl-table_2_1}
 
 Step 7. Notice that the slope of a budget constraint always shows the
 opportunity cost of the good which is on the horizontal axis. For
@@ -337,8 +353,7 @@ is used throughout economics.
 
 We now turn to the notion of utility. People desire goods and services
 for the satisfaction or utility those goods and services provide.
-Utility, as we will see in the chapter on [Consumer
-Choices](http://openstax.org/books/principles-microeconomics-3e/pages/6-introduction-to-consumer-choices),
+Utility, as we will see in the chapter on @sec-chapter-6,
 is subjective but that does not make it less real. Economists typically
 assume that the more of some good one consumes (for example, slices of
 pizza), the more utility one obtains. At the same time, the utility a
@@ -456,9 +471,9 @@ Because society has limited resources (e.g., labor, land, capital, raw
 materials) at any point in time, there is a limit to the quantities of
 goods and services it can produce. Suppose a society desires two
 products, healthcare and education. The production possibilities
-frontier in [Figure 2.3](#CNX_Econ_C02_010) illustrates this situation.
+frontier in [Figure 2.3](#fig-2_3) illustrates this situation.
 
-![](media/2-2-the-production-possibilities-frontier-and-social-choices_rId23.jpeg){width="3.25in" height="2.345in"}
+![](media/2-2-the-production-possibilities-frontier-and-social-choices_rId23.jpeg){width="3.25in" height="2.345in" #fig-2_3}
 
 Figure 2.3 A Healthcare vs. Education Production Possibilities Frontier
 This production possibilities frontier shows a tradeoff between devoting
@@ -466,7 +481,7 @@ social resources to healthcare and devoting them to education. At A all
 resources go to healthcare and at B, most go to healthcare. At D most
 resources go to education, and at F, all go to education.
 
-[Figure 2.3](#CNX_Econ_C02_010) shows healthcare on the vertical axis
+[Figure 2.3](#fig-2_3) shows healthcare on the vertical axis
 and education on the horizontal axis. If the society were to allocate
 all of its resources to healthcare, it could produce at point A.
 However, it would not have any resources to produce education. If it
@@ -612,10 +627,10 @@ performs within budget.
 
 The production possibilities frontier can illustrate two kinds of
 efficiency: productive efficiency and allocative efficiency. [Figure
-2.4](#CNX_Econ_C02_011) illustrates these ideas using a production
+2.4](#fig-2_4) illustrates these ideas using a production
 possibilities frontier between healthcare and education.
 
-![](media/2-2-the-production-possibilities-frontier-and-social-choices_rId33.jpeg){width="3.25in" height="2.615in"}
+![](media/2-2-the-production-possibilities-frontier-and-social-choices_rId33.jpeg){width="3.25in" height="2.615in" #fig-2_4}
 
 Figure 2.4 Productive and Allocative Efficiency Productive efficiency
 means it is impossible to produce more of one good without decreasing
@@ -629,7 +644,7 @@ desires.
 Productive efficiency means that, given the available inputs and
 technology, it is impossible to produce more of one good without
 decreasing the quantity that is produced of another good. All choices on
-the PPF in [Figure 2.4](#CNX_Econ_C02_011), including A, B, C, D, and F,
+the PPF in [Figure 2.4](#fig-2_4), including A, B, C, D, and F,
 display productive efficiency. As a firm moves from any one of these
 choices to any other, either healthcare increases and education
 decreases or vice versa. However, any choice inside the production
@@ -662,8 +677,7 @@ efficient choice for society as a whole.
 
 #### Why Society Must Choose
 
-In [Welcome to
-Economics!](http://openstax.org/books/principles-microeconomics-3e/pages/1-introduction)
+In @sec-chapter-1
 we learned that every society faces the problem of scarcity, where
 limited resources conflict with unlimited needs and wants. The
 production possibilities curve illustrates the choices involved in this
@@ -715,9 +729,9 @@ per acre, but not much sugar cane. Clearly, Brazil has a lower
 opportunity cost of producing sugar cane (in terms of wheat) than the
 U.S. The reverse is also true: the U.S. has a lower opportunity cost of
 producing wheat than Brazil. We illustrate this by the PPFs of the two
-countries in [Figure 2.5](#CNX_Econ_C02_012).
+countries in [Figure 2.5](#fig-2_5).
 
-![](media/2-2-the-production-possibilities-frontier-and-social-choices_rId45.jpeg){width="6.5in" height="3.345in"}
+![](media/2-2-the-production-possibilities-frontier-and-social-choices_rId45.jpeg){width="6.5in" height="3.345in" #fig-2_5}
 
 Figure 2.5 Production Possibility Frontier for the U.S. and Brazil The
 U.S. PPF is flatter than the Brazil PPF implying that the opportunity
@@ -742,8 +756,7 @@ The slope of the PPF gives the opportunity cost of producing an
 additional unit of wheat. While the slope is not constant throughout the
 PPFs, it is quite apparent that the PPF in Brazil is much steeper than
 in the U.S., and therefore the opportunity cost of wheat is generally
-higher in Brazil. In the chapter on [International
-Trade](http://openstax.org/books/principles-microeconomics-3e/pages/19-introduction-to-international-trade)
+higher in Brazil. In @sec-chapter-19
 you will learn that countries' differences in comparative advantage
 determine which goods they will choose to produce and trade. When
 countries engage in trade, they specialize in the production of the
@@ -813,8 +826,7 @@ preferred by people in that society. Thus, when thinking about the
 economic actions of groups of people, firms, and society, it is
 reasonable, as a first approximation, to analyze them with the tools of
 economic analysis. For more on this, read about behavioral economics in
-the chapter on [Consumer
-Choices](http://openstax.org/books/principles-microeconomics-3e/pages/6-introduction-to-consumer-choices).
+the chapter on @sec-chapter-6.
 
 #### Second Objection: People, Firms, and Society Should Not Act This Way
 
@@ -881,7 +893,7 @@ and pattern of the diagrams, not to memorize each one.
 This chapter uses only one basic diagram, although we present it with
 different sets of labels. The consumption budget constraint and the
 production possibilities frontier for society, as a whole, are the same
-basic diagram. [Figure 2.6](#CNX_Econ_C02_014) shows an individual
+basic diagram. [Figure 2.6](#fig-2_6) shows an individual
 budget constraint and a production possibilities frontier for two goods,
 Good 1 and Good 2. The tradeoff diagram always illustrates three basic
 themes: scarcity, tradeoffs, and economic efficiency.
@@ -921,7 +933,7 @@ possibilities frontier diagram is always just a tool for thinking
 carefully about scarcity, tradeoffs, and efficiency in a particular
 situation.
 
-![](media/2-3-confronting-objections-to-the-economic-approach_rId31.jpeg){width="6.5in" height="2.62in"}
+![](media/2-3-confronting-objections-to-the-economic-approach_rId31.jpeg){width="6.5in" height="2.62in" #fig-2_6}
 
 Figure 2.6 The Tradeoff Diagram Both the individual opportunity set (or
 budget constraint) and the social production possibilities frontier show

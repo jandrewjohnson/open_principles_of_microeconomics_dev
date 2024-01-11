@@ -1,5 +1,5 @@
-# Chapter 12 - Environmental Protection and Negative Externalities
-![](media/12-introduction-to-environmental-protection-and-negative-externalities_rId20.jpeg){width="6.5in" height="2.708332239720035in"}
+# Chapter 12 - Environmental Protection and Negative Externalities {#sec-chapter-12}
+![](media/12-introduction-to-environmental-protection-and-negative-externalities_rId20.jpeg){width="6.5in" height="2.708332239720035in" #fig-12_1}
 
 Figure 12.1 Environmental Debate Across the country, countless people
 have protested, even risking arrest, against the Keystone XL Pipeline.
@@ -100,7 +100,7 @@ From 1970 to 2020, the U.S. population increased by 63 percent, and the
 size of the U.S. economy increased by more than 3.8-fold. Since the
 1970s, however, the United States, using a variety of anti-pollution
 policies, has made genuine progress against a number of pollutants.
-[Table 12.1](#Table_12_01) lists the change in carbon dioxide emissions
+@tbl-table_12_1 lists the change in carbon dioxide emissions
 by energy users (from residential to industrial) according to the U.S.
 Energy Information Administration (EIA). The table shows that emissions
 of certain key air pollutants declined substantially from 2007 to 2012.
@@ -109,8 +109,14 @@ This seems to indicate that there has been progress made in the United
 States in reducing overall carbon dioxide emissions, which contribute to
 the greenhouse effect.
 
-Table 12.1 Carbon Dioxide Emissions from Energy Consumption, by Source
-(Source: EIA Monthly Energy Review)
+| Year | Coal | Natural Gas | Petroleum | Total |
+|------|------|-------------|-----------|-------|
+| 1973 | 1,221| 1,175       | 2,325     | 4,721 |
+| 2007 | 2,171| 1,245       | 2,587     | 6,016 |
+| 2020 | 875  | 1,648       | 2,042     | 4,576 |
+
+: Carbon Dioxide Emissions from Energy Consumption, by Source
+(Source: EIA Monthly Energy Review) {#tbl-table_12_1}
 
 Despite the gradual reduction in emissions from fossil fuels, many
 important environmental issues remain. Along with the still high levels
@@ -150,18 +156,17 @@ Pollution is a negative externality. Economists illustrate the social
 costs of production with a demand and supply diagram. The social costs
 include the private costs of production that a company incurs and the
 external costs of pollution that pass on to society. [Figure
-12.2](#CNX_Econ_C12_001) shows the demand and supply for manufacturing
+12.2](#fig-12_2) shows the demand and supply for manufacturing
 refrigerators. The demand curve (D) shows the quantity demanded at each
 price. The supply curve (S~private~) shows the quantity of refrigerators
 that all firms in the industry supply at each price assuming they are
 taking only their private costs into account and they are allowed to
 emit pollution at zero cost. The market equilibrium (E~0~), where
 quantity supplied equals quantity demanded, is at a price of \$650 per
-refrigerator and a quantity of 45,000 refrigerators. [Table
-12.2](#Table_12_02) reflects this information in the first three
+refrigerator and a quantity of 45,000 refrigerators. @tbl-table_12_2 reflects this information in the first three
 columns.
 
-![](media/12-1-the-economics-of-pollution_rId30.jpeg){width="2.655in" height="2.77in"}
+![](media/12-1-the-economics-of-pollution_rId30.jpeg){width="2.655in" height="2.77in" #fig-12_2}
 
 Figure 12.2 Taking Social Costs into Account: A Supply Shift If the firm
 takes only its own costs of production into account, then its supply
@@ -170,7 +175,17 @@ Accounting for additional external costs of \$100 for every unit
 produced, the firm's supply curve will be S~social~. The new equilibrium
 will occur at E~1~.
 
-Table 12.2 A Supply Shift Caused by Pollution Costs
+| Price | Quantity Demanded | Quantity Supplied before Considering Pollution Cost | Quantity Supplied after Considering Pollution Cost |
+|-------|---------------------|--------------------------------------------------------|-----------------------------------------------------|
+| $600  | 50,000              | 40,000                                                 | 30,000                                              |
+| $650  | 45,000              | 45,000                                                 | 35,000                                              |
+| $700  | 40,000              | 50,000                                                 | 40,000                                              |
+| $750  | 35,000              | 55,000                                                 | 45,000                                              |
+| $800  | 30,000              | 60,000                                                 | 50,000                                              |
+| $850  | 25,000              | 65,000                                                 | 55,000                                              |
+| $900  | 20,000              | 70,000                                                 | 60,000                                              |
+
+: A Supply Shift Caused by Pollution Costs {#tbl-table_12_2}
 
 However, as a by-product of the metals, plastics, chemicals and energy
 that refrigerator manufacturers use, some pollution is created. Let's
@@ -188,7 +203,7 @@ and other costs caused by pollution. If the firm is required to pay
 produces a refrigerator, production becomes more costly and the entire
 supply curve shifts up by \$100.
 
-As [Table 12.2](#Table_12_02) and [Figure 12.2](#CNX_Econ_C12_001)
+As @tbl-table_12_2 and [Figure 12.2](#fig-12_2)
 illustrate, the firm will need to receive a price of \$700 per
 refrigerator and produce a quantity of 40,000---and the firm's new
 supply curve will be S~social~. The new equilibrium will occur at E~1~.
@@ -201,11 +216,20 @@ through an example, this time with musical accompaniment.
 
 ##### Identifying the Equilibrium Price and Quantity {#identifying-the-equilibrium-price-and-quantity .Heading4Grey}
 
-[Table 12.3](#Table_12_03) shows the supply and demand conditions for a
+@tbl-table_12_3 shows the supply and demand conditions for a
 firm that will play trumpets on the streets when requested. We measure
 output as the number of songs played.
 
-Table 12.3 Supply and Demand Conditions for a Trumpet-Playing Firm
+| Price | Quantity Demanded | Quantity Supplied without paying the costs of the externality | Quantity Supplied after paying the costs of the externality |
+|-------|---------------------|--------------------------------------------------------|-----------------------------------------------------|
+| $20   | 0                   | 10                                                     | 8                                                   |
+| $18   | 1                   | 9                                                      | 7                                                   |
+| $15   | 2.5                 | 7.5                                                    | 5.5                                                 |
+| $12   | 4                   | 6                                                      | 4                                                   |
+| $10   | 5                   | 5                                                      | 3                                                   |
+| $5    | 7.5                 | 2.5                                                    | 0.5                                                 |
+
+: Supply and Demand Conditions for a Trumpet-Playing Firm {#tbl-table_12_3}
 
 Step 1. Determine the negative externality in this situation. To do
 this, you must think about the situation and consider all parties that
@@ -359,7 +383,7 @@ small particles, such as soot, into the air. This particulate matter
 causes respiratory illnesses and also imposes costs on firms and
 individuals.
 
-[Figure 12.3](#CNX_Econ_C12_002) illustrates the marginal costs that a
+[Figure 12.3](#fig-12_3) illustrates the marginal costs that a
 firm faces in reducing pollution. The marginal cost of pollution
 reduction, like most marginal cost curves, increases with output, at
 least in the short run. Reducing the first 10 pounds of particulate
@@ -371,7 +395,7 @@ because the firm can use the cheapest and easiest method to make initial
 reductions in pollution, but additional reductions in pollution become
 more expensive.
 
-![](media/12-3-market-oriented-environmental-tools_rId24.jpeg){width="4.88in" height="3.005in"}
+![](media/12-3-market-oriented-environmental-tools_rId24.jpeg){width="4.88in" height="3.005in" #fig-12_3}
 
 Figure 12.3 A Pollution Charge If a pollution charge is set equal to
 \$1,000, then the firm will have an incentive to reduce pollution by 30
@@ -428,7 +452,7 @@ reduces pollution in a more flexible and cost-effective way.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/bottlebill) to see the
+Visit this [website](https://www.bottlebill.org/) to see the
 current U.S. states with bottle bills and the states that have active
 campaigns for new bottle bills. You can also view current and proposed
 bills in Canada and other countries around the world.
@@ -450,7 +474,7 @@ level. In addition, imagine that these are marketable permits, meaning
 that firms can buy and sell them.
 
 To see how marketable permits can work to reduce pollution, consider the
-four firms in [Table 12.4](#Table_12_06). The table shows current
+four firms in @tbl-table_12_4. The table shows current
 emissions of lead from each firm. At the start of the marketable permit
 program, each firm receives permits to allow this level of pollution.
 However, these permits are shrinkable, and next year the permits allow
@@ -472,7 +496,14 @@ pollution and by how much. With a system of marketable permits, the
 firms that find it least expensive to do so will reduce pollution the
 most.
 
-Table 12.4 How Marketable Permits Work
+|                                          | Firm Alpha                             | Firm Beta                                | Firm Gamma                               | Firm Delta                               |
+|------------------------------------------|----------------------------------------|------------------------------------------|------------------------------------------|------------------------------------------|
+| Current emissions—permits distributed free for this amount | 200 tons                               | 400 tons                                 | 600 tons                                 | 0 tons                                   |
+| How much pollution will these permits allow in one year? | 100 tons                               | 200 tons                                 | 300 tons                                 | 0 tons                                   |
+| Actual emissions one year in the future  | 150 tons                               | 200 tons                                 | 200 tons                                 | 50 tons                                  |
+| Buyer or seller of marketable permit?   | Buys permits for 50 tons               | Doesn’t buy or sell permits              | Sells permits for 100 tons               | Buys permits for 50 tons                 |
+
+: How Marketable Permits Work {#tbl-table_12_4}
 
 Another application of marketable permits occurred when the U.S.
 government amended the Clean Air Act in 1990. The revised law sought to
@@ -640,7 +671,7 @@ that there is a strong demand for ecotourism.
 #### Link It Up {#link-it-up .Heading3Grey}
 
 Visit The International Ecotourism Society's
-[website](http://openstax.org/l/ecotourism) to learn more about The
+[website](https://ecotourism.org/) to learn more about The
 International Ecotourism Society, its programs, and tourism's role in
 sustainable community development.
 
@@ -670,7 +701,7 @@ environment.
 
 We can use the tools of marginal analysis to illustrate the marginal
 costs and the marginal benefits of reducing pollution. [Figure
-12.4](#CNX_Econ_C12_003) illustrates a theoretical model of this
+12.4](#fig-12_4) illustrates a theoretical model of this
 situation. When the quantity of environmental protection is low so that
 pollution is extensive---for example, at quantity Qa---there are usually
 numerous relatively cheap and easy ways to reduce pollution, and the
@@ -687,7 +718,7 @@ benefits. At this level of environmental protection, society is not
 allocating resources efficiently, because it is forfeiting too many
 resources to reduce pollution.
 
-![](media/12-4-the-benefits-and-costs-of-u-s-environmental-laws_rId32.jpeg){width="3.66in" height="2.975in"}
+![](media/12-4-the-benefits-and-costs-of-u-s-environmental-laws_rId32.jpeg){width="3.66in" height="2.975in" #fig-12_4}
 
 Figure 12.4 Marginal Costs and Marginal Benefits of Environmental
 Protection Reducing pollution is costly---one must sacrifice resources.
@@ -820,7 +851,7 @@ United States, rejoined the Paris Climate Agreement.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/EC) to learn more about the
+Visit this [website](https://commission.europa.eu/index_en) to learn more about the
 European Commission.
 
 If high-income countries want low-income countries to reduce their
@@ -854,7 +885,7 @@ By the end of this section, you will be able to:
 
 We can analyze the tradeoff between economic output and the environment
 with a production possibility frontier (PPF) such as the one in [Figure
-12.5](#CNX_Econ_C12_004). At one extreme, at a choice like P, a country
+12.5](#fig-12_5). At one extreme, at a choice like P, a country
 would be selecting a high level of economic output but very little
 environmental protection. At the other extreme, at a choice like T, a
 country would be selecting a high level of environmental protection but
@@ -865,7 +896,7 @@ avoid choices like M, which are productively inefficient. Efficiency
 requires that the choice should be on the production possibility
 frontier.
 
-![](media/12-6-the-tradeoff-between-economic-output-and-environmental-protection_rId23.jpeg){width="3.5in" height="2.725in"}
+![](media/12-6-the-tradeoff-between-economic-output-and-environmental-protection_rId23.jpeg){width="3.5in" height="2.725in" #fig-12_5}
 
 Figure 12.5 The Tradeoff between Economic Output and Environmental
 Protection Each society will have to weigh its own values and decide
@@ -874,7 +905,7 @@ environmental protection, or a choice like T with more environmental
 protection and less economic output.
 
 Economists do not have a great deal to say about the choice between P,
-Q, R, S and T in [Figure 12.5](#CNX_Econ_C12_004), all of which lie
+Q, R, S and T in [Figure 12.5](#fig-12_5), all of which lie
 along the production possibility frontier. Countries with low per capita
 gross domestic product (GDP), such as India, place a greater emphasis on
 economic output---which in turn helps to produce nutrition, shelter,

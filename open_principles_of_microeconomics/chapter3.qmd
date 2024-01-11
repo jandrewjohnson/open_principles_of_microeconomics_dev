@@ -1,6 +1,6 @@
-# Chapter 3 - Demand and Supply
+# Chapter 3 - Demand and Supply {#sec-chapter-3}
 
-![](media/3-introduction-to-demand-and-supply_rId20.jpeg){width="6.5in" height="4.785in"}
+![](media/3-introduction-to-demand-and-supply_rId20.jpeg){width="6.5in" height="4.785in" #fig-3_1}
 
 Figure 3.1 Farmer's Market Organic vegetables and fruits that are grown and sold within a specific geographical region should, in theory, cost less than conventional produce because the transportation costs are less. That is not, however, usually the case. (Credit: modification of "Old Farmers' Market" by NatalieMaynor/Flickr, CC BY 2.0)
 
@@ -27,7 +27,7 @@ An auction bidder pays thousands of dollars for a dress Whitney Houston wore. A 
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/celebauction) to read a list of bizarre items that have been purchased for their ties to celebrities. These examples represent an interesting facet of demand and supply.
+Visit this [website](https://www.huffpost.com/entry/weirdest-celebrity-items-sold-at-auction_n_1791850) to read a list of bizarre items that have been purchased for their ties to celebrities. These examples represent an interesting facet of demand and supply.
 
 When economists talk about prices, they are less interested in making judgments than in gaining a practical understanding of what determines prices and why prices change. Consider a price most of us contend with weekly: that of a gallon of gas. Why was the average price of gasoline in the United States \$3.16 per gallon in June of 2020? Why did the price for gasoline fall sharply to \$2.42 per gallon by January of 2021? To explain these price movements, economists focus on the determinants of what gasoline buyers are willing to pay and what gasoline sellers are willing to accept.
 
@@ -54,9 +54,9 @@ Economists use the term demand to refer to the amount of some good or service co
 
 What a buyer pays for a unit of the specific good or service is called price. The total number of units that consumers would purchase at that price is called the quantity demanded. A rise in price of a good or service almost always decreases the quantity demanded of that good or service. Conversely, a fall in price will increase the quantity demanded. When the price of a gallon of gasoline increases, for example, people look for ways to reduce their consumption by combining several errands, commuting by carpool or mass transit, or taking weekend or vacation trips closer to home. Economists call this inverse relationship between price and quantity demanded the law of demand. The law of demand assumes that all other variables that affect demand (which we explain in the next module) are held constant.
 
-We can show an example from the market for gasoline in a table or a graph. Economist call a table that shows the quantity demanded at each price, such as [Table 3.1](#Table_03_01), a demand schedule. In this case we measure price in dollars per gallon of gasoline. We measure the quantity demanded in millions of gallons over some time period (for example, per day or per year) and over some geographic area (like a state or a country). A demand curve shows the relationship between price and quantity demanded on a graph like [Figure 3.2](#CNX_Econ_C03_001), with quantity on the horizontal axis and the price per gallon on the vertical axis. (Note that this is an exception to the normal rule in mathematics that the independent variable (x) goes on the horizontal axis and the dependent variable (y) goes on the vertical axis. Economics is not math.)
+We can show an example from the market for gasoline in a table or a graph. Economist call a table that shows the quantity demanded at each price, such as @tbl-table_3_1, a demand schedule. In this case we measure price in dollars per gallon of gasoline. We measure the quantity demanded in millions of gallons over some time period (for example, per day or per year) and over some geographic area (like a state or a country). A demand curve shows the relationship between price and quantity demanded on a graph like [Figure 3.2](#fig-3_2), with quantity on the horizontal axis and the price per gallon on the vertical axis. (Note that this is an exception to the normal rule in mathematics that the independent variable (x) goes on the horizontal axis and the dependent variable (y) goes on the vertical axis. Economics is not math.)
 
-[Table 3.1](#Table_03_01) shows the demand schedule and the graph in [Figure 3.2](#CNX_Econ_C03_001) shows the demand curve. These are two ways to describe the same relationship between price and quantity demanded.
+@tbl-table_3_1 shows the demand schedule and the graph in [Figure 3.2](#fig-3_2) shows the demand curve. These are two ways to describe the same relationship between price and quantity demanded.
 
 | Price (per gallon) | Quantity Demanded (millions of gallons) |
 |--------------------|-----------------------------------------|
@@ -68,9 +68,9 @@ We can show an example from the market for gasoline in a table or a graph. Econo
 | \$2.00             | 460                                     |
 | \$2.20             | 420                                     |
 
-Table 3.1 Price and Quantity Demanded of Gasoline
+: Price and Quantity Demanded of Gasoline {#tbl-table_3_1}
 
-![](media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId28.jpeg){width="4.88in" height="2.61in"}
+![](media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId28.jpeg){width="4.88in" height="2.61in" #fig-3_2}
 
 Figure 3.2 A Demand Curve for Gasoline The demand schedule shows that as price rises, quantity demanded decreases, and vice versa. We graph these points, and the line connecting them is the demand curve (D). The downward slope of the demand curve again illustrates the law of demand---the inverse relationship between prices and quantity demanded.
 
@@ -96,9 +96,9 @@ Still unsure about the different types of supply? See the following Clear It Up 
 
 In economic terminology, supply is not the same as quantity supplied. When economists refer to supply, they mean the relationship between a range of prices and the quantities supplied at those prices, a relationship that we can illustrate with a supply curve or a supply schedule. When economists refer to quantity supplied, they mean only a certain point on the supply curve, or one quantity on the supply schedule. In short, supply refers to the curve and quantity supplied refers to a (specific) point on the curve.
 
-[Figure 3.3](#CNX_Econ_C03_002) illustrates the law of supply, again using the market for gasoline as an example. Like demand, we can illustrate supply using a table or a graph. A supply schedule is a table, like [Table 3.2](#Table_03_02), that shows the quantity supplied at a range of different prices. Again, we measure price in dollars per gallon of gasoline and we measure quantity supplied in millions of gallons. A supply curve is a graphic illustration of the relationship between price, shown on the vertical axis, and quantity, shown on the horizontal axis. The supply schedule and the supply curve are just two different ways of showing the same information. Notice that the horizontal and vertical axes on the graph for the supply curve are the same as for the demand curve.
+[Figure 3.3](#fig-3_3) illustrates the law of supply, again using the market for gasoline as an example. Like demand, we can illustrate supply using a table or a graph. A supply schedule is a table, like @tbl-table_3_2, that shows the quantity supplied at a range of different prices. Again, we measure price in dollars per gallon of gasoline and we measure quantity supplied in millions of gallons. A supply curve is a graphic illustration of the relationship between price, shown on the vertical axis, and quantity, shown on the horizontal axis. The supply schedule and the supply curve are just two different ways of showing the same information. Notice that the horizontal and vertical axes on the graph for the supply curve are the same as for the demand curve.
 
-![](media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId42.jpeg){width="4.88in" height="2.47in"}
+![](media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId42.jpeg){width="4.88in" height="2.47in" #fig-3_3}
 
 Figure 3.3 A Supply Curve for Gasoline The supply schedule is the table that shows quantity supplied of gasoline at each price. As price rises, quantity supplied also increases, and vice versa. The supply curve (S) is created by graphing the points from the supply schedule and then connecting them. The upward slope of the supply curve illustrates the law of supply---that a higher price leads to a higher quantity supplied, and vice versa.
 
@@ -112,7 +112,7 @@ Figure 3.3 A Supply Curve for Gasoline The supply schedule is the table that sho
 | \$2.00             | 700                                     |
 | \$2.20             | 720                                     |
 
-Table 3.2 Price and Supply of Gasoline
+: Price and Supply of Gasoline {#tbl-table_3_2}
 
 The shape of supply curves will vary somewhat according to the product: steeper, flatter, straighter, or curved. Nearly all supply curves, however, share a basic similarity: they slope up from left to right and illustrate the law of supply: as the price rises, say, from \$1.00 per gallon to \$2.20 per gallon, the quantity supplied increases from 500 gallons to 720 gallons. Conversely, as the price falls, the quantity supplied decreases.
 
@@ -120,9 +120,9 @@ The shape of supply curves will vary somewhat according to the product: steeper,
 
 Because the graphs for demand and supply curves both have price on the vertical axis and quantity on the horizontal axis, the demand curve and supply curve for a particular good or service can appear on the same graph. Together, demand and supply determine the price and the quantity that will be bought and sold in a market.
 
-[Figure 3.4](#CNX_Econ_C03_003) illustrates the interaction of demand and supply in the market for gasoline. The demand curve (D) is identical to [Figure 3.2](#CNX_Econ_C03_001). The supply curve (S) is identical to [Figure 3.3](#CNX_Econ_C03_002). [Table 3.3](#Table_03_03) contains the same information in tabular form.
+[Figure 3.4](#fig-3_4) illustrates the interaction of demand and supply in the market for gasoline. The demand curve (D) is identical to [Figure 3.2](#fig-3_2). The supply curve (S) is identical to [Figure 3.3](#fig-3_3). @tbl-table_3_3 contains the same information in tabular form.
 
-![](media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId47.jpeg){width="3.37in" height="2.37in"}
+![](media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId47.jpeg){width="3.37in" height="2.37in" #fig-3_4}
 
 Figure 3.4 Demand and Supply for Gasoline The demand curve (D) and the supply curve (S) intersect at the equilibrium point E, with a price of \$1.40 and a quantity of 600. The equilibrium price is the only price where quantity demanded is equal to quantity supplied. At a price above equilibrium like \$1.80, quantity supplied exceeds the quantity demanded, so there is excess supply. At a price below equilibrium such as \$1.20, quantity demanded exceeds quantity supplied, so there is excess demand.
 
@@ -136,23 +136,23 @@ Figure 3.4 Demand and Supply for Gasoline The demand curve (D) and the supply cu
 | \$2.00             | 460                                     | 700                                     |
 | \$2.20             | 420                                     | 720                                     |
 
-Table 3.3 Price, Quantity Demanded, and Quantity Supplied
+: Price, Quantity Demanded, and Quantity Supplied {#tbl-table_3_3}
 
-Remember this: When two lines on a diagram cross, this intersection usually means something. The point where the supply curve (S) and the demand curve (D) cross, designated by point E in [Figure 3.4](#CNX_Econ_C03_003), is called the equilibrium. The equilibrium price is the only price where the plans of consumers and the plans of producers agree---that is, where the amount of the product consumers want to buy (quantity demanded) is equal to the amount producers want to sell (quantity supplied). Economists call this common quantity the equilibrium quantity. At any other price, the quantity demanded does not equal the quantity supplied, so the market is not in equilibrium at that price.
+Remember this: When two lines on a diagram cross, this intersection usually means something. The point where the supply curve (S) and the demand curve (D) cross, designated by point E in [Figure 3.4](#fig-3_4), is called the equilibrium. The equilibrium price is the only price where the plans of consumers and the plans of producers agree---that is, where the amount of the product consumers want to buy (quantity demanded) is equal to the amount producers want to sell (quantity supplied). Economists call this common quantity the equilibrium quantity. At any other price, the quantity demanded does not equal the quantity supplied, so the market is not in equilibrium at that price.
 
-In [Figure 3.4](#CNX_Econ_C03_003), the equilibrium price is \$1.40 per gallon of gasoline and the equilibrium quantity is 600 million gallons. If you had only the demand and supply schedules, and not the graph, you could find the equilibrium by looking for the price level on the tables where the quantity demanded and the quantity supplied are equal.
+In [Figure 3.4](#fig-3_4), the equilibrium price is \$1.40 per gallon of gasoline and the equilibrium quantity is 600 million gallons. If you had only the demand and supply schedules, and not the graph, you could find the equilibrium by looking for the price level on the tables where the quantity demanded and the quantity supplied are equal.
 
 The word "equilibrium" means "balance." If a market is at its equilibrium price and quantity, then it has no reason to move away from that point. However, if a market is not at equilibrium, then economic pressures arise to move the market toward the equilibrium price and the equilibrium quantity.
 
-Imagine, for example, that the price of a gallon of gasoline was above the equilibrium price---that is, instead of \$1.40 per gallon, the price is \$1.80 per gallon. The dashed horizontal line at the price of \$1.80 in [Figure 3.4](#CNX_Econ_C03_003) illustrates this above-equilibrium price. At this higher price, the quantity demanded drops from 600 to 500. This decline in quantity reflects how consumers react to the higher price by finding ways to use less gasoline.
+Imagine, for example, that the price of a gallon of gasoline was above the equilibrium price---that is, instead of \$1.40 per gallon, the price is \$1.80 per gallon. The dashed horizontal line at the price of \$1.80 in [Figure 3.4](#fig-3_4) illustrates this above-equilibrium price. At this higher price, the quantity demanded drops from 600 to 500. This decline in quantity reflects how consumers react to the higher price by finding ways to use less gasoline.
 
 Moreover, at this higher price of \$1.80, the quantity of gasoline supplied rises from 600 to 680, as the higher price makes it more profitable for gasoline producers to expand their output. Now, consider how quantity demanded and quantity supplied are related at this above-equilibrium price. Quantity demanded has fallen to 500 gallons, while quantity supplied has risen to 680 gallons. In fact, at any above-equilibrium price, the quantity supplied exceeds the quantity demanded. We call this an excess supply or a surplus.
 
 With a surplus, gasoline accumulates at gas stations, in tanker trucks, in pipelines, and at oil refineries. This accumulation puts pressure on gasoline sellers. If a surplus remains unsold, those firms involved in making and selling gasoline are not receiving enough cash to pay their workers and to cover their expenses. In this situation, some producers and sellers will want to cut prices, because it is better to sell at a lower price than not to sell at all. Once some sellers start cutting prices, others will follow to avoid losing sales. These price reductions in turn will stimulate a higher quantity demanded. Therefore, if the price is above the equilibrium level, incentives built into the structure of demand and supply will create pressures for the price to fall toward the equilibrium.
 
-Now suppose that the price is below its equilibrium level at \$1.20 per gallon, as the dashed horizontal line at this price in [Figure 3.4](#CNX_Econ_C03_003) shows. At this lower price, the quantity demanded increases from 600 to 700 as drivers take longer trips, spend more minutes warming up the car in the driveway in wintertime, stop sharing rides to work, and buy larger cars that get fewer miles to the gallon. However, the below-equilibrium price reduces gasoline producers' incentives to produce and sell gasoline, and the quantity supplied falls from 600 to 550.
+Now suppose that the price is below its equilibrium level at \$1.20 per gallon, as the dashed horizontal line at this price in [Figure 3.4](#fig-3_4) shows. At this lower price, the quantity demanded increases from 600 to 700 as drivers take longer trips, spend more minutes warming up the car in the driveway in wintertime, stop sharing rides to work, and buy larger cars that get fewer miles to the gallon. However, the below-equilibrium price reduces gasoline producers' incentives to produce and sell gasoline, and the quantity supplied falls from 600 to 550.
 
-When the price is below equilibrium, there is excess demand, or a shortage---that is, at the given price the quantity demanded, which has been stimulated by the lower price, now exceeds the quantity supplied, which has been depressed by the lower price. In this situation, eager gasoline buyers mob the gas stations, only to find many stations running short of fuel. Oil companies and gas stations recognize that they have an opportunity to make higher profits by selling what gasoline they have at a higher price. As a result, the price rises toward the equilibrium level. Read [Demand, Supply, and Efficiency](http://openstax.org/books/principles-microeconomics-3e/pages/3-5-demand-supply-and-efficiency) for more discussion on the importance of the demand and supply model.
+When the price is below equilibrium, there is excess demand, or a shortage---that is, at the given price the quantity demanded, which has been stimulated by the lower price, now exceeds the quantity supplied, which has been depressed by the lower price. In this situation, eager gasoline buyers mob the gas stations, only to find many stations running short of fuel. Oil companies and gas stations recognize that they have an opportunity to make higher profits by selling what gasoline they have at a higher price. As a result, the price rises toward the equilibrium level. Read @sec-chapter-5 for more discussion on the importance of the demand and supply model.
 
 ### 3.2 Shifts in Demand and Supply for Goods and Services
 
@@ -169,7 +169,7 @@ The previous module explored how price affects the quantity demanded and the qua
 
 #### Link It Up {.Heading3Grey}
 
-Visit this [website](https://openstax.org/l/toothfish) to read a brief note on how marketing strategies can influence supply and demand of products.
+Visit this [website](https://thedelicioustruth.blogspot.com/2009/08/chilean-sea-bass-patagonian-toothfish.html) to read a brief note on how marketing strategies can influence supply and demand of products.
 
 #### What Factors Affect Demand?
 
@@ -191,13 +191,13 @@ For example, we can say that an increase in the price reduces the amount consume
 
 #### How Does Income Affect Demand?
 
-Let's use income as an example of how factors other than price affect demand. [Figure 3.5](#CNX_Econ_C03_004) shows the initial demand for automobiles as D~0~. At point Q, for example, if the price is \$20,000 per car, the quantity of cars demanded is 18 million. D~0~ also shows how the quantity of cars demanded would change as a result of a higher or lower price. For example, if the price of a car rose to \$22,000, the quantity demanded would decrease to 17 million, at point R.
+Let's use income as an example of how factors other than price affect demand. [Figure 3.5](#fig-3_5) shows the initial demand for automobiles as D~0~. At point Q, for example, if the price is \$20,000 per car, the quantity of cars demanded is 18 million. D~0~ also shows how the quantity of cars demanded would change as a result of a higher or lower price. For example, if the price of a car rose to \$22,000, the quantity demanded would decrease to 17 million, at point R.
 
 The original demand curve D~0~, like every demand curve, is based on the *ceteris paribus* assumption that no other economically relevant factors change. Now imagine that the economy expands in a way that raises the incomes of many people, making cars more affordable. How will this affect demand? How can we show this graphically?
 
-Return to [Figure 3.5](#CNX_Econ_C03_004). The price of cars is still \$20,000, but with higher incomes, the quantity demanded has now increased to 20 million cars, shown at point S. As a result of the higher income levels, the demand curve shifts to the right to the new demand curve D~1~, indicating an increase in demand. [Table 3.4](#Table_03_04) shows clearly that this increased demand would occur at every price, not just the original one.
+Return to [Figure 3.5](#fig-3_5). The price of cars is still \$20,000, but with higher incomes, the quantity demanded has now increased to 20 million cars, shown at point S. As a result of the higher income levels, the demand curve shifts to the right to the new demand curve D~1~, indicating an increase in demand. @tbl-table_3_4 shows clearly that this increased demand would occur at every price, not just the original one.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId33.jpeg){width="4.88in" height="2.975in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId33.jpeg){width="4.88in" height="2.975in" #fig-3_5}
 
 Figure 3.5 Shifts in Demand: A Car Example Increased demand means that at every given price, the quantity demanded is higher, so that the demand curve shifts to the right from D~0~ to D~1~. Decreased demand means that at every given price, the quantity demanded is lower, so that the demand curve shifts to the left from D~0~ to D~2~.
 
@@ -210,7 +210,7 @@ Figure 3.5 Shifts in Demand: A Car Example Increased demand means that at every 
 | $24,000 | 13.2 million   | 16.5 million                  | 18.5 million   |
 | $26,000 | 12.8 million   | 16.0 million                  | 18.0 million   |
 
-Table 3.4 Price and Demand Shifts: A Car Example
+: Price and Demand Shifts: A Car Example {#tbl-table_3_4}
 
 Now, imagine that the economy slows down so that many people lose their jobs or work fewer hours, reducing their incomes. In this case, the decrease in income would lead to a lower quantity of cars demanded at every given price, and the original demand curve D~0~ would shift left to D~2~. The shift from D~0~ to D~2~ represents such a decrease in demand: At any given price level, the quantity demanded is now lower. In this example, a price of \$20,000 means 18 million cars sold along the original demand curve, but only 14.4 million sold after demand fell.
 
@@ -246,29 +246,29 @@ While it is clear that the price of a good affects the quantity demanded, it is 
 
 A shift in demand means that at any price (and at every price), the quantity demanded will be different than it was before. Following is an example of a shift in demand due to an income increase.
 
-Step 1. Draw the graph of a demand curve for a normal good like pizza. Pick a price (like P~0~). Identify the corresponding Q~0~. See an example in [Figure 3.6](#CNX_Econ_C03_019).
+Step 1. Draw the graph of a demand curve for a normal good like pizza. Pick a price (like P~0~). Identify the corresponding Q~0~. See an example in [Figure 3.6](#fig-3_6).
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId44.jpeg){width="3.25in" height="1.9749989063867017in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId44.jpeg){width="3.25in" height="1.9749989063867017in" #fig-3_6}
 
 Figure 3.6 Demand Curve We can use the demand curve to identify how much consumers would buy at any given price.
 
-Step 2. Suppose income increases. As a result of the change, are consumers going to buy more or less pizza? The answer is more. Draw a dotted horizontal line from the chosen price, through the original quantity demanded, to the new point with the new Q~1~. Draw a dotted vertical line down to the horizontal axis and label the new Q~1~. [Figure 3.7](#CNX_Econ_C03_020) provides an example.
+Step 2. Suppose income increases. As a result of the change, are consumers going to buy more or less pizza? The answer is more. Draw a dotted horizontal line from the chosen price, through the original quantity demanded, to the new point with the new Q~1~. Draw a dotted vertical line down to the horizontal axis and label the new Q~1~. [Figure 3.7](#fig-3_7) provides an example.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId47.jpeg){width="3.25in" height="2.01in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId47.jpeg){width="3.25in" height="2.01in" #fig-3_7}
 
 Figure 3.7 Demand Curve with Income Increase With an increase in income, consumers will purchase larger quantities, pushing demand to the right.
 
-Step 3. Now, shift the curve through the new point. You will see that an increase in income causes an upward (or rightward) shift in the demand curve, so that at any price the quantities demanded will be higher, as [Figure 3.8](#CNX_Econ_C03_021) illustrates.
+Step 3. Now, shift the curve through the new point. You will see that an increase in income causes an upward (or rightward) shift in the demand curve, so that at any price the quantities demanded will be higher, as [Figure 3.8](#fig-3_8) illustrates.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId50.jpeg){width="3.25in" height="1.9949989063867017in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId50.jpeg){width="3.25in" height="1.9949989063867017in" #fig-3_8}
 
 Figure 3.8 Demand Curve Shifted Right With an increase in income, consumers will purchase larger quantities, pushing demand to the right, and causing the demand curve to shift right.
 
 #### Summing Up Factors That Change Demand
 
-[Figure 3.9](#CNX_Econ_C03_026) summarizes six factors that can shift demand curves. The direction of the arrows indicates whether the demand curve shifts represent an increase in demand or a decrease in demand. Notice that a change in the price of the good or service itself is not listed among the factors that can shift a demand curve. A change in the price of a good or service causes a movement along a specific demand curve, and it typically leads to some change in the quantity demanded, but it does not shift the demand curve.
+[Figure 3.9](#fig-3_9) summarizes six factors that can shift demand curves. The direction of the arrows indicates whether the demand curve shifts represent an increase in demand or a decrease in demand. Notice that a change in the price of the good or service itself is not listed among the factors that can shift a demand curve. A change in the price of a good or service causes a movement along a specific demand curve, and it typically leads to some change in the quantity demanded, but it does not shift the demand curve.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId56.jpeg){width="6.5in" height="2.035in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId56.jpeg){width="6.5in" height="2.035in" #fig-3_9}
 
 Figure 3.9 Factors That Shift Demand Curves (a) A list of factors that can cause an increase in demand from D~0~ to D~1~. (b) The same factors, if their direction is reversed, can cause a decrease in demand from D~0~ to D~1~.
 
@@ -284,9 +284,9 @@ Take, for example, a messenger company that delivers packages around a city. The
 
 Conversely, if a firm faces higher costs of production, then it will earn lower profits at any given selling price for its products. As a result, a higher cost of production typically causes a firm to supply a smaller quantity at any given price. In this case, the supply curve shifts to the left.
 
-Consider the supply for cars, shown by curve S~0~ in [Figure 3.10](#CNX_Econ_C03_007). Point J indicates that if the price is \$20,000, the quantity supplied will be 18 million cars. If the price rises to \$22,000 per car, *ceteris paribus,* the quantity supplied will rise to 20 million cars, as point K on the S~0~ curve shows. We can show the same information in table form, as in [Table 3.5](#Table_03_05).
+Consider the supply for cars, shown by curve S~0~ in [Figure 3.10](#fig-3_10). Point J indicates that if the price is \$20,000, the quantity supplied will be 18 million cars. If the price rises to \$22,000 per car, *ceteris paribus,* the quantity supplied will rise to 20 million cars, as point K on the S~0~ curve shows. We can show the same information in table form, as in @tbl-table_3_5.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId64.jpeg){width="4.88in" height="2.935in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId64.jpeg){width="4.88in" height="2.935in" #fig-3_10}
 
 Figure 3.10 Shifts in Supply: A Car Example Decreased supply means that at every given price, the quantity supplied is lower, so that the supply curve shifts to the left, from S~0~ to S~1~. Increased supply means that at every given price, the quantity supplied is higher, so that the supply curve shifts to the right, from S~0~ to S~2~.
 
@@ -300,7 +300,7 @@ Figure 3.10 Shifts in Supply: A Car Example Decreased supply means that at every
 | $26,000 | 20.5 million   | 22.0 million                  | 24.2 million   |
 
 
-Table 3.5 Price and Shifts in Supply: A Car Example
+: Price and Shifts in Supply: A Car Example {#tbl-table_3_5}
 
 Now, imagine that the price of steel, an important ingredient in manufacturing cars, rises, so that producing a car has become more expensive. At any given price for selling cars, car manufacturers will react by supplying a lower quantity. We can show this graphically as a leftward shift of supply, from S~0~ to S~1~, which indicates that at any given price, the quantity supplied decreases. In this example, at a price of \$20,000, the quantity supplied decreases from 18 million on the original supply curve (S~0~) to 16.5 million on the supply curve S~1~, which is labeled as point L.
 
@@ -324,27 +324,27 @@ A government subsidy, on the other hand, is the opposite of a tax. A subsidy occ
 
 We know that a supply curve shows the minimum price a firm will accept to produce a given quantity of output. What happens to the supply curve when the cost of production goes up? Following is an example of a shift in supply due to a production cost increase. (We'll introduce some other concepts regarding firm decision-making in Chapters 7 and 8.)
 
-Step 1. Draw a graph of a supply curve for pizza. Pick a quantity (like Q~0~). If you draw a vertical line up from Q~0~ to the supply curve, you will see the price the firm chooses. [Figure 3.11](#CNX_Econ_C03_022) provides an example.
+Step 1. Draw a graph of a supply curve for pizza. Pick a quantity (like Q~0~). If you draw a vertical line up from Q~0~ to the supply curve, you will see the price the firm chooses. [Figure 3.11](#fig-3_11) provides an example.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId70.jpeg){width="3.25in" height="1.99in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId70.jpeg){width="3.25in" height="1.99in" #fig-3_11}
 
 Figure 3.11 Supply Curve You can use a supply curve to show the minimum price a firm will accept to produce a given quantity of output.
 
-Step 2. Why did the firm choose that price and not some other? One way to think about this is that the price is composed of two parts. The first part is the cost of producing pizzas at the margin; in this case, the cost of producing the pizza, including cost of ingredients (e.g., dough, sauce, cheese, and pepperoni), the cost of the pizza oven, the shop rent, and the workers' wages. The second part is the firm's desired profit, which is determined, among other factors, by the profit margins in that particular business. (Desired profit is not necessarily the same as economic profit, which will be explained in Chapter 7.) If you add these two parts together, you get the price the firm wishes to charge. The quantity Q0 and associated price P0 give you one point on the firm's supply curve, as [Figure 3.12](#CNX_Econ_C03_023) illustrates.
+Step 2. Why did the firm choose that price and not some other? One way to think about this is that the price is composed of two parts. The first part is the cost of producing pizzas at the margin; in this case, the cost of producing the pizza, including cost of ingredients (e.g., dough, sauce, cheese, and pepperoni), the cost of the pizza oven, the shop rent, and the workers' wages. The second part is the firm's desired profit, which is determined, among other factors, by the profit margins in that particular business. (Desired profit is not necessarily the same as economic profit, which will be explained in Chapter 7.) If you add these two parts together, you get the price the firm wishes to charge. The quantity Q0 and associated price P0 give you one point on the firm's supply curve, as [Figure 3.12](#fig-3_12) illustrates.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId73.jpeg){width="3.25in" height="2.005in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId73.jpeg){width="3.25in" height="2.005in" #fig-3_12}
 
 Figure 3.12 Setting Prices The cost of production and the desired profit equal the price a firm will set for a product.
 
-Step 3. Now, suppose that the cost of production increases. Perhaps cheese has become more expensive by \$0.75 per pizza. If that is true, the firm will want to raise its price by the amount of the increase in cost (\$0.75). Draw this point on the supply curve directly above the initial point on the curve, but \$0.75 higher, as [Figure 3.13](#CNX_Econ_C03_024) shows.
+Step 3. Now, suppose that the cost of production increases. Perhaps cheese has become more expensive by \$0.75 per pizza. If that is true, the firm will want to raise its price by the amount of the increase in cost (\$0.75). Draw this point on the supply curve directly above the initial point on the curve, but \$0.75 higher, as [Figure 3.13](#fig-3_13) shows.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId76.jpeg){width="3.25in" height="1.97in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId76.jpeg){width="3.25in" height="1.97in" #fig-3_13}
 
 Figure 3.13 Increasing Costs Leads to Increasing Price Because the cost of production and the desired profit equal the price a firm will set for a product, if the cost of production increases, the price for the product will also need to increase.
 
-Step 4. Shift the supply curve through this point. You will see that an increase in cost causes an upward (or a leftward) shift of the supply curve so that at any price, the quantities supplied will be smaller, as [Figure 3.14](#CNX_Econ_C03_025) illustrates.
+Step 4. Shift the supply curve through this point. You will see that an increase in cost causes an upward (or a leftward) shift of the supply curve so that at any price, the quantities supplied will be smaller, as [Figure 3.14](#fig-3_14) illustrates.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId79.jpeg){width="3.25in" height="1.9849989063867017in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId79.jpeg){width="3.25in" height="1.9849989063867017in" #fig-3_14}
 
 Figure 3.14 Supply Curve Shifts When the cost of production increases, the supply curve shifts upwardly to a new price level.
 
@@ -352,9 +352,9 @@ Figure 3.14 Supply Curve Shifts When the cost of production increases, the suppl
 
 Changes in the cost of inputs, natural disasters, new technologies, and the impact of government decisions all affect the cost of production. In turn, these factors affect how much firms are willing to supply at any given price.
 
-[Figure 3.15](#CNX_Econ_C03_027) summarizes factors that change the supply of goods and services. Notice that a change in the price of the product itself is not among the factors that shift the supply curve. Although a change in price of a good or service typically causes a change in quantity supplied or a movement along the supply curve for that specific good or service, it does not cause the supply curve itself to shift.
+[Figure 3.15](#fig-3_15) summarizes factors that change the supply of goods and services. Notice that a change in the price of the product itself is not among the factors that shift the supply curve. Although a change in price of a good or service typically causes a change in quantity supplied or a movement along the supply curve for that specific good or service, it does not cause the supply curve itself to shift.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId85.jpeg){width="6.5in" height="2.005in"}
+![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId85.jpeg){width="6.5in" height="2.005in" #fig-3_15}
 
 Figure 3.15 Factors That Shift Supply Curves (a) A list of factors that can cause an increase in supply from S~0~ to S~1~. (b) The same factors, if their direction is reversed, can cause a decrease in supply from S~0~ to S~1~.
 
@@ -385,9 +385,9 @@ Let's consider one example that involves a shift in supply and one that involves
 
 #### Good Weather for Salmon Fishing
 
-Suppose that during the summer of 2015, weather conditions were excellent for commercial salmon fishing off the California coast. Heavy rains meant higher than normal levels of water in the rivers, which helps the salmon to breed. Slightly cooler ocean temperatures stimulated the growth of plankton, the microscopic organisms at the bottom of the ocean food chain, providing everything in the ocean with a hearty food supply. The ocean stayed calm during fishing season, so commercial fishing operations did not lose many days to bad weather. How did these climate conditions affect the quantity and price of salmon? [Figure 3.16](#CNX_Econ_C03_010) illustrates the four-step approach, which we explain below, to work through this problem. [Table 3.6](#Table_03_07) also provides the information to work the problem.
+Suppose that during the summer of 2015, weather conditions were excellent for commercial salmon fishing off the California coast. Heavy rains meant higher than normal levels of water in the rivers, which helps the salmon to breed. Slightly cooler ocean temperatures stimulated the growth of plankton, the microscopic organisms at the bottom of the ocean food chain, providing everything in the ocean with a hearty food supply. The ocean stayed calm during fishing season, so commercial fishing operations did not lose many days to bad weather. How did these climate conditions affect the quantity and price of salmon? [Figure 3.16](#fig-3_16) illustrates the four-step approach, which we explain below, to work through this problem. @tbl-table_3_6 also provides the information to work the problem.
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId22.jpeg){width="3.395in" height="2.945in"}
+![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId22.jpeg){width="3.395in" height="2.945in" #fig-3_16}
 
 Figure 3.16 Good Weather for Salmon Fishing: The Four-Step Process Unusually good weather leads to changes in the price and quantity of salmon.
 
@@ -401,13 +401,13 @@ Figure 3.16 Good Weather for Salmon Fishing: The Four-Step Process Unusually goo
 | $3.25           | 250                       | 670                       | 250               |
 | $3.50           | 270                       | 700                       | 200               |
 
-Table 3.6 Salmon Fishing
+: Salmon Fishing {#tbl-table_3_6}
 
 Step 1. Draw a demand and supply model to illustrate the market for salmon in the year before the good weather conditions began. The demand curve D~0~ and the supply curve S~0~ show that the original equilibrium price is \$3.25 per pound and the original equilibrium quantity is 250,000 fish. (This price per pound is what commercial buyers pay at the fishing docks. What consumers pay at the grocery is higher.)
 
 Step 2. Did the economic event affect supply or demand? Good weather is an example of a natural condition that affects supply.
 
-Step 3. Was the effect on supply an increase or a decrease? Good weather is a change in natural conditions that increases the quantity supplied at any given price. The supply curve shifts to the right, moving from the original supply curve S~0~ to the new supply curve S~1~, which [Figure 3.16](#CNX_Econ_C03_010) and [Table 3.6](#Table_03_07) show.
+Step 3. Was the effect on supply an increase or a decrease? Good weather is a change in natural conditions that increases the quantity supplied at any given price. The supply curve shifts to the right, moving from the original supply curve S~0~ to the new supply curve S~1~, which [Figure 3.16](#fig-3_16) and @tbl-table_3_6 show.
 
 Step 4. Compare the new equilibrium price and quantity to the original equilibrium. At the new equilibrium E~1~, the equilibrium price falls from \$3.25 to \$2.50, but the equilibrium quantity increases from 250,000 to 550,000 salmon. Notice that the equilibrium quantity demanded increased, even though the demand curve did not move.
 
@@ -415,9 +415,9 @@ In short, good weather conditions increased supply of the California commercial 
 
 #### Newspapers and the Internet
 
-According to the Pew Research Center for People and the Press, increasingly more people, especially younger people, are obtaining their news from online and digital sources. The majority of U.S. adults now own smartphones or tablets, and most of those Americans say they use them in part to access the news. From 2004 to 2012, the share of Americans who reported obtaining their news from digital sources increased from 24% to 39%. How has this affected consumption of print news media, and radio and television news? [Figure 3.17](#CNX_Econ_C03_011) and the text below illustrates using the four-step analysis to answer this question.
+According to the Pew Research Center for People and the Press, increasingly more people, especially younger people, are obtaining their news from online and digital sources. The majority of U.S. adults now own smartphones or tablets, and most of those Americans say they use them in part to access the news. From 2004 to 2012, the share of Americans who reported obtaining their news from digital sources increased from 24% to 39%. How has this affected consumption of print news media, and radio and television news? [Figure 3.17](#fig-3_17) and the text below illustrates using the four-step analysis to answer this question.
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId28.jpeg){width="3.255in" height="2.985in"}
+![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId28.jpeg){width="3.255in" height="2.985in" #fig-3_17}
 
 Figure 3.17 The Print News Market: A Four-Step Analysis A change in tastes from print news sources to digital sources results in a leftward shift in demand for the former. The result is a decrease in both equilibrium price and quantity.
 
@@ -439,15 +439,15 @@ Moreover, rising incomes and population or changes in gasoline prices will affec
 
 #### A Combined Example
 
-The U.S. Postal Service is facing difficult challenges. Compensation for postal workers tends to increase most years due to cost-of-living increases. At the same time, increasingly more people are using email, text, and other digital message forms such as Facebook and Twitter to communicate with friends and others. What does this suggest about the continued viability of the Postal Service? [Figure 3.18](#CNX_Econ_C03_029) and the text below illustrate this using the four-step analysis to answer this question.
+The U.S. Postal Service is facing difficult challenges. Compensation for postal workers tends to increase most years due to cost-of-living increases. At the same time, increasingly more people are using email, text, and other digital message forms such as Facebook and Twitter to communicate with friends and others. What does this suggest about the continued viability of the Postal Service? [Figure 3.18](#fig-3_18) and the text below illustrate this using the four-step analysis to answer this question.
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId36.jpeg){width="6.5in" height="3.315in"}
+![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId36.jpeg){width="6.5in" height="3.315in" #fig-3_18}
 
 Figure 3.18 Higher Compensation for Postal Workers: A Four-Step Analysis (a) Higher labor compensation causes a leftward shift in the supply curve, a decrease in the equilibrium quantity, and an increase in the equilibrium price. (b) A change in tastes away from Postal Services causes a leftward shift in the demand curve, a decrease in the equilibrium quantity, and a decrease in the equilibrium price.
 
 Since this problem involves two disturbances, we need two four-step analyses, the first to analyze the effects of higher compensation for postal workers, the second to analyze the effects of many people switching from "snail mail" to email and other digital messages.
 
-[Figure 3.18](#CNX_Econ_C03_029) (a) shows the shift in supply discussed in the following steps.
+[Figure 3.18](#fig-3_18) (a) shows the shift in supply discussed in the following steps.
 
 Step 1. Draw a demand and supply model to illustrate what the market for the U.S. Postal Service looked like before this scenario starts. The demand curve D~0~ and the supply curve S~0~ show the original relationships.
 
@@ -457,7 +457,7 @@ Step 3. Was the effect on supply positive or negative? Higher labor compensation
 
 Step 4. Compare the new equilibrium price and quantity to the original equilibrium price. The new equilibrium (E~1~) occurs at a lower quantity and a higher price than the original equilibrium (E~0~).
 
-[Figure 3.18](#CNX_Econ_C03_029) (b) shows the shift in demand in the following steps.
+[Figure 3.18](#fig-3_18) (b) shows the shift in demand in the following steps.
 
 Step 1. Draw a demand and supply model to illustrate what the market for U.S. Postal Services looked like before this scenario starts. The demand curve D~0~ and the supply curve S~0~ show the original relationships. Note that this diagram is independent from the diagram in panel (a).
 
@@ -467,9 +467,9 @@ Step 3. Was the effect on demand positive or negative? A change in tastes away f
 
 Step 4. Compare the new equilibrium price and quantity to the original equilibrium price. The new equilibrium (E~2~) occurs at a lower quantity and a lower price than the original equilibrium (E~0~).
 
-The final step in a scenario where both supply and demand shift is to combine the two individual analyses to determine what happens to the equilibrium quantity and price. Graphically, we superimpose the previous two diagrams one on top of the other, as in [Figure 3.19](#CNX_Econ_C03_030).
+The final step in a scenario where both supply and demand shift is to combine the two individual analyses to determine what happens to the equilibrium quantity and price. Graphically, we superimpose the previous two diagrams one on top of the other, as in [Figure 3.19](#fig-3_19).
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId39.jpeg){width="3.255in" height="3.07in"}
+![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId39.jpeg){width="3.255in" height="3.07in" #fig-3_19}
 
 Figure 3.19 Combined Effect of Decreased Demand and Decreased Supply Supply and demand shifts cause changes in equilibrium price and quantity.
 
@@ -489,7 +489,7 @@ One common mistake in applying the demand and supply framework is to confuse the
 
 "Well, it is clear that a drought reduces supply, so I will shift back the supply curve, as in the shift from the original supply curve S~0~ to S~1~ on the diagram (Shift 1). The equilibrium moves from E~0~ to E~1~, the equilibrium quantity is lower and the equilibrium price is higher. Then, a higher price makes farmers more likely to supply the good, so the supply curve shifts right, as shows the shift from S~1~ to S~2~, shows on the diagram (Shift 2), so that the equilibrium now moves from E~1~ to E~2~. The higher price, however, also reduces demand and so causes demand to shift back, like the shift from the original demand curve, D~0~ to D~1~ on the diagram (labeled Shift 3), and the equilibrium moves from E~2~ to E~3~."
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId43.jpeg){width="3.25in" height="2.53in"}
+![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId43.jpeg){width="3.25in" height="2.53in" #fig-3_20}
 
 Figure 3.20 Shifts of Demand or Supply versus Movements along a Demand or Supply Curve A shift in one curve never causes a shift in the other curve. Rather, a shift in one curve causes a movement along the second curve.
 
@@ -528,15 +528,23 @@ A price ceiling is a legal maximum price that one pays for some good or service.
 
 In many markets for goods and services, demanders outnumber suppliers. Consumers, who are also potential voters, sometimes unite behind a political proposal to hold down a certain price. In some cities, such as Albany, renters have pressed political leaders to pass rent control laws, a price ceiling that usually works by stating that landlords can raise rents by only a certain maximum percentage each year. Some of the best examples of rent control occur in urban areas such as New York, Washington D.C., or San Francisco.
 
-Rent control becomes a politically hot topic when rents begin to rise rapidly. Everyone needs an affordable place to live. Perhaps a change in tastes makes a certain suburb or town a more popular place to live. Perhaps locally-based businesses expand, bringing higher incomes and more people into the area. Such changes can cause a change in the demand for rental housing, as [Figure 3.21](#CNX_Econ_C03_012) illustrates. The original equilibrium (E~0~) lies at the intersection of supply curve S~0~ and demand curve D~0~, corresponding to an equilibrium price of \$500 and an equilibrium quantity of 15,000 units of rental housing. The effect of greater income or a change in tastes is to shift the demand curve for rental housing to the right, as the data in [Table 3.7](#Table_03_10) shows and the shift from D~0~ to D~1~ on the graph. In this market, at the new equilibrium E~1~, the price of a rental unit would rise to \$600 and the equilibrium quantity would increase to 17,000 units.
+Rent control becomes a politically hot topic when rents begin to rise rapidly. Everyone needs an affordable place to live. Perhaps a change in tastes makes a certain suburb or town a more popular place to live. Perhaps locally-based businesses expand, bringing higher incomes and more people into the area. Such changes can cause a change in the demand for rental housing, as [Figure 3.21](#fig-3_21) illustrates. The original equilibrium (E~0~) lies at the intersection of supply curve S~0~ and demand curve D~0~, corresponding to an equilibrium price of \$500 and an equilibrium quantity of 15,000 units of rental housing. The effect of greater income or a change in tastes is to shift the demand curve for rental housing to the right, as the data in @tbl-table_3_7 shows and the shift from D~0~ to D~1~ on the graph. In this market, at the new equilibrium E~1~, the price of a rental unit would rise to \$600 and the equilibrium quantity would increase to 17,000 units.
 
-![](media/3-4-price-ceilings-and-price-floors_rId25.jpeg){width="3.29in" height="2.285in"}
+![](media/3-4-price-ceilings-and-price-floors_rId25.jpeg){width="3.29in" height="2.285in" #fig-3_21}
 
 Figure 3.21 A Price Ceiling Example---Rent Control The original intersection of demand and supply occurs at E~0~. If demand shifts from D~0~ to D~1~, the new equilibrium would be at E~1~---unless a price ceiling prevents the price from rising. If the price is not permitted to rise, the quantity supplied remains at 15,000. However, after the change in demand, the quantity demanded rises to 19,000, resulting in a shortage.
 
-Table 3.7 Rent Control
+| Price | Original Quantity Supplied | Original Quantity Demanded | New Quantity Demanded |
+|-------|----------------------------|----------------------------|-----------------------|
+| $400  | 12,000                     | 18,000                     | 23,000                |
+| $500  | 15,000                     | 15,000                     | 19,000                |
+| $600  | 17,000                     | 13,000                     | 17,000                |
+| $700  | 19,000                     | 11,000                     | 15,000                |
+| $800  | 20,000                     | 10,000                     | 14,000                |
 
-Suppose that a city government passes a rent control law to keep the price at the original equilibrium of \$500 for a typical apartment. In [Figure 3.21](#CNX_Econ_C03_012), the horizontal line at the price of \$500 shows the legally fixed maximum price set by the rent control law. However, the underlying forces that shifted the demand curve to the right are still there. At that price (\$500), the quantity supplied remains at the same 15,000 rental units, but the quantity demanded is 19,000 rental units. In other words, the quantity demanded exceeds the quantity supplied, so there is a shortage of rental housing. One of the ironies of price ceilings is that while the price ceiling was intended to help renters, there are actually fewer apartments rented out under the price ceiling (15,000 rental units) than would be the case at the market rent of \$600 (17,000 rental units).
+: Rent Control {#tbl-table_3_7}
+
+Suppose that a city government passes a rent control law to keep the price at the original equilibrium of \$500 for a typical apartment. In [Figure 3.21](#fig-3_21), the horizontal line at the price of \$500 shows the legally fixed maximum price set by the rent control law. However, the underlying forces that shifted the demand curve to the right are still there. At that price (\$500), the quantity supplied remains at the same 15,000 rental units, but the quantity demanded is 19,000 rental units. In other words, the quantity demanded exceeds the quantity supplied, so there is a shortage of rental housing. One of the ironies of price ceilings is that while the price ceiling was intended to help renters, there are actually fewer apartments rented out under the price ceiling (15,000 rental units) than would be the case at the market rent of \$600 (17,000 rental units).
 
 Price ceilings do not simply benefit renters at the expense of landlords. Rather, some renters (or potential renters) lose their housing as landlords convert apartments to co-ops and condos. Even when the housing remains in the rental market, landlords tend to spend less on maintenance and on essentials like heating, cooling, hot water, and lighting. The first rule of economics is you do not get something for nothing---everything has an opportunity cost. Thus, if renters obtain "cheaper" housing than the market requires, they tend to also end up with lower quality housing.
 
@@ -550,11 +558,11 @@ Price floors are sometimes called "price supports," because they support a price
 
 The most common way price supports work is that the government enters the market and buys up the product, adding to demand to keep prices higher than they otherwise would be. According to the Common Agricultural Policy reform effective in 2019, the European Union (EU) will spend about 58 billion euros per year, or 65.5 billion dollars per year (with the December 2021 exchange rate), or roughly 36% of the EU budget, on price supports for Europe's farmers.
 
-[Figure 3.22](#CNX_Econ_C03_013) illustrates the effects of a government program that assures a price above the equilibrium by focusing on the market for wheat in Europe. In the absence of government intervention, the price would adjust so that the quantity supplied would equal the quantity demanded at the equilibrium point E~0~, with price P~0~ and quantity Q~0~. However, policies to keep prices high for farmers keep the price above what would have been the market equilibrium level---the price Pf shown by the dashed horizontal line in the diagram. The result is a quantity supplied in excess of the quantity demanded (Qd). When quantity supplied exceeds quantity demanded, a surplus exists.
+[Figure 3.22](#fig-3_22) illustrates the effects of a government program that assures a price above the equilibrium by focusing on the market for wheat in Europe. In the absence of government intervention, the price would adjust so that the quantity supplied would equal the quantity demanded at the equilibrium point E~0~, with price P~0~ and quantity Q~0~. However, policies to keep prices high for farmers keep the price above what would have been the market equilibrium level---the price Pf shown by the dashed horizontal line in the diagram. The result is a quantity supplied in excess of the quantity demanded (Qd). When quantity supplied exceeds quantity demanded, a surplus exists.
 
 Economists estimate that the high-income areas of the world, including the United States, Europe, and Japan, spend roughly \$1 billion per day in supporting their farmers. If the government is willing to purchase the excess supply (or to provide payments for others to purchase it), then farmers will benefit from the price floor, but taxpayers and consumers of food will pay the costs. Agricultural economists and policy makers have offered numerous proposals for reducing farm subsidies. In many countries, however, political support for subsidies for farmers remains strong. This is either because the population views this as supporting the traditional rural way of life or because of industry's lobbying power of the agro-business.
 
-![](media/3-4-price-ceilings-and-price-floors_rId31.jpeg){width="3.25in" height="2.89in"}
+![](media/3-4-price-ceilings-and-price-floors_rId31.jpeg){width="3.25in" height="2.89in" #fig-3_22}
 
 Figure 3.22 European Wheat Prices: A Price Floor Example The intersection of demand (D) and supply (S) would be at the equilibrium point E~0~. However, a price floor set at Pf holds the price above E~0~ and prevents it from falling. The result of the price floor is that the quantity supplied Qs exceeds the quantity demanded Qd. There is excess supply, also called a surplus.
 
@@ -574,33 +582,33 @@ Efficiency in the demand and supply model has the same basic meaning: The econom
 
 #### Consumer Surplus, Producer Surplus, Social Surplus
 
-Consider a market for tablet computers, as [Figure 3.23](#CNX_Econ_C03_015) shows. The equilibrium price is \$80 and the equilibrium quantity is 28 million. To see the benefits to consumers, look at the segment of the demand curve above the equilibrium point and to the left. This portion of the demand curve shows that at least some demanders would have been willing to pay more than \$80 for a tablet.
+Consider a market for tablet computers, as [Figure 3.23](#fig-3_23) shows. The equilibrium price is \$80 and the equilibrium quantity is 28 million. To see the benefits to consumers, look at the segment of the demand curve above the equilibrium point and to the left. This portion of the demand curve shows that at least some demanders would have been willing to pay more than \$80 for a tablet.
 
 For example, point J shows that if the price were \$90, 20 million tablets would be sold. Those consumers who would have been willing to pay \$90 for a tablet based on the utility they expect to receive from it, but who were able to pay the equilibrium price of \$80, clearly received a benefit beyond what they had to pay. Remember, the demand curve traces consumers' willingness to pay for different quantities. The amount that individuals would have been willing to pay, minus the amount that they actually paid, is called consumer surplus. Consumer surplus is the area labeled F---that is, the area above the market price and below the demand curve.
 
-![](media/3-5-demand-supply-and-efficiency_rId26.jpeg){width="3.25in" height="2.995in"}
+![](media/3-5-demand-supply-and-efficiency_rId26.jpeg){width="3.25in" height="2.995in" #fig-3_23}
 
 Figure 3.23 Consumer and Producer Surplus The somewhat triangular area labeled by F shows the area of consumer surplus, which shows that the equilibrium price in the market was less than what many of the consumers were willing to pay. Point J on the demand curve shows that, even at the price of \$90, consumers would have been willing to purchase a quantity of 20 million. The somewhat triangular area labeled by G shows the area of producer surplus, which shows that the equilibrium price received in the market was more than what many of the producers were willing to accept for their products. For example, point K on the supply curve shows that at a price of \$45, firms would have been willing to supply a quantity of 14 million.
 
-The supply curve shows the quantity that firms are willing to supply at each price. For example, point K in [Figure 3.23](#CNX_Econ_C03_015) illustrates that, at \$45, firms would still have been willing to supply a quantity of 14 million. Those producers who would have been willing to supply the tablets at \$45, but who were instead able to charge the equilibrium price of \$80, clearly received an extra benefit beyond what they required to supply the product. The extra benefit producers receive from selling a good or service, measured by the price the producer actually received minus the price the producer would have been willing to accept is called producer surplus. In [Figure 3.23](#CNX_Econ_C03_015), producer surplus is the area labeled G---that is, the area between the market price and the segment of the supply curve below the equilibrium.
+The supply curve shows the quantity that firms are willing to supply at each price. For example, point K in [Figure 3.23](#fig-3_23) illustrates that, at \$45, firms would still have been willing to supply a quantity of 14 million. Those producers who would have been willing to supply the tablets at \$45, but who were instead able to charge the equilibrium price of \$80, clearly received an extra benefit beyond what they required to supply the product. The extra benefit producers receive from selling a good or service, measured by the price the producer actually received minus the price the producer would have been willing to accept is called producer surplus. In [Figure 3.23](#fig-3_23), producer surplus is the area labeled G---that is, the area between the market price and the segment of the supply curve below the equilibrium.
 
-The sum of consumer surplus and producer surplus is social surplus, also referred to as economic surplus or total surplus. In [Figure 3.23](#CNX_Econ_C03_015) we show social surplus as the area F + G. Social surplus is larger at equilibrium quantity and price than it would be at any other quantity. This demonstrates the economic efficiency of the market equilibrium. In addition, at the efficient level of output, it is impossible to produce greater consumer surplus without reducing producer surplus, and it is impossible to produce greater producer surplus without reducing consumer surplus.
+The sum of consumer surplus and producer surplus is social surplus, also referred to as economic surplus or total surplus. In [Figure 3.23](#fig-3_23) we show social surplus as the area F + G. Social surplus is larger at equilibrium quantity and price than it would be at any other quantity. This demonstrates the economic efficiency of the market equilibrium. In addition, at the efficient level of output, it is impossible to produce greater consumer surplus without reducing producer surplus, and it is impossible to produce greater producer surplus without reducing consumer surplus.
 
 #### Inefficiency of Price Floors and Price Ceilings
 
 The imposition of a price floor or a price ceiling will prevent a market from adjusting to its equilibrium price and quantity, and thus will create an inefficient outcome. However, there is an additional twist here. Along with creating inefficiency, price floors and ceilings will also transfer some consumer surplus to producers, or some producer surplus to consumers.
 
-Imagine that several firms develop a promising but expensive new drug for treating back pain. If this therapy is left to the market, the equilibrium price will be \$600 per month and 20,000 people will use the drug, as shown in [Figure 3.24](#CNX_Econ_C03_028) (a). The original level of consumer surplus is T + U and producer surplus is V + W + X. However, the government decides to impose a price ceiling of \$400 to make the drug more affordable. At this price ceiling, firms in the market now produce only 15,000.
+Imagine that several firms develop a promising but expensive new drug for treating back pain. If this therapy is left to the market, the equilibrium price will be \$600 per month and 20,000 people will use the drug, as shown in [Figure 3.24](#fig-3_24) (a). The original level of consumer surplus is T + U and producer surplus is V + W + X. However, the government decides to impose a price ceiling of \$400 to make the drug more affordable. At this price ceiling, firms in the market now produce only 15,000.
 
-As a result, two changes occur. First, an inefficient outcome occurs and the total surplus of society is reduced. The loss in social surplus that occurs when the economy produces at an inefficient quantity is called deadweight loss. In a very real sense, it is like money thrown away that benefits no one. In [Figure 3.24](#CNX_Econ_C03_028) (a), the deadweight loss is the area U + W. When deadweight loss exists, it is possible for both consumer and producer surplus to be higher, in this case because the price control is blocking some suppliers and demanders from transactions they would both be willing to make.
+As a result, two changes occur. First, an inefficient outcome occurs and the total surplus of society is reduced. The loss in social surplus that occurs when the economy produces at an inefficient quantity is called deadweight loss. In a very real sense, it is like money thrown away that benefits no one. In [Figure 3.24](#fig-3_24) (a), the deadweight loss is the area U + W. When deadweight loss exists, it is possible for both consumer and producer surplus to be higher, in this case because the price control is blocking some suppliers and demanders from transactions they would both be willing to make.
 
 A second change from the price ceiling is that some of the producer surplus is transferred to consumers. After the price ceiling is imposed, the new consumer surplus is T + V, while the new producer surplus is X. In other words, the price ceiling transfers the area of surplus (V) from producers to consumers. Note that the gain to consumers is less than the loss to producers, which is just another way of seeing the deadweight loss.
 
-![](media/3-5-demand-supply-and-efficiency_rId38.jpeg){width="6.5in" height="2.82in"}
+![](media/3-5-demand-supply-and-efficiency_rId38.jpeg){width="6.5in" height="2.82in" #fig-3_24}
 
 Figure 3.24 Efficiency and Price Floors and Ceilings (a) The original equilibrium price is \$600 with a quantity of 20,000. Consumer surplus is T + U, and producer surplus is V + W + X. A price ceiling is imposed at \$400, so firms in the market now produce only a quantity of 15,000. As a result, the new consumer surplus is T + V, while the new producer surplus is X. (b) The original equilibrium is \$8 at a quantity of 1,800. Consumer surplus is G + H + J, and producer surplus is I + K. A price floor is imposed at \$12, which means that quantity demanded falls to 1,400. As a result, the new consumer surplus is G, and the new producer surplus is H + I.
 
-[Figure 3.24](#CNX_Econ_C03_028) (b) shows a price floor example using a string of struggling movie theaters, all in the same city. The current equilibrium is \$8 per movie ticket, with 1,800 people attending movies. The original consumer surplus is G + H + J, and producer surplus is I + K. The city government is worried that movie theaters will go out of business, reducing the entertainment options available to citizens, so it decides to impose a price floor of \$12 per ticket. As a result, the quantity demanded of movie tickets falls to 1,400. The new consumer surplus is G, and the new producer surplus is H + I. In effect, the price floor causes the area H to be transferred from consumer to producer surplus, but also causes a deadweight loss of J + K.
+[Figure 3.24](#fig-3_24) (b) shows a price floor example using a string of struggling movie theaters, all in the same city. The current equilibrium is \$8 per movie ticket, with 1,800 people attending movies. The original consumer surplus is G + H + J, and producer surplus is I + K. The city government is worried that movie theaters will go out of business, reducing the entertainment options available to citizens, so it decides to impose a price floor of \$12 per ticket. As a result, the quantity demanded of movie tickets falls to 1,400. The new consumer surplus is G, and the new producer surplus is H + I. In effect, the price floor causes the area H to be transferred from consumer to producer surplus, but also causes a deadweight loss of J + K.
 
 This analysis shows that a price ceiling, like a law establishing rent controls, will transfer some producer surplus to consumers---which helps to explain why consumers often favor them. Conversely, a price floor like a guarantee that farmers will receive a certain price for their crops will transfer some consumer surplus to producers, which explains why producers often favor them. However, both price floors and price ceilings block some transactions that buyers and sellers would have been willing to make, and creates deadweight loss. Removing such barriers, so that prices and quantities can adjust to their equilibrium level, will increase the economy's social surplus.
 

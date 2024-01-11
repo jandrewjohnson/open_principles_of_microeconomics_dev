@@ -1,5 +1,5 @@
-# Chapter 20 - Globalization and Protectionism
-![](media/20-introduction-to-globalization-and-protectionism_rId20.jpeg){width="6.5in" height="3.65in"}
+# Chapter 20 - Globalization and Protectionism {#sec-chapter-20}
+![](media/20-introduction-to-globalization-and-protectionism_rId20.jpeg){width="6.5in" height="3.65in" #fig-20_1}
 
 Figure 20.1 Flat Screen Competition The market for flat-panel displays
 in the United States is huge. The manufacturers of flat screens in the
@@ -96,8 +96,7 @@ to shield domestic producers and domestic workers from foreign
 competition. Protectionism takes three main forms: tariffs, import
 quotas, and nontariff barriers.
 
-Recall from [International
-Trade](http://openstax.org/books/principles-microeconomics-3e/pages/19-introduction-to-international-trade)
+Recall from @sec-chapter-19
 that tariffs are taxes that governments impose on imported goods and
 services. This makes imports more expensive for consumers, discouraging
 imports. For example, in 2018, President Trump increased tariffs on
@@ -189,15 +188,14 @@ foreign losses, but a policy that imposes substantial domestic costs as
 well.
 
 Consider two countries, Brazil and the United States, who produce sugar.
-Each country has a domestic supply and demand for sugar, as [Table
-20.1](#Table_34_01) details and [Figure 20.2](#CNX_Econ_C34_001)
+Each country has a domestic supply and demand for sugar, as @tbl-table_20_1 details and [Figure 20.2](#fig-20_2)
 illustrates. In Brazil, without trade, the equilibrium price of sugar is
 12 cents per pound and the equilibrium output is 30 tons. When there is
 no trade in the United States, the equilibrium price of sugar is 24
 cents per pound and the equilibrium quantity is 80 tons. We label these
 equilibrium points as point E in each part of the figure.
 
-![](media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId29.jpeg){width="6.5in" height="2.74in"}
+![](media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId29.jpeg){width="6.5in" height="2.74in" #fig-20_2}
 
 Figure 20.2 The Sugar Trade between Brazil and the United States Before
 trade, the equilibrium price of sugar in Brazil is 12 cents a pound and
@@ -210,7 +208,17 @@ United States importing 15 tons of sugar. If trade is only partly open
 between the countries, it will lead to an outcome between the free-trade
 and no-trade possibilities.
 
-Table 20.1 The Sugar Trade between Brazil and the United States
+| Price    | Brazil: Quantity Supplied (tons) | Brazil: Quantity Demanded (tons) | U.S.: Quantity Supplied (tons) | U.S.: Quantity Demanded (tons) |
+|----------|----------------------------------|-----------------------------------|---------------------------------|----------------------------------|
+| 8 cents  | 20                               | 35                                | 60                              | 100                              |
+| 12 cents | 30                               | 30                                | 66                              | 93                               |
+| 14 cents | 35                               | 28                                | 69                              | 90                               |
+| 16 cents | 40                               | 25                                | 72                              | 87                               |
+| 20 cents | 45                               | 21                                | 76                              | 83                               |
+| 24 cents | 50                               | 18                                | 80                              | 80                               |
+| 28 cents | 55                               | 15                                | 82                              | 78                               |
+
+: The Sugar Trade between Brazil and the United States {#tbl-table_20_1}
 
 If international trade between Brazil and the United States now becomes
 possible, profit-seeking firms will spot an opportunity: buy sugar
@@ -223,7 +231,7 @@ extra consumption imported). Exports to the United States will reduce
 the sugar supply in Brazil, raising its price. Imports into the United
 States will increase the sugar supply, lowering its price. When the
 sugar price is the same in both countries, there is no incentive to
-trade further. As [Figure 20.2](#CNX_Econ_C34_001) shows, the
+trade further. As [Figure 20.2](#fig-20_2) shows, the
 equilibrium with trade occurs at a price of 16 cents per pound. At that
 price, the sugar farmers of Brazil supply a quantity of 40 tons, while
 the consumers of Brazil buy only 25 tons.
@@ -236,15 +244,12 @@ farmers produce a quantity of 72 tons and consumers demand a quantity of
 the horizontal gap between demand and domestic supply at the price of 16
 cents, is supplied by imported sugar. Free trade typically results in
 income distribution effects, but the key is to recognize the overall
-gains from trade, as [Figure 20.3](#CNX_Econ_C34_003) shows. Building on
-the concepts that we outlined in [Demand and
-Supply](http://openstax.org/books/principles-microeconomics-3e/pages/3-introduction-to-demand-and-supply)
-and [Demand, Supply, and
-Efficiency](http://openstax.org/books/principles-microeconomics-3e/pages/3-5-demand-supply-and-efficiency)
+gains from trade, as [Figure 20.3](#fig-20_3) shows. Building on
+the concepts that we outlined in @sec-chapter-3, 
 in terms of consumer and producer surplus, [Figure
-20.3](#CNX_Econ_C34_003) (a) shows that producers in Brazil gain by
+20.3](#fig-20_3) (a) shows that producers in Brazil gain by
 selling more sugar at a higher price, while [Figure
-20.3](#CNX_Econ_C34_003) (b) shows consumers in the United States
+20.3](#fig-20_3) (b) shows consumers in the United States
 benefit from the lower price and greater availability of sugar.
 Consumers in Brazil are worse off (compare their no-trade consumer
 surplus with the free-trade consumer surplus) and U.S. producers of
@@ -253,7 +258,7 @@ surplus in each country. That is, both the United States and Brazil are
 better off than they would be without trade. The following Clear It Up
 feature explains how trade policy can influence low-income countries.
 
-![](media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId36.jpeg){width="6.5in" height="3.695in"}
+![](media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId36.jpeg){width="6.5in" height="3.695in" #fig-20_3}
 
 Figure 20.3 Free Trade of Sugar Free trade results in gains from trade.
 Total surplus increases in both countries, as the two blue-shaded areas
@@ -263,7 +268,7 @@ importing country, consumers gain and producers lose.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/sugartrade) to read more
+Visit this [website](https://www.sugarcane.org/sugarcane-products/sugar/sugar-trade/) to read more
 about the global sugar trade.
 
  
@@ -349,17 +354,16 @@ Brazil, two things occur: U.S. consumers pay a higher price and
 therefore buy a smaller quantity of sugar. U.S. producers obtain a
 higher price and they sell a larger quantity of sugar. We can measure
 the effects of a tariff on producers and consumers in the United States
-using two concepts that we developed in [Demand, Supply, and
-Efficiency](http://openstax.org/books/principles-microeconomics-3e/pages/3-5-demand-supply-and-efficiency):
+using two concepts that we developed in @sec-chapter-3:
 consumer surplus and producer surplus.
 
-![](media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId49.jpeg){width="3.25in" height="2.41in"}
+![](media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId49.jpeg){width="3.25in" height="2.41in" #fig-20_4}
 
 Figure 20.4 U.S. Sugar Supply and Demand When there is free trade, the
 equilibrium is at point A. When there is no trade, the equilibrium is at
 point E.
 
-Step 1. Look at [Figure 20.4](#CNX_Econ_C34_002), which shows a
+Step 1. Look at [Figure 20.4](#fig-20_4), which shows a
 hypothetical version of the demand and supply of sugar in the United
 States.
 
@@ -483,8 +487,7 @@ benefit domestic producers of that product. In addition, when a country
 enacts protectionism, it loses the economic gains it would have been
 able to achieve through a combination of comparative advantage,
 specialized learning, and economies of scale, concepts that we discuss
-in [International
-Trade](http://openstax.org/books/principles-microeconomics-3e/pages/19-introduction-to-international-trade).
+in @sec-chapter-19.
 
 
 ### 20.2 International Trade and Its Effects on Jobs, Wages, and Working Conditions
@@ -554,7 +557,7 @@ not create more jobs.
 Moreover, the costs of saving jobs through protectionism can be very
 high. A number of different studies have attempted to estimate the cost
 to consumers in higher prices per job saved through protectionism.
-[Table 20.2](#Table_34_02) shows a sample of results, compiled by
+@tbl-table_20_2 shows a sample of results, compiled by
 economists at the Federal Reserve Bank of Dallas. Saving a job through
 protectionism typically costs much more than the actual worker's salary.
 For example, a study published in 2002 compiled evidence that using
@@ -564,8 +567,22 @@ have been paid \$100,000 per year to be unemployed and the cost would
 only be half of what it is to keep them working in the textile and
 apparel industry. This result is not unique to textiles and apparel.
 
-Table 20.2 Cost to U.S. Consumers of Saving a Job through Protectionism
-(Source: Federal Reserve Bank of Dallas)
+| Industry Protected with Import Tariffs or Quotas | Annual Cost per Job Saved |
+|-------------------------------------------------|---------------------------|
+| Sugar                                           | $826,000                  |
+| Polyethylene resins                              | $812,000                  |
+| Dairy products                                   | $685,000                  |
+| Frozen concentrated orange juice                 | $635,000                  |
+| Ball bearings                                    | $603,000                  |
+| Machine tools                                    | $479,000                  |
+| Women’s handbags                                 | $263,000                  |
+| Glassware                                        | $247,000                  |
+| Apparel and textiles                             | $199,000                  |
+| Rubber footwear                                  | $168,000                  |
+| Women’s nonathletic footwear                     | $139,000                  |
+
+: Cost to U.S. Consumers of Saving a Job through Protectionism
+(Source: Federal Reserve Bank of Dallas) {#tbl-table_20_2}
 
 Why does it cost so much to save jobs through protectionism? The basic
 reason is that not all of the extra money that consumers pay because of
@@ -579,8 +596,7 @@ an industry is protected, the economy as a whole loses the benefits of
 playing to its comparative advantage---in other words, producing what it
 is best at. Therefore, part of the higher price that consumers pay for
 protected goods is lost economic efficiency, which we can measure as
-another deadweight loss, like what we discussed in [Labor and Financial
-Markets](http://openstax.org/books/principles-microeconomics-3e/pages/4-introduction-to-labor-and-financial-markets).
+another deadweight loss, like what we discussed in @sec-chapter-4.
 
 There's a bumper sticker that speaks to the threat some U.S. workers
 feel from imported products: "Buy American---Save U.S. Jobs." If an
@@ -614,7 +630,7 @@ their wages.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-View this [website](http://openstax.org/l/fairtradecoffee) to read an
+View this [website](https://ssir.org/articles/entry/the_problem_with_fair_trade_coffee) to read an
 article on the issues surrounding fair trade coffee.
 
 One concern is that while globalization may be benefiting high-skilled,
@@ -766,10 +782,7 @@ the skills, management, technology, and economies of scale that it needs
 to become a successful profit-earning domestic industry. Thus, the
 infant industry argument for protectionism is to block imports for a
 limited time, to give the infant industry time to mature, before it
-starts competing on equal terms in the global economy. (Revisit
-[Macroeconomic Policy Around the
-World](http://openstax.org/books/principles-economics-3e/pages/32-introduction-to-macroeconomic-policy-around-the-world)
-for more information on the infant industry argument.)
+starts competing on equal terms in the global economy.
 
 The infant industry argument is theoretically possible, even sensible:
 give an industry a short-term indirect subsidy through protection, and
@@ -837,7 +850,7 @@ the only or even the best way to support key industries.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/integration) to view a
+Visit this [website](https://www.ted.com/talks/pankaj_ghemawat_actually_the_world_isn_t_flat) to view a
 presentation by Pankaj Ghemawat questioning how integrated the world
 really is.
 
@@ -880,9 +893,7 @@ The sinister explanation is that dumping is part of a long-term
 strategy. Foreign firms sell goods at prices below the cost of
 production for a short period of time, and when they have driven out the
 domestic U.S. competition, they then raise prices. Economists sometimes
-call this scenario predatory pricing, which we discuss in the
-[Monopoly](http://openstax.org/books/principles-microeconomics-3e/pages/9-introduction-to-a-monopoly)
-chapter.
+call this scenario predatory pricing, which we discuss in @sec-chapter-9.
 
 **Should Anti-Dumping Cases Be Limited?**
 
@@ -1126,7 +1137,7 @@ might surprise you.
 How do people around the world feel about expanding trade between
 nations? In summer 2007, the Pew Foundation surveyed 45,000 people in 47
 countries. One of the questions asked about opinions on growing trade
-ties between countries. [Table 20.3](#Table_34_03) shows the percentages
+ties between countries. @tbl-table_20_3 shows the percentages
 who answered either "very good" or "somewhat good" for some of countries
 surveyed.
 
@@ -1139,8 +1150,21 @@ and South Africans ranked highest. In fact, among the 47 countries
 surveyed, the United States ranked by far the lowest on this measure,
 followed by Egypt, Italy, and Argentina.
 
-Table 20.3 The Status of Growing Trade Ties between Countries (Source:
-http://www.pewglobal.org/files/pdf/258.pdf)
+| Country        | Very Good | Somewhat Good | Total |
+|----------------|-----------|---------------|-------|
+| China          | 38%       | 53%           | 91%   |
+| South Africa   | 42%       | 43%           | 87%   |
+| South Korea    | 24%       | 62%           | 86%   |
+| Germany        | 30%       | 55%           | 85%   |
+| Canada         | 29%       | 53%           | 82%   |
+| United Kingdom | 28%       | 50%           | 78%   |
+| Mexico         | 22%       | 55%           | 77%   |
+| Brazil         | 13%       | 59%           | 72%   |
+| Japan          | 17%       | 55%           | 72%   |
+| United States  | 14%       | 45%           | 59%   |
+
+: The Status of Growing Trade Ties between Countries (Source:
+http://www.pewglobal.org/files/pdf/258.pdf) {#tbl-table_20_3}
 
 One final reason why economists often treat the national interest
 argument skeptically is that lobbyists and politicians can tout almost
@@ -1195,7 +1219,7 @@ barriers to trade. In 1995, the GATT transformed into the WTO.
 
 The GATT process was to negotiate an agreement to reduce barriers to
 trade, sign that agreement, pause for a while, and then start
-negotiating the next agreement. [Table 20.4](#Table_34_06) shows rounds
+negotiating the next agreement. @tbl-table_20_4 shows rounds
 of talks in the GATT, and now the WTO. Notice that the early rounds of
 GATT talks took a relatively short time, included a small number of
 countries, and focused almost entirely on reducing tariffs. Since the
@@ -1203,8 +1227,19 @@ mid-1960s, however, rounds of trade talks have taken years, included a
 large number of countries, and have included an ever-broadening range of
 issues.
 
-Table 20.4 The Negotiating Rounds of GATT and the World Trade
-Organization
+| Year | Place or Name of Round | Main Subjects                                            | Number of Countries Involved |
+|------|------------------------|---------------------------------------------------------|------------------------------|
+| 1947 | Geneva                 | Tariff reduction                                        | 23                           |
+| 1949 | Annecy                 | Tariff reduction                                        | 13                           |
+| 1951 | Torquay                | Tariff reduction                                        | 38                           |
+| 1956 | Geneva                 | Tariff reduction                                        | 26                           |
+| 1960–61 | Dillon round         | Tariff reduction                                        | 26                           |
+| 1964–67 | Kennedy round        | Tariffs, anti-dumping measures                          | 62                           |
+| 1973–79 | Tokyo round          | Tariffs, nontariff barriers                             | 102                          |
+| 1986–94 | Uruguay round        | Tariffs, nontariff barriers, services, intellectual property, dispute settlement, textiles, agriculture, creation of WTO | 123                          |
+| 2001– | Doha round            | Agriculture, services, intellectual property, competition, investment, environment, dispute settlement | 147                          |
+
+: The Negotiating Rounds of GATT and the World Trade Organization {#tbl-table_20_4}
 
 The sluggish pace of GATT negotiations led to an old joke that GATT
 really stood for Gentleman's Agreement to Talk and Talk. The slow pace
@@ -1260,8 +1295,7 @@ States-Mexico-Canada (USMCA) free trade agreement. It is broadly similar
 to the original NAFTA.
 
 The world has seen a flood of regional trading agreements in recent
-years. About 100 such agreements are now in place. [Table
-20.5](#Table_34_07) lists a few of the more prominent ones. Some are
+years. About 100 such agreements are now in place. @tbl-table_20_5 lists a few of the more prominent ones. Some are
 just agreements to continue talking. Others set specific goals for
 reducing tariffs, import quotas, and nontariff barriers. One economist
 described the current trade treaties as a "spaghetti bowl," which is
@@ -1275,13 +1309,22 @@ trade from anywhere else. In some cases, the regional trade agreements
 may even conflict with the broader agreements of the World Trade
 Organization.
 
-Table 20.5 Some Regional Trade Agreements \* Following the 2016
+| Trade Agreements                              | Participating Countries                                                                                          |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| Asia Pacific Economic Cooperation (APEC)      | Australia, Brunei, Canada, Chile, People’s Republic of China, Hong Kong, China, Indonesia, Japan, Republic of Korea, Malaysia, Mexico, New Zealand, Papua New Guinea, Peru, Philippines, Russia, Singapore, Chinese Taipei, Thailand, United States, Vietnam |
+| European Union (EU)                           | Austria, Belgium, Bulgaria, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom* |
+| North America Free Trade Agreement (NAFTA)    | Canada, Mexico, United States                                                                                     |
+| Latin American Integration Association (LAIA) | Argentina, Bolivia, Brazil, Chile, Columbia, Ecuador, Mexico, Paraguay, Peru, Uruguay, Venezuela, Panama           |
+| Association of Southeast Asian Nations (ASEAN) | Brunei, Cambodia, Indonesia, Laos, Malaysia, Myanmar, Philippines, Singapore, Thailand, Vietnam                      |
+| Southern African Development Community (SADC) | Angola, Botswana, Comoros, Congo, Lesotho, Madagascar, Malawi, Mauritius, Mozambique, Namibia, Seychelles, South Africa, Swaziland, Tanzania, Zambia, Zimbabwe            |
+
+: Some Regional Trade Agreements \* Following the 2016
 referendum vote to leave the European Union, the UK government triggered
 the withdrawal process on March 29, 2017, setting the date for the UK to
 leave by April 2019. In January 2020, the withdrawal was complete and
 the United Kingdom is now no longer part of the EU trading bloc. Also,
 as of 2020, NAFTA has been replaced by the United States-Mexico-Canada
-(USMCA) free trade agreement.
+(USMCA) free trade agreement. {#tbl-table_20_5}
 
 #### Trade Policy at the National Level
 
@@ -1313,7 +1356,7 @@ If consumers are the biggest losers from trade, why do they not fight
 back? The quick answer is because it is easier to organize a small group
 of people around a narrow interest (producers) versus a large group that
 has diffuse interests (consumers). This is a question about trade policy
-theory. Visit this [website](http://openstax.org/l/tradepolicy) and read
+theory. Visit this [website](https://www.britannica.com/topic/collective-action-problem-1917157) and read
 the article by Jonathan Rauch.
 
 #### Long-Term Trends in Barriers to Trade

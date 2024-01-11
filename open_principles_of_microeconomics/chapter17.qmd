@@ -1,5 +1,5 @@
-# Chapter 17 - Financial Markets
-![](media/17-introduction-to-financial-markets_rId20.jpeg){width="6.5in" height="3.5833333333333335in"}
+# Chapter 17 - Financial Markets {#sec-chapter-17}
+![](media/17-introduction-to-financial-markets_rId20.jpeg){width="6.5in" height="3.5833333333333335in" #fig-17_1}
 
 Figure 17.1 Building Home Equity Many people choose to purchase their
 home rather than rent. This chapter explores how the global financial
@@ -55,12 +55,12 @@ Between the end of the recession in 2009 through the second quarter
 2013, profits for the S&P 500 companies grew by 9.7% despite the weak
 economy, with cost cutting and reductions in input costs driving much of
 that amount, according to the *Wall Street Journal*. [Figure
-17.2](#CNX_Econ_C17_006) shows corporate profits after taxes (adjusted
+17.2](#fig-17_2) shows corporate profits after taxes (adjusted
 for inventory and capital consumption). Despite the steep decline in
 quarterly net profit in 2008, profits have recovered and surpassed
 pre-recession levels.
 
-![](media/17-introduction-to-financial-markets_rId25.jpeg){width="4.88in" height="2.8in"}
+![](media/17-introduction-to-financial-markets_rId25.jpeg){width="4.88in" height="2.8in" #fig-17_2}
 
 Figure 17.2 Corporate Profits After Tax (Adjusted for Inventory and
 Capital Consumption) Prior to 2008, corporate profits after tax more
@@ -88,15 +88,14 @@ suppliers and transform it into the funds of financial capital demanders
 desire. Such financial markets include stocks, bonds, bank loans, and
 other financial investments.
 
-[Click to view
-content](https://openstax.org/books/principles-microeconomics-3e/pages/17-introduction-to-financial-markets)
+See @sec-chapter-17. 
 
 Corporate Profits After Tax (Adjusted for Inventory and Capital
 Consumption)
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/marketoverview) to read more
+Visit this [website](https://www.cnn.com/markets) to read more
 about financial markets.
 
 Our perspective then shifts to consider how these financial investments
@@ -335,8 +334,7 @@ to spend energy and money nominating alternative board members.
 
 There are clear patterns in how businesses raise financial capital. We
 can explain these patterns in terms of imperfect information, which as
-we discussed in [Information, Risk, and
-Insurance](http://openstax.org/books/principles-microeconomics-3e/pages/16-introduction-to-information-risk-and-insurance),
+we discussed in @sec-chapter-16,
 is a situation where buyers and sellers in a market do not both have
 full and equal information. Those who are actually running a firm will
 almost always have more information about whether the firm is likely to
@@ -481,12 +479,12 @@ make direct connections between those who deposit funds in banks and
 those who borrow from banks, because all deposited funds end up in one
 big pool, which the financial institution then lends out.
 
-[Figure 17.3](#CNX_Econ_C17_001) illustrates the position of banks as a
+[Figure 17.3](#fig-17_3) illustrates the position of banks as a
 financial intermediary, with a pattern of deposits flowing into a bank
 and loans flowing out, and then repayment of the loans flowing back to
 the bank, with interest payments for the original savers.
 
-![](media/17-2-how-households-supply-financial-capital_rId29.jpeg){width="4.88in" height="2.35in"}
+![](media/17-2-how-households-supply-financial-capital_rId29.jpeg){width="4.88in" height="2.35in" #fig-17_3}
 
 Figure 17.3 Banks as Financial Intermediaries Banks are a financial
 intermediary because they stand between savers and borrowers. Savers
@@ -519,7 +517,7 @@ regular savings account. While you can withdraw the money before the
 allotted time, as the advertisements for CDs always warn, there is "a
 substantial penalty for early withdrawal."
 
-[Figure 17.4](#CNX_Econ_C17_007) shows the annual rate of interest paid
+[Figure 17.4](#fig-17_4) shows the annual rate of interest paid
 on a six-month, one-year, and five-year CD since 1984, as reported by
 Bankrate.com. The interest rates that savings accounts pay are typically
 a little lower than the CD rate, because financial investors need to
@@ -528,7 +526,7 @@ to leave deposits untouched for a period of time in a CD, and thus
 forfeiting some liquidity.
 
 ![](media/17-2-how-households-supply-financial-capital_rId36.jpeg){width="4.883333333333334in"
-height="2.658333333333333in"}
+height="2.658333333333333in" #fig-17_4}
 
 Figure 17.4 Interest Rates on Six-Month, One-Year, and Five-Year
 Certificates of Deposit The interest rates on certificates of deposit
@@ -558,8 +556,7 @@ rate of return but high liquidity.
 An investor who buys a bond expects to receive a rate of return.
 However, bonds vary in the rates of return that they offer, according to
 the riskiness of the borrower. We always can divide an interest rate
-into three components (as we explained in [Choice in a World of
-Scarcity](http://openstax.org/books/principles-microeconomics-3e/pages/2-introduction-to-choice-in-a-world-of-scarcity)):
+into three components (as we explained in @sec-chapter-2):
 compensation for delaying consumption, an adjustment for an inflationary
 rise in the overall level of prices, and a risk premium that takes the
 borrower's riskiness into account.
@@ -579,7 +576,7 @@ and Microsoft.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/bondsecurities) to read about
+Visit this [website](https://www.treasurydirect.gov/marketable-securities/treasury-bonds/) to read about
 Treasury bonds.
 
 A bond issued by the U.S. government or a large corporation may seem to
@@ -609,8 +606,7 @@ the future. This calculation will require an interest rate. For example,
 if the interest rate is 25%, then a payment of \$125 a year from now
 will have a present discounted value of \$100---that is, you could take
 \$100 in the present and have \$125 in the future. (We discuss this
-further in the appendix on [Present Discounted
-Value](http://openstax.org/books/principles-microeconomics-3e/pages/c-present-discounted-value).)
+further in the @sec-appendix-c.)
 
 In financial terms, a bond has several parts. A bond is basically an "I
 owe you" note that an investor receives in exchange for capital (money).
@@ -673,7 +669,7 @@ your return or yield, follow these steps:
     face value. Conversely, when interest rates fall, bonds previously
     issued at higher interest rates will sell for more than face value.
 
-[Figure 17.5](#CNX_Econ_C17_003) shows bond yield for two kinds of
+[Figure 17.5](#fig-17_5) shows bond yield for two kinds of
 bonds: 10-year Treasury bonds (which are officially called "notes") and
 corporate bonds issued by firms that have been given an AAA rating as
 relatively safe borrowers by Moody's, an independent firm that publishes
@@ -684,7 +680,7 @@ than bank accounts, and corporate bonds typically pay a higher interest
 rate than Treasury bonds.
 
 ![](media/17-2-how-households-supply-financial-capital_rId56.jpeg){width="4.883333333333334in"
-height="2.466666666666667in"}
+height="2.466666666666667in" #fig-17_5}
 
 Figure 17.5 Interest Rates for Corporate Bonds and Ten-Year U.S.
 Treasury Bonds The interest rates for corporate bonds and U.S. Treasury
@@ -730,13 +726,24 @@ Other stock market measures focus on where stocks are traded. For
 example, the New York Stock Exchange monitors the performance of stocks
 that are traded on that exchange in New York City. The Nasdaq stock
 market includes about 3,600 stocks, with a concentration of technology
-stocks. [Table 17.1](#ch17mod02_tab01) lists some of the most commonly
+stocks. @tbl-table_17_1 lists some of the most commonly
 cited measures of U.S. and international stock markets.
 
-Table 17.1 Some Stock Market Measures
+| Measure of the Stock Market                              | Comments                                                                                                                   |
+|----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Dow Jones Industrial Average (DJIA): [Link](https://www.spglobal.com/spdji/en/) | Based on 30 large companies from a diverse set of representative industries, chosen by analysts at Dow Jones and Company. The index was started in 1896. |
+| Standard & Poor’s 500: [Link](http://www.standardandpoors.com) | Based on 500 large U.S. firms, chosen by analysts at Standard & Poor’s to represent the economy as a whole.               |
+| Wilshire 5000: [Link](http://www.wilshire.com)            | Includes essentially all U.S. companies with stock ownership. Despite the name, this index includes about 7,000 firms.       |
+| New York Stock Exchange: [Link](http://www.nyse.com)      | The oldest and largest U.S. stock market, dating back to 1792. It trades stocks for 2,800 companies of all sizes. It is located at 18 Broad St. in New York City. |
+| NASDAQ: [Link](http://www.nasdaq.com)                    | Founded in 1971 as an electronic stock market, allowing people to buy or sell from many physical locations. It has about 3,600 companies. |
+| FTSE: [Link](http://www.ftse.com)                        | Includes the 100 largest companies on the London Stock Exchange. Pronounced “footsie.” Originally stood for Financial Times Stock Exchange. |
+| Nikkei: [Link](http://www.nikkei.co.jp/nikkeiinfo/en/)   | Nikkei stands for Nihon Keizai Shimbun, which translates as the Japan Economic Journal, a major business newspaper in Japan. Index includes the 225 largest and most actively traded stocks on the Tokyo Stock Exchange. |
+| DAX: [Link](http://www.exchange.de)                      | Tracks 30 of the largest companies on the Frankfurt, Germany, stock exchange. DAX is an abbreviation for Deutscher Aktien Index (German Stock Index). |
+
+: Some Stock Market Measures {#tbl-table_17_1}
 
 The trend in the stock market is generally up over time, but with some
-large dips along the way. [Figure 17.6](#CNX_Econ_C17_004) shows the
+large dips along the way. [Figure 17.6](#fig-17_6) shows the
 path of the Standard & Poor's 500 index (which is measured on the
 left-hand vertical axis) and the Dow Jones Index (which is measured on
 the right-hand vertical axis). Broad stock market measures, like the
@@ -747,12 +754,12 @@ average of 30 industrial stocks tracked on the New York Stock Exchange.
 
 When the Dow Jones average rises from 5,000 to 10,000, you know that the
 average price of the stocks in that index has roughly doubled. [Figure
-17.6](#CNX_Econ_C17_004) shows that stock prices did not rise much in
+17.6](#fig-17_6) shows that stock prices did not rise much in
 the 1970s, but then started a steady climb in the 1980s. From 2000 to
 2013, stock prices bounced up and down, but ended up at about the same
 level.
 
-![](media/17-2-how-households-supply-financial-capital_rId63.jpeg){width="4.883333333333334in" height="5.425in"}
+![](media/17-2-how-households-supply-financial-capital_rId63.jpeg){width="4.883333333333334in" height="5.425in" #fig-17_6}
 
 Figure 17.6 The Dow Jones Industrial Index and the Standard & Poor's
 500, 1965--2021 Stock prices rose dramatically from the 1980s up to
@@ -760,7 +767,7 @@ about 2000. From 2000 to 2013, stock prices bounced up and down, but
 ended up at about the same level. Since 2009, both indexes have for the
 most part increased.
 
-[Table 17.2](#ch17mod02_tab02) shows the total annual rate of return an
+@tbl-table_17_2 shows the total annual rate of return an
 investor would have received from buying the stocks in the S&P 500 index
 over recent decades. The total return here includes both dividends paid
 by these companies and also capital gains arising from increases in the
@@ -777,7 +784,19 @@ they ended the decade roughly where they had started. In the 2010s,
 dividends remained low and stock prices increased, and this continued at
 the beginning of the 2020s.
 
-Table 17.2 Annual Returns on S&P 500 Stocks, 1950--2021
+| Period       | Total Annual Return | Capital Gains | Dividends |
+|--------------|----------------------|---------------|-----------|
+| 1950–1959    | 19.25%              | 13.58%        | 4.99%     |
+| 1960–1969    | 7.78%               | 4.39%         | 3.25%     |
+| 1970–1979    | 5.88%               | 1.60%         | 4.20%     |
+| 1980–1989    | 17.55%              | 12.59%        | 4.40%     |
+| 1990–1999    | 18.21%              | 15.31%        | 2.51%     |
+| 2000–2009    | −1.00%              | −2.70%        | 1.70%     |
+| 2010–2019    | 12.65%              | 10.35%        | 2.30%     |
+| 2020         | 18.40%              | 16.26%        | 2.14%     |
+| 2021         | 28.71%              | 26.89%        | 1.82%     |
+
+: Annual Returns on S&P 500 Stocks, 1950--2021 {#tbl-table_17_2}
 
 The overall pattern is that stocks as a group have provided a high rate
 of return over extended periods of time, but this return comes with
@@ -872,12 +891,12 @@ median sales price for an existing one-family home was \$122,900 in
 1990, but 232,000 at the end of December 2016, according to FRED^®^
 Economic Data. Over these 24 years, home prices increased an average of
 3.1% per year, which is an average financial return over this time.
-[Figure 17.7](#CNX_Econ_C17_005) shows U.S. Census data for the average
+[Figure 17.7](#fig-17_7) shows U.S. Census data for the average
 sales price of a new home in the United States from 1965 to 2021.
 
 #### Link It Up {#link-it-up-1 .Heading3Grey}
 
-Go to this [website](http://openstax.org/l/investopedia) to experiment
+Go to this [website](https://www.investopedia.com/terms/c/cagr.asp) to experiment
 with a compound annual growth rate calculator.
 
 However, the possible capital gains from rising housing prices are
@@ -891,11 +910,11 @@ into the early 2020s.
 
 #### Link It Up {#link-it-up-2 .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/insidejob) to watch the
+Visit this [website](https://www.youtube.com/watch?v=FzrBurlJUNk) to watch the
 trailer for *Inside Job*, a movie that explores the modern financial
 crisis.
 
-![](media/17-2-how-households-supply-financial-capital_rId78.jpeg){width="4.875in" height="2.441666666666667in"}
+![](media/17-2-how-households-supply-financial-capital_rId78.jpeg){width="4.875in" height="2.441666666666667in" #fig-17_7}
 
 Figure 17.7 The Median Average Sales Price for New Single-Family Homes,
 1990--2015 The median price is the price where half of sales prices are
@@ -1002,10 +1021,21 @@ on the 2008--2009 Great Recession.
 #### The Tradeoffs between Return and Risk
 
 The discussion of financial investments has emphasized the expected rate
-of return, the risk, and the liquidity of each investment. [Table
-17.3](#ch17mod02_tab03) summarizes these characteristics.
+of return, the risk, and the liquidity of each investment. @tbl-table_17_3 summarizes these characteristics.
 
-Table 17.3 Key Characteristics of Financial Investments
+| Financial Investment     | Return          | Risk                  | Liquidity      |
+|--------------------------|-----------------|-----------------------|----------------|
+| Checking account         | Very low        | Very little           | Very high      |
+| Savings account          | Low             | Very little           | High           |
+| Certificate of deposit   | Low to medium   | Very little           | Medium         |
+| Stocks                   | High            | Medium to high        | Medium         |
+| Bonds                    | Medium          | Low to medium         | Medium         |
+| Mutual funds             | Medium to high  | Medium to high        | Medium to high |
+| Housing                  | Medium          | Medium                | Low            |
+| Gold                     | Medium          | High                  | Low            |
+| Collectibles             | Low to medium   | High                  | Low            |
+
+: Key Characteristics of Financial Investments {#tbl-table_17_3}
 
 The household investment choices listed here display a tradeoff between
 the expected return and the degree of risk involved. Bank accounts have
@@ -1189,12 +1219,31 @@ $\text{Future~Value} = \text{Principal~} \times \ {(\text{1\ +\ interest~rate})}
 
 $\text{Compound\ interest} = \text{Future\ Value}–\text{Present\ Valve}$
 
-Step 7. Apply this formula to our three-year scenario. Follow the
-calculations in
+Step 7. Apply this formula to our three-year scenario. Follow the calculations in @tbl-table_17_4
 
-[Table 17.4](#ch17mod03_tab04)
+| Year 1               |                     |
+|----------------------|---------------------|
+| Amount in Bank       | $100                |
+| Bank Interest Rate   | 5%                  |
+| Total                | $105                |
+|                      | $100 + ($100 × 0.05)|
 
-Table 17.4
+| Year 2               |                     |
+|----------------------|---------------------|
+| Amount in Bank       | $105                |
+| Bank Interest Rate   | 5%                  |
+| Total                | $110.25             |
+|                      | $105 + ($105 × 0.05)|
+
+| Year 3               |                     |
+|----------------------|---------------------|
+| Amount in Bank       | $110.25             |
+| Bank Interest Rate   | 5%                  |
+| Total                | $115.76             |
+|                      | $110.25 + ($110.25 × 0.05)|
+| Compound interest    | $115.76 – $100 = $15.76 |
+
+: Step 7 {#tbl-table_17_4}
 
 Step 8. Note that, after three years, the total is \$115.76. Therefore
 the total compound interest is \$15.76. This is \$0.76 more than we
@@ -1228,9 +1277,9 @@ investments---of many different companies.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/austerebaltic/) to read an
+Visit this [website](https://www.forbes.com/sites/dougbandow/2013/04/15/the-triumph-of-good-economics-austere-baltic-states-outgrow-their-european-neighbors/?sh=c07156e5e13f) to read an
 article about how austerity can work. Then visit this
-[website](http://openstax.org/l/counteraustere) for another perspective
+[website](https://www.theguardian.com/commentisfree/2019/sep/02/austerity-is-a-political-choice-not-an-economic-necessity) for another perspective
 on austerity.
 
 In this chapter, we discussed the basic mechanisms of financial markets.

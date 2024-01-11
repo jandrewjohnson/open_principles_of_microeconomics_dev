@@ -1,7 +1,7 @@
-# Chapter 13 - Positive Externalities and Public Goods
-![](media/13-introduction-to-positive-externalities-and-public-goods_rId20.jpeg){width="6.5in" height="3.925in"}
+# Chapter 13 - Positive Externalities and Public Goods {#sec-chapter-13}
+![](media/13-introduction-to-positive-externalities-and-public-goods_rId20.jpeg){width="6.5in" height="3.925in" #fig-13_1}
 
-Figure 13.1 [View from Voyager I](http://openstax.org/l/voyager1)
+Figure 13.1 [View from Voyager I](https://www.nasa.gov/image-article/voyagers-view-of-jupiters-great-red-spot/)
 Launched by NASA on September 5, 1977, Voyager I's primary mission was
 to provide detailed images of Jupiter, Saturn, and their moons. It took
 this photograph of Jupiter on its journey. In August of 2012, Voyager I
@@ -178,8 +178,7 @@ overall social benefits. The social benefits of an innovation account
 for the value of all the positive externalities of the new idea or
 product, whether enjoyed by other companies or society as a whole, as
 well as the private benefits the firm that developed the new technology
-receives. As you learned in [Environmental Protection and Negative
-Externalities](http://openstax.org/books/principles-microeconomics-3e/pages/12-introduction-to-environmental-protection-and-negative-externalities),
+receives. As you learned in @sec-chapter-12,
 positive externalities are beneficial spillovers to a third party, or
 parties.
 
@@ -187,7 +186,7 @@ Consider the example of the Big Drug Company, which is planning its R&D
 budget for the next year. Economists and scientists working for Big Drug
 have compiled a list of potential research and development projects and
 estimated rates of return. (The rate of return is the estimated payoff
-from the project.) [Figure 13.2](#CNX_Econ_C13_002) shows how the
+from the project.) [Figure 13.2](#fig-13_2) shows how the
 calculations work. The downward-sloping D~Private~ curve represents the
 firm's demand for financial capital and reflects the company's
 willingness to borrow to finance research and development projects at
@@ -201,15 +200,14 @@ can draw D~Social~ that lies above D~Private~.
 If there were a way for the firm to fully monopolize those social
 benefits by somehow making them unavailable to the rest of us, the
 firm's private demand curve would be the same as society's demand curve.
-According to [Figure 13.2](#CNX_Econ_C13_002) and [Table
-13.1](#ch13mod01_tab01), if the going rate of interest on borrowing is
+According to [Figure 13.2](#fig-13_2) and @tbl-table_13_1, if the going rate of interest on borrowing is
 8%, and the company can receive the private benefits of innovation only,
 then the company would finance \$30 million. Society, at the same rate
 of 8%, would find it optimal to have \$52 million of borrowing. Unless
 there is a way for the company to fully enjoy the total benefits, then
 it will borrow less than the socially optimal level of \$52 million.
 
-![](media/13-1-investments-in-innovation_rId30.jpeg){width="3.25in" height="2.265in"}
+![](media/13-1-investments-in-innovation_rId30.jpeg){width="3.25in" height="2.265in" #fig-13_2}
 
 Figure 13.2 Positive Externalities and Technology Big Drug faces a cost
 of borrowing of 8%. If the firm receives only the private benefits of
@@ -220,7 +218,15 @@ million of investment. If the firm could keep the social benefits of its
 investment for itself, its demand curve for financial capital would be
 D~Social~ and it would be willing to borrow \$52 million.
 
-Table 13.1 Return and Demand for Capital
+| Rate of Return | DPrivate (in millions) | DSocial (in millions) |
+|-----------------|-------------------------|------------------------|
+| 2%              | $72                     | $84                    |
+| 4%              | $52                     | $72                    |
+| 6%              | $38                     | $62                    |
+| 8%              | $30                     | $52                    |
+| 10%             | $26                     | $44                    |
+
+: Return and Demand for Capital {#tbl-table_13_1}
 
 Big Drug's original demand for financial capital (D~Private~) is based
 on the profits the firm receives. However, other pharmaceutical firms
@@ -251,8 +257,7 @@ crunches the numbers, does this investment pay off for her?
 Almost universally, economists have found that the answer to this
 question is a clear "Yes." For example, several studies of the return to
 education in the United States estimate that the rate of return to a
-college education is approximately 10-15%. Data in [Table
-13.2](#ch13mod01_tab02), from the U.S. Bureau of Labor Statistics'
+college education is approximately 10-15%. Data in @tbl-table_13_2, from the U.S. Bureau of Labor Statistics'
 *Usual Weekly Earnings of Wage and Salary Workers, Fourth Quarter 2021,*
 demonstrate that median weekly earnings are higher for workers who have
 completed more education. While these rates of return will beat
@@ -260,8 +265,12 @@ equivalent investments in Treasury bonds or savings accounts, the
 estimated returns to education go primarily to the individual worker, so
 these returns are private rates of return to education.
 
-Table 13.2 Usual Weekly Earnings of Wage and Salary Workers, Fourth
-Quarter 2021 (Source: https://www.bls.gov/news.release/pdf/wkyeng.pdf)
+|                                        | Less than a High School Degree | High School Degree, No College | Bachelor's Degree or Higher |
+|----------------------------------------|---------------------------------|--------------------------------|-----------------------------|
+| Median Weekly Earnings (full-time workers over the age of 25) | $651                            | $831                           | $1,467                      |
+
+: Usual Weekly Earnings of Wage and Salary Workers, Fourth
+Quarter 2021 (Source: <https://www.bls.gov/news.release/pdf/wkyeng.pdf>) {#tbl-table_13_2}
 
 What does society gain from investing in the education of another
 student? After all, if the government is spending taxpayer dollars to
@@ -294,7 +303,7 @@ receive a greater share of the social benefits. In the case of vaccines,
 like flu shots, an effective policy might be to provide a subsidy to
 those who choose to get vaccinated.
 
-[Figure 13.3](#CNX_Econ_C13_004) shows the market for flu shots. The
+[Figure 13.3](#fig-13_3) shows the market for flu shots. The
 market demand curve D~Market~ for flu shots reflects only the marginal
 private benefits (MPB) that the vaccinated individuals receive from the
 shots. Assuming that there are no spillover costs in the production of
@@ -329,7 +338,7 @@ voucher and only pay a price of P~Subsidy~. When the government uses a
 subsidy in this way, it produces the socially optimal quantity of
 vaccinations.
 
-![](media/13-1-investments-in-innovation_rId42.jpeg){width="4.88in" height="2.89in"}
+![](media/13-1-investments-in-innovation_rId42.jpeg){width="4.88in" height="2.89in" #fig-13_3}
 
 Figure 13.3 The Market for Flu Shots with Spillover Benefits (A Positive
 Externality) The market demand curve does not reflect the positive
@@ -437,12 +446,12 @@ years to 70 years after death. Along with protecting Mickey for another
 20 years, the copyright extension affected about 400,000 books, movies,
 and songs.
 
-[Figure 13.4](#CNX_Econ_C13_003) illustrates how the total number of
+[Figure 13.4](#fig-13_4) illustrates how the total number of
 patent applications filed with the U.S. Patent and Trademark Office, as
 well as the total number of patents granted, surged in the mid-1990s
 with the invention of the internet, and is still going strong today.
 
-![](media/13-2-how-governments-can-encourage-innovation_rId25.jpeg){width="6.5in" height="2.59in"}
+![](media/13-2-how-governments-can-encourage-innovation_rId25.jpeg){width="6.5in" height="2.59in" #fig-13_4}
 
 Figure 13.4 Patents Filed and Granted, 1981--2012 The number of
 applications filed for patents increased substantially beginning in the
@@ -490,12 +499,12 @@ be directed more for political than for scientific or economic reasons.
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit the NASA [website](http://openstax.org/l/NASA) and the USDA
-[website](http://openstax.org/l/USDA) to read about government research
+Visit the NASA [website](https://www.nasa.gov/) and the USDA
+[website](https://www.usda.gov/topics/conservation) to read about government research
 that would not take place were it left to firms, due to the
 externalities.
 
-The first column of [Table 13.3](#ch13mod02_tab05) shows the sources of
+The first column of @tbl-table_13_3 shows the sources of
 total U.S. spending on research and development. The second column shows
 the total dollars of R&D funding by each source. The third column shows
 that, relative to the total amount of funding, 22.7% comes from the
@@ -503,8 +512,17 @@ federal government, about 69% of R&D is done by industry, and less than
 4% is done by universities and colleges. (The percentages below do not
 add up to exactly 100% due to rounding.)
 
-Table 13.3 U.S. Research and Development Expenditures, 2018 (Source:
-https://ncses.nsf.gov/pubs/nsf21324)
+| Sources of R&D Funding         | Amount ($ billions) | Percent of the Total |
+|-------------------------------|----------------------|-----------------------|
+| Federal government            | $129.6               | 21.4%                 |
+| Industry                      | $426.0               | 70.3%                 |
+| Universities and colleges     | $20.7                | 3.4%                  |
+| Nonprofits                    | $25.0                | 4.1%                  |
+| Nonfederal government          | $4.8                 | 0.8%                  |
+| **Total**                     | **$606.1**           |                       |
+
+: U.S. Research and Development Expenditures, 2018 (Source:
+https://ncses.nsf.gov/pubs/nsf21324) {#tbl-table_13_3}
 
 In the 1960s the federal government paid for about two-thirds of the
 nation's R&D. Over time, the U.S. economy has come to rely much more
@@ -531,7 +549,7 @@ to cost ratio of 2 or 2.96."
 
 #### Link It Up {#link-it-up-1 .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/REtaxcredit) for more
+Visit this [website](https://home.treasury.gov/news/press-releases) for more
 information on how the R&E Tax Credit encourages investment.
 
 #### Policy #3 Cooperative Research
@@ -628,7 +646,7 @@ service, then how can a firm charge people for it?
 
 #### Link It Up {#link-it-up .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/freerider) to read about a
+Visit this [website](https://www.psychologytoday.com/intl/blog/the-decision-lab/201106/free-riders-and-why-bad-music-is-here-stay) to read about a
 connection between free riders and "bad music."
 
 When individuals make decisions about buying a public good, a free rider
@@ -636,8 +654,7 @@ problem can arise, in which people have an incentive to let others pay
 for the public good and then to "free ride" on the purchases of others.
 We can express the free rider problem in terms of the prisoner's dilemma
 game, which we discussed as a representation of oligopoly in
-[Monopolistic Competition and
-Oligopoly](http://openstax.org/books/principles-microeconomics-3e/pages/10-introduction-to-monopolistic-competition-and-oligopoly).
+@sec-chapter-10.
 
 There is a dilemma with the Prisoner's Dilemma, though. See the Work It
 Out feature.
@@ -699,7 +716,7 @@ stand.
 
 #### Link It Up {#link-it-up-1 .Heading3Grey}
 
-Read this [article](http://openstax.org/l/governmentpay) to find out
+Read this [article](https://www.npr.org/sections/money/2010/12/10/131784161/what-should-the-government-pay-for-autopsies-lighthouses) to find out
 what economists say the government should pay for.
 
 In other cases, we can use social pressures and personal appeals, rather
@@ -773,7 +790,7 @@ resource is better managed without external influence.
 
 #### Link It Up {#link-it-up-2 .Heading3Grey}
 
-Visit this [website](http://openstax.org/l/queenconch) for more on the
+Visit this [website](https://www.fisheries.noaa.gov/species/queen-conch) for more on the
 queen conch industry.
 
 #### Positive Externalities in Public Health Programs
