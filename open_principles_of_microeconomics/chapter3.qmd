@@ -443,6 +443,128 @@ The U.S. Postal Service is facing difficult challenges. Compensation for postal 
 
 ![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId36.jpeg){width="6.5in" height="3.315in" #fig-3_18}
 
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Create an array of quantities
+quantity = np.linspace(200, 1300, 100)
+
+d0y = 2.0
+d0m = -0.001
+s0y = 0.5
+s0m = 0.001
+d1y = 1.8
+d1m = -0.001
+s1y = 0.7
+s1m = 0.001
+
+# Define the original demand and supply curves
+def original_demand(quantity):
+    return d0y + d0m * quantity
+
+def original_supply(quantity):
+    return s0y + s0m * quantity
+
+# Define the new demand and supply curves after the shift
+def new_demand(quantity):
+    return d1y + d1m * quantity
+
+def new_supply(quantity):
+    return s1y + s1m * quantity
+
+# Generate the corresponding prices for original and new curves
+original_demand_price = original_demand(quantity)
+new_demand_price = new_demand(quantity)
+original_supply_price = original_supply(quantity)
+new_supply_price = new_supply(quantity)
+
+# Find the equilibrium points for original and new curves
+original_equilibrium_quantity = (d0y - s0y) / (s0m - d0m)
+original_equilibrium_price = original_demand(original_equilibrium_quantity)
+
+new_equilibrium_quantity_supply = (d0y - s1y) / (s0m - d0m)
+new_equilibrium_price_supply = original_demand(new_equilibrium_quantity_supply)
+
+new_equilibrium_quantity_demand = (d1y - s0y) / (s0m - d0m)
+new_equilibrium_price_demand = new_demand(new_equilibrium_quantity_demand)
+
+# Create the plots
+fig, axs = plt.subplots(1, 2, figsize=(8, 4), sharey=True)
+
+
+
+
+
+
+# Set titles and labels
+axs[0].set_title('(a) Shift in supply', fontsize=16)
+axs[0].set_xlabel('Quantity', fontsize=16)
+axs[0].set_ylabel('Price', fontsize=16)
+axs[0].annotate(f'{original_equilibrium_price:.2f}', xy=(.1, original_equilibrium_price), xycoords=('axes fraction', 'data'), xytext=(5, 0), textcoords='offset points', va='center', ha='right', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
+axs[0].annotate(f'{original_equilibrium_quantity}', xy=(original_equilibrium_quantity, .03), xycoords=('data', 'axes fraction'), xytext=(0, 5), textcoords='offset points', va='bottom', ha='center', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
+axs[0].annotate(f'{new_equilibrium_price_supply:.2f}', xy=(.1, new_equilibrium_price_supply), xycoords=('axes fraction', 'data'), xytext=(5, 0), textcoords='offset points', va='center', ha='right', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
+axs[0].annotate(f'{new_equilibrium_quantity_supply}', xy=(new_equilibrium_quantity_supply, .1), xycoords=('data', 'axes fraction'), xytext=(0, 5), textcoords='offset points', va='bottom', ha='center', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
+
+# Plot for supply shift
+axs[0].plot(quantity, original_demand_price, label='$D_0$', color='blue')
+axs[0].plot(quantity, original_supply_price, label='$S_0$', color='orange')
+axs[0].plot(quantity, new_supply_price, label='$S_1$', color='orange', linestyle='--')
+axs[0].plot(original_equilibrium_quantity, original_equilibrium_price, 'o', color='green')
+axs[0].plot(new_equilibrium_quantity_supply, new_equilibrium_price_supply, 'o', color='red')
+axs[0].axhline(y=original_equilibrium_price, color='r', linestyle=':', xmax=(original_equilibrium_quantity-200)/1100)
+axs[0].axvline(x=original_equilibrium_quantity, color='r', linestyle=':', ymax=(original_equilibrium_price-0.5)/1.5)
+axs[0].axhline(y=new_equilibrium_price_supply, color='r', linestyle=':', xmax=(new_equilibrium_quantity_supply-200)/1100)
+axs[0].axvline(x=new_equilibrium_quantity_supply, color='r', linestyle=':', ymax=(new_equilibrium_price_supply-0.5)/1.5)
+
+# Annotate the equilibrium points
+axs[0].annotate('E0', xy=(original_equilibrium_quantity, original_equilibrium_price), xytext=(original_equilibrium_quantity + 100, original_equilibrium_price + 0.5), arrowprops=dict(facecolor='grey', linestyle=':', arrowstyle='->', alpha=.85))
+axs[0].annotate('E1', xy=(new_equilibrium_quantity_supply, new_equilibrium_price_supply), xytext=(new_equilibrium_quantity_supply + 100, new_equilibrium_price_supply + 0.5), arrowprops=dict(facecolor='grey', linestyle=':',  arrowstyle='->', alpha=.85))
+
+# Add a thick arrow indicating the inward shift of the supply curve
+axs[0].annotate('', xy=(new_equilibrium_quantity_supply, new_equilibrium_price_supply), xytext=(original_equilibrium_quantity, original_equilibrium_price), arrowprops=dict(facecolor='black', arrowstyle='->', alpha=.85, linewidth=4))
+
+axs[0].legend(frameon=False)
+axs[0].set_xlim(200, 1300)
+
+
+
+
+
+axs[1].set_title('(b) Shift in demand', fontsize=16)
+axs[1].set_xlabel('Quantity', fontsize=16)
+axs[1].set_ylabel('Price', fontsize=16)
+
+axs[1].annotate(f'{original_equilibrium_price:.2f}', xy=(.1, original_equilibrium_price), xycoords=('axes fraction', 'data'), xytext=(5, 0), textcoords='offset points', va='center', ha='right', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
+axs[1].annotate(f'{original_equilibrium_quantity}', xy=(original_equilibrium_quantity, .03), xycoords=('data', 'axes fraction'), xytext=(0, 5), textcoords='offset points', va='bottom', ha='center', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
+axs[1].annotate(f'{new_equilibrium_price_demand:.2f}', xy=(.1, new_equilibrium_price_demand), xycoords=('axes fraction', 'data'), xytext=(5, 0), textcoords='offset points', va='center', ha='right', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
+axs[1].annotate(f'{new_equilibrium_quantity_demand}', xy=(new_equilibrium_quantity_demand, .1), xycoords=('data', 'axes fraction'), xytext=(0, 5), textcoords='offset points', va='bottom', ha='center', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
+# Plot for demand shift
+axs[1].plot(quantity, original_demand_price, label='$D_0$', color='blue')
+axs[1].plot(quantity, new_demand_price, label='$D_1$', color='blue', linestyle='--')
+axs[1].plot(quantity, original_supply_price, label='$S_0$', color='orange')
+axs[1].plot(original_equilibrium_quantity, original_equilibrium_price, 'o', color='green')
+axs[1].plot(new_equilibrium_quantity_demand, new_equilibrium_price_demand, 'o', color='red')
+axs[1].axhline(y=original_equilibrium_price, color='r', linestyle=':', xmax=(original_equilibrium_quantity-200)/1100)
+axs[1].axvline(x=original_equilibrium_quantity, color='r', linestyle=':', ymax=(original_equilibrium_price-0.5)/1.5)
+axs[1].axhline(y=new_equilibrium_price_demand, color='r', linestyle=':', xmax=(new_equilibrium_quantity_demand-200)/1100)
+axs[1].axvline(x=new_equilibrium_quantity_demand, color='r', linestyle=':', ymax=(new_equilibrium_price_demand-0.5)/1.5)
+
+# Annotate the equilibrium points
+axs[1].annotate('$E_{0}$', xy=(original_equilibrium_quantity, original_equilibrium_price), xytext=(original_equilibrium_quantity + 100, original_equilibrium_price + 0.5), arrowprops=dict(facecolor='grey', linestyle=':',  arrowstyle='->'))
+axs[1].annotate('$E_{1}$', xy=(new_equilibrium_quantity_demand, new_equilibrium_price_demand), xytext=(new_equilibrium_quantity_demand + 100, new_equilibrium_price_demand + 0.5), arrowprops=dict(facecolor='grey', linestyle=':',  arrowstyle='->'))
+
+# Add a thick arrow indicating the inward shift of the demand curve
+axs[1].annotate('', xy=(new_equilibrium_quantity_demand, new_equilibrium_price_demand), xytext=(original_equilibrium_quantity, original_equilibrium_price), arrowprops=dict(facecolor='black', arrowstyle='->', alpha=.85, linewidth=4))
+axs[1].legend(frameon=False)
+axs[1].set_xlim(200, 1300)
+
+# Show the plots
+plt.tight_layout()
+plt.show()
+```
+
+
 Figure 3.18 Higher Compensation for Postal Workers: A Four-Step Analysis (a) Higher labor compensation causes a leftward shift in the supply curve, a decrease in the equilibrium quantity, and an increase in the equilibrium price. (b) A change in tastes away from Postal Services causes a leftward shift in the demand curve, a decrease in the equilibrium quantity, and a decrease in the equilibrium price.
 
 Since this problem involves two disturbances, we need two four-step analyses, the first to analyze the effects of higher compensation for postal workers, the second to analyze the effects of many people switching from "snail mail" to email and other digital messages.
