@@ -164,14 +164,14 @@ Rise: Change in variable on vertical axis (end point minus original
 point)
 
 ![multiline equation row 1 Blank equals 0.100 en dash 0.307 row 2 Blank
-equals en dash 0.207](media/rId32.png){width="1.1354166666666667in"
+equals en dash 0.207](media/a-the-use-of-mathematics-in-principles-of-economics_rId32.png){width="1.1354166666666667in"
 height="0.3958333333333333in"}
 
 Run: Change in variable on horizontal axis (end point minus original
 point)
 
 ![multiline equation row 1 Blank equals 6,000 en dash 4,000 row 2 Blank
-equals 2,000](media/rId34.png){width="1.09375in"
+equals 2,000](media/a-the-use-of-mathematics-in-principles-of-economics_rId34.png){width="1.09375in"
 height="0.3958333333333333in"}
 
 Thus, the slope of a straight line between these two points would be
@@ -228,7 +228,7 @@ other:
 
 ![multiline equation row 1 Qd equals Qs row 2 16 en dash two cap P
 equals two plus five cap
-P](media/rId39.png){width="1.2291666666666667in"
+P](media/a-the-use-of-mathematics-in-principles-of-economics_rId39.png){width="1.2291666666666667in"
 height="0.3958333333333333in"}
 
 Subtracting 2 from both sides and adding 2P to both sides yields:
@@ -238,7 +238,7 @@ plus five cap P en dash two row 2 14 en dash two cap P equals five cap P
 row 3 14 en dash two cap P plus two cap P equals five cap P plus two cap
 P row 4 14 equals seven cap P row 5 14 divided by seven equals seven cap
 P divided by seven row 6 two equals cap
-P](media/rId41.png){width="1.8541666666666667in"
+P](media/a-the-use-of-mathematics-in-principles-of-economics_rId41.png){width="1.8541666666666667in"
 height="1.3541666666666667in"}
 
 In other words, the price of each personal pizza will be \$2. How much
@@ -250,7 +250,7 @@ get:
 ![multiline equation row 1 Qd equals 16 en dash two cap P row 2 Blank
 equals 16 en dash two left parenthesis two right parenthesis row 3 Blank
 equals 16 en dash four row 4 Blank equals
-12](media/rId43.png){width="1.0625in" height="0.8541666666666666in"}
+12](media/a-the-use-of-mathematics-in-principles-of-economics_rId43.png){width="1.0625in" height="0.8541666666666666in"}
 
 So if the price is \$2 each, consumers will purchase 12. How much will
 producers supply? Taking the price of \$2, and plugging it into the
@@ -259,7 +259,7 @@ supply equation, we get:
 ![multiline equation row 1 Qs equals two plus five cap P row 2 Blank
 equals two plus five left parenthesis two right parenthesis row 3 Blank
 equals two plus 10 row 4 Blank equals
-12](media/rId45.png){width="1.0104166666666667in"
+12](media/a-the-use-of-mathematics-in-principles-of-economics_rId45.png){width="1.0104166666666667in"
 height="0.8541666666666666in"}
 
 So if the price is \$2 each, producers will supply 12 personal pizzas.
@@ -293,7 +293,7 @@ be your income. It could be a business's sales. It could be a nation's
 GDP. The formula for computing a growth rate is straightforward:
 
 ![multiline equation row 1 Percentage change equals Change in quantity
-divided by Quantity](media/rId53.png){width="2.5520833333333335in"
+divided by Quantity](media/a-the-use-of-mathematics-in-principles-of-economics_rId53.png){width="2.5520833333333335in"
 height="0.23958333333333334in"}
 
 Suppose your job pays \$10 per hour. Your boss, however, is so impressed
@@ -320,7 +320,7 @@ dash dollar sign 1.00 trillion divided by left parenthesis dollar sign
 1.03 trillion plus dollar sign 1.00 trillion right parenthesis slash two
 row 2 Blank equals 0.03 divided by 1.015 row 3 Blank equals 0.0296 row 4
 Blank equals 2.96 percent sign
-growth](media/rId55.png){width="1.96875in"
+growth](media/a-the-use-of-mathematics-in-principles-of-economics_rId55.png){width="1.96875in"
 height="0.9583333333333334in"}
 
 Note that if we used the first method, the calculation would be (\$1.03

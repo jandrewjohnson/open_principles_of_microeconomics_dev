@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./1-introduction.html" rel="next">
+<link href="./chapter1.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -106,10 +140,110 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 1 - Welcome to Economics!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 2 - Choice in a World of Scarcity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 3 - Demand and Supply</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 4 - Labor and Financial Markets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 5 - Elasticity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 6 - Consumer Choices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 7 - Production, Costs, and Industry Structure</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 8 - Perfect Competition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 9 - Monopoly</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 10 - Monopolistic Competition and Oligopoly</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 11 - Monopoly and Antitrust Policy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 12 - Environmental Protection and Negative Externalities</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 13 - Positive Externalities and Public Goods</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 14 - Labor Markets and Income</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 15 - Poverty and Economic Inequality</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 16 - Information, Risk, and Insurance</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 17 - Financial Markets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 18 - Public Economy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 19 - International Trade</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 20 - Globalization and Protectionism</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">1-Welcome to Economics!</span></a>
+ <span class="menu-text">Appendices</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -117,691 +251,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
+  <a href="./a-the-use-of-mathematics-in-principles-of-economics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Use of Mathematics in Principles of Economics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1-1-what-is-economics-and-why-is-it-important.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.1 What Is Economics, and Why Is It Important?</span></a>
+  <a href="./b-indifference-curves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Indifference Curves</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1-2-microeconomics-and-macroeconomics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.2 Microeconomics and Macroeconomics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./1-3-how-economists-use-theories-and-models-to-understand-economic-issues.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.3 How Economists Use Theories and Models to Understand Economic Issues</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./1-4-how-to-organize-economies-an-overview-of-economic-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.4 How To Organize Economies: An Overview of Economic Systems</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">2-Choice in a World of Scarcity</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2-introduction-to-choice-in-a-world-of-scarcity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2-1-how-individuals-make-choices-based-on-their-budget-constraint.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2.1 How Individuals Make Choices Based on Their Budget Constraint</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2-2-the-production-possibilities-frontier-and-social-choices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2.2 The Production Possibilities Frontier and Social Choices</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2-3-confronting-objections-to-the-economic-approach.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2.3 Confronting Objections to the Economic Approach</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">3-Demand and Supply</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3-introduction-to-demand-and-supply.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3.1 Demand, Supply, and Equilibrium in Markets for Goods and Services</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3-2-shifts-in-demand-and-supply-for-goods-and-services.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3.2 Shifts in Demand and Supply for Goods and Services</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3.3 Changes in Equilibrium Price and Quantity: The Four-Step Process</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3-4-price-ceilings-and-price-floors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3.4 Price Ceilings and Price Floors</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3-5-demand-supply-and-efficiency.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3.5 Demand, Supply, and Efficiency</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">4-Labor and Financial Markets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./4-introduction-to-labor-and-financial-markets.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./4-1-demand-and-supply-at-work-in-labor-markets.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4.1 Demand and Supply at Work in Labor Markets</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./4-2-demand-and-supply-in-financial-markets.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4.2 Demand and Supply in Financial Markets</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./4-3-the-market-system-as-an-efficient-mechanism-for-information.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4.3 The Market System as an Efficient Mechanism for Information</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">5-Elasticity</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5-introduction-to-elasticity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5-1-price-elasticity-of-demand-and-price-elasticity-of-supply.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5.1 Price Elasticity of Demand and Price Elasticity of Supply</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5-2-polar-cases-of-elasticity-and-constant-elasticity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5.2 Polar Cases of Elasticity and Constant Elasticity</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5-3-elasticity-and-pricing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5.3 Elasticity and Pricing</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5-4-elasticity-in-areas-other-than-price.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5.4 Elasticity in Areas Other Than Price</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
- <span class="menu-text">6-Consumer Choices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6-introduction-to-consumer-choices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6-1-consumption-choices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6.1 Consumption Choices</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6-2-how-changes-in-income-and-prices-affect-consumption-choices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6.2 How Changes in Income and Prices Affect Consumption Choices</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6-3-behavioral-economics-an-alternative-framework-for-consumer-choice.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6.3 Behavioral Economics: An Alternative Framework for Consumer Choice</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
- <span class="menu-text">7-Production, Costs, and Industry Structure</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./7-introduction-to-production-costs-and-industry-structure.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./7-1-explicit-and-implicit-costs-and-accounting-and-economic-profit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.1 Explicit and Implicit Costs, and Accounting and Economic Profit</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./7-2-production-in-the-short-run.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.2 Production in the Short Run</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./7-3-costs-in-the-short-run.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.3 Costs in the Short Run</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./7-4-production-in-the-long-run.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.4 Production in the Long Run</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./7-5-costs-in-the-long-run.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7.5 Costs in the Long Run</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
- <span class="menu-text">8-Perfect Competition</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./8-introduction-to-perfect-competition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./8-1-perfect-competition-and-why-it-matters.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8.1 Perfect Competition and Why It Matters</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./8-2-how-perfectly-competitive-firms-make-output-decisions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8.2 How Perfectly Competitive Firms Make Output Decisions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./8-3-entry-and-exit-decisions-in-the-long-run.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8.3 Entry and Exit Decisions in the Long Run</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./8-4-efficiency-in-perfectly-competitive-markets.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8.4 Efficiency in Perfectly Competitive Markets</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
- <span class="menu-text">9-Monopoly</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./9-introduction-to-a-monopoly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./9-1-how-monopolies-form-barriers-to-entry.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.1 How Monopolies Form: Barriers to Entry</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9.2 How a Profit-Maximizing Monopoly Chooses Output and Price</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
- <span class="menu-text">10-Monopolistic Competition and Oligopoly</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-introduction-to-monopolistic-competition-and-oligopoly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-1-monopolistic-competition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.1 Monopolistic Competition</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-2-oligopoly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10.2 Oligopoly</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
- <span class="menu-text">11-Monopoly and Antitrust Policy</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./11-introduction-to-monopoly-and-antitrust-policy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./11-1-corporate-mergers.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11.1 Corporate Mergers</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./11-2-regulating-anticompetitive-behavior.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11.2 Regulating Anticompetitive Behavior</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./11-3-regulating-natural-monopolies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11.3 Regulating Natural Monopolies</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./11-4-the-great-deregulation-experiment.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11.4 The Great Deregulation Experiment</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="true">
- <span class="menu-text">12-Environmental Protection and Negative Externalities</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./12-introduction-to-environmental-protection-and-negative-externalities.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./12-1-the-economics-of-pollution.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12.1 The Economics of Pollution</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./12-2-command-and-control-regulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12.2 Command-and-Control Regulation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./12-3-market-oriented-environmental-tools.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12.3 Market-Oriented Environmental Tools</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./12-4-the-benefits-and-costs-of-u-s-environmental-laws.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12.4 The Benefits and Costs of U.S. Environmental Laws</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./12-5-international-environmental-issues.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12.5 International Environmental Issues</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./12-6-the-tradeoff-between-economic-output-and-environmental-protection.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12.6 The Tradeoff between Economic Output and Environmental Protection</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="true">
- <span class="menu-text">13-Positive Externalities and Public Goods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./13-introduction-to-positive-externalities-and-public-goods.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./13-1-investments-in-innovation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">13.1 Investments in Innovation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./13-2-how-governments-can-encourage-innovation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">13.2 How Governments Can Encourage Innovation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./13-3-public-goods.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">13.3 Public Goods</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true">
- <span class="menu-text">14-Labor Markets and Income</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14-introduction-to-labor-markets-and-income.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14-1-the-theory-of-labor-markets.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14.1 The Theory of Labor Markets</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14.2 Wages and Employment in an Imperfectly Competitive Labor Market</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14-3-market-power-on-the-supply-side-of-labor-markets-unions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14.3 Market Power on the Supply Side of Labor Markets: Unions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14-4-bilateral-monopoly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14.4 Bilateral Monopoly</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14-5-employment-discrimination.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14.5 Employment Discrimination</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14-6-immigration.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14.6 Immigration</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true">
- <span class="menu-text">15-Poverty and Economic Inequality</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./15-introduction-to-poverty-and-economic-inequality.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./15-1-drawing-the-poverty-line.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">15.1 Drawing the Poverty Line</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./15-2-the-poverty-trap.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">15.2 The Poverty Trap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./15-3-the-safety-net.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">15.3 The Safety Net</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./15-4-income-inequality-measurement-and-causes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">15.4 Income Inequality: Measurement and Causes</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./15-5-government-policies-to-reduce-income-inequality.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">15.5 Government Policies to Reduce Income Inequality</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" aria-expanded="true">
- <span class="menu-text">16-Information, Risk, and Insurance</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./16-introduction-to-information-risk-and-insurance.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./16-1-the-problem-of-imperfect-information-and-asymmetric-information.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">16.1 The Problem of Imperfect Information and Asymmetric Information</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./16-2-insurance-and-imperfect-information.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">16.2 Insurance and Imperfect Information</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="true">
- <span class="menu-text">17-Financial Markets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./17-introduction-to-financial-markets.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./17-1-how-businesses-raise-financial-capital.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">17.1 How Businesses Raise Financial Capital</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./17-2-how-households-supply-financial-capital.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">17.2 How Households Supply Financial Capital</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./17-3-how-to-accumulate-personal-wealth.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">17.3 How to Accumulate Personal Wealth</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="true">
- <span class="menu-text">18-Public Economy</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./18-introduction-to-public-economy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./18-1-voter-participation-and-costs-of-elections.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">18.1 Voter Participation and Costs of Elections</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./18-2-special-interest-politics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">18.2 Special Interest Politics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./18-3-flaws-in-the-democratic-system-of-government.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">18.3 Flaws in the Democratic System of Government</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="true">
- <span class="menu-text">19-International Trade</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./19-introduction-to-international-trade.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./19-1-absolute-and-comparative-advantage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">19.1 Absolute and Comparative Advantage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./19-2-what-happens-when-a-country-has-an-absolute-advantage-in-all-goods.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">19.2 What Happens When a Country Has an Absolute Advantage in All Goods</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./19-3-intra-industry-trade-between-similar-economies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">19.3 Intra-industry Trade between Similar Economies</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./19-4-the-benefits-of-reducing-barriers-to-international-trade.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">19.4 The Benefits of Reducing Barriers to International Trade</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="true">
- <span class="menu-text">20-Globalization and Protectionism</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./20-introduction-to-globalization-and-protectionism.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter Objectives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">20.1 Protectionism: An Indirect Subsidy from Consumers to Producers</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./20-2-international-trade-and-its-effects-on-jobs-wages-and-working-conditions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">20.2 International Trade and Its Effects on Jobs, Wages, and Working Conditions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./20-3-arguments-in-support-of-restricting-imports.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">20.3 Arguments in Support of Restricting Imports</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./20-4-how-governments-enact-trade-policy-globally-regionally-and-nationally.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">20.4 How Governments Enact Trade Policy: Globally, Regionally, and Nationally</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./20-5-the-tradeoffs-of-trade-policy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">20.5 The Tradeoffs of Trade Policy</span></a>
+  <a href="./c-present-discounted-value.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Present Discounted Value</span></a>
   </div>
 </li>
       </ul>
@@ -826,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Open Principles of Microeconomics</h1>
+<div class="quarto-title-block"><div><h1 class="title">Open Principles of Microeconomics</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -860,6 +320,8 @@ ul.task-list li input[type="checkbox"] {
 <h1>Welcome to Open Principles of Microeconomics!</h1>
 <p>This is a new open textbook, based on the third edition of OpenStax.org’s excellent work. I have made some changes to the text, and added some new material that draws from my previous years experience teaching Applied Economics 1101: Principles of Microeconomics at the University of Minnesota. This is a work in progress and will be finished by January 2024.</p>
 
+
+<!-- -->
 
 </section>
 
@@ -943,6 +405,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -1101,11 +614,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./1-introduction.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">Chapter Objectives</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter1.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Chapter 1 - Welcome to Economics!</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preface {.unnumbered}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu"># Welcome to Open Principles of Microeconomics!</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>This is a new open textbook, based on the third edition of OpenStax.org's excellent work. I have made some changes to the text, and added some new material that draws from my previous years experience teaching Applied Economics 1101: Principles of Microeconomics at the University of Minnesota. This is a work in progress and will be finished by January 2024.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

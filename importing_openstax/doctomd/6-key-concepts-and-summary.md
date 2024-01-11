@@ -21,7 +21,7 @@ should be equal:
 
 ![multiline equation row 1 MU sub one divided by cap P sub one equals MU
 sub two divided by cap P sub
-two](media/rId21.png){width="0.7708333333333334in"
+two](media/6-key-concepts-and-summary_rId21.png){width="0.7708333333333334in"
 height="0.22916666666666666in"}
 
 ### 6.2 How Changes in Income and Prices Affect Consumption Choices

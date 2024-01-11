@@ -18,7 +18,7 @@ different way of writing out the basic definition of profit:
 line 2 equals left parenthesis Price right parenthesis times left
 parenthesis Quantity produced right parenthesis minus left parenthesis
 Average cost right parenthesis times left parenthesis Quantity produced
-right parenthesis](media/rId24.png){width="5.15625in"
+right parenthesis](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId24.png){width="5.15625in"
 height="0.3958333333333333in"}
 
 Since a perfectly competitive firm must accept the price for its output
@@ -317,7 +317,7 @@ row 2 Blank equals left parenthesis 85 right parenthesis times left
 parenthesis dollar sign 5.00 right parenthesis minus left parenthesis 85
 right parenthesis times left parenthesis dollar sign 3.50 right
 parenthesis row 3 Blank equals dollar sign
-127.50](media/rId52.png){width="2.5208333333333335in"
+127.50](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId52.png){width="2.5208333333333335in"
 height="0.6145833333333334in"}
 
 Or, we can calculate it as:
@@ -326,7 +326,7 @@ Or, we can calculate it as:
 average cost right parenthesis times quantity row 2 Blank equals left
 parenthesis dollar sign 5.00 en dash dollar sign 3.50 right parenthesis
 times 85 row 3 Blank equals dollar sign
-127.50](media/rId54.png){width="3.0in" height="0.6145833333333334in"}
+127.50](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId54.png){width="3.0in" height="0.6145833333333334in"}
 
 Now consider [Figure 8.5](#CNX_Econ_C08_014) (b), where the price has
 fallen to \$2.75 for a pack of frozen raspberries. Again, the perfectly
@@ -351,7 +351,7 @@ Thus, the firm is making zero profit. The calculations are as follows:
 cost row 2 Blank equals left parenthesis 75 right parenthesis left
 parenthesis dollar sign 2.75 right parenthesis en dash left parenthesis
 75 right parenthesis left parenthesis dollar sign 2.75 right parenthesis
-row 3 Blank equals dollar sign zero](media/rId57.png){width="2.4375in"
+row 3 Blank equals dollar sign zero](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId57.png){width="2.4375in"
 height="0.6145833333333334in"}
 
 Or, we can calculate it as:
@@ -360,7 +360,7 @@ Or, we can calculate it as:
 average cost right parenthesis times quantity row 2 Blank equals left
 parenthesis dollar sign 2.75 en dash dollar sign 2.75 right parenthesis
 times 75 row 3 Blank equals dollar sign
-zero](media/rId59.png){width="2.9791666666666665in"
+zero](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId59.png){width="2.9791666666666665in"
 height="0.6145833333333334in"}
 
 In [Figure 8.5](#CNX_Econ_C08_014) (c), the market price has fallen
@@ -385,7 +385,7 @@ en dash total cost right parenthesis row 2 Blank equals left parenthesis
 65 right parenthesis left parenthesis dollar sign 2.00 right parenthesis
 en dash left parenthesis 65 right parenthesis left parenthesis dollar
 sign 2.73 right parenthesis row 3 Blank equals en dash dollar sign
-47.45](media/rId61.png){width="2.6041666666666665in"
+47.45](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId61.png){width="2.6041666666666665in"
 height="0.6145833333333334in"}
 
 Or:
@@ -394,7 +394,7 @@ Or:
 average cost right parenthesis times quantity row 2 Blank equals left
 parenthesis dollar sign 2.00 en dash dollar sign 2.73 right parenthesis
 times 65 row 3 Blank equals en dash dollar sign
-47.45](media/rId63.png){width="3.0in" height="0.6145833333333334in"}
+47.45](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId63.png){width="3.0in" height="0.6145833333333334in"}
 
 If the market price that perfectly competitive firm receives leads it to
 produce at a quantity where the price is greater than average cost, the
@@ -465,7 +465,7 @@ in the short run.
   ![multiline equation line 1 profit equals total revenue en dash left
   parenthesis fixed costs plus variable cost right parenthesis line 2
   equals zero en dash dollar sign 10,000 line 3 equals en dash dollar
-  sign 10,000](media/rId68.png){width="3.5208333333333335in"
+  sign 10,000](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId68.png){width="3.5208333333333335in"
   height="0.6145833333333334in"}
 
   **Scenario 2**
@@ -477,7 +477,7 @@ in the short run.
   parenthesis fixed costs plus variable cost right parenthesis line 2
   equals dollar sign 10,000 en dash left parenthesis dollar sign 10,000
   plus dollar sign 15,000 right parenthesis line 3 equals en dash dollar
-  sign 15,000](media/rId70.png){width="3.625in"
+  sign 15,000](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId70.png){width="3.625in"
   height="0.6145833333333334in"}
 
   **Scenario 3**
@@ -489,7 +489,7 @@ in the short run.
   parenthesis fixed costs plus variable cost right parenthesis line 2
   equals dollar sign 20,000 en dash left parenthesis dollar sign 10,000
   plus dollar sign 15,000 right parenthesis line 3 equals en dash dollar
-  sign 5,000](media/rId72.png){width="3.625in"
+  sign 5,000](media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId72.png){width="3.625in"
   height="0.6145833333333334in"}
   -----------------------------------------------------------------------
 

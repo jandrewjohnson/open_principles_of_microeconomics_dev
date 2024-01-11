@@ -50,7 +50,7 @@ slash two times times 100 row 2 percent sign change in price equals
 normal cap P sub two en dash normal cap P sub one divided by left
 parenthesis normal cap P sub two plus normal cap P sub one right
 parenthesis times slash two times times
-100](media/rId32.png){width="2.7083333333333335in"
+100](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId32.png){width="2.7083333333333335in"
 height="0.5520833333333334in"}
 
 The advantage of the Midpoint Method is that one obtains the same
@@ -81,7 +81,7 @@ plus 70 right parenthesis times slash two times times 100 row 5 Blank
 equals en dash 10 divided by 65 times times 100 row 6 Blank equals en
 dash 15.4 row 7 Price Elasticity of Demand equals 6.9 percent sign
 divided by en dash 15.4 percent sign row 8 Blank equals
-0.45](media/rId38.png){width="3.5729166666666665in" height="2.0625in"}
+0.45](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId38.png){width="3.5729166666666665in" height="2.0625in"}
 
 Therefore, the elasticity of demand between these two points is
 $\frac{\ \ \ \ 6.9\%}{–15.4\%}$ which is 0.45, an amount smaller than
@@ -116,7 +116,7 @@ Step 1. We know that:
 
 ![multiline equation row 1 Price Elasticity of Demand equals percent
 sign change in quantity divided by percent sign change in
-price](media/rId40.png){width="3.1354166666666665in" height="0.25in"}
+price](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId40.png){width="3.1354166666666665in" height="0.25in"}
 
 Step 2. From the Midpoint Formula we know that:
 
@@ -126,7 +126,7 @@ plus cap Q sub one times right parenthesis slash two times times 100 row
 2 percent sign change in price equals cap P sub two en dash cap P sub
 one divided by left parenthesis cap P sub two plus cap P sub one times
 right parenthesis slash two times times
-100](media/rId43.png){width="2.7083333333333335in"
+100](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId43.png){width="2.7083333333333335in"
 height="0.5520833333333334in"}
 
 Step 3. So we can use the values provided in the figure in each
@@ -140,7 +140,7 @@ period 76 row 4 percent sign change in price equals 130 en dash 120
 divided by left parenthesis 130 plus 120 times right parenthesis slash
 two times times times 100 row 5 Blank equals 10 divided by 125 times
 times times 100 row 6 Blank equals eight period
-zero](media/rId45.png){width="2.9583333333333335in"
+zero](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId45.png){width="2.9583333333333335in"
 height="1.5520833333333333in"}
 
 Step 4. Then, we can use those values to determine the price elasticity
@@ -149,7 +149,7 @@ of demand:
 ![multiline equation row 1 Price Elasticity of Demand equals percent
 sign change in quantity divided by percent sign change in price row 2
 Blank equals en dash 11.76 divided by eight row 3 Blank equals
-1.47](media/rId47.png){width="3.1354166666666665in" height="0.75in"}
+1.47](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId47.png){width="3.1354166666666665in" height="0.75in"}
 
 Therefore, the elasticity of demand from G to is H 1.47. The magnitude
 of the elasticity has increased (in absolute value) as we moved up along
@@ -185,7 +185,7 @@ right parenthesis slash two times times 100 row 5 Blank equals 50
 divided by 675 times times 100 row 6 Blank equals 7.4 row 7 Price
 Elasticity of Supply equals 26.1 percent sign divided by 7.4 percent
 sign row 8 Blank equals
-3.53](media/rId58.png){width="3.5833333333333335in"
+3.53](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId58.png){width="3.5833333333333335in"
 height="2.0833333333333335in"}
 
 Again, as with the elasticity of demand, the elasticity of supply is not

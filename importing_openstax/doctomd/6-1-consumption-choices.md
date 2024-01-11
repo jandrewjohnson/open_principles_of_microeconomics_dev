@@ -80,7 +80,7 @@ additional utility provided by one additional unit of consumption. This
 equation for marginal utility is:
 
 ![multiline equation row 1 MU equals change in total utility divided by
-change in quantity](media/rId31.png){width="1.5625in"
+change in quantity](media/6-1-consumption-choices_rId31.png){width="1.5625in"
 height="0.23958333333333334in"}
 
 Notice that marginal utility diminishes as additional units are
@@ -214,7 +214,7 @@ price. [Table 6.5](#Table_06_05) shows the marginal utility per dollar
 for José\'s T shirts and movies.
 
 ![multiline equation row 1 marginal utility per dollar equals marginal
-utility divided by price](media/rId40.png){width="2.7916666666666665in"
+utility divided by price](media/6-1-consumption-choices_rId40.png){width="2.7916666666666665in"
 height="0.23958333333333334in"}
 
 If José wants to maximize the utility he gets from his limited budget,
@@ -266,7 +266,7 @@ the marginal utility per dollar spent is the same for both goods.
 
 ![multiline equation row 1 MU sub one divided by cap P sub one equals MU
 sub two divided by cap P sub
-two](media/rId45.png){width="0.7708333333333334in"
+two](media/6-1-consumption-choices_rId45.png){width="0.7708333333333334in"
 height="0.22916666666666666in"}
 
 A sensible economizer will pay twice as much for something only if, in
@@ -275,7 +275,7 @@ that the formula for the table above is:
 
 ![multiline equation row 1 22 divided by dollar sign 14 equals 11
 divided by dollar sign seven row 2 1.6 equals
-1.6](media/rId47.png){width="0.6041666666666666in" height="0.4375in"}
+1.6](media/6-1-consumption-choices_rId47.png){width="0.6041666666666666in" height="0.4375in"}
 
 The following Work It Out feature provides step by step guidance for
 this concept of utility-maximizing choices.
@@ -286,7 +286,7 @@ this concept of utility-maximizing choices.
 
 The general rule, ![multiline equation row 1 MU sub one divided by cap P
 sub one equals MU sub two divided by cap P sub
-two](media/rId45.png){width="0.7708333333333334in"
+two](media/6-1-consumption-choices_rId45.png){width="0.7708333333333334in"
 height="0.22916666666666666in"}, means that the last dollar spent on
 each good provides exactly the same marginal utility. This is the case
 at point S. So:
@@ -321,7 +321,7 @@ utility of good 2.
 
 ![multiline equation row 1 cap P sub one divided by cap P sub two equals
 MU sub one divided by MU sub
-two](media/rId51.png){width="0.6666666666666666in"
+two](media/6-1-consumption-choices_rId51.png){width="0.6666666666666666in"
 height="0.22916666666666666in"}
 
 Along the budget constraint, the total price of the two goods remains

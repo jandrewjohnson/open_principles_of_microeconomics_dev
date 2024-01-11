@@ -7,20 +7,20 @@ cameras. The demand (d) and supply (s) for cameras in Thailand and Japan
 is described by the following functions:
 
 ![multiline equation line 1 multiline equation row 1 Qd super cap T
-equals 60 en dash cap P](media/rId20.png){width="0.96875in"
+equals 60 en dash cap P](media/20-problems_rId20.png){width="0.96875in"
 height="0.1875in"}
 
 ![multiline equation line 1 multiline equation row 1 Qs super cap T
 equals en dash five plus one divided by four cap
-P](media/rId22.png){width="1.125in" height="0.19791666666666666in"}
+P](media/20-problems_rId22.png){width="1.125in" height="0.19791666666666666in"}
 
 ![multiline equation line 1 multiline equation row 1 Qd super cap J
-equals 80 en dash cap P](media/rId24.png){width="0.9479166666666666in"
+equals 80 en dash cap P](media/20-problems_rId24.png){width="0.9479166666666666in"
 height="0.1875in"}
 
 ![multiline equation line 1 multiline equation row 1 Qs super cap J
 equals en dash 10 plus one divided by two cap
-P](media/rId26.png){width="1.1875in" height="0.19791666666666666in"}
+P](media/20-problems_rId26.png){width="1.1875in" height="0.19791666666666666in"}
 
 P is the price measured in a common currency used in both countries,
 such as the Thai Baht.

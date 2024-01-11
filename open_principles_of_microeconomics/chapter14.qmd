@@ -1,0 +1,1539 @@
+# Chapter 14 - Labor Markets and Income {#sec-chapter-14}
+![](media/14-introduction-to-labor-markets-and-income_rId20.jpeg){width="6.5in" height="3.5in" #fig-14_1}
+
+Figure 14.1 What determines incomes? In the U.S., income is primarily
+based on one\'s value to an employer, which depends in part on
+education. (Credit: modification of work by AFL-CIO America\'s
+Unions/Flickr Creative Commons and COD Newsroom/Flickr Creative Commons)
+
+#### Chapter Objectives {#chapter-objectives .Heading3Grey}
+
+In this chapter, you will learn about:
+
+-   The theory of labor markets
+-   How wages are determined in an imperfectly competitive labor market
+-   How unions affect wages and employment
+-   How labor market outcomes are determined under Bilateral Monopoly
+-   Theories of Employment Discrimination, and
+-   How Immigration affects labor market outcomes
+
+### Introduction to Labor Markets and Income
+
+#### Bring It Home {#bring-it-home .Heading3Grey}
+
+##### The Increasing Value of a College Degree  {#the-increasing-value-of-a-college-degree .Heading4Grey}
+
+Working your way through college used to be fairly common in the United
+States. According to a 2015 study by the Georgetown Center on Education
+and the Workforce, 40% of college students work 30 hours or more per
+week.
+
+At the same time, the cost of college seems to rise every year. The data
+show that between the 2000--2001 academic year and the 2019--2020
+academic year, the cost of tuition, fees, and room and board has
+slightly more than doubled for private four-year colleges, and has
+increased by a factor of almost 2.5 for public four-year colleges. Thus,
+even full time employment may not be enough to cover college expenses
+anymore. Working full time at minimum wage---40 hours per week, 52 weeks
+per year---earns \$15,080 before taxes, which is substantially less than
+the more than \$25,000 estimated as the average cost in 2022 for a year
+of college at a public university. The result of these costs is that
+student loan debt topped \$1.3 trillion this year.
+
+Despite these disheartening figures, the value of a bachelor's degree
+has never been higher. How do we explain this? This chapter will tell
+us.
+
+In a market economy like the United States, income comes from ownership
+of the means of production: resources or assets. More precisely, one's
+income is a function of two things: the quantity of each resource one
+owns, and the value society places on those resources. Recall from @sec-chapter-7,
+each factor of production has an associated factor payment. For the
+majority of us, the most important resource we own is our labor. Thus,
+most of our income is wages, salaries, commissions, tips and other types
+of labor income. Your labor income depends on how many hours you work
+and the wage rate an employer will pay you for those hours. At the same
+time, some people own real estate, which they can either use themselves
+or rent out to other users. Some people have financial assets like bank
+accounts, stocks and bonds, for which they earn interest, dividends or
+some other form of income.
+
+Each of these factor payments, like wages for labor and interest for
+financial capital, is determined in their respective factor markets. For
+the rest of this chapter, we will focus on labor markets, but other
+factor markets operate similarly. Later in Chapter 17 we will describe
+how this works for financial capital.
+
+
+### 14.1 The Theory of Labor Markets
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Describe the demand for labor in perfectly competitive output
+    markets
+-   Describe the demand for labor in imperfectly competitive output
+    markets
+-   Identify what determines the going market rate for labor
+
+#### Clear It Up {#clear-it-up .Heading3Grey}
+
+##### What is the labor market? {#what-is-the-labor-market .Heading4Grey}
+
+The labor market is the term that economists use for all the different
+markets for labor. There is no single labor market. Rather, there is a
+different market for every different type of labor. Labor differs by
+type of work (e.g. retail sales vs. scientist), skill level (entry level
+or more experienced), and location (the market for administrative
+assistants is probably more local or regional than the market for
+university presidents). While each labor market is different, they all
+tend to operate in similar ways. For example, when wages go up in one
+labor market, they tend to go up in others too. When economists talk
+about the labor market, they are describing these similarities.
+
+The labor market, like all markets, has a demand and a supply. Why do
+firms demand labor? Why is an employer willing to pay you for your
+labor? It's not because the employer likes you or is socially conscious.
+Rather, it's because your labor is worth something to the
+employer\--your work brings in revenues to the firm. How much is an
+employer willing to pay? That depends on the skills and experience you
+bring to the firm.
+
+If a firm wants to maximize profits, it will never pay more (in terms of
+wages and benefits) for a worker than the value of their marginal
+productivity to the firm. We call this the first rule of labor markets.
+
+Suppose a worker can produce two widgets per hour and the firm can sell
+each widget for \$4 each. Then the worker is generating \$8 per hour in
+revenues to the firm, and a profit-maximizing employer will pay the
+worker up to, but no more than, \$8 per hour, because that is what the
+worker is worth to the firm.
+
+Recall the definition of marginal product. Marginal product is the
+additional output a firm can produce by adding one more worker to the
+production process. Since employers often hire labor by the hour, we'll
+define marginal product as the additional output the firm produces by
+adding one more worker hour to the production process. In this chapter,
+we assume that workers in a particular labor market are
+homogeneous---they have the same background, experience and skills and
+they put in the same amount of effort. Thus, marginal product depends on
+the capital and technology with which workers have to work.
+
+A typist can type more pages per hour with an electric typewriter than a
+manual typewriter, and the typist can type even more pages per hour with
+a personal computer and word processing software. A ditch digger can dig
+more cubic feet of dirt in an hour with a backhoe than with a shovel.
+
+Thus, we can define the demand for labor as the marginal product of
+labor times the value of that output to the firm.
+
+| # Workers (L) | 1 | 2 | 3 | 4 |
+|---------------|---|---|---|---|
+| MPL           | 4 | 3 | 2 | 1 |
+
+: Marginal Product of Labor {#tbl-table_14_1}
+
+![](media/14-1-the-theory-of-labor-markets_rId24.jpeg){width="3.255in" height="2.405in" #fig-14_2}
+
+Figure 14.2 Marginal Product of Labor Because of fixed capital, the
+marginal product of labor declines as the employer hires additional
+workers.
+
+On what does the value of each worker's marginal product depend? If we
+assume that the employer sells its output in a perfectly competitive
+market, the value of each worker's output will be the market price of
+the product. Thus,
+
+Demand for Labor = MP~L~ x P = Value of the Marginal Product of Labor
+
+We show this in @tbl-table_14_2, which is an expanded version of
+@tbl-table_14_1
+
+| # Workers (L) | 1 | 2 | 3 | 4 |
+|---------------|---|---|---|---|
+| MPL           | 4 | 3 | 2 | 1 |
+| Price of Output | $4 | $4 | $4 | $4 |
+| VMPL          | $16 | $12 | $8 | $4 |
+
+: Value of the Marginal Product of Labor {#tbl-table_14_2}
+
+Note that the value of each additional worker is less than the value of
+the ones who came before.
+
+![](media/14-1-the-theory-of-labor-markets_rId27.jpeg){width="3.25in" height="2.455in" #fig-14_3}
+
+Figure 14.3 Value of the Marginal Product of Labor For firms operating
+in a competitive output market, the value of additional output sold is
+the price the firms receive for the output. Since MP~L~ declines with
+additional labor employed, while that marginal product is worth the
+market price, the value of the marginal product declines as employment
+increases.
+
+#### Demand for Labor in Perfectly Competitive Output Markets
+
+The question for any firm is how much labor to hire.
+
+We can define a Perfectly Competitive Labor Market as one where firms
+can hire all the labor they want at the going market wage. Think about
+secretaries in a large city. Employers who need secretaries can probably
+hire as many as they need if they pay the going wage rate.
+
+Graphically, this means that firms face a horizontal supply curve for
+labor, as Figure 14.3 shows.
+
+Given the market wage, profit maximizing firms hire workers up to the
+point where: W~mkt~ = VMP~L~
+
+![](media/14-1-the-theory-of-labor-markets_rId31.jpeg){width="3.255in" height="2.405in" #fig-14_4}
+
+Figure 14.4 Equilibrium Employment for Firms in a Competitive Labor
+Market In a perfectly competitive labor market, firms can hire all the
+labor they want at the going market wage. Therefore, they hire workers
+up to the point L~1~ where the going market wage equals the value of the
+marginal product of labor.
+
+#### Clear It Up {#clear-it-up-1 .Heading3Grey}
+
+##### Derived Demand {#derived-demand .Heading4Grey}
+
+Economists describe the demand for inputs like labor as a derived
+demand. Since the demand for labor is MPL\*P, it is dependent on the
+demand for the product the firm is producing. We show this by the P term
+in the demand for labor. An increase in demand for the firm's product
+drives up the product's price, which increases the firm's demand for
+labor. Thus, we derive the demand for labor from the demand for the
+firm's output.
+
+#### Demand for Labor in Imperfectly Competitive Output Markets
+
+If the employer does not sell its output in a perfectly competitive
+industry, they face a downward sloping demand curve for output, which
+means that in order to sell additional output the firm must lower its
+price. This is true if the firm is a monopoly, but it's also true if the
+firm is an oligopoly or monopolistically competitive. In this situation,
+the value of a worker's marginal product is the marginal revenue, not
+the price. Thus, the demand for labor is the marginal product times the
+marginal revenue.
+
+The Demand for Labor = MP~L~ x MR = Marginal Revenue Product
+
+| # Workers (L) | 1 | 2 | 3 | 4 |
+|---------------|---|---|---|---|
+| MPL           | 4 | 3 | 2 | 1 |
+| Marginal Revenue | $4 | $3 | $2 | $1 |
+| MRPL          | $16 | $9 | $4 | $1 |
+
+: Marginal Revenue Product {#tbl-table_14_3}
+
+![](media/14-1-the-theory-of-labor-markets_rId38.jpeg){width="3.25in" height="2.455in" #fig-14_5}
+
+Figure 14.5 Marginal Revenue Product For firms with some market power in
+their output market, the value of additional output sold is the firm's
+marginal revenue. Since MP~L~ declines with additional labor employed
+and since MR declines with additional output sold, the firm's marginal
+revenue declines as employment increases.
+
+Everything else remains the same as we described above in the discussion
+of the labor demand in perfectly competitive labor markets. Given the
+market wage, profit-maximizing firms will hire workers up to the point
+where the market wage equals the marginal revenue product, as [Figure
+14.6](#fig-14_6) shows.
+
+![](media/14-1-the-theory-of-labor-markets_rId41.jpeg){width="3.25in" height="2.405in" #fig-14_6}
+
+Figure 14.6 Equilibrium Level of Employment for Firms with Market Power
+For firms with market power in their output market, they choose the
+number of workers, L~2~, where the going market wage equals the firm's
+marginal revenue product. Note that since marginal revenue is less than
+price, the demand for labor for a firm which has market power in its
+output market is less than the demand for labor (L~1~) for a perfectly
+competitive firm. As a result, employment will be lower in an
+imperfectly competitive industry than in a perfectly competitive
+industry.
+
+#### Clear It Up {#clear-it-up-2 .Heading3Grey}
+
+##### Do Profit Maximizing Employers Exploit Labor? {#do-profit-maximizing-employers-exploit-labor .Heading4Grey}
+
+If you look back at [Figure 14.4](#fig-14_4), you will see that
+the firm pays only the last worker it hires what they're worth to the
+firm. Every other worker brings in more revenue than the firm pays them.
+This has sometimes led to the claim that employers exploit workers
+because they do not pay workers what they are worth. Let's think about
+this claim. The first worker is worth \$x to the firm, and the second
+worker is worth \$y, but why are they worth that much? It is because of
+the capital and technology with which they work. The difference between
+workers' worth and their compensation goes to pay for the capital and
+technology, without which the workers wouldn't have a job. The
+difference also goes to the employer's profit, without which the firm
+would close and workers wouldn't have a job. The firm may be earning
+excessive profits, but that is a different topic of discussion.
+
+#### What Determines the Going Market Wage Rate?
+
+In @sec-chapter-4,
+we learned that the labor market has demand and supply curves like other
+markets. The demand for labor curve is a downward sloping function of
+the wage rate. The market demand for labor is the horizontal sum of all
+firms' demands for labor. The supply of labor curve is an upward sloping
+function of the wage rate. This is because if wages for a particular
+type of labor increase in a particular labor market, people with
+appropriate skills may change jobs, and vacancies will attract people
+from outside the geographic area. The market supply of labor is the
+horizontal summation of all individuals' supplies of labor.
+
+![](media/14-1-the-theory-of-labor-markets_rId48.jpeg){width="3.25in" height="2.405in" #fig-14_7}
+
+Figure 14.7 The Market Wage Rate In a competitive labor market, the
+equilibrium wage and employment level are determined where the market
+demand for labor equals the market supply of labor.
+
+Like all equilibrium prices, the market wage rate is determined through
+the interaction of supply and demand in the labor market. Thus, we can
+see in [Figure 14.7](#fig-14_7) for competitive markets the wage
+rate and number of workers hired.
+
+The FRED database has a great deal of data on labor markets, starting at
+[the wage rate and number of workers
+hired](https://fred.stlouisfed.org/categories/10).
+
+The United States Census Bureau for the Bureau of Labor Statistics
+publishes *The Current Population Survey*, which is a monthly survey of
+households (you can find a link to it by going to the FRED database
+found in the previous link), which provides data on labor supply,
+including numerous measures of the labor force size (disaggregated by
+age, gender and educational attainment), labor force participation rates
+for different demographic groups, and employment. It also includes more
+than 3,500 measures of earnings by different demographic groups.
+
+*The Current Employment Statistics*, which is a survey of businesses,
+offers alternative estimates of employment across all sectors of the
+economy.
+
+The FRED database, found in the previous link, also has a link labeled
+\"Productivity and Costs\" has a wide range of data on productivity,
+labor costs, and profits across the business sector.
+
+
+### 14.2 Wages and Employment in an Imperfectly Competitive Labor Market
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Define monopsony power
+-   Explain how imperfectly competitive labor markets determine wages
+    and employment, where employers have market power
+
+In the chapters on market structure, we observed that while economists
+use the theory of perfect competition as an ideal case of market
+structure, there are very few examples of perfectly competitive
+industries in the real world. What about labor markets? How many labor
+markets are perfectly competitive? There are probably more examples of
+perfectly competitive labor markets than perfectly competitive product
+markets, but that doesn't mean that all labor markets are competitive.
+
+When a job applicant is bargaining with an employer for a position, the
+applicant is often at a disadvantage---needing the job more than the
+employer needs that particular applicant. John Bates Clark (1847--1938),
+often named as the first great American economist, wrote in 1907: "In
+the making of the wages contract the individual laborer is always at a
+disadvantage. He has something which he is obliged to sell and which his
+employer is not obliged to take, since he \[that is, the employer\] can
+reject single men with impunity."
+
+To give workers more power, the U.S. government has passed, in response
+to years of labor protests, a number of laws to create a more equal
+balance of power between workers and employers. These laws include some
+of the following:
+
+-   Setting minimum hourly wages
+-   Setting maximum hours of work (at least before employers pay
+    overtime rates)
+-   Prohibiting child labor
+-   Regulating health and safety conditions in the workplace
+-   Preventing discrimination on the basis of race, ethnicity, gender,
+    sexual orientation, and age
+-   Requiring employers to provide family leave
+-   Requiring employers to give advance notice of layoffs
+-   Covering workers with unemployment insurance
+-   Setting a limit on the number of immigrant workers from other
+    countries
+
+@tbl-table_14_4 lists some prominent U.S. workplace protection
+laws. Many of the laws listed in the table were only the start of labor
+market regulations in these areas and have been followed, over time, by
+other related laws, regulations, and court rulings.
+
+| Law                                                  | Protection                                                                                                                                                   |
+|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| National Labor-Management Relations Act of 1935      | Establishes procedures for establishing a union that firms are obligated to follow; sets up the National Labor Relations Board for deciding disputes          |
+| Social Security Act of 1935                           | Under Title III, establishes a state-run system of unemployment insurance, in which workers pay into a state fund when they are employed and received benefits for a time when they are unemployed                        |
+| Fair Labor Standards Act of 1938                      | Establishes the minimum wage, limits on child labor, and rules requiring payment of overtime pay for those in jobs that are paid by the hour and exceed 40 hours per week                                                |
+| Taft-Hartley Act of 1947                             | Allows states to decide whether all workers at a firm can be required to join a union as a condition of employment; in the case of a disruptive union strike, permits the president to declare a “cooling-off period” during which workers have to return to work           |
+| Civil Rights Act of 1964                              | Title VII of the Act prohibits discrimination in employment on the basis of race, gender, national origin, religion, or sexual orientation                                                                                 |
+| Occupational Health and Safety Act of 1970             | Creates the Occupational Safety and Health Administration (OSHA), which protects workers from physical harm in the workplace                                      |
+| Employee Retirement and Income Security Act of 1974   | Regulates employee pension rules and benefits                                                                                                                |
+| Pregnancy Discrimination Act of 1978                  | Prohibits discrimination against women in the workplace who are planning to get pregnant or who are returning to work after pregnancy                               |
+| Immigration Reform and Control Act of 1986             | Prohibits hiring of illegal immigrants; requires employers to ask for proof of citizenship; protects rights of legal immigrants                                    |
+| Worker Adjustment and Retraining Notification Act of 1988 | Requires employers with more than 100 employees to provide written notice 60 days before plant closings or large layoffs                                    |
+| Americans with Disabilities Act of 1990               | Prohibits discrimination against those with disabilities and requires reasonable accommodations for them on the job                                              |
+| Family and Medical Leave Act of 1993                  | Allows employees to take up to 12 weeks of unpaid leave per year for family reasons, including birth or family illness                                            |
+| Pension Protection Act of 2006                       | Penalizes firms for underfunding their pension plans and gives employees more information about their pension accounts                                          |
+| Lilly Ledbetter Fair Pay Act of 2009                  | Restores protection for pay discrimination claims on the basis of sex, race, national origin, age, religion, or disability                                       |
+
+: Prominent U.S. Workplace Protection Laws {#tbl-table_14_4}
+
+There are two sources of imperfect competition in labor markets. These
+are demand side sources, that is, labor market power by employers, and
+supply side sources: labor market power by employees. In this section we
+will discuss the former. In the next section we will discuss the latter.
+
+A competitive labor market is one where there are many potential
+employers for a given type of worker, say a secretary or an accountant.
+Suppose there is only one employer in a labor market. Because that
+employer has no direct competition in hiring, if they offer lower wages
+than would exist in a competitive market, employees will have few
+options. If they want a job, they must accept the offered wage rate.
+Since the employer is exploiting its market power, we call the firm a
+monopsony, a term introduced and widely discussed by Joan Robinson
+(though she credited scholar Bertrand Hallward with invention of the
+word). The classical example of monopsony is the sole coal company in a
+West Virginia town. If coal miners want to work, they must accept what
+the coal company is paying. This is not the only example of monopsony.
+Think about surgical nurses in a town with only one hospital. A
+situation in which employers have at least some market power over
+potential employees is not that unusual. After all, most firms have many
+employees while there is only one employer. Thus, even if there is some
+competition for workers, it may not feel that way to potential employees
+unless they do their research and find the opposite.
+
+How does market power by an employer affect labor market outcomes?
+Intuitively, one might think that wages will be lower than in a
+competitive labor market. Let's prove it. We will tell the story for a
+monopsonist, but the results will be qualitatively similar, although
+less extreme, for any firm with labor market power.
+
+Think back to monopoly. The good news for the firm is that because the
+monopolist is the sole supplier in the market, it can charge any price
+it wishes. The bad news is that if it wants to sell a greater quantity
+of output, it must lower the price it charges. Monopsony is analogous.
+Because the monopsonist is the sole employer in a labor market, it can
+offer any wage that it wishes. However, because they face the market
+supply curve for labor, if they want to hire more workers, they must
+raise the wage they pay. This creates a quandary, which we can
+understand by introducing a new concept: the marginal cost of labor. The
+marginal cost of labor is the cost to the firm of hiring one more
+worker. However, here is the thing: we assume that the firm is
+determining how many workers to hire in total. They are not hiring
+sequentially. Let's look how this plays out with the example in @tbl-table_14_5.
+
+| Supply of Labor        | 1                | 2                | 3                | 4                | 5                |
+|------------------------|------------------|------------------|------------------|------------------|------------------|
+| Wage Rate              | $1 per hour      | $2 per hour      | $3 per hour      | $4 per hour      | $5 per hour      |
+| Total Cost of Labor    | $1               | $4               | $9               | $16              | $25              |
+| Marginal Cost of Labor | $1               | $3               | $5               | $7               | $9               |
+
+: The Marginal Cost of Labor {#tbl-table_14_5}
+
+There are a couple of things to notice from the table. First, the
+marginal cost increases faster than the wage rate. In fact, for any
+number of workers more than one, the marginal cost of labor is greater
+than the wage. This is because to hire one more worker requires paying a
+higher wage rate, not just for the new worker but for all the previous
+hires also. We can see this graphically in Figure 14.7.
+
+![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId24.jpeg){width="3.255in" height="2.405in" #fig-14_8}
+
+Figure 14.8 The Marginal Cost of Labor Since monopsonies are the sole
+demander for labor, they face the market supply curve for labor. In
+order to increase employment they must raise the wage they pay not just
+for new workers, but for all the existing workers they could have hired
+at the previous lower wage. As a result, the marginal cost of hiring
+additional labor is greater than the wage, and thus for any level of
+employment (above the first worker), MC~L~ is above the Market Supply of
+Labor.
+
+![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId27.jpeg){width="3.255in" height="2.405in" #fig-14_9}
+
+Figure 14.9 Labor Market Outcomes Under Monopsony A monopsony will hire
+workers up to the point Lm where its demand for labor equals the
+marginal cost of additional labor, paying the wage Wm given by the
+supply curve of labor necessary to obtain Lm workers.
+
+If the firm wants to maximize profits, it will hire labor up to the
+point Lm where D~L~ = VMP (or MRP) = MC~L~, as [Figure
+14.9](#fig-14_9) shows. Then, the supply curve for labor shows
+the wage the firm will have to pay to attract Lm workers. Graphically,
+we can draw a vertical line up from Lm to the Supply Curve for the label
+and then read the wage Wm off the vertical axis to the left.
+
+How does this outcome compare to what would occur in a perfectly
+competitive market? A competitive market would operate where D~L~ =
+S~L~, hiring Lc workers and paying Wc wage. In other words, under
+monopsony employers hire fewer workers and pay a lower wage. While pure
+monopsony may be rare, many employers have some degree of market power
+in labor markets. The outcomes for those employers will be qualitatively
+similar though not as extreme as monopsony.
+
+![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId30.jpeg){width="3.25in" height="2.465in" #fig-14_10}
+
+Figure 14.10 Comparison of labor market outcomes: Monopsony vs. Perfect
+Competition A monopsony hires fewer workers (Lm) than would be hired in
+a competitive labor market (Lc). In exploiting its market power, the
+monopsony can also pay a lower wage (Wm) than workers would earn in a
+competitive labor market (Wc).
+
+
+### 14.3 Market Power on the Supply Side of Labor Markets: Unions
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Explain the concept of labor unions, including membership levels and
+    wages
+-   Evaluate arguments for and against labor unions
+-   Analyze reasons for the decline in U.S. union membership
+
+A labor union is an organization of workers that negotiates with
+employers over wages and working conditions. A labor union seeks to
+change the balance of power between employers and workers by requiring
+employers to deal with workers collectively, rather than as individuals.
+As such, a labor union operates like a monopoly in a labor market. We
+sometimes call negotiations between unions and firms collective
+bargaining.
+
+The subject of labor unions can be controversial. Supporters of labor
+unions view them as the workers' primary line of defense against efforts
+by profit-seeking firms to hold down wages and benefits. Critics of
+labor unions view them as having a tendency to grab as much as they can
+in the short term, even if it means injuring workers in the long run by
+driving firms into bankruptcy or by blocking the new technologies and
+production methods that lead to economic growth. We will start with some
+facts about union membership in the United States.
+
+#### Facts about Union Membership and Pay
+
+According to the U.S. Bureau of Labor and Statistics, about 10.3% of all
+U.S. workers belong to unions. This represents nearly a 50% reduction
+since 1983 (the earliest year for which comparable data are available),
+when union members were 20.1% of all workers. Following are some facts
+about unions for 2021 (note that we are using the population categories
+and group names utilized in the data collection and publication):
+
+-   10.6% of U.S. male workers belong to unions; 9.9% of female workers
+    do
+-   10.7% of White workers, 12.3% of Black workers, and 9.8 % of
+    Hispanic workers belong to unions
+-   11.8% of full-time workers and 5.7% of part-time workers are union
+    members
+-   4.4% of workers ages 16--24 belong to unions, as do 13.2% of workers
+    ages 45-54
+-   Occupations in which relatively high percentages of workers belong
+    to unions are the federal government (26.0% belong to a union),
+    state government (29.9%), local government (41.7%); transportation
+    and utilities (17.6%); natural resources, construction, and
+    maintenance (15.9%); and production, transportation, and material
+    moving (13.3%)
+-   Occupations that have relatively low percentages of unionized
+    workers are agricultural workers (1.7%), financial services (1.9%),
+    professional and business services (2.2%), leisure and hospitality
+    (2.2%), and wholesale and retail trade (4.5%)
+
+In summary, the percentage of workers belonging to a union is higher for
+men than women; higher for Black than for White or Hispanic people;
+higher for the 45--64 age range; and higher among workers in government
+and manufacturing than workers in agriculture or service-oriented jobs.
+@tbl-table_14_6 lists the largest U.S. labor unions and their
+membership.
+
+| Union                                                       | Membership   |
+|-------------------------------------------------------------|--------------|
+| National Education Association (NEA)                        | 3.0 million  |
+| Service Employees International Union (SEIU)                | 2.0 million  |
+| American Federation of Teachers (AFT)                       | 1.7 million  |
+| International Brotherhood of Teamsters (IBT)                | 1.4 million  |
+| The American Federation of State, County, and Municipal Workers (AFSCME) | 1.6 million  |
+| United Food and Commercial Workers International Union      | 1.3 million  |
+| International Brotherhood of Electrical Workers (IBEW)      | 775,000      |
+| United Steelworkers                                         | 625,000      |
+| International Association of Machinists and Aerospace Workers | 569,000      |
+| International Union, United Automobile, Aerospace and Agricultural Implement Workers of America (UAW) | 408,000      |
+
+: The Largest American Unions in 2021 (Source: U.S. Department
+of Labor and individual union websites) {#tbl-table_14_6}
+
+In terms of pay, benefits, and hiring, U.S. unions offer a good news/bad
+news story. The good news for unions and their members is that their
+members earn about 20% more than nonunion workers, even after adjusting
+for factors such as years of work experience and education level. The
+bad news for unions is that the share of U.S. workers who belong to a
+labor union has been steadily declining for 50 years, as [Figure
+14.11](#fig-14_11) shows. About one-quarter of all U.S. workers
+belonged to a union in the mid-1950s, but only 10.3% of U.S. workers are
+union members today. If you leave out government workers (which includes
+teachers in public schools), only 6.1% of the workers employed by
+private firms now work for a union.
+
+![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId23.jpeg){width="4.875in" height="2.455in" #fig-14_11}
+
+Figure 14.11 Percentage of Wage and Salary Workers Who Are Union Members
+The share of wage and salary workers who belong to unions rose sharply
+in the 1930s and 1940s, but has tailed off since then to 10.3% of all
+workers in 2021.
+
+The following section analyzes the higher pay union workers receive
+compared the pay rates for nonunion workers. The section after that
+analyzes declining union membership levels. An overview of these two
+issues will allow us to discuss many aspects of how unions work.
+
+##### Higher Wages for Union Workers
+
+How does a union affect wages and employment? Because a union is the
+sole supplier of labor, it can act like a monopoly and ask for whatever
+wage rate it can obtain for its workers. If employers need workers, they
+have to meet the union's wage demand.
+
+What are the limits on how much higher pay union workers can receive? To
+analyze these questions, let's consider a situation where all firms in
+an industry must negotiate with a single union, and no firm is allowed
+to hire nonunion labor. If no labor union existed in this market, then
+equilibrium (E) in the labor market would occur at the intersection of
+the demand for labor (D) and the supply of labor (S) as we see in
+[Figure 14.12](#fig-14_12). This is the same result as we showed
+in Figure 14.6 above. The union can, however, threaten that, unless
+firms agree to the wages they demand, the workers will strike. As a
+result, the labor union manages to achieve, through negotiations with
+the firms, a union wage of Wu for its members, above what the
+equilibrium wage would otherwise have been.
+
+![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId26.jpeg){width="3.25in" height="2.89in" #fig-14_12}
+
+Figure 14.12 Union Wage Negotiations Without a union, the equilibrium at
+E would have involved the wage We and the quantity of labor Qe. However,
+the union is able to use its bargaining power to raise the wage to Wu.
+The result is an excess supply of labor for union jobs. That is, a
+quantity of labor supplied, Qs is greater than firms' quantity demanded
+for labor, Qd.
+
+This labor market situation resembles what a monopoly firm does in
+selling a product, but in this case a union is a monopoly selling labor
+to firms. At the higher union wage Wu, the firms in this industry will
+hire less labor than they would have hired in equilibrium. Moreover, an
+excess supply of workers want union jobs, but firms will not be hiring
+for such jobs.
+
+From the union point of view, workers who receive higher wages are
+better off. However, notice that the quantity of workers (Qd) hired at
+the union wage Wu is smaller than the quantity Qe that the firm would
+have hired at the original equilibrium wage. A sensible union must
+recognize that when it pushes up the wage, it also reduces the firms'
+incentive to hire. This situation does not necessarily mean that union
+workers are fired. Instead, it may be that when union workers move on to
+other jobs or retire, they are not always replaced, or perhaps when a
+firm expands production, it expands employment somewhat less with a
+higher union wage than it would have done with the lower equilibrium
+wage. Other situations could be that a firm decides to purchase inputs
+from nonunion producers, rather than producing them with its own highly
+paid unionized workers, or perhaps the firm moves or opens a new
+facility in a state or country where unions are less powerful.
+
+From the firm's point of view, the key question is whether union
+workers' higher wages are matched by higher productivity. If so, then
+the firm can afford to pay the higher union wages and, the demand curve
+for "unionized" labor could actually shift to the right. This could
+reduce the job losses as the equilibrium employment level shifts to the
+right and the difference between the equilibrium and the union wages
+will have been reduced. If worker unionization does not increase
+productivity, then the higher union wage will cause lower profits or
+losses for the firm.
+
+Union workers might have higher productivity than nonunion workers for a
+number of reasons. First, higher wages may elicit higher productivity.
+Second, union workers tend to stay longer at a given job, a trend that
+reduces the employer's costs for training and hiring and results in
+workers with more years of experience. Many unions also offer job
+training and apprenticeship programs.
+
+In addition, firms that are confronted with union demands for higher
+wages may choose production methods that involve more physical capital
+and less labor, resulting in increased labor productivity. @tbl-table_14_7 provides an example. Assume that a firm can produce a
+home exercise cycle with three different combinations of labor and
+manufacturing equipment. Say that the firm pays labor \$16 an hour
+(including benefits) and the machines for manufacturing cost \$200 each.
+Under these circumstances, the total cost of producing a home exercise
+cycle will be lowest if the firm adopts the plan of 50 hours of labor
+and one machine, as the table shows. Now, suppose that a union
+negotiates a wage of \$20 an hour including benefits. In this case, it
+makes no difference to the firm whether it uses more hours of labor and
+fewer machines or less labor and more machines, although it might prefer
+to use more machines and to hire fewer union workers. (After all,
+machines never threaten to strike---but they do not buy the final
+product or service either.)
+
+In the final column of the table, the wage has risen to \$24 an hour. In
+this case, the firm clearly has an incentive for using the plan that
+involves paying for fewer hours of labor and using three machines. If
+management responds to union demands for higher wages by investing more
+in machinery, then union workers can be more productive because they are
+working with more or better physical capital equipment than the typical
+nonunion worker. However, the firm will need to hire fewer workers.
+
+| Hours of Labor | Number of Machines | Cost of Labor + Cost of Machine $16/hour | Cost of Labor + Cost of Machine $20/hour | Cost of Labor + Cost of Machine $24/hour |
+|----------------|---------------------|--------------------------------------------|--------------------------------------------|--------------------------------------------|
+| 30             | 3                   | $480 + $600 = $1,080                       | $600 + $600 = $1,200                       | $720 + $600 = $1,320                       |
+| 40             | 2                   | $640 + $400 = $1,040                       | $800 + $400 = $1,200                       | $960 + $400 = $1,360                       |
+| 50             | 1                   | $800 + $200 = $1,000                       | $1,000 + $200 = $1,200                     | $1,200 + $200 = $1,400                     |
+
+: Three Production Choices to Manufacture a Home Exercise Cycle {#tbl-table_14_7}
+
+In some cases, unions have discouraged the use of labor-saving physical
+capital equipment---out of the reasonable fear that new machinery will
+reduce the number of union jobs. For example, in 2015, the union
+representing longshoremen who unload ships and the firms that operate
+shipping companies and port facilities staged a work stoppage that shut
+down the ports on the western coast of the United States. Two key issues
+in the dispute were the desire of the shipping companies and port
+operators to use handheld scanners for record-keeping and
+computer-operated cabs for loading and unloading ships---changes which
+the union opposed, along with overtime pay. President Obama threatened
+to use the Labor Management Relations Act of 1947---commonly known as
+the Taft-Hartley Act---where a court can impose an 80-day "cooling-off
+period" in order to allow time for negotiations to proceed without the
+threat of a work stoppage. Federal mediators were called in, and the two
+sides agreed to a deal in February 2015. The ultimate agreement allowed
+the new technologies, but also kept wages, health, and pension benefits
+high for workers. In the past, presidential use of the Taft-Hartley Act
+sometimes has made labor negotiations more bitter and argumentative but,
+in this case, it seems to have smoothed the road to an agreement.
+
+In other instances, unions have proved quite willing to adopt new
+technologies. In one prominent example, during the 1950s and 1960s, the
+United Mineworkers union demanded that mining companies install
+labor-saving machinery in the mines. The mineworkers' union realized
+that over time, the new machines would reduce the number of jobs in the
+mines, but the union leaders also knew that the mine owners would have
+to pay higher wages if the workers became more productive, and
+mechanization was a necessary step toward greater productivity.
+
+In fact, in some cases union workers may be more willing to accept new
+technology than nonunion workers, because the union workers believe that
+the union will negotiate to protect their jobs and wages, whereas
+nonunion workers may be more concerned that the new technology will
+replace their jobs. In addition, union workers, who typically have
+higher job market experience and training, are likely to suffer less and
+benefit more than non-union workers from the introduction of new
+technology. Overall, it is hard to make a definitive case that union
+workers as a group are always either more or less welcoming to new
+technology than are nonunion workers
+
+##### The Decline in U.S. Union Membership
+
+The proportion of U.S. workers belonging to unions has declined
+dramatically since the early 1950s. Economists have offered a number of
+possible explanations:
+
+-   The shift from manufacturing to service industries
+-   The force of globalization and increased competition from foreign
+    producers
+-   A reduced desire for unions because of the workplace protection laws
+    now in place
+-   U.S. legal environment that makes it relatively more difficult for
+    unions to organize workers and expand their membership
+
+Let's discuss each of these four explanations in more detail.
+
+A first possible explanation for the decline in the share of U.S.
+workers belonging to unions involves the patterns of job growth in the
+manufacturing and service sectors of the economy as [Figure
+14.13](#fig-14_13) shows. The U.S. economy had about 15 million
+manufacturing jobs in 1960. This total rose to 19 million by the late
+1970s and then declined to 17 million in 2013. Meanwhile, the number of
+jobs in service industries (including government employment) rose from
+35 million in 1960 to over 118 million by 2013, according to the Bureau
+of Labor Statistics. Because over time unions were stronger in
+manufacturing than in service industries, the growth in jobs was not
+happening where the unions were. It is interesting to note that
+government workers comprise several of the biggest unions in the
+country, including the American Federation of State, County and
+Municipal Employees (AFSCME); the Service Employees International Union;
+and the National Education Association. @tbl-table_14_8 lists the
+membership of each of these unions. Outside of government employees,
+however, unions have not had great success in organizing the service
+sector.
+
+![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId35.jpeg){width="6.5in" height="3.855in" #fig-14_13}
+
+Figure 14.13 The Growth of Service Jobs Jobs in services have increased
+dramatically for more than the past 50 years. Jobs in government have
+increased modestly until 1990 and then declined slightly since then.
+Jobs in manufacturing peaked in the late 1970s and have declined more
+than a third since then.
+
+A second explanation for the decline in the share of unionized workers
+looks at import competition. Starting in the 1960s, U.S. carmakers and
+steelmakers faced increasing competition from Japanese and European
+manufacturers. As sales of imported cars and steel rose, the number of
+jobs in U.S. auto manufacturing fell. This industry is heavily
+unionized. Not surprisingly, membership in the United Auto Workers,
+which was 975,000 in 1985, had fallen to roughly 390,000 by 2015. Import
+competition not only decreases the employment in sectors where unions
+were once strong, but also decreases the bargaining power of unions in
+those sectors. However, as we have seen, unions that organize
+public-sector workers, who are not threatened by import competition,
+have continued to see growth.
+
+A third possible reason for the decline in the number of union workers
+is that citizens often call on their elected representatives to pass
+laws concerning work conditions, overtime, parental leave, regulation of
+pensions, and other issues. Unions offered strong political support for
+these laws aimed at protecting workers but, in an ironic twist, the
+passage of those laws then made many workers feel less need for unions.
+
+These first three possible reasons for the decline of unions are all
+somewhat plausible, but they have a common problem. Most other developed
+economies have experienced similar economic and political trends, such
+as the shift from manufacturing to services, globalization, and
+increasing government social benefits and regulation of the workplace.
+Clearly there are cultural differences between countries as to their
+acceptance of unions in the workplace. The share of the population
+belonging to unions in other countries is very high compared with the
+share in the United States. @tbl-table_14_8 shows the proportion
+of workers in a number of the world's high-income economies who belong
+to unions. The United States is near the bottom, along with France and
+Spain. The last column shows union coverage, defined as including those
+workers whose wages are determined by a union negotiation even if the
+workers do not officially belong to the union. In the United States,
+union membership is almost identical to union coverage. However, in many
+countries, the wages of many workers who do not officially belong to a
+union are still determined by collective bargaining between unions and
+firms.
+
+| Country        | Union Density: Percentage of Workers Belonging to a Union | Union Coverage: Percentage of Workers Whose Wages Are Determined by Union Bargaining |
+|----------------|------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Austria        | 37%                                                        | 99%                                                                                      |
+| France         | 9%                                                         | 95%                                                                                      |
+| Germany        | 26%                                                        | 63%                                                                                      |
+| Japan          | 22%                                                        | 23%                                                                                      |
+| Netherlands    | 25%                                                        | 82%                                                                                      |
+| Spain          | 11.3%                                                      | 81%                                                                                      |
+| Sweden         | 82%                                                        | 92%                                                                                      |
+| United Kingdom  | 29%                                                        | 35%                                                                                      |
+| United States   | 11.1%                                                      | 12.5%                                                                                    |
+
+: International Comparisons of Union Membership and Coverage in
+2012 (Source, CIA World Factbook, retrieved from www.cia.gov) {#tbl-table_14_8}
+
+These international differences in union membership suggest a fourth
+reason for the decline of union membership in the United States: perhaps
+U.S. laws are less friendly to the formation of unions than such laws in
+other countries. The close connection between union membership and a
+friendly legal environment is apparent in the history of U.S. unions.
+The great rise in union membership in the 1930s followed the passage of
+the National Labor Relations Act of 1935, which specified that workers
+had a right to organize unions and that management had to give them a
+fair chance to do so. The U.S. government strongly encouraged forming
+unions during the early 1940s in the belief that unions would help to
+coordinate the all-out production efforts needed during World War II.
+However, after World War II came the passage of the Taft-Hartley Act of
+1947, which gave states the power to allow workers to opt out of the
+union in their workplace if they so desired. This law made the legal
+climate less encouraging to those seeking to form unions, and union
+membership levels soon started declining.
+
+The procedures for forming a union differ substantially from country to
+country. For example, the procedures in the United States and those in
+Canada are strikingly different. When a group of workers wishes to form
+a union in the United States, they announce this fact and set an
+election date when the firm\'s employees will vote in a secret ballot on
+whether to form a union. Supporters of the union lobby for a "yes" vote,
+and the firm\'s management lobbies for a "no" vote---often even hiring
+outside consultants for assistance in swaying workers to vote "no." In
+Canada, by contrast, a union is formed when a sufficient proportion of
+workers (usually about 60%) signs an official card saying that they want
+a union. There is no separate "election date." The management of
+Canadian firms is limited by law in its ability to lobby against the
+union. In addition, although it is illegal to discriminate and fire
+workers based on their union activity in the United States, the
+penalties are slight, making this a not so costly way of deterring union
+activity. In short, forming unions is easier in Canada---and in many
+other countries---than in the United States.
+
+In summary, union membership in the United States is lower than in many
+other high-income countries, a difference that may be due to different
+legal environments and cultural attitudes toward unions.
+
+#### Link It Up {#link-it-up .Heading3Grey}
+
+Visit this [website](https://www.theguardian.com/money/2021/jan/15/us-fast-food-workers-plan-strike-15-an-hour-minimum-wage) to read more
+about recent protests regarding minimum wage for fast food employees.
+
+
+### 14.4 Bilateral Monopoly
+
+#### Learning Objectives
+
+By the end of this section, you will be able to explain:
+
+-   How firms determine wages and employment when a specific labor
+    market combines a union and a monopsony
+
+What happens when there is market power on both sides of the labor
+market, in other words, when a union meets a monopsony? Economists call
+such a situation a bilateral monopoly.
+
+![](media/14-4-bilateral-monopoly_rId23.jpeg){width="3.25in" height="2.405in" #fig-14_14}
+
+Figure 14.14 Bilateral Monopoly Employment, L\*, will be lower in a
+bilateral monopoly than in a competitive labor market, but the
+equilibrium wage is indeterminate, somewhere in the range between Wu,
+what the union would choose, and Wm, what the monopsony would choose.
+
+[Figure 14.14](#fig-14_14) is a combination of Figure 14.6 and Figure
+14.11. A monopsony wants to reduce wages as well as employment, Wm and
+L\* in the figure. A union wants to increase wages, but at the cost of
+lower employment, Wu and L\* in the figure. Since both sides want to
+reduce employment, we can be sure that the outcome will be lower
+employment compared to a competitive labor market. What happens to the
+wage, though, is based on the monopsonist's relative bargaining power
+compared to the bargaining power of the union. The actual outcome is
+indeterminate in the graph, but it will be closer to Wu if the union has
+more power and closer to Wm if the monopsonist has more power.
+
+
+### 14.5 Employment Discrimination
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Analyze earnings gaps based on race and gender
+-   Explain the impact of discrimination in a competitive market
+-   Identify U.S. public policies designed to reduce discrimination
+
+Barriers to equitable participation in the labor market drive down
+economic growth. When certain populations are underrepresented,
+underpaid, or mistreated in a labor market or industry, the negative
+outcomes can effect the larger economy. For example, many science and
+technology fields were either unwelcoming or overtly unaccepting of
+women and people of color. Some major contributors to these fields
+overcame these challenges. Mexican-American scientist Lydia
+Villa-Komaroff, for example, faced overt discrimination when her college
+advisor told her not to pursue chemistry because women didn\'t
+\"belong\" in chemistry. She pursued biology instead; she developed the
+first instance of synthetic insulin (the chemical that people with
+diabetes need in order to survive) through a process that has saved
+million of lives and is credited with launching the entire industry of
+biotechnology---one of the most important in the U.S. economy. But for
+every Villa-Komaroff, there have been thousands of women who were
+prevented from making those contributions. Beyond the personal impact on
+those people, consider the impact on those scientific fields, our
+overall quality of life, and the economy itself. Economist Lisa D. Cook
+has quantified the costs of these innovation losses. She estimates that
+GDP could be as much as 4.4% higher if women and people from minority
+populations were fully able to participate in the science and technology
+innovation process.
+
+Discrimination involves acting on the belief that members of a certain
+group are inferior or deserve less solely because of a factor such as
+race, gender, or religion. There are many types of discrimination but
+the focus here will be on discrimination in labor markets, which arises
+if workers with the same skill levels---as measured by education,
+experience, and expertise---receive different pay or have different job
+opportunities because of their race or gender. Much of the data
+collected and published on these topics are limited in terms of the
+diversity of people represented, and focus particularly on binary
+gender, single-race, and single-ethnicity identities. While these
+characterizations do not capture the diversity of Americans, the
+findings are important in order to understand discrimination and other
+practices, and to consider the impacts of policies and changes. Also,
+while sex and gender are different, many data sets, laws, court
+decisions, and media accounts use the terms interchangeably. For
+consistency, we will use the terminology found in the source material
+and government data.
+
+#### Earnings Gaps by Race and Gender
+
+A possible signal of labor market discrimination is when an employer
+pays one group less than another. [Figure 14.15](#fig-14_15)
+shows the average wage of Black workers as a ratio of the average wage
+of White workers and the average wage of female workers as a ratio of
+the average wage of male workers. Research by the economists Francine
+Blau and Laurence Kahn shows that the gap between the earnings of women
+and men did not move much in the 1970s, but has declined since the
+1980s. Detailed analysis by economists Kerwin Kofi Charles and Patrick
+Bayer show that the gap between the earnings of Black and White people
+diminished in the 1970s, but grew again so that current differences are
+as wide as they were nearly 70 years ago. In both gender and race, an
+earnings gap remains.
+
+![](media/14-5-employment-discrimination_rId25.jpeg){width="4.88in" height="2.655in" #fig-14_15}
+
+Figure 14.15 Wage Ratios by Sex and Race The ratio of wages for Black
+workers to White workers rose substantially in the late 1960s and
+through the 1970s. The 1990s saw a peak above 80% followed by a bumpy
+decline to the low 70s. The ratio of wages for female to male workers
+changed little through the 1970s. In both cases, a gap remains between
+the average wages of Black and White workers and between the average
+wages of female and male workers. Source: U.S. Department of Labor,
+Bureau of Labor Statistics.
+
+An earnings gap between average wages, in and of itself, does not prove
+that discrimination is occurring in the labor market. We need to apply
+the same productivity characteristics to all parties (employees)
+involved. Gender discrimination in the labor market occurs when
+employers pay people of a specific gender less despite those people
+having comparable levels of education, experience, and expertise. (Read
+the Clear It Up about the sex-discrimination suit brought against
+Walmart.) Similarly, racial discrimination in the labor market exists
+when employers pay racially diverse employees less than their coworkers
+of the majority race despite having comparable levels of education,
+experience, and expertise. To bring a successful gender discrimination
+lawsuit, an employee must prove the employer is paying them less than an
+employee of a different gender who holds a similar job, with similar
+educational attainment, and with similar expertise. Likewise, someone
+who wants to sue on the grounds of racial discrimination must prove that
+the employer pays them less than an employee of another race who holds a
+similar job, with similar educational attainment, and with similar
+expertise.
+
+The FRED database includes earnings data at [earnings by age, gender and
+race/ethnicity](https://fred.stlouisfed.org/categories/33501).
+
+As stated previously and as we will see below, not every instance of a
+wage gap or employment inequity is a product of overt discrimination on
+the part of individual employers. Significant overall issues in
+societies, such as inequitable education or housing segregation, can
+lead to earning gaps and limitations on economic mobility. However,
+these wider issues usually affect people from minority populations
+and/or those who have been historically underrepresented in positions of
+power. Economist William A. Darity Jr., whose work is discussed in more
+detail below, indicates that individualized employer racism still
+exists, but it is largely practiced in \"covert and subtle forms.\"
+
+#### Clear It Up {#clear-it-up .Heading3Grey}
+
+##### What was the sex-discrimination case against Walmart? {#what-was-the-sex-discrimination-case-against-walmart .Heading4Grey}
+
+In one of the largest class-action sex-discrimination cases in U.S.
+history, 1.2 million female employees of Walmart claimed that the
+company engaged in wage and promotion discrimination. In 2011, the
+Supreme Court threw out the case on the grounds that the group was too
+large and too diverse to consider the case a class action suit. Lawyers
+for the women regrouped and were subsequently suing in smaller groups.
+Part of the difficulty for the female employees is that the court said
+that local managers made pay and promotion decisions that were not
+necessarily the company\'s policies as a whole. Consequently, female
+Walmart employees in Texas argued that their new suit would challenge
+the management of a "discrete group of regional district and store
+managers." They claimed that these managers made biased pay and
+promotion decisions. However, in 2013, a federal district court rejected
+a smaller California class action suit against the company.
+
+On other issues, Walmart made the news again in 2013 when the National
+Labor Relations Board found Walmart guilty of illegally penalizing and
+firing workers who took part in labor protests and strikes. Walmart paid
+\$11.7 million in back wages and compensation damages to women in
+Kentucky who were denied jobs due to their sex. And in 2020, a sex-based
+hiring discrimination lawsuit was filed by the U.S. Equal Employ­ment
+Opportunity Commission (EEOC), in which the EEOC alleged that Walmart
+conducted a physical ability test (known as the PAT) as a requirement
+for applicants to be hired as order fillers at Walmart's grocery
+distribution centers nationwide, and that the PAT disproportionately
+excluded female applicants from jobs as grocery order fillers. In
+September 2020, Walmart and the EEOC agreed to a consent decree, which
+requires Walmart to cease all physical ability testing that had been
+used for purposes of hiring grocery distribution center order fillers.
+The decree also required Walmart to pay \$20 million into a settlement
+fund to pay lost wages to women across the country who were denied
+grocery order filler positions because of the testing.
+
+#### Investigating the Female/Male Earnings Gap
+
+As a result of changes in law and culture, women began to enter the paid
+workforce in substantial numbers in the mid- to late-twentieth century.
+As of February 2022, 56.0% of women aged 20 and over held jobs, while
+67.6% of men aged 20 and over did. Moreover, along with entering the
+workforce, women began to ratchet up their education levels. In 1971,
+44% of undergraduate college degrees went to women. As of the 2018--19
+academic year, women earned 57% of bachelor's degrees. In 1970, women
+received 5.4% of the degrees from law schools and 8.4% of the degrees
+from medical schools. By 2017, women were receiving just over 50% of the
+law degrees, and by 2019, 48% of the medical degrees. There are now
+slightly more women than men in both law schools and medical schools.
+These gains in education and experience have reduced the female/male
+wage gap over time. However, concerns remain about the extent to which
+women have not yet assumed a substantial share of the positions at the
+top of the largest companies or in the U.S. Congress.
+
+There are factors that can lower women's average wages. Women are likely
+to bear a disproportionately large share of household responsibilities.
+A mother of young children is more likely to drop out of the labor force
+for several years or work on a reduced schedule than is the father. As a
+result, women in their 30s and 40s are likely, on average, to have less
+job experience than men. In the United States, childless women with the
+same education and experience levels as men are typically paid
+comparably. However, women with families and children are typically paid
+about 7% to 14% less than other women of similar education and work
+experience. Meanwhile, married men earn about 10% to 15% more than
+single men with comparable education and work experience. This
+circumstance or practice is often referred to as the \"motherhood
+penalty\" and the \"fatherhood bonus.\"
+
+Another aspect of the gender pay gap relates to work that isn't actually
+paid, such as household chores, caring for children and other family
+members, and cooking. Studies have found that globally and within the
+United States, women undertake far more of this work than do men; even
+women who work full time and/or bring in the majority of family income
+take on more of this unpaid work than the men in their households.
+
+Economists study many aspects of sex- and gender-based earnings gaps,
+often revealing unexpected causes and impacts. For example, economists
+Jessica Pan, Jonathan Guryan, and Kerwin Kofi Charles analyzed decades
+of sociological and employment data and uncovered that the amount of
+sexism in the U.S. state where a woman was born is an indicator of the
+woman\'s earnings throughout her life, even if she moves away from her
+home state. In other words, women born in states with more pronounced
+sexist attitudes earn less, no matter where they live later on. Other
+economists showed that from 1950--2000, as women\'s representation
+increased in the workforce, jobs that became occupied by women
+experienced wage reductions relative to jobs being done by men---an
+outcome often referred to as \"devaluation.\" The value of this research
+and similar investigations comes from the deeper understanding of the
+origins of the earnings gap, so that workers, employers, and governments
+can take steps to address them.
+
+#### Link It Up {#link-it-up .Heading3Grey}
+
+Visit this [website](https://www.representwomen.org/2022_gender_parity_index#us_overview) to read more
+about the persistently low numbers of women in executive roles in
+business and in the U.S. Congress.
+
+#### Investigating the Earnings Gap Related to Race and Ethnicity
+
+Black people experienced blatant labor market discrimination during much
+of the twentieth century. Until the passage of the Civil Rights Act of
+1964, it was legal in many states to refuse to hire a Black worker,
+regardless of the credentials or experience of that worker. Moreover,
+Black people were often denied access to educational opportunities,
+which in turn meant that they had lower levels of qualifications for
+many jobs. At least one economic study has shown that the 1964 law is
+partially responsible for the narrowing of the gap in Black--White
+earnings in the late 1960s and into the 1970s. For example, the ratio of
+total earnings of Black male workers to White male workers rose from 62%
+in 1964 to 75.3% in 2013, according to the Bureau of Labor Statistics.
+
+However, the earnings gap between Black and White workers has not
+changed as much as the earnings gap between men and women has in the
+last half century. The remaining racial gap seems related both to
+continuing differences in education levels and to the presence of
+discrimination. @tbl-table_14_9 shows that the percentage of
+Black people who complete a four-year college degree remains
+substantially lower than the percentage of White people who complete
+college. According to the U.S. Census, both White and Black people have
+higher levels of educational attainment than Hispanic people and lower
+levels than Asian people. The lower average levels of education for
+Black workers surely explain part of the earnings gap. In fact, Black
+women who have the same levels of education and experience as White
+women receive, on average, about the same level of pay. One study shows
+that White and Black college graduates have identical salaries
+immediately after college; however, the racial wage gap widens over
+time, an outcome that suggests the possibility of continuing
+discrimination. Other researchers conducted a field experiment by
+responding to job advertisements with fictitious resumes using names
+that were either commonly associated with Black/African American people
+or names commonly associated with White people; they found that the
+White-associated names received 50 percent more callbacks for
+interviews. This is suggestive of discrimination in job opportunities.
+Further, as the following Clear It Up feature explains, there is
+evidence to support that discrimination in the housing market is
+connected to employment discrimination.
+
+|                                 | White | Hispanic | Black | Asian |
+|---------------------------------|-------|----------|-------|-------|
+| Completed four years of high school or more | 93.8% | 73.0%    | 87.2% | 91.0% |
+| Completed four years of college or more     | 37.6% | 16.8%    | 23.7% | 54.7% |
+
+: Educational Attainment by Race and Ethnicity for Individuals
+Aged 18 and Above in 2019 (Source:
+<https://www.census.gov/content/census/en/data/tables/2019/demo/educational-attainment/cps-detailed-tables.html>) {#tbl-table_14_9}
+
+#### Clear It Up {#clear-it-up-1 .Heading3Grey}
+
+##### How is discrimination in the housing market connected to employment discrimination? {#how-is-discrimination-in-the-housing-market-connected-to-employment-discrimination .Heading4Grey}
+
+A recent study by the Housing and Urban Development (HUD) department
+found that realtors showed Black homebuyers 18 percent fewer homes
+compared to White homebuyers. Realtors showed Asian homebuyers 19
+percent fewer properties. Additionally, Hispanic people experience more
+discrimination in renting apartments and undergo stiffer credit checks
+than White renters. In a 2012 study by the U.S. Department of Housing
+and Urban Development and the nonprofit Urban Institute, Hispanic
+testers who contacted agents about advertised rental units received
+information about 12 percent fewer units available and were shown seven
+percent fewer units than White renters. The \$9 million study, based on
+research in 28 metropolitan areas, concluded that blatant "door
+slamming" forms of discrimination are on the decline but that the
+discrimination that does exist is harder to detect, and as a result,
+more difficult to remedy. According to the *Chicago Tribune*, HUD
+Secretary Shaun Donovan, who served in his role from 2009-2014, told
+reporters, "Just because it's taken on a hidden form doesn't make it any
+less harmful. You might not be able to move into that community with the
+good schools."
+
+These practices are viewed as a continuation of redlining, which is the
+intentional and discriminatory withholding of services or products based
+on race or other factors. Redlining was practiced extensively by banks
+and other lenders who refused to issue mortgages or other loans to
+people from racial or ethnic minorities living in neighborhoods that
+were deemed \"hazardous\" to investment, even though the same lenders
+would issue loans to White people with similar economic status.
+Redlining has lasting effects today, demonstrated by significant divides
+in educational and financial opportunity in certain neighborhoods or
+cities.
+
+The lower levels of education for Black workers can also be a result of
+discrimination---although it may be pre-labor market discrimination,
+rather than direct discrimination by employers in the labor market. For
+example, if redlining and other discrimination in housing markets causes
+Black families to live clustered together in certain neighborhoods and
+those areas have under-resourced schools, then those children will
+continue to have lower educational attainment then their White
+counterparts and, consequently, not be able to obtain the higher paying
+jobs that require higher levels of education. Another element to
+consider is that in the past, when Black people were effectively barred
+from many high-paying jobs, obtaining additional education could have
+seemed not to be worth the investment, because the educational degrees
+would not pay off. While the government has legally abolished
+discriminatory labor practices, structures and systems take a very long
+time to eradicate.
+
+#### Competitive Markets and Discrimination
+
+Gary Becker (1930--2014), who won the Nobel Prize in economics in 1992,
+was one of the first to analyze discrimination in economic terms. Becker
+pointed out that while competitive markets can allow some employers to
+practice discrimination, it can also provide profit-seeking firms with
+incentives not to discriminate. Given these incentives, Becker explored
+the question of why discrimination persists.
+
+If a business is located in an area with a large minority population and
+refuses to sell to minorities, it will cut into its own profits. If some
+businesses run by bigoted employers refuse to pay women and/or
+minorities a wage based on their productivity, then other profit-seeking
+employers can hire these workers. In a competitive market, if the
+business owners care more about the color of money than about the color
+of skin, they will have an incentive to make buying, selling, hiring,
+and promotion decisions strictly based on economic factors.
+
+Do not underestimate the power of markets to offer at least a degree of
+freedom to oppressed groups. In many countries, cohesive minority
+population groups like Jewish people and emigrant Chinese people have
+managed to carve out a space for themselves through their economic
+activities, despite legal and social discrimination against them. Many
+immigrants, including those who come to the United States, have taken
+advantage of economic freedom to make new lives for themselves. However,
+history teaches that market forces alone are unlikely to eliminate
+discrimination. After all, discrimination against African Americans
+persisted in the market-oriented U.S. economy during the century between
+the ratification of the 13th Amendment, which abolished slavery in 1865,
+and the passage of the Civil Rights Act of 1964---and has continued
+since then, too.
+
+Why does discrimination persist in competitive markets? Gary Becker
+sought to explain this persistence. Discriminatory impulses can emerge
+at a number of levels: among managers, among workers, and among
+customers. Consider the situation of a store owner or manager who is not
+personally prejudiced, but who has many customers who are prejudiced. If
+that manager treats all groups fairly, the manager may find it drives
+away prejudiced customers. In such a situation, a policy of
+nondiscrimination could reduce the firm's profits. After all, a business
+firm is part of society, and a firm that does not follow the societal
+norms is likely to suffer.
+
+As economist William A. Darity Jr. points out, however, the \"prejudiced
+customer\" rationale falls apart when considering the many jobs that
+have no customer contact. Darity examined several theories regarding the
+persistence of employment discrimination, including rationales regarding
+group membership and employers\' lack of information about candidates of
+other genders or races. Darity also directly studies and interprets
+others\' work on discrimination in other countries, such as wage
+disparities between Sikh and Hindu men in India. Darity concludes that
+the competitive forces of the market have not been enough to overcome
+employment and wage discrimination, and, on their own, are unlikely to
+end such discrimination in the future.
+
+#### Link It Up {#link-it-up-1 .Heading3Grey}
+
+Read this [article](https://www.cnbc.com/2020/09/18/new-census-data-reveals-no-progress-has-been-made-closing-the-gender-pay-gap.html) to learn more
+about wage discrimination.
+
+#### Public Policies to Reduce Discrimination
+
+A first public policy step against discrimination in the labor market is
+to make it illegal. For example, the Equal Pay Act of 1963 said that
+employers must pay men and women who do equal work the same. The Civil
+Rights Act of 1964 prohibits employment discrimination based on race,
+color, religion, sex, or national origin. The Age Discrimination in
+Employment Act of 1967 prohibited discrimination on the basis of age
+against individuals who are 40 years of age or older. The Civil Rights
+Act of 1991 provides monetary damages in cases of intentional employment
+discrimination. The Pregnancy Discrimination Act of 1978 was aimed at
+prohibiting discrimination against people in the workplace who are
+planning pregnancy, are pregnant, or are returning after pregnancy.
+Passing a law, however, is only part of the answer, since discrimination
+by prejudiced employers may be less important than broader social
+patterns and systems.
+
+The 1964 Civil Rights Act created an important government organization,
+the Equal Employment Opportunity Commission, to investigate employment
+discrimination and protect workers who filed complaints against
+employers. Economist Phyllis Ann Wallace, who had previously worked for
+U.S. intelligence services, was appointed as the commission\'s chief of
+technical studies. In this role she collected and organized a massive
+amount of public and private sector data, as well as mentored and
+directed economists and other analysts in their investigations.
+
+These laws against discrimination have reduced the gender wage gap. A
+2007 Department of Labor study compared salaries of men and women who
+have similar educational achievement, work experience, and occupation
+and found that the gender wage gap is only 5%.
+
+In the case of the earnings gap between Black people and White people
+(and also between Hispanic people and White people), probably the single
+largest step that could be taken at this point in U.S. history to close
+the earnings gap would be to reduce the gap in educational attainment.
+Part of the answer to this issue involves finding ways to improve the
+performance of schools, which is a highly controversial topic in itself.
+In addition, the education gap is unlikely to close unless Black and
+Hispanic families and peer groups strengthen their culture of support
+for educational attainment.
+
+Affirmative action is the name given to active efforts by government or
+businesses that give special rights to minorities in hiring and
+promotion to make up for past discrimination. Affirmative action, in its
+limited and not especially controversial form, means making an effort to
+reach out to a broader range of minority candidates for jobs. In its
+more aggressive and controversial form, affirmative action required
+government and companies to hire a specific number or percentage of
+minority employees. However, the U.S. Supreme Court has ruled against
+state affirmative action laws. Today, the government applies affirmative
+action policies only to federal contractors who have lost a
+discrimination lawsuit. The federal Equal Employment Opportunity
+Commission (EEOC) enforces this type of redress.
+
+#### An Increasingly Diverse Workforce
+
+Racial and ethnic diversity is on the rise in the U.S. population and
+workforce. As [Figure 14.16](#fig-14_16) shows, while the White
+Americans comprised 78% of the population in 2012, the U.S. Bureau of
+the Census projects that Whites will comprise 69% of the U.S. population
+by 2060. Forecasters predict that the proportion of U.S. citizens who
+are of Hispanic background to rise substantially. Moreover, in addition
+to expected changes in the population, workforce diversity is increasing
+as the women who entered the workforce in the 1970s and 1980s are now
+moving up the promotion ladders within their organizations.
+
+![](media/14-5-employment-discrimination_rId54.jpeg){width="4.88in" height="2.68in" #fig-14_16}
+
+Figure 14.16 Projected Changes in America's Racial and Ethnic Diversity
+This figure shows projected changes in the ethnic makeup of the U.S.
+population by 2060. Note that "NHPI" stands for Native Hawaiian and
+Other Pacific Islander. "AIAN" stands for American Indian and Alaska
+Native. Source: US Department of Commerce
+
+Regarding the future, optimists argue that the growing proportions of
+minority workers will break down remaining discriminatory barriers. The
+economy will benefit as an increasing proportion of workers from
+traditionally disadvantaged groups have a greater opportunity to fulfill
+their potential. Pessimists worry that the social tensions between
+different genders and between ethnic groups will rise and that workers
+will be less productive as a result. Anti-discrimination policy, at its
+best, seeks to help society move toward the more optimistic outcome.
+
+The FRED database includes data on foreign and native born civilian [population](https://fred.stlouisfed.org/categories/104) and [labor
+force](https://fred.stlouisfed.org/categories/32442).
+
+
+### 14.6 Immigration
+
+Most Americans would be outraged if a law prevented them from moving to
+another city or another state. However, when the conversation turns to
+crossing national borders and is about other people arriving in the
+United States, laws preventing such movement often seem more reasonable.
+Some of the tensions over immigration stem from worries over how it
+might affect a country's culture, including differences in language, and
+patterns of family, authority, or gender relationships. Economics does
+not have much to say about such cultural issues. Some of the worries
+about immigration do, however, have to do with its effects on wages and
+income levels, and how it affects government taxes and spending. On
+those topics, economists have insights and research to offer.
+
+#### Historical Patterns of Immigration
+
+Supporters and opponents of immigration look at the same data and see
+different patterns. Those who express concern about immigration levels
+to the United States point to graphics like [Figure
+14.17](#fig-14_17) which shows total inflows of immigrants decade
+by decade through the twentieth and into the twenty-first century.
+Clearly, the level of immigration has been high and rising in recent
+years, reaching and exceeding the towering levels of the early twentieth
+century. However, those who are less worried about immigration point out
+that the high immigration levels of the early twentieth century happened
+when total population was much lower. Since the U.S. population roughly
+tripled during the twentieth century, the seemingly high levels in
+immigration in the 1990s and 2000s look relatively smaller when they are
+divided by the population.
+
+![](media/14-6-immigration_rId21.jpeg){width="5.3in" height="2.41in" #fig-14_17}
+
+Figure 14.17 Immigration Since 1900 The number of immigrants in each
+decade declined between 1900 and the 1940s, rose sharply through 2009
+and started to decline from 2010 to the present. (Source: U.S. Census)
+
+From where have the immigrants come? Immigrants from Europe were more
+than 90% of the total in the first decade of the twentieth century, but
+less than 20% of the total by the end of the century. By the 2000s,
+about half of U.S. immigration came from the rest of the Americas,
+especially Mexico, and about a quarter came from various countries in
+Asia.
+
+#### Economic Effects of Immigration
+
+A surge of immigration can affect the economy in a number of different
+ways. In this section, we will consider how immigrants might benefit the
+rest of the economy, how they might affect wage levels, and how they
+might affect government spending at the federal and local level.
+
+To understand the economic consequences of immigration, consider the
+following scenario. Imagine that the immigrants entering the United
+States matched the existing U.S. population in age range, education,
+skill levels, family size, and occupations. How would immigration of
+this type affect the rest of the U.S. economy? Immigrants themselves
+would be much better off, because their standard of living would be
+higher in the United States. Immigrants would contribute to both
+increased production and increased consumption. Given enough time for
+adjustment, the range of jobs performed, income earned, taxes paid, and
+public services needed would not be much affected by this kind of
+immigration. It would be as if the population simply increased a little.
+
+Now, consider the reality of recent immigration to the United States.
+Immigrants are not identical to the rest of the U.S. population. About
+one-third of immigrants over the age of 25 lack a high school diploma.
+As a result, many of the recent immigrants end up in jobs like
+restaurant and hotel work, lawn care, and janitorial work. This kind of
+immigration represents a shift to the right in the supply of unskilled
+labor for a number of jobs, which will lead to lower wages for these
+jobs. The middle- and upper-income households that purchase the services
+of these unskilled workers will benefit from these lower wages. However,
+low-skilled U.S. workers who must compete with low-skilled immigrants
+for jobs will tend to be negatively impacted by immigration.
+
+The difficult policy questions about immigration are not so much about
+the overall gains to the rest of the economy, which seem to be real but
+small in the context of the U.S. economy, as they are about the
+disruptive effects of immigration in specific labor markets. One
+disruptive effect, as we noted, is that immigration weighted toward
+low-skill workers tends to reduce wages for domestic low-skill workers.
+A study by Michael S. Clune found that for each 10% rise in the number
+of employed immigrants with no more than a high school diploma in the
+labor market, high school students reduced their annual number of hours
+worked by 3%. The effects on wages of low-skill workers are not
+large---perhaps in the range of decline of about 1%. These effects are
+likely kept low, in part, because of the legal floor of federal and
+state minimum wage laws. In addition, immigrants are also thought to
+contribute to increased demand for local goods and services which can
+stimulate the local low skilled labor market. It is also possible that
+employers, in the face of abundant low-skill workers, may choose
+production processes which are more labor intensive than otherwise would
+have been. These various factors would explain the small negative wage
+effect that the native low-skill workers observed as a result of
+immigration.
+
+Another potential disruptive effect is the impact on state and local
+government budgets. Many of the costs imposed by immigrants are costs
+that arise in state-run programs, like the cost of public schooling and
+of welfare benefits. However, many of the taxes that immigrants pay are
+federal taxes like income taxes and Social Security taxes. Many
+immigrants do not own property (such as homes and cars), so they do not
+pay property taxes, which are one of the main sources of state and local
+tax revenue. However, they do pay sales taxes, which are state and
+local, and the landlords of property they rent pay property taxes.
+According to the nonprofit Rand Corporation, the effects of immigration
+on taxes are generally positive at the federal level, but they are
+negative at the state and local levels in places where there are many
+low-skilled immigrants.
+
+#### Link It Up {#link-it-up .Heading3Grey}
+
+Visit this [website](https://www.nber.org/papers/w11547) to obtain more context
+regarding immigration.
+
+#### Proposals for Immigration Reform
+
+The Congressional Jordan Commission of the 1990s proposed reducing
+overall levels of immigration and refocusing U.S. immigration policy to
+give priority to immigrants with higher skill levels. In the labor
+market, focusing on high-skilled immigrants would help prevent any
+negative effects on low-skilled workers\' wages. For government budgets,
+higher-skilled workers find jobs more quickly, earn higher wages, and
+pay more in taxes. Several other immigration-friendly countries, notably
+Canada and Australia, have immigration systems where those with high
+levels of education or job skills have a much better chance of obtaining
+permission to immigrate. For the United States, high tech companies
+regularly ask for a more lenient immigration policy to admit a greater
+quantity of highly skilled workers under the H1B visa program.
+
+The Obama Administration proposed the so-called "DREAM Act" legislation,
+which would have offered a path to citizenship for those classified as
+illegal immigrants who were brought to the United States before the age
+of 16. Despite bipartisan support, the legislation failed to pass at the
+federal level. However, some state legislatures, such as California,
+have passed their own Dream Acts.
+
+Between its plans for a border wall, increased deportation of
+undocumented immigrants, and even reductions in the number of highly
+skilled legal H1B immigrants, the Trump Administration had a much less
+positive approach to immigration. Most economists, whether conservative
+or liberal, believe that while immigration harms some domestic workers,
+the benefits to the nation exceed the costs. President Biden has been
+considerably more positive about immigration than his predecessor.
+However, given the presence of considerable disagreement within the
+overall population about the desirability of immigration, it is unlikely
+that any significant immigration reform will take place in the near
+future.
+
+The FRED database includes data on the national origin of the 
+[civilian population](https://fred.stlouisfed.org/categories/104) and [labor force](https://fred.stlouisfed.org/categories/32442).
+
+#### Bring It Home {#bring-it-home .Heading3Grey}
+
+##### The Increasing Value of a College Degree  {#the-increasing-value-of-a-college-degree .Heading4Grey}
+
+The cost of college has increased dramatically in recent decades,
+causing many college students to take student loans to afford it.
+Despite this, the value of a college degree has never been higher. How
+can we explain this?
+
+We can estimate the value of a bachelor's degree as the difference in
+lifetime earnings between the average holder of a bachelor's degree and
+the average high school graduate. According to a 2021 report from the
+Georgetown University Center on Education and the Workforce, adults with
+a bachelor's degree earn an average of \$2.8 million during their
+careers, \$1.2 million more than the median for workers with a high
+school diploma. College graduates also have a significantly lower
+unemployment rate than those with lower educational attainments.
+
+While a college degree holder's wages have increased somewhat, the major
+reason for the increase in value of a bachelor's degree has been the
+plummeting value of a high school diploma. In the twenty-first century,
+the majority of jobs require at least some post-secondary education.
+This includes manufacturing jobs that in the past would have afforded
+workers a middle class income with only a high school diploma. Those
+jobs are increasingly scarce. This phenomenon has also no doubt
+contributed to the increasing inequality of income that we observe in
+the U.S. today. We will discuss that topic next, in Chapter 15.
+
+

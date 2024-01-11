@@ -1,0 +1,1003 @@
+# Chapter 19 - International Trade {#sec-chapter-19}
+![](media/19-introduction-to-international-trade_rId20.jpeg){width="6.5in" height="3.9166666666666665in" #fig-19_1}
+
+Figure 19.1 Apple or Samsung iPhone? While the iPhone is readily
+recognized as an Apple product, many versions (including recently
+released offerings) have key components made by rival phone-maker,
+Samsung. In international trade, there are often "conflicts" like this
+as each country or company focuses on what it does best. (Credit:
+modification of "iPhone 4\'s Retina Display v.s. iPhone 3G" by Yutaka
+Tsutano/Flickr Creative Commons, CC BY 2.0)
+
+#### Chapter Objectives {#chapter-objectives .Heading3Grey}
+
+In this chapter, you will learn about:
+
+-   Absolute and Comparative Advantage
+-   What Happens When a Country Has an Absolute Advantage in All Goods
+-   Intra-industry Trade between Similar Economies
+-   The Benefits of Reducing Barriers to International Trade
+
+### Introduction to International Trade
+
+#### Bring It Home {#bring-it-home .Heading3Grey}
+
+##### Just Whose iPhone Is It? {#just-whose-iphone-is-it .Heading4Grey}
+
+The iPhone is a global product. Apple does not manufacture the iPhone
+components, nor does it assemble them. The assembly is done by Foxconn
+Corporation, a Taiwanese company, at its factories in China and India.
+But, Samsung, the electronics firm and competitor to Apple, actually
+supplies many of the parts that make up an iPhone. In earlier models,
+Samsung parts made up as much as 26% of the total costs of production.
+And in more recent versions, Samsung manufactures the displays and
+cameras. In some ways, then, Samsung is both the biggest supplier and
+biggest competitor for Apple. Why do these two firms work together to
+produce the iPhone? To understand the economic logic behind
+international trade, you have to accept, as these firms do, that trade
+is about mutually beneficial exchange. Samsung is one of the world's
+largest electronics parts suppliers. Apple lets Samsung focus on making
+the best parts, which allows Apple to concentrate on its
+strength---designing elegant products that are easy to use. If each
+company (and by extension each country) focuses on what it does best,
+there will be gains for all through trade.
+
+We live in a global marketplace. The food on your table might include
+fresh fruit from Chile, cheese from France, and bottled water from
+Scotland. Your wireless phone might have been made in Taiwan or Korea.
+The clothes you wear might be designed in Italy and manufactured in
+China. The toys you give to a child might have come from India. The car
+you drive might come from Japan, Germany, or Korea. The gasoline in the
+tank might be refined from crude oil from Saudi Arabia, Mexico, or
+Nigeria. As a worker, if your job is involved with farming, machinery,
+airplanes, cars, scientific instruments, or many other
+technology-related industries, the odds are good that a hearty
+proportion of the sales of your employer---and hence the money that pays
+your salary---comes from export sales. We are all linked by
+international trade, and the volume of that trade has grown dramatically
+in the last few decades.
+
+The first wave of globalization started in the nineteenth century and
+lasted up to the beginning of World War I. Over that time, global
+exports as a share of global GDP rose from less than 1% of GDP in 1820
+to 9% of GDP in 1913. As the Nobel Prize-winning economist Paul Krugman
+of Princeton University wrote in 1995:
+
+> It is a late-twentieth-century conceit that we invented the global
+> economy just yesterday. In fact, world markets achieved an impressive
+> degree of integration during the second half of the nineteenth
+> century. Indeed, if one wants a specific date for the beginning of a
+> truly global economy, one might well choose 1869, the year in which
+> both the Suez Canal and the Union Pacific railroad were completed. By
+> the eve of the First World War steamships and railroads had created
+> markets for standardized commodities, like wheat and wool, that were
+> fully global in their reach. Even the global flow of information was
+> better than modern observers, focused on electronic technology, tend
+> to realize: the first submarine telegraph cable was laid under the
+> Atlantic in 1858, and by 1900 all of the world's major economic
+> regions could effectively communicate instantaneously.
+
+This first wave of globalization crashed to a halt early in the
+twentieth century. World War I severed many economic connections. During
+the Great Depression of the 1930s, many nations misguidedly tried to fix
+their own economies by reducing foreign trade with others. World War II
+further hindered international trade. Global flows of goods and
+financial capital were rebuilt only slowly after World War II. It was
+not until the early 1980s that global economic forces again became as
+important, relative to the size of the world economy, as they were
+before World War I.
+
+
+### 19.1 Absolute and Comparative Advantage
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Define absolute advantage, comparative advantage, and opportunity
+    costs
+-   Explain the gains of trade created when a country specializes
+
+The American statesman Benjamin Franklin (1706--1790) once wrote: "No
+nation was ever ruined by trade." Many economists would express their
+attitudes toward international trade in an even more positive manner.
+The evidence that international trade confers overall benefits on
+economies is pretty strong. Trade has accompanied economic growth in the
+United States and around the world. Many of the national economies that
+have shown the most rapid growth in the last several decades---for
+example, Japan, South Korea, China, and India---have done so by
+dramatically orienting their economies toward international trade. There
+is no modern example of a country that has shut itself off from world
+trade and yet prospered. To understand the benefits of trade, or why we
+trade in the first place, we need to understand the concepts of
+comparative and absolute advantage.
+
+In 1817, David Ricardo, a businessman, economist, and member of the
+British Parliament, wrote a treatise called *On the Principles of
+Political Economy and Taxation*. In this treatise, Ricardo argued that
+specialization and free trade benefit all trading partners, even those
+that may be relatively inefficient. To see what he meant, we must be
+able to distinguish between absolute and comparative advantage.
+
+A country has an absolute advantage over another country in producing a
+good if it uses fewer resources to produce that good. Absolute advantage
+can be the result of a country's natural endowment. For example,
+extracting oil in Saudi Arabia is pretty much just a matter of "drilling
+a hole." Producing oil in other countries can require considerable
+exploration and costly technologies for drilling and extraction---if
+they have any oil at all. The United States has some of the richest
+farmland in the world, making it easier to grow corn and wheat than in
+many other countries. Guatemala and Colombia have climates especially
+suited for growing coffee. Chile and Zambia have some of the world's
+richest copper mines. As some have argued, "geography is destiny." Chile
+will provide copper and Guatemala will produce coffee, and they will
+trade. When each country has a product others need and it can produce it
+with fewer resources in one country than in another, then it is easy to
+imagine all parties benefitting from trade. However, thinking about
+trade just in terms of geography and absolute advantage is incomplete.
+Trade really occurs because of comparative advantage.
+
+Recall from @sec-chapter-2
+that a country has a comparative advantage when it can produce a good at
+a lower cost in terms of other goods. The question each country or
+company should be asking when it trades is this: "What do we give up to
+produce this good?" It should be no surprise that the concept of
+comparative advantage is based on this idea of opportunity cost from
+@sec-chapter-2.
+For example, if Zambia focuses its resources on producing copper, it
+cannot use its labor, land and financial resources to produce other
+goods such as corn. As a result, Zambia gives up the opportunity to
+produce corn. How do we quantify the cost in terms of other goods?
+Simplify the problem and assume that Zambia just needs labor to produce
+copper and corn. The companies that produce either copper or corn tell
+you that it takes two hours to mine a ton of copper and one hour to
+harvest a bushel of corn. This means the opportunity cost of producing a
+ton of copper is two bushels of corn. The next section develops absolute
+and comparative advantage in greater detail and relates them to trade.
+
+#### Link It Up {#link-it-up .Heading3Grey}
+
+Visit this [website](https://www.wto.org/english/forums_e/debates_e/debates_e.htm) for a list of articles
+and podcasts pertaining to international trade topics.
+
+#### A Numerical Example of Absolute and Comparative Advantage
+
+Consider a hypothetical world with two countries, Saudi Arabia and the
+United States, and two products, oil and corn. Further assume that
+consumers in both countries desire both these goods. These goods are
+homogeneous, meaning that consumers/producers cannot differentiate
+between corn or oil from either country. There is only one resource
+available in both countries, labor hours. Saudi Arabia can produce oil
+with fewer resources, while the United States can produce corn with
+fewer resources. @tbl-table_19_1 illustrates the advantages
+of the two countries, expressed in terms of how many hours it takes to
+produce one unit of each good.
+
+| Country        | Oil (hours per barrel) | Corn (hours per bushel) |
+|----------------|------------------------|-------------------------|
+| Saudi Arabia   | 1                      | 4                       |
+| United States  | 2                      | 1                       |
+
+: How Many Hours It Takes to Produce Oil and Corn {#tbl-table_19_1}
+
+In @tbl-table_19_1, Saudi Arabia has an absolute advantage in
+producing oil because it only takes an hour to produce a barrel of oil
+compared to two hours in the United States. The United States has an
+absolute advantage in producing corn.
+
+To simplify, let's say that Saudi Arabia and the United States each have
+100 worker hours (see @tbl-table_19_2). [Figure
+19.2](#fig-19_2) illustrates what each country is capable of
+producing on its own using a production possibility frontier (PPF)
+graph. Recall from @sec-chapter-2
+that the production possibilities frontier shows the maximum amount that
+each country can produce given its limited resources, in this case
+workers, and its level of technology.
+
+| Country        | Oil Production using 100 worker hours (barrels) |      | Corn Production using 100 worker hours (bushels) |
+|----------------|------------------------------------------------|------|-------------------------------------------------|
+| Saudi Arabia   | 100                                            |   or | 25                                              |
+| United States  | 50                                             |   or | 100                                             |
+
+: Production Possibilities before Trade {#tbl-table_19_2}
+
+![](media/19-1-absolute-and-comparative-advantage_rId30.jpeg){width="6.5in" height="2.625in" #fig-19_2}
+
+Figure 19.2 Production Possibilities Frontiers (a) Saudi Arabia can
+produce 100 barrels of oil at maximum and zero corn (point A), or 25
+bushels of corn and zero oil (point B). It can also produce other
+combinations of oil and corn if it wants to consume both goods, such as
+at point C. Here it chooses to produce/consume 60 barrels of oil,
+leaving 40 work hours that to allocate to produce 10 bushels of corn,
+using the data in @tbl-table_19_1. (b) If the United States
+produces only oil, it can produce, at maximum, 50 barrels and zero corn
+(point A\'), or at the other extreme, it can produce a maximum of 100
+bushels of corn and no oil (point B\'). Other combinations of both oil
+and corn are possible, such as point C\'. All points above the frontiers
+are impossible to produce given the current level of resources and
+technology.
+
+Arguably Saudi and U.S. consumers desire both oil and corn to live.
+Let's say that before trade occurs, both countries produce and consume
+at point C or C\'. Thus, before trade, the Saudi Arabian economy will
+devote 60 worker hours to produce oil, as @tbl-table_19_3
+shows. Given the information in @tbl-table_19_1, this choice
+implies that it produces/consumes 60 barrels of oil. With the remaining
+40 worker hours, since it needs four hours to produce a bushel of corn,
+it can produce only 10 bushels. To be at point C\', the U.S. economy
+devotes 40 worker hours to produce 20 barrels of oil and it can allocate
+the remaining worker hours to produce 60 bushels of corn.
+
+| Country                  | Oil Production (barrels) | Corn Production (bushels) |
+|--------------------------|--------------------------|---------------------------|
+| Saudi Arabia (C)         | 60                       | 10                        |
+| United States (C')       | 20                       | 60                        |
+| **Total World Production** | **80**                  | **70**                    |
+
+: Production before Trade {#tbl-table_19_3}
+
+The slope of the production possibility frontier illustrates the
+opportunity cost of producing oil in terms of corn. Using all its
+resources, the United States can produce 50 barrels of oil *or* 100
+bushels of corn; therefore, the opportunity cost of one barrel of oil is
+two bushels of corn---or the slope is 1/2. Thus, in the U.S. production
+possibility frontier graph, every increase in oil production of one
+barrel implies a decrease of two bushels of corn. Saudi Arabia can
+produce 100 barrels of oil *or* 25 bushels of corn. The opportunity cost
+of producing one barrel of oil is the loss of 1/4 of a bushel of corn
+that Saudi workers could otherwise have produced. In terms of corn,
+notice that Saudi Arabia gives up the least to produce a barrel of oil.
+@tbl-table_19_4 summarizes these calculations.
+
+| Country        | Opportunity cost of one unit — Oil (in terms of corn) | Opportunity cost of one unit — Corn (in terms of oil) |
+|----------------|-----------------------------------------------------|------------------------------------------------------|
+| Saudi Arabia   | ¼                                                   | 4                                                    |
+| United States  | 2                                                   | ½                                                    |
+
+: Opportunity Cost and Comparative Advantage {#tbl-table_19_4}
+
+Again recall that we defined comparative advantage as the opportunity
+cost of producing goods. Since Saudi Arabia gives up the least to
+produce a barrel of oil, ($\frac{\text{1}}{\text{4}}$ \< $\text{2}$ in
+@tbl-table_19_4) it has a comparative advantage in oil
+production. The United States gives up the least to produce a bushel of
+corn, so it has a comparative advantage in corn production.
+
+In this example, there is symmetry between absolute and comparative
+advantage. Saudi Arabia needs fewer worker hours to produce oil
+(absolute advantage, see @tbl-table_19_1), and also gives up
+the least in terms of other goods to produce oil (comparative advantage,
+see @tbl-table_19_4). Such symmetry is not always the case,
+as we will show after we have discussed gains from trade fully, but
+first, read the following Clear It Up feature to make sure you
+understand why the PPF line in the graphs is straight.
+
+#### Clear It Up {#clear-it-up .Heading3Grey}
+
+##### Can a production possibility frontier be straight? {#can-a-production-possibility-frontier-be-straight .Heading4Grey}
+
+When you first met the production possibility frontier (PPF) in @sec-chapter-2,
+we drew it with an outward-bending shape. This shape illustrated that as
+we transferred inputs from producing one good to another---like from
+education to health services---there were increasing opportunity costs.
+In the examples in this chapter, we draw the PPFs as straight lines,
+which means that opportunity costs are constant. When we transfer a
+marginal unit of labor away from growing corn and toward producing oil,
+the decline in the quantity of corn and the increase in the quantity of
+oil is always the same. In reality this is possible only if the
+contribution of additional workers to output did not change as the scale
+of production changed. The linear production possibilities frontier is a
+less realistic model, but a straight line simplifies calculations. It
+also illustrates economic themes like absolute and comparative advantage
+just as clearly.
+
+#### Gains from Trade
+
+Consider the trading positions of the United States and Saudi Arabia
+after they have specialized and traded. Before trade, Saudi Arabia
+produces/consumes 60 barrels of oil and 10 bushels of corn. The United
+States produces/consumes 20 barrels of oil and 60 bushels of corn. Given
+their current production levels, if the United States can trade an
+amount of corn fewer than 60 bushels and receive in exchange an amount
+of oil greater than 20 barrels, it will gain from trade. With trade, the
+United States can consume more of both goods than it did without
+specialization and trade. (Recall that @sec-chapter-1
+defined specialization as it applies to workers and firms. Economists
+also use specialization to describe the occurrence when a country shifts
+resources to focus on producing a good that offers comparative
+advantage.) Similarly, if Saudi Arabia can trade an amount of oil less
+than 60 barrels and receive in exchange an amount of corn greater than
+10 bushels, it will have more of both goods than it did before
+specialization and trade. @tbl-table_19_5 illustrates the
+range of trades that would benefit both sides.
+
+| The U.S. economy, after specialization, will benefit if it: | The Saudi Arabian economy, after specialization, will benefit if it: |
+|-------------------------------------------------------------|--------------------------------------------------------------------|
+| Exports no more than 60 bushels of corn                      | Imports at least 10 bushels of corn                               |
+| Imports at least 20 barrels of oil                           | Exports less than 60 barrels of oil                               |
+
+: The Range of Trades That Benefit Both the United States and Saudi Arabia {#tbl-table_19_5}
+
+The underlying reason why trade benefits both sides is rooted in the
+concept of opportunity cost, as the following Clear It Up feature
+explains. If Saudi Arabia wishes to expand domestic production of corn
+in a world without international trade, then based on its opportunity
+costs it must give up four barrels of oil for every one additional
+bushel of corn. If Saudi Arabia could find a way to give up less than
+four barrels of oil for an additional bushel of corn (or equivalently,
+to receive more than one bushel of corn for four barrels of oil), it
+would be better off.
+
+#### Clear It Up {#clear-it-up-1 .Heading3Grey}
+
+##### What are the opportunity costs and gains from trade? {#what-are-the-opportunity-costs-and-gains-from-trade .Heading4Grey}
+
+The range of trades that will benefit each country is based on the
+country's opportunity cost of producing each good. The United States can
+produce 100 bushels of corn or 50 barrels of oil. For the United States,
+the opportunity cost of producing one barrel of oil is two bushels of
+corn. If we divide the numbers above by 50, we get the same ratio: one
+barrel of oil is equivalent to two bushels of corn, or (100/50 = 2 and
+50/50 = 1). In a trade with Saudi Arabia, if the United States is going
+to give up 100 bushels of corn in exports, it must import at least 50
+barrels of oil to be just as well off. Clearly, to gain from trade it
+needs to be able to gain more than a half barrel of oil for its bushel
+of corn---or why trade at all?
+
+Recall that David Ricardo argued that if each country specializes in its
+comparative advantage, it will benefit from trade, and total global
+output will increase. How can we show gains from trade as a result of
+comparative advantage and specialization? @tbl-table_19_6
+shows the output assuming that each country specializes in its
+comparative advantage and produces no other good. This is 100%
+specialization. Specialization leads to an increase in total world
+production. (Compare the total world production in @tbl-table_19_3 to that in @tbl-table_19_6.)
+
+| Country                  | Quantity produced after 100% specialization — Oil (barrels) | Quantity produced after 100% specialization — Corn (bushels) |
+|--------------------------|-----------------------------------------------------------|------------------------------------------------------------|
+| Saudi Arabia             | 100                                                       | 0                                                          |
+| United States            | 0                                                         | 100                                                        |
+| **Total World Production** | **100**                                                   | **100**                                                    |
+
+: How Specialization Expands Output {#tbl-table_19_6}
+
+What if we did not have complete specialization, as in @tbl-table_19_6? Would there still be gains from trade? Consider
+another example, such as when the United States and Saudi Arabia start
+at C and C\', respectively, as [Figure 19.2](#fig-19_2) shows.
+Consider what occurs when trade is allowed and the United States exports
+20 bushels of corn to Saudi Arabia in exchange for 20 barrels of oil.
+
+![](media/19-1-absolute-and-comparative-advantage_rId40.jpeg){width="4.875in" height="3.7399989063867016in" #fig-19_3}
+
+Figure 19.3 Production Possibilities Frontier in Saudi Arabia Trade
+allows a country to go beyond its domestic production-possibility
+frontier
+
+Starting at point C, which shows Saudi oil production of 60, reduce
+Saudi oil domestic oil consumption by 20, since 20 is exported to the
+United States and exchanged for 20 units of corn. This enables Saudi to
+reach point D, where oil consumption is now 40 barrels and corn
+consumption has increased to 30 (see [Figure 19.3](#fig-19_3)).
+Notice that even without 100% specialization, if the "trading price," in
+this case 20 barrels of oil for 20 bushels of corn, is greater than the
+country's opportunity cost, the Saudis will gain from trade. Since the
+post-trade consumption point D is beyond its production possibility
+frontier, Saudi Arabia has gained from trade.
+
+#### Link It Up {#link-it-up-1 .Heading3Grey}
+
+Visit this [website](http://wits.worldbank.org/trade-visualization.aspx)
+for trade-related data visualizations.
+
+
+### 19.2 What Happens When a Country Has an Absolute Advantage in All Goods
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Show the relationship between production costs and comparative
+    advantage
+-   Identify situations of mutually beneficial trade
+-   Identify trade benefits by considering opportunity costs
+
+What happens to the possibilities for trade if one country has an
+absolute advantage in everything? This is typical for high-income
+countries that often have well-educated workers, technologically
+advanced equipment, and the most up-to-date production processes. These
+high-income countries can produce all products with fewer resources than
+a low-income country. If the high-income country is more productive
+across the board, will there still be gains from trade? Good students of
+Ricardo understand that trade is about mutually beneficial exchange.
+Even when one country has an absolute advantage in all products, trade
+can still benefit both sides. This is because gains from trade come from
+specializing in one's comparative advantage.
+
+#### Production Possibilities and Comparative Advantage
+
+Consider the example of trade between the United States and Mexico
+described in @tbl-table_19_7. In this example, it takes four
+U.S. workers to produce 1,000 pairs of shoes, but it takes five Mexican
+workers to do so. It takes one U.S. worker to produce 1,000
+refrigerators, but it takes four Mexican workers to do so. The United
+States has an absolute advantage in productivity with regard to both
+shoes and refrigerators; that is, it takes fewer workers in the United
+States than in Mexico to produce both a given number of shoes and a
+given number of refrigerators.
+
+| Country        | Number of Workers needed to produce 1,000 units — Shoes | Number of Workers needed to produce 1,000 units — Refrigerators |
+|----------------|-------------------------------------------------------|--------------------------------------------------------------|
+| United States   | 4 workers                                             | 1 worker                                                     |
+| Mexico          | 5 workers                                             | 4 workers                                                    |
+
+: Resources Needed to Produce Shoes and Refrigerators {#tbl-table_19_7}
+
+Absolute advantage simply compares the productivity of a worker between
+countries. It answers the question, "How many inputs do I need to
+produce shoes in Mexico?" Comparative advantage asks this same question
+slightly differently. Instead of comparing how many workers it takes to
+produce a good, it asks, "How much am I giving up to produce this good
+in this country?" Another way of looking at this is that comparative
+advantage identifies the good for which the producer's absolute
+advantage is relatively larger, or where the producer's absolute
+productivity disadvantage is relatively smaller. The United States can
+produce 1,000 shoes with four-fifths as many workers as Mexico (four
+versus five), but it can produce 1,000 refrigerators with only
+one-quarter as many workers (one versus four). So, the comparative
+advantage of the United States, where its absolute productivity
+advantage is relatively greatest, lies with refrigerators, and Mexico's
+comparative advantage, where its absolute productivity disadvantage is
+least, is in the production of shoes.
+
+#### Mutually Beneficial Trade with Comparative Advantage
+
+When nations increase production in their area of comparative advantage
+and trade with each other, both countries can benefit. Again, the
+production possibility frontier is a useful tool to visualize this
+benefit.
+
+Consider a situation where the United States and Mexico each have 40
+workers. For example, as @tbl-table_19_8 shows, if the United
+States divides its labor so that 40 workers are making shoes, then,
+since it takes four workers in the United States to make 1,000 shoes, a
+total of 10,000 shoes will be produced. (If four workers can make 1,000
+shoes, then 40 workers will make 10,000 shoes). If the 40 workers in the
+United States are making refrigerators, and each worker can produce
+1,000 refrigerators, then a total of 40,000 refrigerators will be
+produced.
+
+| Country        | Shoe Production — using 40 workers |        | Refrigerator Production — using 40 workers |
+|----------------|-----------------------------------|--------|-------------------------------------------|
+| United States   | 10,000 shoes                      |   or   | 40,000 refrigerators                      |
+| Mexico          | 8,000 shoes                       |   or   | 10,000 refrigerators                      |
+
+: Production Possibilities before Trade with Complete Specialization {#tbl-table_19_8}
+
+As always, the slope of the production possibility frontier for each
+country is the opportunity cost of one refrigerator in terms of foregone
+shoe production--when labor is transferred from producing the latter to
+producing the former (see [Figure 19.4](#fig-19_4)).
+
+![](media/19-2-what-happens-when-a-country-has-an-absolute-advantage-in-all-goods_rId25.jpeg){width="6.5in" height="2.835in" #fig-19_4}
+
+Figure 19.4 Production Possibility Frontiers (a) With 40 workers, the
+United States can produce either 10,000 shoes and zero refrigerators or
+40,000 refrigerators and zero shoes. (b) With 40 workers, Mexico can
+produce a maximum of 8,000 shoes and zero refrigerators, or 10,000
+refrigerators and zero shoes. All other points on the production
+possibility line are possible combinations of the two goods that can be
+produced given current resources. Point A on both graphs is where the
+countries start producing and consuming before trade. Point B is where
+they end up after trade.
+
+Let's say that, in the situation before trade, each nation prefers to
+produce a combination of shoes and refrigerators that is shown at point
+A. @tbl-table_19_9 shows the output of each good for each
+country and the total output for the two countries.
+
+| Country        | Current Shoe Production | Current Refrigerator Production |
+|----------------|------------------------|----------------------------------|
+| United States   | 5,000                  | 20,000                           |
+| Mexico          | 4,000                  | 5,000                            |
+| **Total**       | **9,000**              | **25,000**                        |
+
+: Total Production at Point A before Trade {#tbl-table_19_9}
+
+Continuing with this scenario, suppose that each country transfers some
+amount of labor toward its area of comparative advantage. For example,
+the United States transfers six workers away from shoes and toward
+producing refrigerators. As a result, U.S. production of shoes decreases
+by 1,500 units (6/4 × 1,000), while its production of refrigerators
+increases by 6,000 (that is, 6/1 × 1,000). Mexico also moves production
+toward its area of comparative advantage, transferring 10 workers away
+from refrigerators and toward production of shoes. As a result,
+production of refrigerators in Mexico falls by 2,500 (10/4 × 1,000), but
+production of shoes increases by 2,000 pairs (10/5 × 1,000). Notice that
+when both countries shift production toward each of their comparative
+advantages (what they are relatively better at), their combined
+production of both goods rises, as shown in @tbl-table_19_10.
+The reduction of shoe production by 1,500 pairs in the United States is
+more than offset by the gain of 2,000 pairs of shoes in Mexico, while
+the reduction of 2,500 refrigerators in Mexico is more than offset by
+the additional 6,000 refrigerators produced in the United States.
+
+| Country        | Shoe Production | Refrigerator Production |
+|----------------|-----------------|--------------------------|
+| United States   | 3,500           | 26,000                   |
+| Mexico          | 6,000           | 2,500                    |
+| **Total**       | **9,500**       | **28,500**               |
+
+: Shifting Production Toward Comparative Advantage Raises
+Total Output {#tbl-table_19_10}
+
+This numerical example illustrates the remarkable insight of comparative
+advantage: even when one country has an absolute advantage in all goods
+and another country has an absolute disadvantage in all goods, both
+countries can still benefit from trade. Even though the United States
+has an absolute advantage in producing both refrigerators and shoes, it
+makes economic sense for it to specialize in the good for which it has a
+comparative advantage. The United States will export refrigerators and
+in return import shoes.
+
+#### How Opportunity Cost Sets the Boundaries of Trade
+
+This example shows that both parties can benefit from specializing in
+their comparative advantages and trading. By using the opportunity costs
+in this example, it is possible to identify the range of possible trades
+that would benefit each country.
+
+Mexico started out, before specialization and trade, producing 4,000
+pairs of shoes and 5,000 refrigerators (see [Figure
+19.4](#fig-19_4) and @tbl-table_19_9). Then, in the
+numerical example given, Mexico shifted production toward its
+comparative advantage and produced 6,000 pairs of shoes but only 2,500
+refrigerators. Thus, if Mexico can export no more than 2,000 pairs of
+shoes (giving up 2,000 pairs of shoes) in exchange for imports of at
+least 2,500 refrigerators (a gain of 2,500 refrigerators), it will be
+able to consume more of both goods than before trade. Mexico will be
+unambiguously better off. Conversely, the United States started off,
+before specialization and trade, producing 5,000 pairs of shoes and
+20,000 refrigerators. In the example, it then shifted production toward
+its comparative advantage, producing only 3,500 shoes but 26,000
+refrigerators. If the United States can export no more than 6,000
+refrigerators in exchange for imports of at least 1,500 pairs of shoes,
+it will be able to consume more of both goods and will be unambiguously
+better off.
+
+The range of trades that can benefit both nations is shown in @tbl-table_19_11. For example, a trade where the U.S. exports 4,000
+refrigerators to Mexico in exchange for 1,800 pairs of shoes would
+benefit both sides, in the sense that both countries would be able to
+consume more of both goods than in a world without trade.
+
+| The U.S. economy, after specialization, will benefit if it: | The Mexican economy, after specialization, will benefit if it: |
+|------------------------------------------------------------|--------------------------------------------------------------|
+| *Exports* fewer than 6,000 refrigerators                    | *Imports* at least 2,500 refrigerators                        |
+| *Imports* at least 1,500 pairs of shoes                      | *Exports* no more than 2,000 pairs of shoes                    |
+
+: The Range of Trades That Benefit Both the United States and Mexico {#tbl-table_19_11}
+
+Trade allows each country to take advantage of lower opportunity costs
+in the other country. If Mexico wants to produce more refrigerators
+without trade, it must face its domestic opportunity costs and reduce
+shoe production. If Mexico, instead, produces more shoes and then trades
+for refrigerators made in the United States, where the opportunity cost
+of producing refrigerators is lower, Mexico can in effect take advantage
+of the lower opportunity cost of refrigerators in the United States.
+Conversely, when the United States specializes in its comparative
+advantage of refrigerator production and trades for shoes produced in
+Mexico, international trade allows the United States to take advantage
+of the lower opportunity cost of shoe production in Mexico.
+
+The theory of comparative advantage explains why countries trade: they
+have different comparative advantages. It shows that the gains from
+international trade result from pursuing comparative advantage and
+producing at a lower opportunity cost. The following Work It Out feature
+shows how to calculate absolute and comparative advantage and the way to
+apply them to a country's production.
+
+#### Work It Out {#work-it-out .Heading3Grey}
+
+##### Calculating Absolute and Comparative Advantage {#calculating-absolute-and-comparative-advantage .Heading4Grey}
+
+In Canada a worker can produce 20 barrels of oil or 40 tons of lumber.
+In Venezuela, a worker can produce 60 barrels of oil or 30 tons of
+lumber.
+
+| Country   | Oil (barrels) |        | Lumber (tons) |        |
+|-----------|---------------|--------|---------------|--------|
+| Canada    | 20            | *or*   | 40            |        |
+| Venezuela | 60            | *or*   | 30            |        |
+
+: Production Possibilities in Canada and Venezuela {#tbl-table_19_12}
+
+a.  Who has the absolute advantage in the production of oil or lumber?
+    How can you tell?
+b.  Which country has a comparative advantage in the production of oil?
+c.  Which country has a comparative advantage in producing lumber?
+d.  In this example, is absolute advantage the same as comparative
+    advantage, or not?
+e.  In what product should Canada specialize? In what product should
+    Venezuela specialize?
+
+Step 1. Make a table like @tbl-table_19_12.
+
+Step 2. To calculate absolute advantage, look at the larger of the
+numbers for each product. One worker in Canada can produce more lumber
+(40 tons versus 30 tons), so Canada has the absolute advantage in
+lumber. One worker in Venezuela can produce 60 barrels of oil compared
+to a worker in Canada who can produce only 20.
+
+Step 3. To calculate comparative advantage, find the opportunity cost of
+producing one barrel of oil in both countries. The country with the
+lowest opportunity cost has the comparative advantage. With the same
+labor time, Canada can produce either 20 barrels of oil or 40 tons of
+lumber. So in effect, 20 barrels of oil is equivalent to 40 tons of
+lumber: 20 oil = 40 lumber. Divide both sides of the equation by 20 to
+calculate the opportunity cost of one barrel of oil in Canada. 20/20 oil
+= 40/20 lumber. 1 oil = 2 lumber. To produce one additional barrel of
+oil in Canada has an opportunity cost of 2 lumber. Calculate the same
+way for Venezuela: 60 oil = 30 lumber. Divide both sides of the equation
+by 60. One oil in Venezuela has an opportunity cost of 1/2 lumber.
+Because 1/2 lumber \< 2 lumber, Venezuela has the comparative advantage
+in producing oil.
+
+Step 4. Calculate the opportunity cost of one lumber by reversing the
+numbers, with lumber on the left side of the equation. In Canada, 40
+lumber is equivalent in labor time to 20 barrels of oil: 40 lumber = 20
+oil. Divide each side of the equation by 40. The opportunity cost of one
+lumber is 1/2 oil. In Venezuela, the equivalent labor time will produce
+30 lumber or 60 oil: 30 lumber = 60 oil. Divide each side by 30. One
+lumber has an opportunity cost of two oil. Canada has the lower
+opportunity cost in producing lumber.
+
+Step 5. In this example, absolute advantage is the same as comparative
+advantage. Canada has the absolute and comparative advantage in lumber;
+Venezuela has the absolute and comparative advantage in oil.
+
+Step 6. Canada should specialize in the commodity for which it has a
+relative lower opportunity cost, which is lumber, and Venezuela should
+specialize in oil. Canada will be exporting lumber and importing oil,
+and Venezuela will be exporting oil and importing lumber.
+
+#### Comparative Advantage Goes Camping
+
+To build an intuitive understanding of how comparative advantage can
+benefit all parties, set aside examples that involve national economies
+for a moment and consider the situation of a group of friends who decide
+to go camping together. The six friends have a wide range of skills and
+experiences, but one person in particular, Jethro, has done lots of
+camping before and is also a great athlete. Jethro has an absolute
+advantage in all aspects of camping: he is faster at carrying a
+backpack, gathering firewood, paddling a canoe, setting up tents, making
+a meal, and washing up. So here is the question: Because Jethro has an
+absolute productivity advantage in everything, should he do all the
+work?
+
+Of course not! Even if Jethro is willing to work like a mule while
+everyone else sits around, he, like all mortals, only has 24 hours in a
+day. If everyone sits around and waits for Jethro to do everything, not
+only will Jethro be an unhappy camper, but there will not be much output
+for his group of six friends to consume. The theory of comparative
+advantage suggests that everyone will benefit if they figure out their
+areas of comparative advantage---that is, the area of camping where
+their productivity disadvantage is least, compared to Jethro. For
+example, it may be that Jethro is 80% faster at building fires and
+cooking meals than anyone else, but only 20% faster at gathering
+firewood and 10% faster at setting up tents. In that case, Jethro should
+focus on building fires and making meals, and others should attend to
+the other tasks, each according to where their productivity disadvantage
+is smallest. If the campers coordinate their efforts according to
+comparative advantage, they can all gain.
+
+
+### 19.3 Intra-industry Trade between Similar Economies
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Identify at least two advantages of intra-industry trading
+-   Explain the relationship between economies of scale and
+    intra-industry trade
+
+Absolute and comparative advantages explain a great deal about global
+trading patterns. For example, they help to explain the patterns that we
+noted at the start of this chapter, like why you may be eating fresh
+fruit from Chile or Mexico, or why lower productivity regions like
+Africa and Latin America are able to sell a substantial proportion of
+their exports to higher productivity regions like the European Union and
+North America. Comparative advantage, however, at least at first glance,
+does not seem especially well-suited to explain other common patterns of
+international trade.
+
+#### The Prevalence of Intra-Industry Trade between Similar Economies
+
+The theory of comparative advantage suggests that trade should happen
+between economies with large differences in opportunity costs of
+production. Roughly half of all U.S. trade involves shipping goods
+between the fairly similar high-income economies of Japan, Canada, and
+the United States. Furthermore, the trade has an important geographic
+component---the biggest trading partners of the United States are Canada
+and Mexico (see @tbl-table_19_13).
+
+| Country      | U.S. Exports Go to ... | U.S. Imports Come from ... |
+|--------------|------------------------|-----------------------------|
+| China        | 8.6%                   | 17.7%                       |
+| Canada       | 17.6%                  | 12.6%                       |
+| Japan        | 4.3%                   | 4.3%                        |
+| Mexico       | 15.8%                  | 13.6%                       |
+| South Korea  | 3.8%                   | 3.3%                        |
+
+: Top Trading Partners (November 2021) (Source:
+https://www.census.gov/foreign-trade/statistics/highlights/toppartners.html) {#tbl-table_19_13}
+
+Moreover, the theory of comparative advantage suggests that each economy
+should specialize to a degree in certain products, and then exchange
+those products. A high proportion of trade, however, is intra-industry
+trade---that is, trade of goods within the same industry from one
+country to another. For example, the United States produces and exports
+autos and imports autos. @tbl-table_19_14 shows some of the
+largest categories of U.S. exports and imports. In all of these
+categories, the United States is both a substantial exporter and a
+substantial importer of goods from the same industry. In 2021, according
+to the U.S. Census Bureau, the United States exported \$131 billion
+worth of autos, and imported \$317 billion worth of autos. About 60% of
+U.S. trade and 60% of European trade is intra-industry trade.
+
+| Some U.S. Exports        | Quantity of Exports ($ billions) | Quantity of Imports ($ billions) |
+|--------------------------|----------------------------------|-----------------------------------|
+| Autos                    | $131                             | $317                              |
+| Food and beverages       | $147                             | $167                              |
+| Capital goods            | $474                             | $695                              |
+| Consumer goods           | $201                             | $699                              |
+| Industrial supplies      | $578                             | $589                              |
+| Other transportation     | $63                              | $113                              |
+
+: Some Intra-Industry U.S. Exports and Imports in 2021
+(Source: https://www.census.gov/foreign-trade/data/index.html) {#tbl-table_19_14}
+
+Why do similar high-income economies engage in intra-industry trade?
+What can be the economic benefit of having workers of fairly similar
+skills making cars, computers, machinery and other products which are
+then shipped across the oceans to and from the United States, the
+European Union, and Japan? There are two reasons: (1) The division of
+labor leads to learning, innovation, and unique skills; and (2)
+economies of scale.
+
+#### Gains from Specialization and Learning
+
+Consider the category of machinery, where the U.S. economy has
+considerable intra-industry trade. Machinery comes in many varieties, so
+the United States may be exporting machinery for manufacturing with
+wood, but importing machinery for photographic processing. The
+underlying reason why a country like the United States, Japan, or
+Germany produces one kind of machinery rather than another is usually
+not related to U.S., German, or Japanese firms and workers having
+generally higher or lower skills. It is just that, in working on very
+specific and particular products, firms in certain countries develop
+unique and different skills.
+
+Specialization in the world economy can be very finely split. In fact,
+recent years have seen a trend in international trade, which economists
+call splitting up the value chain. The value chain describes how a good
+is produced in stages. As indicated in the beginning of the chapter,
+producing the iPhone involves designing and engineering the phone in the
+United States, supplying parts from Korea, assembling the parts in
+China, and advertising and marketing in the United States. Thanks in
+large part to improvements in communication technology, sharing
+information, and transportation, it has become easier to split up the
+value chain. Instead of production in a single large factory, different
+firms operating in various places and even different countries can
+divide the value chain. Because firms split up the value chain,
+international trade often does not involve nations trading whole
+finished products like automobiles or refrigerators. Instead, it
+involves shipping more specialized goods like, say, automobile
+dashboards or the shelving that fits inside refrigerators.
+Intra-industry trade between similar countries produces economic gains
+because it allows workers and firms to learn and innovate on particular
+products---and often to focus on very particular parts of the value
+chain.
+
+#### Link It Up {#link-it-up .Heading3Grey}
+
+Visit this [website](http://singaporeanipaduser.blogspot.com/2011/04/breakdown-of-iphone-components.html) for some
+interesting information about the assembly of the iPhone.
+
+#### Economies of Scale, Competition, Variety
+
+A second broad reason that intra-industry trade between similar nations
+produces economic gains involves economies of scale. The concept of
+economies of scale, as we introduced in @sec-chapter-7,
+means that as the scale of output goes up, average costs of production
+decline---at least up to a point. [Figure 19.5](#fig-19_5)
+illustrates economies of scale for a plant producing toaster ovens. The
+horizontal axis of the figure shows the quantity of production by a
+certain firm or at a certain manufacturing plant. The vertical axis
+measures the average cost of production. Production plant S produces a
+small level of output at 30 units and has an average cost of production
+of \$30 per toaster oven. Plant M produces at a medium level of output
+at 50 units, and has an average cost of production of \$20 per toaster
+oven. Plant L produces 150 units of output with an average cost of
+production of only \$10 per toaster oven. Although plant V can produce
+200 units of output, it still has the same unit cost as Plant L.
+
+In this example, a small or medium plant, like S or M, will not be able
+to compete in the market with a large or a very large plant like L or V,
+because the firm that operates L or V will be able to produce and sell
+its output at a lower price. In this example, economies of scale operate
+up to point L, but beyond point L to V, the additional scale of
+production does not continue to reduce average costs of production.
+
+![](media/19-3-intra-industry-trade-between-similar-economies_rId34.jpeg){width="3.25in" height="2.17in" #fig-19_5}
+
+Figure 19.5 Economies of Scale Production Plant S, has an average cost
+of production of \$30 per toaster oven. Production plant M has an
+average cost of production of \$20 per toaster oven. Production plant L
+has an average cost of production of only \$10 per toaster oven.
+Production plant V still has an average cost of production of \$10 per
+toaster oven. Thus, production plant M can produce toaster ovens more
+cheaply than plant S because of economies of scale, and plants L or V
+can produce more cheaply than S or M because of economies of scale.
+However, the economies of scale end at an output level of 150. Plant V,
+despite being larger, cannot produce more cheaply on average than plant
+L.
+
+The concept of economies of scale becomes especially relevant to
+international trade when it enables one or two large producers to supply
+the entire country. For example, a single large automobile factory could
+probably supply all the cars consumers purchase in a smaller economy
+like the United Kingdom or Belgium in a given year. However, if a
+country has only one or two large factories producing cars, and no
+international trade, then consumers in that country would have
+relatively little choice between kinds of cars (other than the color of
+the paint and other nonessential options). Little or no competition will
+exist between different car manufacturers.
+
+International trade provides a way to combine the lower average
+production costs that come from economies of scale and still have
+competition and variety for consumers. Large automobile factories in
+different countries can make and sell their products around the world.
+If General Motors, Ford, and Chrysler were the only players in the U.S.
+automobile market, the level of competition and consumer choice would be
+considerably lower than when U.S. carmakers must face competition from
+Toyota, Honda, Suzuki, Fiat, Mitsubishi, Nissan, Volkswagen, Kia,
+Hyundai, BMW, Subaru, and others. Greater competition brings with it
+innovation and responsiveness to what consumers want. America's car
+producers make far better cars now than they did several decades ago,
+and much of the reason is competitive pressure, especially from East
+Asian and European carmakers.
+
+#### Dynamic Comparative Advantage
+
+The sources of gains from intra-industry trade between similar
+economies---namely, the learning that comes from a high degree of
+specialization and splitting up the value chain and from economies of
+scale---do not contradict the earlier theory of comparative advantage.
+Instead, they help to broaden the concept.
+
+In intra-industry trade, climate or geography do not determine the level
+of worker productivity. Even the general level of education or skill
+does not determine it. Instead, how firms engage in specific learning
+about specialized products, including taking advantage of economies of
+scale determine the level of worker productivity. In this vision,
+comparative advantage can be dynamic---that is, it can evolve and change
+over time as one develops new skills and as manufacturers split the
+value chain in new ways. This line of thinking also suggests that
+countries are not destined to have the same comparative advantage
+forever, but must instead be flexible in response to ongoing changes in
+comparative advantage.
+
+
+### 19.4 The Benefits of Reducing Barriers to International Trade
+
+#### Learning Objectives
+
+By the end of this section, you will be able to:
+
+-   Explain tariffs as barriers to trade
+-   Identify at least two benefits of reducing barriers to international
+    trade
+
+Tariffs are taxes that governments place on imported goods for a variety
+of reasons. Some of these reasons include protecting sensitive
+industries, for humanitarian reasons, and protecting against dumping.
+Traditionally, tariffs were used simply as a political tool to protect
+certain vested economic, social, and cultural interests. The World Trade
+Organization (WTO) is committed to lowering barriers to trade. The
+world's nations meet through the WTO to negotiate how they can reduce
+barriers to trade, such as tariffs. WTO negotiations happen in "rounds,"
+where all countries negotiate one agreement to encourage trade, take a
+year or two off, and then start negotiating a new agreement. The current
+round of negotiations is called the Doha Round because it was officially
+launched in Doha, the capital city of Qatar, in November 2001. In 2010,
+the WTO noted that the Doha Round's emphasis on market access and
+reforms of agricultural subsidies could add \$121--\$202 billion to the
+world economy.
+
+In the context of a global economy that currently produces more than
+\$80 trillion of goods and services each year, this amount is not large:
+it is an increase of less than 1%. But before dismissing the gains from
+trade too quickly, it is worth remembering two points.
+
+-   First, a gain of a few hundred billion dollars is enough money to
+    deserve attention! Moreover, remember that this increase is not a
+    one-time event; it would persist each year into the future.
+-   Second, the estimate of gains may be on the low side because some of
+    the gains from trade are not measured especially well in economic
+    statistics. For example, it is difficult to measure the potential
+    advantages to consumers of having a variety of products available
+    and a greater degree of competition among producers. Perhaps the
+    most important unmeasured factor is that trade between countries,
+    especially when firms are splitting up the value chain of
+    production, often involves a transfer of knowledge that can involve
+    skills in production, technology, management, finance, and law.
+
+Low-income countries benefit more from trade than high-income countries
+do. In some ways, the giant U.S. economy has less need for international
+trade, because it can already take advantage of internal trade within
+its economy. However, many smaller national economies around the world,
+in regions like Latin America, Africa, the Middle East, and Asia, have
+much more limited possibilities for trade inside their countries or
+their immediate regions. Without international trade, they may have
+little ability to benefit from comparative advantage, slicing up the
+value chain, or economies of scale. Moreover, smaller economies often
+have fewer competitive firms making goods within their economy, and thus
+firms have less pressure from other firms to provide the goods and
+prices that consumers want.
+
+The economic gains from expanding international trade are measured in
+hundreds of billions of dollars, and the gains from international trade
+as a whole probably reach well into the trillions of dollars. The
+potential for gains from trade may be especially high among the smaller
+and lower-income countries of the world.
+
+#### Link It Up {#link-it-up .Heading3Grey}
+
+Visit this [website](https://www.ustr.gov/about-us/benefits-trade) for a list of
+some benefits of trade.
+
+#### From Interpersonal to International Trade
+
+Most people find it easy to believe that they, personally, would not be
+better off if they tried to grow and process all of their own food, to
+make all of their own clothes, to build their own cars and houses from
+scratch, and so on. Instead, we all benefit from living in economies
+where people and firms can specialize and trade with each other.
+
+The benefits of trade do not stop at national boundaries, either.
+Earlier we explained that the division of labor could increase output
+for three reasons: (1) workers with different characteristics can
+specialize in the types of production where they have a comparative
+advantage; (2) firms and workers who specialize in a certain product
+become more productive with learning and practice; and (3) economies of
+scale. These three reasons apply from the individual and community level
+right up to the international level. If it makes sense to you that
+interpersonal, intercommunity, and interstate trade offer economic
+gains, it should make sense that international trade offers gains, too.
+
+International trade currently involves about \$20 trillion worth of
+goods and services moving around the globe. Any economic force of that
+size, even if it confers overall benefits, is certain to cause
+disruption and controversy. This chapter has only made the case that
+trade brings economic benefits. Other chapters discuss, in detail, the
+public policy arguments over whether to restrict international trade.
+
+#### Bring It Home {#bring-it-home .Heading3Grey}
+
+##### Just Whose iPhone Is It? {#just-whose-iphone-is-it .Heading4Grey}
+
+Apple Corporation uses a global platform to produce the iPhone. Now that
+you understand the concept of comparative advantage, you can see why the
+engineering and design of the iPhone is done in the United States. The
+United States has built up a comparative advantage over the years in
+designing and marketing products, and sacrifices fewer resources to
+design high-tech devices relative to other countries. China has a
+comparative advantage in assembling the phone due to its large skilled
+labor force. Korea has a comparative advantage in producing components.
+Korea focuses its production by increasing its scale, learning better
+ways to produce screens and computer chips, and uses innovation to lower
+average costs of production. Apple, in turn, benefits because it can
+purchase these quality products at lower prices. Put the global assembly
+line together and you have the device with which we are all so familiar.
+
+

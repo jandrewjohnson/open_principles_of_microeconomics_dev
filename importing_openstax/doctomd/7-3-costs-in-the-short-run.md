@@ -371,20 +371,20 @@ quantity produced row 2 Blank equals total revenue en dash total cost
 divided by quantity produced row 3 Blank equals total revenue divided by
 quantity produced en dash total cost divided by quantity produced row 4
 Blank equals average revenue en dash average
-cost](media/rId54.png){width="3.2395833333333335in"
+cost](media/7-3-costs-in-the-short-run_rId54.png){width="3.2395833333333335in"
 height="1.0416666666666667in"}
 
 However, note that:
 
 ![multiline equation row 1 average revenue equals price times quantity
 produced divided by quantity produced row 2 Blank equals
-price](media/rId56.png){width="2.6354166666666665in"
+price](media/7-3-costs-in-the-short-run_rId56.png){width="2.6354166666666665in"
 height="0.4583333333333333in"}
 
 Thus:
 
 ![multiline equation row 1 average profit equals price en dash average
-cost](media/rId58.png){width="2.4791666666666665in"
+cost](media/7-3-costs-in-the-short-run_rId58.png){width="2.4791666666666665in"
 height="0.16666666666666666in"}
 
 This is the firm's profit margin. This definition implies that if the
