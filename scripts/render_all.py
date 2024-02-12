@@ -29,6 +29,7 @@ if render_book:
         os.system(command)
     else:
         qmd_files = hb.list_filtered_paths_recursively('.', include_extensions=['.qmd'])   
+        # qmd_files = hb.list_filtered_paths_recursively('.', include_extensions=['.qmd'], exclude_strings=['image_generation'])   
         for qmd_file in qmd_files:
             
             target_path = os.path.join(render_dir, hb.replace_ext(qmd_file, '.html'))

@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Open Principles of Microeconomics - Appendix A — The Use of Mathematics in Principles of Economics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./a2_indifference_curves.html" rel="next">
+<link href="./20_globalization.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./a1_math_in_econ.html">Appendices</a></li><li class="breadcrumb-item"><a href="./a1_math_in_econ.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Use of Mathematics in Principles of Economics</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Open Principles of Microeconomics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_choice_with_scarcity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Choice with Scarcity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_demand_and_supply.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Demand and Supply</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_labor_markets.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Labor Markets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_elasticity.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5. Elasticity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_consumer_choice.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6. Consumer Choice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_production_and_costs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7. Production and Costs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_perfect_competition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8. Perfect Competition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_monopoly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9. Monopoly</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_market_spectrum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10. Market Spectrum</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_antitrust.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11. Antitrust</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_negative_externalities.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12. Negative Externalities</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_positive_externalities.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">13. Positive Externalities</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_labor_and_income.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14. Labor and Income</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_poverty_and_inequality.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">15. Poverty and Inequality</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_information_and_risk.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">16. Information and Risk</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_financial_markets.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">17. Financial Markets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18_public_economy.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">18. Public Economy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19_international_trade.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">19. International Trade</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20_globalization.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">20. Globalization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./a1_math_in_econ.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">The Use of Mathematics in Principles of Economics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./a2_indifference_curves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Indifference Curves</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./a3_present_discounted_value.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Present Discounted Value</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#algebraic-models" id="toc-algebraic-models" class="nav-link active" data-scroll-target="#algebraic-models">Algebraic Models</a></li>
+  <li><a href="#growth-rates" id="toc-growth-rates" class="nav-link" data-scroll-target="#growth-rates">Growth Rates</a></li>
+  <li><a href="#displaying-data-graphically-and-interpreting-the-graph" id="toc-displaying-data-graphically-and-interpreting-the-graph" class="nav-link" data-scroll-target="#displaying-data-graphically-and-interpreting-the-graph">Displaying Data Graphically and Interpreting the Graph</a></li>
+  <li><a href="#key-concepts-and-summary" id="toc-key-concepts-and-summary" class="nav-link" data-scroll-target="#key-concepts-and-summary">Key Concepts and Summary</a></li>
+  <li><a href="#review-questions" id="toc-review-questions" class="nav-link" data-scroll-target="#review-questions">Review Questions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-appendix-a" class="quarto-section-identifier">Appendix A — The Use of Mathematics in Principles of Economics</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>(This appendix should be consulted after first reading <a href="01_introduction.html"><span>Chapter&nbsp;1</span></a>) Economics is not math. There is no important concept in this course that cannot be explained without mathematics. That said, math is a tool that can be used to illustrate economic concepts. Remember the saying a picture is worth a thousand words? Instead of a picture, think of a graph. It is the same thing. Economists use models as the primary tool to derive insights about economic issues and problems. Math is one way of working with (or manipulating) economic models.</p>
+<p>There are other ways of representing models, such as text or narrative. But why would you use your fist to bang a nail, if you had a hammer? Math has certain advantages over text. It disciplines your thinking by making you specify exactly what you mean. You can get away with fuzzy thinking in your head, but you cannot when you reduce a model to algebraic equations. At the same time, math also has disadvantages. Mathematical models are necessarily based on simplifying assumptions, so they are not likely to be perfectly realistic. Mathematical models also lack the nuances which can be found in narrative models. The point is that math is one tool, but it is not the only tool or even always the best tool economists can use. So what math will you need for this book? The answer is: little more than high school algebra and graphs. You will need to know:</p>
+<ul>
+<li>What a function is</li>
+<li>How to interpret the equation of a line (i.e., slope and intercept)</li>
+<li>How to manipulate a line (i.e., changing the slope or the intercept)</li>
+<li>How to compute and interpret a growth rate (i.e., percentage change)</li>
+<li>How to read and manipulate a graph</li>
+</ul>
+<p>In this text, we will use the easiest math possible, and we will introduce it in this appendix. So if you find some math in the book that you cannot follow, come back to this appendix to review. Like most things, math has diminishing returns. A little math ability goes a long way; the more advanced math you bring in, the less additional knowledge that will get you. That said, if you are going to major in economics, you should consider learning a little calculus. It will be worth your while in terms of helping you learn advanced economics more quickly.</p>
+<section id="algebraic-models" class="level2">
+<h2 class="anchored" data-anchor-id="algebraic-models">Algebraic Models</h2>
+<p>Often economic models (or parts of models) are expressed in terms of mathematical functions. What is a function? A function describes a relationship. Sometimes the relationship is a definition. For example (using words), your professor is Adam Smith. This could be expressed as Professor = Adam Smith. Or Friends = Bob + Shawn + Margaret.</p>
+<p>Often in economics, functions describe cause and effect. The variable on the left-hand side is what is being explained (“the effect”). On the right-hand side is what is doing the explaining (“the causes”). For example, suppose your GPA was determined as follows:</p>
+<p><span class="math inline">\(\text{GPA~=~0.25~×~combined\_SAT~+~0.25~×~class\_attendance~+~0.50~×~hours\_spent\_studying}\)</span></p>
+<p>This equation states that your GPA depends on three things: your combined SAT score, your class attendance, and the number of hours you spend studying. It also says that study time is twice as important (0.50) as either combined_SAT score (0.25) or class_attendance (0.25). If this relationship is true, how could you raise your GPA? By not skipping class and studying more. Note that you cannot do anything about your SAT score, since if you are in college, you have (presumably) already taken the SATs.</p>
+<p>Of course, economic models express relationships using economic variables, like Budget = money_spent_on_econ_books + money_spent_on_music, assuming that the only things you buy are economics books and music.</p>
+<p>Most of the relationships we use in this course are expressed as linear equations of the form:</p>
+<p><span class="math inline">\(\text{y~=~b~+~mx}\)</span></p>
+<p><strong>Expressing Equations Graphically</strong></p>
+<p>Graphs are useful for two purposes. The first is to express equations visually, and the second is to display statistics or data. This section will discuss expressing equations visually.</p>
+<p>To a mathematician or an economist, a variable is the name given to a quantity that may assume a range of values. In the equation of a line presented above, x and y are the variables, with x on the horizontal axis and y on the vertical axis, and b and m representing factors that determine the shape of the line. To see how this equation works, consider a numerical example:</p>
+<p><span class="math inline">\(\text{y~=~9~+~3x}\)</span></p>
+<p>In this equation for a specific line, the b term has been set equal to 9 and the m term has been set equal to 3. <a href="#tbl-table_append_a_1">Table&nbsp;<span>A.1</span></a> shows the values of x and y for this given equation. <a href="#fig-append_a_1">Figure A1</a> shows this equation, and these values, in a graph. To construct the table, just plug in a series of different values for x, and then calculate what value of y results. In the figure, these points are plotted and a line is drawn through them.</p>
+<div id="tbl-table_append_a_1" class="anchored">
+<table class="table">
+<caption>Table&nbsp;A.1: Values for the Slope Intercept Equation</caption>
+<thead>
+<tr class="header">
+<th>x</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId26.jpeg" id="fig-append_a_1" style="width:3.25in;height:2.52in"></p>
+<p>Figure A1 Slope and the Algebra of Straight Lines This line graph has <em>x</em> on the horizontal axis and y on the vertical axis. The y-intercept—that is, the point where the line intersects the y-axis—is 9. The slope of the line is 3; that is, there is a rise of 3 on the vertical axis for every increase of 1 on the horizontal axis. The slope is the same all along a straight line.</p>
+<p>This example illustrates how the b and m terms in an equation for a straight line determine the shape of the line. The b term is called the y-intercept. The reason for this name is that, if x = 0, then the b term will reveal where the line intercepts, or crosses, the y-axis. In this example, the line hits the vertical axis at 9. The m term in the equation for the line is the slope. Remember that slope is defined as rise over run; more specifically, the slope of a line from one point to another is the change in the vertical axis divided by the change in the horizontal axis. In this example, each time the x term increases by one (the run), the y term rises by three. Thus, the slope of this line is three. Specifying a y-intercept and a slope—that is, specifying b and m in the equation for a line—will identify a specific line. Although it is rare for real-world data points to arrange themselves as an exact straight line, it often turns out that a straight line can offer a reasonable approximation of actual data.</p>
+<p><strong>Interpreting the Slope</strong></p>
+<p>The concept of slope is very useful in economics, because it measures the relationship between two variables. A positive slope means that two variables are positively related; that is, when x increases, so does y, or when x decreases, y decreases also. Graphically, a positive slope means that as a line on the line graph moves from left to right, the line rises. The length-weight relationship, shown in <a href="#fig-append_a_3">Figure A3</a> later in this Appendix, has a positive slope. We will learn in other chapters that price and quantity supplied have a positive relationship; that is, firms will supply more when the price is higher.</p>
+<p>A negative slope means that two variables are negatively related; that is, when x increases, y decreases, or when x decreases, y increases. Graphically, a negative slope means that, as the line on the line graph moves from left to right, the line falls. The altitude-air density relationship, shown in <a href="#fig-append_a_4">Figure A4</a> later in this appendix, has a negative slope. We will learn that price and quantity demanded have a negative relationship; that is, consumers will purchase less when the price is higher.</p>
+<p>A slope of zero means that there is no relationship between x and y. Graphically, the line is flat; that is, zero rise over the run. <a href="#fig-append_a_5">Figure A5</a> of the unemployment rate, shown later in this appendix, illustrates a common pattern of many line graphs: some segments where the slope is positive, other segments where the slope is negative, and still other segments where the slope is close to zero.</p>
+<p>The slope of a straight line between two points can be calculated in numerical terms. To calculate slope, begin by designating one point as the “starting point” and the other point as the “end point” and then calculating the rise over run between these two points. As an example, consider the slope of the air density graph between the points representing an altitude of 4,000 meters and an altitude of 6,000 meters:</p>
+<p>Rise: Change in variable on vertical axis (end point minus original point)</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; =0.100-0.307 \\
+&amp; =-0.207
+\end{aligned}
+\]</span></p>
+<p>Run: Change in variable on horizontal axis (end point minus original point)</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; =6,000-4,000 \\
+&amp; =2,000
+\end{aligned}
+\]</span></p>
+<p>Thus, the slope of a straight line between these two points would be that from the altitude of 4,000 meters up to 6,000 meters, the density of the air decreases by approximately 0.1 kilograms/cubic meter for each of the next 1,000 meters.</p>
+<p>Suppose the slope of a line were to increase. Graphically, that means it would get steeper. Suppose the slope of a line were to decrease. Then it would get flatter. These conditions are true whether or not the slope was positive or negative to begin with. A higher positive slope means a steeper upward tilt to the line, while a smaller positive slope means a flatter upward tilt to the line. A negative slope that is larger in absolute value (that is, more negative) means a steeper downward tilt to the line. A slope of zero is a horizontal flat line. A vertical line has an infinite slope.</p>
+<p>Suppose a line has a larger intercept. Graphically, that means it would shift out (or up) from the old origin, parallel to the old line. If a line has a smaller intercept, it would shift in (or down), parallel to the old line.</p>
+<p><strong>Solving Models with Algebra</strong></p>
+<p>Economists often use models to answer a specific question, like: What will the unemployment rate be if the economy grows at 3% per year? Answering specific questions requires solving the “system” of equations that represent the model.</p>
+<p>Suppose the demand for personal pizzas is given by the following equation:</p>
+<p><span class="math inline">\(\text{Qd~=~16~–~2P}\)</span></p>
+<p>where Qd is the amount of personal pizzas consumers want to buy (i.e., quantity demanded), and P is the price of pizzas. Suppose the supply of personal pizzas is:</p>
+<p><span class="math inline">\(\text{Qs~=~2~+~5P}\)</span></p>
+<p>where Qs is the amount of pizza producers will supply (i.e., quantity supplied).</p>
+<p>Finally, suppose that the personal pizza market operates where supply equals demand, or</p>
+<p><span class="math inline">\(\text{Qd~=~Qs}\)</span></p>
+<p>We now have a system of three equations and three unknowns (Qd, Qs, and P), which we can solve with algebra:</p>
+<p>Since Qd = Qs, we can set the demand and supply equation equal to each other:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{Qd} &amp; =\mathrm{Qs} \\
+16-2 \mathrm{P} &amp; =2+5 \mathrm{P}
+\end{aligned}
+\]</span></p>
+<p>Subtracting 2 from both sides and adding 2P to both sides yields:</p>
+<p><span class="math display">\[
+\begin{aligned}
+16-2 \mathrm{P}-2 &amp; =2+5 \mathrm{P}-2 \\
+14-2 \mathrm{P} &amp; =5 \mathrm{P} \\
+14-2 \mathrm{P}+2 \mathrm{P} &amp; =5 \mathrm{P}+2 \mathrm{P} \\
+14 &amp; =7 \mathrm{P} \\
+\frac{14}{7} &amp; =\frac{7 \mathrm{P}}{7} \\
+2 &amp; =\mathrm{P}
+\end{aligned}
+\]</span></p>
+<p>In other words, the price of each personal pizza will be $2. How much will consumers buy?</p>
+<p>Taking the price of $2, and plugging it into the demand equation, we get:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{Qd} &amp; =16-2 \mathrm{P} \\
+&amp; =16-2(2) \\
+&amp; =16-4 \\
+&amp; =12
+\end{aligned}
+\]</span></p>
+<p>So if the price is $2 each, consumers will purchase 12. How much will producers supply? Taking the price of $2, and plugging it into the supply equation, we get:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{Qs} &amp; =2+5 \mathrm{P} \\
+&amp; =2+5(2) \\
+&amp; =2+10 \\
+&amp; =12
+\end{aligned}
+\]</span></p>
+<p>So if the price is $2 each, producers will supply 12 personal pizzas. This means we did our math correctly, since Qd = Qs.</p>
+<p><strong>Solving Models with Graphs</strong></p>
+<p>If algebra is not your forte, you can get the same answer by using graphs. Take the equations for Qd and Qs and graph them on the same set of axes as shown in <a href="#fig-append_a_2">Figure A2</a>. Since P is on the vertical axis, it is easiest if you solve each equation for P. The demand curve is then P = 8 – 0.5Qd and the supply curve is P = –0.4 + 0.2Qs. Note that the vertical intercepts are 8 and –0.4, and the slopes are –0.5 for demand and 0.2 for supply. If you draw the graphs carefully, you will see that where they cross (Qs = Qd), the price is $2 and the quantity is 12, just like the algebra predicted.</p>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId47.jpeg" id="fig-append_a_2" style="width:3.25in;height:1.85in"></p>
+<p>Figure A2 Supply and Demand Graph The equations for Qd and Qs are displayed graphically by the sloped lines.</p>
+<p>We will use graphs more frequently in this book than algebra, but now you know the math behind the graphs.</p>
+</section>
+<section id="growth-rates" class="level2">
+<h2 class="anchored" data-anchor-id="growth-rates">Growth Rates</h2>
+<p>Growth rates are frequently encountered in real world economics. A growth rate is simply the percentage change in some quantity. It could be your income. It could be a business’s sales. It could be a nation’s GDP. The formula for computing a growth rate is straightforward:</p>
+<p><span class="math display">\[
+\text { Percentage change }=\frac{\text { Change in quantity }}{\text { Quantity }}
+\]</span></p>
+<p>Suppose your job pays $10 per hour. Your boss, however, is so impressed with your work that he gives you a $2 per hour raise. The percentage change (or growth rate) in your pay is $2/$10 = 0.20 or 20%.</p>
+<p>To compute the growth rate for data over an extended period of time, for example, the average annual growth in GDP over a decade or more, the denominator is commonly defined a little differently. In the previous example, we defined the quantity as the initial quantity—or the quantity when we started. This is fine for a one-time calculation, but when we compute the growth over and over, it makes more sense to define the quantity as the average quantity over the period in question, which is defined as the quantity halfway between the initial quantity and the next quantity. This is harder to explain in words than to show with an example. Suppose a nation’s GDP was $1 trillion in 2005 and $1.03 trillion in 2006. The growth rate between 2005 and 2006 would be the change in GDP ($1.03 trillion – $1.00 trillion) divided by the average GDP between 2005 and 2006 ($1.03 trillion + $1.00 trillion)/2. In other words:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; =\frac{\$ 1.03 \text { trillion }-\$ 1.00 \text { trillion }}{(\$ 1.03 \text { trillion }+\$ 1.00 \text { trillion }) / 2} \\
+&amp; =\frac{0.03}{1.015} \\
+&amp; =0.0296 \\
+&amp; =2.96 \% \text { growth }
+\end{aligned}
+\]</span></p>
+<p>Note that if we used the first method, the calculation would be ($1.03 trillion – $1.00 trillion) / $1.00 trillion = 3% growth, which is approximately the same as the second, more complicated method. If you need a rough approximation, use the first method. If you need accuracy, use the second method.</p>
+<p>A few things to remember: A positive growth rate means the quantity is growing. A smaller growth rate means the quantity is growing more slowly. A larger growth rate means the quantity is growing more quickly. A negative growth rate means the quantity is decreasing.</p>
+<p>The same change over times yields a smaller growth rate. If you got a $2 raise each year, in the first year the growth rate would be $2/$10 = 20%, as shown above. But in the second year, the growth rate would be $2/$12 = 0.167 or 16.7% growth. In the third year, the same $2 raise would correspond to a $2/$14 = 14.2%. The moral of the story is this: To keep the growth rate the same, the change must increase each period.</p>
+</section>
+<section id="displaying-data-graphically-and-interpreting-the-graph" class="level2">
+<h2 class="anchored" data-anchor-id="displaying-data-graphically-and-interpreting-the-graph">Displaying Data Graphically and Interpreting the Graph</h2>
+<p>Graphs are also used to display data or evidence. Graphs are a method of presenting numerical patterns. They condense detailed numerical information into a visual form in which relationships and numerical patterns can be seen more easily. For example, which countries have larger or smaller populations? A careful reader could examine a long list of numbers representing the populations of many countries, but with over 200 nations in the world, searching through such a list would take concentration and time. Putting these same numbers on a graph can quickly reveal population patterns. Economists use graphs both for a compact and readable presentation of groups of numbers and for building an intuitive grasp of relationships and connections.</p>
+<p>Three types of graphs are used in this book: line graphs, pie graphs, and bar graphs. Each is discussed below. We also provide warnings about how graphs can be manipulated to alter viewers’ perceptions of the relationships in the data.</p>
+<p><strong>Line Graphs</strong></p>
+<p>The graphs we have discussed so far are called line graphs, because they show a relationship between two variables: one measured on the horizontal axis and the other measured on the vertical axis.</p>
+<p>Sometimes it is useful to show more than one set of data on the same axes. The data in <a href="#tbl-table_append_a_2">Table&nbsp;<span>A.2</span></a> is displayed in <a href="#fig-append_a_3">Figure A3</a> which shows the relationship between two variables: length and median weight for American baby boys and girls during the first three years of life. (The median means that half of all babies weigh more than this and half weigh less.) The line graph measures length in inches on the horizontal axis and weight in pounds on the vertical axis. For example, point A on the figure shows that a boy who is 28 inches long will have a median weight of about 19 pounds. One line on the graph shows the length-weight relationship for boys and the other line shows the relationship for girls. This kind of graph is widely used by healthcare providers to check whether a child’s physical development is roughly on track.</p>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId61.jpeg" id="fig-append_a_3" style="width:3.25in;height:3.20833in"></p>
+<p>Figure A3 The Length-Weight Relationship for American Boys and Girls The line graph shows the relationship between height and weight for boys and girls from birth to 3 years. Point A, for example, shows that a boy of 28 inches in height (measured on the horizontal axis) is typically 19 pounds in weight (measured on the vertical axis). These data apply only to children in the first three years of life.</p>
+<div id="tbl-table_append_a_2" class="anchored">
+<table class="table">
+<caption>Table&nbsp;A.2: Length to Weight Relationship for American Boys and Girls</caption>
+<colgroup>
+<col style="width: 34%">
+<col style="width: 15%">
+<col style="width: 36%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Boys from Birth to 36 Months</th>
+<th></th>
+<th>Girls from Birth to 36 Months</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Length (inches)</td>
+<td>Weight (pounds)</td>
+<td>Length (inches)</td>
+<td>Weight (pounds)</td>
+</tr>
+<tr class="even">
+<td>20.0</td>
+<td>8.0</td>
+<td>20.0</td>
+<td>7.9</td>
+</tr>
+<tr class="odd">
+<td>22.0</td>
+<td>10.5</td>
+<td>22.0</td>
+<td>10.5</td>
+</tr>
+<tr class="even">
+<td>24.0</td>
+<td>13.5</td>
+<td>24.0</td>
+<td>13.2</td>
+</tr>
+<tr class="odd">
+<td>26.0</td>
+<td>16.4</td>
+<td>26.0</td>
+<td>16.0</td>
+</tr>
+<tr class="even">
+<td>28.0</td>
+<td>19.0</td>
+<td>28.0</td>
+<td>18.8</td>
+</tr>
+<tr class="odd">
+<td>30.0</td>
+<td>21.8</td>
+<td>30.0</td>
+<td>21.2</td>
+</tr>
+<tr class="even">
+<td>32.0</td>
+<td>24.3</td>
+<td>32.0</td>
+<td>24.0</td>
+</tr>
+<tr class="odd">
+<td>34.0</td>
+<td>27.0</td>
+<td>34.0</td>
+<td>26.2</td>
+</tr>
+<tr class="even">
+<td>36.0</td>
+<td>29.3</td>
+<td>36.0</td>
+<td>28.9</td>
+</tr>
+<tr class="odd">
+<td>38.0</td>
+<td>32.0</td>
+<td>38.0</td>
+<td>31.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Not all relationships in economics are linear. Sometimes they are curves. <a href="#fig-append_a_4">Figure A4</a> presents another example of a line graph, representing the data from <a href="#tbl-table_append_a_3">Table&nbsp;<span>A.3</span></a>. In this case, the line graph shows how thin the air becomes when you climb a mountain. The horizontal axis of the figure shows altitude, measured in meters above sea level. The vertical axis measures the density of the air at each altitude. Air density is measured by the weight of the air in a cubic meter of space (that is, a box measuring one meter in height, width, and depth). As the graph shows, air pressure is heaviest at ground level and becomes lighter as you climb. <a href="#fig-append_a_4">Figure A4</a> shows that a cubic meter of air at an altitude of 500 meters weighs approximately one kilogram (about 2.2 pounds). However, as the altitude increases, air density decreases. A cubic meter of air at the top of Mount Everest, at about 8,828 meters, would weigh only 0.023 kilograms. The thin air at high altitudes explains why many mountain climbers need to use oxygen tanks as they reach the top of a mountain.</p>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId64.jpeg" id="fig-append_a_4" style="width:4.88in;height:3.31in"></p>
+<p>Figure A4 Altitude-Air Density Relationship This line graph shows the relationship between altitude, measured in meters above sea level, and air density, measured in kilograms of air per cubic meter. As altitude rises, air density declines. The point at the top of Mount Everest has an altitude of approximately 8,828 meters above sea level (the horizontal axis) and air density of 0.023 kilograms per cubic meter (the vertical axis).</p>
+<div id="tbl-table_append_a_3" class="anchored">
+<table class="table">
+<caption>Table&nbsp;A.3: Altitude to Air Density Relationship</caption>
+<thead>
+<tr class="header">
+<th>Altitude (meters)</th>
+<th>Air Density (kg/cubic meters)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1.200</td>
+</tr>
+<tr class="even">
+<td>500</td>
+<td>1.093</td>
+</tr>
+<tr class="odd">
+<td>1,000</td>
+<td>0.831</td>
+</tr>
+<tr class="even">
+<td>1,500</td>
+<td>0.678</td>
+</tr>
+<tr class="odd">
+<td>2,000</td>
+<td>0.569</td>
+</tr>
+<tr class="even">
+<td>2,500</td>
+<td>0.484</td>
+</tr>
+<tr class="odd">
+<td>3,000</td>
+<td>0.415</td>
+</tr>
+<tr class="even">
+<td>3,500</td>
+<td>0.357</td>
+</tr>
+<tr class="odd">
+<td>4,000</td>
+<td>0.307</td>
+</tr>
+<tr class="even">
+<td>4,500</td>
+<td>0.231</td>
+</tr>
+<tr class="odd">
+<td>5,000</td>
+<td>0.182</td>
+</tr>
+<tr class="even">
+<td>5,500</td>
+<td>0.142</td>
+</tr>
+<tr class="odd">
+<td>6,000</td>
+<td>0.100</td>
+</tr>
+<tr class="even">
+<td>6,500</td>
+<td>0.085</td>
+</tr>
+<tr class="odd">
+<td>7,000</td>
+<td>0.066</td>
+</tr>
+<tr class="even">
+<td>7,500</td>
+<td>0.051</td>
+</tr>
+<tr class="odd">
+<td>8,000</td>
+<td>0.041</td>
+</tr>
+<tr class="even">
+<td>8,500</td>
+<td>0.025</td>
+</tr>
+<tr class="odd">
+<td>9,000</td>
+<td>0.022</td>
+</tr>
+<tr class="even">
+<td>9,500</td>
+<td>0.019</td>
+</tr>
+<tr class="odd">
+<td>10,000</td>
+<td>0.014</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The length-weight relationship and the altitude-air density relationships in these two figures represent averages. If you were to collect actual data on air pressure at different altitudes, the same altitude in different geographic locations will have slightly different air density, depending on factors like how far you are from the equator, local weather conditions, and the humidity in the air. Similarly, in measuring the height and weight of children for the previous line graph, children of a particular height would have a range of different weights, some above average and some below. In the real world, this sort of variation in data is common. The task of a researcher is to organize that data in a way that helps to understand typical patterns. The study of statistics, especially when combined with computer statistics and spreadsheet programs, is a great help in organizing this kind of data, plotting line graphs, and looking for typical underlying relationships. For most economics and social science majors, a statistics course will be required at some point.</p>
+<p>One common line graph is called a time series, in which the horizontal axis shows time and the vertical axis displays another variable. Thus, a time series graph shows how a variable changes over time. <a href="#fig-append_a_5">Figure A5</a> shows the unemployment rate in the United States since 1975, where unemployment is defined as the percentage of adults who want jobs and are looking for a job, but cannot find one. The points for the unemployment rate in each year are plotted on the graph, and a line then connects the points, showing how the unemployment rate has moved up and down since 1975. The line graph makes it easy to see, for example, that the highest unemployment rate during this time period was slightly less than 10% in the early 1980s and 2010, while the unemployment rate declined from the early 1990s to the end of the 1990s, before rising and then falling back in the early 2000s, and then rising sharply during the recession from 2008–2009.</p>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId68.jpeg" id="fig-append_a_5" style="width:3.05833in;height:2.20833in"></p>
+<p>Figure A5 U.S. Unemployment Rate, 1975–2014 This graph provides a quick visual summary of unemployment data. With a graph like this, it is easy to spot the times of high unemployment and of low unemployment.</p>
+<p><strong>Pie Graphs</strong></p>
+<p>A pie graph (sometimes called a pie chart) is used to show how an overall total is divided into parts. A circle represents a group as a whole. The slices of this circular “pie” show the relative sizes of subgroups.</p>
+<p><a href="#fig-append_a_6">Figure A6</a> shows how the U.S. population was divided among children, working age adults, and the elderly in 1970, 2000, and what is projected for 2030. The information is first conveyed with numbers in <a href="#tbl-table_append_a_4">Table&nbsp;<span>A.4</span></a>, and then in three pie charts. The first column of <a href="#tbl-table_append_a_4">Table&nbsp;<span>A.4</span></a> shows the total U.S. population for each of the three years. Columns 2–4 categorize the total in terms of age groups—from birth to 18 years, from 19 to 64 years, and 65 years and above. In columns 2–4, the first number shows the actual number of people in each age category, while the number in parentheses shows the percentage of the total population comprised by that age group.</p>
+<div id="tbl-table_append_a_4" class="anchored">
+<table class="table">
+<caption>Table&nbsp;A.4: U.S. Age Distribution, 1970, 2000, and 2030 (projected)</caption>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 26%">
+<col style="width: 24%">
+<col style="width: 23%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Total Population (million)</th>
+<th>19 and Under (million)</th>
+<th>20–64 years (million)</th>
+<th>Over 65 (million)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1970</td>
+<td>205.0</td>
+<td>77.2 (37.6%)</td>
+<td>107.7 (52.5%)</td>
+<td>20.1 (9.8%)</td>
+</tr>
+<tr class="even">
+<td>2000</td>
+<td>275.4</td>
+<td>78.4 (28.5%)</td>
+<td>162.2 (58.9%)</td>
+<td>34.8 (12.6%)</td>
+</tr>
+<tr class="odd">
+<td>2030</td>
+<td>351.1</td>
+<td>92.6 (26.4%)</td>
+<td>188.2 (53.6%)</td>
+<td>70.3 (20.0%)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId73.jpeg" id="fig-append_a_6" style="width:6.5in;height:5.135in"></p>
+<p>Figure A6 Pie Graphs of the U.S. Age Distribution (numbers in millions) The three pie graphs illustrate the division of total population into three age groups for the three different years.</p>
+<p>In a pie graph, each slice of the pie represents a share of the total, or a percentage. For example, 50% would be half of the pie and 20% would be one-fifth of the pie. The three pie graphs in <a href="#fig-append_a_6">Figure A6</a> show that the share of the U.S. population 65 and over is growing. The pie graphs allow you to get a feel for the relative size of the different age groups from 1970 to 2000 to 2030, without requiring you to slog through the specific numbers and percentages in the table. Some common examples of how pie graphs are used include dividing the population into groups by age, income level, ethnicity, religion, occupation; dividing different firms into categories by size, industry, number of employees; and dividing up government spending or taxes into its main categories.</p>
+<p><strong>Bar Graphs</strong></p>
+<p>A bar graph uses the height of different bars to compare quantities. <span class="quarto-unresolved-ref">?tbl-table_append_a_5</span> lists the 12 most populous countries in the world. <a href="#fig-append_a_7">Figure A7</a> provides this same data in a bar graph. The height of the bars corresponds to the population of each country. Although you may know that China and India are the most populous countries in the world, seeing how the bars on the graph tower over the other countries helps illustrate the magnitude of the difference between the sizes of national populations.</p>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId77.jpeg" id="fig-append_a_7" style="width:5.025in;height:2.075in"></p>
+<p>Figure A7 Leading Countries of the World by Population, 2015 (in millions) The graph shows the 12 countries of the world with the largest populations. The height of the bars in the bar graph shows the size of the population for each country.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Country</th>
+<th>Population (million)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>China</td>
+<td>1,369</td>
+</tr>
+<tr class="even">
+<td>India</td>
+<td>1,270</td>
+</tr>
+<tr class="odd">
+<td>United States</td>
+<td>321</td>
+</tr>
+<tr class="even">
+<td>Indonesia</td>
+<td>255</td>
+</tr>
+<tr class="odd">
+<td>Brazil</td>
+<td>204</td>
+</tr>
+<tr class="even">
+<td>Pakistan</td>
+<td>190</td>
+</tr>
+<tr class="odd">
+<td>Nigeria</td>
+<td>184</td>
+</tr>
+<tr class="even">
+<td>Bangladesh</td>
+<td>158</td>
+</tr>
+<tr class="odd">
+<td>Russia</td>
+<td>146</td>
+</tr>
+<tr class="even">
+<td>Japan</td>
+<td>127</td>
+</tr>
+<tr class="odd">
+<td>Mexico</td>
+<td>121</td>
+</tr>
+<tr class="even">
+<td>Philippines</td>
+<td>101</td>
+</tr>
+</tbody>
+</table>
+<p>：Leading 12 Countries of the World by Population {#tbl-table_append_a_5}</p>
+<p>Bar graphs can be subdivided in a way that reveals information similar to that we can get from pie charts. <a href="#fig-append_a_8">Figure A8</a> offers three bar graphs based on the information from <a href="#fig-append_a_6">Figure A6</a> about the U.S. age distribution in 1970, 2000, and 2030. <a href="#fig-append_a_8">Figure A8</a> (a) shows three bars for each year, representing the total number of persons in each age bracket for each year. <a href="#fig-append_a_8">Figure A8</a> (b) shows just one bar for each year, but the different age groups are now shaded inside the bar. In <a href="#fig-append_a_8">Figure A8</a> (c), still based on the same data, the vertical axis measures percentages rather than the number of persons. In this case, all three bar graphs are the same height, representing 100% of the population, with each bar divided according to the percentage of population in each age group. It is sometimes easier for a reader to run their eyes across several bar graphs, comparing the shaded areas, rather than trying to compare several pie graphs.</p>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId80.jpeg" id="fig-append_a_8" style="width:5.83in;height:5.495in"></p>
+<p>Figure A8 U.S. Population with Bar Graphs Population data can be represented in different ways. (a) Shows three bars for each year, representing the total number of persons in each age bracket for each year. (b) Shows just one bar for each year, but the different age groups are now shaded inside the bar. (c) Sets the vertical axis as a measure of percentages rather than the number of persons. All three bar graphs are the same height and each bar is divided according to the percentage of population in each age group.</p>
+<p><a href="#fig-append_a_7">Figure A7</a> and <a href="#fig-append_a_8">Figure A8</a> show how the bars can represent countries or years, and how the vertical axis can represent a numerical or a percentage value. Bar graphs can also compare size, quantity, rates, distances, and other quantitative categories.</p>
+<p><strong>Comparing Line Graphs with Pie Charts and Bar Graphs</strong></p>
+<p>Now that you are familiar with pie graphs, bar graphs, and line graphs, how do you know which graph to use for your data? Pie graphs are often better than line graphs at showing how an overall group is divided. However, if a pie graph has too many slices, it can become difficult to interpret.</p>
+<p>Bar graphs are especially useful when comparing quantities. For example, if you are studying the populations of different countries, as in <a href="#fig-append_a_7">Figure A7</a>, bar graphs can show the relationships between the population sizes of multiple countries. Not only can it show these relationships, but it can also show breakdowns of different groups within the population.</p>
+<p>A line graph is often the most effective format for illustrating a relationship between two variables that are both changing. For example, time series graphs can show patterns as time changes, like the unemployment rate over time. Line graphs are widely used in economics to present continuous data about prices, wages, quantities bought and sold, the size of the economy.</p>
+<p><strong>How Graphs Can Be Misleading</strong></p>
+<p>Graphs not only reveal patterns; they can also alter how patterns are perceived. To see some of the ways this can be done, consider the line graphs of <a href="#fig-append_a_9">Figure A9</a>, <a href="#fig-append_a_10">Figure A10</a>, and <a href="#fig-append_a_11">Figure A11</a>. These graphs all illustrate the unemployment rate—but from different perspectives.</p>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId83.jpeg" id="fig-append_a_9" style="width:4.86667in;height:6.65833in"></p>
+<p>Figure A9</p>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId85.jpeg" id="fig-append_a_10" style="width:4.9in;height:7.95833in"></p>
+<p>Figure A10 Presenting Unemployment Rates in Different Ways, All of Them Accurate Simply changing the width and height of the area in which data is displayed can alter the perception of the data.</p>
+<p><img src="media/a-the-use-of-mathematics-in-principles-of-economics_rId88.jpeg" id="fig-append_a_11" style="width:6.5in;height:5.47in"></p>
+<p>Figure A11 Presenting Unemployment Rates in Different Ways, All of Them Accurate Simply changing the width and height of the area in which data is displayed can alter the perception of the data.</p>
+<p>Suppose you wanted a graph which gives the impression that the rise in unemployment in 2009 was not all that large, or all that extraordinary by historical standards. You might choose to present your data as in <a href="#fig-append_a_9">Figure A9</a> (a). <a href="#fig-append_a_9">Figure A9</a> (a) includes much of the same data presented earlier in <a href="#fig-append_a_5">Figure A5</a>, but stretches the horizontal axis out longer relative to the vertical axis. By spreading the graph wide and flat, the visual appearance is that the rise in unemployment is not so large, and is similar to some past rises in unemployment. Now imagine you wanted to emphasize how unemployment spiked substantially higher in 2009. In this case, using the same data, you can stretch the vertical axis out relative to the horizontal axis, as in <a href="#fig-append_a_9">Figure A9</a> (b), which makes all rises and falls in unemployment appear larger.</p>
+<p>A similar effect can be accomplished without changing the length of the axes, but by changing the scale on the vertical axis. In <a href="#fig-append_a_10">Figure A10</a> (c), the scale on the vertical axis runs from 0% to 30%, while in <a href="#fig-append_a_10">Figure A10</a> (d), the vertical axis runs from 3% to 10%. Compared to <a href="#fig-append_a_5">Figure A5</a>, where the vertical scale runs from 0% to 12%, <a href="#fig-append_a_10">Figure A10</a> (c) makes the fluctuation in unemployment look smaller, while <a href="#fig-append_a_10">Figure A10</a> (d) makes it look larger.</p>
+<p>Another way to alter the perception of the graph is to reduce the amount of variation by changing the number of points plotted on the graph. <a href="#fig-append_a_10">Figure A10</a> (e) shows the unemployment rate according to five-year averages. By averaging out some of the year-to-year changes, the line appears smoother and with fewer highs and lows. In reality, the unemployment rate is reported monthly, and <a href="#fig-append_a_11">Figure A11</a> (f) shows the monthly figures since 1960, which fluctuate more than the five-year average. <a href="#fig-append_a_11">Figure A11</a> (f) is also a vivid illustration of how graphs can compress lots of data. The graph includes monthly data since 1960, which over almost 50 years, works out to nearly 600 data points. Reading that list of 600 data points in numerical form would be hypnotic. You can, however, get a good intuitive sense of these 600 data points very quickly from the graph.</p>
+<p>A final trick in manipulating the perception of graphical information is that, by choosing the starting and ending points carefully, you can influence the perception of whether the variable is rising or falling. The original data show a general pattern with unemployment low in the 1960s, but spiking up in the mid-1970s, early 1980s, early 1990s, early 2000s, and late 2000s. <a href="#fig-append_a_11">Figure A11</a> (g), however, shows a graph that goes back only to 1975, which gives an impression that unemployment was more-or-less gradually falling over time until the 2009 recession pushed it back up to its “original” level—which is a plausible interpretation if one starts at the high point around 1975.</p>
+<p>These kinds of tricks—or shall we just call them “presentation choices”— are not limited to line graphs. In a pie chart with many small slices and one large slice, someone must decide what categories should be used to produce these slices in the first place, thus making some slices appear bigger than others. If you are making a bar graph, you can make the vertical axis either taller or shorter, which will tend to make variations in the height of the bars appear more or less.</p>
+<p>Being able to read graphs is an essential skill, both in economics and in life. A graph is just one perspective or point of view, shaped by choices such as those discussed in this section. Do not always believe the first quick impression from a graph. View with caution.</p>
+</section>
+<section id="key-concepts-and-summary" class="level2">
+<h2 class="anchored" data-anchor-id="key-concepts-and-summary">Key Concepts and Summary</h2>
+<p>Math is a tool for understanding economics and economic relationships can be expressed mathematically using algebra or graphs. The algebraic equation for a line is y = b + mx, where x is the variable on the horizontal axis and y is the variable on the vertical axis, the b term is the y-intercept and the m term is the slope. The slope of a line is the same at any point on the line and it indicates the relationship (positive, negative, or zero) between two economic variables.</p>
+<p>Economic models can be solved algebraically or graphically. Graphs allow you to illustrate data visually. They can illustrate patterns, comparisons, trends, and apportionment by condensing the numerical data and providing an intuitive sense of relationships in the data. A line graph shows the relationship between two variables: one is shown on the horizontal axis and one on the vertical axis. A pie graph shows how something is allotted, such as a sum of money or a group of people. The size of each slice of the pie is drawn to represent the corresponding percentage of the whole. A bar graph uses the height of bars to show a relationship, where each bar represents a certain entity, like a country or a group of people. The bars on a bar graph can also be divided into segments to show subgroups.</p>
+<p>Any graph is a single visual perspective on a subject. The impression it leaves will be based on many choices, such as what data or time frame is included, how data or groups are divided up, the relative size of vertical and horizontal axes, whether the scale used on a vertical starts at zero. Thus, any graph should be regarded somewhat skeptically, remembering that the underlying relationship can be open to different interpretations.</p>
+</section>
+<section id="review-questions" class="level2">
+<h2 class="anchored" data-anchor-id="review-questions">Review Questions</h2>
+<p>Exercise A1</p>
+<p>Name three kinds of graphs and briefly state when is most appropriate to use each type of graph.</p>
+<p>Exercise A2</p>
+<p>What is slope on a line graph?</p>
+<p>Exercise A3</p>
+<p>What do the slices of a pie chart represent?</p>
+<p>Exercise A4</p>
+<p>Why is a bar chart the best way to illustrate comparisons?</p>
+<p>Exercise A5</p>
+<p>How does the appearance of positive slope differ from negative slope and from zero slope?</p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./20_globalization.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">20. Globalization</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./a2_indifference_curves.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Indifference Curves</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># The Use of Mathematics in Principles of Economics {#sec-appendix-a}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>(This appendix should be consulted after first reading @sec-chapter-1)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Economics is not math. There is no important concept in this course that</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>cannot be explained without mathematics. That said, math is a tool that</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>can be used to illustrate economic concepts. Remember the saying a</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>picture is worth a thousand words? Instead of a picture, think of a</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>graph. It is the same thing. Economists use models as the primary tool</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>to derive insights about economic issues and problems. Math is one way</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>of working with (or manipulating) economic models.</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>There are other ways of representing models, such as text or narrative.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>But why would you use your fist to bang a nail, if you had a hammer?</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Math has certain advantages over text. It disciplines your thinking by</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>making you specify exactly what you mean. You can get away with fuzzy</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>thinking in your head, but you cannot when you reduce a model to</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>algebraic equations. At the same time, math also has disadvantages.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Mathematical models are necessarily based on simplifying assumptions, so</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>they are not likely to be perfectly realistic. Mathematical models also</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>lack the nuances which can be found in narrative models. The point is</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>that math is one tool, but it is not the only tool or even always the</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>best tool economists can use. So what math will you need for this book?</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>The answer is: little more than high school algebra and graphs. You will</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>need to know:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What a function is</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>How to interpret the equation of a line (i.e., slope and intercept)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>How to manipulate a line (i.e., changing the slope or the intercept)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>How to compute and interpret a growth rate (i.e., percentage change)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>How to read and manipulate a graph</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>In this text, we will use the easiest math possible, and we will</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>introduce it in this appendix. So if you find some math in the book that</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>you cannot follow, come back to this appendix to review. Like most</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>things, math has diminishing returns. A little math ability goes a long</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>way; the more advanced math you bring in, the less additional knowledge</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>that will get you. That said, if you are going to major in economics,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>you should consider learning a little calculus. It will be worth your</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>while in terms of helping you learn advanced economics more quickly.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Algebraic Models</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Often economic models (or parts of models) are expressed in terms of</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>mathematical functions. What is a function? A function describes a</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>relationship. Sometimes the relationship is a definition. For example</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>(using words), your professor is Adam Smith. This could be expressed as</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Professor = Adam Smith. Or Friends = Bob + Shawn + Margaret.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Often in economics, functions describe cause and effect. The variable on</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>the left-hand side is what is being explained ("the effect"). On the</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>right-hand side is what is doing the explaining ("the causes"). For</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>example, suppose your GPA was determined as follows:</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>$\text{GPA~=~0.25~×~combined<span class="sc">\_</span>SAT~+~0.25~×~class<span class="sc">\_</span>attendance~+~0.50~×~hours<span class="sc">\_</span>spent<span class="sc">\_</span>studying}$</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>This equation states that your GPA depends on three things: your</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>combined SAT score, your class attendance, and the number of hours you</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>spend studying. It also says that study time is twice as important</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>(0.50) as either combined_SAT score (0.25) or class_attendance (0.25).</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>If this relationship is true, how could you raise your GPA? By not</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>skipping class and studying more. Note that you cannot do anything about</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>your SAT score, since if you are in college, you have (presumably)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>already taken the SATs.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Of course, economic models express relationships using economic</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>variables, like Budget = money_spent_on_econ_books +</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>money_spent_on_music, assuming that the only things you buy are</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>economics books and music.</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Most of the relationships we use in this course are expressed as linear</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>equations of the form:</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>$\text{y~=~b~+~mx}$</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>**Expressing Equations Graphically**</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>Graphs are useful for two purposes. The first is to express equations</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>visually, and the second is to display statistics or data. This section</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>will discuss expressing equations visually.</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>To a mathematician or an economist, a variable is the name given to a</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>quantity that may assume a range of values. In the equation of a line</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>presented above, x and y are the variables, with x on the horizontal</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>axis and y on the vertical axis, and b and m representing factors that</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>determine the shape of the line. To see how this equation works,</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>consider a numerical example:</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>$\text{y~=~9~+~3x}$</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>In this equation for a specific line, the b term has been set equal to 9</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>and the m term has been set equal to 3. @tbl-table_append_a_1  shows</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>the values of x and y for this given equation. [Figure</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>A1](#fig-append_a_1) shows this equation, and these values, in a</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>graph. To construct the table, just plug in a series of different values</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>for x, and then calculate what value of y results. In the figure, these</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>points are plotted and a line is drawn through them.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>| x | y  |</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>|---|----|</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>| 0 | 9  |</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>| 1 | 12 |</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>| 2 | 15 |</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>| 3 | 18 |</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>| 4 | 21 |</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>| 5 | 24 |</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>| 6 | 27 |</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>: Values for the Slope Intercept Equation {#tbl-table_append_a_1}</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId26.jpeg)</span>{width="3.25in" height="2.52in" #fig-append_a_1}</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>Figure A1 Slope and the Algebra of Straight Lines This line graph has</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>*x* on the horizontal axis and y on the vertical axis. The</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>y-intercept---that is, the point where the line intersects the</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>y-axis---is 9. The slope of the line is 3; that is, there is a rise of 3</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>on the vertical axis for every increase of 1 on the horizontal axis. The</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>slope is the same all along a straight line.</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>This example illustrates how the b and m terms in an equation for a</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>straight line determine the shape of the line. The b term is called the</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>y-intercept. The reason for this name is that, if x = 0, then the b term</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>will reveal where the line intercepts, or crosses, the y-axis. In this</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>example, the line hits the vertical axis at 9. The m term in the</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>equation for the line is the slope. Remember that slope is defined as</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>rise over run; more specifically, the slope of a line from one point to</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>another is the change in the vertical axis divided by the change in the</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>horizontal axis. In this example, each time the x term increases by one</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>(the run), the y term rises by three. Thus, the slope of this line is</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>three. Specifying a y-intercept and a slope---that is, specifying b and</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>m in the equation for a line---will identify a specific line. Although</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>it is rare for real-world data points to arrange themselves as an exact</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>straight line, it often turns out that a straight line can offer a</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>reasonable approximation of actual data.</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>**Interpreting the Slope**</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>The concept of slope is very useful in economics, because it measures</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>the relationship between two variables. A positive slope means that two</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>variables are positively related; that is, when x increases, so does y,</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>or when x decreases, y decreases also. Graphically, a positive slope</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>means that as a line on the line graph moves from left to right, the</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>line rises. The length-weight relationship, shown in [Figure</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>A3](#fig-append_a_3) later in this Appendix, has a positive slope. We</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>will learn in other chapters that price and quantity supplied have a</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>positive relationship; that is, firms will supply more when the price is</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>higher.</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>A negative slope means that two variables are negatively related; that</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>is, when x increases, y decreases, or when x decreases, y increases.</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>Graphically, a negative slope means that, as the line on the line graph</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>moves from left to right, the line falls. The altitude-air density</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>relationship, shown in <span class="co">[</span><span class="ot">Figure A4</span><span class="co">](#fig-append_a_4)</span> later in this</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>appendix, has a negative slope. We will learn that price and quantity</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>demanded have a negative relationship; that is, consumers will purchase</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>less when the price is higher.</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>A slope of zero means that there is no relationship between x and y.</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>Graphically, the line is flat; that is, zero rise over the run. [Figure</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>A5](#fig-append_a_5) of the unemployment rate, shown later in this</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>appendix, illustrates a common pattern of many line graphs: some</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>segments where the slope is positive, other segments where the slope is</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>negative, and still other segments where the slope is close to zero.</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>The slope of a straight line between two points can be calculated in</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>numerical terms. To calculate slope, begin by designating one point as</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>the "starting point" and the other point as the "end point" and then</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>calculating the rise over run between these two points. As an example,</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>consider the slope of the air density graph between the points</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>representing an altitude of 4,000 meters and an altitude of 6,000</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>meters:</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>Rise: Change in variable on vertical axis (end point minus original</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>point)</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>&amp; =0.100-0.307 <span class="sc">\\</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>&amp; =-0.207</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>Run: Change in variable on horizontal axis (end point minus original</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>point)</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>&amp; =6,000-4,000 <span class="sc">\\</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>&amp; =2,000</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>Thus, the slope of a straight line between these two points would be</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>that from the altitude of 4,000 meters up to 6,000 meters, the density</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>of the air decreases by approximately 0.1 kilograms/cubic meter for each</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>of the next 1,000 meters.</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>Suppose the slope of a line were to increase. Graphically, that means it</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>would get steeper. Suppose the slope of a line were to decrease. Then it</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>would get flatter. These conditions are true whether or not the slope</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>was positive or negative to begin with. A higher positive slope means a</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>steeper upward tilt to the line, while a smaller positive slope means a</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>flatter upward tilt to the line. A negative slope that is larger in</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>absolute value (that is, more negative) means a steeper downward tilt to</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>the line. A slope of zero is a horizontal flat line. A vertical line has</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>an infinite slope.</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>Suppose a line has a larger intercept. Graphically, that means it would</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>shift out (or up) from the old origin, parallel to the old line. If a</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>line has a smaller intercept, it would shift in (or down), parallel to</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>the old line.</span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>**Solving Models with Algebra**</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>Economists often use models to answer a specific question, like: What</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>will the unemployment rate be if the economy grows at 3% per year?</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>Answering specific questions requires solving the "system" of equations</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>that represent the model.</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>Suppose the demand for personal pizzas is given by the following</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>equation: </span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>$\text{Qd~=~16~–~2P}$</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>where Qd is the amount of personal pizzas consumers want to buy (i.e.,</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>quantity demanded), and P is the price of pizzas. Suppose the supply of</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>personal pizzas is: </span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>$\text{Qs~=~2~+~5P}$</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>where Qs is the amount of pizza producers will supply (i.e., quantity</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>supplied).</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>Finally, suppose that the personal pizza market operates where supply</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>equals demand, or </span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>$\text{Qd~=~Qs}$</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>We now have a system of three equations and three unknowns (Qd, Qs, and</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>P), which we can solve with algebra:</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>Since Qd = Qs, we can set the demand and supply equation equal to each</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>other:</span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>\mathrm{Qd} &amp; =\mathrm{Qs} <span class="sc">\\</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>16-2 \mathrm{P} &amp; =2+5 \mathrm{P}</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>Subtracting 2 from both sides and adding 2P to both sides yields:</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>16-2 \mathrm{P}-2 &amp; =2+5 \mathrm{P}-2 <span class="sc">\\</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>14-2 \mathrm{P} &amp; =5 \mathrm{P} <span class="sc">\\</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>14-2 \mathrm{P}+2 \mathrm{P} &amp; =5 \mathrm{P}+2 \mathrm{P} <span class="sc">\\</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>14 &amp; =7 \mathrm{P} <span class="sc">\\</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>\frac{14}{7} &amp; =\frac{7 \mathrm{P}}{7} <span class="sc">\\</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>2 &amp; =\mathrm{P}</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>In other words, the price of each personal pizza will be \$2. How much</span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>will consumers buy?</span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>Taking the price of \$2, and plugging it into the demand equation, we</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>get:</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>\mathrm{Qd} &amp; =16-2 \mathrm{P} <span class="sc">\\</span></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>&amp; =16-2(2) <span class="sc">\\</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>&amp; =16-4 <span class="sc">\\</span></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>&amp; =12</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>So if the price is \$2 each, consumers will purchase 12. How much will</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a>producers supply? Taking the price of \$2, and plugging it into the</span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>supply equation, we get:</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>\mathrm{Qs} &amp; =2+5 \mathrm{P} <span class="sc">\\</span></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>&amp; =2+5(2) <span class="sc">\\</span></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>&amp; =2+10 <span class="sc">\\</span></span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>&amp; =12</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>So if the price is \$2 each, producers will supply 12 personal pizzas.</span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>This means we did our math correctly, since Qd = Qs.</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>**Solving Models with Graphs**</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>If algebra is not your forte, you can get the same answer by using</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>graphs. Take the equations for Qd and Qs and graph them on the same set</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>of axes as shown in <span class="co">[</span><span class="ot">Figure A2</span><span class="co">](#fig-append_a_2)</span>. Since P is on the</span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>vertical axis, it is easiest if you solve each equation for P. The</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>demand curve is then P = 8 -- 0.5Qd and the supply curve is P = --0.4 +</span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>0.2Qs. Note that the vertical intercepts are 8 and --0.4, and the slopes</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>are --0.5 for demand and 0.2 for supply. If you draw the graphs</span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>carefully, you will see that where they cross (Qs = Qd), the price is</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>\$2 and the quantity is 12, just like the algebra predicted.</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId47.jpeg)</span>{width="3.25in" height="1.8499989063867017in" #fig-append_a_2}</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>Figure A2 Supply and Demand Graph The equations for Qd and Qs are</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>displayed graphically by the sloped lines.</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>We will use graphs more frequently in this book than algebra, but now</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>you know the math behind the graphs.</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="fu">## Growth Rates</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a>Growth rates are frequently encountered in real world economics. A</span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>growth rate is simply the percentage change in some quantity. It could</span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>be your income. It could be a business's sales. It could be a nation's</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>GDP. The formula for computing a growth rate is straightforward:</span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>\text { Percentage change }=\frac{\text { Change in quantity }}{\text { Quantity }}</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>Suppose your job pays \$10 per hour. Your boss, however, is so impressed</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>with your work that he gives you a \$2 per hour raise. The percentage</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>change (or growth rate) in your pay is \$2/\$10 = 0.20 or 20%.</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>To compute the growth rate for data over an extended period of time, for</span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>example, the average annual growth in GDP over a decade or more, the</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>denominator is commonly defined a little differently. In the previous</span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>example, we defined the quantity as the initial quantity---or the</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>quantity when we started. This is fine for a one-time calculation, but</span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>when we compute the growth over and over, it makes more sense to define</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>the quantity as the average quantity over the period in question, which</span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>is defined as the quantity halfway between the initial quantity and the</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>next quantity. This is harder to explain in words than to show with an</span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>example. Suppose a nation's GDP was \$1 trillion in 2005 and \$1.03</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>trillion in 2006. The growth rate between 2005 and 2006 would be the</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>change in GDP (\$1.03 trillion -- \$1.00 trillion) divided by the</span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>average GDP between 2005 and 2006 (\$1.03 trillion + \$1.00 trillion)/2.</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>In other words:</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>&amp; =\frac{\$ 1.03 \text { trillion }-\$ 1.00 \text { trillion }}{(\$ 1.03 \text { trillion }+\$ 1.00 \text { trillion }) / 2} <span class="sc">\\</span></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>&amp; =\frac{0.03}{1.015} <span class="sc">\\</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>&amp; =0.0296 <span class="sc">\\</span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>&amp; =2.96 \% \text { growth }</span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a>Note that if we used the first method, the calculation would be (\$1.03</span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>trillion -- \$1.00 trillion) / \$1.00 trillion = 3% growth, which is</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>approximately the same as the second, more complicated method. If you</span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>need a rough approximation, use the first method. If you need accuracy,</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>use the second method.</span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>A few things to remember: A positive growth rate means the quantity is</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>growing. A smaller growth rate means the quantity is growing more</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>slowly. A larger growth rate means the quantity is growing more quickly.</span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>A negative growth rate means the quantity is decreasing.</span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>The same change over times yields a smaller growth rate. If you got a</span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>\$2 raise each year, in the first year the growth rate would be \$2/\$10</span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>= 20%, as shown above. But in the second year, the growth rate would be</span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>\$2/\$12 = 0.167 or 16.7% growth. In the third year, the same \$2 raise</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>would correspond to a \$2/\$14 = 14.2%. The moral of the story is this:</span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>To keep the growth rate the same, the change must increase each period.</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="fu">## Displaying Data Graphically and Interpreting the Graph</span></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>Graphs are also used to display data or evidence. Graphs are a method of</span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>presenting numerical patterns. They condense detailed numerical</span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>information into a visual form in which relationships and numerical</span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>patterns can be seen more easily. For example, which countries have</span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>larger or smaller populations? A careful reader could examine a long</span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>list of numbers representing the populations of many countries, but with</span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>over 200 nations in the world, searching through such a list would take</span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>concentration and time. Putting these same numbers on a graph can</span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>quickly reveal population patterns. Economists use graphs both for a</span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>compact and readable presentation of groups of numbers and for building</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>an intuitive grasp of relationships and connections.</span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>Three types of graphs are used in this book: line graphs, pie graphs,</span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>and bar graphs. Each is discussed below. We also provide warnings about</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>how graphs can be manipulated to alter viewers' perceptions of the</span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>relationships in the data.</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>**Line Graphs**</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>The graphs we have discussed so far are called line graphs, because they</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>show a relationship between two variables: one measured on the</span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>horizontal axis and the other measured on the vertical axis.</span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>Sometimes it is useful to show more than one set of data on the same</span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>axes. The data in @tbl-table_append_a_2 is displayed in [Figure</span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>A3](#fig-append_a_3) which shows the relationship between two</span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>variables: length and median weight for American baby boys and girls</span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>during the first three years of life. (The median means that half of all</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>babies weigh more than this and half weigh less.) The line graph</span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>measures length in inches on the horizontal axis and weight in pounds on</span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>the vertical axis. For example, point A on the figure shows that a boy</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>who is 28 inches long will have a median weight of about 19 pounds. One</span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>line on the graph shows the length-weight relationship for boys and the</span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>other line shows the relationship for girls. This kind of graph is</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>widely used by healthcare providers to check whether a child's physical</span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>development is roughly on track.</span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId61.jpeg)</span>{width="3.25in" height="3.2083333333333335in" #fig-append_a_3}</span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>Figure A3 The Length-Weight Relationship for American Boys and Girls The</span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>line graph shows the relationship between height and weight for boys and</span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>girls from birth to 3 years. Point A, for example, shows that a boy of</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>28 inches in height (measured on the horizontal axis) is typically 19</span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a>pounds in weight (measured on the vertical axis). These data apply only</span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>to children in the first three years of life.</span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>| Boys from Birth to 36 Months |            | Girls from Birth to 36 Months |            |</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>|-----------------------------|-------------|-------------------------------|------------|</span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>| Length (inches)             | Weight (pounds) | Length (inches)               | Weight (pounds) |</span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>| 20.0                        | 8.0             | 20.0                          | 7.9             |</span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>| 22.0                        | 10.5            | 22.0                          | 10.5            |</span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>| 24.0                        | 13.5            | 24.0                          | 13.2            |</span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>| 26.0                        | 16.4            | 26.0                          | 16.0            |</span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>| 28.0                        | 19.0            | 28.0                          | 18.8            |</span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>| 30.0                        | 21.8            | 30.0                          | 21.2            |</span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>| 32.0                        | 24.3            | 32.0                          | 24.0            |</span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>| 34.0                        | 27.0            | 34.0                          | 26.2            |</span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>| 36.0                        | 29.3            | 36.0                          | 28.9            |</span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>| 38.0                        | 32.0            | 38.0                          | 31.3            |</span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>: Length to Weight Relationship for American Boys and Girls {#tbl-table_append_a_2}</span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>Not all relationships in economics are linear. Sometimes they are</span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>curves. <span class="co">[</span><span class="ot">Figure A4</span><span class="co">](#fig-append_a_4)</span> presents another example of a</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>line graph, representing the data from @tbl-table_append_a_3. In this</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>case, the line graph shows how thin the air becomes when you climb a</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>mountain. The horizontal axis of the figure shows altitude, measured in</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>meters above sea level. The vertical axis measures the density of the</span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>air at each altitude. Air density is measured by the weight of the air</span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>in a cubic meter of space (that is, a box measuring one meter in height,</span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>width, and depth). As the graph shows, air pressure is heaviest at</span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>ground level and becomes lighter as you climb. [Figure</span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>A4](#fig-append_a_4) shows that a cubic meter of air at an altitude of</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>500 meters weighs approximately one kilogram (about 2.2 pounds).</span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a>However, as the altitude increases, air density decreases. A cubic meter</span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a>of air at the top of Mount Everest, at about 8,828 meters, would weigh</span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>only 0.023 kilograms. The thin air at high altitudes explains why many</span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a>mountain climbers need to use oxygen tanks as they reach the top of a</span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>mountain.</span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId64.jpeg)</span>{width="4.88in" height="3.31in" #fig-append_a_4}</span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a>Figure A4 Altitude-Air Density Relationship This line graph shows the</span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a>relationship between altitude, measured in meters above sea level, and</span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a>air density, measured in kilograms of air per cubic meter. As altitude</span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>rises, air density declines. The point at the top of Mount Everest has</span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a>an altitude of approximately 8,828 meters above sea level (the</span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a>horizontal axis) and air density of 0.023 kilograms per cubic meter (the</span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a>vertical axis).</span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a>| Altitude (meters) | Air Density (kg/cubic meters) |</span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a>|-------------------|-------------------------------|</span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a>| 0                 | 1.200                         |</span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a>| 500               | 1.093                         |</span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a>| 1,000             | 0.831                         |</span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a>| 1,500             | 0.678                         |</span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a>| 2,000             | 0.569                         |</span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a>| 2,500             | 0.484                         |</span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a>| 3,000             | 0.415                         |</span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a>| 3,500             | 0.357                         |</span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a>| 4,000             | 0.307                         |</span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a>| 4,500             | 0.231                         |</span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a>| 5,000             | 0.182                         |</span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a>| 5,500             | 0.142                         |</span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a>| 6,000             | 0.100                         |</span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a>| 6,500             | 0.085                         |</span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a>| 7,000             | 0.066                         |</span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a>| 7,500             | 0.051                         |</span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>| 8,000             | 0.041                         |</span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a>| 8,500             | 0.025                         |</span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a>| 9,000             | 0.022                         |</span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a>| 9,500             | 0.019                         |</span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a>| 10,000            | 0.014                         |</span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a>: Altitude to Air Density Relationship {#tbl-table_append_a_3}</span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a>The length-weight relationship and the altitude-air density</span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a>relationships in these two figures represent averages. If you were to</span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a>collect actual data on air pressure at different altitudes, the same</span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a>altitude in different geographic locations will have slightly different</span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a>air density, depending on factors like how far you are from the equator,</span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a>local weather conditions, and the humidity in the air. Similarly, in</span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a>measuring the height and weight of children for the previous line graph,</span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a>children of a particular height would have a range of different weights,</span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a>some above average and some below. In the real world, this sort of</span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a>variation in data is common. The task of a researcher is to organize</span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a>that data in a way that helps to understand typical patterns. The study</span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a>of statistics, especially when combined with computer statistics and</span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a>spreadsheet programs, is a great help in organizing this kind of data,</span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a>plotting line graphs, and looking for typical underlying relationships.</span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a>For most economics and social science majors, a statistics course will</span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a>be required at some point.</span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a>One common line graph is called a time series, in which the horizontal</span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a>axis shows time and the vertical axis displays another variable. Thus, a</span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a>time series graph shows how a variable changes over time. [Figure</span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a>A5](#fig-append_a_5) shows the unemployment rate in the United States</span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a>since 1975, where unemployment is defined as the percentage of adults</span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a>who want jobs and are looking for a job, but cannot find one. The points</span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a>for the unemployment rate in each year are plotted on the graph, and a</span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a>line then connects the points, showing how the unemployment rate has</span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a>moved up and down since 1975. The line graph makes it easy to see, for</span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a>example, that the highest unemployment rate during this time period was</span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a>slightly less than 10% in the early 1980s and 2010, while the</span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a>unemployment rate declined from the early 1990s to the end of the 1990s,</span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a>before rising and then falling back in the early 2000s, and then rising</span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a>sharply during the recession from 2008--2009.</span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId68.jpeg)</span>{width="3.058333333333333in"</span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a>height="2.2083333333333335in" #fig-append_a_5}</span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a>Figure A5 U.S. Unemployment Rate, 1975--2014 This graph provides a quick</span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a>visual summary of unemployment data. With a graph like this, it is easy</span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a>to spot the times of high unemployment and of low unemployment.</span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a>**Pie Graphs**</span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a>A pie graph (sometimes called a pie chart) is used to show how an</span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a>overall total is divided into parts. A circle represents a group as a</span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a>whole. The slices of this circular "pie" show the relative sizes of</span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a>subgroups.</span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Figure A6</span><span class="co">](#fig-append_a_6)</span> shows how the U.S. population was divided</span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>among children, working age adults, and the elderly in 1970, 2000, and</span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a>what is projected for 2030. The information is first conveyed with</span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a>numbers in @tbl-table_append_a_4, and then in three pie charts. The</span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a>first column of @tbl-table_append_a_4 shows the total U.S. population</span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a>for each of the three years. Columns 2--4 categorize the total in terms</span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a>of age groups---from birth to 18 years, from 19 to 64 years, and 65</span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>years and above. In columns 2--4, the first number shows the actual</span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a>number of people in each age category, while the number in parentheses</span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a>shows the percentage of the total population comprised by that age</span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a>group.</span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a>| Year | Total Population (million) | 19 and Under (million) | 20–64 years (million) | Over 65 (million) |</span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a>|------|---------------------------|-------------------------|------------------------|-------------------|</span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a>| 1970 | 205.0                     | 77.2 (37.6%)            | 107.7 (52.5%)           | 20.1 (9.8%)       |</span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a>| 2000 | 275.4                     | 78.4 (28.5%)            | 162.2 (58.9%)           | 34.8 (12.6%)      |</span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a>| 2030 | 351.1                     | 92.6 (26.4%)            | 188.2 (53.6%)           | 70.3 (20.0%)      |</span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a>: U.S. Age Distribution, 1970, 2000, and 2030 (projected) {#tbl-table_append_a_4}</span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId73.jpeg)</span>{width="6.5in" height="5.135in" #fig-append_a_6}</span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a>Figure A6 Pie Graphs of the U.S. Age Distribution (numbers in millions)</span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a>The three pie graphs illustrate the division of total population into</span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a>three age groups for the three different years.</span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a>In a pie graph, each slice of the pie represents a share of the total,</span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a>or a percentage. For example, 50% would be half of the pie and 20% would</span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a>be one-fifth of the pie. The three pie graphs in [Figure</span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a>A6](#fig-append_a_6) show that the share of the U.S. population 65 and</span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a>over is growing. The pie graphs allow you to get a feel for the relative</span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a>size of the different age groups from 1970 to 2000 to 2030, without</span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a>requiring you to slog through the specific numbers and percentages in</span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>the table. Some common examples of how pie graphs are used include</span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>dividing the population into groups by age, income level, ethnicity,</span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a>religion, occupation; dividing different firms into categories by size,</span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>industry, number of employees; and dividing up government spending or</span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>taxes into its main categories.</span>
+<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>**Bar Graphs**</span>
+<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a>A bar graph uses the height of different bars to compare quantities.</span>
+<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a>@tbl-table_append_a_5 lists the 12 most populous countries in the</span>
+<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a>world. <span class="co">[</span><span class="ot">Figure A7</span><span class="co">](#fig-append_a_7)</span> provides this same data in a bar</span>
+<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a>graph. The height of the bars corresponds to the population of each</span>
+<span id="cb1-582"><a href="#cb1-582" aria-hidden="true" tabindex="-1"></a>country. Although you may know that China and India are the most</span>
+<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a>populous countries in the world, seeing how the bars on the graph tower</span>
+<span id="cb1-584"><a href="#cb1-584" aria-hidden="true" tabindex="-1"></a>over the other countries helps illustrate the magnitude of the</span>
+<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a>difference between the sizes of national populations.</span>
+<span id="cb1-586"><a href="#cb1-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId77.jpeg)</span>{width="5.025in" height="2.075in" #fig-append_a_7}</span>
+<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a>Figure A7 Leading Countries of the World by Population, 2015 (in</span>
+<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a>millions) The graph shows the 12 countries of the world with the largest</span>
+<span id="cb1-591"><a href="#cb1-591" aria-hidden="true" tabindex="-1"></a>populations. The height of the bars in the bar graph shows the size of</span>
+<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a>the population for each country.</span>
+<span id="cb1-593"><a href="#cb1-593" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a>| Country         | Population (million) |</span>
+<span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a>|-----------------|-----------------------|</span>
+<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a>| China           | 1,369                 |</span>
+<span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a>| India           | 1,270                 |</span>
+<span id="cb1-598"><a href="#cb1-598" aria-hidden="true" tabindex="-1"></a>| United States   | 321                   |</span>
+<span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a>| Indonesia       | 255                   |</span>
+<span id="cb1-600"><a href="#cb1-600" aria-hidden="true" tabindex="-1"></a>| Brazil          | 204                   |</span>
+<span id="cb1-601"><a href="#cb1-601" aria-hidden="true" tabindex="-1"></a>| Pakistan        | 190                   |</span>
+<span id="cb1-602"><a href="#cb1-602" aria-hidden="true" tabindex="-1"></a>| Nigeria         | 184                   |</span>
+<span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a>| Bangladesh      | 158                   |</span>
+<span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a>| Russia          | 146                   |</span>
+<span id="cb1-605"><a href="#cb1-605" aria-hidden="true" tabindex="-1"></a>| Japan           | 127                   |</span>
+<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a>| Mexico          | 121                   |</span>
+<span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a>| Philippines     | 101                   |</span>
+<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a>：Leading 12 Countries of the World by Population {#tbl-table_append_a_5}</span>
+<span id="cb1-610"><a href="#cb1-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a>Bar graphs can be subdivided in a way that reveals information similar</span>
+<span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a>to that we can get from pie charts. <span class="co">[</span><span class="ot">Figure A8</span><span class="co">](#fig-append_a_8)</span></span>
+<span id="cb1-613"><a href="#cb1-613" aria-hidden="true" tabindex="-1"></a>offers three bar graphs based on the information from [Figure</span>
+<span id="cb1-614"><a href="#cb1-614" aria-hidden="true" tabindex="-1"></a>A6](#fig-append_a_6) about the U.S. age distribution in 1970, 2000,</span>
+<span id="cb1-615"><a href="#cb1-615" aria-hidden="true" tabindex="-1"></a>and 2030. <span class="co">[</span><span class="ot">Figure A8</span><span class="co">](#fig-append_a_8)</span> (a) shows three bars for each</span>
+<span id="cb1-616"><a href="#cb1-616" aria-hidden="true" tabindex="-1"></a>year, representing the total number of persons in each age bracket for</span>
+<span id="cb1-617"><a href="#cb1-617" aria-hidden="true" tabindex="-1"></a>each year. <span class="co">[</span><span class="ot">Figure A8</span><span class="co">](#fig-append_a_8)</span> (b) shows just one bar for</span>
+<span id="cb1-618"><a href="#cb1-618" aria-hidden="true" tabindex="-1"></a>each year, but the different age groups are now shaded inside the bar.</span>
+<span id="cb1-619"><a href="#cb1-619" aria-hidden="true" tabindex="-1"></a>In <span class="co">[</span><span class="ot">Figure A8</span><span class="co">](#fig-append_a_8)</span> (c), still based on the same data, the</span>
+<span id="cb1-620"><a href="#cb1-620" aria-hidden="true" tabindex="-1"></a>vertical axis measures percentages rather than the number of persons. In</span>
+<span id="cb1-621"><a href="#cb1-621" aria-hidden="true" tabindex="-1"></a>this case, all three bar graphs are the same height, representing 100%</span>
+<span id="cb1-622"><a href="#cb1-622" aria-hidden="true" tabindex="-1"></a>of the population, with each bar divided according to the percentage of</span>
+<span id="cb1-623"><a href="#cb1-623" aria-hidden="true" tabindex="-1"></a>population in each age group. It is sometimes easier for a reader to run</span>
+<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a>their eyes across several bar graphs, comparing the shaded areas, rather</span>
+<span id="cb1-625"><a href="#cb1-625" aria-hidden="true" tabindex="-1"></a>than trying to compare several pie graphs.</span>
+<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-627"><a href="#cb1-627" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId80.jpeg)</span>{width="5.83in" height="5.495in" #fig-append_a_8}</span>
+<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-629"><a href="#cb1-629" aria-hidden="true" tabindex="-1"></a>Figure A8 U.S. Population with Bar Graphs Population data can be</span>
+<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a>represented in different ways. (a) Shows three bars for each year,</span>
+<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a>representing the total number of persons in each age bracket for each</span>
+<span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a>year. (b) Shows just one bar for each year, but the different age groups</span>
+<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a>are now shaded inside the bar. (c) Sets the vertical axis as a measure</span>
+<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a>of percentages rather than the number of persons. All three bar graphs</span>
+<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a>are the same height and each bar is divided according to the percentage</span>
+<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a>of population in each age group.</span>
+<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Figure A7</span><span class="co">](#fig-append_a_7)</span> and <span class="co">[</span><span class="ot">Figure A8</span><span class="co">](#fig-append_a_8)</span> show</span>
+<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a>how the bars can represent countries or years, and how the vertical axis</span>
+<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a>can represent a numerical or a percentage value. Bar graphs can also</span>
+<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a>compare size, quantity, rates, distances, and other quantitative</span>
+<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a>categories.</span>
+<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-644"><a href="#cb1-644" aria-hidden="true" tabindex="-1"></a>**Comparing Line Graphs with Pie Charts and Bar Graphs**</span>
+<span id="cb1-645"><a href="#cb1-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-646"><a href="#cb1-646" aria-hidden="true" tabindex="-1"></a>Now that you are familiar with pie graphs, bar graphs, and line graphs,</span>
+<span id="cb1-647"><a href="#cb1-647" aria-hidden="true" tabindex="-1"></a>how do you know which graph to use for your data? Pie graphs are often</span>
+<span id="cb1-648"><a href="#cb1-648" aria-hidden="true" tabindex="-1"></a>better than line graphs at showing how an overall group is divided.</span>
+<span id="cb1-649"><a href="#cb1-649" aria-hidden="true" tabindex="-1"></a>However, if a pie graph has too many slices, it can become difficult to</span>
+<span id="cb1-650"><a href="#cb1-650" aria-hidden="true" tabindex="-1"></a>interpret.</span>
+<span id="cb1-651"><a href="#cb1-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-652"><a href="#cb1-652" aria-hidden="true" tabindex="-1"></a>Bar graphs are especially useful when comparing quantities. For example,</span>
+<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a>if you are studying the populations of different countries, as in</span>
+<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Figure A7</span><span class="co">](#fig-append_a_7)</span>, bar graphs can show the relationships</span>
+<span id="cb1-655"><a href="#cb1-655" aria-hidden="true" tabindex="-1"></a>between the population sizes of multiple countries. Not only can it show</span>
+<span id="cb1-656"><a href="#cb1-656" aria-hidden="true" tabindex="-1"></a>these relationships, but it can also show breakdowns of different groups</span>
+<span id="cb1-657"><a href="#cb1-657" aria-hidden="true" tabindex="-1"></a>within the population.</span>
+<span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a>A line graph is often the most effective format for illustrating a</span>
+<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a>relationship between two variables that are both changing. For example,</span>
+<span id="cb1-661"><a href="#cb1-661" aria-hidden="true" tabindex="-1"></a>time series graphs can show patterns as time changes, like the</span>
+<span id="cb1-662"><a href="#cb1-662" aria-hidden="true" tabindex="-1"></a>unemployment rate over time. Line graphs are widely used in economics to</span>
+<span id="cb1-663"><a href="#cb1-663" aria-hidden="true" tabindex="-1"></a>present continuous data about prices, wages, quantities bought and sold,</span>
+<span id="cb1-664"><a href="#cb1-664" aria-hidden="true" tabindex="-1"></a>the size of the economy.</span>
+<span id="cb1-665"><a href="#cb1-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-666"><a href="#cb1-666" aria-hidden="true" tabindex="-1"></a>**How Graphs Can Be Misleading**</span>
+<span id="cb1-667"><a href="#cb1-667" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-668"><a href="#cb1-668" aria-hidden="true" tabindex="-1"></a>Graphs not only reveal patterns; they can also alter how patterns are</span>
+<span id="cb1-669"><a href="#cb1-669" aria-hidden="true" tabindex="-1"></a>perceived. To see some of the ways this can be done, consider the line</span>
+<span id="cb1-670"><a href="#cb1-670" aria-hidden="true" tabindex="-1"></a>graphs of <span class="co">[</span><span class="ot">Figure A9</span><span class="co">](#fig-append_a_9)</span>, [Figure</span>
+<span id="cb1-671"><a href="#cb1-671" aria-hidden="true" tabindex="-1"></a>A10](#fig-append_a_10), and <span class="co">[</span><span class="ot">Figure A11</span><span class="co">](#fig-append_a_11)</span>. These</span>
+<span id="cb1-672"><a href="#cb1-672" aria-hidden="true" tabindex="-1"></a>graphs all illustrate the unemployment rate---but from different</span>
+<span id="cb1-673"><a href="#cb1-673" aria-hidden="true" tabindex="-1"></a>perspectives.</span>
+<span id="cb1-674"><a href="#cb1-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-675"><a href="#cb1-675" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId83.jpeg)</span>{width="4.866666666666666in"</span>
+<span id="cb1-676"><a href="#cb1-676" aria-hidden="true" tabindex="-1"></a>height="6.658333333333333in" #fig-append_a_9}</span>
+<span id="cb1-677"><a href="#cb1-677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-678"><a href="#cb1-678" aria-hidden="true" tabindex="-1"></a>Figure A9</span>
+<span id="cb1-679"><a href="#cb1-679" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-680"><a href="#cb1-680" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId85.jpeg)</span>{width="4.9in" height="7.958333333333333in" #fig-append_a_10}</span>
+<span id="cb1-681"><a href="#cb1-681" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-682"><a href="#cb1-682" aria-hidden="true" tabindex="-1"></a>Figure A10 Presenting Unemployment Rates in Different Ways, All of Them</span>
+<span id="cb1-683"><a href="#cb1-683" aria-hidden="true" tabindex="-1"></a>Accurate Simply changing the width and height of the area in which data</span>
+<span id="cb1-684"><a href="#cb1-684" aria-hidden="true" tabindex="-1"></a>is displayed can alter the perception of the data.</span>
+<span id="cb1-685"><a href="#cb1-685" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-686"><a href="#cb1-686" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/a-the-use-of-mathematics-in-principles-of-economics_rId88.jpeg)</span>{width="6.5in" height="5.47in" #fig-append_a_11}</span>
+<span id="cb1-687"><a href="#cb1-687" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-688"><a href="#cb1-688" aria-hidden="true" tabindex="-1"></a>Figure A11 Presenting Unemployment Rates in Different Ways, All of Them</span>
+<span id="cb1-689"><a href="#cb1-689" aria-hidden="true" tabindex="-1"></a>Accurate Simply changing the width and height of the area in which data</span>
+<span id="cb1-690"><a href="#cb1-690" aria-hidden="true" tabindex="-1"></a>is displayed can alter the perception of the data.</span>
+<span id="cb1-691"><a href="#cb1-691" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-692"><a href="#cb1-692" aria-hidden="true" tabindex="-1"></a>Suppose you wanted a graph which gives the impression that the rise in</span>
+<span id="cb1-693"><a href="#cb1-693" aria-hidden="true" tabindex="-1"></a>unemployment in 2009 was not all that large, or all that extraordinary</span>
+<span id="cb1-694"><a href="#cb1-694" aria-hidden="true" tabindex="-1"></a>by historical standards. You might choose to present your data as in</span>
+<span id="cb1-695"><a href="#cb1-695" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Figure A9</span><span class="co">](#fig-append_a_9)</span> (a). <span class="co">[</span><span class="ot">Figure A9</span><span class="co">](#fig-append_a_9)</span> (a)</span>
+<span id="cb1-696"><a href="#cb1-696" aria-hidden="true" tabindex="-1"></a>includes much of the same data presented earlier in [Figure</span>
+<span id="cb1-697"><a href="#cb1-697" aria-hidden="true" tabindex="-1"></a>A5](#fig-append_a_5), but stretches the horizontal axis out longer</span>
+<span id="cb1-698"><a href="#cb1-698" aria-hidden="true" tabindex="-1"></a>relative to the vertical axis. By spreading the graph wide and flat, the</span>
+<span id="cb1-699"><a href="#cb1-699" aria-hidden="true" tabindex="-1"></a>visual appearance is that the rise in unemployment is not so large, and</span>
+<span id="cb1-700"><a href="#cb1-700" aria-hidden="true" tabindex="-1"></a>is similar to some past rises in unemployment. Now imagine you wanted to</span>
+<span id="cb1-701"><a href="#cb1-701" aria-hidden="true" tabindex="-1"></a>emphasize how unemployment spiked substantially higher in 2009. In this</span>
+<span id="cb1-702"><a href="#cb1-702" aria-hidden="true" tabindex="-1"></a>case, using the same data, you can stretch the vertical axis out</span>
+<span id="cb1-703"><a href="#cb1-703" aria-hidden="true" tabindex="-1"></a>relative to the horizontal axis, as in <span class="co">[</span><span class="ot">Figure A9</span><span class="co">](#fig-append_a_9)</span></span>
+<span id="cb1-704"><a href="#cb1-704" aria-hidden="true" tabindex="-1"></a>(b), which makes all rises and falls in unemployment appear larger.</span>
+<span id="cb1-705"><a href="#cb1-705" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-706"><a href="#cb1-706" aria-hidden="true" tabindex="-1"></a>A similar effect can be accomplished without changing the length of the</span>
+<span id="cb1-707"><a href="#cb1-707" aria-hidden="true" tabindex="-1"></a>axes, but by changing the scale on the vertical axis. In [Figure</span>
+<span id="cb1-708"><a href="#cb1-708" aria-hidden="true" tabindex="-1"></a>A10](#fig-append_a_10) (c), the scale on the vertical axis runs from 0%</span>
+<span id="cb1-709"><a href="#cb1-709" aria-hidden="true" tabindex="-1"></a>to 30%, while in <span class="co">[</span><span class="ot">Figure A10</span><span class="co">](#fig-append_a_10)</span> (d), the vertical axis</span>
+<span id="cb1-710"><a href="#cb1-710" aria-hidden="true" tabindex="-1"></a>runs from 3% to 10%. Compared to <span class="co">[</span><span class="ot">Figure A5</span><span class="co">](#fig-append_a_5)</span>, where</span>
+<span id="cb1-711"><a href="#cb1-711" aria-hidden="true" tabindex="-1"></a>the vertical scale runs from 0% to 12%, <span class="co">[</span><span class="ot">Figure A10</span><span class="co">](#fig-append_a_10)</span></span>
+<span id="cb1-712"><a href="#cb1-712" aria-hidden="true" tabindex="-1"></a>(c) makes the fluctuation in unemployment look smaller, while [Figure</span>
+<span id="cb1-713"><a href="#cb1-713" aria-hidden="true" tabindex="-1"></a>A10](#fig-append_a_10) (d) makes it look larger.</span>
+<span id="cb1-714"><a href="#cb1-714" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-715"><a href="#cb1-715" aria-hidden="true" tabindex="-1"></a>Another way to alter the perception of the graph is to reduce the amount</span>
+<span id="cb1-716"><a href="#cb1-716" aria-hidden="true" tabindex="-1"></a>of variation by changing the number of points plotted on the graph.</span>
+<span id="cb1-717"><a href="#cb1-717" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Figure A10</span><span class="co">](#fig-append_a_10)</span> (e) shows the unemployment rate</span>
+<span id="cb1-718"><a href="#cb1-718" aria-hidden="true" tabindex="-1"></a>according to five-year averages. By averaging out some of the</span>
+<span id="cb1-719"><a href="#cb1-719" aria-hidden="true" tabindex="-1"></a>year-to-year changes, the line appears smoother and with fewer highs and</span>
+<span id="cb1-720"><a href="#cb1-720" aria-hidden="true" tabindex="-1"></a>lows. In reality, the unemployment rate is reported monthly, and [Figure</span>
+<span id="cb1-721"><a href="#cb1-721" aria-hidden="true" tabindex="-1"></a>A11](#fig-append_a_11) (f) shows the monthly figures since 1960, which</span>
+<span id="cb1-722"><a href="#cb1-722" aria-hidden="true" tabindex="-1"></a>fluctuate more than the five-year average. [Figure</span>
+<span id="cb1-723"><a href="#cb1-723" aria-hidden="true" tabindex="-1"></a>A11](#fig-append_a_11) (f) is also a vivid illustration of how graphs</span>
+<span id="cb1-724"><a href="#cb1-724" aria-hidden="true" tabindex="-1"></a>can compress lots of data. The graph includes monthly data since 1960,</span>
+<span id="cb1-725"><a href="#cb1-725" aria-hidden="true" tabindex="-1"></a>which over almost 50 years, works out to nearly 600 data points. Reading</span>
+<span id="cb1-726"><a href="#cb1-726" aria-hidden="true" tabindex="-1"></a>that list of 600 data points in numerical form would be hypnotic. You</span>
+<span id="cb1-727"><a href="#cb1-727" aria-hidden="true" tabindex="-1"></a>can, however, get a good intuitive sense of these 600 data points very</span>
+<span id="cb1-728"><a href="#cb1-728" aria-hidden="true" tabindex="-1"></a>quickly from the graph.</span>
+<span id="cb1-729"><a href="#cb1-729" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-730"><a href="#cb1-730" aria-hidden="true" tabindex="-1"></a>A final trick in manipulating the perception of graphical information is</span>
+<span id="cb1-731"><a href="#cb1-731" aria-hidden="true" tabindex="-1"></a>that, by choosing the starting and ending points carefully, you can</span>
+<span id="cb1-732"><a href="#cb1-732" aria-hidden="true" tabindex="-1"></a>influence the perception of whether the variable is rising or falling.</span>
+<span id="cb1-733"><a href="#cb1-733" aria-hidden="true" tabindex="-1"></a>The original data show a general pattern with unemployment low in the</span>
+<span id="cb1-734"><a href="#cb1-734" aria-hidden="true" tabindex="-1"></a>1960s, but spiking up in the mid-1970s, early 1980s, early 1990s, early</span>
+<span id="cb1-735"><a href="#cb1-735" aria-hidden="true" tabindex="-1"></a>2000s, and late 2000s. <span class="co">[</span><span class="ot">Figure A11</span><span class="co">](#fig-append_a_11)</span> (g), however,</span>
+<span id="cb1-736"><a href="#cb1-736" aria-hidden="true" tabindex="-1"></a>shows a graph that goes back only to 1975, which gives an impression</span>
+<span id="cb1-737"><a href="#cb1-737" aria-hidden="true" tabindex="-1"></a>that unemployment was more-or-less gradually falling over time until the</span>
+<span id="cb1-738"><a href="#cb1-738" aria-hidden="true" tabindex="-1"></a>2009 recession pushed it back up to its "original" level---which is a</span>
+<span id="cb1-739"><a href="#cb1-739" aria-hidden="true" tabindex="-1"></a>plausible interpretation if one starts at the high point around 1975.</span>
+<span id="cb1-740"><a href="#cb1-740" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-741"><a href="#cb1-741" aria-hidden="true" tabindex="-1"></a>These kinds of tricks---or shall we just call them "presentation</span>
+<span id="cb1-742"><a href="#cb1-742" aria-hidden="true" tabindex="-1"></a>choices"--- are not limited to line graphs. In a pie chart with many</span>
+<span id="cb1-743"><a href="#cb1-743" aria-hidden="true" tabindex="-1"></a>small slices and one large slice, someone must decide what categories</span>
+<span id="cb1-744"><a href="#cb1-744" aria-hidden="true" tabindex="-1"></a>should be used to produce these slices in the first place, thus making</span>
+<span id="cb1-745"><a href="#cb1-745" aria-hidden="true" tabindex="-1"></a>some slices appear bigger than others. If you are making a bar graph,</span>
+<span id="cb1-746"><a href="#cb1-746" aria-hidden="true" tabindex="-1"></a>you can make the vertical axis either taller or shorter, which will tend</span>
+<span id="cb1-747"><a href="#cb1-747" aria-hidden="true" tabindex="-1"></a>to make variations in the height of the bars appear more or less.</span>
+<span id="cb1-748"><a href="#cb1-748" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-749"><a href="#cb1-749" aria-hidden="true" tabindex="-1"></a>Being able to read graphs is an essential skill, both in economics and</span>
+<span id="cb1-750"><a href="#cb1-750" aria-hidden="true" tabindex="-1"></a>in life. A graph is just one perspective or point of view, shaped by</span>
+<span id="cb1-751"><a href="#cb1-751" aria-hidden="true" tabindex="-1"></a>choices such as those discussed in this section. Do not always believe</span>
+<span id="cb1-752"><a href="#cb1-752" aria-hidden="true" tabindex="-1"></a>the first quick impression from a graph. View with caution.</span>
+<span id="cb1-753"><a href="#cb1-753" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-754"><a href="#cb1-754" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Concepts and Summary</span></span>
+<span id="cb1-755"><a href="#cb1-755" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-756"><a href="#cb1-756" aria-hidden="true" tabindex="-1"></a>Math is a tool for understanding economics and economic relationships</span>
+<span id="cb1-757"><a href="#cb1-757" aria-hidden="true" tabindex="-1"></a>can be expressed mathematically using algebra or graphs. The algebraic</span>
+<span id="cb1-758"><a href="#cb1-758" aria-hidden="true" tabindex="-1"></a>equation for a line is y = b + mx, where x is the variable on the</span>
+<span id="cb1-759"><a href="#cb1-759" aria-hidden="true" tabindex="-1"></a>horizontal axis and y is the variable on the vertical axis, the b term</span>
+<span id="cb1-760"><a href="#cb1-760" aria-hidden="true" tabindex="-1"></a>is the y-intercept and the m term is the slope. The slope of a line is</span>
+<span id="cb1-761"><a href="#cb1-761" aria-hidden="true" tabindex="-1"></a>the same at any point on the line and it indicates the relationship</span>
+<span id="cb1-762"><a href="#cb1-762" aria-hidden="true" tabindex="-1"></a>(positive, negative, or zero) between two economic variables.</span>
+<span id="cb1-763"><a href="#cb1-763" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-764"><a href="#cb1-764" aria-hidden="true" tabindex="-1"></a>Economic models can be solved algebraically or graphically. Graphs allow</span>
+<span id="cb1-765"><a href="#cb1-765" aria-hidden="true" tabindex="-1"></a>you to illustrate data visually. They can illustrate patterns,</span>
+<span id="cb1-766"><a href="#cb1-766" aria-hidden="true" tabindex="-1"></a>comparisons, trends, and apportionment by condensing the numerical data</span>
+<span id="cb1-767"><a href="#cb1-767" aria-hidden="true" tabindex="-1"></a>and providing an intuitive sense of relationships in the data. A line</span>
+<span id="cb1-768"><a href="#cb1-768" aria-hidden="true" tabindex="-1"></a>graph shows the relationship between two variables: one is shown on the</span>
+<span id="cb1-769"><a href="#cb1-769" aria-hidden="true" tabindex="-1"></a>horizontal axis and one on the vertical axis. A pie graph shows how</span>
+<span id="cb1-770"><a href="#cb1-770" aria-hidden="true" tabindex="-1"></a>something is allotted, such as a sum of money or a group of people. The</span>
+<span id="cb1-771"><a href="#cb1-771" aria-hidden="true" tabindex="-1"></a>size of each slice of the pie is drawn to represent the corresponding</span>
+<span id="cb1-772"><a href="#cb1-772" aria-hidden="true" tabindex="-1"></a>percentage of the whole. A bar graph uses the height of bars to show a</span>
+<span id="cb1-773"><a href="#cb1-773" aria-hidden="true" tabindex="-1"></a>relationship, where each bar represents a certain entity, like a country</span>
+<span id="cb1-774"><a href="#cb1-774" aria-hidden="true" tabindex="-1"></a>or a group of people. The bars on a bar graph can also be divided into</span>
+<span id="cb1-775"><a href="#cb1-775" aria-hidden="true" tabindex="-1"></a>segments to show subgroups.</span>
+<span id="cb1-776"><a href="#cb1-776" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-777"><a href="#cb1-777" aria-hidden="true" tabindex="-1"></a>Any graph is a single visual perspective on a subject. The impression it</span>
+<span id="cb1-778"><a href="#cb1-778" aria-hidden="true" tabindex="-1"></a>leaves will be based on many choices, such as what data or time frame is</span>
+<span id="cb1-779"><a href="#cb1-779" aria-hidden="true" tabindex="-1"></a>included, how data or groups are divided up, the relative size of</span>
+<span id="cb1-780"><a href="#cb1-780" aria-hidden="true" tabindex="-1"></a>vertical and horizontal axes, whether the scale used on a vertical</span>
+<span id="cb1-781"><a href="#cb1-781" aria-hidden="true" tabindex="-1"></a>starts at zero. Thus, any graph should be regarded somewhat skeptically,</span>
+<span id="cb1-782"><a href="#cb1-782" aria-hidden="true" tabindex="-1"></a>remembering that the underlying relationship can be open to different</span>
+<span id="cb1-783"><a href="#cb1-783" aria-hidden="true" tabindex="-1"></a>interpretations.</span>
+<span id="cb1-784"><a href="#cb1-784" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-785"><a href="#cb1-785" aria-hidden="true" tabindex="-1"></a><span class="fu">## Review Questions</span></span>
+<span id="cb1-786"><a href="#cb1-786" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-787"><a href="#cb1-787" aria-hidden="true" tabindex="-1"></a>Exercise A1</span>
+<span id="cb1-788"><a href="#cb1-788" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-789"><a href="#cb1-789" aria-hidden="true" tabindex="-1"></a>Name three kinds of graphs and briefly state when is most appropriate to</span>
+<span id="cb1-790"><a href="#cb1-790" aria-hidden="true" tabindex="-1"></a>use each type of graph.</span>
+<span id="cb1-791"><a href="#cb1-791" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-792"><a href="#cb1-792" aria-hidden="true" tabindex="-1"></a>Exercise A2</span>
+<span id="cb1-793"><a href="#cb1-793" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-794"><a href="#cb1-794" aria-hidden="true" tabindex="-1"></a>What is slope on a line graph?</span>
+<span id="cb1-795"><a href="#cb1-795" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-796"><a href="#cb1-796" aria-hidden="true" tabindex="-1"></a>Exercise A3</span>
+<span id="cb1-797"><a href="#cb1-797" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-798"><a href="#cb1-798" aria-hidden="true" tabindex="-1"></a>What do the slices of a pie chart represent?</span>
+<span id="cb1-799"><a href="#cb1-799" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-800"><a href="#cb1-800" aria-hidden="true" tabindex="-1"></a>Exercise A4</span>
+<span id="cb1-801"><a href="#cb1-801" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-802"><a href="#cb1-802" aria-hidden="true" tabindex="-1"></a>Why is a bar chart the best way to illustrate comparisons?</span>
+<span id="cb1-803"><a href="#cb1-803" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-804"><a href="#cb1-804" aria-hidden="true" tabindex="-1"></a>Exercise A5</span>
+<span id="cb1-805"><a href="#cb1-805" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-806"><a href="#cb1-806" aria-hidden="true" tabindex="-1"></a>How does the appearance of positive slope differ from negative slope and</span>
+<span id="cb1-807"><a href="#cb1-807" aria-hidden="true" tabindex="-1"></a>from zero slope?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -12,30 +12,30 @@ book:
 
   chapters: 
   - index.qmd
-  - chapter1.qmd
-  - chapter2.qmd
-  - chapter3.qmd
-  - chapter4.qmd
-  - chapter5.qmd
-  - chapter6.qmd
-  - chapter7.qmd
-  - chapter8.qmd
-  - chapter9.qmd
-  - chapter10.qmd
-  - chapter11.qmd
-  - chapter12.qmd
-  - chapter13.qmd
-  - chapter14.qmd
-  - chapter15.qmd
-  - chapter16.qmd
-  - chapter17.qmd
-  - chapter18.qmd
-  - chapter19.qmd
-  - chapter20.qmd
+  - 01_introduction.qmd
+  - 02_choice_with_scarcity.qmd
+  - 03_demand_and_supply.qmd
+  - 04_labor_markets.qmd
+  - 05_elasticity.qmd
+  - 06_consumer_choice.qmd
+  - 07_production_and_costs.qmd
+  - 08_perfect_competition.qmd
+  - 09_monopoly.qmd
+  - 10_market_spectrum.qmd
+  - 11_antitrust.qmd
+  - 12_negative_externalities.qmd
+  - 13_positive_externalities.qmd
+  - 14_labor_and_income.qmd
+  - 15_poverty_and_inequality.qmd
+  - 16_information_and_risk.qmd
+  - 17_financial_markets.qmd
+  - 18_public_economy.qmd
+  - 19_international_trade.qmd
+  - 20_globalization.qmd
   appendices: 
-  - a-the-use-of-mathematics-in-principles-of-economics.qmd
-  - b-indifference-curves.qmd
-  - c-present-discounted-value.qmd
+  - a1_math_in_econ.qmd
+  - a2_indifference_curves.qmd
+  - a3_present_discounted_value.qmd
 
     
 execute:
