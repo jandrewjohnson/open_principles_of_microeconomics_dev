@@ -1,0 +1,4217 @@
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.2.29)  29 FEB 2024 09:39
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**index.tex
+(./index.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/scrreprt.cls
+Document Class: scrreprt 2023/07/07 v3.41 KOMA-Script document class (report)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-dependent basics and keyval usage)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
+))) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line 368.
+)) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2023/07/07 v3.41 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip48
+\scr@dte@tocline@numbox=\box51
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 135.
+Class scrreprt Info: File `scrsize11pt.clo' used instead of
+(scrreprt)           file `scrsize11.clo' to setup font sizes on input line 2688.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/scrsize11pt.clo
+File: scrsize11pt.clo 2023/07/07 v3.41 KOMA-Script font size class option (11pt)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/koma-script/typearea.sty
+Package: typearea 2023/07/07 v3.41 KOMA-Script package (type area)
+\ta@bcor=\skip49
+\ta@div=\count184
+Package typearea Info: You've used standard option `letterpaper'.
+(typearea)             This is correct!
+(typearea)             Internally I'm using `paper=letter'.
+(typearea)             If you'd like to set the option with \KOMAoptions,
+(typearea)             you'd have to use `paper=letter' there
+(typearea)             instead of `letterpaper', too.
+\ta@hblk=\skip50
+\ta@vblk=\skip51
+\ta@temp=\skip52
+\footheight=\skip53
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 11
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 614.295pt
+(typearea)              \textwidth      = 446.76004pt
+(typearea)              DIV departure   = -14%
+(typearea)              \evensidemargin = 11.49748pt
+(typearea)              \oddsidemargin  = 11.49748pt
+(typearea)             \paperheight     = 794.96999pt
+(typearea)              \textheight     = 582.20026pt
+(typearea)              \topmargin      = -37.40001pt
+(typearea)              \headheight     = 17.0pt
+(typearea)              \headsep        = 20.40001pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 47.6pt
+(typearea)              \baselineskip   = 13.6pt
+(typearea)              on input line 1799.
+)
+\c@part=\count185
+\c@chapter=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\scr@dte@chapter@maxnumwidth=\skip54
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\chapter on input line 5994.
+\scr@dte@section@maxnumwidth=\skip55
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\section on input line 6005.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\section on input line 6005.
+\scr@dte@part@maxnumwidth=\skip56
+Class scrreprt Info: using compatibility default `afterindent=true'
+(scrreprt)           for `\part on input line 6014.
+\scr@dte@subsection@maxnumwidth=\skip57
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\subsection on input line 6024.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\subsection on input line 6024.
+\scr@dte@subsubsection@maxnumwidth=\skip58
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\subsubsection on input line 6034.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\subsubsection on input line 6034.
+\scr@dte@paragraph@maxnumwidth=\skip59
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\paragraph on input line 6045.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\paragraph on input line 6045.
+\scr@dte@subparagraph@maxnumwidth=\skip60
+Class scrreprt Info: using compatibility default `runin=bysign'
+(scrreprt)           for `\subparagraph on input line 6055.
+Class scrreprt Info: using compatibility default `afterindent=bysign'
+(scrreprt)           for `\subparagraph on input line 6055.
+\abovecaptionskip=\skip61
+\belowcaptionskip=\skip62
+\c@pti@nb@sid@b@x=\box52
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 7240.
+\scr@dte@figure@maxnumwidth=\skip63
+\c@figure=\count192
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 7257.
+\scr@dte@table@maxnumwidth=\skip64
+\c@table=\count193
+Class scrreprt Info: Redefining `\numberline' on input line 7428.
+\bibindent=\dimen140
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip65
+For additional information on amsmath, use the `?' option.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen141
+)) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen142
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count194
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count195
+\leftroot@=\count196
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count197
+\DOTSCASE@=\count198
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen143
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count199
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count266
+\dotsspace@=\muskip16
+\c@parentequation=\count267
+\dspbrk@lvl=\count268
+\tag@help=\toks19
+\row@=\count269
+\column@=\count270
+\maxfields@=\count271
+\andhelp@=\toks20
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
+\@envbody=\toks21
+\multlinegap=\skip66
+\multlinetaggap=\skip67
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-02-20 L3 programming layer (loader) 
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2024-02-20 L3 backend support: XeTeX
+\g__graphics_track_int=\count272
+\l__pdf_internal_box=\box55
+\g__pdf_backend_object_int=\count273
+\g__pdf_backend_annotation_int=\count274
+\g__pdf_backend_link_int=\count275
+))
+Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
+Package: unicode-math-xetex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-02-18 L3 Experimental document command parser
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2024-02-18 LaTeX2e option processing using LaTeX3 keys
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2024/02/13 v2.9a Font selection for XeLaTeX and LuaLaTeX
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2024/02/13 v2.9a Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count276
+\l__fontspec_language_int=\count277
+\l__fontspec_strnum_int=\count278
+\l__fontspec_tmp_int=\count279
+\l__fontspec_tmpa_int=\count280
+\l__fontspec_tmpb_int=\count281
+\l__fontspec_tmpc_int=\count282
+\l__fontspec_em_int=\count283
+\l__fontspec_emdef_int=\count284
+\l__fontspec_strong_int=\count285
+\l__fontspec_strongdef_int=\count286
+\l__fontspec_tmpa_dim=\dimen150
+\l__fontspec_tmpb_dim=\dimen151
+\l__fontspec_tmpc_dim=\dimen152
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\g__um_fam_int=\count287
+\g__um_fonts_used_int=\count288
+\l__um_primecount_int=\count289
+\g__um_primekern_muskip=\muskip17
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count290
+)
+\MT@toks=\toks23
+\MT@tempbox=\box56
+\MT@count=\count291
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
+LaTeX Info: Redefining \leftprotrusion on input line 1060.
+\MT@prot@toks=\toks24
+LaTeX Info: Redefining \rightprotrusion on input line 1078.
+LaTeX Info: Redefining \textls on input line 1368.
+\MT@outer@kern=\dimen153
+LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
+\MT@listname@count=\count292
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype-xetex.def
+File: microtype-xetex.def 2023/03/13 v3.1a Definitions specific to xetex (RS)
+LaTeX Info: Redefining \lsstyle on input line 238.
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
+)) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 274.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def
+File: svgnam.def 2023/11/15 v3.01 Predefined colors according to SVG 1.1 (UK)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/x11nam.def
+File: x11nam.def 2023/11/15 v3.01 Predefined colors according to Unix/X11 (UK)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count293
+\FV@InFile=\read2
+\FV@TabBox=\box57
+\c@FancyVerbLine=\count294
+\FV@StepNumber=\count295
+\FV@OutFile=\write3
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip68
+\fb@frw=\dimen154
+\fb@frh=\dimen155
+\FrameRule=\dimen156
+\FrameSep=\dimen157
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
+\LTleft=\skip69
+\LTright=\skip70
+\LTpre=\skip71
+\LTpost=\skip72
+\LTchunksize=\count296
+\LTcapwidth=\dimen158
+\LT@head=\box58
+\LT@firsthead=\box59
+\LT@foot=\box60
+\LT@lastfoot=\box61
+\LT@gbox=\box62
+\LT@cols=\count297
+\LT@rows=\count298
+\c@LT@tables=\count299
+\c@LT@chunks=\count300
+\LT@p@ftn=\toks25
+)
+Class scrreprt Info: longtable captions redefined on input line 98.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen159
+\lightrulewidth=\dimen160
+\cmidrulewidth=\dimen161
+\belowrulesep=\dimen162
+\belowbottomsep=\dimen163
+\aboverulesep=\dimen164
+\abovetopsep=\dimen165
+\cmidrulesep=\dimen166
+\cmidrulekern=\dimen167
+\defaultaddspace=\dimen168
+\@cmidla=\count301
+\@cmidlb=\count302
+\@aboverulesep=\dimen169
+\@belowrulesep=\dimen170
+\@thisruleclass=\count303
+\@lastruleclass=\count304
+\@thisrulewidth=\dimen171
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen172
+\ar@mcellbox=\box63
+\extrarowheight=\dimen173
+\NC@list=\toks26
+\extratabsurround=\skip73
+\backup@length=\skip74
+\ar@cellbox=\box64
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count305
+\calc@Bcount=\count306
+\calc@Adimen=\dimen174
+\calc@Bdimen=\dimen175
+\calc@Askip=\skip75
+\calc@Bskip=\skip76
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count307
+\calc@Cskip=\skip77
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
+Package: footnote 1997/01/28 1.13 Save footnotes around boxes
+\fn@notes=\box65
+\fn@width=\dimen176
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 107.
+)
+\Gin@req@height=\dimen177
+\Gin@req@width=\dimen178
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+)) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count308
+)
+\@linkdim=\dimen179
+\Hy@linkcounter=\count309
+\Hy@pagecounter=\count310
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count311
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4062.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count312
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen180
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count313
+\Field@Width=\dimen181
+\Fld@charsize=\dimen182
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count314
+\c@Item=\count315
+\c@Hfootnote=\count316
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2024-01-20 v7.01h Hyperref driver for XeTeX
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\pdfm@box=\box66
+\c@Hy@AnnotLevel=\count317
+\HyField@AnnotCount=\count318
+\Fld@listcount=\count319
+\c@bookmark@seq@number=\count320
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip78
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
+File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
+\BKM@id=\count321
+)) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen183
+\captionmargin=\dimen184
+\caption@leftmargin=\dimen185
+\caption@rightmargin=\dimen186
+\caption@width=\dimen187
+\caption@indent=\dimen188
+\caption@parindent=\dimen189
+\caption@hangindent=\dimen190
+Package caption Info: KOMA-Script document class detected.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption-koma.sto
+File: caption-koma.sto 2023/09/08 v2.0e Adaption of the caption package to the KOMA-Script document classes (AR)
+))
+\c@caption@flags=\count322
+\c@continuedfloat=\count323
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: KOMA-Script scrextend package detected.
+\caption@addmargin@hsize=\dimen191
+\caption@addmargin@linewidth=\dimen192
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count324
+\float@exts=\toks27
+\float@box=\box67
+\@float@everytoks=\toks28
+\@floatcapt=\box68
+)
+\@float@every@codelisting=\toks29
+\c@codelisting=\count325
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count326
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count327
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 181.
+No file index.aux.
+\openout1 = `index.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+Package scrbase Info: activating english \abstractname on input line 187.
+Package scrbase Info: activating english \partname on input line 187.
+Package scrbase Info: activating english \chaptername on input line 187.
+Package scrbase Info: activating english \appendixname on input line 187.
+Package scrbase Info: activating english \figurename on input line 187.
+Package scrbase Info: activating english \tablename on input line 187.
+Package scrbase Info: activating english \contentsname on input line 187.
+Package scrbase Info: activating english \listfigurename on input line 187.
+Package scrbase Info: activating english \listtablename on input line 187.
+Package scrbase Info: activating english \bibname on input line 187.
+Package scrbase Info: activating english \indexname on input line 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 187.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 187.
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999967668407183]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999967668407183]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 187.
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=latinmodern-math.otf,Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->s*[0.9999967668407183]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6.57-9.3075>s*[0.9999967668407183]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6.57>s*[0.9999967668407183]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999967668407183]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 187.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 187.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 187.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 187.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 187.
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096766517402.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=latinmodern-math.otf,Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\fontdimen
+(fontspec)             8\font =7.41315pt\relax \fontdimen 9\font
+(fontspec)             =4.3143pt\relax \fontdimen 10\font =4.8618pt\relax
+(fontspec)             \fontdimen 11\font =7.5117pt\relax \fontdimen 12\font
+(fontspec)             =3.77776pt\relax \fontdimen 13\font =3.97485pt\relax
+(fontspec)             \fontdimen 14\font =3.97485pt\relax \fontdimen 15\font
+(fontspec)             =3.16455pt\relax \fontdimen 16\font =2.70465pt\relax
+(fontspec)             \fontdimen 17\font =2.70465pt\relax \fontdimen 18\font
+(fontspec)             =2.7375pt\relax \fontdimen 19\font =2.19pt\relax
+(fontspec)             \fontdimen 22\font =2.7375pt\relax \fontdimen 20\font
+(fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->s*[1.000096766517402]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6.57-9.3075>s*[1.000096766517402]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6.57>s*[1.000096766517402]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =7.41315pt\relax \fontdimen 9\font
+(fontspec)             =4.3143pt\relax \fontdimen 10\font =4.8618pt\relax
+(fontspec)             \fontdimen 11\font =7.5117pt\relax \fontdimen 12\font
+(fontspec)             =3.77776pt\relax \fontdimen 13\font =3.97485pt\relax
+(fontspec)             \fontdimen 14\font =3.97485pt\relax \fontdimen 15\font
+(fontspec)             =3.16455pt\relax \fontdimen 16\font =2.70465pt\relax
+(fontspec)             \fontdimen 17\font =2.70465pt\relax \fontdimen 18\font
+(fontspec)             =2.7375pt\relax \fontdimen 19\font =2.19pt\relax
+(fontspec)             \fontdimen 22\font =2.7375pt\relax \fontdimen 20\font
+(fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.000096766517402]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =7.41315pt\relax \fontdimen 9\font
+(fontspec)             =4.3143pt\relax \fontdimen 10\font =4.8618pt\relax
+(fontspec)             \fontdimen 11\font =7.5117pt\relax \fontdimen 12\font
+(fontspec)             =3.77776pt\relax \fontdimen 13\font =3.97485pt\relax
+(fontspec)             \fontdimen 14\font =3.97485pt\relax \fontdimen 15\font
+(fontspec)             =3.16455pt\relax \fontdimen 16\font =2.70465pt\relax
+(fontspec)             \fontdimen 17\font =2.70465pt\relax \fontdimen 18\font
+(fontspec)             =2.7375pt\relax \fontdimen 19\font =2.19pt\relax
+(fontspec)             \fontdimen 22\font =2.7375pt\relax \fontdimen 20\font
+(fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 187.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 187.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 187.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 187.
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998967671640342.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=latinmodern-math.otf,Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
+(fontspec)             8\font =0.438pt\relax \fontdimen 9\font =2.19pt\relax
+(fontspec)             \fontdimen 10\font =1.82864pt\relax \fontdimen 11\font
+(fontspec)             =1.21545pt\relax \fontdimen 12\font =6.56999pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->s*[0.9998967671640342]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6.57-9.3075>s*[0.9998967671640342]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6.57>s*[0.9998967671640342]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.438pt\relax \fontdimen 9\font
+(fontspec)             =2.19pt\relax \fontdimen 10\font =1.82864pt\relax
+(fontspec)             \fontdimen 11\font =1.21545pt\relax \fontdimen 12\font
+(fontspec)             =6.56999pt\relax \fontdimen 13\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9998967671640342]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.438pt\relax \fontdimen 9\font
+(fontspec)             =2.19pt\relax \fontdimen 10\font =1.82864pt\relax
+(fontspec)             \fontdimen 11\font =1.21545pt\relax \fontdimen 12\font
+(fontspec)             =6.56999pt\relax \fontdimen 13\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 187.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 187.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 187.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 187.
+LaTeX Info: Redefining \microtypecontext on input line 187.
+Package microtype Info: Applying patch `item' on input line 187.
+Package microtype Info: Applying patch `toc' on input line 187.
+Package microtype Info: Applying patch `eqnum' on input line 187.
+Package microtype Info: Applying patch `footnote' on input line 187.
+Package microtype Info: Applying patch `verbatim' on input line 187.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using protrusion set `basicmath'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
+File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Modern Roman (RS)
+)
+Package hyperref Info: Link coloring ON on input line 187.
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 189.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 189.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 189.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 189.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 14.4013pt on input line 189.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 189.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 189.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 14.39845pt on input line 189.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 189.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 189.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 189.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 189.
+(c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (c:/Users/jajohns/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) [1
+
+
+
+]
+Package tocbasic Info: character protrusion at toc deactivated on input line 194.
+No file index.toc.
+\tf@toc=\write4
+\openout4 = `index.toc'.
+
+[2
+
+]
+File: images/paste-3.png Graphic file (type bmp)
+<images/paste-3.png>
+
+Overfull \hbox (80.9602pt too wide) in paragraph at lines 205--206
+ [][] 
+ []
+
+[3
+
+]
+Overfull \vbox (15.81868pt too high) has occurred while \output is active []
+
+[4]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.665pt on input line 228.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.475pt on input line 228.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.95099pt on input line 228.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.66568pt on input line 228.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.4755pt on input line 228.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 10.94882pt on input line 228.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.66417pt on input line 228.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.47441pt on input line 228.
+[5]
+chapter without number
+
+Class scrreprt Warning: \float@addtolists detected!
+(scrreprt)              Implementation of \float@addtolist became
+(scrreprt)              deprecated in KOMA-Script v3.01 2008/11/14 and
+(scrreprt)              has been replaced by several more flexible
+(scrreprt)              features of package `tocbasic`.
+(scrreprt)              Since Version 3.12 support for deprecated
+(scrreprt)              \float@addtolist interface has been
+(scrreprt)              restricted to only some of the KOMA-Script
+(scrreprt)              features and been removed from others.
+(scrreprt)              Loading of package `scrhack' may help to
+(scrreprt)              avoid this warning, if you are using a
+(scrreprt)              a package that still implements the
+(scrreprt)              deprecated \float@addtolist interface.
+
+File: images/cell-2-output-1.png Graphic file (type bmp)
+<images/cell-2-output-1.png>
+
+Overfull \hbox (137.08574pt too wide) in paragraph at lines 269--270
+[][] 
+ []
+
+[6
+
+] [7] [8]
+File: media/1-1-what-is-economics-and-why-is-it-important_rId28.jpeg Graphic file (type bmp)
+<media/1-1-what-is-economics-and-why-is-it-important_rId28.jpeg>
+
+LaTeX Warning: Hyper reference `fig_1_2' on page 9 undefined on input line 439.
+
+[9]
+
+LaTeX Warning: Hyper reference `fig_1_3' on page 10 undefined on input line 479.
+
+File: media/1-1-what-is-economics-and-why-is-it-important_rId34.jpeg Graphic file (type bmp)
+<media/1-1-what-is-economics-and-why-is-it-important_rId34.jpeg>
+[10]
+
+LaTeX Warning: Hyper reference `fig_1_4' on page 11 undefined on input line 518.
+
+[11]
+File: media/1-1-what-is-economics-and-why-is-it-important_rId40.jpeg Graphic file (type bmp)
+<media/1-1-what-is-economics-and-why-is-it-important_rId40.jpeg>
+[12] [13]
+File: media/1-1-what-is-economics-and-why-is-it-important_rId53.jpeg Graphic file (type bmp)
+<media/1-1-what-is-economics-and-why-is-it-important_rId53.jpeg>
+[14] [15] [16]
+File: media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId22.jpeg Graphic file (type bmp)
+<media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId22.jpeg>
+
+LaTeX Warning: Hyper reference `fig_1_6' on page 17 undefined on input line 812.
+
+[17]
+
+LaTeX Warning: Hyper reference `fig_1_7' on page 18 undefined on input line 850.
+
+File: media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId33.jpeg Graphic file (type bmp)
+<media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId33.jpeg>
+[18] [19]
+File: media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId23.jpeg Graphic file (type bmp)
+<media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId23.jpeg>
+[20]
+
+LaTeX Warning: Hyper reference `fig_1_8' on page 21 undefined on input line 960.
+
+File: media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId27.jpeg Graphic file (type bmp)
+<media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId27.jpeg>
+[21]
+
+LaTeX Warning: Hyper reference `fig_1_9' on page 22 undefined on input line 983.
+
+[22]
+
+LaTeX Warning: Reference `tbl-table_01_01' on page 23 undefined on input line 1029.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 1071.
+
+[23]
+File: media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId35.jpeg Graphic file (type bmp)
+<media/1-4-how-to-organize-economies-an-overview-of-economic-systems_rId35.jpeg>
+[24]
+
+LaTeX Warning: Hyper reference `fig_1_10' on page 25 undefined on input line 1112.
+
+
+LaTeX Warning: Reference `tbl-table_01_02' on page 25 undefined on input line 1123.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1142--1142
+[][][]|\TU/lmr/m/n/10.95 The Extent of Globalization (exports/GDP) (Source:
+ []
+
+[25]
+
+LaTeX Warning: Reference `tbl-table_01_02' on page 26 undefined on input line 1208.
+
+
+LaTeX Warning: Reference `sec-appendix-a' on page 26 undefined on input line 1225.
+
+[26]
+chapter without number
+File: media/2-introduction-to-choice-in-a-world-of-scarcity_rId20.jpeg Graphic file (type bmp)
+<media/2-introduction-to-choice-in-a-world-of-scarcity_rId20.jpeg>
+
+Overfull \hbox (11.43065pt too wide) in paragraph at lines 1263--1264
+ [][] 
+ []
+
+[27
+
+] [28]
+
+LaTeX Warning: Hyper reference `fig-2_2' on page 29 undefined on input line 1382.
+
+File: media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId22.jpeg Graphic file (type bmp)
+<media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId22.jpeg>
+[29] [30]
+
+LaTeX Warning: Reference `sec-appendix-a' on page 31 undefined on input line 1467.
+
+
+LaTeX Warning: Reference `sec-appendix-a' on page 31 undefined on input line 1475.
+
+
+Overfull \hbox (44.6107pt too wide) detected at line 1496
+[][]
+ []
+
+[31]
+
+LaTeX Warning: Hyper reference `fig-2_2' on page 32 undefined on input line 1538.
+
+
+LaTeX Warning: Reference `tbl-table_2_1' on page 32 undefined on input line 1542.
+
+[32] [33]
+
+LaTeX Warning: Reference `sec-chapter-6' on page 34 undefined on input line 1683.
+
+[34] [35]
+
+LaTeX Warning: Hyper reference `fig-2_3' on page 36 undefined on input line 1810.
+
+File: media/2-2-the-production-possibilities-frontier-and-social-choices_rId23.jpeg Graphic file (type bmp)
+<media/2-2-the-production-possibilities-frontier-and-social-choices_rId23.jpeg>
+[36]
+
+LaTeX Warning: Hyper reference `fig-2_3' on page 37 undefined on input line 1830.
+
+[37] [38] [39]
+
+LaTeX Warning: Hyper reference `fig-2_4' on page 40 undefined on input line 1978.
+
+File: media/2-2-the-production-possibilities-frontier-and-social-choices_rId33.jpeg Graphic file (type bmp)
+<media/2-2-the-production-possibilities-frontier-and-social-choices_rId33.jpeg>
+
+LaTeX Warning: Hyper reference `fig-2_4' on page 40 undefined on input line 2005.
+
+[40]
+
+LaTeX Warning: Reference `sec-chapter-1' on page 41 undefined on input line 2039.
+
+[41]
+
+LaTeX Warning: Hyper reference `fig-2_5' on page 42 undefined on input line 2091.
+
+File: media/2-2-the-production-possibilities-frontier-and-social-choices_rId45.jpeg Graphic file (type bmp)
+<media/2-2-the-production-possibilities-frontier-and-social-choices_rId45.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 2097--2098
+ [][] 
+ []
+
+[42]
+
+LaTeX Warning: Reference `sec-chapter-19' on page 43 undefined on input line 2128.
+
+[43]
+
+LaTeX Warning: Reference `sec-chapter-6' on page 44 undefined on input line 2206.
+
+[44]
+
+LaTeX Warning: Hyper reference `fig-2_6' on page 45 undefined on input line 2276.
+
+[45]
+File: media/2-3-confronting-objections-to-the-economic-approach_rId31.jpeg Graphic file (type bmp)
+<media/2-3-confronting-objections-to-the-economic-approach_rId31.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 2320--2321
+ [][] 
+ []
+
+[46] [47] [48]
+chapter without number
+File: media/3-introduction-to-demand-and-supply_rId20.jpeg Graphic file (type bmp)
+<media/3-introduction-to-demand-and-supply_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 2405--2406
+ [][] 
+ []
+
+[49
+
+] [50] [51]
+
+LaTeX Warning: Reference `tbl-table_3_1' on page 52 undefined on input line 2547.
+
+
+LaTeX Warning: Hyper reference `fig-3_2' on page 52 undefined on input line 2552.
+
+
+LaTeX Warning: Reference `tbl-table_3_1' on page 52 undefined on input line 2559.
+
+
+LaTeX Warning: Hyper reference `fig-3_2' on page 52 undefined on input line 2560.
+
+File: media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId28.jpeg Graphic file (type bmp)
+<media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId28.jpeg>
+[52] [53]
+
+LaTeX Warning: Hyper reference `fig-3_3' on page 54 undefined on input line 2666.
+
+
+LaTeX Warning: Reference `tbl-table_3_2' on page 54 undefined on input line 2669.
+
+File: media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId42.jpeg Graphic file (type bmp)
+<media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId42.jpeg>
+[54]
+
+LaTeX Warning: Hyper reference `fig-3_4' on page 55 undefined on input line 2738.
+
+
+LaTeX Warning: Hyper reference `fig-3_2' on page 55 undefined on input line 2740.
+
+
+LaTeX Warning: Hyper reference `fig-3_3' on page 55 undefined on input line 2741.
+
+
+LaTeX Warning: Reference `tbl-table_3_3' on page 55 undefined on input line 2741.
+
+File: media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId47.jpeg Graphic file (type bmp)
+<media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId47.jpeg>
+[55]
+
+LaTeX Warning: Hyper reference `fig-3_4' on page 56 undefined on input line 2805.
+
+
+LaTeX Warning: Hyper reference `fig-3_4' on page 56 undefined on input line 2814.
+
+
+LaTeX Warning: Hyper reference `fig-3_4' on page 56 undefined on input line 2829.
+
+[56]
+
+LaTeX Warning: Hyper reference `fig-3_4' on page 57 undefined on input line 2858.
+
+
+LaTeX Warning: Reference `sec-chapter-5' on page 57 undefined on input line 2874.
+
+[57]
+LaTeX Font Info:    Font shape `TU/lmss/bx/it' in size <10.95> not available
+(Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 2937.
+[58]
+
+LaTeX Warning: Hyper reference `fig-3_5' on page 59 undefined on input line 2980.
+
+
+LaTeX Warning: Hyper reference `fig-3_5' on page 59 undefined on input line 2995.
+
+
+LaTeX Warning: Reference `tbl-table_3_4' on page 59 undefined on input line 3000.
+
+[59]
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId33.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId33.jpeg>
+[60] [61]
+
+LaTeX Warning: Hyper reference `fig-3_6' on page 62 undefined on input line 3180.
+
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId44.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId44.jpeg>
+
+LaTeX Warning: Hyper reference `fig-3_7' on page 62 undefined on input line 3202.
+
+[62]
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId47.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId47.jpeg>
+
+LaTeX Warning: Hyper reference `fig-3_8' on page 63 undefined on input line 3223.
+
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId50.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId50.jpeg>
+
+LaTeX Warning: Hyper reference `fig-3_9' on page 63 undefined on input line 3244.
+
+[63]
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId56.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId56.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 3257--3258
+ [][] 
+ []
+
+[64]
+
+LaTeX Warning: Hyper reference `fig-3_10' on page 65 undefined on input line 3316.
+
+
+LaTeX Warning: Reference `tbl-table_3_5' on page 65 undefined on input line 3321.
+
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId64.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId64.jpeg>
+[65] [66] [67]
+
+LaTeX Warning: Hyper reference `fig-3_11' on page 68 undefined on input line 3464.
+
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId70.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId70.jpeg>
+
+LaTeX Warning: Hyper reference `fig-3_12' on page 68 undefined on input line 3492.
+
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId73.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId73.jpeg>
+
+LaTeX Warning: Hyper reference `fig-3_13' on page 68 undefined on input line 3514.
+
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId76.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId76.jpeg>
+[68]
+
+LaTeX Warning: Hyper reference `fig-3_14' on page 69 undefined on input line 3536.
+
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId79.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId79.jpeg>
+[69]
+
+LaTeX Warning: Hyper reference `fig-3_15' on page 70 undefined on input line 3561.
+
+File: media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId85.jpeg Graphic file (type bmp)
+<media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId85.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 3573--3574
+ [][] 
+ []
+
+[70] [71]
+
+LaTeX Warning: Hyper reference `fig-3_16' on page 72 undefined on input line 3665.
+
+
+LaTeX Warning: Reference `tbl-table_3_6' on page 72 undefined on input line 3667.
+
+File: media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId22.jpeg Graphic file (type bmp)
+<media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId22.jpeg>
+[72]
+
+LaTeX Warning: Hyper reference `fig-3_16' on page 73 undefined on input line 3742.
+
+
+LaTeX Warning: Reference `tbl-table_3_6' on page 73 undefined on input line 3743.
+
+
+LaTeX Warning: Hyper reference `fig-3_17' on page 73 undefined on input line 3766.
+
+File: media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId28.jpeg Graphic file (type bmp)
+<media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId28.jpeg>
+[73] [74]
+
+LaTeX Warning: Hyper reference `fig-3_18' on page 75 undefined on input line 3846.
+
+File: media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId36.jpeg Graphic file (type bmp)
+<media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId36.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 3853--3854
+ [][] 
+ []
+
+[75]
+Underfull \vbox (badness 10000) detected at line 3982
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3982
+ []
+
+[76]
+Underfull \vbox (badness 10000) detected at line 3982
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3982
+ []
+
+[77]
+File: 03_demand_and_supply_files/figure-pdf/cell-2-output-1.pdf Graphic file (type pdf)
+<use 03_demand_and_supply_files/figure-pdf/cell-2-output-1.pdf>
+
+Overfull \hbox (10.94264pt too wide) in paragraph at lines 3984--3985
+[][] 
+ []
+
+[78]
+
+LaTeX Warning: Hyper reference `fig-3_18' on page 79 undefined on input line 3998.
+
+
+LaTeX Warning: Hyper reference `fig-3_18' on page 79 undefined on input line 4020.
+
+[79]
+
+LaTeX Warning: Hyper reference `fig-3_19' on page 80 undefined on input line 4048.
+
+File: media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId39.jpeg Graphic file (type bmp)
+<media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId39.jpeg>
+[80]
+File: media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId43.jpeg Graphic file (type bmp)
+<media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId43.jpeg>
+[81] [82] [83]
+
+LaTeX Warning: Hyper reference `fig-3_21' on page 84 undefined on input line 4246.
+
+
+LaTeX Warning: Reference `tbl-table_3_7' on page 84 undefined on input line 4252.
+
+File: media/3-4-price-ceilings-and-price-floors_rId25.jpeg Graphic file (type bmp)
+<media/3-4-price-ceilings-and-price-floors_rId25.jpeg>
+[84]
+
+LaTeX Warning: Hyper reference `fig-3_21' on page 85 undefined on input line 4319.
+
+[85]
+
+LaTeX Warning: Hyper reference `fig-3_22' on page 86 undefined on input line 4379.
+
+File: media/3-4-price-ceilings-and-price-floors_rId31.jpeg Graphic file (type bmp)
+<media/3-4-price-ceilings-and-price-floors_rId31.jpeg>
+[86]
+
+LaTeX Warning: Hyper reference `fig-3_23' on page 87 undefined on input line 4456.
+
+[87]
+File: media/3-5-demand-supply-and-efficiency_rId26.jpeg Graphic file (type bmp)
+<media/3-5-demand-supply-and-efficiency_rId26.jpeg>
+
+LaTeX Warning: Hyper reference `fig-3_23' on page 88 undefined on input line 4498.
+
+
+LaTeX Warning: Hyper reference `fig-3_23' on page 88 undefined on input line 4507.
+
+
+LaTeX Warning: Hyper reference `fig-3_23' on page 88 undefined on input line 4513.
+
+[88]
+
+LaTeX Warning: Hyper reference `fig-3_24' on page 89 undefined on input line 4534.
+
+
+LaTeX Warning: Hyper reference `fig-3_24' on page 89 undefined on input line 4544.
+
+File: media/3-5-demand-supply-and-efficiency_rId38.jpeg Graphic file (type bmp)
+<media/3-5-demand-supply-and-efficiency_rId38.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 4562--4563
+ [][] 
+ []
+
+
+LaTeX Warning: Hyper reference `fig-3_24' on page 89 undefined on input line 4581.
+
+[89] [90] [91] [92]
+chapter without number
+File: media/4-introduction-to-labor-and-financial-markets_rId20.jpeg Graphic file (type bmp)
+<media/4-introduction-to-labor-and-financial-markets_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 4688--4689
+ [][] 
+ []
+
+[93
+
+] [94]
+
+LaTeX Warning: Hyper reference `fig-4_2' on page 95 undefined on input line 4808.
+
+
+LaTeX Warning: Reference `tbl-table_4_1' on page 95 undefined on input line 4810.
+
+File: media/4-1-demand-and-supply-at-work-in-labor-markets_rId24.jpeg Graphic file (type bmp)
+<media/4-1-demand-and-supply-at-work-in-labor-markets_rId24.jpeg>
+[95] [96]
+
+LaTeX Warning: Hyper reference `fig-4_2' on page 97 undefined on input line 4889.
+
+[97]
+
+LaTeX Warning: Reference `tbl-table_4_2' on page 98 undefined on input line 4960.
+
+[98] [99]
+
+LaTeX Warning: Reference `tbl-table_4_3' on page 100 undefined on input line 5049.
+
+[100] [101]
+
+LaTeX Warning: Reference `sec-chapter-3' on page 102 undefined on input line 5129.
+
+[102]
+
+LaTeX Warning: Hyper reference `CNX_Econ_C04_009' on page 103 undefined on input line 5133.
+
+
+LaTeX Warning: Hyper reference `fig-4_3' on page 103 undefined on input line 5134.
+
+File: media/4-1-demand-and-supply-at-work-in-labor-markets_rId39.jpeg Graphic file (type bmp)
+<media/4-1-demand-and-supply-at-work-in-labor-markets_rId39.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 5144--5145
+ [][] 
+ []
+
+[103]
+
+LaTeX Warning: Hyper reference `fig-4_4' on page 104 undefined on input line 5234.
+
+
+LaTeX Warning: Reference `tbl-table_4_4' on page 104 undefined on input line 5248.
+
+[104]
+File: media/4-1-demand-and-supply-at-work-in-labor-markets_rId48.jpeg Graphic file (type bmp)
+<media/4-1-demand-and-supply-at-work-in-labor-markets_rId48.jpeg>
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4 on input line 5289.
+
+[105] [106]
+
+LaTeX Warning: Reference `sec-chapter-15' on page 107 undefined on input line 5379.
+
+[107]
+
+LaTeX Warning: Reference `sec-chapter-17' on page 108 undefined on input line 5422.
+
+
+LaTeX Warning: Hyper reference `fig-4_5' on page 108 undefined on input line 5454.
+
+
+LaTeX Warning: Reference `tbl-table_4_5' on page 108 undefined on input line 5459.
+
+[108]
+File: media/4-2-demand-and-supply-in-financial-markets_rId25.jpeg Graphic file (type bmp)
+<media/4-2-demand-and-supply-in-financial-markets_rId25.jpeg>
+[109]
+
+LaTeX Warning: Hyper reference `fig-4_5' on page 110 undefined on input line 5541.
+
+[110] [111]
+
+LaTeX Warning: Hyper reference `fig-4_6' on page 112 undefined on input line 5650.
+
+File: media/4-2-demand-and-supply-in-financial-markets_rId37.jpeg Graphic file (type bmp)
+<media/4-2-demand-and-supply-in-financial-markets_rId37.jpeg>
+
+LaTeX Warning: Hyper reference `fig-4_7' on page 112 undefined on input line 5687.
+
+File: media/4-2-demand-and-supply-in-financial-markets_rId40.jpeg Graphic file (type bmp)
+<media/4-2-demand-and-supply-in-financial-markets_rId40.jpeg>
+[112] [113]
+
+LaTeX Warning: Hyper reference `fig-4_8' on page 114 undefined on input line 5746.
+
+
+LaTeX Warning: Hyper reference `fig-4_8' on page 114 undefined on input line 5756.
+
+File: media/4-2-demand-and-supply-in-financial-markets_rId46.jpeg Graphic file (type bmp)
+<media/4-2-demand-and-supply-in-financial-markets_rId46.jpeg>
+[114]
+
+LaTeX Warning: Reference `sec-chapter-2' on page 115 undefined on input line 5832.
+
+
+LaTeX Warning: Hyper reference `fig-4_9' on page 115 undefined on input line 5843.
+
+[115]
+File: media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId24.jpeg Graphic file (type bmp)
+<media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId24.jpeg>
+[116] [117]
+
+LaTeX Warning: Hyper reference `fig-4_10' on page 118 undefined on input line 5956.
+
+File: media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId29.jpeg Graphic file (type bmp)
+<media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId29.jpeg>
+
+LaTeX Warning: Hyper reference `fig-4_11' on page 118 undefined on input line 5984.
+
+File: media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId32.jpeg Graphic file (type bmp)
+<media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId32.jpeg>
+
+LaTeX Warning: Hyper reference `fig-4_10' on page 118 undefined on input line 6003.
+
+[118] [119]
+chapter without number
+File: media/5-introduction-to-elasticity_rId20.jpeg Graphic file (type bmp)
+<media/5-introduction-to-elasticity_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 6022--6023
+ [][] 
+ []
+
+[120
+
+] [121]
+
+LaTeX Warning: Reference `tbl-table_5_1' on page 122 undefined on input line 6157.
+
+
+LaTeX Warning: Reference `tbl-table_5_1' on page 122 undefined on input line 6163.
+
+[122]
+
+LaTeX Warning: Hyper reference `fig-5_2' on page 123 undefined on input line 6231.
+
+File: media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId35.jpeg Graphic file (type bmp)
+<media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId35.jpeg>
+[123] [124]
+
+LaTeX Warning: Hyper reference `fig-5_2' on page 125 undefined on input line 6292.
+
+[125]
+
+LaTeX Warning: Hyper reference `fig-5_3' on page 126 undefined on input line 6348.
+
+File: media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId54.jpeg Graphic file (type bmp)
+<media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId54.jpeg>
+[126]
+
+LaTeX Warning: Hyper reference `fig-5_2' on page 127 undefined on input line 6402.
+
+[127]
+
+LaTeX Warning: Hyper reference `fig-5_4' on page 128 undefined on input line 6458.
+
+File: media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId25.jpeg Graphic file (type bmp)
+<media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId25.jpeg>
+
+LaTeX Warning: Hyper reference `fig-5_5' on page 128 undefined on input line 6488.
+
+[128]
+File: media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId30.jpeg Graphic file (type bmp)
+<media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId30.jpeg>
+
+LaTeX Warning: Hyper reference `fig-5_6' on page 129 undefined on input line 6516.
+
+[129]
+File: media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId34.jpeg Graphic file (type bmp)
+<media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId34.jpeg>
+
+LaTeX Warning: Hyper reference `fig-5_7' on page 130 undefined on input line 6560.
+
+[130]
+File: media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId37.jpeg Graphic file (type bmp)
+<media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId37.jpeg>
+[131]
+
+LaTeX Warning: Reference `tbl-table_5_2' on page 132 undefined on input line 6614.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 2 on input line 6652.
+
+[132]
+
+LaTeX Warning: Reference `tbl-table_5_3' on page 133 undefined on input line 6689.
+
+[133]
+
+LaTeX Warning: Hyper reference `fig-5_8' on page 134 undefined on input line 6782.
+
+
+LaTeX Warning: Hyper reference `fig-5_8' on page 134 undefined on input line 6783.
+
+
+LaTeX Warning: Hyper reference `fig-5_8' on page 134 undefined on input line 6788.
+
+File: media/5-3-elasticity-and-pricing_rId27.jpeg Graphic file (type bmp)
+<media/5-3-elasticity-and-pricing_rId27.jpeg>
+[134]
+
+LaTeX Warning: Hyper reference `fig-5_8' on page 135 undefined on input line 6818.
+
+
+LaTeX Warning: Hyper reference `fig-5_8' on page 135 undefined on input line 6830.
+
+[135]
+
+LaTeX Warning: Hyper reference `fig-5_8' on page 136 undefined on input line 6865.
+
+
+LaTeX Warning: Hyper reference `fig-5_9' on page 136 undefined on input line 6876.
+
+
+LaTeX Warning: Hyper reference `fig-5_9' on page 136 undefined on input line 6888.
+
+File: media/5-3-elasticity-and-pricing_rId31.jpeg Graphic file (type bmp)
+<media/5-3-elasticity-and-pricing_rId31.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 6900--6901
+ [][] 
+ []
+
+[136]
+
+LaTeX Warning: Hyper reference `fig-5_10' on page 137 undefined on input line 6954.
+
+[137]
+File: media/5-3-elasticity-and-pricing_rId37.jpeg Graphic file (type bmp)
+<media/5-3-elasticity-and-pricing_rId37.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 6961--6962
+ [][] 
+ []
+
+
+LaTeX Warning: Hyper reference `fig-5_10' on page 138 undefined on input line 6980.
+
+
+LaTeX Warning: Hyper reference `CNX_Econ_C05_025' on page 138 undefined on input line 6993.
+
+[138]
+
+LaTeX Warning: Hyper reference `fig-5_10' on page 139 undefined on input line 7002.
+
+
+LaTeX Warning: Hyper reference `fig-5_10' on page 139 undefined on input line 7006.
+
+
+LaTeX Warning: Hyper reference `fig-5_11' on page 139 undefined on input line 7044.
+
+
+LaTeX Warning: Hyper reference `fig-5_11' on page 139 undefined on input line 7053.
+
+
+LaTeX Warning: Hyper reference `fig-5_11' on page 139 undefined on input line 7054.
+
+[139]
+File: media/5-3-elasticity-and-pricing_rId42.jpeg Graphic file (type bmp)
+<media/5-3-elasticity-and-pricing_rId42.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 7062--7063
+ [][] 
+ []
+
+
+LaTeX Warning: Hyper reference `fig-5_11' on page 140 undefined on input line 7084.
+
+
+LaTeX Warning: Hyper reference `fig-5_11' on page 140 undefined on input line 7086.
+
+
+LaTeX Warning: Hyper reference `fig-5_11' on page 140 undefined on input line 7089.
+
+[140] [141]
+
+LaTeX Warning: Reference `sec-chapter-3' on page 142 undefined on input line 7171.
+
+[142]
+
+LaTeX Warning: Reference `tbl-table_5_4' on page 143 undefined on input line 7266.
+
+[143] [144] [145]
+chapter without number
+File: media/6-introduction-to-consumer-choices_rId20.jpeg Graphic file (type bmp)
+<media/6-introduction-to-consumer-choices_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 7385--7386
+ [][] 
+ []
+
+[146
+
+]
+
+LaTeX Warning: Reference `sec-chapter-2' on page 147 undefined on input line 7467.
+
+
+LaTeX Warning: Reference `sec-appendix-b' on page 147 undefined on input line 7471.
+
+[147]
+
+LaTeX Warning: Reference `tbl-table_6_1' on page 148 undefined on input line 7493.
+
+
+LaTeX Warning: Hyper reference `fig-6_2' on page 148 undefined on input line 7552.
+
+[148]
+
+LaTeX Warning: Hyper reference `fig-6_2' on page 149 undefined on input line 7554.
+
+File: media/6-1-consumption-choices_rId26.jpeg Graphic file (type bmp)
+<media/6-1-consumption-choices_rId26.jpeg>
+
+LaTeX Warning: Reference `tbl-table_6_2' on page 149 undefined on input line 7595.
+
+[149]
+
+LaTeX Warning: Reference `sec-chapter-2' on page 150 undefined on input line 7619.
+
+
+LaTeX Warning: Reference `tbl-table_6_2' on page 150 undefined on input line 7621.
+
+[150]
+
+LaTeX Warning: Reference `tbl-table_6_3' on page 151 undefined on input line 7685.
+
+
+LaTeX Warning: Hyper reference `fig-6_2' on page 151 undefined on input line 7686.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3 on input line 7707.
+
+
+LaTeX Warning: Reference `tbl-table_6_3' on page 151 undefined on input line 7718.
+
+
+LaTeX Warning: Reference `tbl-table_6_3' on page 151 undefined on input line 7726.
+
+[151]
+
+LaTeX Warning: Hyper reference `fig-6_2' on page 152 undefined on input line 7743.
+
+
+LaTeX Warning: Reference `tbl-table_6_4' on page 152 undefined on input line 7747.
+
+
+Overfull \hbox (3.15332pt too wide) in paragraph at lines 7762--7763
+[]\TU/lmr/m/n/10.95 Try  
+ []
+
+
+Overfull \hbox (3.15332pt too wide) in paragraph at lines 7776--7777
+[]\TU/lmr/m/n/10.95 Try  
+ []
+
+
+Overfull \hbox (19.11841pt too wide) in paragraph at lines 7790--7790
+[]|\TU/lmr/m/n/10.95 Choice 
+ []
+
+
+Overfull \hbox (19.11841pt too wide) in paragraph at lines 7792--7792
+[]|\TU/lmr/m/n/10.95 Choice 
+ []
+
+
+Overfull \hbox (19.11841pt too wide) in paragraph at lines 7795--7795
+[]|\TU/lmr/m/n/10.95 Choice 
+ []
+
+
+Overfull \hbox (19.11841pt too wide) in paragraph at lines 7798--7798
+[]|\TU/lmr/m/n/10.95 Choice 
+ []
+
+
+Overfull \hbox (19.11841pt too wide) in paragraph at lines 7801--7801
+[]|\TU/lmr/m/n/10.95 Choice 
+ []
+
+
+LaTeX Warning: Reference `tbl-table_6_2' on page 152 undefined on input line 7814.
+
+[152]
+
+LaTeX Warning: Reference `tbl-table_6_3' on page 153 undefined on input line 7828.
+
+
+LaTeX Warning: Reference `tbl-table_6_5' on page 153 undefined on input line 7858.
+
+[153]
+Overfull \hbox (2.16208pt too wide) in paragraph at lines 7901--7902
+[]\TU/lmr/m/n/10.95 Marginal 
+ []
+
+
+Overfull \hbox (2.16208pt too wide) in paragraph at lines 7909--7910
+[]\TU/lmr/m/n/10.95 Marginal 
+ []
+
+
+Overfull \hbox (2.16208pt too wide) in paragraph at lines 7921--7922
+[]\TU/lmr/m/n/10.95 Marginal 
+ []
+
+
+Overfull \hbox (2.16208pt too wide) in paragraph at lines 7929--7930
+[]\TU/lmr/m/n/10.95 Marginal 
+ []
+
+[154]
+
+LaTeX Warning: Reference `tbl-table_6_4' on page 155 undefined on input line 8014.
+
+[155] [156]
+
+LaTeX Warning: Hyper reference `fig-6_3' on page 157 undefined on input line 8105.
+
+File: media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId23.jpeg Graphic file (type bmp)
+<media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId23.jpeg>
+[157]
+
+LaTeX Warning: Reference `sec-chapter-3' on page 158 undefined on input line 8168.
+
+
+LaTeX Warning: Reference `sec-chapter-5' on page 158 undefined on input line 8168.
+
+
+LaTeX Warning: Hyper reference `fig-6_4' on page 158 undefined on input line 8190.
+
+[158]
+File: media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId33.jpeg Graphic file (type bmp)
+<media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId33.jpeg>
+
+LaTeX Warning: Hyper reference `fig-6_4' on page 159 undefined on input line 8249.
+
+[159]
+
+LaTeX Warning: Hyper reference `fig-6_5' on page 160 undefined on input line 8284.
+
+File: media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId42.jpeg Graphic file (type bmp)
+<media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId42.jpeg>
+[160] [161]
+
+LaTeX Warning: Hyper reference `fig-6_5' on page 162 undefined on input line 8335.
+
+
+LaTeX Warning: Hyper reference `fig-6_5' on page 162 undefined on input line 8337.
+
+
+LaTeX Warning: Reference `sec-chapter-5' on page 162 undefined on input line 8356.
+
+[162] [163] [164] [165]
+
+LaTeX Warning: Hyper reference `fig-6_6' on page 166 undefined on input line 8567.
+
+File: media/6-3-behavioral-economics-an-alternative-framework-for-consumer-choice_rId25.jpeg Graphic file (type bmp)
+<media/6-3-behavioral-economics-an-alternative-framework-for-consumer-choice_rId25.jpeg>
+
+Overfull \hbox (12.88304pt too wide) in paragraph at lines 8580--8581
+ [][] 
+ []
+
+[166] [167]
+chapter without number
+File: media/7-introduction-to-production-costs-and-industry-structure_rId20.jpeg Graphic file (type bmp)
+<media/7-introduction-to-production-costs-and-industry-structure_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 8603--8604
+ [][] 
+ []
+
+[168
+
+] [169]
+
+LaTeX Warning: Hyper reference `fig-7_2' on page 170 undefined on input line 8709.
+
+
+LaTeX Warning: Reference `sec-chapter-8' on page 170 undefined on input line 8710.
+
+
+LaTeX Warning: Reference `sec-chapter-9' on page 170 undefined on input line 8711.
+
+
+LaTeX Warning: Reference `sec-chapter-10' on page 170 undefined on input line 8711.
+
+File: media/7-introduction-to-production-costs-and-industry-structure_rId29.jpeg Graphic file (type bmp)
+<media/7-introduction-to-production-costs-and-industry-structure_rId29.jpeg>
+
+Overfull \hbox (0.17517pt too wide) in paragraph at lines 8725--8734
+\TU/lmr/m/n/10.95 tition. Monopolistic competition and oligopoly fall between the extremes of perfect competition
+ []
+
+
+LaTeX Warning: Reference `tbl-table_7_1' on page 170 undefined on input line 8745.
+
+
+LaTeX Warning: Reference `tbl-table_7_1' on page 170 undefined on input line 8753.
+
+[170] [171] [172]
+File: media/7-2-production-in-the-short-run_rId22.jpeg Graphic file (type bmp)
+<media/7-2-production-in-the-short-run_rId22.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 8950--8951
+ [][] 
+ []
+
+[173] [174] [175]
+File: media/7-2-production-in-the-short-run_rId38.jpeg Graphic file (type bmp)
+<media/7-2-production-in-the-short-run_rId38.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 9084--9085
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `tbl-table_7_2' on page 176 undefined on input line 9105.
+
+[176]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 2 on input line 9123.
+
+[177]
+
+LaTeX Warning: Hyper reference `fig-7_5' on page 178 undefined on input line 9158.
+
+
+LaTeX Warning: Hyper reference `fig-7_6' on page 178 undefined on input line 9159.
+
+
+LaTeX Warning: Hyper reference `fig-7_5' on page 178 undefined on input line 9160.
+
+
+LaTeX Warning: Reference `tbl-table_7_2' on page 178 undefined on input line 9160.
+
+
+LaTeX Warning: Hyper reference `fig-7_6' on page 178 undefined on input line 9161.
+
+File: media/7-2-production-in-the-short-run_rId43.jpeg Graphic file (type bmp)
+<media/7-2-production-in-the-short-run_rId43.jpeg>
+
+Overfull \hbox (23.0016pt too wide) in paragraph at lines 9168--9169
+ [][] 
+ []
+
+File: media/7-2-production-in-the-short-run_rId45.jpeg Graphic file (type bmp)
+<media/7-2-production-in-the-short-run_rId45.jpeg>
+[178]
+
+LaTeX Warning: Hyper reference `fig-1_7' on page 179 undefined on input line 9247.
+
+[179]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3 on input line 9269.
+
+
+LaTeX Warning: Hyper reference `Xa39a3ee5e6b4b0d3255bfef95601890afd80709' on page 180 undefined on input line 9279.
+
+
+LaTeX Warning: Reference `tbl-table_7_3' on page 180 undefined on input line 9280.
+
+[180]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 6 on input line 9448.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 7 on input line 9470.
+
+
+LaTeX Warning: Reference `tbl-table_7_3' on page 181 undefined on input line 9473.
+
+[181]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 8 on input line 9520.
+
+
+LaTeX Warning: Hyper reference `fig-7_7' on page 182 undefined on input line 9552.
+
+
+LaTeX Warning: Reference `tbl-table_7_9' on page 182 undefined on input line 9553.
+
+[182]
+File: media/7-3-costs-in-the-short-run_rId34.jpeg Graphic file (type bmp)
+<media/7-3-costs-in-the-short-run_rId34.jpeg>
+
+LaTeX Warning: Hyper reference `fig-7_7' on page 183 undefined on input line 9608.
+
+
+LaTeX Warning: Reference `sec-chapter-7' on page 183 undefined on input line 9619.
+
+[183]
+
+LaTeX Warning: Reference `tbl-table_7_9' on page 184 undefined on input line 9645.
+
+
+LaTeX Warning: Reference `tbl-table_7_10' on page 184 undefined on input line 9663.
+
+
+LaTeX Warning: Hyper reference `fig-7_8' on page 184 undefined on input line 9667.
+
+File: media/7-3-costs-in-the-short-run_rId41.jpeg Graphic file (type bmp)
+<media/7-3-costs-in-the-short-run_rId41.jpeg>
+
+Overfull \hbox (6.5692pt too wide) in paragraph at lines 9704--9705
+[]\TU/lmr/m/n/10.95 Labor  
+ []
+
+
+Overfull \hbox (11.48277pt too wide) in paragraph at lines 9706--9707
+[]\TU/lmr/m/n/10.95 Quantity  
+ []
+
+
+Overfull \hbox (6.5692pt too wide) in paragraph at lines 9724--9725
+[]\TU/lmr/m/n/10.95 Labor  
+ []
+
+
+Overfull \hbox (11.48277pt too wide) in paragraph at lines 9726--9727
+[]\TU/lmr/m/n/10.95 Quantity  
+ []
+
+[184]
+
+LaTeX Warning: Hyper reference `fig-7_8' on page 185 undefined on input line 9756.
+
+
+LaTeX Warning: Hyper reference `fig-7_8' on page 185 undefined on input line 9773.
+
+[185]
+
+LaTeX Warning: Hyper reference `fig-7_8' on page 186 undefined on input line 9802.
+
+[186]
+
+LaTeX Warning: Reference `sec-chapter-2' on page 187 undefined on input line 9841.
+
+[187] [188]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 11 on input line 9992.
+
+[189]
+
+LaTeX Warning: Reference `tbl-table_7_12' on page 190 undefined on input line 10013.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 12 on input line 10032.
+
+[190]
+
+LaTeX Warning: Reference `tbl-table_7_13' on page 191 undefined on input line 10098.
+
+
+LaTeX Warning: Reference `tbl-table_7_14' on page 191 undefined on input line 10125.
+
+[191] [192]
+
+LaTeX Warning: Hyper reference `fig-7_9' on page 193 undefined on input line 10248.
+
+File: media/7-5-costs-in-the-long-run_rId26.jpeg Graphic file (type bmp)
+<media/7-5-costs-in-the-long-run_rId26.jpeg>
+
+LaTeX Warning: Hyper reference `fig-7_9' on page 193 undefined on input line 10276.
+
+
+LaTeX Warning: Reference `tbl-table_7_15' on page 193 undefined on input line 10290.
+
+[193]
+Missing character: There is no π (U+03C0) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no π (U+03C0) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no π (U+03C0) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no π (U+03C0) in font [lmroman10-regular]:mapping=tex-text;!
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 17 on input line 10312.
+
+
+LaTeX Warning: Hyper reference `fig-7_10' on page 194 undefined on input line 10335.
+
+File: media/7-5-costs-in-the-long-run_rId33.jpeg Graphic file (type bmp)
+<media/7-5-costs-in-the-long-run_rId33.jpeg>
+[194]
+
+LaTeX Warning: Hyper reference `fig-7_10' on page 195 undefined on input line 10391.
+
+
+LaTeX Warning: Hyper reference `fig-7_9' on page 195 undefined on input line 10397.
+
+[195]
+
+LaTeX Warning: Hyper reference `fig-7_11' on page 196 undefined on input line 10464.
+
+
+LaTeX Warning: Hyper reference `fig-7_11' on page 196 undefined on input line 10465.
+
+[196]
+File: media/7-5-costs-in-the-long-run_rId44.jpeg Graphic file (type bmp)
+<media/7-5-costs-in-the-long-run_rId44.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 10477--10478
+ [][] 
+ []
+
+[197]
+
+LaTeX Warning: Hyper reference `fig-7_11' on page 198 undefined on input line 10546.
+
+
+LaTeX Warning: Hyper reference `fig-7_11' on page 198 undefined on input line 10560.
+
+
+LaTeX Warning: Hyper reference `fig-7_11' on page 198 undefined on input line 10562.
+
+[198]
+
+LaTeX Warning: Hyper reference `fig-7_11' on page 199 undefined on input line 10566.
+
+
+LaTeX Warning: Hyper reference `fig-7_11' on page 199 undefined on input line 10590.
+
+
+LaTeX Warning: Reference `sec-chapter-10' on page 199 undefined on input line 10595.
+
+
+LaTeX Warning: Hyper reference `fig-7_11' on page 199 undefined on input line 10599.
+
+
+LaTeX Warning: Reference `sec-chapter-9' on page 199 undefined on input line 10607.
+
+[199] [200] [201]
+chapter without number
+File: media/8-introduction-to-perfect-competition_rId20.jpeg Graphic file (type bmp)
+<media/8-introduction-to-perfect-competition_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 10702--10703
+ [][] 
+ []
+
+[202
+
+]
+
+LaTeX Warning: Reference `sec-chapter-9' on page 203 undefined on input line 10781.
+
+
+LaTeX Warning: Reference `sec-chapter-10' on page 203 undefined on input line 10782.
+
+[203]
+
+LaTeX Warning: Reference `sec-chapter-7' on page 204 undefined on input line 10842.
+
+[204] [205]
+
+LaTeX Warning: Reference `tbl-table_8_1' on page 206 undefined on input line 10915.
+
+
+LaTeX Warning: Hyper reference `fig-8_2' on page 206 undefined on input line 10917.
+
+
+LaTeX Warning: Reference `sec-chapter-7' on page 206 undefined on input line 10922.
+
+File: media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId29.jpeg Graphic file (type bmp)
+<media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId29.jpeg>
+[206]
+
+LaTeX Warning: Hyper reference `fig-8_2' on page 207 undefined on input line 11004.
+
+
+LaTeX Warning: Reference `tbl-table_8_1' on page 207 undefined on input line 11005.
+
+
+LaTeX Warning: Reference `tbl-table_8_1' on page 207 undefined on input line 11015.
+
+[207]
+
+LaTeX Warning: Hyper reference `fig-8_3' on page 208 undefined on input line 11048.
+
+
+LaTeX Warning: Reference `tbl-table_8_1' on page 208 undefined on input line 11050.
+
+
+LaTeX Warning: Reference `tbl-table_8_2' on page 208 undefined on input line 11059.
+
+[208]
+
+LaTeX Warning: Hyper reference `fig-8_3' on page 209 undefined on input line 11106.
+
+
+LaTeX Warning: Reference `tbl-table_8_3' on page 209 undefined on input line 11107.
+
+File: media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId38.jpeg Graphic file (type bmp)
+<media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId38.jpeg>
+
+LaTeX Warning: Hyper reference `fig-8_4' on page 209 undefined on input line 11137.
+
+File: media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId41.jpeg Graphic file (type bmp)
+<media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId41.jpeg>
+[209] [210]
+
+LaTeX Warning: Reference `tbl-table_8_1' on page 211 undefined on input line 11237.
+
+
+LaTeX Warning: Reference `tbl-table_8_3' on page 211 undefined on input line 11266.
+
+
+LaTeX Warning: Hyper reference `fig-8_5' on page 211 undefined on input line 11267.
+
+File: media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId49.jpeg Graphic file (type bmp)
+<media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId49.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 11277--11278
+ [][] 
+ []
+
+
+LaTeX Warning: Hyper reference `fig-8_5' on page 211 undefined on input line 11298.
+
+[211] [212]
+
+LaTeX Warning: Hyper reference `fig-8_5' on page 213 undefined on input line 11330.
+
+[213]
+
+LaTeX Warning: Hyper reference `fig-8_5' on page 214 undefined on input line 11367.
+
+
+LaTeX Warning: Reference `tbl-table_8_4' on page 214 undefined on input line 11409.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4 on input line 11427.
+
+[214]
+
+LaTeX Warning: Reference `tbl-table_8_5' on page 215 undefined on input line 11454.
+
+[215]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 5 on input line 11510.
+
+
+LaTeX Warning: Hyper reference `fig-8_6' on page 216 undefined on input line 11512.
+
+
+LaTeX Warning: Hyper reference `fig-8_6' on page 216 undefined on input line 11530.
+
+File: media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId74.jpeg Graphic file (type bmp)
+<media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId74.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 11544--11545
+ [][] 
+ []
+
+[216]
+
+LaTeX Warning: Reference `tbl-table_8_6' on page 217 undefined on input line 11559.
+
+[217]
+
+LaTeX Warning: Hyper reference `fig-8_7' on page 218 undefined on input line 11646.
+
+File: media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId79.jpeg Graphic file (type bmp)
+<media/8-2-how-perfectly-competitive-firms-make-output-decisions_rId79.jpeg>
+[218]
+
+LaTeX Warning: Reference `sec-chapter-3' on page 219 undefined on input line 11714.
+
+[219]
+
+LaTeX Warning: Reference `tbl-table_8_7' on page 220 undefined on input line 11737.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 7 on input line 11758.
+
+
+LaTeX Warning: Reference `sec-chapter-7' on page 220 undefined on input line 11763.
+
+
+LaTeX Warning: Reference `tbl-table_8_8' on page 220 undefined on input line 11764.
+
+
+Overfull \hbox (2.23859pt too wide) in paragraph at lines 11788--11789
+[]\TU/lmr/m/n/10.95 (TFC+TVC)|  
+ []
+
+
+Overfull \hbox (2.23859pt too wide) in paragraph at lines 11813--11814
+[]\TU/lmr/m/n/10.95 (TFC+TVC)|  
+ []
+
+
+Overfull \hbox (0.94647pt too wide) in paragraph at lines 11829--11829
+[]|\TU/lmr/m/n/10.95 $20+$0=$20|  
+ []
+
+
+Overfull \hbox (6.42148pt too wide) in paragraph at lines 11830--11830
+[]|\TU/lmr/m/n/10.95 $20+$20=$40|  
+ []
+
+
+Overfull \hbox (9.7205pt too wide) in paragraph at lines 11830--11830
+[]|\TU/lmr/m/n/10.95 $20/1=$20.00|  
+ []
+
+
+Overfull \hbox (6.42148pt too wide) in paragraph at lines 11831--11831
+[]|\TU/lmr/m/n/10.95 $40/1=$40.00|  
+ []
+
+
+Overfull \hbox (6.42148pt too wide) in paragraph at lines 11835--11835
+[]|\TU/lmr/m/n/10.95 $20+$25=$45|  
+ []
+
+
+Overfull \hbox (9.7205pt too wide) in paragraph at lines 11835--11835
+[]|\TU/lmr/m/n/10.95 $25/2=$12.50|  
+ []
+
+
+Overfull \hbox (6.42148pt too wide) in paragraph at lines 11836--11836
+[]|\TU/lmr/m/n/10.95 $45/2=$22.50|  
+ []
+
+
+Overfull \hbox (6.42148pt too wide) in paragraph at lines 11840--11840
+[]|\TU/lmr/m/n/10.95 $20+$35=$55|  
+ []
+
+
+Overfull \hbox (9.7205pt too wide) in paragraph at lines 11840--11840
+[]|\TU/lmr/m/n/10.95 $35/3=$11.67|  
+ []
+
+
+Overfull \hbox (6.42148pt too wide) in paragraph at lines 11841--11841
+[]|\TU/lmr/m/n/10.95 $55/3=$18.33|  
+ []
+
+
+Overfull \hbox (6.42148pt too wide) in paragraph at lines 11845--11845
+[]|\TU/lmr/m/n/10.95 $20+$52=$72|  
+ []
+
+
+Overfull \hbox (9.7205pt too wide) in paragraph at lines 11845--11845
+[]|\TU/lmr/m/n/10.95 $52/4=$13.00|  
+ []
+
+
+Overfull \hbox (6.42148pt too wide) in paragraph at lines 11846--11846
+[]|\TU/lmr/m/n/10.95 $72/4=$18.00|  
+ []
+
+
+Overfull \hbox (11.89647pt too wide) in paragraph at lines 11850--11850
+[]|\TU/lmr/m/n/10.95 $20+$80=$100|  
+ []
+
+
+Overfull \hbox (9.7205pt too wide) in paragraph at lines 11850--11850
+[]|\TU/lmr/m/n/10.95 $80/5=$16.00|  
+ []
+
+
+Overfull \hbox (11.89647pt too wide) in paragraph at lines 11851--11851
+[]|\TU/lmr/m/n/10.95 $100/5=$20.00|  
+ []
+
+[220]
+
+LaTeX Warning: Reference `tbl-table_8_9' on page 221 undefined on input line 11862.
+
+
+LaTeX Warning: Reference `tbl-table_8_10' on page 221 undefined on input line 11886.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 10 on input line 11907.
+
+
+LaTeX Warning: Reference `tbl-table_8_11' on page 221 undefined on input line 11911.
+
+[221]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 11 on input line 11938.
+
+[222] [223] [224]
+
+LaTeX Warning: Hyper reference `fig-8_8' on page 225 undefined on input line 12139.
+
+
+LaTeX Warning: Hyper reference `fig-8_8' on page 225 undefined on input line 12146.
+
+
+LaTeX Warning: Hyper reference `fig-8_8' on page 225 undefined on input line 12147.
+
+File: media/8-3-entry-and-exit-decisions-in-the-long-run_rId32.jpeg Graphic file (type bmp)
+<media/8-3-entry-and-exit-decisions-in-the-long-run_rId32.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 12156--12157
+ [][] 
+ []
+
+[225]
+
+LaTeX Warning: Reference `sec-chapter-2' on page 226 undefined on input line 12194.
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 12190--12195
+[]\TU/lmr/m/n/10.95 When profit-maximizing firms in perfectly competitive markets combine with utility-
+ []
+
+[226] [227]
+
+LaTeX Warning: Reference `tbl-table_8_12' on page 228 undefined on input line 12277.
+
+[228]
+chapter without number
+File: media/9-introduction-to-a-monopoly_rId20.jpeg Graphic file (type bmp)
+<media/9-introduction-to-a-monopoly_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 12323--12324
+ [][] 
+ []
+
+[229
+
+]
+
+LaTeX Warning: Reference `sec-chapter-8' on page 230 undefined on input line 12393.
+
+[230]
+
+LaTeX Warning: Reference `sec-chapter-8' on page 231 undefined on input line 12461.
+
+[231]
+
+LaTeX Warning: Reference `sec-chapter-7' on page 232 undefined on input line 12486.
+
+
+LaTeX Warning: Hyper reference `fig-9_2' on page 232 undefined on input line 12487.
+
+File: media/9-1-how-monopolies-form-barriers-to-entry_rId26.jpeg Graphic file (type bmp)
+<media/9-1-how-monopolies-form-barriers-to-entry_rId26.jpeg>
+[232] [233] [234] [235]
+
+LaTeX Warning: Reference `tbl-table_9_1' on page 236 undefined on input line 12713.
+
+[236]
+
+LaTeX Warning: Hyper reference `fig-9_3' on page 237 undefined on input line 12801.
+
+[237]
+File: media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId23.jpeg Graphic file (type bmp)
+<media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId23.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 12810--12811
+ [][] 
+ []
+
+[238]
+
+LaTeX Warning: Hyper reference `fig-9_3' on page 239 undefined on input line 12876.
+
+[239]
+
+LaTeX Warning: Hyper reference `fig-9_4' on page 240 undefined on input line 12909.
+
+
+LaTeX Warning: Reference `sec-chapter-7' on page 240 undefined on input line 12911.
+
+
+LaTeX Warning: Reference `sec-chapter-8' on page 240 undefined on input line 12912.
+
+
+LaTeX Warning: Reference `tbl-table_9_2' on page 240 undefined on input line 12914.
+
+File: media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId32.jpeg Graphic file (type bmp)
+<media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId32.jpeg>
+[240]
+
+LaTeX Warning: Reference `tbl-table_9_2' on page 241 undefined on input line 12994.
+
+
+LaTeX Warning: Hyper reference `fig-9_4' on page 241 undefined on input line 13008.
+
+
+LaTeX Warning: Reference `tbl-table_9_3' on page 241 undefined on input line 13028.
+
+
+LaTeX Warning: Reference `tbl-table_9_2' on page 241 undefined on input line 13028.
+
+
+LaTeX Warning: Hyper reference `fig-9_5' on page 241 undefined on input line 13032.
+
+[241]
+File: media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId40.jpeg Graphic file (type bmp)
+<media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId40.jpeg>
+[242]
+
+LaTeX Warning: Hyper reference `fig-9_5' on page 243 undefined on input line 13136.
+
+
+LaTeX Warning: Reference `tbl-table_9_3' on page 243 undefined on input line 13169.
+
+[243]
+
+LaTeX Warning: Reference `tbl-table_9_3' on page 244 undefined on input line 13187.
+
+
+LaTeX Warning: Reference `tbl-table_9_4' on page 244 undefined on input line 13256.
+
+
+LaTeX Warning: Reference `tbl-table_9_4' on page 244 undefined on input line 13257.
+
+[244]
+
+LaTeX Warning: Hyper reference `fig-9_6' on page 245 undefined on input line 13278.
+
+
+LaTeX Warning: Reference `tbl-table_9_5' on page 245 undefined on input line 13281.
+
+File: media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId55.jpeg Graphic file (type bmp)
+<media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId55.jpeg>
+
+LaTeX Warning: Hyper reference `fig-9_5' on page 245 undefined on input line 13355.
+
+
+LaTeX Warning: Hyper reference `fig-9_7' on page 245 undefined on input line 13368.
+
+
+LaTeX Warning: Hyper reference `fig-9_6' on page 245 undefined on input line 13379.
+
+[245]
+
+LaTeX Warning: Hyper reference `fig-9_6' on page 246 undefined on input line 13387.
+
+
+LaTeX Warning: Hyper reference `fig-9_6' on page 246 undefined on input line 13394.
+
+
+LaTeX Warning: Hyper reference `fig-9_6' on page 246 undefined on input line 13395.
+
+File: media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId58.jpeg Graphic file (type bmp)
+<media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId58.jpeg>
+[246]
+
+LaTeX Warning: Hyper reference `fig-9_8' on page 247 undefined on input line 13459.
+
+[247]
+File: media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId61.jpeg Graphic file (type bmp)
+<media/9-2-how-a-profit-maximizing-monopoly-chooses-output-and-price_rId61.jpeg>
+
+LaTeX Warning: Hyper reference `fig-9_6' on page 248 undefined on input line 13499.
+
+[248] [249] [250]
+chapter without number
+File: media/10-introduction-to-monopolistic-competition-and-oligopoly_rId20.jpeg Graphic file (type bmp)
+<media/10-introduction-to-monopolistic-competition-and-oligopoly_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 13589--13590
+ [][] 
+ []
+
+[251
+
+] [252]
+
+LaTeX Warning: Reference `sec-chapter-1' on page 253 undefined on input line 13738.
+
+[253]
+
+LaTeX Warning: Hyper reference `fig-10_2' on page 254 undefined on input line 13780.
+
+File: media/10-1-monopolistic-competition_rId33.jpeg Graphic file (type bmp)
+<media/10-1-monopolistic-competition_rId33.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 13791--13792
+ [][] 
+ []
+
+[254] [255]
+
+LaTeX Warning: Hyper reference `fig-10_3' on page 256 undefined on input line 13883.
+
+
+LaTeX Warning: Reference `tbl-table_10_1' on page 256 undefined on input line 13884.
+
+File: media/10-1-monopolistic-competition_rId40.jpeg Graphic file (type bmp)
+<media/10-1-monopolistic-competition_rId40.jpeg>
+[256]
+Overfull \hbox (2.21092pt too wide) in paragraph at lines 13916--13917
+[]\TU/lmr/m/n/10.95 Quantity  
+ []
+
+
+Overfull \hbox (2.21092pt too wide) in paragraph at lines 13934--13935
+[]\TU/lmr/m/n/10.95 Quantity  
+ []
+
+
+LaTeX Warning: Reference `tbl-table_10_1' on page 257 undefined on input line 13964.
+
+
+LaTeX Warning: Reference `tbl-table_10_1' on page 257 undefined on input line 13967.
+
+[257]
+
+LaTeX Warning: Reference `tbl-table_10_1' on page 258 undefined on input line 14020.
+
+
+LaTeX Warning: Hyper reference `fig-10_3' on page 258 undefined on input line 14023.
+
+[258]
+
+LaTeX Warning: Hyper reference `fig-10_4' on page 259 undefined on input line 14067.
+
+File: media/10-1-monopolistic-competition_rId47.jpeg Graphic file (type bmp)
+<media/10-1-monopolistic-competition_rId47.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 14081--14082
+ [][] 
+ []
+
+[259]
+
+LaTeX Warning: Hyper reference `fig-10_4' on page 260 undefined on input line 14127.
+
+[260] [261] [262] [263] [264] [265]
+
+LaTeX Warning: Reference `tbl-table_10_2' on page 266 undefined on input line 14439.
+
+
+LaTeX Warning: Reference `tbl-table_10_3' on page 266 undefined on input line 14501.
+
+[266]
+
+LaTeX Warning: Reference `tbl-table_10_3' on page 267 undefined on input line 14547.
+
+[267] [268]
+
+LaTeX Warning: Hyper reference `fig-10_5' on page 269 undefined on input line 14651.
+
+File: media/10-2-oligopoly_rId51.jpeg Graphic file (type bmp)
+<media/10-2-oligopoly_rId51.jpeg>
+[269] [270]
+
+LaTeX Warning: Reference `sec-chapter-11' on page 271 undefined on input line 14737.
+
+[271] [272]
+chapter without number
+File: media/11-introduction-to-monopoly-and-antitrust-policy_rId20.jpeg Graphic file (type bmp)
+<media/11-introduction-to-monopoly-and-antitrust-policy_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 14786--14787
+ [][] 
+ []
+
+[273
+
+] [274]
+
+LaTeX Warning: Hyper reference `fig-11_2' on page 275 undefined on input line 14934.
+
+
+LaTeX Warning: Hyper reference `fig-11_2' on page 275 undefined on input line 14939.
+
+[275]
+File: media/11-1-corporate-mergers_rId24.jpeg Graphic file (type bmp)
+<media/11-1-corporate-mergers_rId24.jpeg>
+
+Overfull \hbox (23.01083pt too wide) in paragraph at lines 14951--14952
+ [][] 
+ []
+
+[276] [277]
+
+LaTeX Warning: Reference `sec-chapter-9' on page 278 undefined on input line 15071.
+
+
+LaTeX Warning: Reference `tbl-table_11_1' on page 278 undefined on input line 15075.
+
+[278]
+
+LaTeX Warning: Reference `tbl-table_11_1' on page 279 undefined on input line 15163.
+
+[279]
+
+LaTeX Warning: Reference `tbl-table_11_2' on page 280 undefined on input line 15180.
+
+[280] [281]
+
+LaTeX Warning: Reference `sec-chapter-9' on page 282 undefined on input line 15304.
+
+[282] [283]
+
+LaTeX Warning: Reference `sec-chapter-9' on page 284 undefined on input line 15416.
+
+[284] [285]
+
+LaTeX Warning: Hyper reference `fig-11_3' on page 286 undefined on input line 15535.
+
+
+LaTeX Warning: Reference `tbl-table_11_3' on page 286 undefined on input line 15539.
+
+File: media/11-3-regulating-natural-monopolies_rId24.jpeg Graphic file (type bmp)
+<media/11-3-regulating-natural-monopolies_rId24.jpeg>
+
+Overfull \hbox (3.03436pt too wide) in paragraph at lines 15582--15583
+[]\TU/lmr/m/n/10.95 Quantity  
+ []
+
+
+Overfull \hbox (3.03436pt too wide) in paragraph at lines 15600--15601
+[]\TU/lmr/m/n/10.95 Quantity  
+ []
+
+[286] [287]
+
+LaTeX Warning: Reference `sec-chapter-3' on page 288 undefined on input line 15691.
+
+
+LaTeX Warning: Hyper reference `fig-11_3' on page 288 undefined on input line 15698.
+
+[288]
+
+LaTeX Warning: Reference `sec-chapter-9' on page 289 undefined on input line 15771.
+
+[289] [290] [291] [292]
+chapter without number
+File: media/12-introduction-to-environmental-protection-and-negative-externalities_rId20.jpeg Graphic file (type bmp)
+<media/12-introduction-to-environmental-protection-and-negative-externalities_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 15926--15927
+ [][] 
+ []
+
+[293
+
+] [294]
+
+LaTeX Warning: Reference `tbl-table_12_1' on page 295 undefined on input line 16049.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 16075.
+
+[295]
+
+LaTeX Warning: Hyper reference `fig-12_2' on page 296 undefined on input line 16116.
+
+
+LaTeX Warning: Reference `tbl-table_12_2' on page 296 undefined on input line 16124.
+
+File: media/12-1-the-economics-of-pollution_rId30.jpeg Graphic file (type bmp)
+<media/12-1-the-economics-of-pollution_rId30.jpeg>
+
+Overfull \hbox (3.52652pt too wide) in paragraph at lines 16156--16157
+[]\TU/lmr/m/n/10.95 Price  
+ []
+
+
+Overfull \hbox (3.52652pt too wide) in paragraph at lines 16168--16169
+[]\TU/lmr/m/n/10.95 Price  
+ []
+
+
+Overfull \hbox (0.90947pt too wide) in paragraph at lines 16180--16180
+[]|\TU/lmr/m/n/10.95 $600|  
+ []
+
+
+Overfull \hbox (0.90947pt too wide) in paragraph at lines 16181--16181
+[]|\TU/lmr/m/n/10.95 $650|  
+ []
+
+
+Overfull \hbox (0.90947pt too wide) in paragraph at lines 16182--16182
+[]|\TU/lmr/m/n/10.95 $700|  
+ []
+
+
+Overfull \hbox (0.90947pt too wide) in paragraph at lines 16183--16183
+[]|\TU/lmr/m/n/10.95 $750|  
+ []
+
+
+Overfull \hbox (0.90947pt too wide) in paragraph at lines 16184--16184
+[]|\TU/lmr/m/n/10.95 $800|  
+ []
+
+
+Overfull \hbox (0.90947pt too wide) in paragraph at lines 16185--16185
+[]|\TU/lmr/m/n/10.95 $850|  
+ []
+
+
+Overfull \hbox (0.90947pt too wide) in paragraph at lines 16186--16186
+[]|\TU/lmr/m/n/10.95 $900|  
+ []
+
+[296]
+
+LaTeX Warning: Reference `tbl-table_12_2' on page 297 undefined on input line 16205.
+
+
+LaTeX Warning: Hyper reference `fig-12_2' on page 297 undefined on input line 16205.
+
+[297]
+
+LaTeX Warning: Reference `tbl-table_12_3' on page 298 undefined on input line 16220.
+
+
+Overfull \hbox (3.52652pt too wide) in paragraph at lines 16233--16234
+[]\TU/lmr/m/n/10.95 Price  
+ []
+
+
+Overfull \hbox (3.52652pt too wide) in paragraph at lines 16245--16246
+[]\TU/lmr/m/n/10.95 Price  
+ []
+
+[298] [299] [300]
+
+LaTeX Warning: Hyper reference `fig-12_3' on page 301 undefined on input line 16429.
+
+File: media/12-3-market-oriented-environmental-tools_rId24.jpeg Graphic file (type bmp)
+<media/12-3-market-oriented-environmental-tools_rId24.jpeg>
+[301] [302]
+
+LaTeX Warning: Reference `tbl-table_12_4' on page 303 undefined on input line 16530.
+
+[303] [304] [305] [306] [307]
+
+LaTeX Warning: Hyper reference `fig-12_4' on page 308 undefined on input line 16807.
+
+File: media/12-4-the-benefits-and-costs-of-u-s-environmental-laws_rId32.jpeg Graphic file (type bmp)
+<media/12-4-the-benefits-and-costs-of-u-s-environmental-laws_rId32.jpeg>
+[308]
+Overfull \hbox (20.48947pt too wide) in paragraph at lines 16895--16902
+\TU/lmr/m/n/10.95 19, 2013. http://yosemite.epa.gov/ee/epa/eed.nsf/pages/MortalityRiskValuation.html#whatvalue
+ []
+
+
+Underfull \hbox (badness 1360) in paragraph at lines 16895--16902
+\TU/lmr/m/n/10.95 World Tourism Organization, “Tourism 2020 Vision.” Accessed December 19, 2013.
+ []
+
+[309] [310]
+
+LaTeX Warning: Hyper reference `fig-12_5' on page 311 undefined on input line 17013.
+
+[311]
+File: media/12-6-the-tradeoff-between-economic-output-and-environmental-protection_rId23.jpeg Graphic file (type bmp)
+<media/12-6-the-tradeoff-between-economic-output-and-environmental-protection_rId23.jpeg>
+
+LaTeX Warning: Hyper reference `fig-12_5' on page 312 undefined on input line 17043.
+
+[312] [313]
+chapter without number
+File: media/13-introduction-to-positive-externalities-and-public-goods_rId20.jpeg Graphic file (type bmp)
+<media/13-introduction-to-positive-externalities-and-public-goods_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 17103--17104
+ [][] 
+ []
+
+[314
+
+] [315] [316]
+
+LaTeX Warning: Reference `sec-chapter-12' on page 317 undefined on input line 17312.
+
+[317]
+
+LaTeX Warning: Hyper reference `fig-13_2' on page 318 undefined on input line 17319.
+
+
+LaTeX Warning: Hyper reference `fig-13_2' on page 318 undefined on input line 17334.
+
+
+LaTeX Warning: Reference `tbl-table_13_1' on page 318 undefined on input line 17335.
+
+File: media/13-1-investments-in-innovation_rId30.jpeg Graphic file (type bmp)
+<media/13-1-investments-in-innovation_rId30.jpeg>
+[318]
+
+LaTeX Warning: Reference `tbl-table_13_2' on page 319 undefined on input line 17417.
+
+[319]
+
+LaTeX Warning: Hyper reference `fig-13_3' on page 320 undefined on input line 17493.
+
+[320]
+File: media/13-1-investments-in-innovation_rId42.jpeg Graphic file (type bmp)
+<media/13-1-investments-in-innovation_rId42.jpeg>
+[321] [322]
+
+LaTeX Warning: Hyper reference `fig-13_4' on page 323 undefined on input line 17656.
+
+File: media/13-2-how-governments-can-encourage-innovation_rId25.jpeg Graphic file (type bmp)
+<media/13-2-how-governments-can-encourage-innovation_rId25.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 17665--17666
+ [][] 
+ []
+
+[323] [324]
+
+LaTeX Warning: Reference `tbl-table_13_3' on page 325 undefined on input line 17733.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17746--17746
+[][][]|\TU/lmr/m/n/10.95 U.S. Research and Development Expenditures, 2018 (Source:
+ []
+
+[325] [326] [327]
+
+LaTeX Warning: Reference `sec-chapter-10' on page 328 undefined on input line 17917.
+
+[328] [329] [330] [331] [332]
+chapter without number
+File: media/14-introduction-to-labor-markets-and-income_rId20.jpeg Graphic file (type bmp)
+<media/14-introduction-to-labor-markets-and-income_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 18124--18125
+ [][] 
+ []
+
+[333
+
+]
+
+LaTeX Warning: Reference `sec-chapter-7' on page 334 undefined on input line 18191.
+
+[334] [335]
+File: media/14-1-the-theory-of-labor-markets_rId24.jpeg Graphic file (type bmp)
+<media/14-1-the-theory-of-labor-markets_rId24.jpeg>
+
+LaTeX Warning: Reference `tbl-table_14_2' on page 336 undefined on input line 18315.
+
+
+LaTeX Warning: Reference `tbl-table_14_1' on page 336 undefined on input line 18316.
+
+[336]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 2 on input line 18334.
+
+File: media/14-1-the-theory-of-labor-markets_rId27.jpeg Graphic file (type bmp)
+<media/14-1-the-theory-of-labor-markets_rId27.jpeg>
+File: media/14-1-the-theory-of-labor-markets_rId31.jpeg Graphic file (type bmp)
+<media/14-1-the-theory-of-labor-markets_rId31.jpeg>
+[337] [338]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3 on input line 18434.
+
+File: media/14-1-the-theory-of-labor-markets_rId38.jpeg Graphic file (type bmp)
+<media/14-1-the-theory-of-labor-markets_rId38.jpeg>
+
+LaTeX Warning: Hyper reference `fig-14_6' on page 339 undefined on input line 18458.
+
+File: media/14-1-the-theory-of-labor-markets_rId41.jpeg Graphic file (type bmp)
+<media/14-1-the-theory-of-labor-markets_rId41.jpeg>
+[339]
+
+LaTeX Warning: Hyper reference `fig-14_4' on page 340 undefined on input line 18487.
+
+
+LaTeX Warning: Reference `sec-chapter-4' on page 340 undefined on input line 18504.
+
+File: media/14-1-the-theory-of-labor-markets_rId48.jpeg Graphic file (type bmp)
+<media/14-1-the-theory-of-labor-markets_rId48.jpeg>
+[340]
+
+LaTeX Warning: Hyper reference `fig-14_7' on page 341 undefined on input line 18533.
+
+[341]
+
+LaTeX Warning: Reference `tbl-table_14_4' on page 342 undefined on input line 18622.
+
+[342] [343]
+
+LaTeX Warning: Reference `tbl-table_14_5' on page 344 undefined on input line 18739.
+
+[344]
+File: media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId24.jpeg Graphic file (type bmp)
+<media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId24.jpeg>
+File: media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId27.jpeg Graphic file (type bmp)
+<media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId27.jpeg>
+
+LaTeX Warning: Hyper reference `fig-14_9' on page 345 undefined on input line 18837.
+
+[345]
+File: media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId30.jpeg Graphic file (type bmp)
+<media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId30.jpeg>
+[346] [347]
+
+LaTeX Warning: Reference `tbl-table_14_6' on page 348 undefined on input line 18947.
+
+
+LaTeX Warning: Hyper reference `fig-14_11' on page 348 undefined on input line 18995.
+
+File: media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId23.jpeg Graphic file (type bmp)
+<media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId23.jpeg>
+[348]
+
+LaTeX Warning: Hyper reference `fig-14_12' on page 349 undefined on input line 19037.
+
+File: media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId26.jpeg Graphic file (type bmp)
+<media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId26.jpeg>
+[349] [350]
+
+LaTeX Warning: Reference `tbl-table_14_7' on page 351 undefined on input line 19105.
+
+[351]
+
+LaTeX Warning: Hyper reference `fig-14_13' on page 352 undefined on input line 19240.
+
+
+LaTeX Warning: Reference `tbl-table_14_8' on page 352 undefined on input line 19251.
+
+[352]
+File: media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId35.jpeg Graphic file (type bmp)
+<media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId35.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 19260--19261
+ [][] 
+ []
+
+[353]
+
+LaTeX Warning: Reference `tbl-table_14_8' on page 354 undefined on input line 19302.
+
+
+Overfull \hbox (3.1533pt too wide) in paragraph at lines 19346--19346
+[]|\TU/lmr/m/n/10.95 Germany|  
+ []
+
+
+Overfull \hbox (16.82986pt too wide) in paragraph at lines 19348--19348
+[]|\TU/lmr/m/n/10.95 Netherlands|  
+ []
+
+[354] [355]
+File: media/14-4-bilateral-monopoly_rId23.jpeg Graphic file (type bmp)
+<media/14-4-bilateral-monopoly_rId23.jpeg>
+
+LaTeX Warning: Hyper reference `fig-14_14' on page 356 undefined on input line 19436.
+
+[356]
+
+LaTeX Warning: Hyper reference `fig-14_15' on page 357 undefined on input line 19509.
+
+File: media/14-5-employment-discrimination_rId25.jpeg Graphic file (type bmp)
+<media/14-5-employment-discrimination_rId25.jpeg>
+[357] [358] [359] [360]
+
+LaTeX Warning: Reference `tbl-table_14_9' on page 361 undefined on input line 19698.
+
+[361] [362] [363] [364]
+
+LaTeX Warning: Hyper reference `fig-14_16' on page 365 undefined on input line 19937.
+
+File: media/14-5-employment-discrimination_rId54.jpeg Graphic file (type bmp)
+<media/14-5-employment-discrimination_rId54.jpeg>
+[365]
+
+LaTeX Warning: Hyper reference `fig-14_17' on page 366 undefined on input line 19998.
+
+File: media/14-6-immigration_rId21.jpeg Graphic file (type bmp)
+<media/14-6-immigration_rId21.jpeg>
+[366] [367] [368] [369]
+chapter without number
+File: media/15-introduction-to-poverty-and-economic-inequality_rId20.jpeg Graphic file (type bmp)
+<media/15-introduction-to-poverty-and-economic-inequality_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 20181--20182
+ [][] 
+ []
+
+[370
+
+] [371]
+
+LaTeX Warning: Hyper reference `fig-15_2' on page 372 undefined on input line 20310.
+
+
+LaTeX Warning: Reference `tbl-table_15_1' on page 372 undefined on input line 20318.
+
+[372]
+File: media/15-1-drawing-the-poverty-line_rId30.jpeg Graphic file (type bmp)
+<media/15-1-drawing-the-poverty-line_rId30.jpeg>
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 20374.
+
+[373]
+
+LaTeX Warning: Reference `tbl-table_15_2' on page 374 undefined on input line 20406.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20423--20423
+[][][]|\TU/lmr/m/n/10.95 Poverty Lines for Low-Income Countries, mid-2000s (Source:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20423--20423
+\TU/lmr/m/n/10.95 https://datatopics.worldbank.org/world-development-indicators/themes/poverty-
+ []
+
+
+Overfull \hbox (15.02338pt too wide) in paragraph at lines 20426--20427
+[]\TU/lmr/m/n/10.95 Country  
+ []
+
+
+Overfull \hbox (5.20699pt too wide) in paragraph at lines 20428--20429
+[]\TU/lmr/m/n/10.95 Year  
+ []
+
+
+Overfull \hbox (15.02338pt too wide) in paragraph at lines 20438--20439
+[]\TU/lmr/m/n/10.95 Country  
+ []
+
+
+Overfull \hbox (5.20699pt too wide) in paragraph at lines 20440--20441
+[]\TU/lmr/m/n/10.95 Year  
+ []
+
+
+Overfull \hbox (4.31427pt too wide) in paragraph at lines 20450--20450
+[]|\TU/lmr/m/n/10.95 Brazil|  
+ []
+
+
+Overfull \hbox (5.79828pt too wide) in paragraph at lines 20450--20450
+[]|\TU/lmr/m/n/10.95 2019|  
+ []
+
+
+Overfull \hbox (4.44568pt too wide) in paragraph at lines 20451--20451
+[]|\TU/lmr/m/n/10.95 China|  
+ []
+
+
+Overfull \hbox (5.79828pt too wide) in paragraph at lines 20451--20451
+[]|\TU/lmr/m/n/10.95 2017|  
+ []
+
+
+Overfull \hbox (4.90558pt too wide) in paragraph at lines 20452--20452
+[]|\TU/lmr/m/n/10.95 Egypt|  
+ []
+
+
+Overfull \hbox (5.79828pt too wide) in paragraph at lines 20452--20452
+[]|\TU/lmr/m/n/10.95 2017|  
+ []
+
+
+Overfull \hbox (5.79828pt too wide) in paragraph at lines 20453--20453
+[]|\TU/lmr/m/n/10.95 2011|  
+ []
+
+
+Overfull \hbox (9.90973pt too wide) in paragraph at lines 20454--20454
+[]|\TU/lmr/m/n/10.95 Mexico|  
+ []
+
+
+Overfull \hbox (5.79828pt too wide) in paragraph at lines 20454--20454
+[]|\TU/lmr/m/n/10.95 2018|  
+ []
+
+
+Overfull \hbox (10.24918pt too wide) in paragraph at lines 20455--20455
+[]|\TU/lmr/m/n/10.95 Nigeria|  
+ []
+
+
+Overfull \hbox (5.79828pt too wide) in paragraph at lines 20455--20455
+[]|\TU/lmr/m/n/10.95 2018|  
+ []
+
+[374]
+
+LaTeX Warning: Hyper reference `fig-15_3' on page 375 undefined on input line 20496.
+
+[375]
+
+LaTeX Warning: Reference `tbl-table_15_3' on page 376 undefined on input line 20517.
+
+File: media/15-2-the-poverty-trap_rId25.jpeg Graphic file (type bmp)
+<media/15-2-the-poverty-trap_rId25.jpeg>
+[376]
+
+LaTeX Warning: Hyper reference `fig-15_4' on page 377 undefined on input line 20606.
+
+
+LaTeX Warning: Hyper reference `fig-15_4' on page 377 undefined on input line 20609.
+
+
+LaTeX Warning: Reference `tbl-table_15_4' on page 377 undefined on input line 20616.
+
+File: media/15-2-the-poverty-trap_rId28.jpeg Graphic file (type bmp)
+<media/15-2-the-poverty-trap_rId28.jpeg>
+[377] [378] [379] [380]
+
+LaTeX Warning: Hyper reference `fig-15_5' on page 381 undefined on input line 20827.
+
+File: media/15-3-the-safety-net_rId31.jpeg Graphic file (type bmp)
+<media/15-3-the-safety-net_rId31.jpeg>
+[381]
+
+LaTeX Warning: Hyper reference `fig-15_6' on page 382 undefined on input line 20914.
+
+File: media/15-3-the-safety-net_rId38.jpeg Graphic file (type bmp)
+<media/15-3-the-safety-net_rId38.jpeg>
+[382] [383]
+
+LaTeX Warning: Hyper reference `fig-15_7' on page 384 undefined on input line 20987.
+
+
+LaTeX Warning: Hyper reference `fig-15_7' on page 384 undefined on input line 20992.
+
+File: media/15-3-the-safety-net_rId45.jpeg Graphic file (type bmp)
+<media/15-3-the-safety-net_rId45.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 21004--21005
+ [][] 
+ []
+
+[384] [385]
+
+LaTeX Warning: Reference `tbl-table_15_5' on page 386 undefined on input line 21095.
+
+
+LaTeX Warning: Reference `tbl-table_15_5' on page 386 undefined on input line 21099.
+
+
+Underfull \hbox (badness 7504) in paragraph at lines 21120--21120
+\TU/lmr/m/n/10.95 series/demo/income-poverty/historical-income-households.html, Table H-1, All
+ []
+
+[386]
+
+LaTeX Warning: Reference `tbl-table_15_5' on page 387 undefined on input line 21176.
+
+
+LaTeX Warning: Hyper reference `fig-15_8' on page 387 undefined on input line 21190.
+
+File: media/15-4-income-inequality-measurement-and-causes_rId28.jpeg Graphic file (type bmp)
+<media/15-4-income-inequality-measurement-and-causes_rId28.jpeg>
+
+LaTeX Warning: Hyper reference `fig-15_8' on page 387 undefined on input line 21214.
+
+
+LaTeX Warning: Reference `tbl-table_15_6' on page 387 undefined on input line 21223.
+
+[387]
+
+LaTeX Warning: Hyper reference `fig-15_8' on page 388 undefined on input line 21280.
+
+[388]
+
+LaTeX Warning: Reference `tbl-table_15_7' on page 389 undefined on input line 21294.
+
+
+Underfull \hbox (badness 1281) in paragraph at lines 21315--21315
+[][][]|\TU/lmr/m/n/10.95 Income Distribution in Select Countries (Source: U.S. data from U.S. Cen-
+ []
+
+
+Underfull \hbox (badness 6859) in paragraph at lines 21315--21315
+\TU/lmr/m/n/10.95 sus Bureau Table H-1. Other data from The World Bank Poverty
+ []
+
+
+Underfull \hbox (badness 1354) in paragraph at lines 21315--21315
+\TU/lmr/m/n/10.95 and Inequality Data Base, https://datatopics.worldbank.org/world-development-
+ []
+
+[389]
+
+LaTeX Warning: Hyper reference `fig-15_9' on page 390 undefined on input line 21434.
+
+[390]
+File: media/15-4-income-inequality-measurement-and-causes_rId40.jpeg Graphic file (type bmp)
+<media/15-4-income-inequality-measurement-and-causes_rId40.jpeg>
+[391] [392] [393]
+
+LaTeX Warning: Reference `tbl-table_15_8' on page 394 undefined on input line 21617.
+
+[394]
+
+LaTeX Warning: Hyper reference `fig-15_10' on page 395 undefined on input line 21699.
+
+
+LaTeX Warning: Hyper reference `fig-15_10' on page 395 undefined on input line 21706.
+
+[395]
+File: media/15-5-government-policies-to-reduce-income-inequality_rId36.jpeg Graphic file (type bmp)
+<media/15-5-government-policies-to-reduce-income-inequality_rId36.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 21733--21734
+ [][] 
+ []
+
+
+LaTeX Warning: Hyper reference `fig-15_10' on page 396 undefined on input line 21751.
+
+[396] [397]
+chapter without number
+File: media/16-introduction-to-information-risk-and-insurance_rId20.jpeg Graphic file (type bmp)
+<media/16-introduction-to-information-risk-and-insurance_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 21812--21813
+ [][] 
+ []
+
+[398
+
+] [399] [400] [401] [402]
+
+LaTeX Warning: Reference `sec-chapter-3' on page 403 undefined on input line 22107.
+
+[403] [404] [405] [406]
+
+LaTeX Warning: Reference `tbl-table_16_1' on page 407 undefined on input line 22357.
+
+[407] [408]
+
+LaTeX Warning: Hyper reference `fig-16_2' on page 409 undefined on input line 22443.
+
+File: media/16-2-insurance-and-imperfect-information_rId26.jpeg Graphic file (type bmp)
+<media/16-2-insurance-and-imperfect-information_rId26.jpeg>
+[409] [410] [411] [412] [413]
+
+LaTeX Warning: Reference `tbl-table_16_2' on page 414 undefined on input line 22713.
+
+
+Overfull \hbox (0.92183pt too wide) in paragraph at lines 22786--22786
+[]|\TU/lmr/m/n/10.95 Germany|  
+ []
+
+[414] [415] [416] [417] [418] [419]
+chapter without number
+File: media/17-introduction-to-financial-markets_rId20.jpeg Graphic file (type bmp)
+<media/17-introduction-to-financial-markets_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 23038--23039
+ [][] 
+ []
+
+[420
+
+]
+
+LaTeX Warning: Hyper reference `fig-17_2' on page 421 undefined on input line 23108.
+
+File: media/17-introduction-to-financial-markets_rId25.jpeg Graphic file (type bmp)
+<media/17-introduction-to-financial-markets_rId25.jpeg>
+[421]
+
+LaTeX Warning: Reference `sec-chapter-17' on page 422 undefined on input line 23151.
+
+[422] [423] [424] [425]
+
+LaTeX Warning: Reference `sec-chapter-16' on page 426 undefined on input line 23415.
+
+[426] [427] [428]
+
+LaTeX Warning: Hyper reference `fig-17_3' on page 429 undefined on input line 23569.
+
+File: media/17-2-how-households-supply-financial-capital_rId29.jpeg Graphic file (type bmp)
+<media/17-2-how-households-supply-financial-capital_rId29.jpeg>
+[429]
+
+LaTeX Warning: Hyper reference `fig-17_4' on page 430 undefined on input line 23617.
+
+File: media/17-2-how-households-supply-financial-capital_rId36.jpeg Graphic file (type bmp)
+<media/17-2-how-households-supply-financial-capital_rId36.jpeg>
+[430]
+
+LaTeX Warning: Reference `sec-chapter-2' on page 431 undefined on input line 23665.
+
+[431]
+
+LaTeX Warning: Reference `sec-appendix-c' on page 432 undefined on input line 23716.
+
+[432]
+
+LaTeX Warning: Hyper reference `fig-17_5' on page 433 undefined on input line 23786.
+
+[433]
+File: media/17-2-how-households-supply-financial-capital_rId56.jpeg Graphic file (type bmp)
+<media/17-2-how-households-supply-financial-capital_rId56.jpeg>
+[434]
+
+LaTeX Warning: Reference `tbl-table_17_1' on page 435 undefined on input line 23853.
+
+[435]
+
+LaTeX Warning: Hyper reference `fig-17_6' on page 436 undefined on input line 23909.
+
+
+LaTeX Warning: Hyper reference `fig-17_6' on page 436 undefined on input line 23920.
+
+File: media/17-2-how-households-supply-financial-capital_rId63.jpeg Graphic file (type bmp)
+<media/17-2-how-households-supply-financial-capital_rId63.jpeg>
+
+LaTeX Warning: Reference `tbl-table_17_2' on page 436 undefined on input line 23943.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 2 on input line 23982.
+
+[436] [437] [438]
+
+LaTeX Warning: Hyper reference `fig-17_7' on page 439 undefined on input line 24080.
+
+[439]
+File: media/17-2-how-households-supply-financial-capital_rId78.jpeg Graphic file (type bmp)
+<media/17-2-how-households-supply-financial-capital_rId78.jpeg>
+[440] [441]
+
+LaTeX Warning: Reference `tbl-table_17_3' on page 442 undefined on input line 24224.
+
+[442] [443] [444] [445]
+
+LaTeX Warning: Reference `tbl-table_17_4' on page 446 undefined on input line 24462.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4 on input line 24475.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 5 on input line 24488.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 6 on input line 24507.
+
+[446] [447] [448]
+chapter without number
+File: media/18-introduction-to-public-economy_rId20.jpeg Graphic file (type bmp)
+<media/18-introduction-to-public-economy_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 24625--24626
+ [][] 
+ []
+
+[449
+
+] [450] [451] [452] [453]
+
+LaTeX Warning: Reference `sec-chapter-20' on page 454 undefined on input line 24919.
+
+
+LaTeX Warning: Reference `sec-chapter-12' on page 454 undefined on input line 24939.
+
+
+LaTeX Warning: Reference `sec-chapter-11' on page 454 undefined on input line 24942.
+
+[454] [455] [456] [457] [458]
+
+LaTeX Warning: Reference `tbl-table_18_1' on page 459 undefined on input line 25203.
+
+
+LaTeX Warning: Hyper reference `fig-18_2' on page 459 undefined on input line 25207.
+
+File: media/18-3-flaws-in-the-democratic-system-of-government_rId25.jpeg Graphic file (type bmp)
+<media/18-3-flaws-in-the-democratic-system-of-government_rId25.jpeg>
+[459] [460] [461] [462]
+
+LaTeX Warning: Reference `sec-chapter-3' on page 463 undefined on input line 25439.
+
+
+LaTeX Warning: Reference `sec-chapter-19' on page 463 undefined on input line 25440.
+
+[463] [464]
+chapter without number
+File: media/19-introduction-to-international-trade_rId20.jpeg Graphic file (type bmp)
+<media/19-introduction-to-international-trade_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 25468--25469
+ [][] 
+ []
+
+[465
+
+] [466] [467]
+
+LaTeX Warning: Reference `sec-chapter-2' on page 468 undefined on input line 25627.
+
+
+LaTeX Warning: Reference `sec-chapter-2' on page 468 undefined on input line 25632.
+
+
+LaTeX Warning: Reference `tbl-table_19_1' on page 468 undefined on input line 25661.
+
+[468]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 25680.
+
+
+LaTeX Warning: Reference `tbl-table_19_1' on page 469 undefined on input line 25682.
+
+
+LaTeX Warning: Reference `tbl-table_19_2' on page 469 undefined on input line 25688.
+
+
+LaTeX Warning: Hyper reference `fig-19_2' on page 469 undefined on input line 25689.
+
+
+LaTeX Warning: Reference `sec-chapter-2' on page 469 undefined on input line 25691.
+
+File: media/19-1-absolute-and-comparative-advantage_rId30.jpeg Graphic file (type bmp)
+<media/19-1-absolute-and-comparative-advantage_rId30.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 25735--25736
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `tbl-table_19_1' on page 469 undefined on input line 25749.
+
+[469]
+
+LaTeX Warning: Reference `tbl-table_19_3' on page 470 undefined on input line 25761.
+
+
+LaTeX Warning: Reference `tbl-table_19_1' on page 470 undefined on input line 25762.
+
+
+LaTeX Warning: Reference `tbl-table_19_4' on page 470 undefined on input line 25812.
+
+[470]
+
+LaTeX Warning: Reference `tbl-table_19_4' on page 471 undefined on input line 25850.
+
+
+LaTeX Warning: Reference `tbl-table_19_1' on page 471 undefined on input line 25856.
+
+
+LaTeX Warning: Reference `tbl-table_19_4' on page 471 undefined on input line 25858.
+
+
+LaTeX Warning: Reference `sec-chapter-2' on page 471 undefined on input line 25869.
+
+
+LaTeX Warning: Reference `sec-chapter-1' on page 471 undefined on input line 25893.
+
+
+LaTeX Warning: Reference `tbl-table_19_5' on page 471 undefined on input line 25900.
+
+[471]
+
+LaTeX Warning: Reference `tbl-table_19_6' on page 472 undefined on input line 25962.
+
+
+LaTeX Warning: Reference `tbl-table_19_3' on page 472 undefined on input line 25967.
+
+
+LaTeX Warning: Reference `tbl-table_19_6' on page 472 undefined on input line 25967.
+
+[472]
+
+LaTeX Warning: Reference `tbl-table_19_6' on page 473 undefined on input line 26003.
+
+
+LaTeX Warning: Hyper reference `fig-19_2' on page 473 undefined on input line 26006.
+
+File: media/19-1-absolute-and-comparative-advantage_rId40.jpeg Graphic file (type bmp)
+<media/19-1-absolute-and-comparative-advantage_rId40.jpeg>
+
+LaTeX Warning: Hyper reference `fig-19_3' on page 473 undefined on input line 26030.
+
+[473]
+
+LaTeX Warning: Reference `tbl-table_19_7' on page 474 undefined on input line 26078.
+
+[474]
+
+LaTeX Warning: Reference `tbl-table_19_8' on page 475 undefined on input line 26145.
+
+
+LaTeX Warning: Hyper reference `fig-19_4' on page 475 undefined on input line 26192.
+
+[475]
+File: media/19-2-what-happens-when-a-country-has-an-absolute-advantage-in-all-goods_rId25.jpeg Graphic file (type bmp)
+<media/19-2-what-happens-when-a-country-has-an-absolute-advantage-in-all-goods_rId25.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 26198--26199
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `tbl-table_19_9' on page 476 undefined on input line 26218.
+
+
+LaTeX Warning: Reference `tbl-table_19_10' on page 476 undefined on input line 26266.
+
+[476]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 10 on input line 26288.
+
+
+LaTeX Warning: Hyper reference `fig-19_4' on page 477 undefined on input line 26309.
+
+
+LaTeX Warning: Reference `tbl-table_19_9' on page 477 undefined on input line 26309.
+
+[477]
+
+LaTeX Warning: Reference `tbl-table_19_11' on page 478 undefined on input line 26325.
+
+[478]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 12 on input line 26402.
+
+
+LaTeX Warning: Reference `tbl-table_19_12' on page 479 undefined on input line 26422.
+
+[479]
+
+LaTeX Warning: Reference `tbl-table_19_13' on page 480 undefined on input line 26528.
+
+[480]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 13 on input line 26550.
+
+
+LaTeX Warning: Reference `tbl-table_19_14' on page 481 undefined on input line 26557.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26570--26570
+[][][]|\TU/lmr/m/n/10.95 Some Intra-Industry U.S. Exports and Imports in 2021 (Source:
+ []
+
+[481]
+
+LaTeX Warning: Reference `sec-chapter-7' on page 482 undefined on input line 26655.
+
+
+LaTeX Warning: Hyper reference `fig-19_5' on page 482 undefined on input line 26657.
+
+[482]
+File: media/19-3-intra-industry-trade-between-similar-economies_rId34.jpeg Graphic file (type bmp)
+<media/19-3-intra-industry-trade-between-similar-economies_rId34.jpeg>
+[483] [484] [485] [486]
+chapter without number
+File: media/20-introduction-to-globalization-and-protectionism_rId20.jpeg Graphic file (type bmp)
+<media/20-introduction-to-globalization-and-protectionism_rId20.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 26878--26879
+ [][] 
+ []
+
+[487
+
+] [488]
+
+LaTeX Warning: Reference `sec-chapter-19' on page 489 undefined on input line 26997.
+
+[489] [490]
+
+LaTeX Warning: Reference `tbl-table_20_1' on page 491 undefined on input line 27091.
+
+
+LaTeX Warning: Hyper reference `fig-20_2' on page 491 undefined on input line 27091.
+
+File: media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId29.jpeg Graphic file (type bmp)
+<media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId29.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 27102--27103
+ [][] 
+ []
+
+[491]
+
+LaTeX Warning: Hyper reference `fig-20_2' on page 492 undefined on input line 27179.
+
+
+LaTeX Warning: Hyper reference `fig-20_3' on page 492 undefined on input line 27192.
+
+
+LaTeX Warning: Reference `sec-chapter-3' on page 492 undefined on input line 27193.
+
+
+LaTeX Warning: Hyper reference `fig-20_3' on page 492 undefined on input line 27194.
+
+
+LaTeX Warning: Hyper reference `fig-20_3' on page 492 undefined on input line 27196.
+
+[492]
+File: media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId36.jpeg Graphic file (type bmp)
+<media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId36.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 27210--27211
+ [][] 
+ []
+
+[493] [494]
+
+LaTeX Warning: Reference `sec-chapter-3' on page 495 undefined on input line 27315.
+
+File: media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId49.jpeg Graphic file (type bmp)
+<media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId49.jpeg>
+
+LaTeX Warning: Hyper reference `fig-20_4' on page 495 undefined on input line 27334.
+
+[495] [496]
+
+LaTeX Warning: Reference `sec-chapter-19' on page 497 undefined on input line 27463.
+
+[497]
+
+LaTeX Warning: Hyper reference `fs-idm352845312' on page 498 undefined on input line 27491.
+
+[498]
+
+LaTeX Warning: Reference `tbl-table_20_2' on page 499 undefined on input line 27540.
+
+
+LaTeX Warning: Reference `sec-chapter-4' on page 499 undefined on input line 27600.
+
+[499] [500] [501] [502] [503] [504]
+
+LaTeX Warning: Reference `sec-chapter-9' on page 505 undefined on input line 27916.
+
+[505] [506] [507] [508] [509]
+
+LaTeX Warning: Reference `tbl-table_20_3' on page 510 undefined on input line 28166.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28181--28181
+[][][]|\TU/lmr/m/n/10.95 The Status of Growing Trade Ties between Countries (Source:
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3 on input line 28202.
+
+[510]
+
+LaTeX Warning: Reference `tbl-table_20_4' on page 511 undefined on input line 28266.
+
+
+Overfull \hbox (0.82799pt too wide) in paragraph at lines 28307--28307
+[]|\TU/lmr/m/n/10.95 1947|  
+ []
+
+
+Overfull \hbox (0.82799pt too wide) in paragraph at lines 28308--28308
+[]|\TU/lmr/m/n/10.95 1949|  
+ []
+
+
+Overfull \hbox (0.82799pt too wide) in paragraph at lines 28309--28309
+[]|\TU/lmr/m/n/10.95 1951|  
+ []
+
+
+Overfull \hbox (0.82799pt too wide) in paragraph at lines 28310--28310
+[]|\TU/lmr/m/n/10.95 1956|  
+ []
+
+
+Overfull \hbox (4.66049pt too wide) in paragraph at lines 28311--28311
+[]|\TU/lmr/m/n/10.95 1960– 
+ []
+
+
+Overfull \hbox (4.66049pt too wide) in paragraph at lines 28312--28312
+[]|\TU/lmr/m/n/10.95 1964– 
+ []
+
+
+Overfull \hbox (4.66049pt too wide) in paragraph at lines 28313--28313
+[]|\TU/lmr/m/n/10.95 1973– 
+ []
+
+
+Overfull \hbox (4.66049pt too wide) in paragraph at lines 28314--28314
+[]|\TU/lmr/m/n/10.95 1986– 
+ []
+
+
+Overfull \hbox (4.66049pt too wide) in paragraph at lines 28317--28317
+[]|\TU/lmr/m/n/10.95 2001– 
+ []
+
+[511] [512]
+
+LaTeX Warning: Hyper reference `fs-idm352745318' on page 513 undefined on input line 28364.
+
+
+LaTeX Warning: Reference `tbl-table_20_5' on page 513 undefined on input line 28377.
+
+[513] [514] [515] [516] [517] [518]
+chapter without number
+
+LaTeX Warning: Reference `sec-chapter-1' on page 519 undefined on input line 28653.
+
+[519
+
+
+
+]
+Overfull \hbox (7.63202pt too wide) in paragraph at lines 28712--28713
+[]$[]$ 
+ []
+
+
+LaTeX Warning: Reference `tbl-table_append_a_1' on page 520 undefined on input line 28749.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_1' on page 520 undefined on input line 28751.
+
+[520]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 28776.
+
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId26.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId26.jpeg>
+[521]
+
+LaTeX Warning: Hyper reference `fig-append_a_3' on page 522 undefined on input line 28821.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_4' on page 522 undefined on input line 28830.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_5' on page 522 undefined on input line 28837.
+
+[522] [523]
+
+LaTeX Warning: Hyper reference `fig-append_a_2' on page 524 undefined on input line 28978.
+
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId47.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId47.jpeg>
+[524] [525]
+
+LaTeX Warning: Reference `tbl-table_append_a_2' on page 526 undefined on input line 29088.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_3' on page 526 undefined on input line 29089.
+
+[526]
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId61.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId61.jpeg>
+[527]
+
+LaTeX Warning: Hyper reference `fig-append_a_4' on page 528 undefined on input line 29163.
+
+
+LaTeX Warning: Reference `tbl-table_append_a_3' on page 528 undefined on input line 29165.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_4' on page 528 undefined on input line 29172.
+
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId64.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId64.jpeg>
+[528]
+
+LaTeX Warning: Hyper reference `fig-append_a_5' on page 529 undefined on input line 29256.
+
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId68.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId68.jpeg>
+[529] [530]
+
+LaTeX Warning: Hyper reference `fig-append_a_6' on page 531 undefined on input line 29291.
+
+
+LaTeX Warning: Reference `tbl-table_append_a_4' on page 531 undefined on input line 29294.
+
+
+LaTeX Warning: Reference `tbl-table_append_a_4' on page 531 undefined on input line 29295.
+
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId73.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId73.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 29350--29351
+ [][] 
+ []
+
+
+LaTeX Warning: Hyper reference `fig-append_a_6' on page 531 undefined on input line 29365.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_7' on page 531 undefined on input line 29379.
+
+
+Overfull \hbox (12.03276pt too wide) in paragraph at lines 29377--29385
+[]\TU/lmr/m/n/10.95 A bar graph uses the height of different bars to compare quantities. \TU/lmr/bx/n/10.95 ?@tbl-table_append_a_5
+ []
+
+[531] [532]
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId77.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId77.jpeg>
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 5 on input line 29422.
+
+Missing character: There is no ： (U+FF1A) in font [lmroman10-regular]:mapping=tex-text;!
+
+LaTeX Warning: Hyper reference `fig-append_a_8' on page 533 undefined on input line 29428.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_6' on page 533 undefined on input line 29430.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_8' on page 533 undefined on input line 29431.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_8' on page 533 undefined on input line 29433.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_8' on page 533 undefined on input line 29435.
+
+[533]
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId80.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId80.jpeg>
+
+LaTeX Warning: Hyper reference `fig-append_a_7' on page 534 undefined on input line 29465.
+
+[534]
+
+LaTeX Warning: Hyper reference `fig-append_a_8' on page 535 undefined on input line 29466.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_7' on page 535 undefined on input line 29481.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_9' on page 535 undefined on input line 29497.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_10' on page 535 undefined on input line 29498.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_11' on page 535 undefined on input line 29499.
+
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId83.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId83.jpeg>
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId85.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId85.jpeg>
+
+LaTeX Warning: Float too large for page by 16.56462pt on input line 29526.
+
+File: media/a-the-use-of-mathematics-in-principles-of-economics_rId88.jpeg Graphic file (type bmp)
+<media/a-the-use-of-mathematics-in-principles-of-economics_rId88.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 29536--29537
+ [][] 
+ []
+
+
+LaTeX Warning: Hyper reference `fig-append_a_9' on page 535 undefined on input line 29551.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_9' on page 535 undefined on input line 29552.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_5' on page 535 undefined on input line 29553.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_9' on page 535 undefined on input line 29560.
+
+[535] [536] [537] [538]
+
+LaTeX Warning: Hyper reference `fig-append_a_10' on page 539 undefined on input line 29565.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_10' on page 539 undefined on input line 29567.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_5' on page 539 undefined on input line 29568.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_10' on page 539 undefined on input line 29569.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_10' on page 539 undefined on input line 29571.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_10' on page 539 undefined on input line 29575.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_11' on page 539 undefined on input line 29579.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_11' on page 539 undefined on input line 29581.
+
+
+LaTeX Warning: Hyper reference `fig-append_a_11' on page 539 undefined on input line 29593.
+
+[539] [540]
+chapter without number
+
+LaTeX Warning: Reference `sec-chapter-6' on page 541 undefined on input line 29671.
+
+
+LaTeX Warning: Hyper reference `fig-append_b_1' on page 541 undefined on input line 29688.
+
+File: media/b-indifference-curves_rId23.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId23.jpeg>
+[541
+
+] [542]
+
+LaTeX Warning: Hyper reference `fig-append_b_1' on page 543 undefined on input line 29775.
+
+
+LaTeX Warning: Hyper reference `fig-append_b_1' on page 543 undefined on input line 29780.
+
+[543]
+
+LaTeX Warning: Hyper reference `fig-append_b_1' on page 544 undefined on input line 29821.
+
+
+LaTeX Warning: Hyper reference `fig-append_b_2' on page 544 undefined on input line 29838.
+
+
+LaTeX Warning: Hyper reference `fig-append_b_1' on page 544 undefined on input line 29840.
+
+File: media/b-indifference-curves_rId32.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId32.jpeg>
+[544] [545]
+
+LaTeX Warning: Hyper reference `fig-append_b_3' on page 546 undefined on input line 29913.
+
+
+LaTeX Warning: Hyper reference `fig-append_b_3' on page 546 undefined on input line 29914.
+
+File: media/b-indifference-curves_rId38.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId38.jpeg>
+
+Overfull \hbox (22.99382pt too wide) in paragraph at lines 29928--29929
+ [][] 
+ []
+
+
+LaTeX Warning: Hyper reference `fig-append_b_3' on page 546 undefined on input line 29950.
+
+[546] [547]
+
+LaTeX Warning: Hyper reference `fig-append_b_4' on page 548 undefined on input line 29997.
+
+File: media/b-indifference-curves_rId45.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId45.jpeg>
+[548]
+
+LaTeX Warning: Hyper reference `fig-append_b_4' on page 549 undefined on input line 30086.
+
+[549]
+
+LaTeX Warning: Hyper reference `fig-append_b_5' on page 550 undefined on input line 30129.
+
+[550]
+File: media/b-indifference-curves_rId51.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId51.jpeg>
+
+LaTeX Warning: Hyper reference `fig-append_b_5' on page 551 undefined on input line 30183.
+
+[551]
+
+LaTeX Warning: Hyper reference `fig-append_b_5' on page 552 undefined on input line 30194.
+
+
+LaTeX Warning: Hyper reference `fig-append_b_5' on page 552 undefined on input line 30206.
+
+
+LaTeX Warning: Hyper reference `fig-append_b_6' on page 552 undefined on input line 30225.
+
+[552]
+
+LaTeX Warning: Hyper reference `fig-append_b_6' on page 553 undefined on input line 30254.
+
+
+LaTeX Warning: Hyper reference `fig-append_b_6' on page 553 undefined on input line 30265.
+
+File: media/b-indifference-curves_rId55.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId55.jpeg>
+[553]
+
+LaTeX Warning: Hyper reference `fig-append_b_7' on page 554 undefined on input line 30330.
+
+File: media/b-indifference-curves_rId60.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId60.jpeg>
+
+LaTeX Warning: Hyper reference `fig-append_b_8' on page 554 undefined on input line 30350.
+
+[554]
+File: media/b-indifference-curves_rId63.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId63.jpeg>
+
+LaTeX Warning: Hyper reference `fig-append_b_9' on page 555 undefined on input line 30376.
+
+File: media/b-indifference-curves_rId66.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId66.jpeg>
+
+LaTeX Warning: Hyper reference `CNX_Econ_A06_011' on page 555 undefined on input line 30404.
+
+[555] [556]
+File: media/b-indifference-curves_rId69.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId69.jpeg>
+
+LaTeX Warning: Hyper reference `fig-append_b_11' on page 557 undefined on input line 30436.
+
+File: media/b-indifference-curves_rId72.jpeg Graphic file (type bmp)
+<media/b-indifference-curves_rId72.jpeg>
+[557] [558] [559] [560]
+chapter without number
+
+LaTeX Warning: Reference `sec-chapter-17' on page 561 undefined on input line 30560.
+
+
+LaTeX Warning: Reference `tbl-table_append_c_1' on page 561 undefined on input line 30600.
+
+[561
+
+]
+
+LaTeX Warning: Reference `sec-chapter-17' on page 562 undefined on input line 30660.
+
+
+LaTeX Warning: Reference `tbl-table_append_c_2' on page 562 undefined on input line 30677.
+
+[562] [563] [564]
+chapter without number
+[565
+
+]
+File: a4_generating_supply_and_demand_curves_files/figure-pdf/cell-2-output-1.pdf Graphic file (type pdf)
+<use a4_generating_supply_and_demand_curves_files/figure-pdf/cell-2-output-1.pdf>
+[566] [567]
+File: a4_generating_supply_and_demand_curves_files/figure-pdf/cell-3-output-1.pdf Graphic file (type pdf)
+<use a4_generating_supply_and_demand_curves_files/figure-pdf/cell-3-output-1.pdf>
+[568]
+File: a4_generating_supply_and_demand_curves_files/figure-pdf/cell-4-output-1.pdf Graphic file (type pdf)
+<use a4_generating_supply_and_demand_curves_files/figure-pdf/cell-4-output-1.pdf>
+[569]
+
+Package longtable Warning: Table widths have changed. Rerun LaTeX.
+
+[570] (./index.aux
+! Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.96 ...{fig-2\_1}{{1}{27}{}{figure.caption.64}{}}
+                                                   
+Here is how much of TeX's memory you used:
+ 26165 strings out of 476779
+ 582882 string characters out of 5801002
+ 1949842 words of memory out of 5000000
+ 47681 multiletter control sequences out of 15000+600000
+ 564532 words of font info for 90 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 108i,12n,121p,10900b,845s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on index.pdf (570 pages).

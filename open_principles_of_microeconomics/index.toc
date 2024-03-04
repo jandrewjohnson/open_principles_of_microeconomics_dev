@@ -1,0 +1,32 @@
+\contentsline {chapter}{Preface}{4}{chapter*.2}%
+\contentsline {section}{Welcome to Open Principles of Microeconomics!}{5}{section*.4}%
+\contentsline {chapter}{\nonumberline 1. Introduction}{6}{chapter*.5}%
+\contentsline {subsubsection}{\nonumberline Chapter Objectives}{7}{subsubsection*.7}%
+\contentsline {subsection}{\nonumberline Introduction}{7}{subsection*.9}%
+\contentsline {subsubsection}{\nonumberline Bring It Home}{7}{subsubsection*.11}%
+\contentsline {paragraph}{\nonumberline Information Overload in the Information Age}{7}{paragraph*.13}%
+\contentsline {subsection}{\nonumberline 1.1 What Is Economics, and Why Is It Important?}{8}{subsection*.15}%
+\contentsline {subsubsection}{\nonumberline Learning Objectives}{8}{subsubsection*.17}%
+\contentsline {subsubsection}{\nonumberline Introduction to FRED}{8}{subsubsection*.19}%
+\contentsline {subsubsection}{\nonumberline The Problem of Scarcity}{10}{subsubsection*.21}%
+\contentsline {subsubsection}{\nonumberline Link It Up}{10}{subsubsection*.23}%
+\contentsline {subsubsection}{\nonumberline The Division of and Specialization of Labor}{11}{subsubsection*.25}%
+\contentsline {subsubsection}{\nonumberline Why the Division of Labor Increases Production}{12}{subsubsection*.27}%
+\contentsline {subsubsection}{\nonumberline Trade and Markets}{13}{subsubsection*.29}%
+\contentsline {subsubsection}{\nonumberline Why Study Economics?}{14}{subsubsection*.31}%
+\contentsline {subsection}{\nonumberline 1.2 Microeconomics and Macroeconomics}{15}{subsection*.33}%
+\contentsline {subsubsection}{\nonumberline Learning Objectives}{15}{subsubsection*.35}%
+\contentsline {subsubsection}{\nonumberline Microeconomics}{16}{subsubsection*.37}%
+\contentsline {subsubsection}{\nonumberline Macroeconomics}{17}{subsubsection*.39}%
+\contentsline {subsection}{\nonumberline 1.3 How Economists Use Theories and Models to Understand Economic Issues}{17}{subsection*.41}%
+\contentsline {subsubsection}{\nonumberline Learning Objectives}{17}{subsubsection*.43}%
+\contentsline {subsubsection}{\nonumberline Link It Up}{17}{subsubsection*.46}%
+\contentsline {subsection}{\nonumberline 1.4 How To Organize Economies: An Overview of Economic Systems}{20}{subsection*.48}%
+\contentsline {subsubsection}{\nonumberline Learning Objectives}{20}{subsubsection*.50}%
+\contentsline {subsubsection}{\nonumberline Clear It Up}{23}{subsubsection*.52}%
+\contentsline {paragraph}{\nonumberline What countries are considered economically free?}{23}{paragraph*.54}%
+\contentsline {subsubsection}{\nonumberline Regulations: The Rules of the Game}{24}{subsubsection*.56}%
+\contentsline {subsubsection}{\nonumberline The Rise of Globalization}{25}{subsubsection*.58}%
+\contentsline {subsubsection}{\nonumberline Bring It Home}{26}{subsubsection*.60}%
+\contentsline {paragraph}{\nonumberline Information Overload in the Information Age}{26}{paragraph*.62}%
+\contentsline {chapter}{\nonumberline 2. Choice with Scarcity}{27}{chapter*.63}%

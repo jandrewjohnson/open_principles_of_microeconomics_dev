@@ -3,6 +3,7 @@ project:
   output-dir: ../HTML_open_principles_of_microeconomics
 
 
+  
 book:
   title: "Open Principles of Microeconomics"
   author: "Justin Johnson"
@@ -36,11 +37,7 @@ book:
   - a1_math_in_econ.qmd
   - a2_indifference_curves.qmd
   - a3_present_discounted_value.qmd
-
-    
-execute:
-  freeze: true
-  cache: true
+  - a4_generating_supply_and_demand_curves.qmd
 
 format:
   html:
