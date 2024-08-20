@@ -1,12 +1,12 @@
 # Open Principles of Microeconomics
 
-This repository generates the book Open Principles of Microeconomics. This is an open textbook adapted from the third edition of OpenStax.org's excellent work. See the live version of the book, temporarily hosted on my personal website at <https://justinandrewjohnson.com/open_principles_of_microeconomics/>. Soon this will be hosted by UMN Libraries. See this repository for downloading other distribution formats, including PDF and DOCX.
+This repository generates the book Open Principles of Microeconomics. See the live version of the book, temporarily hosted on my personal website at <https://justinandrewjohnson.com/open_principles_of_microeconomics/>. Soon this will be hosted by UMN Libraries. See this repository for downloading other distribution formats, including PDF and DOCX. This is an open textbook adapted from the third edition of OpenStax.org's excellent work at <https://openstax.org/books/principles-microeconomics-3e/pages/1-introduction>.
 
-I have made many changes to the text, adding new material that draws on my previous years of teaching Applied Economics 1101: Principles of Microeconomics at the University of Minnesota. This is a work in progress and will be finished by May 2025. If you would prefer to use the more stable, input version of the book, please see <https://openstax.org/books/principles-microeconomics-3e/pages/1-introduction>.
+I have made many changes to the text, adding new material that draws on my previous years of teaching Applied Economics 1101: Principles of Microeconomics at the University of Minnesota. This is a work in progress and will be finished by May 2025. If you would prefer to use the more stable, input version of the book, please see the OpenStax.org version.
 
 ## Building the book
 
-The input files from OpenStax.org were converted from Docx to Quarto QMD files. This enables dynamic generation of book content, including Python-created images. To render the book from QMD to HTML, run the scripts/render_all.py. Currently, these HTML files are hosted on Justin Johnson's personal website, though they can of course be accessed directly through GitHub.
+The input files from OpenStax.org were converted from Docx to Quarto QMD files. This enables dynamic generation of book content, including Python-created images. To render the book from QMD to HTML, run the scripts/render_all.py. These HTML files are then hosted elsewhere (currently on my personal website), though they can of course be accessed directly through GitHub.
 
 ## Contributing
 
