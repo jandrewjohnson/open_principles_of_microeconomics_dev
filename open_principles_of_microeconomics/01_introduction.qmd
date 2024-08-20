@@ -1,7 +1,5 @@
 # 1. Introduction {#sec-chapter-1}
 
-Ignore the complexity below. For now.
-
 ![](images/cell-2-output-1.png){width="761"}
 
 Economics has a powerful set of tools, many of which can be expressed by powerful images. You might have heard of supply and demand. You will learn in this book that in certain situations, economics can make accurate predictions about complex human behavior. We will learn tools that will help you analyze real-life changes, like what would happen when a pandemic disrupts our workforce or when a war disrupts our supply chains.
@@ -313,3 +311,7 @@ Hopefully, you now have an idea about economics. Before you move to any other ch
 The world provides nearly instant access to a wealth of information. Consider that as recently as the late 1970s, the *Farmer's Almanac*, along with the Weather Bureau of the U.S. Department of Agriculture, were the primary sources American farmers used to determine when to plant and harvest their crops. Today, these decisions are driven by data. Farmers access detailed data streams driven by global positioning systems, historical rainfall patterns, and complex weather monitoring services. They combine this information with crop yield data and soil quality measurements from prior years. Maximizing production efficiently can mean the difference between a farm that remains profitable and one that may need to sell its land, and data helps eliminate guesswork.
 
 Information helps us make decisions as simple as what to wear today to how many reporters the media should send to cover an event. Each of these decisions is an economic decision. After all, resources are scarce. If the media send ten reporters to cover an announcement, they are not available to cover other stories or complete other tasks. Information provides the necessary knowledge to make the best possible decisions on how to utilize scarce resources. Welcome to the world of economics!
+
+##### Textbook license and version note
+
+This textbook is an Open-Educational Resource (OER) textbook, licensed under an open-source Creative Commons Share-Alike (CC-SA) license, and is adapted from another OER textbook provided by [OpenStax.org](https://openstax.org/) at <https://openstax.org/details/books/principles-microeconomics-3e>. See the [Github repository](https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev) for details and to (hopefully) edit/correct/improve the book yourself!

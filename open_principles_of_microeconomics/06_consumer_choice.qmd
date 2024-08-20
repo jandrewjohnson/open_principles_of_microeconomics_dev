@@ -940,4 +940,6 @@ suffered from the highest unemployment rates. The national median
 average weekly income was \$815, and the nation unemployment average in
 2012 was 6.8%. (Source: U.S. Bureau of Labor Statistics, May 22, 2013)
 
+##### Textbook license and version note
 
+This textbook is an Open-Educational Resource (OER) textbook, licensed under an open-source Creative Commons Share-Alike (CC-SA) license, and is adapted from another OER textbook provided by [OpenStax.org](https://openstax.org/) at <https://openstax.org/details/books/principles-microeconomics-3e>. See the [Github repository](https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev) for details and to (hopefully) edit/correct/improve the book yourself!

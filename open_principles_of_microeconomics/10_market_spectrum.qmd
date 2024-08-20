@@ -985,4 +985,6 @@ Even though it is illegal in many parts of the world for firms to set
 prices and carve up a market, the temptation to earn higher profits
 makes it extremely tempting to defy the law.
 
+##### Textbook license and version note
 
+This textbook is an Open-Educational Resource (OER) textbook, licensed under an open-source Creative Commons Share-Alike (CC-SA) license, and is adapted from another OER textbook provided by [OpenStax.org](https://openstax.org/) at <https://openstax.org/details/books/principles-microeconomics-3e>. See the [Github repository](https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev) for details and to (hopefully) edit/correct/improve the book yourself!

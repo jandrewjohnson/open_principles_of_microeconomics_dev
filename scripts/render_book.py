@@ -19,7 +19,7 @@ if render_book:
     print('Changed working directory to:', book_name)
  
     always_render = True
-    render_prefix = 'RENDERED_'
+    render_prefix = 'OTHER_RENDERED_'
     render_dir = os.path.join('..', render_prefix + book_name)
     
     
@@ -27,10 +27,32 @@ if render_book:
     
     render_whole_book = True
     if render_whole_book:
+        
+        # NOTE: 
+        # I got a crazy latex error unless i updated tlmgr first:        
+        # tlmgr update --self
+        # tlmgr update --all
 
+        # Render the book via cmd line
         # command =  "mamba activate " + conda_env_name + " && quarto render . "
         # print(command)
         # os.system(command)
+        
+        
+        command = "mamba activate " + conda_env_name + " && quarto render . --to html"
+        print(command)
+        os.system(command)
+        
+        # Render to pdf
+        command = "mamba activate " + conda_env_name + " && quarto render  .  --to pdf"
+        print(command)
+        os.system(command)
+        
+        # Render to word doc
+        command = "mamba activate " + conda_env_name + " && quarto render . --to docx"
+        print(command)
+        os.system(command)
+            
         
         # Move the pdf to the target dir
         src_path = 'index.pdf'
@@ -38,6 +60,12 @@ if render_book:
         pdf_book_filename = pdf_book_name + '.pdf'
         dst_path = os.path.join(render_dir, pdf_book_filename)
         hb.path_move(src_path, dst_path) 
+        
+        # move the word doc
+        src_path = "../HTML_open_principles_of_microeconomics/Open-Principles-of-Microeconomics.docx"
+        dst_path = os.path.join(render_dir, os.path.split(src_path)[1])
+        hb.path_move(src_path, dst_path) 
+        
         
     else:
         
@@ -50,9 +78,22 @@ if render_book:
             
             if always_render or not os.path.exists(target_path):
                 if hb.path_needs_rerender(qmd_file, target_path):
+                    
+                    # Render to website
                     command = "mamba activate " + conda_env_name + " && quarto render " + qmd_file + " --to html"
                     print(command)
                     os.system(command)
+                    
+                    # Render to pdf
+                    command = "mamba activate " + conda_env_name + " && quarto render " + qmd_file + " --to pdf"
+                    print(command)
+                    os.system(command)
+                    
+                    # Render to word doc
+                    command = "mamba activate " + conda_env_name + " && quarto render " + qmd_file + " --to docx"
+                    print(command)
+                    os.system(command)
+            
             
             # os.system("quarto render .")
         

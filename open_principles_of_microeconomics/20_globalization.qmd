@@ -1516,4 +1516,6 @@ completely out of the country. Many people lost their jobs and most
 flat-panel display production now occurs in countries other than the
 United States.
 
+##### Textbook license and version note
 
+This textbook is an Open-Educational Resource (OER) textbook, licensed under an open-source Creative Commons Share-Alike (CC-SA) license, and is adapted from another OER textbook provided by [OpenStax.org](https://openstax.org/) at <https://openstax.org/details/books/principles-microeconomics-3e>. See the [Github repository](https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev) for details and to (hopefully) edit/correct/improve the book yourself!

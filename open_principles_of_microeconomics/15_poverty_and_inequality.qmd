@@ -1217,4 +1217,6 @@ education and job training, can increase overall economic output. Then
 everyone is made better off, and the 1% will not seem like such a small
 group any more.
 
+##### Textbook license and version note
 
+This textbook is an Open-Educational Resource (OER) textbook, licensed under an open-source Creative Commons Share-Alike (CC-SA) license, and is adapted from another OER textbook provided by [OpenStax.org](https://openstax.org/) at <https://openstax.org/details/books/principles-microeconomics-3e>. See the [Github repository](https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev) for details and to (hopefully) edit/correct/improve the book yourself!

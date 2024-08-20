@@ -6,8 +6,8 @@ project:
   
 book:
   title: "Open Principles of Microeconomics"
-  author: "Justin Johnson"
-  date: "2023-10-10"
+  author: "Justin Johnson, adapted from OpenStax.org's Principles of Microeconomics"
+  date: "2024-08-20"
   page-navigation: true
 
 
@@ -51,9 +51,17 @@ format:
   #   theme: cosmo
   pdf:
     documentclass: scrreprt
-    toc: true
+    # toc: true
     toc-depth: 2
     number-sections: false
 
-
-
+  # Add docx
+  docx:
+    # reference-doc: custom-reference.docx
+    toc: true
+    number-sections: true
+    fig-width: 6
+    fig-height: 4
+    includes:
+      in-header: custom_header.docx
+    output-file: "book.docx"
