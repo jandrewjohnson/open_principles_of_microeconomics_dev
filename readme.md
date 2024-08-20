@@ -1,6 +1,8 @@
 # Open Principles of Microeconomics
 
-This repository generates the book Open Principles of Microeconomics. This is an open textbook adapted from the third edition of OpenStax.org's excellent work. I have made many changes to the text, adding new material that draws on my previous years of teaching Applied Economics 1101: Principles of Microeconomics at the University of Minnesota. This is a work in progress and will be finished by May 2025. If you would prefer to use the more stable, input version of the book, please see <https://openstax.org/books/principles-microeconomics-3e/pages/1-introduction>.
+This repository generates the book Open Principles of Microeconomics. This is an open textbook adapted from the third edition of OpenStax.org's excellent work. See the live version of the book, temporarily hosted on my personal website at <https://justinandrewjohnson.com/open_principles_of_microeconomics/>. Soon this will be hosted by UMN Libraries. See this repository for downloading other distribution formats, including PDF and DOCX.
+
+I have made many changes to the text, adding new material that draws on my previous years of teaching Applied Economics 1101: Principles of Microeconomics at the University of Minnesota. This is a work in progress and will be finished by May 2025. If you would prefer to use the more stable, input version of the book, please see <https://openstax.org/books/principles-microeconomics-3e/pages/1-introduction>.
 
 ## Building the book
 
@@ -21,14 +23,14 @@ If you would like to contribute to this book, please fork the repository, make y
 3.  New developments in the economy, such as Artificial Intelligence (AI), will feature prominently. For example, the image above is DALL-E's representation of the prompt "Economy and Earth in Harmony" with a little fine-tuning.
 4.  Thorough inclusion of modern developments in economics, including behavioral economics, development economics, Earth-economy modeling, considerations of inequality, and computational economics.
 
-
 #### Hosting and accessibility features
+
 In addition to textual updates, this version has increased accessibility features, including:
 
-1. The ability to view the source documents on GitHub at <https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev>. The actual content is available in Quarto markdown format at, for example, <https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev/blob/main/open_principles_of_microeconomics/01_introduction.qmd>
-2. Crowd-sourced content creation by enabling anyone to easily edit, replicate, fix, and (hopefully), contribute back to this source book. This can be done by forking the repository, making changes and (hopefully) submitting a pull request back to to main repository to improve the book for all users.
-3. The book renders as a mobile-friendly website, making it easy to read on any device.
-4. It is also available in many other formats, including PDF, EPUB, MOBI, and even Microsoft Word's DOCX format. See the book's github page or the UMN library's OER book listing page for more details.
-5. Subsequent versions will include interactive elements, such as quizzes, exercises, and slides.
+1.  The ability to view the source documents on GitHub at <https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev>. The actual content is available in Quarto markdown format at, for example, <https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev/blob/main/open_principles_of_microeconomics/01_introduction.qmd>
+2.  Crowd-sourced content creation by enabling anyone to easily edit, replicate, fix, and (hopefully), contribute back to this source book. This can be done by forking the repository, making changes and (hopefully) submitting a pull request back to to main repository to improve the book for all users.
+3.  The book renders as a mobile-friendly website, making it easy to read on any device.
+4.  It is also available in many other formats, including PDF, EPUB, MOBI, and even Microsoft Word's DOCX format. See the book's github page or the UMN library's OER book listing page for more details.
+5.  Subsequent versions will include interactive elements, such as quizzes, exercises, and slides.
 
 This textbook is licensed under an open-source Creative Commons Share-Alike (CC-SA) license, which is the same as the source textbook from OpenStax.org (see the Github repository for details).
