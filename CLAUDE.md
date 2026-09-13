@@ -18,7 +18,6 @@ touches an app, the manifest, or the shortcode.
       apps/econ_viz_textbook.{js,css}    written by `itp sync`, gitignored, never edited here
       _extensions/appfig/                written by `itp sync`, gitignored
       figures/*.png                      rendered from the manifest (committed)
-      drafts/                            not in the book; see below
     interactive_originals/               pre-library versions of the apps, reference only
     tests/test_apps.py                   the pipeline's Playwright harness over apps/
     scripts/publish_book.py              the one build command
@@ -29,16 +28,22 @@ touches an app, the manifest, or the shortcode.
 ## Where things stand (2026-09-13)
 
 The interactive figures arrived from the retired `apec3611-textbook` repo:
-14 apps, 28 manifest entries, 28 PNGs. **None of them is placed in a chapter
-yet.** The OpenStax figures in chapters 2 and 3 are still the static JPEGs.
-The two files in `drafts/` are placeholder chapters written only to exercise
-the pipeline; they are not in `_quarto.yml` and should not be added. The work
-to do is to put `{{< appfig ... >}}` calls into `02_choice_with_scarcity.qmd`
-and `03_demand_and_supply.qmd` where the matching OpenStax figures are, then
-delete `drafts/`.
+14 apps, 28 manifest entries, 28 PNGs. Fourteen of them are placed, one per
+app, replacing the OpenStax JPEGs for figures 2.2 to 2.6 and 3.2 to 3.10, each
+as `{{< appfig <name>_1 id="fig-X_Y" >}}` so the chapters' existing anchor
+links still resolve. The book keeps its captions as the paragraph after the
+figure, so no `caption` kwarg is used. Figures 3.11 to 3.15 and everything
+from 3.16 on are still static; the other 14 manifest entries are non-default
+states of the same apps and are not placed anywhere yet.
 
 The book is published at justinandrewjohnson.com and is moving to UMN
-Libraries.
+Libraries. Two routes put it there, and both read the committed HTML folder:
+`publish_book.py` copies it into the `open_principles_of_microeconomics`
+subtree of the website repo (changed files only, nothing deleted, orphans
+reported) and commits and pushes, using `linneabean.publishing.site`; the
+full-website script in `website_dev` copies the same folder in when the whole
+site is rebuilt. `publish_book.py` commits the two rendered output folders in this repo
+itself, nothing else; pushing this repo is up to you.
 
 ## Hard rules
 
@@ -62,7 +67,9 @@ Libraries.
 pip install -e ../interactive_textbook_pipeline   # once
 playwright install chromium                       # once
 python -m pytest tests/ -q                        # all 14 apps, headless
-python scripts/publish_book.py                    # HTML build with link verification
+python scripts/publish_book.py                    # figures, HTML build, link verification, publish to the site
+python scripts/publish_book.py --no-publish       # build only
+python scripts/publish_book.py --dry-run          # build, then report what would be published
 python scripts/publish_book.py --pdf --docx       # plus print editions
 python scripts/publish_book.py --check            # fail if any PNG would change
 itp sync open_principles_of_microeconomics        # after a fresh clone, before opening an app by hand

@@ -2,18 +2,19 @@
 """
 publish_book.py
 
-Build Open Principles of Microeconomics. One command: sync the interactive
-figure library and shortcode from the installed interactive_textbook_pipeline
-package, regenerate changed figure PNGs, render the book with Quarto, verify
-that every figure and app link in the built site resolves, then move the PDF
-and DOCX out of the HTML output directory.
+Build Open Principles of Microeconomics and publish it. One command, no
+options needed: sync the interactive figure library and shortcode from the
+installed interactive_textbook_pipeline package, regenerate any figure PNG
+whose state changed, render the book with Quarto, verify that every figure and
+app link in the built site resolves, move the PDF and DOCX out of the HTML
+output directory, then copy the HTML into the website repo and push it.
 
 Usage (from anywhere):
-    python scripts/publish_book.py                # HTML only
+    python scripts/publish_book.py                # build and publish
+    python scripts/publish_book.py --no-publish   # build only
+    python scripts/publish_book.py --dry-run      # build, then report what would be published
     python scripts/publish_book.py --pdf --docx   # also the print editions
     python scripts/publish_book.py --check        # fail if any figure PNG would change
-    python scripts/publish_book.py --skip-figures # reuse the PNGs on disk
-    python scripts/publish_book.py --site         # also copy the HTML into the website repo
 
 Setup (once):
     pip install -e path/to/interactive_textbook_pipeline
@@ -22,24 +23,48 @@ Setup (once):
 The HTML output goes to HTML_open_principles_of_microeconomics/ (set in
 _quarto.yml) and is committed, since it is what gets hosted. Print editions go
 to OTHER_RENDERED_open_principles_of_microeconomics/.
+
+Publishing copies the HTML into the open_principles_of_microeconomics subtree
+of the website repo the same way the course sites do (changed files only,
+nothing deleted, orphans reported), then commits and pushes that repo.
+
+The rendered output folders in this repo are also committed here, since the
+full-website script in website_dev copies the committed HTML folder in when
+the whole site is rebuilt. Only those two folders are staged; your source
+changes and the push of this repo are yours.
 """
 import argparse
-import filecmp
 import os
 import pathlib
 import shutil
+import subprocess
 import sys
 
 from interactive_textbook_pipeline import build, output_dir
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
+
+try:
+    from linneabean.publishing.site import find_repo, publish_subtree, run
+except ImportError:
+    # linneabean is a devstack repo checked out beside this one; its publishing
+    # module needs nothing beyond the standard library, so use the source tree
+    # when the package is not installed in this Python.
+    for _parent in (REPO.parent, REPO.parent.parent):
+        _src = _parent / "linneabean" / "linneabean_dev"
+        if (_src / "linneabean").is_dir():
+            sys.path.insert(0, str(_src))
+            break
+    from linneabean.publishing.site import find_repo, publish_subtree, run
+
 BOOK = REPO / "open_principles_of_microeconomics"
 OTHER = REPO / "OTHER_RENDERED_open_principles_of_microeconomics"
+SUBTREE = "open_principles_of_microeconomics"
 
-# The website repo sits at a different path on different machines; try the
-# known locations and fail loudly rather than publishing into a new directory.
+# The website repo sits at a different path on different machines.
 SITE_CANDIDATES = [
-    REPO.parent / "jandrewjohnson.github.io" / "open_principles_of_microeconomics",
+    REPO.parent / "jandrewjohnson.github.io",
+    REPO.parent.parent.parent / "Publishing" / "Website" / "jandrewjohnson.github.io",
 ]
 
 
@@ -55,23 +80,16 @@ def move_print_editions(html_dir):
         print("no PDF or DOCX in the HTML output to move")
 
 
-def copy_to_site(html_dir):
-    site = next((p for p in SITE_CANDIDATES if p.is_dir()), None)
-    if site is None:
-        sys.exit("!! website repo not found; looked for:\n   " + "\n   ".join(str(p) for p in SITE_CANDIDATES))
-    copied = 0
-    for src in html_dir.rglob("*"):
-        if not src.is_file():
-            continue
-        rel = src.relative_to(html_dir)
-        dst = site / rel
-        if dst.exists() and filecmp.cmp(src, dst, shallow=False):
-            continue
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(src, dst)
-        copied += 1
-    print(f"copied {copied} changed file(s) to {site}")
-    print("commit and push the website repo yourself; this script does not.")
+def commit_rendered_output(html_dir):
+    """Commit the rendered output folders in this repo, nothing else."""
+    folders = [html_dir.relative_to(REPO).as_posix(), OTHER.relative_to(REPO).as_posix()]
+    run("git add -A -- " + " ".join(f'"{f}"' for f in folders), cwd=REPO)
+    staged = subprocess.run("git diff --cached --quiet -- " + " ".join(f'"{f}"' for f in folders),
+                            shell=True, cwd=REPO).returncode
+    if staged == 0:
+        print("rendered output unchanged; nothing to commit here")
+        return
+    run('git commit -m "Rebuild book output"', cwd=REPO)
 
 
 def main():
@@ -79,14 +97,15 @@ def main():
     ap.add_argument("--pdf", action="store_true", help="also render the PDF")
     ap.add_argument("--docx", action="store_true", help="also render the DOCX")
     ap.add_argument("--check", action="store_true", help="fail if any figure PNG would change")
-    ap.add_argument("--skip-figures", action="store_true", help="do not re-render figure PNGs")
-    ap.add_argument("--site", action="store_true", help="copy the HTML into the website repo")
+    ap.add_argument("--no-publish", action="store_true", help="build only; do not touch the website repo")
+    ap.add_argument("--dry-run", action="store_true", help="build, then only report what would be published")
+    ap.add_argument("--no-push", action="store_true", help="commit the website repo but do not push")
     args = ap.parse_args()
 
     os.environ.setdefault("QUARTO_PYTHON", sys.executable)
 
     # HTML first: it is the edition that gets link-verified.
-    build(BOOK, to="html", skip_figures=args.skip_figures, check=args.check)
+    build(BOOK, to="html", check=args.check)
 
     for fmt, wanted in (("pdf", args.pdf), ("docx", args.docx)):
         if wanted:
@@ -95,10 +114,24 @@ def main():
     html_dir = output_dir(BOOK)
     move_print_editions(html_dir)
 
-    if args.site:
-        copy_to_site(html_dir)
+    if not args.dry_run:
+        commit_rendered_output(html_dir)
 
-    print("\nbook build complete")
+    if not args.no_publish:
+        site = find_repo(SITE_CANDIDATES, base=REPO)
+        print("website repo:", site)
+        publish_subtree(
+            html_dir, site, SUBTREE,
+            source_dirs=[BOOK],
+            message="Update Open Principles of Microeconomics",
+            push=not args.no_push,
+            dry_run=args.dry_run,
+        )
+
+    done = "book build complete"
+    if not args.no_publish and not args.dry_run:
+        done += ", published"
+    print(f"\n{done}")
 
 
 if __name__ == "__main__":

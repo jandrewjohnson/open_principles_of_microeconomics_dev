@@ -94,8 +94,7 @@ between bus tickets for getting to work and the burgers that he eats for
 lunch. Burgers cost \$2 each, and bus tickets are 50 cents each. We can
 see Alphonso\'s budget problem in [Figure 2.2](#fig-2_2).
 
-![](media/2-1-how-individuals-make-choices-based-on-their-budget-constraint_rId22.jpeg){width="3.25in" height="1.445in" #fig-2_2}
-
+{{< appfig budget_constraint_1 id="fig-2_2" >}}
 Figure 2.2 The Budget Constraint: Alphonso's Consumption Choice
 Opportunity Frontier Each point on the budget constraint represents a
 combination of burgers and bus tickets whose total cost adds up to
@@ -473,8 +472,7 @@ goods and services it can produce. Suppose a society desires two
 products, healthcare and education. The production possibilities
 frontier in [Figure 2.3](#fig-2_3) illustrates this situation.
 
-![](media/2-2-the-production-possibilities-frontier-and-social-choices_rId23.jpeg){width="3.25in" height="2.345in" #fig-2_3}
-
+{{< appfig ppf_1 id="fig-2_3" >}}
 Figure 2.3 A Healthcare vs. Education Production Possibilities Frontier
 This production possibilities frontier shows a tradeoff between devoting
 social resources to healthcare and devoting them to education. At A all
@@ -630,8 +628,7 @@ efficiency: productive efficiency and allocative efficiency. [Figure
 2.4](#fig-2_4) illustrates these ideas using a production
 possibilities frontier between healthcare and education.
 
-![](media/2-2-the-production-possibilities-frontier-and-social-choices_rId33.jpeg){width="3.25in" height="2.615in" #fig-2_4}
-
+{{< appfig efficiency_ppf_1 id="fig-2_4" >}}
 Figure 2.4 Productive and Allocative Efficiency Productive efficiency
 means it is impossible to produce more of one good without decreasing
 the quantity that is produced of another good. Thus, all choices along a
@@ -731,8 +728,7 @@ U.S. The reverse is also true: the U.S. has a lower opportunity cost of
 producing wheat than Brazil. We illustrate this by the PPFs of the two
 countries in [Figure 2.5](#fig-2_5).
 
-![](media/2-2-the-production-possibilities-frontier-and-social-choices_rId45.jpeg){width="6.5in" height="3.345in" #fig-2_5}
-
+{{< appfig comparative_advantage_1 id="fig-2_5" >}}
 Figure 2.5 Production Possibility Frontier for the U.S. and Brazil The
 U.S. PPF is flatter than the Brazil PPF implying that the opportunity
 cost of wheat in terms of sugar cane is lower in the U.S. than in
@@ -933,8 +929,7 @@ possibilities frontier diagram is always just a tool for thinking
 carefully about scarcity, tradeoffs, and efficiency in a particular
 situation.
 
-![](media/2-3-confronting-objections-to-the-economic-approach_rId31.jpeg){width="6.5in" height="2.62in" #fig-2_6}
-
+{{< appfig individual_vs_social_1 id="fig-2_6" >}}
 Figure 2.6 The Tradeoff Diagram Both the individual opportunity set (or
 budget constraint) and the social production possibilities frontier show
 the constraints under which individual consumers and society as a whole
