@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Constraint</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f7fa; color: #2d3748; margin: 0; padding: 20px; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; font-weight: 400; font-size: 1.8rem; margin-bottom: 8px; color: #1a202c; }
+        .subtitle { text-align: center; color: #718096; margin-bottom: 24px; font-size: 0.95rem; }
+        .main-content { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } }
+        .main-content.left-empty { grid-template-columns: 0 1fr; }
+        .main-content.right-empty { grid-template-columns: 1fr; }
+        .main-content.left-empty.right-empty { grid-template-columns: 1fr; }
+        .main-content.left-empty .left-column { display: none; }
+        .main-content.right-empty .controls { display: none; }
+        .left-column { display: flex; flex-direction: column; gap: 0; }
+        .graph-container { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); position: relative; overflow: visible; }
+        .graph-header { display: flex; align-items: center; padding: 12px 20px; cursor: pointer; user-select: none; }
+        .graph-header:hover { background: #f7fafc; border-radius: 12px 12px 0 0; }
+        .graph-header .panel-title { margin-bottom: 0; }
+        .graph-body { padding: 0 20px 20px 20px; position: relative; }
+        .graph-body.collapsed { display: none; }
+        canvas { display: block; width: 100%; height: auto; cursor: default; }
+        canvas.dragging { cursor: grabbing; }
+        canvas.hovering-label { cursor: grab; }
+        canvas.hovering-point { cursor: pointer; }
+        .plot-actions {
+            position: absolute; top: 8px; right: 8px; z-index: 10;
+            display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s;
+        }
+        .graph-container:hover .plot-actions, .graph-body:hover .plot-actions { opacity: 1; }
+        .plot-action-btn {
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);
+            border: 1px solid rgba(226,232,240,0.7); border-radius: 6px;
+            padding: 4px 8px; font-size: 0.7rem; color: #a0aec0;
+            cursor: pointer; display: flex; align-items: center; gap: 4px;
+            font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s;
+            line-height: 1;
+        }
+        .plot-action-btn:hover { background: #fff; color: #4a5568; border-color: #cbd5e0; }
+        .plot-action-btn:active { background: #edf2f7; }
+        .plot-action-btn.copied { color: #38a169; border-color: #c6f6d5; background: rgba(240,255,244,0.9); }
+        .plot-action-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
+        /* Universal panel close button */
+        .panel-close-btn {
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);
+            border: 1px solid rgba(226,232,240,0.7); border-radius: 6px;
+            padding: 4px 8px; font-size: 0.7rem; color: #a0aec0;
+            cursor: pointer; display: flex; align-items: center; gap: 4px;
+            font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s;
+            line-height: 1; flex-shrink: 0;
+        }
+        .panel-close-btn:hover { background: #fff; color: #e53e3e; border-color: #feb2b2; }
+        .panel-header-actions {
+            position: absolute; top: 8px; right: 8px; z-index: 10;
+            display: flex; align-items: center; gap: 4px;
+            opacity: 0; transition: opacity 0.2s; flex-shrink: 0;
+        }
+        .panel-collapse-btn {
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);
+            border: 1px solid rgba(226,232,240,0.7); border-radius: 6px;
+            padding: 4px 8px; font-size: 0.65rem; color: #a0aec0;
+            cursor: pointer; display: flex; align-items: center;
+            font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s;
+            line-height: 1;
+        }
+        .panel-collapse-btn:hover { background: #fff; color: #4a5568; border-color: #cbd5e0; }
+        .panel-closed { display: none !important; }
+
+        /* Hover to reveal actions on all panel types */
+        .left-section { position: relative; }
+        .left-section:hover .panel-header-actions { opacity: 1; }
+        .control-panel { position: relative; }
+        .control-panel:hover .panel-header-actions { opacity: 1; }
+        .graph-container:hover > .graph-header .panel-header-actions { opacity: 1; }
+        .title-wrapper:hover .panel-header-actions { opacity: 1; }
+        .subtitle-wrapper:hover .panel-header-actions { opacity: 1; }
+
+        /* Restore closed panels bar */
+        .restore-bar { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+        .restore-bar:empty { display: none; margin: 0; padding: 0; border: none; }
+        .restore-btn {
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 6px;
+            padding: 4px 10px; font-size: 0.72rem; color: #718096; cursor: pointer;
+            font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s;
+        }
+        .restore-btn:hover { background: #f7fafc; border-color: #cbd5e0; color: #4a5568; }
+        .restore-label { font-size: 0.7rem; color: #a0aec0; }
+
+        .controls { display: flex; flex-direction: column; gap: 16px; }
+        .control-panel { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: visible; }
+        .control-panel-header { display: flex; align-items: center; padding: 16px 20px; cursor: pointer; user-select: none; }
+        .control-panel-header:hover { background: #f7fafc; border-radius: 12px; }
+        .control-panel-header .panel-title { margin-bottom: 0; }
+        .control-panel-body { padding: 0 20px 20px 20px; }
+        .control-panel-body.collapsed { display: none; }
+        .panel-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #718096; margin-bottom: 16px; font-weight: 600; }
+        .slider-group { margin-bottom: 16px; }
+        .slider-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.9rem; color: #4a5568; }
+        .slider-value { background: #edf2f7; padding: 4px 10px; border-radius: 4px; font-family: 'Monaco','Consolas',monospace; font-size: 0.85rem; color: #2b6cb0; font-weight: 500; }
+        input[type="range"] { width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #4299e1; cursor: pointer; box-shadow: 0 2px 6px rgba(66,153,225,0.3); transition: transform 0.15s; }
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+        .info-box { background: #f7fafc; border-radius: 8px; padding: 16px; border-left: 3px solid #4299e1; }
+        .info-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 0.9rem; }
+        .info-label { color: #718096; }
+        .info-value { font-family: 'Monaco','Consolas',monospace; color: #1a202c; }
+        .info-value.highlight { color: #2b6cb0; font-weight: 600; }
+        .legend { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+        .legend-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #4a5568; }
+        .legend-line { width: 24px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .equation-box { background: #f7fafc; border-radius: 8px; padding: 14px 16px; text-align: center; margin-top: 8px; border: 1px solid #e2e8f0; font-size: 1.05rem; }
+
+        /* Collapsible left-column sections */
+        .left-section { margin-top: 20px; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: visible; }
+        .left-section-header { display: flex; align-items: center; padding: 16px 24px; cursor: pointer; user-select: none; }
+        .left-section-header:hover { background: #f7fafc; border-radius: 12px; }
+        .left-section-header .panel-title { margin-bottom: 0; }
+        .left-section-body { padding: 0 24px 20px 24px; }
+        .left-section-body.collapsed { display: none; }
+        .left-section-body p { margin: 0 0 14px 0; line-height: 1.7; font-size: 0.95rem; color: #4a5568; }
+        .left-section-body p:last-child { margin-bottom: 0; }
+
+        /* Bundle table */
+        .bundle-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.9rem; }
+        .bundle-table th { background: #f7fafc; padding: 8px 12px; text-align: center; font-weight: 600; color: #718096; border-bottom: 2px solid #e2e8f0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bundle-table td { padding: 8px 12px; text-align: center; border-bottom: 1px solid #edf2f7; color: #4a5568; }
+        .bundle-table tr:hover td { background: #f7fafc; }
+        .bundle-table tr.on-line td { color: #2b6cb0; font-weight: 500; }
+        .bundle-table tr.above-line td { color: #e53e3e; }
+        .bundle-table tr.below-line td { color: #38a169; }
+        .bundle-table .status-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;
+        }
+        .bundle-table .status-on { background: rgba(43,108,176,0.1); color: #2b6cb0; }
+        .bundle-table .status-above { background: rgba(229,62,62,0.1); color: #e53e3e; }
+        .bundle-table .status-below { background: rgba(56,161,105,0.1); color: #38a169; }
+
+        /* Selected point highlight */
+        .bundle-table tr.selected td { background: rgba(214,158,46,0.1); }
+
+        /* Display options */
+        .display-options-wrapper { margin-top: 24px; }
+        .display-options-toggle { background: none; border: none; color: #a0aec0; font-size: 0.78rem; cursor: pointer; padding: 4px 0; display: flex; align-items: center; gap: 4px; }
+        .display-options-toggle:hover { color: #718096; }
+        .display-options-toggle .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+        .display-options-toggle .arrow.open { transform: rotate(90deg); }
+        .display-options-panel { display: none; margin-top: 8px; background: #fff; border-radius: 12px; padding: 16px 20px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .display-options-panel.open { display: block; }
+        .display-options-panel .panel-title { font-size: 0.75rem; margin-bottom: 12px; }
+        .opt-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+        .opt-row label { font-size: 0.8rem; color: #4a5568; cursor: pointer; white-space: nowrap; }
+        .opt-row input[type="checkbox"] { accent-color: #4299e1; cursor: pointer; margin: 0; width: 14px; height: 14px; }
+        .opt-row input[type="text"] { font-size: 0.78rem; padding: 2px 6px; border: 1px solid #e2e8f0; border-radius: 4px; color: #4a5568; width: 110px; font-family: 'Segoe UI', system-ui, sans-serif; }
+        .opt-row input[type="text"]:focus { outline: none; border-color: #4299e1; }
+        .opt-section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #a0aec0; margin: 10px 0 4px; font-weight: 600; }
+        .opt-section-label:first-child { margin-top: 0; }
+
+        /* Embed mode fullscreen button */
+        .embed-open-btn {
+            display: none;
+            position: absolute; top: 8px; left: 8px; z-index: 10;
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);
+            border: 1px solid rgba(226,232,240,0.7); border-radius: 6px;
+            padding: 4px 8px; font-size: 0.7rem; color: #a0aec0;
+            cursor: pointer; font-family: 'Segoe UI', system-ui, sans-serif;
+            transition: all 0.15s; line-height: 1;
+            text-decoration: none;
+        }
+        .embed-open-btn:hover { background: #fff; color: #4a5568; border-color: #cbd5e0; }
+        .embed-mode .embed-open-btn { display: flex; align-items: center; gap: 4px; }
+
+        /* Embed mode */
+        body.embed-mode { padding: 8px; background: transparent; min-height: auto; }
+        .embed-mode h1,
+        .embed-mode .subtitle,
+        .embed-mode .left-section,
+        .embed-mode .display-options-wrapper,
+        .embed-mode .url-state-bar { display: none !important; }
+        .embed-mode .container { max-width: none; }
+        .embed-mode .graph-container { border: none; box-shadow: none; padding: 10px; }
+        .embed-mode .control-panel { padding: 14px; }
+
+        /* Granular hide support */
+        body.embed-hide-controls .controls { display: none !important; }
+        body.embed-hide-controls .main-content { grid-template-columns: 1fr; }
+        body.embed-hide-explanation #section-explanation { display: none !important; }
+        body.embed-hide-bundles #section-bundles { display: none !important; }
+
+        /* KaTeX sizing */
+        .katex { font-size: 1em; }
+        .info-row .katex { font-size: 0.95em; }
+        .slider-label .katex { font-size: 0.95em; }
+        .equation-box .katex { font-size: 1.1em; }
+        .legend-item .katex { font-size: 0.9em; }
+
+        /* URL state bar */
+        .url-state-bar {
+            margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0;
+            display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+        }
+        .url-state-bar button {
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 6px;
+            padding: 6px 12px; font-size: 0.78rem; color: #4a5568; cursor: pointer;
+            font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .url-state-bar button:hover { background: #f7fafc; border-color: #cbd5e0; }
+        .url-state-bar button.copied { color: #38a169; border-color: #c6f6d5; background: #f0fff4; }
+        .url-state-bar .url-hint { font-size: 0.7rem; color: #a0aec0; }
+
+        /* Tooltip */
+        .canvas-tooltip {
+            position: absolute; pointer-events: none; opacity: 0;
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+            padding: 10px 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            font-size: 0.82rem; color: #4a5568; transition: opacity 0.15s;
+            z-index: 100; white-space: nowrap;
+        }
+        .canvas-tooltip.visible { opacity: 1; }
+        .canvas-tooltip .tt-label { font-weight: 600; color: #1a202c; margin-bottom: 4px; font-size: 0.9rem; }
+        .canvas-tooltip .tt-row { display: flex; justify-content: space-between; gap: 16px; padding: 2px 0; }
+        .canvas-tooltip .tt-key { color: #718096; }
+        .canvas-tooltip .tt-val { font-family: 'Monaco','Consolas',monospace; color: #2b6cb0; font-weight: 500; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="section-title" class="title-wrapper" style="position:relative">
+        <h1>Budget Constraint</h1>
+        <div class="panel-header-actions" style="top:50%;transform:translateY(-50%)">
+            <button class="panel-close-btn" onclick="closePanel('title')" title="Close title">✕</button>
+        </div>
+    </div>
+    <div id="section-subtitle" class="subtitle-wrapper" style="position:relative">
+        <p class="subtitle" style="margin-bottom:24px">All affordable bundles lie on or below the budget line \( P_x \cdot X + P_y \cdot Y = M \)</p>
+        <div class="panel-header-actions" style="top:4px">
+            <button class="panel-close-btn" onclick="closePanel('subtitle')" title="Close subtitle">✕</button>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="left-column">
+            <div class="graph-container" id="section-graph">
+                <div class="graph-header" onclick="toggleGraph()">
+                    <div class="panel-title" style="margin-bottom:0">A. Budget Constraint with Bundles</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();toggleGraph()" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="graph-body" id="body-graph">
+                    <a class="embed-open-btn" id="embed-open-btn" title="Open full interactive version" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                        Open full version
+                    </a>
+                    <div class="plot-actions">
+                        <button class="plot-action-btn" id="copy-plot-btn" title="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span id="copy-label">Copy</span>
+                        </button>
+                        <button class="plot-action-btn" id="save-plot-btn" title="Save as PNG">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span id="save-label">Save</span>
+                        </button>
+                    </div>
+                    <canvas id="graph" width="1400" height="1200"></canvas>
+                    <div class="canvas-tooltip" id="tooltip"></div>
+                </div>
+            </div>
+
+            <!-- Explanation (collapsible) -->
+            <div class="left-section" id="section-explanation">
+                <div class="left-section-header" onclick="toggleSection('explanation')">
+                    <div class="panel-title" style="margin-bottom:0">Explanation</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();toggleSection('explanation')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="left-section-body" id="body-explanation">
+                    <p>The <strong>budget constraint</strong> shows all combinations of two goods a consumer can afford given their income and the prices of both goods. The equation \( P_x \cdot X + P_y \cdot Y = M \) defines the boundary: any bundle on this line exhausts the entire budget, bundles below it leave money unspent, and bundles above it are unaffordable.</p>
+                    <p>The <strong>slope</strong> of the budget line equals \( -P_x / P_y \), representing the opportunity cost of one good in terms of the other. For every additional unit of \( X \) purchased, the consumer must give up \( P_x / P_y \) units of \( Y \). The <strong>intercepts</strong> show the maximum quantity of each good if the consumer spent everything on just that one good: \( M / P_x \) units of \( X \) or \( M / P_y \) units of \( Y \).</p>
+                    <p>The labeled points (A–F) illustrate different bundles. Points on the line are exactly affordable, spending the full budget. Points below the line are affordable but leave unused income. Points above the line exceed the budget and cannot be purchased. Click any point on the graph or in the table to highlight it and see its details.</p>
+                </div>
+            </div>
+
+            <!-- Bundle Table (collapsible) -->
+            <div class="left-section" id="section-bundles">
+                <div class="left-section-header" onclick="toggleSection('bundles')">
+                    <div class="panel-title" style="margin-bottom:0">Bundle Details</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-bundles" onclick="event.stopPropagation();toggleSection('bundles')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('bundles')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="left-section-body" id="body-bundles">
+                    <table class="bundle-table" id="bundle-table">
+                        <thead>
+                            <tr>
+                                <th>Bundle</th>
+                                <th id="th-x">Bus Tickets</th>
+                                <th id="th-y">Burgers</th>
+                                <th>Total Cost</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bundle-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-panel" id="section-budget">
+                <div class="control-panel-header" onclick="togglePanel('budget')">
+                    <div class="panel-title" style="margin-bottom:0">Budget Parameters</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-budget" onclick="event.stopPropagation();togglePanel('budget')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('budget')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-budget">
+                    <div class="slider-group"><div class="slider-label"><span>Budget \( M \)</span><span class="slider-value" id="income-value">$10.00</span></div><input type="range" id="income" min="2" max="30" value="10" step="0.5"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Price of Bus Tickets \( (P_x) \)</span><span class="slider-value" id="px-value">$0.50</span></div><input type="range" id="px" min="0.25" max="3" value="0.50" step="0.25"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Price of Burgers \( (P_y) \)</span><span class="slider-value" id="py-value">$2.00</span></div><input type="range" id="py" min="0.5" max="6" value="2" step="0.25"></div>
+                    <div class="equation-box">\( M = P_x \cdot X + P_y \cdot Y \)</div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-info">
+                <div class="control-panel-header" onclick="togglePanel('info')">
+                    <div class="panel-title" style="margin-bottom:0">Key Values</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-info" onclick="event.stopPropagation();togglePanel('info')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('info')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-info">
+                    <div class="info-box">
+                        <div class="info-row"><span class="info-label">Max Bus Tickets \( (M/P_x) \)</span><span class="info-value highlight" id="max-x">20</span></div>
+                        <div class="info-row"><span class="info-label">Max Burgers \( (M/P_y) \)</span><span class="info-value highlight" id="max-y">5</span></div>
+                        <div class="info-row"><span class="info-label">Slope \( (-P_x/P_y) \)</span><span class="info-value" id="slope-val">−0.25</span></div>
+                        <div class="info-row"><span class="info-label">Opportunity cost</span><span class="info-value" id="opp-cost">4 tickets per burger</span></div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item"><div class="legend-line" style="background:#4299e1;"></div><span>Budget Constraint</span></div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0;"></div><span>Bundles on the line (affordable)</span></div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#e53e3e;"></div><span>Above the line (unaffordable)</span></div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#38a169;"></div><span>Below the line (under budget)</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-selected">
+                <div class="control-panel-header" onclick="togglePanel('selected')">
+                    <div class="panel-title" style="margin-bottom:0">Selected Bundle</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-selected" onclick="event.stopPropagation();togglePanel('selected')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('selected')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-selected">
+                    <div class="info-box" id="selected-info">
+                        <div style="color:#a0aec0; font-size:0.85rem; text-align:center; padding:8px 0;">Click a point on the graph or table to select it</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Display Options -->
+    <div class="display-options-wrapper">
+        <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+        <div class="display-options-panel" id="display-panel">
+            <div class="panel-title">Plot Element Visibility &amp; Labels <span style="font-weight:400;font-size:0.65rem;color:#a0aec0;text-transform:none;letter-spacing:0"> — drag labels directly on the graph to reposition</span></div>
+            <div class="opt-section-label">Axes</div>
+            <div class="opt-row"><input type="checkbox" id="show-xaxis-label" checked><label for="show-xaxis-label">X-axis label</label><input type="text" id="label-xaxis" value="Bus Tickets"></div>
+            <div class="opt-row"><input type="checkbox" id="show-yaxis-label" checked><label for="show-yaxis-label">Y-axis label</label><input type="text" id="label-yaxis" value="Burgers"></div>
+            <div class="opt-row"><input type="checkbox" id="show-axis-numbers" checked><label for="show-axis-numbers">Axis tick numbers</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-gridlines" checked><label for="show-gridlines">Gridlines</label></div>
+            <div class="opt-section-label">Budget Line</div>
+            <div class="opt-row"><input type="checkbox" id="show-bc" checked><label for="show-bc">Budget constraint line</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-bc-intercepts" checked><label for="show-bc-intercepts">Intercept labels</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-shading" checked><label for="show-shading">Affordable region shading</label></div>
+            <div class="opt-section-label">Points</div>
+            <div class="opt-row"><input type="checkbox" id="show-points" checked><label for="show-points">Bundle points</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-point-labels" checked><label for="show-point-labels">Point labels (A, B, C…)</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-perpendicular" checked><label for="show-perpendicular">Dashed lines to axes for selected point</label></div>
+
+            <!-- Restore closed panels -->
+            <div class="restore-bar" id="restore-bar"></div>
+
+            <!-- URL State -->
+            <div class="url-state-bar">
+                <button id="copy-url-btn" title="Copy a URL that encodes the current slider values and display options">📋 Copy link with current state</button>
+                <button id="reset-url-btn" title="Reset all parameters and display options to defaults">↺ Reset to defaults</button>
+                <span class="url-hint">Link encodes sliders, display options, labels, and label positions</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ─── Embed mode detection ───
+(function() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('embed')) {
+        document.body.classList.add('embed-mode');
+        const hide = params.get('hide');
+        if (hide) {
+            hide.split(',').forEach(s => {
+                document.body.classList.add('embed-hide-' + s.trim());
+            });
+        }
+        const openBtn = document.getElementById('embed-open-btn');
+        if (openBtn) {
+            openBtn.href = window.location.pathname + window.location.hash;
+        }
+    }
+})();
+
+function renderAllMath() {
+    if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+            delimiters: [{left: "\\[", right: "\\]", display: true},{left: "\\(", right: "\\)", display: false}],
+            throwOnError: false
+        });
+    }
+}
+document.addEventListener("DOMContentLoaded", renderAllMath);
+window.addEventListener('load', renderAllMath);
+
+// Collapse/expand graph
+function toggleGraph() {
+    const body = document.getElementById('body-graph');
+    const toggle = document.getElementById('toggle-graph');
+    const collapsed = body.classList.toggle('collapsed');
+    toggle.textContent = collapsed ? '▶' : '▼';
+}
+
+// Collapse/expand left sections
+function toggleSection(name) {
+    const body = document.getElementById('body-' + name);
+    const toggle = document.getElementById('toggle-' + name);
+    const collapsed = body.classList.toggle('collapsed');
+    toggle.textContent = collapsed ? '▶' : '▼';
+}
+
+// Collapse/expand right-column control panels
+function togglePanel(name) {
+    const body = document.getElementById('body-' + name);
+    const toggle = document.getElementById('toggle-' + name);
+    const collapsed = body.classList.toggle('collapsed');
+    toggle.textContent = collapsed ? '▶' : '▼';
+}
+
+// ─── Close / Restore panels ───
+const PANEL_NAMES = {
+    title: 'Title',
+    subtitle: 'Subtitle',
+    graph: 'A. Budget Constraint with Bundles',
+    explanation: 'Explanation',
+    bundles: 'Bundle Details',
+    budget: 'Budget Parameters',
+    info: 'Key Values',
+    selected: 'Selected Bundle'
+};
+
+const LEFT_PANELS = ['graph', 'explanation', 'bundles'];
+const RIGHT_PANELS = ['budget', 'info', 'selected'];
+
+function closePanel(name) {
+    const el = document.getElementById('section-' + name);
+    if (el) el.classList.add('panel-closed');
+    updateRestoreBar();
+    updateLayout();
+}
+
+function restorePanel(name) {
+    const el = document.getElementById('section-' + name);
+    if (el) el.classList.remove('panel-closed');
+    updateRestoreBar();
+    updateLayout();
+}
+
+function updateLayout() {
+    const mc = document.querySelector('.main-content');
+    const leftAllClosed = LEFT_PANELS.every(n =>
+        document.getElementById('section-' + n)?.classList.contains('panel-closed')
+    );
+    const rightAllClosed = RIGHT_PANELS.every(n =>
+        document.getElementById('section-' + n)?.classList.contains('panel-closed')
+    );
+    mc.classList.toggle('left-empty', leftAllClosed);
+    mc.classList.toggle('right-empty', rightAllClosed);
+}
+
+function updateRestoreBar() {
+    const bar = document.getElementById('restore-bar');
+    const closed = Object.keys(PANEL_NAMES).filter(n =>
+        document.getElementById('section-' + n)?.classList.contains('panel-closed')
+    );
+    if (closed.length === 0) {
+        bar.innerHTML = '';
+        return;
+    }
+    bar.innerHTML = '<span class="restore-label">Restore:</span>' +
+        closed.map(n =>
+            `<button class="restore-btn" onclick="restorePanel('${n}')">${PANEL_NAMES[n]}</button>`
+        ).join('');
+}
+
+// ─── Label offset system ───
+const nudgeOffsets = {};
+function getNudge(t) {
+    const o = nudgeOffsets[t];
+    return o ? { dx: o.dx * DPR, dy: o.dy * DPR } : { dx: 0, dy: 0 };
+}
+
+// ─── Canvas setup ───
+const canvas = document.getElementById('graph');
+const ctx = canvas.getContext('2d');
+const DPR = 2;
+const incomeSlider = document.getElementById('income');
+const pxSlider = document.getElementById('px');
+const pySlider = document.getElementById('py');
+const margin = { top: 80, right: 80, bottom: 120, left: 140 };
+const maxX = 28, maxY = 7;
+
+function getGD() { return { width: canvas.width-margin.left-margin.right, height: canvas.height-margin.top-margin.bottom }; }
+function tCX(x) { return margin.left + (x/maxX)*getGD().width; }
+function tCY(y) { return margin.top + getGD().height - (y/maxY)*getGD().height; }
+function fromCX(cx) { return ((cx - margin.left) / getGD().width) * maxX; }
+function fromCY(cy) { return ((margin.top + getGD().height - cy) / getGD().height) * maxY; }
+
+function isVis(id) { const e=document.getElementById(id); return e?e.checked:true; }
+function getLabel(id,fb) { const e=document.getElementById(id); return e&&e.value.trim()?e.value.trim():fb; }
+
+// ─── Bundle points (matching the image) ───
+// Default bundles matching the graph: A(0, 5.5), B(4, 4.5), C(8, 3), D(12, 2), E(16, 1), F(20, 0)
+// But they should be computed from the budget line: with M=10, Px=0.50, Py=2
+// Budget line: 0.5*X + 2*Y = 10 => Y = 5 - 0.25*X
+// On-line points: A(0,5), B(4,4), C(8,3), D(12,2), E(16,1), F(20,0)
+let defaultBundles = [
+    { label: 'A', x: 0,  y: 5 },
+    { label: 'B', x: 4,  y: 4 },
+    { label: 'C', x: 8,  y: 3 },
+    { label: 'D', x: 12, y: 2 },
+    { label: 'E', x: 16, y: 1 },
+    { label: 'F', x: 20, y: 0 },
+];
+
+let selectedPoint = null; // index into bundles array
+
+function getBundles() {
+    return defaultBundles;
+}
+
+function getBundleStatus(bundle, M, Px, Py) {
+    const cost = Px * bundle.x + Py * bundle.y;
+    const tolerance = 0.01;
+    if (Math.abs(cost - M) < tolerance) return 'on';
+    if (cost > M) return 'above';
+    return 'below';
+}
+
+// ─── Draggable label hit-testing ───
+let labelHitBoxes = [];
+let pointHitBoxes = []; // { index, cx, cy, r }
+
+function registerLabel(key, cx, cy, w, h) {
+    labelHitBoxes.push({ key, x: cx - w/2, y: cy - h/2, w, h });
+}
+function registerLabelLTWH(key, lx, ty, w, h) {
+    labelHitBoxes.push({ key, x: lx, y: ty, w, h });
+}
+function registerPoint(index, cx, cy, r) {
+    pointHitBoxes.push({ index, cx, cy, r });
+}
+
+function mouseToCanvas(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+    };
+}
+
+function hitTestLabels(cx, cy) {
+    for (let i = labelHitBoxes.length - 1; i >= 0; i--) {
+        const b = labelHitBoxes[i];
+        if (cx >= b.x && cx <= b.x + b.w && cy >= b.y && cy <= b.y + b.h) {
+            return b.key;
+        }
+    }
+    return null;
+}
+
+function hitTestPoints(cx, cy) {
+    for (let i = pointHitBoxes.length - 1; i >= 0; i--) {
+        const p = pointHitBoxes[i];
+        const dist = Math.sqrt((cx - p.cx) ** 2 + (cy - p.cy) ** 2);
+        if (dist <= p.r + 8 * DPR) return p.index;
+    }
+    return null;
+}
+
+// Drag state
+let dragTarget = null;
+let dragStartX = 0, dragStartY = 0;
+let dragStartOffsetX = 0, dragStartOffsetY = 0;
+
+canvas.addEventListener('mousedown', (e) => {
+    const pos = mouseToCanvas(e);
+    const hitLabel = hitTestLabels(pos.x, pos.y);
+    if (hitLabel) {
+        dragTarget = hitLabel;
+        dragStartX = pos.x;
+        dragStartY = pos.y;
+        if (!nudgeOffsets[hitLabel]) nudgeOffsets[hitLabel] = { dx: 0, dy: 0 };
+        dragStartOffsetX = nudgeOffsets[hitLabel].dx;
+        dragStartOffsetY = nudgeOffsets[hitLabel].dy;
+        canvas.classList.add('dragging');
+        e.preventDefault();
+        return;
+    }
+    const hitPoint = hitTestPoints(pos.x, pos.y);
+    if (hitPoint !== null) {
+        selectedPoint = selectedPoint === hitPoint ? null : hitPoint;
+        drawGraph();
+        updateSelectedPanel();
+        updateBundleTable();
+        e.preventDefault();
+    }
+});
+
+canvas.addEventListener('mousemove', (e) => {
+    const pos = mouseToCanvas(e);
+    if (dragTarget) {
+        const ddx = (pos.x - dragStartX) / DPR;
+        const ddy = (pos.y - dragStartY) / DPR;
+        nudgeOffsets[dragTarget].dx = dragStartOffsetX + ddx;
+        nudgeOffsets[dragTarget].dy = dragStartOffsetY + ddy;
+        drawGraph();
+    } else {
+        const hitLabel = hitTestLabels(pos.x, pos.y);
+        const hitPoint = hitTestPoints(pos.x, pos.y);
+        if (hitLabel) {
+            canvas.classList.add('hovering-label');
+            canvas.classList.remove('hovering-point');
+        } else if (hitPoint !== null) {
+            canvas.classList.remove('hovering-label');
+            canvas.classList.add('hovering-point');
+            showTooltip(e, hitPoint);
+        } else {
+            canvas.classList.remove('hovering-label');
+            canvas.classList.remove('hovering-point');
+            hideTooltip();
+        }
+    }
+});
+
+canvas.addEventListener('mouseup', () => {
+    if (dragTarget) { dragTarget = null; canvas.classList.remove('dragging'); }
+});
+
+canvas.addEventListener('mouseleave', () => {
+    if (dragTarget) { dragTarget = null; canvas.classList.remove('dragging'); }
+    canvas.classList.remove('hovering-label');
+    canvas.classList.remove('hovering-point');
+    hideTooltip();
+});
+
+// Touch support
+canvas.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const pos = { x: (touch.clientX - rect.left) * scaleX, y: (touch.clientY - rect.top) * scaleY };
+    const hitLabel = hitTestLabels(pos.x, pos.y);
+    if (hitLabel) {
+        dragTarget = hitLabel;
+        dragStartX = pos.x;
+        dragStartY = pos.y;
+        if (!nudgeOffsets[hitLabel]) nudgeOffsets[hitLabel] = { dx: 0, dy: 0 };
+        dragStartOffsetX = nudgeOffsets[hitLabel].dx;
+        dragStartOffsetY = nudgeOffsets[hitLabel].dy;
+        e.preventDefault();
+        return;
+    }
+    const hitPoint = hitTestPoints(pos.x, pos.y);
+    if (hitPoint !== null) {
+        selectedPoint = selectedPoint === hitPoint ? null : hitPoint;
+        drawGraph();
+        updateSelectedPanel();
+        updateBundleTable();
+        e.preventDefault();
+    }
+}, { passive: false });
+
+canvas.addEventListener('touchmove', (e) => {
+    if (dragTarget) {
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const pos = { x: (touch.clientX - rect.left) * scaleX, y: (touch.clientY - rect.top) * scaleY };
+        const ddx = (pos.x - dragStartX) / DPR;
+        const ddy = (pos.y - dragStartY) / DPR;
+        nudgeOffsets[dragTarget].dx = dragStartOffsetX + ddx;
+        nudgeOffsets[dragTarget].dy = dragStartOffsetY + ddy;
+        drawGraph();
+        e.preventDefault();
+    }
+}, { passive: false });
+
+canvas.addEventListener('touchend', () => { dragTarget = null; });
+
+// ─── Tooltip ───
+const tooltip = document.getElementById('tooltip');
+function showTooltip(e, idx) {
+    const bundles = getBundles();
+    const b = bundles[idx];
+    const M = parseFloat(incomeSlider.value);
+    const Px = parseFloat(pxSlider.value);
+    const Py = parseFloat(pySlider.value);
+    const cost = Px * b.x + Py * b.y;
+    const status = getBundleStatus(b, M, Px, Py);
+    const statusLabel = status === 'on' ? 'On budget line' : status === 'above' ? 'Over budget' : 'Under budget';
+    const xLabel = getLabel('label-xaxis', 'Bus Tickets');
+    const yLabel = getLabel('label-yaxis', 'Burgers');
+
+    tooltip.innerHTML = `
+        <div class="tt-label">Bundle ${b.label}</div>
+        <div class="tt-row"><span class="tt-key">${xLabel}:</span><span class="tt-val">${b.x}</span></div>
+        <div class="tt-row"><span class="tt-key">${yLabel}:</span><span class="tt-val">${b.y}</span></div>
+        <div class="tt-row"><span class="tt-key">Cost:</span><span class="tt-val">$${cost.toFixed(2)}</span></div>
+        <div class="tt-row"><span class="tt-key">Status:</span><span class="tt-val" style="color:${status==='on'?'#2b6cb0':status==='above'?'#e53e3e':'#38a169'}">${statusLabel}</span></div>
+    `;
+    const rect = canvas.getBoundingClientRect();
+    const containerRect = canvas.parentElement.getBoundingClientRect();
+    tooltip.style.left = (e.clientX - containerRect.left + 16) + 'px';
+    tooltip.style.top = (e.clientY - containerRect.top - 20) + 'px';
+    tooltip.classList.add('visible');
+}
+function hideTooltip() {
+    tooltip.classList.remove('visible');
+}
+
+// ─── Selected panel ───
+function updateSelectedPanel() {
+    const box = document.getElementById('selected-info');
+    if (selectedPoint === null) {
+        box.innerHTML = '<div style="color:#a0aec0; font-size:0.85rem; text-align:center; padding:8px 0;">Click a point on the graph or table to select it</div>';
+        return;
+    }
+    const bundles = getBundles();
+    const b = bundles[selectedPoint];
+    const M = parseFloat(incomeSlider.value);
+    const Px = parseFloat(pxSlider.value);
+    const Py = parseFloat(pySlider.value);
+    const cost = Px * b.x + Py * b.y;
+    const status = getBundleStatus(b, M, Px, Py);
+    const statusLabel = status === 'on' ? 'On budget line' : status === 'above' ? 'Over budget' : 'Under budget';
+    const statusColor = status === 'on' ? '#2b6cb0' : status === 'above' ? '#e53e3e' : '#38a169';
+    const remaining = M - cost;
+    const xLabel = getLabel('label-xaxis', 'Bus Tickets');
+    const yLabel = getLabel('label-yaxis', 'Burgers');
+
+    box.innerHTML = `
+        <div class="info-row"><span class="info-label">Bundle</span><span class="info-value highlight" style="font-size:1.1rem;">${b.label}</span></div>
+        <div class="info-row"><span class="info-label">${xLabel}</span><span class="info-value highlight">${b.x}</span></div>
+        <div class="info-row"><span class="info-label">${yLabel}</span><span class="info-value highlight">${b.y}</span></div>
+        <div class="info-row"><span class="info-label">Total cost</span><span class="info-value">$${cost.toFixed(2)}</span></div>
+        <div class="info-row"><span class="info-label">${remaining >= 0 ? 'Remaining' : 'Over by'}</span><span class="info-value" style="color:${statusColor}">$${Math.abs(remaining).toFixed(2)}</span></div>
+        <div class="info-row"><span class="info-label">Status</span><span class="info-value" style="color:${statusColor}">${statusLabel}</span></div>
+    `;
+}
+
+// ─── Bundle table ───
+function updateBundleTable() {
+    const tbody = document.getElementById('bundle-tbody');
+    const bundles = getBundles();
+    const M = parseFloat(incomeSlider.value);
+    const Px = parseFloat(pxSlider.value);
+    const Py = parseFloat(pySlider.value);
+    const xLabel = getLabel('label-xaxis', 'Bus Tickets');
+    const yLabel = getLabel('label-yaxis', 'Burgers');
+    document.getElementById('th-x').textContent = xLabel;
+    document.getElementById('th-y').textContent = yLabel;
+
+    tbody.innerHTML = bundles.map((b, i) => {
+        const cost = Px * b.x + Py * b.y;
+        const status = getBundleStatus(b, M, Px, Py);
+        const statusLabel = status === 'on' ? 'On line' : status === 'above' ? 'Over budget' : 'Under budget';
+        const statusClass = status === 'on' ? 'status-on' : status === 'above' ? 'status-above' : 'status-below';
+        const rowClass = `${status === 'on' ? 'on-line' : status === 'above' ? 'above-line' : 'below-line'}${selectedPoint === i ? ' selected' : ''}`;
+        return `<tr class="${rowClass}" onclick="selectBundle(${i})" style="cursor:pointer;">
+            <td><strong>${b.label}</strong></td>
+            <td>${b.x}</td>
+            <td>${b.y}</td>
+            <td>$${cost.toFixed(2)}</td>
+            <td><span class="status-badge ${statusClass}">${statusLabel}</span></td>
+        </tr>`;
+    }).join('');
+}
+
+function selectBundle(i) {
+    selectedPoint = selectedPoint === i ? null : i;
+    drawGraph();
+    updateSelectedPanel();
+    updateBundleTable();
+}
+
+// ─── Draw graph ───
+function drawGraph() {
+    labelHitBoxes = [];
+    pointHitBoxes = [];
+
+    const M = parseFloat(incomeSlider.value);
+    const Px = parseFloat(pxSlider.value);
+    const Py = parseFloat(pySlider.value);
+    const xInt = M / Px;
+    const yInt = M / Py;
+
+    // Update display values
+    document.getElementById('income-value').textContent = '$' + M.toFixed(2);
+    document.getElementById('px-value').textContent = '$' + Px.toFixed(2);
+    document.getElementById('py-value').textContent = '$' + Py.toFixed(2);
+    document.getElementById('max-x').textContent = xInt.toFixed(1);
+    document.getElementById('max-y').textContent = yInt.toFixed(1);
+    document.getElementById('slope-val').textContent = '−' + (Px/Py).toFixed(2);
+    document.getElementById('opp-cost').textContent = `${(Py/Px).toFixed(1)} tickets per burger`;
+
+    updateBundleTable();
+    updateSelectedPanel();
+
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    const { width, height } = getGD();
+    const S = DPR;
+
+    // Grid
+    if (isVis('show-gridlines')) {
+        ctx.strokeStyle = '#edf2f7'; ctx.lineWidth = S;
+        for (let i = 0; i <= 7; i++) {
+            const gx = margin.left + (i/7) * width;
+            ctx.beginPath(); ctx.moveTo(gx, margin.top); ctx.lineTo(gx, margin.top + height); ctx.stroke();
+        }
+        for (let i = 0; i <= 7; i++) {
+            const gy = margin.top + (i/7) * height;
+            ctx.beginPath(); ctx.moveTo(margin.left, gy); ctx.lineTo(margin.left + width, gy); ctx.stroke();
+        }
+    }
+
+    // Affordable region shading
+    if (isVis('show-shading') && isVis('show-bc')) {
+        const clampedXInt = Math.min(xInt, maxX);
+        const clampedYInt = Math.min(yInt, maxY);
+        ctx.fillStyle = 'rgba(66,153,225,0.06)';
+        ctx.beginPath();
+        ctx.moveTo(tCX(0), tCY(0));
+        if (yInt <= maxY) {
+            ctx.lineTo(tCX(0), tCY(yInt));
+        } else {
+            ctx.lineTo(tCX(0), tCY(maxY));
+            const xAtMaxY = (M - Py * maxY) / Px;
+            if (xAtMaxY > 0) ctx.lineTo(tCX(xAtMaxY), tCY(maxY));
+        }
+        if (xInt <= maxX && yInt <= maxY) {
+            ctx.lineTo(tCX(xInt), tCY(0));
+        } else if (xInt <= maxX) {
+            const xAtMaxY = (M - Py * maxY) / Px;
+            ctx.lineTo(tCX(xInt), tCY(0));
+        } else {
+            const yAtMaxX = (M - Px * maxX) / Py;
+            if (yAtMaxX > 0) {
+                ctx.lineTo(tCX(maxX), tCY(yAtMaxX));
+                ctx.lineTo(tCX(maxX), tCY(0));
+            } else {
+                ctx.lineTo(tCX(maxX), tCY(0));
+            }
+        }
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    // Axes
+    ctx.strokeStyle = '#a0aec0'; ctx.lineWidth = 2 * S;
+    ctx.beginPath();
+    ctx.moveTo(margin.left, margin.top);
+    ctx.lineTo(margin.left, margin.top + height);
+    ctx.lineTo(margin.left + width, margin.top + height);
+    ctx.stroke();
+
+    // Tick labels
+    if (isVis('show-axis-numbers')) {
+        ctx.fillStyle = '#718096'; ctx.font = `${14*S}px Segoe UI`; ctx.textAlign = 'center';
+        for (let i = 0; i <= 7; i++) {
+            const v = (i/7) * maxX;
+            ctx.fillText(v.toFixed(0), tCX(v), margin.top + height + 25*S);
+        }
+        ctx.textAlign = 'right';
+        for (let i = 0; i <= 7; i++) {
+            const v = (i/7) * maxY;
+            ctx.fillText(v.toFixed(0), margin.left - 10*S, tCY(v) + 5*S);
+        }
+    }
+
+    // Axis titles (draggable)
+    if (isVis('show-xaxis-label')) {
+        const n = getNudge('xaxis-label');
+        const lbl = getLabel('label-xaxis', 'Bus Tickets');
+        ctx.fillStyle = '#4a5568'; ctx.font = `italic ${16*S}px Georgia,serif`; ctx.textAlign = 'center';
+        const bx = margin.left + width/2 + n.dx, by = canvas.height - 10*S + n.dy;
+        ctx.fillText(lbl, bx, by);
+        const tw = ctx.measureText(lbl).width;
+        registerLabelLTWH('xaxis-label', bx-tw/2-4*S, by-18*S, tw+8*S, 24*S);
+    }
+    if (isVis('show-yaxis-label')) {
+        const n = getNudge('yaxis-label');
+        const lbl = getLabel('label-yaxis', 'Burgers');
+        ctx.fillStyle = '#4a5568'; ctx.font = `italic ${16*S}px Georgia,serif`; ctx.textAlign = 'center';
+        ctx.save();
+        const bx = 20*S + n.dx, by = margin.top + height/2 + n.dy;
+        ctx.translate(bx, by); ctx.rotate(-Math.PI/2); ctx.fillText(lbl, 0, 0); ctx.restore();
+        const tw = ctx.measureText(lbl).width;
+        registerLabelLTWH('yaxis-label', bx-14*S, by-tw/2-4*S, 28*S, tw+8*S);
+    }
+
+    // Budget constraint line
+    if (isVis('show-bc')) {
+        const x0 = 0, y0 = yInt;
+        const x1 = xInt, y1_line = 0;
+        // Clip to visible area
+        const cx0 = Math.max(0, x0), cy0_val = Math.min(maxY, y0);
+        const cx1 = Math.min(maxX, x1), cy1_val = Math.max(0, y1_line);
+
+        ctx.strokeStyle = '#4299e1'; ctx.lineWidth = 3 * S;
+        ctx.beginPath();
+        if (yInt <= maxY) {
+            ctx.moveTo(tCX(0), tCY(yInt));
+        } else {
+            const xAtMaxY = (M - Py * maxY) / Px;
+            ctx.moveTo(tCX(Math.max(0, xAtMaxY)), tCY(maxY));
+        }
+        if (xInt <= maxX) {
+            ctx.lineTo(tCX(xInt), tCY(0));
+        } else {
+            const yAtMaxX = (M - Px * maxX) / Py;
+            ctx.lineTo(tCX(maxX), tCY(Math.max(0, yAtMaxX)));
+        }
+        ctx.stroke();
+    }
+
+    // Perpendicular lines for selected point
+    if (isVis('show-perpendicular') && selectedPoint !== null) {
+        const bundles = getBundles();
+        const b = bundles[selectedPoint];
+        if (b.x <= maxX && b.y <= maxY) {
+            ctx.strokeStyle = 'rgba(214,158,46,0.35)'; ctx.lineWidth = 1.5*S;
+            ctx.setLineDash([4*S, 4*S]);
+            ctx.beginPath(); ctx.moveTo(tCX(b.x), tCY(b.y)); ctx.lineTo(tCX(b.x), tCY(0)); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(tCX(b.x), tCY(b.y)); ctx.lineTo(tCX(0), tCY(b.y)); ctx.stroke();
+            ctx.setLineDash([]);
+        }
+    }
+
+    // Bundle points
+    if (isVis('show-points')) {
+        const bundles = getBundles();
+        bundles.forEach((b, i) => {
+            if (b.x > maxX || b.y > maxY) return;
+            const status = getBundleStatus(b, M, Px, Py);
+            const isSelected = selectedPoint === i;
+            const px = tCX(b.x), py_c = tCY(b.y);
+
+            // Glow for selected
+            if (isSelected) {
+                const g = ctx.createRadialGradient(px, py_c, 0, px, py_c, 24*S);
+                g.addColorStop(0, 'rgba(214,158,46,0.35)');
+                g.addColorStop(1, 'rgba(214,158,46,0)');
+                ctx.fillStyle = g;
+                ctx.beginPath(); ctx.arc(px, py_c, 24*S, 0, Math.PI*2); ctx.fill();
+            }
+
+            // Point color based on status
+            let color = '#2b6cb0'; // on line
+            if (status === 'above') color = '#e53e3e';
+            else if (status === 'below') color = '#38a169';
+
+            const r = isSelected ? 10*S : 8*S;
+            ctx.fillStyle = color;
+            ctx.beginPath(); ctx.arc(px, py_c, r, 0, Math.PI*2); ctx.fill();
+            ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5*S; ctx.stroke();
+
+            registerPoint(i, px, py_c, r);
+
+            // Point label
+            if (isVis('show-point-labels')) {
+                const n = getNudge('point-' + b.label);
+                ctx.fillStyle = '#1a202c';
+                ctx.font = `bold ${14*S}px Segoe UI`;
+                ctx.textAlign = 'center';
+                const lx = px + n.dx, ly = py_c - 16*S + n.dy;
+                ctx.fillText(b.label, lx, ly);
+                const tw = ctx.measureText(b.label).width;
+                registerLabelLTWH('point-' + b.label, lx - tw/2 - 4*S, ly - 14*S, tw + 8*S, 22*S);
+            }
+        });
+    }
+
+    // Intercept labels (draggable)
+    if (isVis('show-bc-intercepts')) {
+        ctx.fillStyle = '#4299e1';
+        if (xInt <= maxX) {
+            const n = getNudge('bc-intercept-x');
+            const bx = tCX(xInt) + n.dx, by = tCY(0) + 40*S + n.dy;
+            const txt = `M/Pₓ = ${xInt.toFixed(1)}`;
+            ctx.font = `italic ${12*S}px Georgia,serif`; ctx.textAlign = 'center';
+            ctx.fillText(txt, bx, by);
+            const tw = ctx.measureText(txt).width;
+            registerLabelLTWH('bc-intercept-x', bx - tw/2 - 4*S, by - 16*S, tw + 8*S, 24*S);
+        }
+        if (yInt <= maxY) {
+            const n = getNudge('bc-intercept-y');
+            const bx = tCX(0) + 10*S + n.dx, by = tCY(yInt) - 10*S + n.dy;
+            const txt = `M/Pᵧ = ${yInt.toFixed(1)}`;
+            ctx.font = `italic ${12*S}px Georgia,serif`; ctx.textAlign = 'left';
+            ctx.fillText(txt, bx, by);
+            const tw = ctx.measureText(txt).width;
+            registerLabelLTWH('bc-intercept-y', bx - 4*S, by - 16*S, tw + 8*S, 24*S);
+        }
+    }
+
+    // Budget info text in top-right of graph
+    const infoX = margin.left + width - 10*S;
+    const infoY = margin.top + 20*S;
+    ctx.fillStyle = '#718096'; ctx.font = `${12*S}px Segoe UI`; ctx.textAlign = 'right';
+    ctx.fillText(`Budget: $${M.toFixed(2)}`, infoX, infoY);
+    ctx.fillText(`${getLabel('label-yaxis','Burgers')}: $${Py.toFixed(2)}`, infoX, infoY + 18*S);
+    ctx.fillText(`${getLabel('label-xaxis','Bus Tickets')}: $${Px.toFixed(2)}`, infoX, infoY + 36*S);
+}
+
+// ─── Slider listeners ───
+[incomeSlider, pxSlider, pySlider].forEach(s => s.addEventListener('input', drawGraph));
+document.getElementById('display-toggle-btn').addEventListener('click', () => {
+    const p = document.getElementById('display-panel'), a = document.getElementById('display-arrow');
+    const o = p.classList.toggle('open'); a.classList.toggle('open', o);
+});
+document.querySelectorAll('.display-options-panel input').forEach(i => {
+    i.addEventListener('input', drawGraph);
+    i.addEventListener('change', drawGraph);
+});
+
+// Copy plot to clipboard
+document.getElementById('copy-plot-btn').addEventListener('click', async () => {
+    const btn = document.getElementById('copy-plot-btn');
+    const label = document.getElementById('copy-label');
+    try {
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+        btn.classList.add('copied'); label.textContent = 'Copied!';
+        setTimeout(() => { btn.classList.remove('copied'); label.textContent = 'Copy'; }, 1500);
+    } catch (err) {
+        label.textContent = 'Failed';
+        setTimeout(() => { label.textContent = 'Copy'; }, 1500);
+    }
+});
+
+// Save plot as PNG
+document.getElementById('save-plot-btn').addEventListener('click', () => {
+    const btn = document.getElementById('save-plot-btn');
+    const label = document.getElementById('save-label');
+    const url = canvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = url; a.download = 'budget_constraint.png'; a.click();
+    btn.classList.add('copied'); label.textContent = 'Saved!';
+    setTimeout(() => { btn.classList.remove('copied'); label.textContent = 'Save'; }, 1500);
+});
+
+// ═══════════════════════════════════════════════════════
+// URL STATE ENCODING / DECODING
+// ═══════════════════════════════════════════════════════
+
+const DEFAULTS = {
+    M: 10, Px: 0.5, Py: 2,
+    'show-xaxis-label': true, 'show-yaxis-label': true, 'show-axis-numbers': true,
+    'show-gridlines': true, 'show-bc': true, 'show-bc-intercepts': true,
+    'show-shading': true, 'show-points': true, 'show-point-labels': true,
+    'show-perpendicular': true,
+    'label-xaxis': 'Bus Tickets', 'label-yaxis': 'Burgers',
+    'sec-graph': true, 'sec-explanation': true, 'sec-bundles': true,
+    'sec-budget': true, 'sec-info': true, 'sec-selected': true,
+    'closed-title': false, 'closed-subtitle': false,
+    'closed-graph': false, 'closed-explanation': false, 'closed-bundles': false,
+    'closed-budget': false, 'closed-info': false, 'closed-selected': false,
+    'disp-open': false,
+};
+
+const CHECKBOX_IDS = [
+    'show-xaxis-label','show-yaxis-label','show-axis-numbers','show-gridlines',
+    'show-bc','show-bc-intercepts','show-shading','show-points','show-point-labels','show-perpendicular'
+];
+const LABEL_IDS = ['label-xaxis','label-yaxis'];
+const NUDGE_KEYS = [
+    'xaxis-label','yaxis-label','bc-intercept-x','bc-intercept-y',
+    'point-A','point-B','point-C','point-D','point-E','point-F'
+];
+
+function buildStateObject() {
+    const s = {};
+    const M = parseFloat(incomeSlider.value);
+    const Px = parseFloat(pxSlider.value);
+    const Py = parseFloat(pySlider.value);
+    if (M !== DEFAULTS.M) s.M = M;
+    if (Px !== DEFAULTS.Px) s.Px = Px;
+    if (Py !== DEFAULTS.Py) s.Py = Py;
+
+    for (const id of CHECKBOX_IDS) {
+        const el = document.getElementById(id);
+        if (el && el.checked !== DEFAULTS[id]) s[id] = el.checked ? 1 : 0;
+    }
+    for (const id of LABEL_IDS) {
+        const el = document.getElementById(id);
+        if (el && el.value !== DEFAULTS[id]) s[id] = el.value;
+    }
+    for (const k of NUDGE_KEYS) {
+        const o = nudgeOffsets[k];
+        if (o && (Math.abs(o.dx) > 0.5 || Math.abs(o.dy) > 0.5)) {
+            s['n_' + k] = Math.round(o.dx) + ',' + Math.round(o.dy);
+        }
+    }
+
+    const allSections = ['graph','explanation','bundles','budget','info','selected'];
+    for (const sec of allSections) {
+        const body = document.getElementById('body-' + sec);
+        const isOpen = !body.classList.contains('collapsed');
+        if (isOpen !== DEFAULTS['sec-' + sec]) s['sec-' + sec] = isOpen ? 1 : 0;
+    }
+
+    const dispOpen = document.getElementById('display-panel').classList.contains('open');
+    if (dispOpen !== DEFAULTS['disp-open']) s['disp-open'] = dispOpen ? 1 : 0;
+
+    for (const name of Object.keys(PANEL_NAMES)) {
+        const el = document.getElementById('section-' + name);
+        const isClosed = el && el.classList.contains('panel-closed');
+        if (isClosed !== DEFAULTS['closed-' + name]) s['closed-' + name] = isClosed ? 1 : 0;
+    }
+    return s;
+}
+
+function stateToHash(state) {
+    const params = new URLSearchParams();
+    for (const [k, v] of Object.entries(state)) params.set(k, v);
+    return params.toString();
+}
+
+function loadStateFromHash() {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const params = new URLSearchParams(hash);
+
+    if (params.has('M')) incomeSlider.value = params.get('M');
+    if (params.has('Px')) pxSlider.value = params.get('Px');
+    if (params.has('Py')) pySlider.value = params.get('Py');
+
+    for (const id of CHECKBOX_IDS) {
+        if (params.has(id)) {
+            const el = document.getElementById(id);
+            if (el) el.checked = params.get(id) === '1';
+        }
+    }
+    for (const id of LABEL_IDS) {
+        if (params.has(id)) {
+            const el = document.getElementById(id);
+            if (el) el.value = params.get(id);
+        }
+    }
+    for (const k of NUDGE_KEYS) {
+        const key = 'n_' + k;
+        if (params.has(key)) {
+            const parts = params.get(key).split(',');
+            if (parts.length === 2) nudgeOffsets[k] = { dx: parseFloat(parts[0]), dy: parseFloat(parts[1]) };
+        }
+    }
+
+    const allSections = ['graph','explanation','bundles','budget','info','selected'];
+    for (const sec of allSections) {
+        const key = 'sec-' + sec;
+        if (params.has(key)) {
+            const shouldBeOpen = params.get(key) === '1';
+            const body = document.getElementById('body-' + sec);
+            const toggle = document.getElementById('toggle-' + sec);
+            if (shouldBeOpen) { body.classList.remove('collapsed'); if (toggle) toggle.textContent = '▼'; }
+            else { body.classList.add('collapsed'); if (toggle) toggle.textContent = '▶'; }
+        }
+    }
+
+    if (params.has('disp-open')) {
+        const shouldBeOpen = params.get('disp-open') === '1';
+        const panel = document.getElementById('display-panel');
+        const arrow = document.getElementById('display-arrow');
+        if (shouldBeOpen) { panel.classList.add('open'); arrow.classList.add('open'); }
+        else { panel.classList.remove('open'); arrow.classList.remove('open'); }
+    }
+
+    const panelNames = Object.keys(PANEL_NAMES);
+    for (const name of panelNames) {
+        const key = 'closed-' + name;
+        if (params.has(key)) {
+            const el = document.getElementById('section-' + name);
+            if (el) {
+                if (params.get(key) === '1') el.classList.add('panel-closed');
+                else el.classList.remove('panel-closed');
+            }
+        }
+    }
+}
+
+// Copy URL button
+document.getElementById('copy-url-btn').addEventListener('click', async () => {
+    const btn = document.getElementById('copy-url-btn');
+    const state = buildStateObject();
+    const hash = stateToHash(state);
+    const url = window.location.origin + window.location.pathname + (hash ? '#' + hash : '');
+    try {
+        await navigator.clipboard.writeText(url);
+        btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '📋 Copy link with current state'; btn.classList.remove('copied'); }, 2000);
+    } catch {
+        prompt('Copy this URL:', url);
+    }
+});
+
+// Reset button
+document.getElementById('reset-url-btn').addEventListener('click', () => {
+    incomeSlider.value = DEFAULTS.M;
+    pxSlider.value = DEFAULTS.Px;
+    pySlider.value = DEFAULTS.Py;
+    for (const id of CHECKBOX_IDS) {
+        const el = document.getElementById(id);
+        if (el) el.checked = DEFAULTS[id];
+    }
+    for (const id of LABEL_IDS) {
+        const el = document.getElementById(id);
+        if (el) el.value = DEFAULTS[id];
+    }
+    for (const k of NUDGE_KEYS) { delete nudgeOffsets[k]; }
+    ['graph','explanation','bundles','budget','info','selected'].forEach(sec => {
+        const body = document.getElementById('body-' + sec);
+        const toggle = document.getElementById('toggle-' + sec);
+        if (body) body.classList.remove('collapsed');
+        if (toggle) toggle.textContent = '▼';
+    });
+    document.getElementById('display-panel').classList.remove('open');
+    document.getElementById('display-arrow').classList.remove('open');
+    Object.keys(PANEL_NAMES).forEach(name => {
+        const el = document.getElementById('section-' + name);
+        if (el) el.classList.remove('panel-closed');
+    });
+    selectedPoint = null;
+    updateRestoreBar();
+    updateLayout();
+    history.replaceState(null, '', window.location.pathname);
+    drawGraph();
+});
+
+// ─── Initialize ───
+loadStateFromHash();
+updateRestoreBar();
+updateLayout();
+drawGraph();
+</script>
+</body>
+</html>

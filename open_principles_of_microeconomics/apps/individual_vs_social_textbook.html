@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Individual Choice vs Social Production</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Individual Choice vs Social Production</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">One faces fixed prices and a straight line; the other faces resources that are not perfectly adaptable</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. An Opportunity Set and a Production Possibilities Frontier</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="700"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Panel (a) shows an <strong>individual opportunity set</strong>, a budget constraint. Given fixed income and prices, a consumer can afford any combination of Good 1 and Good 2 on or below this line. The trade-off is <em>linear</em> because prices are constant: each additional unit of Good 1 always costs the same amount of Good 2 foregone. The slope equals the price ratio.</p>
+          <p>Panel (b) shows a <strong>social production possibilities frontier</strong>. When an entire economy allocates resources between Good 1 and Good 2, the trade-off is typically <em>not</em> constant. The PPF bows outward because of <strong>increasing opportunity costs</strong>: as society produces more of one good, it must pull resources that are progressively less suited to that use.</p>
+          <p>The contrast is fundamental. An individual takes market prices as given, so their constraint is a straight line. Society, however, <em>determines</em> the overall allocation, and the concavity of the PPF reflects the heterogeneity of resources, since not all workers, land, or capital are equally productive in every use.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-keydiff">
+        <div class="left-section-header" onclick="tog('keydiff')"><div class="panel-title">Opportunity Cost Comparison</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keydiff" onclick="event.stopPropagation();tog('keydiff')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keydiff')">✕</button></div></div>
+        <div class="left-section-body" id="body-keydiff"><div id="keydiff-content"></div></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-individual">
+        <div class="control-panel-header" onclick="tog('individual')"><div class="panel-title">Individual</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-individual" onclick="event.stopPropagation();tog('individual')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('individual')">✕</button></div></div>
+        <div class="control-panel-body" id="body-individual">
+          <div data-sliders="max_g1_ind,max_g2_ind"></div>
+          <div class="info-box" style="margin-top:8px">
+            <div class="info-row"><span class="info-label">OC of 1 unit Good 1</span><span class="info-value" id="i-oc1"></span></div>
+            <div class="info-row"><span class="info-label">OC of 1 unit Good 2</span><span class="info-value" id="i-oc2"></span></div>
+            <div class="info-row"><span class="info-label">Slope</span><span class="info-value" id="i-slope"></span></div>
+          </div>
+          <div class="equation-box" style="margin-top:12px">\( P_1 \cdot X_1 + P_2 \cdot X_2 = M \)</div>
+        </div>
+      </div>
+      <div class="control-panel" id="section-social">
+        <div class="control-panel-header" onclick="tog('social')"><div class="panel-title">Social PPF</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-social" onclick="event.stopPropagation();tog('social')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('social')">✕</button></div></div>
+        <div class="control-panel-body" id="body-social">
+          <div data-sliders="max_g1_soc,max_g2_soc,n_ppf"></div>
+          <div class="info-box" style="margin-top:8px">
+            <div class="info-row"><span class="info-label">Shape</span><span class="info-value" id="s-shape">Concave (bowed out)</span></div>
+            <div class="info-row"><span class="info-label">OC type</span><span class="info-value" id="s-octype">Increasing</span></div>
+          </div>
+          <div class="equation-box" style="margin-top:12px">\( \left(\frac{G_2}{G_{2,max}}\right)^n + \left(\frac{G_1}{G_{1,max}}\right)^n = 1 \)</div>
+        </div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Legend</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#805ad5"></div><span>Individual budget constraint (linear)</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#805ad5"></div><span>Social PPF (concave)</span></div>
+          </div>
+          <div style="margin-top:12px;padding:10px 12px;background:rgba(107,70,193,0.06);border-radius:6px;border:1px solid rgba(107,70,193,0.12);font-size:.85rem;color:#4a5568;line-height:1.6">
+            <strong style="color:#6b46c1">Note:</strong> The axes are swapped between the two panels. The individual graph has Good 1 on X and Good 2 on Y, while the social graph has Good 2 on X and Good 1 on Y, matching the standard textbook presentation.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Two panel layout, in design pixels on a 1400 x 700 canvas ----
+const S0 = 2;
+const MG = { top:50*S0, right:30*S0, bottom:80*S0, left:60*S0 };
+const GAP = 50 * S0, PW = (1400 - GAP) / 2;
+// Both panels share one scale, so the two shapes are directly comparable.
+// xMax / yMax are rewritten each draw from the sliders.
+const AXES = [
+  { xMin:0, xMax:100, yMin:0, yMax:100, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:100, yMin:0, yMax:100, margin:MG, left:PW + GAP, width:PW },
+];
+
+const ppfY = (x, xm, ym, n) => {
+  const r = x / xm;
+  if (r >= 1) return 0;
+  if (r <= 0) return ym;
+  const ins = 1 - Math.pow(r, n);
+  return ins <= 0 ? 0 : ym * Math.pow(ins, 1 / n);
+};
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'individual_vs_social.png',
+  axes: AXES,
+  sliders: [
+    { id:'max_g1_ind', label:'Max Good 1 (M/P₁)', min:10, max:150, value:80,  step:1 },
+    { id:'max_g2_ind', label:'Max Good 2 (M/P₂)', min:10, max:150, value:50,  step:1 },
+    { id:'max_g1_soc', label:'Max Good 1',        min:10, max:150, value:60,  step:1 },
+    { id:'max_g2_soc', label:'Max Good 2',        min:10, max:150, value:100, step:1 },
+    { id:'n_ppf',      label:'Curvature (n)',     min:1,  max:4,   value:2,   step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_grid',     label:'Gridlines' },
+    { id:'show_ticks',    label:'Axis tick numbers' },
+    { id:'show_shading',  label:'Feasible region shading' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', keydiff:'OC Comparison', individual:'Individual', social:'Social PPF', keyvals:'Legend' },
+  leftPanels:  ['graph','explanation','keydiff'],
+  rightPanels: ['individual','social','keyvals'],
+  nudgeKeys: ['x.ind','y.ind','x.soc','y.soc'],
+
+  draw(g) {
+    const { S, ctx, val, vis, H } = g;
+    const ig1 = val('max_g1_ind'), ig2 = val('max_g2_ind');
+    const sg1 = val('max_g1_soc'), sg2 = val('max_g2_soc'), sn = val('n_ppf');
+
+    // Panel (a) plots Good 1 on x and Good 2 on y; panel (b) swaps them, so the
+    // shared x scale spans both Good 1 and Good 2 maxima.
+    const gmx = Math.max(ig1, sg2) * 1.25;
+    const gmy = Math.max(ig2, sg1) * 1.25;
+    AXES.forEach(a => { a.xMax = gmx; a.yMax = gmy; });
+
+    // ---- Side panels ----
+    g.setText('i-oc1', (ig2 / ig1).toFixed(2) + ' G2');
+    g.setText('i-oc2', (ig1 / ig2).toFixed(2) + ' G1');
+    g.setText('i-slope', '−' + (ig2 / ig1).toFixed(2));
+    g.setText('s-shape', sn > 1 ? 'Concave (bowed out)' : sn < 1 ? 'Convex (bowed in)' : 'Linear');
+    g.setText('s-octype', sn > 1 ? 'Increasing' : sn < 1 ? 'Decreasing' : 'Constant');
+    g.setText('keydiff-content',
+      '<div class="compare-grid">' +
+      '<div class="compare-card blue" style="margin-top:0"><div class="card-title">Individual</div>' +
+      `<strong>Constant</strong> opportunity cost<br>OC of Good 1 = ${(ig2 / ig1).toFixed(2)} units of Good 2<br>` +
+      '<em>Same everywhere on the line</em></div>' +
+      '<div class="compare-card blue" style="margin-top:0"><div class="card-title">Society</div>' +
+      `<strong>${sn > 1 ? 'Increasing' : sn < 1 ? 'Decreasing' : 'Constant'}</strong> opportunity cost<br>` +
+      'OC rises as you move along the PPF<br><em>Resources are not perfectly adaptable</em></div></div>' +
+      '<p style="margin:14px 0 0 0;line-height:1.7;font-size:.92rem;color:#4a5568">The individual faces fixed market prices, so the trade-off is always the same and the budget line is straight. ' +
+      'Society\'s PPF bows out because shifting resources between sectors runs into diminishing returns: the first resources transferred are the most suitable, and later ones are progressively less productive in their new use. ' +
+      'Try setting the PPF curvature \\(n = 1\\) to see what happens when opportunity costs are constant for society too.</p>');
+    g.renderMath(document.getElementById('section-keydiff'));
+
+    // ---- Plot ----
+    g.clear();
+    [
+      { i:0, key:'ind', shade:'rgba(43,108,176,0.04)', xLabel:'Good 1', yLabel:'Good 2', caption:'(a) An individual opportunity set' },
+      { i:1, key:'soc', shade:'rgba(107,70,193,0.04)', xLabel:'Good 2', yLabel:'Good 1', caption:'(b) A social production possibilities frontier' },
+    ].forEach(panel => {
+      const pan = g.panel(panel.i);
+      const isInd = panel.i === 0;
+
+      if (vis('show_grid')) pan.gridlines(gmx / 5, gmy / 5);
+
+      if (vis('show_shading')) {
+        if (isInd) {
+          ctx.fillStyle = panel.shade;
+          ctx.beginPath();
+          ctx.moveTo(pan.tCX(0), pan.tCY(0));
+          ctx.lineTo(pan.tCX(0), pan.tCY(ig2));
+          ctx.lineTo(pan.tCX(ig1), pan.tCY(0));
+          ctx.closePath(); ctx.fill();
+        } else {
+          pan.fillUnder(x => ppfY(x, sg2, sg1, sn), 0, sg2, panel.shade);
+        }
+      }
+
+      // Axes overshoot their corners slightly and carry arrowheads here,
+      // so they are drawn in the app rather than with pan.axes().
+      const x0 = pan.x0, y0 = pan.y0, bottom = pan.y0 + pan.height, right = pan.x0 + pan.width;
+      ctx.strokeStyle = '#2b6cb0'; ctx.lineWidth = 2 * S;
+      ctx.beginPath(); ctx.moveTo(x0, y0 - 5 * S); ctx.lineTo(x0, bottom); ctx.lineTo(right + 5 * S, bottom); ctx.stroke();
+      ctx.fillStyle = '#2b6cb0';
+      ctx.beginPath(); ctx.moveTo(x0, y0 - 5 * S); ctx.lineTo(x0 - 5 * S, y0 + 6 * S); ctx.lineTo(x0 + 5 * S, y0 + 6 * S); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(right + 5 * S, bottom); ctx.lineTo(right - 6 * S, bottom - 5 * S); ctx.lineTo(right - 6 * S, bottom + 5 * S); ctx.closePath(); ctx.fill();
+
+      if (vis('show_ticks')) {
+        const xs = [], ys = [];
+        for (let k = 1; k <= 5; k++) { xs.push((k / 5) * gmx); ys.push((k / 5) * gmy); }
+        pan.xTicks(xs, v => Math.round(v));
+        pan.yTicks(ys, v => Math.round(v));
+      }
+
+      if (isInd) {
+        ctx.strokeStyle = '#805ad5'; ctx.lineWidth = 2.5 * S;
+        ctx.beginPath(); ctx.moveTo(pan.tCX(0), pan.tCY(ig2)); ctx.lineTo(pan.tCX(ig1), pan.tCY(0)); ctx.stroke();
+      } else {
+        pan.plotFn(x => ppfY(x, sg2, sg1, sn), 0, sg2, { color:'#805ad5', lw:2.5, steps:300 });
+      }
+
+      pan.axisLabels(panel.xLabel, panel.yLabel, panel.key);
+
+      if (vis('show_captions'))
+        pan.label(panel.caption, pan.x0 + pan.width / 2, H - 30 * S,
+          { font:`${12 * S}px ${g.font}`, color:'#718096', align:'center' });
+    });
+  },
+});
+</script>
+</body>
+</html>

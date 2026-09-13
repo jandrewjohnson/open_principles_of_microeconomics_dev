@@ -1,1 +1,11 @@
 open_principles_of_microeconomics_dev.zip
+
+# written by `itp sync` from the installed interactive_textbook_pipeline package
+open_principles_of_microeconomics/apps/econ_viz_textbook.js
+open_principles_of_microeconomics/apps/econ_viz_textbook.css
+open_principles_of_microeconomics/_extensions/appfig/
+open_principles_of_microeconomics/figures.json
+
+__pycache__/
+.pytest_cache/
+/.quarto/

@@ -1,0 +1,156 @@
+/* econ_viz_textbook.css shared styles for interactive textbook figures (canonical source: interactive_textbook_pipeline) */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+*{box-sizing:border-box}
+body{font-family:'Source Sans 3','Source Sans Pro',system-ui,sans-serif;background:#f5f7fa;color:#2d3748;margin:0;padding:20px;min-height:100vh}
+.container{max-width:1200px;margin:0 auto}
+h1{text-align:center;font-weight:400;font-size:1.8rem;margin-bottom:8px;color:#1a202c}
+.subtitle{text-align:center;color:#718096;margin-bottom:24px;font-size:.95rem}
+
+/* Layout */
+.main-content{display:grid;grid-template-columns:1fr 320px;gap:24px}
+@media(max-width:900px){.main-content{grid-template-columns:1fr}}
+.main-content.left-empty{grid-template-columns:0 1fr}
+.main-content.right-empty{grid-template-columns:1fr}
+.main-content.left-empty .left-column{display:none}
+.main-content.right-empty .controls{display:none}
+.left-column{display:flex;flex-direction:column;gap:0}
+.controls{display:flex;flex-direction:column;gap:16px}
+
+/* Graph panel */
+.graph-container{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);position:relative;overflow:visible}
+.graph-header{display:flex;align-items:center;padding:12px 20px;cursor:pointer;user-select:none}
+.graph-header:hover{background:#f7fafc;border-radius:12px 12px 0 0}
+.graph-body{padding:0 20px 20px 20px;position:relative}
+.graph-body.collapsed{display:none}
+canvas{display:block;width:100%;height:auto;cursor:default}
+canvas.hovering-label{cursor:grab}
+canvas.dragging{cursor:grabbing}
+canvas.hovering-point{cursor:pointer}
+
+/* Plot action buttons (copy / save) */
+.plot-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;gap:4px;opacity:0;transition:opacity .2s}
+.graph-container:hover .plot-actions{opacity:1}
+.plot-action-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.7rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:inherit;transition:all .15s;line-height:1}
+.plot-action-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}
+.plot-action-btn.copied{color:#38a169;border-color:#c6f6d5;background:rgba(240,255,244,.9)}
+.plot-action-btn svg{width:12px;height:12px;flex-shrink:0}
+
+/* Panel chrome: collapse / close / restore */
+.panel-title{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:#718096;margin-bottom:16px;font-weight:600}
+.panel-header-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;align-items:center;gap:4px;opacity:0;transition:opacity .2s;flex-shrink:0}
+.panel-collapse-btn,.panel-close-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.65rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;font-family:inherit;transition:all .15s;line-height:1;flex-shrink:0}
+.panel-close-btn{font-size:.7rem}
+.panel-collapse-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}
+.panel-close-btn:hover{background:#fff;color:#e53e3e;border-color:#feb2b2}
+.panel-closed{display:none!important}
+.left-section,.control-panel,.title-wrapper,.subtitle-wrapper{position:relative}
+.left-section:hover .panel-header-actions,.control-panel:hover .panel-header-actions,.graph-container:hover>.graph-header .panel-header-actions,.title-wrapper:hover .panel-header-actions,.subtitle-wrapper:hover .panel-header-actions{opacity:1}
+.restore-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.restore-bar:empty{display:none;margin:0;padding:0;border:none}
+.restore-btn{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:4px 10px;font-size:.72rem;color:#718096;cursor:pointer;font-family:inherit;transition:all .15s}
+.restore-btn:hover{background:#f7fafc;border-color:#cbd5e0;color:#4a5568}
+.restore-label{font-size:.7rem;color:#a0aec0}
+
+/* Control panels (right column) */
+.control-panel{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}
+.control-panel-header{display:flex;align-items:center;padding:16px 20px;cursor:pointer;user-select:none}
+.control-panel-header:hover{background:#f7fafc;border-radius:12px}
+.control-panel-header .panel-title,.graph-header .panel-title,.left-section-header .panel-title{margin-bottom:0}
+.control-panel-body{padding:0 20px 20px 20px}
+.control-panel-body.collapsed{display:none}
+
+/* Sliders */
+.slider-group{margin-bottom:16px}
+.slider-group:last-child{margin-bottom:0}
+.slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.9rem;color:#4a5568}
+.slider-value{background:#edf2f7;padding:4px 10px;border-radius:4px;font-family:Monaco,Consolas,monospace;font-size:.85rem;color:#2b6cb0;font-weight:500}
+input[type=range]{width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none;-webkit-appearance:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#4299e1;cursor:pointer;box-shadow:0 2px 6px rgba(66,153,225,.3);transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+
+/* Info boxes, legends, equations */
+.info-box{background:#f7fafc;border-radius:8px;padding:16px;border-left:3px solid #4299e1}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.9rem}
+.info-label{color:#718096}
+.info-value{font-family:Monaco,Consolas,monospace;color:#1a202c}
+.info-value.highlight{color:#2b6cb0;font-weight:600}
+.legend{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.legend-item{display:flex;align-items:center;gap:10px;font-size:.85rem;color:#4a5568}
+.legend-line{width:24px;height:3px;border-radius:2px;flex-shrink:0}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.equation-box{background:#f7fafc;border-radius:8px;padding:14px 16px;text-align:center;margin-top:8px;border:1px solid #e2e8f0;font-size:1.05rem}
+.katex{font-size:1em}
+
+/* Left-column sections (explanation etc.) */
+.left-section{margin-top:20px;background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}
+.left-section-header{display:flex;align-items:center;padding:16px 24px;cursor:pointer;user-select:none}
+.left-section-header:hover{background:#f7fafc;border-radius:12px}
+.left-section-body{padding:0 24px 20px 24px}
+.left-section-body.collapsed{display:none}
+.left-section-body p{margin:0 0 14px 0;line-height:1.7;font-size:.95rem;color:#4a5568}
+.left-section-body p:last-child{margin-bottom:0}
+
+/* Comparison cards (used by shift apps) */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compare-card{border-radius:8px;padding:12px;border:1px solid;font-size:.88rem;color:#4a5568}
+.compare-card .card-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-bottom:6px}
+.compare-card.red{background:rgba(229,62,62,.05);border-color:rgba(229,62,62,.12)}.compare-card.red .card-title{color:#e53e3e}
+.compare-card.green{background:rgba(56,161,105,.05);border-color:rgba(56,161,105,.12)}.compare-card.green .card-title{color:#38a169}
+.compare-card.blue{background:rgba(43,108,176,.05);border-color:rgba(43,108,176,.12);margin-top:12px}.compare-card.blue .card-title{color:#2b6cb0}
+
+/* Display options */
+.display-options-wrapper{margin-top:24px}
+.display-options-toggle{background:none;border:none;color:#a0aec0;font-size:.78rem;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px}
+.display-options-toggle:hover{color:#718096}
+.display-options-toggle .arrow{font-size:.6rem;transition:transform .2s}
+.display-options-toggle .arrow.open{transform:rotate(90deg)}
+.display-options-panel{display:none;margin-top:8px;background:#fff;border-radius:12px;padding:16px 20px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.display-options-panel.open{display:block}
+.display-options-panel .panel-title{font-size:.75rem;margin-bottom:12px}
+.display-options-panel .panel-title small{font-weight:400;font-size:.65rem;color:#a0aec0;text-transform:none;letter-spacing:0}
+.opt-row{display:flex;align-items:center;gap:8px;padding:3px 0}
+.opt-row label{font-size:.8rem;color:#4a5568;cursor:pointer}
+.opt-row input[type=checkbox]{accent-color:#4299e1;cursor:pointer;margin:0;width:14px;height:14px}
+.opt-row input[type=text]{flex:1;min-width:0;margin-left:auto;background:#fff;border:1px solid #e2e8f0;border-radius:4px;padding:3px 8px;font-size:.78rem;color:#4a5568;font-family:inherit}
+.opt-row input[type=text]:focus{outline:none;border-color:#4299e1}
+
+/* Data tables in side panels (rows may be clickable via selectPoint) */
+.data-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.9rem}
+.data-table th{background:#f7fafc;padding:8px 12px;text-align:center;font-weight:600;color:#718096;border-bottom:2px solid #e2e8f0;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
+.data-table td{padding:8px 12px;text-align:center;border-bottom:1px solid #edf2f7;color:#4a5568}
+.data-table tr:hover td{background:#f7fafc}
+.data-table tr.selected td{background:rgba(214,158,46,.1)}
+.status-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:600}
+
+/* Hover tooltip for clickable points (created by the library on demand) */
+.canvas-tooltip{position:absolute;pointer-events:none;background:#fff;border:1px solid #e2e8f0;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:10px 12px;font-size:.8rem;opacity:0;transition:opacity .12s;z-index:20}
+.canvas-tooltip.visible{opacity:1}
+.canvas-tooltip .tt-label{font-weight:600;color:#1a202c;margin-bottom:4px;font-size:.9rem}
+.canvas-tooltip .tt-row{display:flex;justify-content:space-between;gap:16px;padding:2px 0}
+.canvas-tooltip .tt-key{color:#718096}
+.canvas-tooltip .tt-val{font-family:'Monaco','Consolas',monospace;color:#2b6cb0;font-weight:500}
+canvas.hovering-point{cursor:pointer}
+
+/* URL / link bar */
+.url-state-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.url-state-bar button{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:6px 12px;font-size:.78rem;color:#4a5568;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap}
+.url-state-bar button:hover{background:#f7fafc;border-color:#cbd5e0}
+.url-state-bar button.copied{color:#38a169;border-color:#c6f6d5;background:#f0fff4}
+.url-state-bar .url-hint{font-size:.7rem;color:#a0aec0;flex-basis:100%}
+
+/* Embed / textbook figure mode (?embed) */
+body.embed-mode{padding:8px;background:transparent;min-height:auto}
+body.embed-mode h1,body.embed-mode .subtitle,body.embed-mode .left-section,body.embed-mode .display-options-wrapper,body.embed-mode .controls{display:none!important}
+/* ?embed&hide=<name> strips one more region from a particular embed. A region
+   is any element carrying data-region="<name>". */
+body.embed-hide-controls [data-region=controls],body.embed-hide-explanation [data-region=explanation],body.embed-hide-graph [data-region=graph],body.embed-hide-header [data-region=header]{display:none!important}
+body.embed-hide-controls .main-content,body.embed-hide-graph .main-content{grid-template-columns:1fr!important}
+body.embed-mode .main-content{grid-template-columns:1fr}
+body.embed-mode .graph-container{border:none;box-shadow:none;background:transparent}
+body.embed-mode .graph-header,body.embed-mode .plot-actions{display:none!important}
+body.embed-mode .graph-body{padding:0}
+body.embed-mode canvas{cursor:pointer!important}
+.figure-open{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.92);border:1px solid #cbd5e0;border-radius:6px;padding:5px 10px;font-size:.75rem;color:#2b6cb0;opacity:0;transition:opacity .2s;pointer-events:none;display:none}
+body.embed-mode .figure-open{display:block}
+body.embed-mode .graph-body:hover .figure-open{opacity:1}

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget Constraint</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Budget Constraint</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">All affordable bundles lie on or below the budget line \( P_x \cdot X + P_y \cdot Y = M \)</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Budget Constraint with Bundles</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The <strong>budget constraint</strong> shows all combinations of two goods a consumer can afford given their income and the prices of both goods. The equation \( P_x \cdot X + P_y \cdot Y = M \) defines the boundary: any bundle on this line exhausts the entire budget, bundles below it leave money unspent, and bundles above it are unaffordable.</p>
+          <p>The <strong>slope</strong> of the budget line equals \( -P_x / P_y \), representing the opportunity cost of one good in terms of the other. For every additional unit of \( X \) purchased, the consumer must give up \( P_x / P_y \) units of \( Y \). The <strong>intercepts</strong> show the maximum quantity of each good if the consumer spent everything on just that one good: \( M / P_x \) units of \( X \) or \( M / P_y \) units of \( Y \).</p>
+          <p>The labeled points (A to F) illustrate different bundles. Points on the line are exactly affordable, spending the full budget. Points below the line are affordable but leave unused income. Points above the line exceed the budget and cannot be purchased. Click any point on the graph or in the table to highlight it and see its details.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-bundles">
+        <div class="left-section-header" onclick="tog('bundles')"><div class="panel-title">Bundle Details</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-bundles" onclick="event.stopPropagation();tog('bundles')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('bundles')">✕</button></div></div>
+        <div class="left-section-body" id="body-bundles">
+          <table class="data-table">
+            <thead><tr><th>Bundle</th><th id="th-x">Bus Tickets</th><th id="th-y">Burgers</th><th>Total Cost</th><th>Status</th></tr></thead>
+            <tbody id="bundle-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-budget">
+        <div class="control-panel-header" onclick="tog('budget')"><div class="panel-title">Budget Parameters</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-budget" onclick="event.stopPropagation();tog('budget')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('budget')">✕</button></div></div>
+        <div class="control-panel-body" id="body-budget">
+          <div data-sliders></div>
+          <div class="equation-box">\( M = P_x \cdot X + P_y \cdot Y \)</div>
+        </div>
+      </div>
+      <div class="control-panel" id="section-info">
+        <div class="control-panel-header" onclick="tog('info')"><div class="panel-title">Key Values</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-info" onclick="event.stopPropagation();tog('info')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('info')">✕</button></div></div>
+        <div class="control-panel-body" id="body-info">
+          <div class="info-box">
+            <div class="info-row"><span class="info-label">Max on x axis \( (M/P_x) \)</span><span class="info-value highlight" id="max-x">20</span></div>
+            <div class="info-row"><span class="info-label">Max on y axis \( (M/P_y) \)</span><span class="info-value highlight" id="max-y">5</span></div>
+            <div class="info-row"><span class="info-label">Slope \( (-P_x/P_y) \)</span><span class="info-value" id="slope-val">−0.25</span></div>
+            <div class="info-row"><span class="info-label">Opportunity cost</span><span class="info-value" id="opp-cost"></span></div>
+          </div>
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#4299e1"></div><span>Budget constraint</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0"></div><span>Bundles on the line (affordable)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#e53e3e"></div><span>Above the line (unaffordable)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#38a169"></div><span>Below the line (under budget)</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="control-panel" id="section-selected">
+        <div class="control-panel-header" onclick="tog('selected')"><div class="panel-title">Selected Bundle</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-selected" onclick="event.stopPropagation();tog('selected')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('selected')">✕</button></div></div>
+        <div class="control-panel-body" id="body-selected"><div class="info-box" id="selected-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition, click a point to select it</small></div>
+      <div data-toggles></div>
+      <div data-texts></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Data (bundles from the textbook figure, on the default budget line) ----
+// With M = 10, Px = 0.50, Py = 2 the line is Y = 5 - 0.25X, so A to F all sit on it.
+const BUNDLES = [
+  { label: 'A', x: 0,  y: 5 },
+  { label: 'B', x: 4,  y: 4 },
+  { label: 'C', x: 8,  y: 3 },
+  { label: 'D', x: 12, y: 2 },
+  { label: 'E', x: 16, y: 1 },
+  { label: 'F', x: 20, y: 0 },
+];
+
+const STATUS = {
+  on:    { color: '#2b6cb0', full: 'On budget line', short: 'On line',      bg: 'rgba(43,108,176,0.1)' },
+  above: { color: '#e53e3e', full: 'Over budget',    short: 'Over budget',  bg: 'rgba(229,62,62,0.1)' },
+  below: { color: '#38a169', full: 'Under budget',   short: 'Under budget', bg: 'rgba(56,161,105,0.1)' },
+};
+
+const money = v => '$' + v.toFixed(2);
+const bundleOf = key => BUNDLES.find(b => b.label === key);
+const costOf = (b, Px, Py) => Px * b.x + Py * b.y;
+const bundleStatus = (b, M, Px, Py) => {
+  const c = costOf(b, Px, Py);
+  if (Math.abs(c - M) < 0.01) return 'on';
+  return c > M ? 'above' : 'below';
+};
+const ttRow = (k, v, color) =>
+  `<div class="tt-row"><span class="tt-key">${k}:</span><span class="tt-val"${color ? ` style="color:${color}"` : ''}>${v}</span></div>`;
+const infoRow = (k, v, color, big) =>
+  `<div class="info-row"><span class="info-label">${k}</span><span class="info-value highlight"${color || big ? ` style="${color ? `color:${color};` : ''}${big ? 'font-size:1.1rem;' : ''}"` : ''}>${v}</span></div>`;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'budget_constraint.png',
+  axes: { xMin:0, xMax:28, yMin:0, yMax:7, margin:{top:80, right:80, bottom:120, left:140} },
+  sliders: [
+    { id:'m',   label:'Budget (M)',            min:2,    max:30, value:10,  step:0.5,  fmt:money },
+    { id:'p_x', label:'Price of x good (Pₓ)',  min:0.25, max:3,  value:0.5, step:0.25, fmt:money },
+    { id:'p_y', label:'Price of y good (Pᵧ)',  min:0.5,  max:6,  value:2,   step:0.25, fmt:money },
+  ],
+  toggles: [
+    { id:'show_grid',       label:'Gridlines' },
+    { id:'show_ticks',      label:'Axis tick numbers' },
+    { id:'show_xlabel',     label:'X-axis label' },
+    { id:'show_ylabel',     label:'Y-axis label' },
+    { id:'show_bc',         label:'Budget constraint line' },
+    { id:'show_intercepts', label:'Intercept labels' },
+    { id:'show_shading',    label:'Affordable region shading' },
+    { id:'show_points',     label:'Bundle points' },
+    { id:'show_labels',     label:'Point labels (A, B, C...)' },
+    { id:'show_droplines',  label:'Dashed lines to axes for selected point' },
+  ],
+  texts: [
+    { id:'lbl_x', label:'X-axis label text', value:'Bus Tickets' },
+    { id:'lbl_y', label:'Y-axis label text', value:'Burgers' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', bundles:'Bundle Details', budget:'Budget Parameters', info:'Key Values', selected:'Selected Bundle' },
+  leftPanels:  ['graph','explanation','bundles'],
+  rightPanels: ['budget','info','selected'],
+  nudgeKeys: ['x','y','bc.x','bc.y','pt.A','pt.B','pt.C','pt.D','pt.E','pt.F'],
+
+  pointTooltip(key, g) {
+    const b = bundleOf(key);
+    if (!b) return '';
+    const M = g.val('m'), Px = g.val('p_x'), Py = g.val('p_y');
+    const st = STATUS[bundleStatus(b, M, Px, Py)];
+    return `<div class="tt-label">Bundle ${b.label}</div>` +
+      ttRow(g.text('lbl_x'), b.x) +
+      ttRow(g.text('lbl_y'), b.y) +
+      ttRow('Cost', money(costOf(b, Px, Py))) +
+      ttRow('Status', st.full, st.color);
+  },
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, margin, width, xMax, yMax } = g;
+    const M = val('m'), Px = val('p_x'), Py = val('p_y');
+    const xInt = M / Px, yInt = M / Py;
+    const xLab = g.text('lbl_x'), yLab = g.text('lbl_y');
+    const sel = g.selected ? bundleOf(g.selected) : null;
+
+    // ---- Side panels ----
+    g.setText('max-x', xInt.toFixed(1));
+    g.setText('max-y', yInt.toFixed(1));
+    g.setText('slope-val', '−' + (Px / Py).toFixed(2));
+    // Written as a trade ratio so it stays grammatical whatever the axis labels say
+    g.setText('opp-cost', `${(Py / Px).toFixed(1)} ${xLab} = 1 ${yLab}`);
+    g.setText('th-x', xLab);
+    g.setText('th-y', yLab);
+    g.setText('bundle-tbody', BUNDLES.map(b => {
+      const st = STATUS[bundleStatus(b, M, Px, Py)];
+      const td = v => `<td style="color:${st.color}">${v}</td>`;
+      return `<tr${g.selected === b.label ? ' class="selected"' : ''} onclick="selectPoint('${b.label}')" style="cursor:pointer">` +
+        td(`<strong>${b.label}</strong>`) + td(b.x) + td(b.y) + td(money(costOf(b, Px, Py))) +
+        `<td><span class="status-badge" style="background:${st.bg};color:${st.color}">${st.short}</span></td></tr>`;
+    }).join(''));
+
+    if (!sel) {
+      g.setText('selected-info', '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Click a point on the graph or table to select it</div>');
+    } else {
+      const st = STATUS[bundleStatus(sel, M, Px, Py)];
+      const left = M - costOf(sel, Px, Py);
+      g.setText('selected-info',
+        infoRow('Bundle', sel.label, null, true) +
+        infoRow(xLab, sel.x) +
+        infoRow(yLab, sel.y) +
+        infoRow('Total cost', money(costOf(sel, Px, Py))) +
+        infoRow(left >= 0 ? 'Remaining' : 'Over by', money(Math.abs(left)), st.color) +
+        infoRow('Status', st.full, st.color));
+    }
+
+    // ---- Plot ----
+    g.clear();
+    if (vis('show_grid')) g.gridlines(xMax / 7, yMax / 7);
+
+    // Affordable region: the triangle under the line, clipped to the axis box.
+    if (vis('show_shading') && vis('show_bc')) {
+      ctx.fillStyle = 'rgba(66,153,225,0.06)';
+      ctx.beginPath();
+      ctx.moveTo(tCX(0), tCY(0));
+      if (yInt <= yMax) {
+        ctx.lineTo(tCX(0), tCY(yInt));
+      } else {
+        ctx.lineTo(tCX(0), tCY(yMax));
+        const xAtMaxY = (M - Py * yMax) / Px;
+        if (xAtMaxY > 0) ctx.lineTo(tCX(xAtMaxY), tCY(yMax));
+      }
+      if (xInt <= xMax) {
+        ctx.lineTo(tCX(xInt), tCY(0));
+      } else {
+        const yAtMaxX = (M - Px * xMax) / Py;
+        if (yAtMaxX > 0) ctx.lineTo(tCX(xMax), tCY(yAtMaxX));
+        ctx.lineTo(tCX(xMax), tCY(0));
+      }
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    g.axes();
+
+    if (vis('show_ticks')) {
+      const xs = [], ys = [];
+      for (let i = 0; i <= 7; i++) { xs.push(i * xMax / 7); ys.push(i * yMax / 7); }
+      g.xTicks(xs, v => v.toFixed(0));
+      g.yTicks(ys, v => v.toFixed(0));
+    }
+    g.axisLabels(vis('show_xlabel') ? xLab : null, vis('show_ylabel') ? yLab : null);
+
+    // Budget line, clipped where an intercept falls outside the axis box
+    if (vis('show_bc')) {
+      const from = yInt <= yMax ? { q: 0, p: yInt } : { q: Math.max(0, (M - Py * yMax) / Px), p: yMax };
+      const to   = xInt <= xMax ? { q: xInt, p: 0 } : { q: xMax, p: Math.max(0, (M - Px * xMax) / Py) };
+      g.curve([from, to], '#4299e1', 1, 3);
+    }
+
+    if (vis('show_droplines') && sel && sel.x <= xMax && sel.y <= yMax) {
+      g.dashed(tCX(sel.x), tCY(sel.y), tCX(sel.x), tCY(0), 'rgba(214,158,46,0.55)', 1.5);
+      g.dashed(tCX(sel.x), tCY(sel.y), tCX(0), tCY(sel.y), 'rgba(214,158,46,0.55)', 1.5);
+    }
+
+    if (vis('show_points')) {
+      BUNDLES.forEach(b => {
+        if (b.x > xMax || b.y > yMax) return;
+        const st = STATUS[bundleStatus(b, M, Px, Py)];
+        const isSel = g.selected === b.label;
+        const px = tCX(b.x), py = tCY(b.y);
+        if (isSel) {
+          const glow = ctx.createRadialGradient(px, py, 0, px, py, 24 * S);
+          glow.addColorStop(0, 'rgba(214,158,46,0.35)');
+          glow.addColorStop(1, 'rgba(214,158,46,0)');
+          ctx.fillStyle = glow;
+          ctx.beginPath(); ctx.arc(px, py, 24 * S, 0, Math.PI * 2); ctx.fill();
+        }
+        const r = (isSel ? 10 : 8) * S;
+        ctx.fillStyle = st.color;
+        ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5 * S; ctx.stroke();
+        g.regPoint(b.label, px, py, r);
+        if (vis('show_labels'))
+          g.label(b.label, px, py - 16 * S, { key: 'pt.' + b.label, font: `bold ${14 * S}px ${g.font}`, align: 'center' });
+      });
+    }
+
+    if (vis('show_intercepts')) {
+      const font = `italic ${12 * S}px ${g.font}`;
+      if (xInt <= xMax)
+        g.label(`M/Pₓ = ${xInt.toFixed(1)}`, tCX(xInt), tCY(0) + 40 * S, { key: 'bc.x', font, color: '#4299e1', align: 'center' });
+      if (yInt <= yMax)
+        g.label(`M/Pᵧ = ${yInt.toFixed(1)}`, tCX(0) + 10 * S, tCY(yInt) - 10 * S, { key: 'bc.y', font, color: '#4299e1', align: 'left' });
+    }
+
+    // Running budget summary in the top right of the plot
+    const ix = margin.left + width - 10 * S, iy = margin.top + 20 * S;
+    const small = { font: `${12 * S}px ${g.font}`, color: '#718096', align: 'right' };
+    g.label(`Budget: ${money(M)}`, ix, iy, small);
+    g.label(`${yLab}: ${money(Py)}`, ix, iy + 18 * S, small);
+    g.label(`${xLab}: ${money(Px)}`, ix, iy + 36 * S, small);
+  },
+});
+</script>
+</body>
+</html>

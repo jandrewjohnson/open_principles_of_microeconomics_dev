@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factors That Shift Demand</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+*{box-sizing:border-box}body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f7fa;color:#2d3748;margin:0;padding:20px;min-height:100vh}.container{max-width:1200px;margin:0 auto}h1{text-align:center;font-weight:400;font-size:1.8rem;margin-bottom:8px;color:#1a202c}.subtitle{text-align:center;color:#718096;margin-bottom:24px;font-size:.95rem}.main-content{display:grid;grid-template-columns:1fr 320px;gap:24px}@media(max-width:900px){.main-content{grid-template-columns:1fr}}.main-content.left-empty{grid-template-columns:0 1fr}.main-content.right-empty{grid-template-columns:1fr}.main-content.left-empty .left-column{display:none}.main-content.right-empty .controls{display:none}.left-column{display:flex;flex-direction:column;gap:0}.graph-container{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);position:relative;overflow:visible}.graph-header{display:flex;align-items:center;padding:12px 20px;cursor:pointer;user-select:none}.graph-header:hover{background:#f7fafc;border-radius:12px 12px 0 0}.graph-header .panel-title{margin-bottom:0}.graph-body{padding:0 20px 20px 20px;position:relative}.graph-body.collapsed{display:none}canvas{display:block;width:100%;height:auto;cursor:default}canvas.hovering-label{cursor:grab}canvas.dragging{cursor:grabbing}.plot-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;gap:4px;opacity:0;transition:opacity .2s}.graph-container:hover .plot-actions{opacity:1}.plot-action-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.7rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1}.plot-action-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}.plot-action-btn.copied{color:#38a169;border-color:#c6f6d5;background:rgba(240,255,244,.9)}.plot-action-btn svg{width:12px;height:12px;flex-shrink:0}.panel-close-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.7rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1;flex-shrink:0}.panel-close-btn:hover{background:#fff;color:#e53e3e;border-color:#feb2b2}.panel-header-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;align-items:center;gap:4px;opacity:0;transition:opacity .2s;flex-shrink:0}.panel-collapse-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.65rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1}.panel-collapse-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}.panel-closed{display:none!important}.left-section{position:relative}.left-section:hover .panel-header-actions{opacity:1}.control-panel{position:relative}.control-panel:hover .panel-header-actions{opacity:1}.graph-container:hover>.graph-header .panel-header-actions{opacity:1}.title-wrapper:hover .panel-header-actions{opacity:1}.restore-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.restore-bar:empty{display:none;margin:0;padding:0;border:none}.restore-btn{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:4px 10px;font-size:.72rem;color:#718096;cursor:pointer;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s}.restore-btn:hover{background:#f7fafc;border-color:#cbd5e0;color:#4a5568}.restore-label{font-size:.7rem;color:#a0aec0}.controls{display:flex;flex-direction:column;gap:16px}.control-panel{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}.control-panel-header{display:flex;align-items:center;padding:16px 20px;cursor:pointer;user-select:none}.control-panel-header:hover{background:#f7fafc;border-radius:12px}.control-panel-header .panel-title{margin-bottom:0}.control-panel-body{padding:0 20px 20px 20px}.control-panel-body.collapsed{display:none}.panel-title{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:#718096;margin-bottom:16px;font-weight:600}.slider-group{margin-bottom:16px}.slider-group:last-child{margin-bottom:0}.slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.9rem;color:#4a5568}.slider-value{background:#edf2f7;padding:4px 10px;border-radius:4px;font-family:Monaco,Consolas,monospace;font-size:.85rem;color:#2b6cb0;font-weight:500}input[type=range]{width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none;-webkit-appearance:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#4299e1;cursor:pointer;box-shadow:0 2px 6px rgba(66,153,225,.3);transition:transform .15s}input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}.info-box{background:#f7fafc;border-radius:8px;padding:16px;border-left:3px solid #4299e1}.info-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.9rem}.info-label{color:#718096}.info-value{font-family:Monaco,Consolas,monospace;color:#1a202c}.info-value.highlight{color:#2b6cb0;font-weight:600}.legend{display:flex;flex-direction:column;gap:8px}.legend-item{display:flex;align-items:center;gap:10px;font-size:.85rem;color:#4a5568}.legend-line{width:24px;height:3px;border-radius:2px;flex-shrink:0}.equation-box{background:#f7fafc;border-radius:8px;padding:14px 16px;text-align:center;margin-top:8px;border:1px solid #e2e8f0;font-size:1.05rem}.left-section{margin-top:20px;background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}.left-section-header{display:flex;align-items:center;padding:16px 24px;cursor:pointer;user-select:none}.left-section-header:hover{background:#f7fafc;border-radius:12px}.left-section-header .panel-title{margin-bottom:0}.left-section-body{padding:0 24px 20px 24px}.left-section-body.collapsed{display:none}.left-section-body p{margin:0 0 14px 0;line-height:1.7;font-size:.95rem;color:#4a5568}.left-section-body p:last-child{margin-bottom:0}.display-options-wrapper{margin-top:24px}.display-options-toggle{background:none;border:none;color:#a0aec0;font-size:.78rem;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px}.display-options-toggle:hover{color:#718096}.display-options-toggle .arrow{font-size:.6rem;transition:transform .2s}.display-options-toggle .arrow.open{transform:rotate(90deg)}.display-options-panel{display:none;margin-top:8px;background:#fff;border-radius:12px;padding:16px 20px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08)}.display-options-panel.open{display:block}.display-options-panel .panel-title{font-size:.75rem;margin-bottom:12px}.opt-row{display:flex;align-items:center;gap:8px;padding:3px 0}.opt-row label{font-size:.8rem;color:#4a5568;cursor:pointer}.opt-row input[type=checkbox]{accent-color:#4299e1;cursor:pointer;margin:0;width:14px;height:14px}body.embed-mode{padding:8px;background:transparent;min-height:auto}.embed-mode h1,.embed-mode .subtitle,.embed-mode .left-section,.embed-mode .display-options-wrapper{display:none!important}body.embed-hide-controls .controls{display:none!important}body.embed-hide-controls .main-content{grid-template-columns:1fr}.katex{font-size:1em}.url-state-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.url-state-bar button{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:6px 12px;font-size:.78rem;color:#4a5568;cursor:pointer;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;white-space:nowrap}.url-state-bar button:hover{background:#f7fafc;border-color:#cbd5e0}.url-state-bar button.copied{color:#38a169;border-color:#c6f6d5;background:#f0fff4}.url-state-bar .url-hint{font-size:.7rem;color:#a0aec0}
+</style>
+</head>
+<body>
+<div class="container">
+    <div id="section-title" class="title-wrapper" style="position:relative"><h1>Factors That Shift Demand</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+    <div id="section-subtitle" class="subtitle-wrapper" style="position:relative"><p class="subtitle" style="margin-bottom:24px">Non-price determinants that cause the entire demand curve to move right (increase) or left (decrease)</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+    <div class="main-content">
+        <div class="left-column">
+            <div class="graph-container" id="section-graph">
+                <div class="graph-header" onclick="tog('graph')"><div class="panel-title" style="margin-bottom:0">Demand Shift Factors</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+                <div class="graph-body" id="body-graph">
+                    <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy</span></button><button class="plot-action-btn" id="save-plot-btn" title="Save"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save</span></button></div>
+                    <canvas id="graph" width="1700" height="850"></canvas>
+                </div>
+            </div>
+            <div class="left-section" id="section-explanation"><div class="left-section-header" onclick="tog('explanation')"><div class="panel-title" style="margin-bottom:0">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+                <div class="left-section-body" id="body-explanation">
+                    <p>A demand curve shifts when a <strong>non-price determinant</strong> of demand changes. When a factor makes consumers want to buy more at every price, the entire curve shifts <em>rightward</em> (D₀ → D₁). When it makes them want less, the curve shifts <em>leftward</em> (D₀ → D₁).</p>
+                    <p><strong>Six key shifters:</strong> (1) Tastes &amp; preferences — greater popularity shifts right. (2) Number of buyers — more buyers, more demand. (3) Income — for normal goods, higher income shifts right. (4) Price of substitutes — when a competing good gets pricier, demand for this good rises. (5) Price of complements — when a complementary good gets cheaper, demand rises. (6) Future expectations — expecting higher prices or scarcity encourages buying now.</p>
+                    <p>Each factor works symmetrically: the opposite change shifts demand leftward. The shift amount slider controls how far apart D₀ and D₁ are, and the curvature slider controls the concavity of the curves.</p>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="control-panel" id="section-curve"><div class="control-panel-header" onclick="tog('curve')"><div class="panel-title" style="margin-bottom:0">Curve Parameters</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-curve" onclick="event.stopPropagation();tog('curve')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('curve')">✕</button></div></div>
+                <div class="control-panel-body" id="body-curve">
+                    <div class="slider-group"><div class="slider-label"><span>Shift amount</span><span class="slider-value" id="shift-val">26%</span></div><input type="range" id="shift" min="10" max="45" value="26" step="1"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Curvature</span><span class="slider-value" id="curv-val">1.1</span></div><input type="range" id="curv" min="0.4" max="2.0" value="1.1" step="0.1"></div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-keyvals"><div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title" style="margin-bottom:0">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button></div></div>
+                <div class="control-panel-body" id="body-keyvals">
+                    <div class="legend">
+                        <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>D₀ (original demand)</span></div>
+                        <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>D₁ (shifted demand)</span></div>
+                        <div class="legend-item"><span style="font-size:1.1rem;width:24px;text-align:center">→</span><span>Panel (a): rightward shift (increase)</span></div>
+                        <div class="legend-item"><span style="font-size:1.1rem;width:24px;text-align:center">←</span><span>Panel (b): leftward shift (decrease)</span></div>
+                    </div>
+                    <div class="equation-box" style="margin-top:12px">\(\text{Shift of curve} \neq \text{Movement along curve}\)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="display-options-wrapper">
+        <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+        <div class="display-options-panel" id="display-panel">
+            <div class="panel-title">Plot Elements <span style="font-weight:400;font-size:.65rem;color:#a0aec0;text-transform:none;letter-spacing:0"> — drag labels to reposition</span></div>
+            <div class="opt-row"><input type="checkbox" id="show-arrows" checked><label for="show-arrows">Shift arrows</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-factors" checked><label for="show-factors">Factor labels</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-labels" checked><label for="show-labels">D₀ / D₁ labels</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-subtitles" checked><label for="show-subtitles">Panel subtitles</label></div>
+            <div class="restore-bar" id="restore-bar"></div>
+            <div class="url-state-bar"><button id="copy-url-btn">📋 Copy link</button><button id="reset-url-btn">↺ Reset</button><span class="url-hint">Encodes all parameters</span></div>
+        </div>
+    </div>
+</div>
+<script>
+(function(){const p=new URLSearchParams(window.location.search);if(p.has('embed')){document.body.classList.add('embed-mode');const h=p.get('hide');if(h)h.split(',').forEach(s=>document.body.classList.add('embed-hide-'+s.trim()));}})();
+function renderAllMath(){if(typeof renderMathInElement!=='undefined')renderMathInElement(document.body,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});}
+document.addEventListener("DOMContentLoaded",renderAllMath);window.addEventListener('load',renderAllMath);
+
+function tog(n){const b=document.getElementById('body-'+n),t=document.getElementById('toggle-'+n);if(b&&t)t.textContent=b.classList.toggle('collapsed')?'▶':'▼';}
+const PANEL_NAMES={title:'Title',subtitle:'Subtitle',graph:'Graph',explanation:'Explanation',curve:'Curve',keyvals:'Key'};
+const LEFT_PANELS=['graph','explanation'],RIGHT_PANELS=['curve','keyvals'];
+function closePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.add('panel-closed');updateR();updateL();}
+function restorePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.remove('panel-closed');updateR();updateL();}
+function updateL(){const mc=document.querySelector('.main-content');mc.classList.toggle('left-empty',LEFT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));mc.classList.toggle('right-empty',RIGHT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));}
+function updateR(){const bar=document.getElementById('restore-bar');const cl=Object.keys(PANEL_NAMES).filter(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed'));if(!cl.length){bar.innerHTML='';return;}bar.innerHTML='<span class="restore-label">Restore:</span>'+cl.map(n=>`<button class="restore-btn" onclick="restorePanel('${n}')">${PANEL_NAMES[n]}</button>`).join('');}
+
+const nudgeOffsets={};const DPR=2;
+function getNudge(t){const o=nudgeOffsets[t];return o?{dx:o.dx*DPR,dy:o.dy*DPR}:{dx:0,dy:0};}
+const canvas=document.getElementById('graph'),ctx=canvas.getContext('2d');
+const shiftS=document.getElementById('shift'),curvS=document.getElementById('curv');
+function isVis(id){const e=document.getElementById(id);return e?e.checked:true;}
+
+const S=DPR,cw=canvas.width,ch=canvas.height;
+const panelGap=50*S,pw=(cw-panelGap)/2;
+
+function makeCurve(ox,oy,w,h,xOff,curv){
+    const pts=[],n=100;
+    for(let i=0;i<=n;i++){
+        const t=i/n;
+        const x=ox+t*w+xOff;
+        const raw=1/(t*curv+0.17);
+        const mn=1/(curv+0.17),mx=1/0.17;
+        const norm=(raw-mn)/(mx-mn);
+        pts.push({x,y:oy+h*(1-norm*0.86)-h*0.03});
+    }
+    return pts;
+}
+function strokeC(pts){ctx.beginPath();pts.forEach((p,i)=>{i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y);});ctx.stroke();}
+function interp(pts,f){const i=Math.min(Math.floor(f*(pts.length-1)),pts.length-2),t=f*(pts.length-1)-i;return{x:pts[i].x+t*(pts[i+1].x-pts[i].x),y:pts[i].y+t*(pts[i+1].y-pts[i].y)};}
+function drawArrow(x1,y1,x2,y2){
+    const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);if(len<1)return;
+    const ux=dx/len,uy=dy/len;
+    ctx.strokeStyle='#1a202c';ctx.lineWidth=1.8*S;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+    ctx.fillStyle='#1a202c';ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-ux*8*S+uy*4*S,y2-uy*8*S-ux*4*S);ctx.lineTo(x2-ux*8*S-uy*4*S,y2-uy*8*S+ux*4*S);ctx.closePath();ctx.fill();
+}
+
+// Label dragging
+let labelHitBoxes=[];
+function regLabel(k,x,y,w,h){labelHitBoxes.push({key:k,x,y,w,h});}
+function m2c(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height};}
+function hitL(cx,cy){for(let i=labelHitBoxes.length-1;i>=0;i--){const b=labelHitBoxes[i];if(cx>=b.x&&cx<=b.x+b.w&&cy>=b.y&&cy<=b.y+b.h)return b.key;}return null;}
+let dragTarget=null,dsx=0,dsy=0,dsox=0,dsoy=0;
+canvas.addEventListener('mousedown',e=>{const pos=m2c(e);const hl=hitL(pos.x,pos.y);if(hl){dragTarget=hl;dsx=pos.x;dsy=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dsox=nudgeOffsets[hl].dx;dsoy=nudgeOffsets[hl].dy;canvas.classList.add('dragging');e.preventDefault();}});
+canvas.addEventListener('mousemove',e=>{const pos=m2c(e);if(dragTarget){nudgeOffsets[dragTarget].dx=dsox+(pos.x-dsx)/DPR;nudgeOffsets[dragTarget].dy=dsoy+(pos.y-dsy)/DPR;drawGraph();}else{canvas.classList.toggle('hovering-label',!!hitL(pos.x,pos.y));}});
+canvas.addEventListener('mouseup',()=>{if(dragTarget){dragTarget=null;canvas.classList.remove('dragging');}});
+canvas.addEventListener('mouseleave',()=>{dragTarget=null;canvas.classList.remove('dragging','hovering-label');});
+canvas.addEventListener('touchstart',e=>{const t=e.touches[0],r=canvas.getBoundingClientRect(),pos={x:(t.clientX-r.left)*canvas.width/r.width,y:(t.clientY-r.top)*canvas.height/r.height};const hl=hitL(pos.x,pos.y);if(hl){dragTarget=hl;dsx=pos.x;dsy=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dsox=nudgeOffsets[hl].dx;dsoy=nudgeOffsets[hl].dy;e.preventDefault();}},{passive:false});
+canvas.addEventListener('touchmove',e=>{if(dragTarget){const t=e.touches[0],r=canvas.getBoundingClientRect(),pos={x:(t.clientX-r.left)*canvas.width/r.width,y:(t.clientY-r.top)*canvas.height/r.height};nudgeOffsets[dragTarget].dx=dsox+(pos.x-dsx)/DPR;nudgeOffsets[dragTarget].dy=dsoy+(pos.y-dsy)/DPR;drawGraph();e.preventDefault();}},{passive:false});
+canvas.addEventListener('touchend',()=>{dragTarget=null;});
+
+function drawPanel(px,inc,shPct,curv){
+    const mL=52*S,mT=28*S,mB=56*S,mR=8*S;
+    const pW=pw-mL-mR,pH=ch-mT-mB;
+    const ax=px+mL,ay=mT;
+
+    // Axes
+    ctx.strokeStyle='#2b6cb0';ctx.lineWidth=2*S;
+    ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(ax,ay+pH);ctx.lineTo(ax+pW,ay+pH);ctx.stroke();
+    ctx.fillStyle='#2b6cb0';ctx.beginPath();ctx.moveTo(ax,ay-2*S);ctx.lineTo(ax-5*S,ay+6*S);ctx.lineTo(ax+5*S,ay+6*S);ctx.closePath();ctx.fill();
+
+    // Axis labels
+    const side=inc?'a':'b';
+    const ngX=getNudge('xaxis-'+side);
+    ctx.fillStyle='#2b6cb0';ctx.font=`bold ${12*S}px Segoe UI`;
+    ctx.save();ctx.translate(px+14*S,ay+pH/2);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillText('Price',0,0);ctx.restore();
+    ctx.textAlign='center';
+    const xlx=ax+pW/2+ngX.dx,xly=ch-20*S+ngX.dy;
+    ctx.fillText('Quantity',xlx,xly);
+    const xtw=ctx.measureText('Quantity').width;
+    regLabel('xaxis-'+side,xlx-xtw/2-4*S,xly-14*S,xtw+8*S,20*S);
+
+    // Curves
+    const sh=pW*(shPct/100);
+    // Panel (a) increase: D0 left, D1 right. Panel (b) decrease: D0 right, D1 left
+    const c0=makeCurve(ax,ay,pW*0.68,pH, inc?0:sh, curv);
+    const c1=makeCurve(ax,ay,pW*0.68,pH, inc?sh:0, curv);
+    ctx.strokeStyle='#2b6cb0';ctx.lineWidth=2.5*S;
+    strokeC(c0);strokeC(c1);
+
+    // D0, D1 labels
+    if(isVis('show-labels')){
+        const e0=c0[c0.length-1],e1=c1[c1.length-1];
+        ctx.fillStyle='#2b6cb0';ctx.font=`bold ${12*S}px Segoe UI`;ctx.textAlign='left';
+        const ngD0=getNudge('d0-'+side),ngD1=getNudge('d1-'+side);
+        const d0x=e0.x+4*S+ngD0.dx,d0y=e0.y+2*S+ngD0.dy;
+        ctx.fillText('D₀',d0x,d0y);
+        const tw0=ctx.measureText('D₀').width;regLabel('d0-'+side,d0x-4*S,d0y-14*S,tw0+8*S,20*S);
+        const d1x=e1.x+4*S+ngD1.dx,d1y=e1.y+2*S+ngD1.dy;
+        ctx.fillText('D₁',d1x,d1y);
+        const tw1=ctx.measureText('D₁').width;regLabel('d1-'+side,d1x-4*S,d1y-14*S,tw1+8*S,20*S);
+    }
+
+    // Factor definitions
+    const factorsInc=[
+        'Taste shift to greater popularity',
+        'Population likely to buy rises',
+        'Income rises (for a normal good)',
+        'Price of substitutes rises',
+        'Price of complements falls',
+        'Future expectations',
+    ];
+    const factorsDec=[
+        'Taste shift to lesser popularity',
+        'Population likely to buy drops',
+        'Income drops (for a normal good)',
+        'Price of substitutes falls',
+        'Price of complements rises',
+        'Future expectations',
+    ];
+    const factors=inc?factorsInc:factorsDec;
+    const subText=inc?'encourage buying':'discourage buying';
+
+    // Arrow positions (fraction along curve)
+    const fracs=[0.06,0.14,0.22,0.38,0.48,0.58];
+
+    fracs.forEach((frac,i)=>{
+        // Source curve = D0 always; target = D1
+        const p0=interp(c0,frac);
+        const p1=interp(c1,frac);
+        const g=10*S;
+        const my=(p0.y+p1.y)/2;
+
+        if(isVis('show-arrows')){
+            if(inc){
+                // (a): arrows point LEFT to RIGHT (D0 → D1, outward)
+                drawArrow(p0.x+g,my,p1.x-g,my);
+            } else {
+                // (b): arrows point RIGHT to LEFT (D0 → D1, inward)
+                drawArrow(p0.x-g,my,p1.x+g,my);
+            }
+        }
+
+        if(isVis('show-factors')){
+            const ng=getNudge('f'+i+'-'+side);
+            const tx=Math.max(p0.x,p1.x)+14*S+ng.dx;
+            const ty=my+4*S+ng.dy;
+            ctx.fillStyle='#2b6cb0';ctx.font=`${9.5*S}px Segoe UI`;ctx.textAlign='left';
+            ctx.fillText(factors[i],tx,ty);
+            const ftw=ctx.measureText(factors[i]).width;
+            regLabel('f'+i+'-'+side,tx-4*S,ty-12*S,ftw+8*S,18*S);
+
+            // Sub-line for last factor
+            if(i===5){
+                const ng2=getNudge('fsub-'+side);
+                const subLabel=(inc?'D₁  ':'D₀  ')+subText;
+                ctx.fillText(subLabel,tx+ng2.dx,ty+14*S+ng2.dy);
+                const stw=ctx.measureText(subLabel).width;
+                regLabel('fsub-'+side,tx-4*S+ng2.dx,ty+14*S-12*S+ng2.dy,stw+8*S,18*S);
+            }
+        }
+    });
+
+    // Panel subtitle
+    if(isVis('show-subtitles')){
+        ctx.fillStyle='#718096';ctx.font=`${11*S}px Segoe UI`;ctx.textAlign='center';
+        ctx.fillText(inc?'(a) Factors that increase demand':'(b) Factors that decrease demand',ax+pW/2,ch-5*S);
+    }
+}
+
+function drawGraph(){
+    labelHitBoxes=[];
+    const shPct=parseFloat(shiftS.value),curv=parseFloat(curvS.value);
+    document.getElementById('shift-val').textContent=shPct+'%';
+    document.getElementById('curv-val').textContent=curv.toFixed(1);
+
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,cw,ch);
+    drawPanel(0,true,shPct,curv);
+    drawPanel(pw+panelGap,false,shPct,curv);
+}
+
+[shiftS,curvS].forEach(s=>s.addEventListener('input',drawGraph));
+document.getElementById('display-toggle-btn').addEventListener('click',()=>{const p=document.getElementById('display-panel'),a=document.getElementById('display-arrow');a.classList.toggle('open',p.classList.toggle('open'));});
+document.querySelectorAll('.display-options-panel input').forEach(i=>{i.addEventListener('input',drawGraph);i.addEventListener('change',drawGraph);});
+document.getElementById('copy-plot-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-plot-btn'),l=document.getElementById('copy-label');try{const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);btn.classList.add('copied');l.textContent='Copied!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Copy';},1500);}catch{l.textContent='Failed';setTimeout(()=>{l.textContent='Copy';},1500);}});
+document.getElementById('save-plot-btn').addEventListener('click',()=>{const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='demand_shift_factors.png';a.click();const btn=document.getElementById('save-plot-btn'),l=document.getElementById('save-label');btn.classList.add('copied');l.textContent='Saved!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Save';},1500);});
+
+// URL State
+const DEFAULTS={shift:26,curv:1.1};
+const CB_IDS=['show-arrows','show-factors','show-labels','show-subtitles'];
+const NK=['xaxis-a','xaxis-b','d0-a','d1-a','d0-b','d1-b','f0-a','f1-a','f2-a','f3-a','f4-a','f5-a','fsub-a','f0-b','f1-b','f2-b','f3-b','f4-b','f5-b','fsub-b'];
+function loadHash(){const h=window.location.hash.slice(1);if(!h)return;const p=new URLSearchParams(h);if(p.has('shift'))shiftS.value=p.get('shift');if(p.has('curv'))curvS.value=p.get('curv');for(const id of CB_IDS){if(p.has(id)){const el=document.getElementById(id);if(el)el.checked=p.get(id)==='1';}}for(const k of NK){const key='n_'+k;if(p.has(key)){const pts=p.get(key).split(',');if(pts.length===2)nudgeOffsets[k]={dx:parseFloat(pts[0]),dy:parseFloat(pts[1])};}}}
+document.getElementById('copy-url-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-url-btn');const s={};if(parseFloat(shiftS.value)!==DEFAULTS.shift)s.shift=shiftS.value;if(parseFloat(curvS.value)!==DEFAULTS.curv)s.curv=curvS.value;for(const id of CB_IDS){const el=document.getElementById(id);if(el&&!el.checked)s[id]=0;}for(const k of NK){const o=nudgeOffsets[k];if(o&&(Math.abs(o.dx)>0.5||Math.abs(o.dy)>0.5))s['n_'+k]=Math.round(o.dx)+','+Math.round(o.dy);}const qs=new URLSearchParams();for(const[k,v]of Object.entries(s))qs.set(k,v);const url=location.origin+location.pathname+(qs.toString()?'#'+qs:'');try{await navigator.clipboard.writeText(url);btn.textContent='✓ Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copy link';btn.classList.remove('copied');},2000);}catch{prompt('Copy:',url);}});
+document.getElementById('reset-url-btn').addEventListener('click',()=>{shiftS.value=DEFAULTS.shift;curvS.value=DEFAULTS.curv;for(const id of CB_IDS){const el=document.getElementById(id);if(el)el.checked=true;}for(const k of NK)delete nudgeOffsets[k];Object.keys(PANEL_NAMES).forEach(n=>{const el=document.getElementById('section-'+n);if(el)el.classList.remove('panel-closed');});['graph','explanation','curve','keyvals'].forEach(s=>{const b=document.getElementById('body-'+s),t=document.getElementById('toggle-'+s);if(b)b.classList.remove('collapsed');if(t)t.textContent='▼';});updateR();updateL();history.replaceState(null,'',location.pathname);drawGraph();});
+
+loadHash();updateR();updateL();drawGraph();
+</script>
+</body>
+</html>

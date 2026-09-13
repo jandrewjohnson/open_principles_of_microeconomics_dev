@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparative Advantage</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Comparative Advantage</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Two production possibility frontiers, and the trade pattern their slopes imply</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Production Possibilities: Brazil and the United States</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="700"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>These two PPFs compare what Brazil and the U.S. can each produce per acre of land when choosing between Wheat and Sugar Cane. The shapes reveal fundamentally different production capabilities: Brazil's PPF is tall and narrow, so it can produce a lot of sugar cane but relatively little wheat per acre. The U.S. PPF is wide and short, so it excels at wheat but produces less sugar cane per acre.</p>
+          <p>A country has a <strong>comparative advantage</strong> in the good for which its opportunity cost is lower. Brazil gives up relatively little wheat to produce an additional unit of sugar cane, while the U.S. gives up relatively little sugar cane to produce more wheat. Even if one country were more productive at <em>both</em> goods (absolute advantage), trade based on comparative advantage still makes both countries better off because each specializes where its relative sacrifice is smallest.</p>
+          <p>Point <strong>A</strong> on each graph marks the maximum wheat output (if no sugar cane is produced), and point <strong>B</strong> marks the maximum sugar cane output (if no wheat is produced). The opportunity cost of one good in terms of the other is the ratio of these intercepts, and the country with the lower ratio for a given good holds the comparative advantage in it.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-advtable">
+        <div class="left-section-header" onclick="tog('advtable')"><div class="panel-title">Comparative and Absolute Advantage</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-advtable" onclick="event.stopPropagation();tog('advtable')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('advtable')">✕</button></div></div>
+        <div class="left-section-body" id="body-advtable"><div id="adv-content"></div></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-brazil">
+        <div class="control-panel-header" onclick="tog('brazil')"><div class="panel-title">Brazil</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-brazil" onclick="event.stopPropagation();tog('brazil')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('brazil')">✕</button></div></div>
+        <div class="control-panel-body" id="body-brazil" data-sliders="max_wheat_br,max_sugar_br,n_br"></div>
+      </div>
+      <div class="control-panel" id="section-us">
+        <div class="control-panel-header" onclick="tog('us')"><div class="panel-title">United States</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-us" onclick="event.stopPropagation();tog('us')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('us')">✕</button></div></div>
+        <div class="control-panel-body" id="body-us" data-sliders="max_wheat_us,max_sugar_us,n_us"></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keyvals')">✕</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>Brazil PPF</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#c05621"></div><span>U.S. PPF</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0"></div><span>A = max Wheat, B = max Sugar Cane</span></div>
+          </div>
+          <div class="equation-box" style="margin-top:12px">\( \text{OC of Wheat} = \frac{\text{Max Sugar Cane}}{\text{Max Wheat}} \)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Two panel layout, in design pixels on a 1400 x 700 canvas ----
+const S0 = 2;                                   // design pixel ratio
+const MG = { top:60*S0, right:40*S0, bottom:80*S0, left:70*S0 };
+const GAP = 40 * S0, PW = (1400 - GAP) / 2;
+// xMax / yMax are rewritten each draw so both panels share one scale.
+const AXES = [
+  { xMin:0, xMax:72, yMin:0, yMax:72, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:72, yMin:0, yMax:72, margin:MG, left:PW + GAP, width:PW },
+];
+
+// Constant elasticity of transformation PPF through (xm,0) and (0,ym)
+const ppfY = (x, xm, ym, n) => {
+  const r = x / xm;
+  if (r >= 1) return 0;
+  if (r <= 0) return ym;
+  const inside = 1 - Math.pow(r, n);
+  return inside <= 0 ? 0 : ym * Math.pow(inside, 1 / n);
+};
+
+const COUNTRY = [
+  { id:'br', name:'Brazil', color:'#2b6cb0', caption:'(a) Brazil Production per acre (tons)' },
+  { id:'us', name:'U.S.',   color:'#c05621', caption:'(b) U.S. Production per acre (tons)' },
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'comparative_advantage.png',
+  axes: AXES,
+  sliders: [
+    { id:'max_wheat_br', label:'Max Wheat (A)',      min:5, max:100, value:20, step:1 },
+    { id:'max_sugar_br', label:'Max Sugar Cane (B)', min:5, max:100, value:60, step:1 },
+    { id:'n_br',         label:'Curvature',          min:1, max:4,   value:2,  step:0.1, fmt:v => v.toFixed(1) },
+    { id:'max_wheat_us', label:'Max Wheat (A)',      min:5, max:100, value:60, step:1 },
+    { id:'max_sugar_us', label:'Max Sugar Cane (B)', min:5, max:100, value:30, step:1 },
+    { id:'n_us',         label:'Curvature',          min:1, max:4,   value:2,  step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_grid',      label:'Gridlines' },
+    { id:'show_ticks',     label:'Axis tick numbers' },
+    { id:'show_shading',   label:'Attainable region shading' },
+    { id:'show_points',    label:'Points A and B' },
+    { id:'show_labels',    label:'Point labels' },
+    { id:'show_captions',  label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'PPF Graph', explanation:'Explanation', advtable:'Advantage Table', brazil:'Brazil', us:'United States', keyvals:'Key' },
+  leftPanels:  ['graph','explanation','advtable'],
+  rightPanels: ['brazil','us','keyvals'],
+  nudgeKeys: ['x.br','y.br','x.us','y.us','pt.br.A','pt.br.B','pt.us.A','pt.us.B'],
+
+  draw(g) {
+    const { S, ctx, val, vis, H } = g;
+    const P = [
+      { max_w: val('max_wheat_br'), max_s: val('max_sugar_br'), n: val('n_br') },
+      { max_w: val('max_wheat_us'), max_s: val('max_sugar_us'), n: val('n_us') },
+    ];
+
+    // Shared scale so the two shapes are visually comparable
+    const gmx = Math.max(P[0].max_w, P[1].max_w) * 1.2;
+    const gmy = Math.max(P[0].max_s, P[1].max_s) * 1.2;
+    AXES.forEach(a => { a.xMax = gmx; a.yMax = gmy; });
+
+    // ---- Advantage table ----
+    const oc = (give, get) => give / get;
+    const ocW = [oc(P[0].max_s, P[0].max_w), oc(P[1].max_s, P[1].max_w)];
+    const ocS = [oc(P[0].max_w, P[0].max_s), oc(P[1].max_w, P[1].max_s)];
+    const winner = (a, b) => a < b ? 'Brazil' : a > b ? 'U.S.' : 'Tie';
+    const bigger = (a, b) => a > b ? 'Brazil' : a < b ? 'U.S.' : 'Tie';
+    const compW = winner(ocW[0], ocW[1]), compS = winner(ocS[0], ocS[1]);
+    const badge = (txt, kind) => `<span class="status-badge" style="background:${kind === 'comp' ? 'rgba(56,161,105,.12)' : 'rgba(113,128,150,.12)'};color:${kind === 'comp' ? '#38a169' : '#718096'}">${txt}</span>`;
+    const row = (head, a, b) => `<tr><td style="text-align:left;font-weight:600;color:#718096">${head}</td><td>${a}</td><td>${b}</td></tr>`;
+
+    g.setText('adv-content',
+      '<table class="data-table"><thead><tr><th></th><th>Wheat</th><th>Sugar Cane</th></tr></thead><tbody>' +
+      row('Brazil max output', `${P[0].max_w} tons`, `${P[0].max_s} tons`) +
+      row('U.S. max output', `${P[1].max_w} tons`, `${P[1].max_s} tons`) +
+      row('Absolute advantage', badge(bigger(P[0].max_w, P[1].max_w), 'abs'), badge(bigger(P[0].max_s, P[1].max_s), 'abs')) +
+      row('OC for Brazil', `${ocW[0].toFixed(2)} SC`, `${ocS[0].toFixed(2)} W`) +
+      row('OC for U.S.', `${ocW[1].toFixed(2)} SC`, `${ocS[1].toFixed(2)} W`) +
+      row('Comparative advantage', badge(compW, 'comp'), badge(compS, 'comp')) +
+      '</tbody></table>' +
+      `<p style="margin:14px 0 0 0;line-height:1.7;font-size:.92rem;color:#4a5568">` +
+      `<strong>${compW}</strong> should specialize in Wheat (lower OC: ${(compW === 'Brazil' ? ocW[0] : ocW[1]).toFixed(2)} vs ${(compW === 'Brazil' ? ocW[1] : ocW[0]).toFixed(2)} SC per W). ` +
+      `<strong>${compS}</strong> should specialize in Sugar Cane (lower OC: ${(compS === 'Brazil' ? ocS[0] : ocS[1]).toFixed(2)} vs ${(compS === 'Brazil' ? ocS[1] : ocS[0]).toFixed(2)} W per SC). ` +
+      `Both countries gain from trade by specializing according to comparative advantage.</p>`);
+
+    // ---- Plot ----
+    g.clear();
+    COUNTRY.forEach((c, i) => {
+      const pan = g.panel(i);
+      const { max_w, max_s, n } = P[i];
+      const curve = x => ppfY(x, max_w, max_s, n);
+
+      if (vis('show_grid')) pan.gridlines(gmx / 5, gmy / 5);
+      if (vis('show_shading')) pan.fillUnder(curve, 0, max_w, c.color + '0a');
+      pan.axes();
+
+      // Arrowheads on both axis ends (app specific)
+      ctx.fillStyle = '#a0aec0';
+      ctx.beginPath(); ctx.moveTo(pan.x0, pan.y0 - 2 * S); ctx.lineTo(pan.x0 - 5 * S, pan.y0 + 8 * S); ctx.lineTo(pan.x0 + 5 * S, pan.y0 + 8 * S); ctx.closePath(); ctx.fill();
+      const ry = pan.y0 + pan.height, rx = pan.x0 + pan.width;
+      ctx.beginPath(); ctx.moveTo(rx + 2 * S, ry); ctx.lineTo(rx - 8 * S, ry - 5 * S); ctx.lineTo(rx - 8 * S, ry + 5 * S); ctx.closePath(); ctx.fill();
+
+      if (vis('show_ticks')) {
+        const xs = [], ys = [];
+        for (let k = 1; k <= 5; k++) { xs.push((k / 5) * gmx); ys.push((k / 5) * gmy); }
+        pan.xTicks(xs, v => Math.round(v));
+        pan.yTicks(ys, v => Math.round(v));
+      }
+
+      pan.plotFn(curve, 0, max_w, { color: c.color, lw: 2.5 });
+
+      if (vis('show_points')) {
+        [{ label:'A', x:max_w, y:0, dx:0, dy:20 * S }, { label:'B', x:0, y:max_s, dx:-16 * S, dy:-4 * S }].forEach(pt => {
+          const px = pan.tCX(pt.x), py = pan.tCY(pt.y);
+          ctx.fillStyle = c.color; ctx.beginPath(); ctx.arc(px, py, 7 * S, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = '#fff'; ctx.lineWidth = 2 * S; ctx.stroke();
+          if (vis('show_labels'))
+            pan.label(pt.label, px + pt.dx, py + pt.dy, { key:`pt.${c.id}.${pt.label}`, font:`bold ${14 * S}px ${g.font}`, align:'center' });
+        });
+      }
+
+      pan.axisLabels('Wheat', 'Sugar Cane', c.id);
+
+      if (vis('show_captions'))
+        pan.label(c.caption, pan.x0 + pan.width / 2, H - 30 * S, { font:`${13 * S}px ${g.font}`, color:'#718096', align:'center' });
+    });
+  },
+});
+</script>
+</body>
+</html>

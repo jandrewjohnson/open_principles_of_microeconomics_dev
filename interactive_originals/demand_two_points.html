@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demand Curve: Two Quantities at One Price</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+*{box-sizing:border-box}body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f7fa;color:#2d3748;margin:0;padding:20px;min-height:100vh}.container{max-width:1200px;margin:0 auto}h1{text-align:center;font-weight:400;font-size:1.8rem;margin-bottom:8px;color:#1a202c}.subtitle{text-align:center;color:#718096;margin-bottom:24px;font-size:.95rem}.main-content{display:grid;grid-template-columns:1fr 320px;gap:24px}@media(max-width:900px){.main-content{grid-template-columns:1fr}}.main-content.right-empty{grid-template-columns:1fr}.main-content.right-empty .controls{display:none}.left-column{display:flex;flex-direction:column;gap:0}.graph-container{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);position:relative;overflow:visible}.graph-header{display:flex;align-items:center;padding:12px 20px;cursor:pointer;user-select:none}.graph-header:hover{background:#f7fafc;border-radius:12px 12px 0 0}.graph-header .panel-title{margin-bottom:0}.graph-body{padding:0 20px 20px 20px;position:relative}.graph-body.collapsed{display:none}canvas{display:block;width:100%;height:auto;cursor:default}canvas.hovering-label{cursor:grab}canvas.dragging{cursor:grabbing}.plot-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;gap:4px;opacity:0;transition:opacity .2s}.graph-container:hover .plot-actions{opacity:1}.plot-action-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.7rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1}.plot-action-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}.plot-action-btn.copied{color:#38a169;border-color:#c6f6d5;background:rgba(240,255,244,.9)}.plot-action-btn svg{width:12px;height:12px;flex-shrink:0}.panel-close-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.7rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1;flex-shrink:0}.panel-close-btn:hover{background:#fff;color:#e53e3e;border-color:#feb2b2}.panel-header-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;align-items:center;gap:4px;opacity:0;transition:opacity .2s;flex-shrink:0}.panel-collapse-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.65rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1}.panel-collapse-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}.panel-closed{display:none!important}.left-section{position:relative}.left-section:hover .panel-header-actions{opacity:1}.control-panel{position:relative}.control-panel:hover .panel-header-actions{opacity:1}.graph-container:hover>.graph-header .panel-header-actions{opacity:1}.title-wrapper:hover .panel-header-actions{opacity:1}.restore-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.restore-bar:empty{display:none;margin:0;padding:0;border:none}.restore-btn{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:4px 10px;font-size:.72rem;color:#718096;cursor:pointer;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s}.restore-btn:hover{background:#f7fafc;border-color:#cbd5e0;color:#4a5568}.restore-label{font-size:.7rem;color:#a0aec0}.controls{display:flex;flex-direction:column;gap:16px}.control-panel{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}.control-panel-header{display:flex;align-items:center;padding:16px 20px;cursor:pointer;user-select:none}.control-panel-header:hover{background:#f7fafc;border-radius:12px}.control-panel-header .panel-title{margin-bottom:0}.control-panel-body{padding:0 20px 20px 20px}.control-panel-body.collapsed{display:none}.panel-title{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:#718096;margin-bottom:16px;font-weight:600}.slider-group{margin-bottom:16px}.slider-group:last-child{margin-bottom:0}.slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.9rem;color:#4a5568}.slider-value{background:#edf2f7;padding:4px 10px;border-radius:4px;font-family:Monaco,Consolas,monospace;font-size:.85rem;color:#2b6cb0;font-weight:500}input[type=range]{width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none;-webkit-appearance:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#4299e1;cursor:pointer;box-shadow:0 2px 6px rgba(66,153,225,.3);transition:transform .15s}input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}.info-box{background:#f7fafc;border-radius:8px;padding:16px;border-left:3px solid #4299e1}.info-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.9rem}.info-label{color:#718096}.info-value{font-family:Monaco,Consolas,monospace;color:#1a202c}.info-value.highlight{color:#2b6cb0;font-weight:600}.equation-box{background:#f7fafc;border-radius:8px;padding:14px 16px;text-align:center;margin-top:8px;border:1px solid #e2e8f0;font-size:1.05rem}.left-section{margin-top:20px;background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}.left-section-header{display:flex;align-items:center;padding:16px 24px;cursor:pointer;user-select:none}.left-section-header:hover{background:#f7fafc;border-radius:12px}.left-section-header .panel-title{margin-bottom:0}.left-section-body{padding:0 24px 20px 24px}.left-section-body.collapsed{display:none}.left-section-body p{margin:0 0 14px 0;line-height:1.7;font-size:.95rem;color:#4a5568}.left-section-body p:last-child{margin-bottom:0}.display-options-wrapper{margin-top:24px}.display-options-toggle{background:none;border:none;color:#a0aec0;font-size:.78rem;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px}.display-options-toggle:hover{color:#718096}.display-options-toggle .arrow{font-size:.6rem;transition:transform .2s}.display-options-toggle .arrow.open{transform:rotate(90deg)}.display-options-panel{display:none;margin-top:8px;background:#fff;border-radius:12px;padding:16px 20px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08)}.display-options-panel.open{display:block}.display-options-panel .panel-title{font-size:.75rem;margin-bottom:12px}.opt-row{display:flex;align-items:center;gap:8px;padding:3px 0}.opt-row label{font-size:.8rem;color:#4a5568;cursor:pointer}.opt-row input[type=checkbox]{accent-color:#4299e1;cursor:pointer;margin:0;width:14px;height:14px}body.embed-mode{padding:8px;background:transparent;min-height:auto}.embed-mode h1,.embed-mode .subtitle,.embed-mode .left-section,.embed-mode .display-options-wrapper{display:none!important}body.embed-hide-controls .controls{display:none!important}body.embed-hide-controls .main-content{grid-template-columns:1fr}.katex{font-size:1em}.url-state-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.url-state-bar button{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:6px 12px;font-size:.78rem;color:#4a5568;cursor:pointer;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;white-space:nowrap}.url-state-bar button:hover{background:#f7fafc;border-color:#cbd5e0}.url-state-bar button.copied{color:#38a169;border-color:#c6f6d5;background:#f0fff4}.url-state-bar .url-hint{font-size:.7rem;color:#a0aec0}
+</style>
+</head>
+<body>
+<div class="container">
+    <div id="section-title" class="title-wrapper" style="position:relative"><h1>Movement Along the Demand Curve</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+    <div id="section-subtitle" class="subtitle-wrapper" style="position:relative"><p class="subtitle" style="margin-bottom:24px">At the same price P₀, comparing two quantity points Q₀ and Q₁ on the demand curve</p></div>
+    <div class="main-content">
+        <div class="left-column">
+            <div class="graph-container" id="section-graph">
+                <div class="graph-header" onclick="tog('graph')"><div class="panel-title" style="margin-bottom:0">Demand Curve D</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+                <div class="graph-body" id="body-graph">
+                    <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy</span></button><button class="plot-action-btn" id="save-plot-btn" title="Save"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save</span></button></div>
+                    <canvas id="graph" width="1200" height="1100"></canvas>
+                </div>
+            </div>
+            <div class="left-section" id="section-explanation"><div class="left-section-header" onclick="tog('explanation')"><div class="panel-title" style="margin-bottom:0">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+                <div class="left-section-body" id="body-explanation">
+                    <p>This diagram shows two points on the same demand curve D at the same price level \(P_0\). The first point gives quantity \(Q_0\) and the second gives a larger quantity \(Q_1\). The rightward arrow from \(Q_0\) to \(Q_1\) along the price line illustrates how we read the increased quantity at the same price.</p>
+                    <p>This pattern appears when discussing <strong>demand shifts</strong>: if the entire curve shifts right (an increase in demand), then at the same price \(P_0\), consumers now want to buy \(Q_1\) instead of \(Q_0\). It also illustrates the basic skill of reading a graph: find a price on the vertical axis, move horizontally to the curve, then drop down to the horizontal axis to read the quantity.</p>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="control-panel" id="section-point"><div class="control-panel-header" onclick="tog('point')"><div class="panel-title" style="margin-bottom:0">Points on Curve</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-point" onclick="event.stopPropagation();tog('point')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('point')">✕</button></div></div>
+                <div class="control-panel-body" id="body-point">
+                    <div class="slider-group"><div class="slider-label"><span>Q₀ position (\(t_0\))</span><span class="slider-value" id="t0-val">0.40</span></div><input type="range" id="t0slider" min="0.1" max="0.85" value="0.40" step="0.01"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Q₁ position (\(t_1\))</span><span class="slider-value" id="t1-val">0.60</span></div><input type="range" id="t1slider" min="0.15" max="0.9" value="0.60" step="0.01"></div>
+                    <div class="info-box" id="pt-info"></div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-curve"><div class="control-panel-header" onclick="tog('curve')"><div class="panel-title" style="margin-bottom:0">Curve Shape</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-curve" onclick="event.stopPropagation();tog('curve')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('curve')">✕</button></div></div>
+                <div class="control-panel-body" id="body-curve">
+                    <div class="slider-group"><div class="slider-label"><span>Slope steepness</span><span class="slider-value" id="slope-val">1.0</span></div><input type="range" id="slope" min="0.3" max="3" value="1" step="0.1"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Horizontal shift</span><span class="slider-value" id="hshift-val">0</span></div><input type="range" id="hshift" min="-30" max="30" value="0" step="1"></div>
+                    <div class="equation-box">\( P = a - b \cdot Q \)</div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-keyvals"><div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title" style="margin-bottom:0">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button></div></div>
+                <div class="control-panel-body" id="body-keyvals">
+                    <div style="font-size:.88rem;color:#4a5568;line-height:1.6;">
+                        <p style="margin:0 0 8px">Two points on the demand curve at the same price \(P_0\). The arrow shows the direction of reading: at \(P_0\), quantity increases from \(Q_0\) to \(Q_1\).</p>
+                        <p style="margin:0">Adjust the sliders to move the points independently along the curve and see how \(Q_0\) and \(Q_1\) change.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="display-options-wrapper">
+        <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+        <div class="display-options-panel" id="display-panel">
+            <div class="panel-title">Plot Elements <span style="font-weight:400;font-size:.65rem;color:#a0aec0;text-transform:none;letter-spacing:0"> — drag labels to reposition</span></div>
+            <div class="opt-row"><input type="checkbox" id="show-dashes" checked><label for="show-dashes">Dashed projection lines</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-arrows" checked><label for="show-arrows">Reading arrows</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-plabels" checked><label for="show-plabels">P₀ and Q₀ labels</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-dlabel" checked><label for="show-dlabel">D label</label></div>
+            <div class="restore-bar" id="restore-bar"></div>
+            <div class="url-state-bar"><button id="copy-url-btn">📋 Copy link</button><button id="reset-url-btn">↺ Reset</button><span class="url-hint">Encodes all parameters</span></div>
+        </div>
+    </div>
+</div>
+<script>
+(function(){const p=new URLSearchParams(window.location.search);if(p.has('embed')){document.body.classList.add('embed-mode');const h=p.get('hide');if(h)h.split(',').forEach(s=>document.body.classList.add('embed-hide-'+s.trim()));}})();
+function renderAllMath(){if(typeof renderMathInElement!=='undefined')renderMathInElement(document.body,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});}
+document.addEventListener("DOMContentLoaded",renderAllMath);window.addEventListener('load',renderAllMath);
+
+function tog(n){const b=document.getElementById('body-'+n),t=document.getElementById('toggle-'+n);if(b&&t)t.textContent=b.classList.toggle('collapsed')?'▶':'▼';}
+const PANEL_NAMES={title:'Title',graph:'Graph',explanation:'Explanation',point:'Point',curve:'Curve',keyvals:'Key'};
+const LEFT_PANELS=['graph','explanation'],RIGHT_PANELS=['point','curve','keyvals'];
+function closePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.add('panel-closed');updateR();updateL();}
+function restorePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.remove('panel-closed');updateR();updateL();}
+function updateL(){const mc=document.querySelector('.main-content');mc.classList.toggle('right-empty',RIGHT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));}
+function updateR(){const bar=document.getElementById('restore-bar');const cl=Object.keys(PANEL_NAMES).filter(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed'));if(!cl.length){bar.innerHTML='';return;}bar.innerHTML='<span class="restore-label">Restore:</span>'+cl.map(n=>`<button class="restore-btn" onclick="restorePanel('${n}')">${PANEL_NAMES[n]}</button>`).join('');}
+
+const nudgeOffsets={};const DPR=2;
+function getNudge(t){const o=nudgeOffsets[t];return o?{dx:o.dx*DPR,dy:o.dy*DPR}:{dx:0,dy:0};}
+const canvas=document.getElementById('graph'),ctx=canvas.getContext('2d');
+const t0S=document.getElementById('t0slider'),t1S=document.getElementById('t1slider'),slopeS=document.getElementById('slope'),hshiftS=document.getElementById('hshift');
+function isVis(id){const e=document.getElementById(id);return e?e.checked:true;}
+
+const margin={top:60,right:60,bottom:100,left:120};
+function getGD(){return{width:canvas.width-margin.left-margin.right,height:canvas.height-margin.top-margin.bottom};}
+function tCX(x){return margin.left+(x/100)*getGD().width;}
+function tCY(y){return margin.top+getGD().height-(y/100)*getGD().height;}
+
+function getLine(){
+    const sl=parseFloat(slopeS.value),hs=parseFloat(hshiftS.value);
+    const cx=50+hs,cy=50,halfLen=50;
+    const dx=halfLen/Math.sqrt(1+sl*sl),dy=sl*dx;
+    return{x1:cx-dx,y1:cy+dy,x2:cx+dx,y2:cy-dy};
+}
+function getPointOnLine(t){const L=getLine();return{x:L.x1+t*(L.x2-L.x1),y:L.y1+t*(L.y2-L.y1)};}
+
+let labelHitBoxes=[];
+function regLabel(k,x,y,w,h){labelHitBoxes.push({key:k,x,y,w,h});}
+function m2c(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height};}
+function hitL(cx,cy){for(let i=labelHitBoxes.length-1;i>=0;i--){const b=labelHitBoxes[i];if(cx>=b.x&&cx<=b.x+b.w&&cy>=b.y&&cy<=b.y+b.h)return b.key;}return null;}
+let dragTarget=null,dsx=0,dsy=0,dsox=0,dsoy=0;
+canvas.addEventListener('mousedown',e=>{const pos=m2c(e);const hl=hitL(pos.x,pos.y);if(hl){dragTarget=hl;dsx=pos.x;dsy=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dsox=nudgeOffsets[hl].dx;dsoy=nudgeOffsets[hl].dy;canvas.classList.add('dragging');e.preventDefault();}});
+canvas.addEventListener('mousemove',e=>{const pos=m2c(e);if(dragTarget){nudgeOffsets[dragTarget].dx=dsox+(pos.x-dsx)/DPR;nudgeOffsets[dragTarget].dy=dsoy+(pos.y-dsy)/DPR;drawGraph();}else{canvas.classList.toggle('hovering-label',!!hitL(pos.x,pos.y));}});
+canvas.addEventListener('mouseup',()=>{if(dragTarget){dragTarget=null;canvas.classList.remove('dragging');}});
+canvas.addEventListener('mouseleave',()=>{dragTarget=null;canvas.classList.remove('dragging','hovering-label');});
+
+function drawArrowLine(x1,y1,x2,y2,color){
+    const S=DPR,dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);if(len<1)return;
+    const ux=dx/len,uy=dy/len;
+    ctx.strokeStyle=color;ctx.lineWidth=2*S;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+    const hl=10*S,hw=5*S;
+    ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-ux*hl+uy*hw,y2-uy*hl-ux*hw);ctx.lineTo(x2-ux*hl-uy*hw,y2-uy*hl+ux*hw);ctx.closePath();ctx.fill();
+}
+
+function drawGraph(){
+    labelHitBoxes=[];
+    const S=DPR,t0=parseFloat(t0S.value),t1=parseFloat(t1S.value),sl=parseFloat(slopeS.value),hs=parseFloat(hshiftS.value);
+    document.getElementById('t0-val').textContent=t0.toFixed(2);
+    document.getElementById('t1-val').textContent=t1.toFixed(2);
+    document.getElementById('slope-val').textContent=sl.toFixed(1);
+    document.getElementById('hshift-val').textContent=hs>0?'+'+hs:hs;
+
+    const L=getLine(),pt0=getPointOnLine(t0),pt1=getPointOnLine(t1);
+    // Both points at the SAME price P0 (pt0's price), pt1 is further right on the curve
+    // So pt1 is on the curve at a different spot, but we draw a horizontal line at P0
+    document.getElementById('pt-info').innerHTML=`<div class="info-row"><span class="info-label">P₀</span><span class="info-value highlight">${pt0.y.toFixed(1)}</span></div><div class="info-row"><span class="info-label">Q₀</span><span class="info-value">${pt0.x.toFixed(1)}</span></div><div class="info-row"><span class="info-label">Q₁</span><span class="info-value">${pt1.x.toFixed(1)}</span></div><div class="info-row"><span class="info-label">ΔQ</span><span class="info-value highlight">${(pt1.x-pt0.x).toFixed(1)}</span></div>`;
+
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+    const{width,height}=getGD();
+
+    // Axes
+    ctx.strokeStyle='#2b6cb0';ctx.lineWidth=2.5*S;
+    ctx.beginPath();ctx.moveTo(margin.left,margin.top);ctx.lineTo(margin.left,margin.top+height);ctx.lineTo(margin.left+width,margin.top+height);ctx.stroke();
+    ctx.fillStyle='#2b6cb0';
+    ctx.beginPath();ctx.moveTo(margin.left,margin.top-4*S);ctx.lineTo(margin.left-6*S,margin.top+8*S);ctx.lineTo(margin.left+6*S,margin.top+8*S);ctx.closePath();ctx.fill();
+    ctx.beginPath();ctx.moveTo(margin.left+width+4*S,margin.top+height);ctx.lineTo(margin.left+width-8*S,margin.top+height-6*S);ctx.lineTo(margin.left+width-8*S,margin.top+height+6*S);ctx.closePath();ctx.fill();
+
+    // Axis labels
+    const ngX=getNudge('xaxis');ctx.fillStyle='#2b6cb0';ctx.font=`bold ${15*S}px Segoe UI`;ctx.textAlign='center';
+    const xlx=margin.left+width/2+ngX.dx,xly=canvas.height-10*S+ngX.dy;
+    ctx.fillText('Quantity Demanded',xlx,xly);
+    const xtw=ctx.measureText('Quantity Demanded').width;regLabel('xaxis',xlx-xtw/2-4*S,xly-16*S,xtw+8*S,22*S);
+
+    const ngY=getNudge('yaxis');ctx.save();const ylx=20*S+ngY.dx,yly=margin.top+height/2+ngY.dy;
+    ctx.translate(ylx,yly);ctx.rotate(-Math.PI/2);ctx.fillText('Price',0,0);ctx.restore();
+    const ytw=ctx.measureText('Price').width;regLabel('yaxis',ylx-14*S,yly-ytw/2-4*S,28*S,ytw+8*S);
+
+    const px0=tCX(pt0.x),py0=tCY(pt0.y);
+    const px1=tCX(pt1.x),py1=tCY(pt0.y); // Q1 at same price P0
+
+    // Dashed lines
+    if(isVis('show-dashes')){
+        ctx.strokeStyle='#d53f8c';ctx.lineWidth=1.5*S;ctx.setLineDash([6*S,4*S]);
+        // Horizontal from y-axis through both points
+        ctx.beginPath();ctx.moveTo(margin.left,py0);ctx.lineTo(px1,py0);ctx.stroke();
+        // Vertical from pt0 down
+        ctx.beginPath();ctx.moveTo(px0,py0);ctx.lineTo(px0,margin.top+height);ctx.stroke();
+        // Vertical from pt1 down
+        ctx.beginPath();ctx.moveTo(px1,py0);ctx.lineTo(px1,margin.top+height);ctx.stroke();
+        ctx.setLineDash([]);
+    }
+
+    // Arrows
+    if(isVis('show-arrows')){
+        // Arrow right from pt0 to pt1 at P0 level
+        drawArrowLine(px0+14*S,py0,px1-14*S,py0,'#1a202c');
+        // Arrow down from pt1 to x-axis
+        drawArrowLine(px1,py0+14*S,px1,margin.top+height-20*S,'#1a202c');
+    }
+
+    // Demand line
+    ctx.strokeStyle='#2b6cb0';ctx.lineWidth=3*S;
+    const ext=0.15;
+    const ex1=L.x1-(L.x2-L.x1)*ext,ey1=L.y1-(L.y2-L.y1)*ext;
+    const ex2=L.x2+(L.x2-L.x1)*ext,ey2=L.y2+(L.y2-L.y1)*ext;
+    ctx.beginPath();ctx.moveTo(tCX(ex1),tCY(ey1));ctx.lineTo(tCX(ex2),tCY(ey2));ctx.stroke();
+
+    // Points
+    [px0,px1].forEach((px,i)=>{
+        ctx.fillStyle='#2b6cb0';ctx.beginPath();ctx.arc(px,py0,9*S,0,Math.PI*2);ctx.fill();
+        ctx.strokeStyle='#fff';ctx.lineWidth=2.5*S;ctx.stroke();
+    });
+
+    // P0 label
+    if(isVis('show-plabels')){
+        const ngP=getNudge('p0');ctx.fillStyle='#1a202c';ctx.font=`${14*S}px Segoe UI`;ctx.textAlign='right';
+        const plx=margin.left-14*S+ngP.dx,ply=py0+5*S+ngP.dy;
+        ctx.fillText('P',plx,ply);ctx.font=`${10*S}px Segoe UI`;ctx.fillText('0',plx+2*S,ply+6*S);
+        regLabel('p0',plx-30*S,ply-16*S,40*S,28*S);
+
+        // Q0
+        const ngQ0=getNudge('q0');ctx.font=`${14*S}px Segoe UI`;ctx.textAlign='center';
+        const q0x=px0+ngQ0.dx,q0y=margin.top+height+30*S+ngQ0.dy;
+        ctx.fillText('Q',q0x-4*S,q0y);ctx.font=`${10*S}px Segoe UI`;ctx.fillText('0',q0x+8*S,q0y+6*S);
+        regLabel('q0',q0x-20*S,q0y-16*S,40*S,28*S);
+
+        // Q1
+        const ngQ1=getNudge('q1');ctx.font=`${14*S}px Segoe UI`;ctx.textAlign='center';
+        const q1x=px1+ngQ1.dx,q1y=margin.top+height+30*S+ngQ1.dy;
+        ctx.fillText('Q',q1x-4*S,q1y);ctx.font=`${10*S}px Segoe UI`;ctx.fillText('1',q1x+8*S,q1y+6*S);
+        regLabel('q1',q1x-20*S,q1y-16*S,40*S,28*S);
+    }
+
+    // D label
+    if(isVis('show-dlabel')){
+        const ngD=getNudge('dl');const dpt=getPointOnLine(0.8);
+        ctx.fillStyle='#2b6cb0';ctx.font=`bold ${18*S}px Segoe UI`;ctx.textAlign='left';
+        const dlx=tCX(dpt.x)+18*S+ngD.dx,dly=tCY(dpt.y)+ngD.dy;
+        ctx.fillText('D',dlx,dly);const tw=ctx.measureText('D').width;regLabel('dl',dlx-4*S,dly-18*S,tw+8*S,26*S);
+    }
+}
+
+[t0S,t1S,slopeS,hshiftS].forEach(s=>s.addEventListener('input',drawGraph));
+document.getElementById('display-toggle-btn').addEventListener('click',()=>{const p=document.getElementById('display-panel'),a=document.getElementById('display-arrow');a.classList.toggle('open',p.classList.toggle('open'));});
+document.querySelectorAll('.display-options-panel input').forEach(i=>{i.addEventListener('input',drawGraph);i.addEventListener('change',drawGraph);});
+document.getElementById('copy-plot-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-plot-btn'),l=document.getElementById('copy-label');try{const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);btn.classList.add('copied');l.textContent='Copied!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Copy';},1500);}catch{l.textContent='Failed';setTimeout(()=>{l.textContent='Copy';},1500);}});
+document.getElementById('save-plot-btn').addEventListener('click',()=>{const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='demand_curve.png';a.click();const btn=document.getElementById('save-plot-btn'),l=document.getElementById('save-label');btn.classList.add('copied');l.textContent='Saved!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Save';},1500);});
+
+const DEFAULTS={t0:0.40,t1:0.60,slope:1,hshift:0};
+const CB_IDS=['show-dashes','show-arrows','show-plabels','show-dlabel'];
+const NK=['xaxis','yaxis','p0','q0','q1','dl'];
+function loadHash(){const h=window.location.hash.slice(1);if(!h)return;const p=new URLSearchParams(h);if(p.has('t0'))t0S.value=p.get('t0');if(p.has('t1'))t1S.value=p.get('t1');if(p.has('slope'))slopeS.value=p.get('slope');if(p.has('hshift'))hshiftS.value=p.get('hshift');for(const id of CB_IDS){if(p.has(id)){const el=document.getElementById(id);if(el)el.checked=p.get(id)==='1';}}for(const k of NK){const key='n_'+k;if(p.has(key)){const pts=p.get(key).split(',');if(pts.length===2)nudgeOffsets[k]={dx:parseFloat(pts[0]),dy:parseFloat(pts[1])};}}}
+document.getElementById('copy-url-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-url-btn');const s={};if(parseFloat(t0S.value)!==DEFAULTS.t0)s.t0=t0S.value;if(parseFloat(t1S.value)!==DEFAULTS.t1)s.t1=t1S.value;if(parseFloat(slopeS.value)!==DEFAULTS.slope)s.slope=slopeS.value;if(parseFloat(hshiftS.value)!==DEFAULTS.hshift)s.hshift=hshiftS.value;for(const id of CB_IDS){const el=document.getElementById(id);if(el&&!el.checked)s[id]=0;}for(const k of NK){const o=nudgeOffsets[k];if(o&&(Math.abs(o.dx)>0.5||Math.abs(o.dy)>0.5))s['n_'+k]=Math.round(o.dx)+','+Math.round(o.dy);}const qs=new URLSearchParams();for(const[k,v]of Object.entries(s))qs.set(k,v);const url=location.origin+location.pathname+(qs.toString()?'#'+qs:'');try{await navigator.clipboard.writeText(url);btn.textContent='✓ Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copy link';btn.classList.remove('copied');},2000);}catch{prompt('Copy:',url);}});
+document.getElementById('reset-url-btn').addEventListener('click',()=>{t0S.value=DEFAULTS.t0;t1S.value=DEFAULTS.t1;slopeS.value=DEFAULTS.slope;hshiftS.value=DEFAULTS.hshift;for(const id of CB_IDS){const el=document.getElementById(id);if(el)el.checked=true;}for(const k of NK)delete nudgeOffsets[k];Object.keys(PANEL_NAMES).forEach(n=>{const el=document.getElementById('section-'+n);if(el)el.classList.remove('panel-closed');});['graph','explanation','point','curve','keyvals'].forEach(s=>{const b=document.getElementById('body-'+s),t=document.getElementById('toggle-'+s);if(b)b.classList.remove('collapsed');if(t)t.textContent='▼';});updateR();updateL();history.replaceState(null,'',location.pathname);drawGraph();});
+
+loadHash();updateR();updateL();drawGraph();
+</script>
+</body>
+</html>

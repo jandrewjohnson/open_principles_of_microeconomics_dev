@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factors That Shift Demand</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Factors That Shift Demand</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The non-price determinants that move the whole curve, outward on the left and inward on the right</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Increases and Decreases in Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="850"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Panel (a) collects the changes that <strong>increase</strong> demand, shifting the whole curve out to D₁: a taste shift toward the good, a larger buying population, higher income for a normal good, a rise in the price of substitutes, a fall in the price of complements, and expectations of future scarcity or higher prices.</p>
+          <p>Panel (b) collects the mirror-image changes that <strong>decrease</strong> demand, shifting the curve in to D₁. In both panels the price of the good itself is held constant. A change in that price would move the economy <em>along</em> a single curve rather than shifting it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-curve">
+        <div class="control-panel-header" onclick="tog('curve')"><div class="panel-title">Curve Shape</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-curve" onclick="event.stopPropagation();tog('curve')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('curve')">✕</button></div></div>
+        <div class="control-panel-body" id="body-curve" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>D₀ (original) and D₁ (after the shift)</span></div>
+          </div>
+          <div class="equation-box">\(\text{Shift} \neq \text{Movement along curve}\)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// This figure is laid out directly in design pixels rather than data units:
+// the two panels are schematic, with no numbered axes. g.label still takes
+// design pixels, so every callout stays draggable through the library.
+const FACTORS = {
+  a: ['Taste shift to greater popularity', 'Population likely to buy rises', 'Income rises (for a normal good)',
+      'Price of substitutes rises', 'Price of complements falls', 'Future expectations'],
+  b: ['Taste shift to lesser popularity', 'Population likely to buy drops', 'Income drops (for a normal good)',
+      'Price of substitutes falls', 'Price of complements rises', 'Future expectations'],
+};
+const FRACS = [0.06, 0.14, 0.22, 0.38, 0.48, 0.58];
+
+// A schematic convex demand curve sampled across the panel box.
+const makeCurve = (ox, oy, w, h, xOff, curv) => {
+  const pts = [], n = 100;
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    const raw = 1 / (t * curv + 0.17);
+    const mn = 1 / (curv + 0.17), mx = 1 / 0.17;
+    const norm = (raw - mn) / (mx - mn);
+    pts.push({ x: ox + t * w + xOff, y: oy + h * (1 - norm * 0.86) - h * 0.03 });
+  }
+  return pts;
+};
+const interp = (pts, f) => {
+  const i = Math.min(Math.floor(f * (pts.length - 1)), pts.length - 2);
+  const t = f * (pts.length - 1) - i;
+  return { x: pts[i].x + t * (pts[i + 1].x - pts[i].x), y: pts[i].y + t * (pts[i + 1].y - pts[i].y) };
+};
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'demand_shift_factors.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'dq_d1', label:'Shift amount', min:10,  max:45,  value:26,  step:1,   fmt:v => v + '%' },
+    { id:'n_d',   label:'Curvature',    min:0.4, max:2.0, value:1.1, step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_arrows',   label:'Shift arrows' },
+    { id:'show_annot',    label:'Factor labels' },
+    { id:'show_labels',   label:'D₀ / D₁ labels' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', curve:'Curve', keyvals:'Key' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['curve','keyvals'],
+  nudgeKeys: ['x.a','x.b','d0.a','d1.a','d0.b','d1.b',
+              'an.a0','an.a1','an.a2','an.a3','an.a4','an.a5','an.suba',
+              'an.b0','an.b1','an.b2','an.b3','an.b4','an.b5','an.subb'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W, H } = g;
+    const shiftPct = val('dq_d1'), curv = val('n_d');
+    const gap = 50 * S, pw = (W - gap) / 2;
+
+    g.clear();
+
+    [true, false].forEach(increase => {
+      const side = increase ? 'a' : 'b';
+      const px = increase ? 0 : pw + gap;
+      const mL = 52 * S, mT = 28 * S, mB = 56 * S, mR = 8 * S;
+      const pW = pw - mL - mR, pH = H - mT - mB;
+      const ax = px + mL, ay = mT;
+
+      ctx.strokeStyle = '#2b6cb0'; ctx.lineWidth = 2 * S;
+      ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax, ay + pH); ctx.lineTo(ax + pW, ay + pH); ctx.stroke();
+      ctx.fillStyle = '#2b6cb0';
+      ctx.beginPath(); ctx.moveTo(ax, ay - 2 * S); ctx.lineTo(ax - 5 * S, ay + 6 * S); ctx.lineTo(ax + 5 * S, ay + 6 * S); ctx.closePath(); ctx.fill();
+
+      // Price runs up the side of each panel and is not draggable, matching the original
+      ctx.save();
+      ctx.translate(px + 14 * S, ay + pH / 2); ctx.rotate(-Math.PI / 2);
+      ctx.font = `bold ${12 * S}px ${g.font}`; ctx.textAlign = 'center'; ctx.fillStyle = '#2b6cb0';
+      ctx.fillText('Price', 0, 0);
+      ctx.restore();
+      g.label('Quantity', ax + pW / 2, H - 20 * S, { key:'x.' + side, font:`bold ${12 * S}px ${g.font}`, color:'#2b6cb0', align:'center' });
+
+      const sh = pW * (shiftPct / 100);
+      const c0 = makeCurve(ax, ay, pW * 0.68, pH, increase ? 0 : sh, curv);
+      const c1 = makeCurve(ax, ay, pW * 0.68, pH, increase ? sh : 0, curv);
+      ctx.strokeStyle = '#2b6cb0'; ctx.lineWidth = 2.5 * S;
+      [c0, c1].forEach(pts => {
+        ctx.beginPath();
+        pts.forEach((p, i) => i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
+        ctx.stroke();
+      });
+
+      if (vis('show_labels')) {
+        const font = `bold ${12 * S}px ${g.font}`;
+        const e0 = c0[c0.length - 1], e1 = c1[c1.length - 1];
+        g.label('D₀', e0.x + 4 * S, e0.y + 2 * S, { key:'d0.' + side, font, color:'#2b6cb0' });
+        g.label('D₁', e1.x + 4 * S, e1.y + 2 * S, { key:'d1.' + side, font, color:'#2b6cb0' });
+      }
+
+      FRACS.forEach((frac, i) => {
+        const p0 = interp(c0, frac), p1 = interp(c1, frac);
+        const my = (p0.y + p1.y) / 2, gp = 10 * S;
+        if (vis('show_arrows'))
+          g.drawArrow(increase ? p0.x + gp : p0.x - gp, my, increase ? p1.x - gp : p1.x + gp, my);
+
+        if (vis('show_annot')) {
+          const tx = Math.max(p0.x, p1.x) + 14 * S, ty = my + 4 * S;
+          const font = `${9.5 * S}px ${g.font}`;
+          g.label(FACTORS[side][i], tx, ty, { key:`an.${side}${i}`, font, color:'#2b6cb0' });
+          if (i === 5)
+            g.label((increase ? 'D₁  ' : 'D₀  ') + (increase ? 'encourage buying' : 'discourage buying'),
+              tx, ty + 14 * S, { key:`an.sub${side}`, font, color:'#2b6cb0' });
+        }
+      });
+
+      if (vis('show_captions'))
+        g.label(increase ? '(a) Factors that increase demand' : '(b) Factors that decrease demand',
+          ax + pW / 2, H - 5 * S, { font:`${11 * S}px ${g.font}`, color:'#718096', align:'center' });
+    });
+  },
+});
+</script>
+</body>
+</html>

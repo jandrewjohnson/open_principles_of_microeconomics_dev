@@ -1,6 +1,12 @@
 project:
   type: book
   output-dir: ../HTML_open_principles_of_microeconomics
+  # interactive figures: sync the library and extension, write the manifest
+  # sidecar, render changed PNGs (see figures.yml and scripts/publish_book.py)
+  pre-render: python -m interactive_textbook_pipeline build . --prepare
+  resources:
+    - apps/
+    - figures/
 
 
   

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifts in Demand</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+*{box-sizing:border-box}body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f7fa;color:#2d3748;margin:0;padding:20px;min-height:100vh}.container{max-width:1200px;margin:0 auto}h1{text-align:center;font-weight:400;font-size:1.8rem;margin-bottom:8px;color:#1a202c}.subtitle{text-align:center;color:#718096;margin-bottom:24px;font-size:.95rem}.main-content{display:grid;grid-template-columns:1fr 320px;gap:24px}@media(max-width:900px){.main-content{grid-template-columns:1fr}}.main-content.left-empty{grid-template-columns:0 1fr}.main-content.right-empty{grid-template-columns:1fr}.main-content.left-empty .left-column{display:none}.main-content.right-empty .controls{display:none}.left-column{display:flex;flex-direction:column;gap:0}.graph-container{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);position:relative;overflow:visible}.graph-header{display:flex;align-items:center;padding:12px 20px;cursor:pointer;user-select:none}.graph-header:hover{background:#f7fafc;border-radius:12px 12px 0 0}.graph-header .panel-title{margin-bottom:0}.graph-body{padding:0 20px 20px 20px;position:relative}.graph-body.collapsed{display:none}canvas{display:block;width:100%;height:auto;cursor:default}canvas.hovering-label{cursor:grab}canvas.dragging{cursor:grabbing}.plot-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;gap:4px;opacity:0;transition:opacity .2s}.graph-container:hover .plot-actions{opacity:1}.plot-action-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.7rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1}.plot-action-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}.plot-action-btn.copied{color:#38a169;border-color:#c6f6d5;background:rgba(240,255,244,.9)}.plot-action-btn svg{width:12px;height:12px;flex-shrink:0}.panel-close-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.7rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1;flex-shrink:0}.panel-close-btn:hover{background:#fff;color:#e53e3e;border-color:#feb2b2}.panel-header-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;align-items:center;gap:4px;opacity:0;transition:opacity .2s;flex-shrink:0}.panel-collapse-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.65rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1}.panel-collapse-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}.panel-closed{display:none!important}.left-section{position:relative}.left-section:hover .panel-header-actions{opacity:1}.control-panel{position:relative}.control-panel:hover .panel-header-actions{opacity:1}.graph-container:hover>.graph-header .panel-header-actions{opacity:1}.title-wrapper:hover .panel-header-actions{opacity:1}.subtitle-wrapper:hover .panel-header-actions{opacity:1}.restore-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.restore-bar:empty{display:none;margin:0;padding:0;border:none}.restore-btn{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:4px 10px;font-size:.72rem;color:#718096;cursor:pointer;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s}.restore-btn:hover{background:#f7fafc;border-color:#cbd5e0;color:#4a5568}.restore-label{font-size:.7rem;color:#a0aec0}.controls{display:flex;flex-direction:column;gap:16px}.control-panel{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}.control-panel-header{display:flex;align-items:center;padding:16px 20px;cursor:pointer;user-select:none}.control-panel-header:hover{background:#f7fafc;border-radius:12px}.control-panel-header .panel-title{margin-bottom:0}.control-panel-body{padding:0 20px 20px 20px}.control-panel-body.collapsed{display:none}.panel-title{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:#718096;margin-bottom:16px;font-weight:600}.slider-group{margin-bottom:16px}.slider-group:last-child{margin-bottom:0}.slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.9rem;color:#4a5568}.slider-value{background:#edf2f7;padding:4px 10px;border-radius:4px;font-family:Monaco,Consolas,monospace;font-size:.85rem;color:#2b6cb0;font-weight:500}input[type=range]{width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none;-webkit-appearance:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#4299e1;cursor:pointer;box-shadow:0 2px 6px rgba(66,153,225,.3);transition:transform .15s}input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}.info-box{background:#f7fafc;border-radius:8px;padding:16px;border-left:3px solid #4299e1}.info-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.9rem}.info-label{color:#718096}.info-value{font-family:Monaco,Consolas,monospace;color:#1a202c}.info-value.highlight{color:#2b6cb0;font-weight:600}.legend{display:flex;flex-direction:column;gap:8px;margin-top:12px}.legend-item{display:flex;align-items:center;gap:10px;font-size:.85rem;color:#4a5568}.legend-line{width:24px;height:3px;border-radius:2px;flex-shrink:0}.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}.equation-box{background:#f7fafc;border-radius:8px;padding:14px 16px;text-align:center;margin-top:8px;border:1px solid #e2e8f0;font-size:1.05rem}.left-section{margin-top:20px;background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}.left-section-header{display:flex;align-items:center;padding:16px 24px;cursor:pointer;user-select:none}.left-section-header:hover{background:#f7fafc;border-radius:12px}.left-section-header .panel-title{margin-bottom:0}.left-section-body{padding:0 24px 20px 24px}.left-section-body.collapsed{display:none}.left-section-body p{margin:0 0 14px 0;line-height:1.7;font-size:.95rem;color:#4a5568}.left-section-body p:last-child{margin-bottom:0}.display-options-wrapper{margin-top:24px}.display-options-toggle{background:none;border:none;color:#a0aec0;font-size:.78rem;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px}.display-options-toggle:hover{color:#718096}.display-options-toggle .arrow{font-size:.6rem;transition:transform .2s}.display-options-toggle .arrow.open{transform:rotate(90deg)}.display-options-panel{display:none;margin-top:8px;background:#fff;border-radius:12px;padding:16px 20px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08)}.display-options-panel.open{display:block}.display-options-panel .panel-title{font-size:.75rem;margin-bottom:12px}.opt-row{display:flex;align-items:center;gap:8px;padding:3px 0}.opt-row label{font-size:.8rem;color:#4a5568;cursor:pointer}.opt-row input[type=checkbox]{accent-color:#4299e1;cursor:pointer;margin:0;width:14px;height:14px}body.embed-mode{padding:8px;background:transparent;min-height:auto}.embed-mode h1,.embed-mode .subtitle,.embed-mode .left-section,.embed-mode .display-options-wrapper{display:none!important}body.embed-hide-controls .controls{display:none!important}body.embed-hide-controls .main-content{grid-template-columns:1fr}.katex{font-size:1em}.info-row .katex{font-size:.95em}.equation-box .katex{font-size:1.1em}.url-state-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.url-state-bar button{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:6px 12px;font-size:.78rem;color:#4a5568;cursor:pointer;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;white-space:nowrap}.url-state-bar button:hover{background:#f7fafc;border-color:#cbd5e0}.url-state-bar button.copied{color:#38a169;border-color:#c6f6d5;background:#f0fff4}.url-state-bar .url-hint{font-size:.7rem;color:#a0aec0}
+</style>
+</head>
+<body>
+<div class="container">
+    <div id="section-title" class="title-wrapper" style="position:relative"><h1>Shifts in Demand</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+    <div id="section-subtitle" class="subtitle-wrapper" style="position:relative"><p class="subtitle" style="margin-bottom:24px">A shift of the entire demand curve means a change in demand; movement along a curve is a change in quantity demanded</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+    <div class="main-content">
+        <div class="left-column">
+            <div class="graph-container" id="section-graph">
+                <div class="graph-header" onclick="tog('graph')"><div class="panel-title" style="margin-bottom:0">A. Demand Shifts: D₂, D₀, D₁</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+                <div class="graph-body" id="body-graph">
+                    <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy</span></button><button class="plot-action-btn" id="save-plot-btn" title="Save"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save</span></button></div>
+                    <canvas id="graph" width="1400" height="1200"></canvas>
+                </div>
+            </div>
+            <div class="left-section" id="section-explanation"><div class="left-section-header" onclick="tog('explanation')"><div class="panel-title" style="margin-bottom:0">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+                <div class="left-section-body" id="body-explanation">
+                    <p><strong>D₀</strong> is the original demand curve. A shift to <strong>D₁</strong> (rightward) represents an <em>increase in demand</em>—at every price, consumers want to buy more. A shift to <strong>D₂</strong> (leftward) represents a <em>decrease in demand</em>—at every price, consumers want to buy less.</p>
+                    <p>At price $20,000: on D₀ the quantity demanded is 18 million (point Q). After a rightward shift to D₁, quantity rises to 20 million (point S). After a leftward shift to D₂, quantity falls to 14.4 million (point T). These are all different curves—different demand schedules—not movements along one curve.</p>
+                    <p>At the higher price of $22,000, point R on D₀ shows 17 million demanded. Moving from Q to R is movement <em>along</em> D₀ caused by a price change. Moving from Q to S is a <em>shift</em> of the curve caused by non-price factors like income, tastes, expectations, or the price of related goods.</p>
+                </div>
+            </div>
+            <div class="left-section" id="section-comparison"><div class="left-section-header" onclick="tog('comparison')"><div class="panel-title" style="margin-bottom:0">Point Comparison</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-comparison" onclick="event.stopPropagation();tog('comparison')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('comparison')">✕</button></div></div>
+                <div class="left-section-body" id="body-comparison"><div id="comp-content"></div></div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="control-panel" id="section-shifts"><div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title" style="margin-bottom:0">Demand Shifts</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+                <div class="control-panel-body" id="body-shifts">
+                    <div class="slider-group"><div class="slider-label"><span>D₁ shift (rightward)</span><span class="slider-value" id="d1sh-val">+2</span></div><input type="range" id="d1sh" min="0" max="6" value="2" step="0.5"></div>
+                    <div class="slider-group"><div class="slider-label"><span>D₂ shift (leftward)</span><span class="slider-value" id="d2sh-val">−3.6</span></div><input type="range" id="d2sh" min="-8" max="0" value="-3.6" step="0.5"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Explored price</span><span class="slider-value" id="ep-val">$20,000</span></div><input type="range" id="ep" min="10000" max="28000" value="20000" step="1000"></div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-epinfo"><div class="control-panel-header" onclick="tog('epinfo')"><div class="panel-title" style="margin-bottom:0">At Explored Price</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-epinfo" onclick="event.stopPropagation();tog('epinfo')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('epinfo')">✕</button></div></div>
+                <div class="control-panel-body" id="body-epinfo"><div class="info-box" id="ep-info"></div></div>
+            </div>
+            <div class="control-panel" id="section-keyvals"><div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title" style="margin-bottom:0">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keyvals')">✕</button></div></div>
+                <div class="control-panel-body" id="body-keyvals">
+                    <div class="legend">
+                        <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>D₀ (original demand)</span></div>
+                        <div class="legend-item"><div class="legend-line" style="background:#2b6cb0;opacity:.5"></div><span>D₁ (increased demand) / D₂ (decreased)</span></div>
+                        <div class="legend-item"><div class="legend-line" style="background:#d53f8c;height:1px;border:1px dashed #d53f8c"></div><span>Explored price lines</span></div>
+                    </div>
+                    <div class="equation-box" style="margin-top:12px">\(\text{Shift} \neq \text{Movement along curve}\)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="display-options-wrapper">
+        <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+        <div class="display-options-panel" id="display-panel">
+            <div class="panel-title">Plot Elements <span style="font-weight:400;font-size:.65rem;color:#a0aec0;text-transform:none;letter-spacing:0"> — drag labels to reposition</span></div>
+            <div class="opt-row"><input type="checkbox" id="show-gridlines" checked><label for="show-gridlines">Gridlines</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-points" checked><label for="show-points">Data points</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-pricelines" checked><label for="show-pricelines">Price dashed lines</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-arrows" checked><label for="show-arrows">Shift arrows</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-annot" checked><label for="show-annot">Price-quantity annotations</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-labels" checked><label for="show-labels">Curve & point labels</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-d2" checked><label for="show-d2">Show D₂ (decrease)</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-d1" checked><label for="show-d1">Show D₁ (increase)</label></div>
+            <div class="restore-bar" id="restore-bar"></div>
+            <div class="url-state-bar"><button id="copy-url-btn">📋 Copy link</button><button id="reset-url-btn">↺ Reset</button><span class="url-hint">Encodes all parameters</span></div>
+        </div>
+    </div>
+</div>
+<script>
+(function(){const p=new URLSearchParams(window.location.search);if(p.has('embed')){document.body.classList.add('embed-mode');const h=p.get('hide');if(h)h.split(',').forEach(s=>document.body.classList.add('embed-hide-'+s.trim()));}})();
+function renderAllMath(){if(typeof renderMathInElement!=='undefined')renderMathInElement(document.body,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});}
+document.addEventListener("DOMContentLoaded",renderAllMath);window.addEventListener('load',renderAllMath);
+function tog(n){const b=document.getElementById('body-'+n),t=document.getElementById('toggle-'+n);if(b&&t)t.textContent=b.classList.toggle('collapsed')?'▶':'▼';}
+const PANEL_NAMES={title:'Title',subtitle:'Subtitle',graph:'Graph',explanation:'Explanation',comparison:'Comparison',shifts:'Shifts',epinfo:'Price Info',keyvals:'Key'};
+const LEFT_PANELS=['graph','explanation','comparison'],RIGHT_PANELS=['shifts','epinfo','keyvals'];
+function closePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.add('panel-closed');updateR();updateL();}
+function restorePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.remove('panel-closed');updateR();updateL();}
+function updateL(){const mc=document.querySelector('.main-content');mc.classList.toggle('left-empty',LEFT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));mc.classList.toggle('right-empty',RIGHT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));}
+function updateR(){const bar=document.getElementById('restore-bar');const cl=Object.keys(PANEL_NAMES).filter(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed'));if(!cl.length){bar.innerHTML='';return;}bar.innerHTML='<span class="restore-label">Restore:</span>'+cl.map(n=>`<button class="restore-btn" onclick="restorePanel('${n}')">${PANEL_NAMES[n]}</button>`).join('');}
+
+const nudgeOffsets={};const DPR=2;
+function getNudge(t){const o=nudgeOffsets[t];return o?{dx:o.dx*DPR,dy:o.dy*DPR}:{dx:0,dy:0};}
+const canvas=document.getElementById('graph'),ctx=canvas.getContext('2d');
+const d1shS=document.getElementById('d1sh'),d2shS=document.getElementById('d2sh'),epS=document.getElementById('ep');
+function isVis(id){const e=document.getElementById(id);return e?e.checked:true;}
+
+// D0 data points from image (P in thousands, Q in millions)
+// Reading from image: at P=26k Q=13, P=24k Q~15, P=22k Q~17, P=20k Q=18, P=18k Q~19, P=16k Q~20.5
+const D0=[{p:26000,q:13},{p:24000,q:15},{p:22000,q:17},{p:20000,q:18},{p:18000,q:19.5},{p:16000,q:21}];
+
+function shiftCurve(pts,dq){return pts.map(pt=>({p:pt.p,q:pt.q+dq}));}
+function interpQ(pts,price){
+    const s=[...pts].sort((a,b)=>a.p-b.p);
+    if(price<=s[0].p)return s[0].q;if(price>=s[s.length-1].p)return s[s.length-1].q;
+    for(let i=0;i<s.length-1;i++){if(price>=s[i].p&&price<=s[i+1].p){const t=(price-s[i].p)/(s[i+1].p-s[i].p);return s[i].q+t*(s[i+1].q-s[i].q);}}return s[0].q;
+}
+
+const margin={top:60,right:80,bottom:100,left:160};
+const xMin=8,xMax=28,yMin=10000,yMax=28000;
+function getGD(){return{width:canvas.width-margin.left-margin.right,height:canvas.height-margin.top-margin.bottom};}
+function tCX(x){return margin.left+((x-xMin)/(xMax-xMin))*getGD().width;}
+function tCY(y){return margin.top+getGD().height-((y-yMin)/(yMax-yMin))*getGD().height;}
+
+let labelHitBoxes=[];
+function regLabel(k,x,y,w,h){labelHitBoxes.push({key:k,x,y,w,h});}
+function m2c(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height};}
+function hitL(cx,cy){for(let i=labelHitBoxes.length-1;i>=0;i--){const b=labelHitBoxes[i];if(cx>=b.x&&cx<=b.x+b.w&&cy>=b.y&&cy<=b.y+b.h)return b.key;}return null;}
+let dragTarget=null,dsx=0,dsy=0,dsox=0,dsoy=0;
+canvas.addEventListener('mousedown',e=>{const pos=m2c(e);const hl=hitL(pos.x,pos.y);if(hl){dragTarget=hl;dsx=pos.x;dsy=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dsox=nudgeOffsets[hl].dx;dsoy=nudgeOffsets[hl].dy;canvas.classList.add('dragging');e.preventDefault();}});
+canvas.addEventListener('mousemove',e=>{const pos=m2c(e);if(dragTarget){nudgeOffsets[dragTarget].dx=dsox+(pos.x-dsx)/DPR;nudgeOffsets[dragTarget].dy=dsoy+(pos.y-dsy)/DPR;drawGraph();}else{canvas.classList.toggle('hovering-label',!!hitL(pos.x,pos.y));}});
+canvas.addEventListener('mouseup',()=>{if(dragTarget){dragTarget=null;canvas.classList.remove('dragging');}});
+canvas.addEventListener('mouseleave',()=>{dragTarget=null;canvas.classList.remove('dragging','hovering-label');});
+
+function drawCurve(pts,alpha){
+    ctx.lineWidth=2.5*DPR;ctx.globalAlpha=alpha;
+    ctx.beginPath();
+    const s=[...pts].sort((a,b)=>b.p-a.p);
+    s.forEach((pt,i)=>{if(i===0)ctx.moveTo(tCX(pt.q),tCY(pt.p));else ctx.lineTo(tCX(pt.q),tCY(pt.p));});
+    ctx.stroke();ctx.globalAlpha=1;
+}
+function drawPts(pts,alpha){
+    if(!isVis('show-points'))return;
+    ctx.globalAlpha=alpha;
+    pts.forEach(pt=>{ctx.fillStyle='#2b6cb0';ctx.beginPath();ctx.arc(tCX(pt.q),tCY(pt.p),6*DPR,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=1.5*DPR;ctx.stroke();});
+    ctx.globalAlpha=1;
+}
+
+function drawArrow(x1,y1,x2,y2){
+    const S=DPR,dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);
+    const ux=dx/len,uy=dy/len;
+    ctx.strokeStyle='#1a202c';ctx.lineWidth=2*S;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+    const hl=10*S,hw=5*S;
+    ctx.fillStyle='#1a202c';ctx.beginPath();
+    ctx.moveTo(x2,y2);ctx.lineTo(x2-ux*hl+uy*hw,y2-uy*hl-ux*hw);ctx.lineTo(x2-ux*hl-uy*hw,y2-uy*hl+ux*hw);ctx.closePath();ctx.fill();
+}
+
+function fmtP(v){return'$'+(v>=1000?v.toLocaleString():v);}
+
+function drawGraph(){
+    labelHitBoxes=[];
+    const d1sh=parseFloat(d1shS.value),d2sh=parseFloat(d2shS.value),ep=parseFloat(epS.value);
+    const D1=shiftCurve(D0,d1sh),D2=shiftCurve(D0,d2sh);
+    const S=DPR;
+
+    document.getElementById('d1sh-val').textContent=(d1sh>=0?'+':'')+d1sh;
+    document.getElementById('d2sh-val').textContent=d2sh;
+    document.getElementById('ep-val').textContent=fmtP(ep);
+
+    const q0=interpQ(D0,ep),q1=interpQ(D1,ep),q2=interpQ(D2,ep);
+    document.getElementById('ep-info').innerHTML=`<div class="info-row"><span class="info-label">D₂ quantity</span><span class="info-value">${q2.toFixed(1)} M</span></div><div class="info-row"><span class="info-label">D₀ quantity</span><span class="info-value highlight">${q0.toFixed(1)} M</span></div><div class="info-row"><span class="info-label">D₁ quantity</span><span class="info-value">${q1.toFixed(1)} M</span></div>`;
+
+    // Comparison
+    document.getElementById('comp-content').innerHTML=`
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div style="background:rgba(229,62,62,.05);border-radius:8px;padding:12px;border:1px solid rgba(229,62,62,.12);">
+                <div style="font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;color:#e53e3e;font-weight:600;margin-bottom:6px;">D₀ → D₂ (Decrease)</div>
+                <div style="font-size:.88rem;color:#4a5568;">At ${fmtP(ep)}: Q drops from ${q0.toFixed(1)} to ${q2.toFixed(1)} M<br>Change: ${(q2-q0).toFixed(1)} M</div>
+            </div>
+            <div style="background:rgba(56,161,105,.05);border-radius:8px;padding:12px;border:1px solid rgba(56,161,105,.12);">
+                <div style="font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;color:#38a169;font-weight:600;margin-bottom:6px;">D₀ → D₁ (Increase)</div>
+                <div style="font-size:.88rem;color:#4a5568;">At ${fmtP(ep)}: Q rises from ${q0.toFixed(1)} to ${q1.toFixed(1)} M<br>Change: +${(q1-q0).toFixed(1)} M</div>
+            </div>
+        </div>`;
+
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+    const{width,height}=getGD();
+
+    // Grid
+    if(isVis('show-gridlines')){ctx.strokeStyle='#edf2f7';ctx.lineWidth=S;for(let q=8;q<=28;q++){const x=tCX(q);ctx.beginPath();ctx.moveTo(x,margin.top);ctx.lineTo(x,margin.top+height);ctx.stroke();}for(let p=10000;p<=28000;p+=2000){const y=tCY(p);ctx.beginPath();ctx.moveTo(margin.left,y);ctx.lineTo(margin.left+width,y);ctx.stroke();}}
+
+    // Axes
+    ctx.strokeStyle='#a0aec0';ctx.lineWidth=2*S;ctx.beginPath();ctx.moveTo(margin.left,margin.top);ctx.lineTo(margin.left,margin.top+height);ctx.lineTo(margin.left+width,margin.top+height);ctx.stroke();
+
+    // Ticks
+    ctx.fillStyle='#718096';ctx.font=`${12*S}px Segoe UI`;ctx.textAlign='center';
+    for(let q=8;q<=28;q+=5){if(q===8||q%5===0||q===13)ctx.fillText(q,tCX(q),margin.top+height+22*S);}
+    [13,14.4,17,18,20,23].forEach(q=>ctx.fillText(q,tCX(q),margin.top+height+22*S));
+    ctx.textAlign='right';
+    for(let p=10000;p<=28000;p+=2000)ctx.fillText(fmtP(p),margin.left-10*S,tCY(p)+5*S);
+
+    // Axis labels
+    const ngX=getNudge('xaxis');ctx.fillStyle='#2b6cb0';ctx.font=`bold ${14*S}px Segoe UI`;ctx.textAlign='center';
+    const xlx=margin.left+width/2+ngX.dx,xly=canvas.height-10*S+ngX.dy;
+    ctx.fillText('Quantity',xlx,xly);const xtw=ctx.measureText('Quantity').width;regLabel('xaxis',xlx-xtw/2-4*S,xly-16*S,xtw+8*S,22*S);
+
+    const ngY=getNudge('yaxis');ctx.fillStyle='#2b6cb0';ctx.font=`bold ${14*S}px Segoe UI`;ctx.textAlign='center';
+    ctx.save();const ylx=28*S+ngY.dx,yly=margin.top+height/2+ngY.dy;ctx.translate(ylx,yly);ctx.rotate(-Math.PI/2);ctx.fillText('Price',0,0);ctx.restore();
+    const ytw=ctx.measureText('Price').width;regLabel('yaxis',ylx-14*S,yly-ytw/2-4*S,28*S,ytw+8*S);
+
+    // Price lines (dashed purple) — explored price + $22,000
+    if(isVis('show-pricelines')){
+        ctx.strokeStyle='#d53f8c';ctx.lineWidth=1.5*S;ctx.setLineDash([6*S,4*S]);
+        ctx.beginPath();ctx.moveTo(margin.left,tCY(ep));ctx.lineTo(margin.left+width,tCY(ep));ctx.stroke();
+        // Second price line at $22,000 if different from explored
+        if(Math.abs(ep-22000)>500){
+            ctx.beginPath();ctx.moveTo(margin.left,tCY(22000));ctx.lineTo(margin.left+width,tCY(22000));ctx.stroke();
+        }
+        ctx.setLineDash([]);
+
+        // Vertical dashes at intersection points
+        ctx.strokeStyle='rgba(213,63,140,0.3)';ctx.lineWidth=1.5*S;ctx.setLineDash([5*S,3*S]);
+        [q0,q1,q2].forEach(q=>{if(q>xMin&&q<xMax){ctx.beginPath();ctx.moveTo(tCX(q),tCY(ep));ctx.lineTo(tCX(q),tCY(yMin));ctx.stroke();}});
+        if(Math.abs(ep-22000)>500){
+            const r0=interpQ(D0,22000);
+            ctx.beginPath();ctx.moveTo(tCX(r0),tCY(22000));ctx.lineTo(tCX(r0),tCY(yMin));ctx.stroke();
+        }
+        ctx.setLineDash([]);
+    }
+
+    // Curves
+    ctx.strokeStyle='#2b6cb0';
+    if(isVis('show-d2'))drawCurve(D2,0.6);
+    drawCurve(D0,1);
+    if(isVis('show-d1'))drawCurve(D1,0.6);
+
+    // Points
+    if(isVis('show-d2'))drawPts(D2,0.6);
+    drawPts(D0,1);
+    if(isVis('show-d1'))drawPts(D1,0.6);
+
+    // Shift arrows between curves
+    if(isVis('show-arrows')){
+        const arrowPrices=[24000,22000];
+        arrowPrices.forEach(ap=>{
+            const q0a=interpQ(D0,ap);
+            if(isVis('show-d2')){const q2a=interpQ(D2,ap);drawArrow(tCX(q0a)-14*S,tCY(ap),tCX(q2a)+14*S,tCY(ap));}
+            if(isVis('show-d1')){const q1a=interpQ(D1,ap);drawArrow(tCX(q0a)+14*S,tCY(ap),tCX(q1a)-14*S,tCY(ap));}
+        });
+        // Lower arrows between D0 and D2, D0 and D1 at explored price area
+        const lp=ep-2000;
+        if(lp>yMin&&lp<yMax){
+            const q0a=interpQ(D0,lp);
+            if(isVis('show-d2')){const q2a=interpQ(D2,lp);drawArrow(tCX(q0a)-14*S,tCY(lp),tCX(q2a)+14*S,tCY(lp));}
+            if(isVis('show-d1')){const q1a=interpQ(D1,lp);drawArrow(tCX(q0a)+14*S,tCY(lp),tCX(q1a)-14*S,tCY(lp));}
+        }
+    }
+
+    // Labels
+    if(isVis('show-labels')){
+        ctx.fillStyle='#2b6cb0';ctx.font=`bold ${14*S}px Segoe UI`;ctx.textAlign='center';
+        // D0 label at bottom of D0
+        const d0b=D0[D0.length-1];const ngD0=getNudge('d0l');
+        ctx.fillText('D₀',tCX(d0b.q)+16*S+ngD0.dx,tCY(d0b.p)+16*S+ngD0.dy);
+        const d0tw=ctx.measureText('D₀').width;regLabel('d0l',tCX(d0b.q)+16*S-d0tw/2-4*S+ngD0.dx,tCY(d0b.p)+16*S-14*S+ngD0.dy,d0tw+8*S,22*S);
+
+        if(isVis('show-d1')){const d1b=D1[D1.length-1];const ngD1=getNudge('d1l');ctx.fillText('D₁',tCX(d1b.q)+16*S+ngD1.dx,tCY(d1b.p)+16*S+ngD1.dy);const tw=ctx.measureText('D₁').width;regLabel('d1l',tCX(d1b.q)+16*S-tw/2-4*S+ngD1.dx,tCY(d1b.p)+16*S-14*S+ngD1.dy,tw+8*S,22*S);}
+        if(isVis('show-d2')){const d2b=D2[D2.length-1];const ngD2=getNudge('d2l');ctx.fillText('D₂',tCX(d2b.q)+16*S+ngD2.dx,tCY(d2b.p)+16*S+ngD2.dy);const tw=ctx.measureText('D₂').width;regLabel('d2l',tCX(d2b.q)+16*S-tw/2-4*S+ngD2.dx,tCY(d2b.p)+16*S-14*S+ngD2.dy,tw+8*S,22*S);}
+
+        // Named points: T, Q, S on explored price; R on D0 at $22k
+        ctx.font=`bold ${13*S}px Segoe UI`;
+        const namedPts=[
+            {label:'Q',q:q0,p:ep},{label:'T',q:q2,p:ep},{label:'S',q:q1,p:ep},
+        ];
+        if(Math.abs(ep-22000)>500){namedPts.push({label:'R',q:interpQ(D0,22000),p:22000});}
+        namedPts.forEach(np=>{
+            const ng=getNudge('pt-'+np.label);
+            const px=tCX(np.q),py=tCY(np.p);
+            // Green dot for named points
+            ctx.fillStyle='#38a169';ctx.beginPath();ctx.arc(px,py,8*S,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2*S;ctx.stroke();
+            ctx.fillStyle='#1a202c';
+            const lx=px+12*S+ng.dx,ly=py-10*S+ng.dy;
+            ctx.fillText(np.label,lx,ly);
+            const tw=ctx.measureText(np.label).width;regLabel('pt-'+np.label,lx-tw/2-4*S,ly-14*S,tw+8*S,22*S);
+        });
+
+        // Annotations under price lines
+        if(isVis('show-annot')){
+            ctx.font=`${10*S}px Segoe UI`;ctx.fillStyle='#4a5568';ctx.textAlign='center';
+            [{q:q2,label:`P = ${fmtP(ep)}\nQ = ${q2.toFixed(1)} million`},
+             {q:q0,label:`P = ${fmtP(ep)}\nQ = ${q0.toFixed(1)} million`},
+             {q:q1,label:`P = ${fmtP(ep)}\nQ = ${q1.toFixed(1)} million`}].forEach(a=>{
+                const ng=getNudge('an-'+Math.round(a.q));
+                const lines=a.label.split('\n');
+                const ax=tCX(a.q)+ng.dx,ay=tCY(ep)+20*S+ng.dy;
+                lines.forEach((l,i)=>ctx.fillText(l,ax,ay+i*14*S));
+                const maxW=Math.max(...lines.map(l=>ctx.measureText(l).width));
+                regLabel('an-'+Math.round(a.q),ax-maxW/2-4*S,ay-14*S,maxW+8*S,lines.length*14*S+10*S);
+            });
+        }
+    }
+}
+
+[d1shS,d2shS,epS].forEach(s=>s.addEventListener('input',drawGraph));
+document.getElementById('display-toggle-btn').addEventListener('click',()=>{const p=document.getElementById('display-panel'),a=document.getElementById('display-arrow');a.classList.toggle('open',p.classList.toggle('open'));});
+document.querySelectorAll('.display-options-panel input').forEach(i=>{i.addEventListener('input',drawGraph);i.addEventListener('change',drawGraph);});
+document.getElementById('copy-plot-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-plot-btn'),l=document.getElementById('copy-label');try{const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);btn.classList.add('copied');l.textContent='Copied!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Copy';},1500);}catch{l.textContent='Failed';setTimeout(()=>{l.textContent='Copy';},1500);}});
+document.getElementById('save-plot-btn').addEventListener('click',()=>{const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='demand_shifts.png';a.click();const btn=document.getElementById('save-plot-btn'),l=document.getElementById('save-label');btn.classList.add('copied');l.textContent='Saved!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Save';},1500);});
+
+const DEFAULTS={d1sh:2,d2sh:-3.6,ep:20000};
+const CB_IDS=['show-gridlines','show-points','show-pricelines','show-arrows','show-annot','show-labels','show-d2','show-d1'];
+const NK=['xaxis','yaxis','d0l','d1l','d2l','pt-Q','pt-T','pt-S','pt-R'];
+function loadHash(){const h=window.location.hash.slice(1);if(!h)return;const p=new URLSearchParams(h);if(p.has('d1sh'))d1shS.value=p.get('d1sh');if(p.has('d2sh'))d2shS.value=p.get('d2sh');if(p.has('ep'))epS.value=p.get('ep');for(const id of CB_IDS){if(p.has(id)){const el=document.getElementById(id);if(el)el.checked=p.get(id)==='1';}}for(const k of NK){const key='n_'+k;if(p.has(key)){const pts=p.get(key).split(',');if(pts.length===2)nudgeOffsets[k]={dx:parseFloat(pts[0]),dy:parseFloat(pts[1])};}}}
+document.getElementById('copy-url-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-url-btn');const s={};if(parseFloat(d1shS.value)!==DEFAULTS.d1sh)s.d1sh=d1shS.value;if(parseFloat(d2shS.value)!==DEFAULTS.d2sh)s.d2sh=d2shS.value;if(parseFloat(epS.value)!==DEFAULTS.ep)s.ep=epS.value;for(const id of CB_IDS){const el=document.getElementById(id);if(el&&!el.checked)s[id]=0;}for(const k of NK){const o=nudgeOffsets[k];if(o&&(Math.abs(o.dx)>0.5||Math.abs(o.dy)>0.5))s['n_'+k]=Math.round(o.dx)+','+Math.round(o.dy);}const qs=new URLSearchParams();for(const[k,v]of Object.entries(s))qs.set(k,v);const url=location.origin+location.pathname+(qs.toString()?'#'+qs:'');try{await navigator.clipboard.writeText(url);btn.textContent='✓ Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copy link';btn.classList.remove('copied');},2000);}catch{prompt('Copy:',url);}});
+document.getElementById('reset-url-btn').addEventListener('click',()=>{d1shS.value=DEFAULTS.d1sh;d2shS.value=DEFAULTS.d2sh;epS.value=DEFAULTS.ep;for(const id of CB_IDS){const el=document.getElementById(id);if(el)el.checked=true;}for(const k of NK)delete nudgeOffsets[k];Object.keys(PANEL_NAMES).forEach(n=>{const el=document.getElementById('section-'+n);if(el)el.classList.remove('panel-closed');});['graph','explanation','comparison','shifts','epinfo','keyvals'].forEach(s=>{const b=document.getElementById('body-'+s),t=document.getElementById('toggle-'+s);if(b)b.classList.remove('collapsed');if(t)t.textContent='▼';});updateR();updateL();history.replaceState(null,'',location.pathname);drawGraph();});
+
+loadHash();updateR();updateL();drawGraph();
+</script>
+</body>
+</html>
