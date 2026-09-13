@@ -70,8 +70,7 @@ We can show an example from the market for gasoline in a table or a graph. Econo
 
 : Price and Quantity Demanded of Gasoline {#tbl-table_3_1}
 
-![](media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId28.jpeg){width="4.88in" height="2.61in" #fig-3_2}
-
+{{< appfig demand_curve_1 id="fig-3_2" >}}
 Figure 3.2 A Demand Curve for Gasoline The demand schedule shows that as price rises, quantity demanded decreases, and vice versa. We graph these points, and the line connecting them is the demand curve (D). The downward slope of the demand curve again illustrates the law of demand---the inverse relationship between prices and quantity demanded.
 
 Demand curves will appear somewhat different for each product. They may appear relatively steep or flat, or they may be straight or curved. Nearly all demand curves share the fundamental similarity that they slope down from left to right. Demand curves embody the law of demand: As the price increases, the quantity demanded decreases, and conversely, as the price decreases, the quantity demanded increases.
@@ -98,8 +97,7 @@ In economic terminology, supply is not the same as quantity supplied. When econo
 
 [Figure 3.3](#fig-3_3) illustrates the law of supply, again using the market for gasoline as an example. Like demand, we can illustrate supply using a table or a graph. A supply schedule is a table, like @tbl-table_3_2, that shows the quantity supplied at a range of different prices. Again, we measure price in dollars per gallon of gasoline and we measure quantity supplied in millions of gallons. A supply curve is a graphic illustration of the relationship between price, shown on the vertical axis, and quantity, shown on the horizontal axis. The supply schedule and the supply curve are just two different ways of showing the same information. Notice that the horizontal and vertical axes on the graph for the supply curve are the same as for the demand curve.
 
-![](media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId42.jpeg){width="4.88in" height="2.47in" #fig-3_3}
-
+{{< appfig supply_curve_1 id="fig-3_3" >}}
 Figure 3.3 A Supply Curve for Gasoline The supply schedule is the table that shows quantity supplied of gasoline at each price. As price rises, quantity supplied also increases, and vice versa. The supply curve (S) is created by graphing the points from the supply schedule and then connecting them. The upward slope of the supply curve illustrates the law of supply---that a higher price leads to a higher quantity supplied, and vice versa.
 
 | Price (per gallon) | Quantity Supplied (millions of gallons) |
@@ -122,8 +120,7 @@ Because the graphs for demand and supply curves both have price on the vertical 
 
 [Figure 3.4](#fig-3_4) illustrates the interaction of demand and supply in the market for gasoline. The demand curve (D) is identical to [Figure 3.2](#fig-3_2). The supply curve (S) is identical to [Figure 3.3](#fig-3_3). @tbl-table_3_3 contains the same information in tabular form.
 
-![](media/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services_rId47.jpeg){width="3.37in" height="2.37in" #fig-3_4}
-
+{{< appfig equilibrium_1 id="fig-3_4" >}}
 Figure 3.4 Demand and Supply for Gasoline The demand curve (D) and the supply curve (S) intersect at the equilibrium point E, with a price of \$1.40 and a quantity of 600. The equilibrium price is the only price where quantity demanded is equal to quantity supplied. At a price above equilibrium like \$1.80, quantity supplied exceeds the quantity demanded, so there is excess supply. At a price below equilibrium such as \$1.20, quantity demanded exceeds quantity supplied, so there is excess demand.
 
 | Price (per gallon) | Quantity demanded (millions of gallons) | Quantity supplied (millions of gallons) |
@@ -197,8 +194,7 @@ The original demand curve D~0~, like every demand curve, is based on the *ceteri
 
 Return to [Figure 3.5](#fig-3_5). The price of cars is still \$20,000, but with higher incomes, the quantity demanded has now increased to 20 million cars, shown at point S. As a result of the higher income levels, the demand curve shifts to the right to the new demand curve D~1~, indicating an increase in demand. @tbl-table_3_4 shows clearly that this increased demand would occur at every price, not just the original one.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId33.jpeg){width="4.88in" height="2.975in" #fig-3_5}
-
+{{< appfig demand_shifts_1 id="fig-3_5" >}}
 Figure 3.5 Shifts in Demand: A Car Example Increased demand means that at every given price, the quantity demanded is higher, so that the demand curve shifts to the right from D~0~ to D~1~. Decreased demand means that at every given price, the quantity demanded is lower, so that the demand curve shifts to the left from D~0~ to D~2~.
 
 | Price   | Decrease to D2 | Original Quantity Demanded D0 | Increase to D1 |
@@ -248,28 +244,24 @@ A shift in demand means that at any price (and at every price), the quantity dem
 
 Step 1. Draw the graph of a demand curve for a normal good like pizza. Pick a price (like P~0~). Identify the corresponding Q~0~. See an example in [Figure 3.6](#fig-3_6).
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId44.jpeg){width="3.25in" height="1.9749989063867017in" #fig-3_6}
-
+{{< appfig demand_basic_1 id="fig-3_6" >}}
 Figure 3.6 Demand Curve We can use the demand curve to identify how much consumers would buy at any given price.
 
 Step 2. Suppose income increases. As a result of the change, are consumers going to buy more or less pizza? The answer is more. Draw a dotted horizontal line from the chosen price, through the original quantity demanded, to the new point with the new Q~1~. Draw a dotted vertical line down to the horizontal axis and label the new Q~1~. [Figure 3.7](#fig-3_7) provides an example.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId47.jpeg){width="3.25in" height="2.01in" #fig-3_7}
-
+{{< appfig demand_two_points_1 id="fig-3_7" >}}
 Figure 3.7 Demand Curve with Income Increase With an increase in income, consumers will purchase larger quantities, pushing demand to the right.
 
 Step 3. Now, shift the curve through the new point. You will see that an increase in income causes an upward (or rightward) shift in the demand curve, so that at any price the quantities demanded will be higher, as [Figure 3.8](#fig-3_8) illustrates.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId50.jpeg){width="3.25in" height="1.9949989063867017in" #fig-3_8}
-
+{{< appfig demand_shift_dd_1 id="fig-3_8" >}}
 Figure 3.8 Demand Curve Shifted Right With an increase in income, consumers will purchase larger quantities, pushing demand to the right, and causing the demand curve to shift right.
 
 #### Summing Up Factors That Change Demand
 
 [Figure 3.9](#fig-3_9) summarizes six factors that can shift demand curves. The direction of the arrows indicates whether the demand curve shifts represent an increase in demand or a decrease in demand. Notice that a change in the price of the good or service itself is not listed among the factors that can shift a demand curve. A change in the price of a good or service causes a movement along a specific demand curve, and it typically leads to some change in the quantity demanded, but it does not shift the demand curve.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId56.jpeg){width="6.5in" height="2.035in" #fig-3_9}
-
+{{< appfig demand_shift_factors_1 id="fig-3_9" >}}
 Figure 3.9 Factors That Shift Demand Curves (a) A list of factors that can cause an increase in demand from D~0~ to D~1~. (b) The same factors, if their direction is reversed, can cause a decrease in demand from D~0~ to D~1~.
 
 When a demand curve shifts, it will then intersect with a given supply curve at a different equilibrium price and quantity. We are, however, getting ahead of our story. Before discussing how changes in demand can affect equilibrium price and quantity, we first need to discuss shifts in supply curves.
@@ -286,8 +278,7 @@ Conversely, if a firm faces higher costs of production, then it will earn lower 
 
 Consider the supply for cars, shown by curve S~0~ in [Figure 3.10](#fig-3_10). Point J indicates that if the price is \$20,000, the quantity supplied will be 18 million cars. If the price rises to \$22,000 per car, *ceteris paribus,* the quantity supplied will rise to 20 million cars, as point K on the S~0~ curve shows. We can show the same information in table form, as in @tbl-table_3_5.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId64.jpeg){width="4.88in" height="2.935in" #fig-3_10}
-
+{{< appfig supply_shift_1 id="fig-3_10" >}}
 Figure 3.10 Shifts in Supply: A Car Example Decreased supply means that at every given price, the quantity supplied is lower, so that the supply curve shifts to the left, from S~0~ to S~1~. Increased supply means that at every given price, the quantity supplied is higher, so that the supply curve shifts to the right, from S~0~ to S~2~.
 
 | Price   | Decrease to S1 | Original Quantity Supplied S0 | Increase to S2 |
