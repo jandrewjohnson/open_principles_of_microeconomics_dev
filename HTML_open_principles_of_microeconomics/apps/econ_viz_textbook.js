@@ -88,6 +88,7 @@ class EconViz {
     this.toggleEls = {};
     this.textEls = {};
     this.selected = null;   // key of the clicked point, travels in the hash as sel=
+    this.unknownKeys = [];  // hash keys this app does not recognise; the render step fails on them
     this.stateVersion = cfg.stateVersion || 1;
     window.econViz = this;  // handy for the render script, tests, and the console
 
@@ -532,10 +533,23 @@ class EconViz {
   appURL() { return location.origin + location.pathname + this.stateHash(); }
   figureURL() { return location.origin + location.pathname + '?embed' + this.stateHash(); }
   _loadHash() {
+    this.unknownKeys = [];
     const h = location.hash.slice(1); if (!h) return;
     const p = new URLSearchParams(h);
     const v = parseInt(p.get('v') || '1', 10);
     if (this.cfg.migrateState && v < this.stateVersion) this.cfg.migrateState(p, v);
+    // A state string carries no record of which app it came from. Pasted against
+    // the wrong app it used to be silently ignored: identical render, identical
+    // PNG, nothing reported. Collect what this app cannot interpret so the render
+    // step can refuse it.
+    const known = new Set(['v', 'sel']);
+    (this.cfg.sliders || []).forEach(sl => known.add(sl.id));
+    (this.cfg.toggles || []).forEach(tg => known.add(tg.id));
+    (this.cfg.texts || []).forEach(tx => known.add(tx.id));
+    (this.cfg.nudgeKeys || []).forEach(k => known.add('@' + k));
+    if (this.cfg.stateIncludesChrome) this._panelSpecs().forEach(sp => { known.add('closed_' + sp.key); known.add('sec_' + sp.key); });
+    for (const k of p.keys()) if (!known.has(k) && !this.unknownKeys.includes(k)) this.unknownKeys.push(k);
+    if (this.unknownKeys.length) console.warn('econViz: hash keys not recognised by this app: ' + this.unknownKeys.join(', '));
     (this.cfg.sliders || []).forEach(sl => { if (p.has(sl.id)) this.sliderEls[sl.id].value = p.get(sl.id); });
     (this.cfg.toggles || []).forEach(t => { if (p.has(t.id)) this.toggleEls[t.id].checked = p.get(t.id) === '1'; });
     (this.cfg.texts || []).forEach(t => { if (p.has(t.id) && this.textEls[t.id]) this.textEls[t.id].value = p.get(t.id); });
