@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Opportunity Set vs. Social PPF</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f7fa; color: #2d3748; margin: 0; padding: 20px; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; font-weight: 400; font-size: 1.8rem; margin-bottom: 8px; color: #1a202c; }
+        .subtitle { text-align: center; color: #718096; margin-bottom: 24px; font-size: 0.95rem; }
+        .main-content { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } }
+        .main-content.left-empty { grid-template-columns: 0 1fr; }
+        .main-content.right-empty { grid-template-columns: 1fr; }
+        .main-content.left-empty .left-column { display: none; }
+        .main-content.right-empty .controls { display: none; }
+        .left-column { display: flex; flex-direction: column; gap: 0; }
+        .graph-container { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); position: relative; overflow: visible; }
+        .graph-header { display: flex; align-items: center; padding: 12px 20px; cursor: pointer; user-select: none; }
+        .graph-header:hover { background: #f7fafc; border-radius: 12px 12px 0 0; }
+        .graph-header .panel-title { margin-bottom: 0; }
+        .graph-body { padding: 0 20px 20px 20px; position: relative; }
+        .graph-body.collapsed { display: none; }
+        canvas { display: block; width: 100%; height: auto; cursor: default; }
+        canvas.hovering-label { cursor: grab; }
+        canvas.dragging { cursor: grabbing; }
+        .plot-actions { position: absolute; top: 8px; right: 8px; z-index: 10; display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s; }
+        .graph-container:hover .plot-actions { opacity: 1; }
+        .plot-action-btn { background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); border: 1px solid rgba(226,232,240,0.7); border-radius: 6px; padding: 4px 8px; font-size: 0.7rem; color: #a0aec0; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s; line-height: 1; }
+        .plot-action-btn:hover { background: #fff; color: #4a5568; border-color: #cbd5e0; }
+        .plot-action-btn.copied { color: #38a169; border-color: #c6f6d5; background: rgba(240,255,244,0.9); }
+        .plot-action-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
+        .panel-close-btn { background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); border: 1px solid rgba(226,232,240,0.7); border-radius: 6px; padding: 4px 8px; font-size: 0.7rem; color: #a0aec0; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s; line-height: 1; flex-shrink: 0; }
+        .panel-close-btn:hover { background: #fff; color: #e53e3e; border-color: #feb2b2; }
+        .panel-header-actions { position: absolute; top: 8px; right: 8px; z-index: 10; display: flex; align-items: center; gap: 4px; opacity: 0; transition: opacity 0.2s; flex-shrink: 0; }
+        .panel-collapse-btn { background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); border: 1px solid rgba(226,232,240,0.7); border-radius: 6px; padding: 4px 8px; font-size: 0.65rem; color: #a0aec0; cursor: pointer; display: flex; align-items: center; font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s; line-height: 1; }
+        .panel-collapse-btn:hover { background: #fff; color: #4a5568; border-color: #cbd5e0; }
+        .panel-closed { display: none !important; }
+        .left-section { position: relative; }
+        .left-section:hover .panel-header-actions { opacity: 1; }
+        .control-panel { position: relative; }
+        .control-panel:hover .panel-header-actions { opacity: 1; }
+        .graph-container:hover > .graph-header .panel-header-actions { opacity: 1; }
+        .title-wrapper:hover .panel-header-actions { opacity: 1; }
+        .subtitle-wrapper:hover .panel-header-actions { opacity: 1; }
+        .restore-bar { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+        .restore-bar:empty { display: none; margin: 0; padding: 0; border: none; }
+        .restore-btn { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 4px 10px; font-size: 0.72rem; color: #718096; cursor: pointer; font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s; }
+        .restore-btn:hover { background: #f7fafc; border-color: #cbd5e0; color: #4a5568; }
+        .restore-label { font-size: 0.7rem; color: #a0aec0; }
+        .controls { display: flex; flex-direction: column; gap: 16px; }
+        .control-panel { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: visible; }
+        .control-panel-header { display: flex; align-items: center; padding: 16px 20px; cursor: pointer; user-select: none; }
+        .control-panel-header:hover { background: #f7fafc; border-radius: 12px; }
+        .control-panel-header .panel-title { margin-bottom: 0; }
+        .control-panel-body { padding: 0 20px 20px 20px; }
+        .control-panel-body.collapsed { display: none; }
+        .panel-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #718096; margin-bottom: 16px; font-weight: 600; }
+        .slider-group { margin-bottom: 16px; }
+        .slider-group:last-child { margin-bottom: 0; }
+        .slider-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.9rem; color: #4a5568; }
+        .slider-value { background: #edf2f7; padding: 4px 10px; border-radius: 4px; font-family: 'Monaco','Consolas',monospace; font-size: 0.85rem; color: #2b6cb0; font-weight: 500; }
+        input[type="range"] { width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #4299e1; cursor: pointer; box-shadow: 0 2px 6px rgba(66,153,225,0.3); transition: transform 0.15s; }
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+        .info-box { background: #f7fafc; border-radius: 8px; padding: 16px; border-left: 3px solid #4299e1; }
+        .info-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 0.9rem; }
+        .info-label { color: #718096; }
+        .info-value { font-family: 'Monaco','Consolas',monospace; color: #1a202c; }
+        .info-value.highlight { color: #2b6cb0; font-weight: 600; }
+        .legend { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+        .legend-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #4a5568; }
+        .legend-line { width: 24px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+        .equation-box { background: #f7fafc; border-radius: 8px; padding: 14px 16px; text-align: center; margin-top: 8px; border: 1px solid #e2e8f0; font-size: 1.05rem; }
+        .left-section { margin-top: 20px; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: visible; }
+        .left-section-header { display: flex; align-items: center; padding: 16px 24px; cursor: pointer; user-select: none; }
+        .left-section-header:hover { background: #f7fafc; border-radius: 12px; }
+        .left-section-header .panel-title { margin-bottom: 0; }
+        .left-section-body { padding: 0 24px 20px 24px; }
+        .left-section-body.collapsed { display: none; }
+        .left-section-body p { margin: 0 0 14px 0; line-height: 1.7; font-size: 0.95rem; color: #4a5568; }
+        .left-section-body p:last-child { margin-bottom: 0; }
+
+        .display-options-wrapper { margin-top: 24px; }
+        .display-options-toggle { background: none; border: none; color: #a0aec0; font-size: 0.78rem; cursor: pointer; padding: 4px 0; display: flex; align-items: center; gap: 4px; }
+        .display-options-toggle:hover { color: #718096; }
+        .display-options-toggle .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+        .display-options-toggle .arrow.open { transform: rotate(90deg); }
+        .display-options-panel { display: none; margin-top: 8px; background: #fff; border-radius: 12px; padding: 16px 20px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .display-options-panel.open { display: block; }
+        .display-options-panel .panel-title { font-size: 0.75rem; margin-bottom: 12px; }
+        .opt-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+        .opt-row label { font-size: 0.8rem; color: #4a5568; cursor: pointer; white-space: nowrap; }
+        .opt-row input[type="checkbox"] { accent-color: #4299e1; cursor: pointer; margin: 0; width: 14px; height: 14px; }
+        .opt-section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #a0aec0; margin: 10px 0 4px; font-weight: 600; }
+        .opt-section-label:first-child { margin-top: 0; }
+
+        body.embed-mode { padding: 8px; background: transparent; min-height: auto; }
+        .embed-mode h1,.embed-mode .subtitle,.embed-mode .left-section,.embed-mode .display-options-wrapper { display: none !important; }
+        body.embed-hide-controls .controls { display: none !important; }
+        body.embed-hide-controls .main-content { grid-template-columns: 1fr; }
+
+        .katex { font-size: 1em; }
+        .info-row .katex { font-size: 0.95em; }
+        .slider-label .katex { font-size: 0.95em; }
+        .equation-box .katex { font-size: 1.1em; }
+
+        .url-state-bar { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .url-state-bar button { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 6px 12px; font-size: 0.78rem; color: #4a5568; cursor: pointer; font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s; white-space: nowrap; }
+        .url-state-bar button:hover { background: #f7fafc; border-color: #cbd5e0; }
+        .url-state-bar button.copied { color: #38a169; border-color: #c6f6d5; background: #f0fff4; }
+        .url-state-bar .url-hint { font-size: 0.7rem; color: #a0aec0; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="section-title" class="title-wrapper" style="position:relative">
+        <h1>Individual Choice vs. Social Production</h1>
+        <div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div>
+    </div>
+    <div id="section-subtitle" class="subtitle-wrapper" style="position:relative">
+        <p class="subtitle" style="margin-bottom:24px">An individual faces a linear budget constraint (constant opportunity cost), while society faces a bowed-out PPF (increasing opportunity cost)</p>
+        <div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div>
+    </div>
+    <div class="main-content">
+        <div class="left-column">
+            <div class="graph-container" id="section-graph">
+                <div class="graph-header" onclick="toggleGraph()">
+                    <div class="panel-title" style="margin-bottom:0">A. Budget Constraint vs. PPF</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();toggleGraph()">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button>
+                    </div>
+                </div>
+                <div class="graph-body" id="body-graph">
+                    <div class="plot-actions">
+                        <button class="plot-action-btn" id="copy-plot-btn" title="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span id="copy-label">Copy</span>
+                        </button>
+                        <button class="plot-action-btn" id="save-plot-btn" title="Save as PNG">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span id="save-label">Save</span>
+                        </button>
+                    </div>
+                    <canvas id="graph" width="1400" height="700"></canvas>
+                </div>
+            </div>
+
+            <!-- Explanation -->
+            <div class="left-section" id="section-explanation">
+                <div class="left-section-header" onclick="toggleSection('explanation')">
+                    <div class="panel-title" style="margin-bottom:0">Explanation</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();toggleSection('explanation')">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button>
+                    </div>
+                </div>
+                <div class="left-section-body" id="body-explanation">
+                    <p>Panel (a) shows an <strong>individual opportunity set</strong>—a budget constraint. Given fixed income and prices, a consumer can afford any combination of Good 1 and Good 2 on or below this line. The trade-off is <em>linear</em> because prices are constant: each additional unit of Good 1 always costs the same amount of Good 2 foregone. The slope equals the price ratio \( -P_1/P_2 \), and it does not change as you move along the line.</p>
+                    <p>Panel (b) shows a <strong>social production possibilities frontier</strong>. When an entire economy allocates resources between Good 1 and Good 2, the trade-off is typically <em>not</em> constant. The PPF bows outward because of <strong>increasing opportunity costs</strong>: as society produces more of one good, it must pull resources that are progressively less suited to that good and more suited to the other, making each additional unit costlier than the last.</p>
+                    <p>The contrast is fundamental. An individual takes market prices as given, so their constraint is a straight line. Society, however, <em>determines</em> the overall allocation, and the concavity of the PPF reflects the heterogeneity of resources—not all workers, land, or capital are equally productive in every use. This distinction between the individual's linear world and society's curved frontier is central to understanding why market prices emerge and why specialization benefits the economy.</p>
+                </div>
+            </div>
+
+            <!-- Key Difference -->
+            <div class="left-section" id="section-keydiff">
+                <div class="left-section-header" onclick="toggleSection('keydiff')">
+                    <div class="panel-title" style="margin-bottom:0">Opportunity Cost Comparison</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-keydiff" onclick="event.stopPropagation();toggleSection('keydiff')">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keydiff')">✕</button>
+                    </div>
+                </div>
+                <div class="left-section-body" id="body-keydiff">
+                    <div id="keydiff-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-panel" id="section-individual">
+                <div class="control-panel-header" onclick="togglePanel('individual')">
+                    <div class="panel-title" style="margin-bottom:0">Individual Budget Constraint</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-individual" onclick="event.stopPropagation();togglePanel('individual')">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('individual')">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-individual">
+                    <div class="slider-group"><div class="slider-label"><span>Max Good 1 \((M/P_1)\)</span><span class="slider-value" id="ig1-val">80</span></div><input type="range" id="ig1" min="10" max="150" value="80" step="1"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Max Good 2 \((M/P_2)\)</span><span class="slider-value" id="ig2-val">50</span></div><input type="range" id="ig2" min="10" max="150" value="50" step="1"></div>
+                    <div class="info-box" style="margin-top:8px;">
+                        <div class="info-row"><span class="info-label">OC of 1 unit Good 1</span><span class="info-value" id="i-oc1"></span></div>
+                        <div class="info-row"><span class="info-label">OC of 1 unit Good 2</span><span class="info-value" id="i-oc2"></span></div>
+                        <div class="info-row"><span class="info-label">Slope</span><span class="info-value" id="i-slope"></span></div>
+                    </div>
+                    <div class="equation-box" style="margin-top:12px;">\( P_1 \cdot X_1 + P_2 \cdot X_2 = M \)</div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-social">
+                <div class="control-panel-header" onclick="togglePanel('social')">
+                    <div class="panel-title" style="margin-bottom:0">Social PPF</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-social" onclick="event.stopPropagation();togglePanel('social')">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('social')">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-social">
+                    <div class="slider-group"><div class="slider-label"><span>Max Good 1</span><span class="slider-value" id="sg1-val">60</span></div><input type="range" id="sg1" min="10" max="150" value="60" step="1"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Max Good 2</span><span class="slider-value" id="sg2-val">100</span></div><input type="range" id="sg2" min="10" max="150" value="100" step="1"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Curvature \( n \)</span><span class="slider-value" id="sn-val">2.0</span></div><input type="range" id="sn" min="1" max="4" value="2" step="0.1"></div>
+                    <div class="info-box" style="margin-top:8px;">
+                        <div class="info-row"><span class="info-label">Shape</span><span class="info-value" id="s-shape">Concave (bowed out)</span></div>
+                        <div class="info-row"><span class="info-label">OC type</span><span class="info-value" id="s-octype">Increasing</span></div>
+                    </div>
+                    <div class="equation-box" style="margin-top:12px;">\( \left(\frac{G_2}{G_{2,max}}\right)^n + \left(\frac{G_1}{G_{1,max}}\right)^n = 1 \)</div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-keyvals">
+                <div class="control-panel-header" onclick="togglePanel('keyvals')">
+                    <div class="panel-title" style="margin-bottom:0">Legend</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();togglePanel('keyvals')">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keyvals')">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-keyvals">
+                    <div class="legend">
+                        <div class="legend-item"><div class="legend-line" style="background:#805ad5;"></div><span>Individual budget constraint (linear)</span></div>
+                        <div class="legend-item"><div class="legend-line" style="background:#805ad5;"></div><span>Social PPF (concave)</span></div>
+                    </div>
+                    <div style="margin-top:12px;padding:10px 12px;background:rgba(107,70,193,0.06);border-radius:6px;border:1px solid rgba(107,70,193,0.12);font-size:0.85rem;color:#4a5568;line-height:1.6;">
+                        <strong style="color:#6b46c1;">Note:</strong> The axes are swapped between the two panels — the individual graph has Good 1 on X and Good 2 on Y, while the social graph has Good 2 on X and Good 1 on Y — matching the standard textbook presentation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-options-wrapper">
+        <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+        <div class="display-options-panel" id="display-panel">
+            <div class="panel-title">Plot Element Visibility <span style="font-weight:400;font-size:0.65rem;color:#a0aec0;text-transform:none;letter-spacing:0"> — drag labels on graph to reposition</span></div>
+            <div class="opt-section-label">Elements</div>
+            <div class="opt-row"><input type="checkbox" id="show-gridlines" checked><label for="show-gridlines">Gridlines</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-axis-numbers" checked><label for="show-axis-numbers">Axis tick numbers</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-shading" checked><label for="show-shading">Feasible region shading</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-subtitles" checked><label for="show-subtitles">Panel subtitles</label></div>
+
+            <div class="restore-bar" id="restore-bar"></div>
+            <div class="url-state-bar">
+                <button id="copy-url-btn">📋 Copy link with current state</button>
+                <button id="reset-url-btn">↺ Reset to defaults</button>
+                <span class="url-hint">Link encodes all parameters</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){const p=new URLSearchParams(window.location.search);if(p.has('embed')){document.body.classList.add('embed-mode');const h=p.get('hide');if(h)h.split(',').forEach(s=>document.body.classList.add('embed-hide-'+s.trim()));}})();
+function renderAllMath(){if(typeof renderMathInElement!=='undefined')renderMathInElement(document.body,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});}
+document.addEventListener("DOMContentLoaded",renderAllMath);window.addEventListener('load',renderAllMath);
+
+function toggleGraph(){const b=document.getElementById('body-graph'),t=document.getElementById('toggle-graph');t.textContent=b.classList.toggle('collapsed')?'▶':'▼';}
+function toggleSection(n){const b=document.getElementById('body-'+n),t=document.getElementById('toggle-'+n);t.textContent=b.classList.toggle('collapsed')?'▶':'▼';}
+function togglePanel(n){const b=document.getElementById('body-'+n),t=document.getElementById('toggle-'+n);t.textContent=b.classList.toggle('collapsed')?'▶':'▼';}
+
+const PANEL_NAMES={title:'Title',subtitle:'Subtitle',graph:'Graph',explanation:'Explanation',keydiff:'OC Comparison',individual:'Individual',social:'Social PPF',keyvals:'Legend'};
+const LEFT_PANELS=['graph','explanation','keydiff'];
+const RIGHT_PANELS=['individual','social','keyvals'];
+function closePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.add('panel-closed');updateRestoreBar();updateLayout();}
+function restorePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.remove('panel-closed');updateRestoreBar();updateLayout();}
+function updateLayout(){const mc=document.querySelector('.main-content');mc.classList.toggle('left-empty',LEFT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));mc.classList.toggle('right-empty',RIGHT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));}
+function updateRestoreBar(){const bar=document.getElementById('restore-bar');const closed=Object.keys(PANEL_NAMES).filter(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed'));if(!closed.length){bar.innerHTML='';return;}bar.innerHTML='<span class="restore-label">Restore:</span>'+closed.map(n=>`<button class="restore-btn" onclick="restorePanel('${n}')">${PANEL_NAMES[n]}</button>`).join('');}
+
+const nudgeOffsets={};function getNudge(t){const o=nudgeOffsets[t];return o?{dx:o.dx*DPR,dy:o.dy*DPR}:{dx:0,dy:0};}
+
+const canvas=document.getElementById('graph'),ctx=canvas.getContext('2d'),DPR=2;
+const ig1S=document.getElementById('ig1'),ig2S=document.getElementById('ig2');
+const sg1S=document.getElementById('sg1'),sg2S=document.getElementById('sg2'),snS=document.getElementById('sn');
+function isVis(id){const e=document.getElementById(id);return e?e.checked:true;}
+
+// Draggable labels
+let labelHitBoxes=[];
+function registerLabelLTWH(k,x,y,w,h){labelHitBoxes.push({key:k,x,y,w,h});}
+function mouseToCanvas(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height};}
+function hitTestLabels(cx,cy){for(let i=labelHitBoxes.length-1;i>=0;i--){const b=labelHitBoxes[i];if(cx>=b.x&&cx<=b.x+b.w&&cy>=b.y&&cy<=b.y+b.h)return b.key;}return null;}
+let dragTarget=null,dragSX=0,dragSY=0,dragSOX=0,dragSOY=0;
+canvas.addEventListener('mousedown',e=>{const pos=mouseToCanvas(e);const hl=hitTestLabels(pos.x,pos.y);if(hl){dragTarget=hl;dragSX=pos.x;dragSY=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dragSOX=nudgeOffsets[hl].dx;dragSOY=nudgeOffsets[hl].dy;canvas.classList.add('dragging');e.preventDefault();}});
+canvas.addEventListener('mousemove',e=>{const pos=mouseToCanvas(e);if(dragTarget){nudgeOffsets[dragTarget].dx=dragSOX+(pos.x-dragSX)/DPR;nudgeOffsets[dragTarget].dy=dragSOY+(pos.y-dragSY)/DPR;drawGraph();}else{canvas.classList.toggle('hovering-label',!!hitTestLabels(pos.x,pos.y));}});
+canvas.addEventListener('mouseup',()=>{if(dragTarget){dragTarget=null;canvas.classList.remove('dragging');}});
+canvas.addEventListener('mouseleave',()=>{dragTarget=null;canvas.classList.remove('dragging','hovering-label');});
+canvas.addEventListener('touchstart',e=>{const t=e.touches[0],r=canvas.getBoundingClientRect(),pos={x:(t.clientX-r.left)*canvas.width/r.width,y:(t.clientY-r.top)*canvas.height/r.height};const hl=hitTestLabels(pos.x,pos.y);if(hl){dragTarget=hl;dragSX=pos.x;dragSY=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dragSOX=nudgeOffsets[hl].dx;dragSOY=nudgeOffsets[hl].dy;e.preventDefault();}},{passive:false});
+canvas.addEventListener('touchmove',e=>{if(dragTarget){const t=e.touches[0],r=canvas.getBoundingClientRect(),pos={x:(t.clientX-r.left)*canvas.width/r.width,y:(t.clientY-r.top)*canvas.height/r.height};nudgeOffsets[dragTarget].dx=dragSOX+(pos.x-dragSX)/DPR;nudgeOffsets[dragTarget].dy=dragSOY+(pos.y-dragSY)/DPR;drawGraph();e.preventDefault();}},{passive:false});
+canvas.addEventListener('touchend',()=>{dragTarget=null;});
+
+function ppfY(x,xm,ym,n){const r=x/xm;if(r>=1)return 0;if(r<=0)return ym;const ins=1-Math.pow(r,n);return ins<=0?0:ym*Math.pow(ins,1/n);}
+
+function updateKeyDiff(){
+    const ig1=parseFloat(ig1S.value),ig2=parseFloat(ig2S.value);
+    const sg1=parseFloat(sg1S.value),sg2=parseFloat(sg2S.value),sn=parseFloat(snS.value);
+    const iOC1=(ig2/ig1).toFixed(2), iOC2=(ig1/ig2).toFixed(2);
+    const html=`
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="background:rgba(43,108,176,0.05);border-radius:8px;padding:14px;border:1px solid rgba(43,108,176,0.12);">
+                <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;color:#2b6cb0;font-weight:600;margin-bottom:8px;">Individual</div>
+                <div style="font-size:0.88rem;color:#4a5568;line-height:1.7;">
+                    <strong>Constant</strong> opportunity cost<br>
+                    OC of Good 1 = ${iOC1} units of Good 2<br>
+                    <em>Same everywhere on the line</em>
+                </div>
+            </div>
+            <div style="background:rgba(107,70,193,0.05);border-radius:8px;padding:14px;border:1px solid rgba(107,70,193,0.12);">
+                <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;color:#6b46c1;font-weight:600;margin-bottom:8px;">Society</div>
+                <div style="font-size:0.88rem;color:#4a5568;line-height:1.7;">
+                    <strong>${sn>1?'Increasing':sn<1?'Decreasing':'Constant'}</strong> opportunity cost<br>
+                    OC rises as you move along the PPF<br>
+                    <em>Resources are not perfectly adaptable</em>
+                </div>
+            </div>
+        </div>
+        <p style="margin:14px 0 0 0;line-height:1.7;font-size:0.92rem;color:#4a5568;">The individual faces fixed market prices and so the trade-off is always the same: the budget line is straight. Society's PPF bows out because shifting resources from one sector to another encounters diminishing returns—the first resources transferred are the most suitable, but later ones are progressively less productive in their new use. Try setting the PPF curvature \\(n = 1\\) to see what happens when opportunity costs are constant for society too.</p>`;
+    document.getElementById('keydiff-content').innerHTML=html;
+    if(typeof renderMathInElement!=='undefined')renderMathInElement(document.getElementById('section-keydiff'),{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});
+}
+
+function drawGraph(){
+    labelHitBoxes=[];
+    const ig1=parseFloat(ig1S.value),ig2=parseFloat(ig2S.value);
+    const sg1=parseFloat(sg1S.value),sg2=parseFloat(sg2S.value),sn=parseFloat(snS.value);
+
+    document.getElementById('ig1-val').textContent=ig1;
+    document.getElementById('ig2-val').textContent=ig2;
+    document.getElementById('sg1-val').textContent=sg1;
+    document.getElementById('sg2-val').textContent=sg2;
+    document.getElementById('sn-val').textContent=sn.toFixed(1);
+    document.getElementById('i-oc1').textContent=(ig2/ig1).toFixed(2)+' G2';
+    document.getElementById('i-oc2').textContent=(ig1/ig2).toFixed(2)+' G1';
+    document.getElementById('i-slope').textContent='−'+(ig2/ig1).toFixed(2);
+    document.getElementById('s-shape').textContent=sn>1?'Concave (bowed out)':sn<1?'Convex (bowed in)':'Linear';
+    document.getElementById('s-octype').textContent=sn>1?'Increasing':sn<1?'Decreasing':'Constant';
+    updateKeyDiff();
+
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+    const S=DPR,cw=canvas.width,ch=canvas.height;
+    const gap=50*S;
+    const pw=(cw-gap)/2;
+    const mg={top:50*S,right:30*S,bottom:80*S,left:60*S};
+
+    // ─── Panel (a): Individual opportunity set ───
+    // X = Good 1, Y = Good 2 (as in the image)
+    (function(){
+        const ox=0;
+        const plotW=pw-mg.left-mg.right, plotH=ch-mg.top-mg.bottom;
+        const gmx=Math.max(ig1,sg2)*1.25; // share scale with panel b's x-axis max
+        const gmy=Math.max(ig2,sg1)*1.25; // share scale with panel b's y-axis max
+        function tX(x){return ox+mg.left+(x/gmx)*plotW;}
+        function tY(y){return mg.top+plotH-(y/gmy)*plotH;}
+
+        // Grid
+        if(isVis('show-gridlines')){ctx.strokeStyle='#edf2f7';ctx.lineWidth=S;for(let i=0;i<=5;i++){const gx=ox+mg.left+(i/5)*plotW;ctx.beginPath();ctx.moveTo(gx,mg.top);ctx.lineTo(gx,mg.top+plotH);ctx.stroke();const gy=mg.top+(i/5)*plotH;ctx.beginPath();ctx.moveTo(ox+mg.left,gy);ctx.lineTo(ox+mg.left+plotW,gy);ctx.stroke();}}
+
+        // Shading
+        if(isVis('show-shading')){ctx.fillStyle='rgba(43,108,176,0.04)';ctx.beginPath();ctx.moveTo(tX(0),tY(0));ctx.lineTo(tX(0),tY(ig2));ctx.lineTo(tX(ig1),tY(0));ctx.closePath();ctx.fill();}
+
+        // Axes
+        ctx.strokeStyle='#2b6cb0';ctx.lineWidth=2*S;
+        ctx.beginPath();ctx.moveTo(ox+mg.left,mg.top-5*S);ctx.lineTo(ox+mg.left,mg.top+plotH);ctx.lineTo(ox+mg.left+plotW+5*S,mg.top+plotH);ctx.stroke();
+        // Arrowheads
+        ctx.fillStyle='#2b6cb0';
+        ctx.beginPath();ctx.moveTo(ox+mg.left,mg.top-5*S);ctx.lineTo(ox+mg.left-5*S,mg.top+6*S);ctx.lineTo(ox+mg.left+5*S,mg.top+6*S);ctx.closePath();ctx.fill();
+        ctx.beginPath();ctx.moveTo(ox+mg.left+plotW+5*S,mg.top+plotH);ctx.lineTo(ox+mg.left+plotW-6*S,mg.top+plotH-5*S);ctx.lineTo(ox+mg.left+plotW-6*S,mg.top+plotH+5*S);ctx.closePath();ctx.fill();
+
+        // Ticks
+        if(isVis('show-axis-numbers')){ctx.fillStyle='#718096';ctx.font=`${11*S}px Segoe UI`;ctx.textAlign='center';for(let i=1;i<=5;i++){const v=(i/5)*gmx;ctx.fillText(Math.round(v),tX(v),mg.top+plotH+18*S);}ctx.textAlign='right';for(let i=1;i<=5;i++){const v=(i/5)*gmy;ctx.fillText(Math.round(v),ox+mg.left-8*S,tY(v)+4*S);}}
+
+        // Budget line (linear)
+        ctx.strokeStyle='#805ad5';ctx.lineWidth=2.5*S;
+        ctx.beginPath();ctx.moveTo(tX(0),tY(ig2));ctx.lineTo(tX(ig1),tY(0));ctx.stroke();
+
+        // Axis labels (draggable)
+        const ngX=getNudge('xa-ind');
+        ctx.fillStyle='#805ad5';ctx.font=`bold italic ${14*S}px Georgia,serif`;ctx.textAlign='center';
+        const xlx=ox+mg.left+plotW/2+ngX.dx, xly=ch-12*S+ngX.dy;
+        ctx.fillText('Good 1',xlx,xly);
+        const xtw=ctx.measureText('Good 1').width;
+        registerLabelLTWH('xa-ind',xlx-xtw/2-4*S,xly-16*S,xtw+8*S,22*S);
+
+        const ngY=getNudge('ya-ind');
+        ctx.fillStyle='#805ad5';ctx.font=`bold italic ${14*S}px Georgia,serif`;ctx.textAlign='center';
+        ctx.save();const ylx=ox+12*S+ngY.dx,yly=mg.top+plotH/2+ngY.dy;
+        ctx.translate(ylx,yly);ctx.rotate(-Math.PI/2);ctx.fillText('Good 2',0,0);ctx.restore();
+        const ytw=ctx.measureText('Good 2').width;
+        registerLabelLTWH('ya-ind',ylx-14*S,yly-ytw/2-4*S,28*S,ytw+8*S);
+
+        // Subtitle
+        if(isVis('show-subtitles')){
+            ctx.fillStyle='#718096';ctx.font=`${12*S}px Segoe UI`;ctx.textAlign='center';
+            ctx.fillText('(a) An individual opportunity set',ox+mg.left+plotW/2,ch-30*S);
+        }
+    })();
+
+    // ─── Panel (b): Social PPF ───
+    // X = Good 2, Y = Good 1 (axes swapped as in image)
+    (function(){
+        const ox=pw+gap;
+        const plotW=pw-mg.left-mg.right, plotH=ch-mg.top-mg.bottom;
+        const gmx=Math.max(ig1,sg2)*1.25; // shared with panel a
+        const gmy=Math.max(ig2,sg1)*1.25;
+        function tX(x){return ox+mg.left+(x/gmx)*plotW;}
+        function tY(y){return mg.top+plotH-(y/gmy)*plotH;}
+
+        // Grid
+        if(isVis('show-gridlines')){ctx.strokeStyle='#edf2f7';ctx.lineWidth=S;for(let i=0;i<=5;i++){const gx=ox+mg.left+(i/5)*plotW;ctx.beginPath();ctx.moveTo(gx,mg.top);ctx.lineTo(gx,mg.top+plotH);ctx.stroke();const gy=mg.top+(i/5)*plotH;ctx.beginPath();ctx.moveTo(ox+mg.left,gy);ctx.lineTo(ox+mg.left+plotW,gy);ctx.stroke();}}
+
+        // Shading — PPF: (G2/sg2)^n + (G1/sg1)^n = 1, with G2 on X-axis, G1 on Y-axis
+        if(isVis('show-shading')){ctx.fillStyle='rgba(107,70,193,0.04)';ctx.beginPath();ctx.moveTo(tX(0),tY(0));ctx.lineTo(tX(0),tY(sg1));for(let i=0;i<=200;i++){const g2=(i/200)*sg2;const g1=ppfY(g2,sg2,sg1,sn);ctx.lineTo(tX(g2),tY(g1));}ctx.lineTo(tX(sg2),tY(0));ctx.closePath();ctx.fill();}
+
+        // Axes
+        ctx.strokeStyle='#2b6cb0';ctx.lineWidth=2*S;
+        ctx.beginPath();ctx.moveTo(ox+mg.left,mg.top-5*S);ctx.lineTo(ox+mg.left,mg.top+plotH);ctx.lineTo(ox+mg.left+plotW+5*S,mg.top+plotH);ctx.stroke();
+        ctx.fillStyle='#2b6cb0';
+        ctx.beginPath();ctx.moveTo(ox+mg.left,mg.top-5*S);ctx.lineTo(ox+mg.left-5*S,mg.top+6*S);ctx.lineTo(ox+mg.left+5*S,mg.top+6*S);ctx.closePath();ctx.fill();
+        ctx.beginPath();ctx.moveTo(ox+mg.left+plotW+5*S,mg.top+plotH);ctx.lineTo(ox+mg.left+plotW-6*S,mg.top+plotH-5*S);ctx.lineTo(ox+mg.left+plotW-6*S,mg.top+plotH+5*S);ctx.closePath();ctx.fill();
+
+        // Ticks
+        if(isVis('show-axis-numbers')){ctx.fillStyle='#718096';ctx.font=`${11*S}px Segoe UI`;ctx.textAlign='center';for(let i=1;i<=5;i++){const v=(i/5)*gmx;ctx.fillText(Math.round(v),tX(v),mg.top+plotH+18*S);}ctx.textAlign='right';for(let i=1;i<=5;i++){const v=(i/5)*gmy;ctx.fillText(Math.round(v),ox+mg.left-8*S,tY(v)+4*S);}}
+
+        // PPF curve: sweep G2 on x-axis, compute G1 on y-axis
+        ctx.strokeStyle='#805ad5';ctx.lineWidth=2.5*S;
+        ctx.beginPath();let started=false;
+        for(let i=0;i<=300;i++){const g2=(i/300)*sg2;const g1=ppfY(g2,sg2,sg1,sn);if(!started){ctx.moveTo(tX(g2),tY(g1));started=true;}else ctx.lineTo(tX(g2),tY(g1));}
+        ctx.stroke();
+
+        // Axis labels (draggable) — swapped: X=Good 2, Y=Good 1
+        const ngX=getNudge('xa-soc');
+        ctx.fillStyle='#805ad5';ctx.font=`bold italic ${14*S}px Georgia,serif`;ctx.textAlign='center';
+        const xlx=ox+mg.left+plotW/2+ngX.dx, xly=ch-12*S+ngX.dy;
+        ctx.fillText('Good 2',xlx,xly);
+        const xtw=ctx.measureText('Good 2').width;
+        registerLabelLTWH('xa-soc',xlx-xtw/2-4*S,xly-16*S,xtw+8*S,22*S);
+
+        const ngY=getNudge('ya-soc');
+        ctx.fillStyle='#805ad5';ctx.font=`bold italic ${14*S}px Georgia,serif`;ctx.textAlign='center';
+        ctx.save();const ylx=ox+12*S+ngY.dx,yly=mg.top+plotH/2+ngY.dy;
+        ctx.translate(ylx,yly);ctx.rotate(-Math.PI/2);ctx.fillText('Good 1',0,0);ctx.restore();
+        const ytw=ctx.measureText('Good 1').width;
+        registerLabelLTWH('ya-soc',ylx-14*S,yly-ytw/2-4*S,28*S,ytw+8*S);
+
+        // Subtitle
+        if(isVis('show-subtitles')){
+            ctx.fillStyle='#718096';ctx.font=`${12*S}px Segoe UI`;ctx.textAlign='center';
+            ctx.fillText('(b) A social production possibilities frontier',ox+mg.left+plotW/2,ch-30*S);
+        }
+    })();
+}
+
+[ig1S,ig2S,sg1S,sg2S,snS].forEach(s=>s.addEventListener('input',drawGraph));
+document.getElementById('display-toggle-btn').addEventListener('click',()=>{const p=document.getElementById('display-panel'),a=document.getElementById('display-arrow');a.classList.toggle('open',p.classList.toggle('open'));});
+document.querySelectorAll('.display-options-panel input').forEach(i=>{i.addEventListener('input',drawGraph);i.addEventListener('change',drawGraph);});
+
+document.getElementById('copy-plot-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-plot-btn'),l=document.getElementById('copy-label');try{const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);btn.classList.add('copied');l.textContent='Copied!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Copy';},1500);}catch{l.textContent='Failed';setTimeout(()=>{l.textContent='Copy';},1500);}});
+document.getElementById('save-plot-btn').addEventListener('click',()=>{const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='individual_vs_social.png';a.click();const btn=document.getElementById('save-plot-btn'),l=document.getElementById('save-label');btn.classList.add('copied');l.textContent='Saved!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Save';},1500);});
+
+// ─── URL State ───
+const DEFAULTS={ig1:80,ig2:50,sg1:60,sg2:100,sn:2,'show-gridlines':true,'show-axis-numbers':true,'show-shading':true,'show-subtitles':true,'sec-graph':true,'sec-explanation':true,'sec-keydiff':true,'sec-individual':true,'sec-social':true,'sec-keyvals':true,'closed-title':false,'closed-subtitle':false,'closed-graph':false,'closed-explanation':false,'closed-keydiff':false,'closed-individual':false,'closed-social':false,'closed-keyvals':false,'disp-open':false};
+const CHECKBOX_IDS=['show-gridlines','show-axis-numbers','show-shading','show-subtitles'];
+const NUDGE_KEYS=['xa-ind','ya-ind','xa-soc','ya-soc'];
+const SLIDER_MAP={ig1:ig1S,ig2:ig2S,sg1:sg1S,sg2:sg2S,sn:snS};
+
+function buildStateObject(){
+    const s={};
+    for(const[k,sl]of Object.entries(SLIDER_MAP)){const v=parseFloat(sl.value);if(v!==DEFAULTS[k])s[k]=v;}
+    for(const id of CHECKBOX_IDS){const el=document.getElementById(id);if(el&&el.checked!==DEFAULTS[id])s[id]=el.checked?1:0;}
+    for(const k of NUDGE_KEYS){const o=nudgeOffsets[k];if(o&&(Math.abs(o.dx)>0.5||Math.abs(o.dy)>0.5))s['n_'+k]=Math.round(o.dx)+','+Math.round(o.dy);}
+    const allSec=['graph','explanation','keydiff','individual','social','keyvals'];
+    for(const sec of allSec){const body=document.getElementById('body-'+sec);if(body){const isOpen=!body.classList.contains('collapsed');if(isOpen!==DEFAULTS['sec-'+sec])s['sec-'+sec]=isOpen?1:0;}}
+    const dispOpen=document.getElementById('display-panel').classList.contains('open');if(dispOpen!==DEFAULTS['disp-open'])s['disp-open']=dispOpen?1:0;
+    for(const name of Object.keys(PANEL_NAMES)){const el=document.getElementById('section-'+name);const c=el&&el.classList.contains('panel-closed');if(c!==DEFAULTS['closed-'+name])s['closed-'+name]=c?1:0;}
+    return s;
+}
+function stateToHash(st){const p=new URLSearchParams();for(const[k,v]of Object.entries(st))p.set(k,v);return p.toString();}
+function loadStateFromHash(){
+    const h=window.location.hash.slice(1);if(!h)return;const p=new URLSearchParams(h);
+    for(const[k,sl]of Object.entries(SLIDER_MAP)){if(p.has(k))sl.value=p.get(k);}
+    for(const id of CHECKBOX_IDS){if(p.has(id)){const el=document.getElementById(id);if(el)el.checked=p.get(id)==='1';}}
+    for(const k of NUDGE_KEYS){const key='n_'+k;if(p.has(key)){const pts=p.get(key).split(',');if(pts.length===2)nudgeOffsets[k]={dx:parseFloat(pts[0]),dy:parseFloat(pts[1])};}}
+    const allSec=['graph','explanation','keydiff','individual','social','keyvals'];
+    for(const sec of allSec){const key='sec-'+sec;if(p.has(key)){const o=p.get(key)==='1';const body=document.getElementById('body-'+sec),toggle=document.getElementById('toggle-'+sec);if(o){body.classList.remove('collapsed');if(toggle)toggle.textContent='▼';}else{body.classList.add('collapsed');if(toggle)toggle.textContent='▶';}}}
+    if(p.has('disp-open')){const o=p.get('disp-open')==='1';document.getElementById('display-panel').classList.toggle('open',o);document.getElementById('display-arrow').classList.toggle('open',o);}
+    for(const name of Object.keys(PANEL_NAMES)){const key='closed-'+name;if(p.has(key)){const el=document.getElementById('section-'+name);if(el)el.classList.toggle('panel-closed',p.get(key)==='1');}}
+}
+document.getElementById('copy-url-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-url-btn');const st=buildStateObject();const h=stateToHash(st);const url=window.location.origin+window.location.pathname+(h?'#'+h:'');try{await navigator.clipboard.writeText(url);btn.textContent='✓ Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copy link with current state';btn.classList.remove('copied');},2000);}catch{prompt('Copy:',url);}});
+document.getElementById('reset-url-btn').addEventListener('click',()=>{
+    for(const[k,sl]of Object.entries(SLIDER_MAP))sl.value=DEFAULTS[k];
+    for(const id of CHECKBOX_IDS){const el=document.getElementById(id);if(el)el.checked=DEFAULTS[id];}
+    for(const k of NUDGE_KEYS)delete nudgeOffsets[k];
+    ['graph','explanation','keydiff','individual','social','keyvals'].forEach(sec=>{const b=document.getElementById('body-'+sec),t=document.getElementById('toggle-'+sec);if(b)b.classList.remove('collapsed');if(t)t.textContent='▼';});
+    document.getElementById('display-panel').classList.remove('open');document.getElementById('display-arrow').classList.remove('open');
+    Object.keys(PANEL_NAMES).forEach(n=>{const el=document.getElementById('section-'+n);if(el)el.classList.remove('panel-closed');});
+    updateRestoreBar();updateLayout();history.replaceState(null,'',window.location.pathname);drawGraph();
+});
+
+loadStateFromHash();updateRestoreBar();updateLayout();drawGraph();
+</script>
+</body>
+</html>

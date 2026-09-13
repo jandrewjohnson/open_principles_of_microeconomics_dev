@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productive and Allocative Efficiency</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f7fa; color: #2d3748; margin: 0; padding: 20px; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; font-weight: 400; font-size: 1.8rem; margin-bottom: 8px; color: #1a202c; }
+        .subtitle { text-align: center; color: #718096; margin-bottom: 24px; font-size: 0.95rem; }
+        .main-content { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } }
+        .main-content.left-empty { grid-template-columns: 0 1fr; }
+        .main-content.right-empty { grid-template-columns: 1fr; }
+        .main-content.left-empty.right-empty { grid-template-columns: 1fr; }
+        .main-content.left-empty .left-column { display: none; }
+        .main-content.right-empty .controls { display: none; }
+        .left-column { display: flex; flex-direction: column; gap: 0; }
+        .graph-container { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); position: relative; overflow: visible; }
+        .graph-header { display: flex; align-items: center; padding: 12px 20px; cursor: pointer; user-select: none; }
+        .graph-header:hover { background: #f7fafc; border-radius: 12px 12px 0 0; }
+        .graph-header .panel-title { margin-bottom: 0; }
+        .graph-body { padding: 0 20px 20px 20px; position: relative; }
+        .graph-body.collapsed { display: none; }
+        canvas { display: block; width: 100%; height: auto; cursor: default; }
+        canvas.dragging { cursor: grabbing; }
+        canvas.hovering-label { cursor: grab; }
+        canvas.hovering-point { cursor: pointer; }
+        .plot-actions {
+            position: absolute; top: 8px; right: 8px; z-index: 10;
+            display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s;
+        }
+        .graph-container:hover .plot-actions, .graph-body:hover .plot-actions { opacity: 1; }
+        .plot-action-btn {
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);
+            border: 1px solid rgba(226,232,240,0.7); border-radius: 6px;
+            padding: 4px 8px; font-size: 0.7rem; color: #a0aec0;
+            cursor: pointer; display: flex; align-items: center; gap: 4px;
+            font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s;
+            line-height: 1;
+        }
+        .plot-action-btn:hover { background: #fff; color: #4a5568; border-color: #cbd5e0; }
+        .plot-action-btn:active { background: #edf2f7; }
+        .plot-action-btn.copied { color: #38a169; border-color: #c6f6d5; background: rgba(240,255,244,0.9); }
+        .plot-action-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
+        .panel-close-btn {
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);
+            border: 1px solid rgba(226,232,240,0.7); border-radius: 6px;
+            padding: 4px 8px; font-size: 0.7rem; color: #a0aec0;
+            cursor: pointer; display: flex; align-items: center; gap: 4px;
+            font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s;
+            line-height: 1; flex-shrink: 0;
+        }
+        .panel-close-btn:hover { background: #fff; color: #e53e3e; border-color: #feb2b2; }
+        .panel-header-actions {
+            position: absolute; top: 8px; right: 8px; z-index: 10;
+            display: flex; align-items: center; gap: 4px;
+            opacity: 0; transition: opacity 0.2s; flex-shrink: 0;
+        }
+        .panel-collapse-btn {
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);
+            border: 1px solid rgba(226,232,240,0.7); border-radius: 6px;
+            padding: 4px 8px; font-size: 0.65rem; color: #a0aec0;
+            cursor: pointer; display: flex; align-items: center;
+            font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s;
+            line-height: 1;
+        }
+        .panel-collapse-btn:hover { background: #fff; color: #4a5568; border-color: #cbd5e0; }
+        .panel-closed { display: none !important; }
+
+        .left-section { position: relative; }
+        .left-section:hover .panel-header-actions { opacity: 1; }
+        .control-panel { position: relative; }
+        .control-panel:hover .panel-header-actions { opacity: 1; }
+        .graph-container:hover > .graph-header .panel-header-actions { opacity: 1; }
+        .title-wrapper:hover .panel-header-actions { opacity: 1; }
+        .subtitle-wrapper:hover .panel-header-actions { opacity: 1; }
+
+        .restore-bar { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+        .restore-bar:empty { display: none; margin: 0; padding: 0; border: none; }
+        .restore-btn {
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 6px;
+            padding: 4px 10px; font-size: 0.72rem; color: #718096; cursor: pointer;
+            font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s;
+        }
+        .restore-btn:hover { background: #f7fafc; border-color: #cbd5e0; color: #4a5568; }
+        .restore-label { font-size: 0.7rem; color: #a0aec0; }
+
+        .controls { display: flex; flex-direction: column; gap: 16px; }
+        .control-panel { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: visible; }
+        .control-panel-header { display: flex; align-items: center; padding: 16px 20px; cursor: pointer; user-select: none; }
+        .control-panel-header:hover { background: #f7fafc; border-radius: 12px; }
+        .control-panel-header .panel-title { margin-bottom: 0; }
+        .control-panel-body { padding: 0 20px 20px 20px; }
+        .control-panel-body.collapsed { display: none; }
+        .panel-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #718096; margin-bottom: 16px; font-weight: 600; }
+        .slider-group { margin-bottom: 16px; }
+        .slider-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.9rem; color: #4a5568; }
+        .slider-value { background: #edf2f7; padding: 4px 10px; border-radius: 4px; font-family: 'Monaco','Consolas',monospace; font-size: 0.85rem; color: #2b6cb0; font-weight: 500; }
+        input[type="range"] { width: 100%; height: 6px; border-radius: 3px; background: #e2e8f0; outline: none; -webkit-appearance: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #4299e1; cursor: pointer; box-shadow: 0 2px 6px rgba(66,153,225,0.3); transition: transform 0.15s; }
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+        .info-box { background: #f7fafc; border-radius: 8px; padding: 16px; border-left: 3px solid #4299e1; }
+        .info-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 0.9rem; }
+        .info-label { color: #718096; }
+        .info-value { font-family: 'Monaco','Consolas',monospace; color: #1a202c; }
+        .info-value.highlight { color: #2b6cb0; font-weight: 600; }
+        .legend { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+        .legend-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #4a5568; }
+        .legend-line { width: 24px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .equation-box { background: #f7fafc; border-radius: 8px; padding: 14px 16px; text-align: center; margin-top: 8px; border: 1px solid #e2e8f0; font-size: 1.05rem; }
+
+        .left-section { margin-top: 20px; background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: visible; }
+        .left-section-header { display: flex; align-items: center; padding: 16px 24px; cursor: pointer; user-select: none; }
+        .left-section-header:hover { background: #f7fafc; border-radius: 12px; }
+        .left-section-header .panel-title { margin-bottom: 0; }
+        .left-section-body { padding: 0 24px 20px 24px; }
+        .left-section-body.collapsed { display: none; }
+        .left-section-body p { margin: 0 0 14px 0; line-height: 1.7; font-size: 0.95rem; color: #4a5568; }
+        .left-section-body p:last-child { margin-bottom: 0; }
+
+        /* Point table */
+        .point-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.9rem; }
+        .point-table th { background: #f7fafc; padding: 8px 12px; text-align: center; font-weight: 600; color: #718096; border-bottom: 2px solid #e2e8f0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .point-table td { padding: 8px 12px; text-align: center; border-bottom: 1px solid #edf2f7; color: #4a5568; }
+        .point-table tr:hover td { background: #f7fafc; cursor: pointer; }
+        .point-table .status-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .point-table .status-efficient { background: rgba(107,70,193,0.1); color: #6b46c1; }
+        .point-table .status-inefficient { background: rgba(43,108,176,0.1); color: #2b6cb0; }
+        .point-table tr.selected td { background: rgba(214,158,46,0.1); }
+
+        /* Efficiency comparison box */
+        .comparison-box { background: rgba(56,161,105,0.06); border-radius: 8px; padding: 14px 16px; border: 1px solid rgba(56,161,105,0.15); margin-top: 12px; }
+        .comparison-title { font-size: 0.8rem; color: #38a169; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+        .comparison-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.88rem; color: #4a5568; }
+        .comparison-val { font-family: 'Monaco','Consolas',monospace; font-weight: 500; }
+        .comparison-val.better { color: #38a169; }
+        .comparison-val.worse { color: #e53e3e; }
+
+        /* Display options */
+        .display-options-wrapper { margin-top: 24px; }
+        .display-options-toggle { background: none; border: none; color: #a0aec0; font-size: 0.78rem; cursor: pointer; padding: 4px 0; display: flex; align-items: center; gap: 4px; }
+        .display-options-toggle:hover { color: #718096; }
+        .display-options-toggle .arrow { font-size: 0.6rem; transition: transform 0.2s; }
+        .display-options-toggle .arrow.open { transform: rotate(90deg); }
+        .display-options-panel { display: none; margin-top: 8px; background: #fff; border-radius: 12px; padding: 16px 20px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .display-options-panel.open { display: block; }
+        .display-options-panel .panel-title { font-size: 0.75rem; margin-bottom: 12px; }
+        .opt-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+        .opt-row label { font-size: 0.8rem; color: #4a5568; cursor: pointer; white-space: nowrap; }
+        .opt-row input[type="checkbox"] { accent-color: #4299e1; cursor: pointer; margin: 0; width: 14px; height: 14px; }
+        .opt-row input[type="text"] { font-size: 0.78rem; padding: 2px 6px; border: 1px solid #e2e8f0; border-radius: 4px; color: #4a5568; width: 110px; font-family: 'Segoe UI', system-ui, sans-serif; }
+        .opt-row input[type="text"]:focus { outline: none; border-color: #4299e1; }
+        .opt-section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #a0aec0; margin: 10px 0 4px; font-weight: 600; }
+        .opt-section-label:first-child { margin-top: 0; }
+
+        /* Embed mode */
+        .embed-open-btn { display: none; position: absolute; top: 8px; left: 8px; z-index: 10; background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); border: 1px solid rgba(226,232,240,0.7); border-radius: 6px; padding: 4px 8px; font-size: 0.7rem; color: #a0aec0; cursor: pointer; font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s; line-height: 1; text-decoration: none; }
+        .embed-open-btn:hover { background: #fff; color: #4a5568; border-color: #cbd5e0; }
+        .embed-mode .embed-open-btn { display: flex; align-items: center; gap: 4px; }
+        body.embed-mode { padding: 8px; background: transparent; min-height: auto; }
+        .embed-mode h1, .embed-mode .subtitle, .embed-mode .left-section, .embed-mode .display-options-wrapper, .embed-mode .url-state-bar { display: none !important; }
+        .embed-mode .container { max-width: none; }
+        .embed-mode .graph-container { border: none; box-shadow: none; padding: 10px; }
+        body.embed-hide-controls .controls { display: none !important; }
+        body.embed-hide-controls .main-content { grid-template-columns: 1fr; }
+
+        .katex { font-size: 1em; }
+        .info-row .katex { font-size: 0.95em; }
+        .slider-label .katex { font-size: 0.95em; }
+        .equation-box .katex { font-size: 1.1em; }
+        .legend-item .katex { font-size: 0.9em; }
+
+        .url-state-bar { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .url-state-bar button { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 6px 12px; font-size: 0.78rem; color: #4a5568; cursor: pointer; font-family: 'Segoe UI', system-ui, sans-serif; transition: all 0.15s; white-space: nowrap; }
+        .url-state-bar button:hover { background: #f7fafc; border-color: #cbd5e0; }
+        .url-state-bar button.copied { color: #38a169; border-color: #c6f6d5; background: #f0fff4; }
+        .url-state-bar .url-hint { font-size: 0.7rem; color: #a0aec0; }
+
+        .canvas-tooltip { position: absolute; pointer-events: none; opacity: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.12); font-size: 0.82rem; color: #4a5568; transition: opacity 0.15s; z-index: 100; white-space: nowrap; }
+        .canvas-tooltip.visible { opacity: 1; }
+        .canvas-tooltip .tt-label { font-weight: 600; color: #1a202c; margin-bottom: 4px; font-size: 0.9rem; }
+        .canvas-tooltip .tt-row { display: flex; justify-content: space-between; gap: 16px; padding: 2px 0; }
+        .canvas-tooltip .tt-key { color: #718096; }
+        .canvas-tooltip .tt-val { font-family: 'Monaco','Consolas',monospace; color: #6b46c1; font-weight: 500; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="section-title" class="title-wrapper" style="position:relative">
+        <h1>Productive and Allocative Efficiency</h1>
+        <div class="panel-header-actions" style="top:50%;transform:translateY(-50%)">
+            <button class="panel-close-btn" onclick="closePanel('title')" title="Close title">✕</button>
+        </div>
+    </div>
+    <div id="section-subtitle" class="subtitle-wrapper" style="position:relative">
+        <p class="subtitle" style="margin-bottom:24px">Points on the PPF are productively efficient; point R inside the frontier shows that both goods could be increased</p>
+        <div class="panel-header-actions" style="top:4px">
+            <button class="panel-close-btn" onclick="closePanel('subtitle')" title="Close subtitle">✕</button>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="left-column">
+            <div class="graph-container" id="section-graph">
+                <div class="graph-header" onclick="toggleGraph()">
+                    <div class="panel-title" style="margin-bottom:0">A. Productive and Allocative Efficiency</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();toggleGraph()" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="graph-body" id="body-graph">
+                    <a class="embed-open-btn" id="embed-open-btn" title="Open full interactive version" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                        Open full version
+                    </a>
+                    <div class="plot-actions">
+                        <button class="plot-action-btn" id="copy-plot-btn" title="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span id="copy-label">Copy</span>
+                        </button>
+                        <button class="plot-action-btn" id="save-plot-btn" title="Save as PNG">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span id="save-label">Save</span>
+                        </button>
+                    </div>
+                    <canvas id="graph" width="1400" height="1200"></canvas>
+                    <div class="canvas-tooltip" id="tooltip"></div>
+                </div>
+            </div>
+
+            <!-- Explanation -->
+            <div class="left-section" id="section-explanation">
+                <div class="left-section-header" onclick="toggleSection('explanation')">
+                    <div class="panel-title" style="margin-bottom:0">Explanation</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();toggleSection('explanation')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="left-section-body" id="body-explanation">
+                    <p><strong>Productive efficiency</strong> means it is impossible to produce more of one good without decreasing the quantity produced of the other. All choices along the PPF—including A, B, C, D, and F—display productive efficiency. Moving from any one of these points to another necessarily involves a trade-off: more Healthcare means less Education, or vice versa.</p>
+                    <p>Point <strong>R</strong> lies inside the frontier and is <em>productively inefficient</em>. The economy at R is wasting resources or using them sub-optimally—it could produce more of both goods. Comparing R to point C makes this clear: C has both more Education (\(E_2 > E_1\)) and more Healthcare (\(H_2 > H_1\)) than R, proving that R is wasteful.</p>
+                    <p><strong>Allocative efficiency</strong> goes further—it asks not just whether resources are fully employed, but whether the economy is producing the <em>right mix</em> of goods. Among all the productively efficient points on the PPF, allocative efficiency identifies the particular combination that society values most. Which point on the PPF is allocatively efficient depends on societal preferences—economics cannot prescribe this choice, but it can confirm that whatever is chosen should at least be on the frontier.</p>
+                </div>
+            </div>
+
+            <!-- R vs C Comparison -->
+            <div class="left-section" id="section-compare">
+                <div class="left-section-header" onclick="toggleSection('compare')">
+                    <div class="panel-title" style="margin-bottom:0">Why R Is Inefficient: R vs. C</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-compare" onclick="event.stopPropagation();toggleSection('compare')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('compare')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="left-section-body" id="body-compare">
+                    <div id="compare-content"></div>
+                </div>
+            </div>
+
+            <!-- Point Table -->
+            <div class="left-section" id="section-points">
+                <div class="left-section-header" onclick="toggleSection('points')">
+                    <div class="panel-title" style="margin-bottom:0">Point Details</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-points" onclick="event.stopPropagation();toggleSection('points')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('points')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="left-section-body" id="body-points">
+                    <table class="point-table" id="point-table">
+                        <thead><tr><th>Point</th><th>Education</th><th>Healthcare</th><th>Efficiency</th></tr></thead>
+                        <tbody id="point-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-panel" id="section-ppfparams">
+                <div class="control-panel-header" onclick="togglePanel('ppfparams')">
+                    <div class="panel-title" style="margin-bottom:0">PPF Shape</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-ppfparams" onclick="event.stopPropagation();togglePanel('ppfparams')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('ppfparams')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-ppfparams">
+                    <div class="slider-group"><div class="slider-label"><span>Max Healthcare \( H_{max} \)</span><span class="slider-value" id="maxH-value">100</span></div><input type="range" id="maxH" min="40" max="200" value="100" step="5"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Max Education \( E_{max} \)</span><span class="slider-value" id="maxE-value">100</span></div><input type="range" id="maxE" min="40" max="200" value="100" step="5"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Curvature \( n \)</span><span class="slider-value" id="curve-value">2.0</span></div><input type="range" id="curvature" min="1" max="4" value="2" step="0.1"></div>
+                    <div class="equation-box">\( \left(\frac{E}{E_{max}}\right)^n + \left(\frac{H}{H_{max}}\right)^n = 1 \)</div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-pointR">
+                <div class="control-panel-header" onclick="togglePanel('pointR')">
+                    <div class="panel-title" style="margin-bottom:0">Inefficient Point R</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-pointR" onclick="event.stopPropagation();togglePanel('pointR')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('pointR')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-pointR">
+                    <div class="slider-group"><div class="slider-label"><span>R: Education \( E_1 \)</span><span class="slider-value" id="rE-value">25</span></div><input type="range" id="rE" min="5" max="90" value="25" step="1"></div>
+                    <div class="slider-group"><div class="slider-label"><span>R: Healthcare \( H_1 \)</span><span class="slider-value" id="rH-value">55</span></div><input type="range" id="rH" min="5" max="90" value="55" step="1"></div>
+                    <div class="info-box" id="r-status-box">
+                        <div class="info-row"><span class="info-label">Position</span><span class="info-value" id="r-status" style="color:#2b6cb0">Inside PPF (inefficient)</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-keyvals">
+                <div class="control-panel-header" onclick="togglePanel('keyvals')">
+                    <div class="panel-title" style="margin-bottom:0">Key Values</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();togglePanel('keyvals')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keyvals')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-keyvals">
+                    <div class="info-box">
+                        <div class="info-row"><span class="info-label">Max Healthcare</span><span class="info-value highlight" id="disp-maxH">100</span></div>
+                        <div class="info-row"><span class="info-label">Max Education</span><span class="info-value highlight" id="disp-maxE">100</span></div>
+                        <div class="info-row"><span class="info-label">Curvature \( n \)</span><span class="info-value" id="disp-curve">2.0</span></div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item"><div class="legend-line" style="background:#805ad5;"></div><span>PPF₂ Curve</span></div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#805ad5;"></div><span>On PPF (prod. efficient)</span></div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0;"></div><span>Inside PPF (inefficient)</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-selected">
+                <div class="control-panel-header" onclick="togglePanel('selected')">
+                    <div class="panel-title" style="margin-bottom:0">Selected Point</div>
+                    <div class="panel-header-actions">
+                        <button class="panel-collapse-btn" id="toggle-selected" onclick="event.stopPropagation();togglePanel('selected')" title="Collapse">▼</button>
+                        <button class="panel-close-btn" onclick="event.stopPropagation();closePanel('selected')" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="control-panel-body" id="body-selected">
+                    <div class="info-box" id="selected-info">
+                        <div style="color:#a0aec0; font-size:0.85rem; text-align:center; padding:8px 0;">Click a point on the graph or table</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="display-options-wrapper">
+        <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+        <div class="display-options-panel" id="display-panel">
+            <div class="panel-title">Plot Element Visibility &amp; Labels <span style="font-weight:400;font-size:0.65rem;color:#a0aec0;text-transform:none;letter-spacing:0"> — drag labels directly on the graph to reposition</span></div>
+            <div class="opt-section-label">Axes</div>
+            <div class="opt-row"><input type="checkbox" id="show-xaxis-label" checked><label for="show-xaxis-label">X-axis label</label><input type="text" id="label-xaxis" value="Education"></div>
+            <div class="opt-row"><input type="checkbox" id="show-yaxis-label" checked><label for="show-yaxis-label">Y-axis label</label><input type="text" id="label-yaxis" value="Healthcare"></div>
+            <div class="opt-row"><input type="checkbox" id="show-axis-numbers" checked><label for="show-axis-numbers">Axis tick numbers</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-gridlines" checked><label for="show-gridlines">Gridlines</label></div>
+            <div class="opt-section-label">PPF</div>
+            <div class="opt-row"><input type="checkbox" id="show-ppf" checked><label for="show-ppf">PPF curve</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-ppf-label" checked><label for="show-ppf-label">PPF₂ label</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-shading" checked><label for="show-shading">Attainable region shading</label></div>
+            <div class="opt-section-label">Points &amp; Annotations</div>
+            <div class="opt-row"><input type="checkbox" id="show-points" checked><label for="show-points">All points (A, B, C, D, F, R)</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-point-labels" checked><label for="show-point-labels">Point labels</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-perpendicular" checked><label for="show-perpendicular">Dashed lines to axes</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-axis-annotations" checked><label for="show-axis-annotations">E₁, E₂, H₁, H₂ annotations</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-rc-highlight" checked><label for="show-rc-highlight">R→C improvement highlight</label></div>
+
+            <div class="restore-bar" id="restore-bar"></div>
+            <div class="url-state-bar">
+                <button id="copy-url-btn">📋 Copy link with current state</button>
+                <button id="reset-url-btn">↺ Reset to defaults</button>
+                <span class="url-hint">Link encodes sliders, display options, labels, and label positions</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ─── Embed mode ───
+(function(){const p=new URLSearchParams(window.location.search);if(p.has('embed')){document.body.classList.add('embed-mode');const h=p.get('hide');if(h)h.split(',').forEach(s=>document.body.classList.add('embed-hide-'+s.trim()));const o=document.getElementById('embed-open-btn');if(o)o.href=window.location.pathname+window.location.hash;}})();
+
+function renderAllMath(){if(typeof renderMathInElement!=='undefined')renderMathInElement(document.body,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});}
+document.addEventListener("DOMContentLoaded",renderAllMath);window.addEventListener('load',renderAllMath);
+
+function toggleGraph(){const b=document.getElementById('body-graph'),t=document.getElementById('toggle-graph');const c=b.classList.toggle('collapsed');t.textContent=c?'▶':'▼';}
+function toggleSection(n){const b=document.getElementById('body-'+n),t=document.getElementById('toggle-'+n);const c=b.classList.toggle('collapsed');t.textContent=c?'▶':'▼';}
+function togglePanel(n){const b=document.getElementById('body-'+n),t=document.getElementById('toggle-'+n);const c=b.classList.toggle('collapsed');t.textContent=c?'▶':'▼';}
+
+const PANEL_NAMES={title:'Title',subtitle:'Subtitle',graph:'A. Productive and Allocative Efficiency',explanation:'Explanation',compare:'R vs. C Comparison',points:'Point Details',ppfparams:'PPF Shape',pointR:'Inefficient Point R',keyvals:'Key Values',selected:'Selected Point'};
+const LEFT_PANELS=['graph','explanation','compare','points'];
+const RIGHT_PANELS=['ppfparams','pointR','keyvals','selected'];
+
+function closePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.add('panel-closed');updateRestoreBar();updateLayout();}
+function restorePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.remove('panel-closed');updateRestoreBar();updateLayout();}
+function updateLayout(){const mc=document.querySelector('.main-content');mc.classList.toggle('left-empty',LEFT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));mc.classList.toggle('right-empty',RIGHT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));}
+function updateRestoreBar(){const bar=document.getElementById('restore-bar');const closed=Object.keys(PANEL_NAMES).filter(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed'));if(!closed.length){bar.innerHTML='';return;}bar.innerHTML='<span class="restore-label">Restore:</span>'+closed.map(n=>`<button class="restore-btn" onclick="restorePanel('${n}')">${PANEL_NAMES[n]}</button>`).join('');}
+
+const nudgeOffsets={};
+function getNudge(t){const o=nudgeOffsets[t];return o?{dx:o.dx*DPR,dy:o.dy*DPR}:{dx:0,dy:0};}
+
+// ─── Canvas setup ───
+const canvas=document.getElementById('graph'),ctx=canvas.getContext('2d'),DPR=2;
+const maxHSlider=document.getElementById('maxH'),maxESlider=document.getElementById('maxE'),curveSlider=document.getElementById('curvature');
+const rESlider=document.getElementById('rE'),rHSlider=document.getElementById('rH');
+const margin={top:80,right:80,bottom:120,left:140};
+let graphMaxX=120,graphMaxY=120;
+
+function getGD(){return{width:canvas.width-margin.left-margin.right,height:canvas.height-margin.top-margin.bottom};}
+function tCX(x){return margin.left+(x/graphMaxX)*getGD().width;}
+function tCY(y){return margin.top+getGD().height-(y/graphMaxY)*getGD().height;}
+function isVis(id){const e=document.getElementById(id);return e?e.checked:true;}
+function getLabel(id,fb){const e=document.getElementById(id);return e&&e.value.trim()?e.value.trim():fb;}
+
+// ─── PPF math ───
+function ppfH(E,Em,Hm,n){const r=E/Em;if(r>=1)return 0;if(r<=0)return Hm;const ins=1-Math.pow(r,n);return ins<=0?0:Hm*Math.pow(ins,1/n);}
+function getStatus(ex,hy,Em,Hm,n){if(ex<0||hy<0)return'outside';const lhs=Math.pow(ex/Em,n)+Math.pow(hy/Hm,n);if(Math.abs(lhs-1)<0.02)return'on';return lhs<1?'inside':'outside';}
+function ppfSlope(E,Em,Hm,n){const H=ppfH(E,Em,Hm,n);if(H<=0.01)return-Infinity;const er=E/Em,hr=H/Hm;if(er<=0.001)return 0;return-(Hm/Em)*Math.pow(er,n-1)/Math.pow(hr,n-1);}
+
+// ─── Points ───
+// A: near y-intercept on PPF
+// B: on PPF, E≈25
+// C: on PPF, E≈35 (provides the comparison to R)
+// D: on PPF, E≈60
+// F: near x-intercept on PPF
+// R: inside PPF (user-controlled)
+function computePoints(Em,Hm,n,rE,rH){
+    return [
+        {label:'A', x:5,  y:ppfH(5,Em,Hm,n),  type:'on'},
+        {label:'B', x:25, y:ppfH(25,Em,Hm,n), type:'on'},
+        {label:'C', x:35, y:ppfH(35,Em,Hm,n), type:'on'},
+        {label:'D', x:60, y:ppfH(60,Em,Hm,n), type:'on'},
+        {label:'F', x:95, y:ppfH(95,Em,Hm,n), type:'on'},
+        {label:'R', x:rE, y:rH,                type:'inside'},
+    ];
+}
+
+let selectedPoint=null;
+
+// ─── Hit testing ───
+let labelHitBoxes=[],pointHitBoxes=[];
+function registerLabelLTWH(k,x,y,w,h){labelHitBoxes.push({key:k,x,y,w,h});}
+function registerPoint(i,cx,cy,r){pointHitBoxes.push({index:i,cx,cy,r});}
+function mouseToCanvas(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height};}
+function hitTestLabels(cx,cy){for(let i=labelHitBoxes.length-1;i>=0;i--){const b=labelHitBoxes[i];if(cx>=b.x&&cx<=b.x+b.w&&cy>=b.y&&cy<=b.y+b.h)return b.key;}return null;}
+function hitTestPoints(cx,cy){for(let i=pointHitBoxes.length-1;i>=0;i--){const p=pointHitBoxes[i];if(Math.hypot(cx-p.cx,cy-p.cy)<=p.r+8*DPR)return p.index;}return null;}
+
+let dragTarget=null,dragStartX=0,dragStartY=0,dragStartOX=0,dragStartOY=0;
+canvas.addEventListener('mousedown',e=>{const pos=mouseToCanvas(e);const hl=hitTestLabels(pos.x,pos.y);if(hl){dragTarget=hl;dragStartX=pos.x;dragStartY=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dragStartOX=nudgeOffsets[hl].dx;dragStartOY=nudgeOffsets[hl].dy;canvas.classList.add('dragging');e.preventDefault();return;}const hp=hitTestPoints(pos.x,pos.y);if(hp!==null){selectedPoint=selectedPoint===hp?null:hp;drawGraph();updateSelectedPanel();updatePointTable();e.preventDefault();}});
+canvas.addEventListener('mousemove',e=>{const pos=mouseToCanvas(e);if(dragTarget){nudgeOffsets[dragTarget].dx=dragStartOX+(pos.x-dragStartX)/DPR;nudgeOffsets[dragTarget].dy=dragStartOY+(pos.y-dragStartY)/DPR;drawGraph();}else{const hl=hitTestLabels(pos.x,pos.y),hp=hitTestPoints(pos.x,pos.y);canvas.classList.toggle('hovering-label',!!hl);canvas.classList.toggle('hovering-point',!hl&&hp!==null);if(!hl&&hp!==null)showTooltip(e,hp);else hideTooltip();}});
+canvas.addEventListener('mouseup',()=>{if(dragTarget){dragTarget=null;canvas.classList.remove('dragging');}});
+canvas.addEventListener('mouseleave',()=>{dragTarget=null;canvas.classList.remove('dragging','hovering-label','hovering-point');hideTooltip();});
+canvas.addEventListener('touchstart',e=>{const t=e.touches[0],r=canvas.getBoundingClientRect(),pos={x:(t.clientX-r.left)*canvas.width/r.width,y:(t.clientY-r.top)*canvas.height/r.height};const hl=hitTestLabels(pos.x,pos.y);if(hl){dragTarget=hl;dragStartX=pos.x;dragStartY=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dragStartOX=nudgeOffsets[hl].dx;dragStartOY=nudgeOffsets[hl].dy;e.preventDefault();return;}const hp=hitTestPoints(pos.x,pos.y);if(hp!==null){selectedPoint=selectedPoint===hp?null:hp;drawGraph();updateSelectedPanel();updatePointTable();e.preventDefault();}},{passive:false});
+canvas.addEventListener('touchmove',e=>{if(dragTarget){const t=e.touches[0],r=canvas.getBoundingClientRect(),pos={x:(t.clientX-r.left)*canvas.width/r.width,y:(t.clientY-r.top)*canvas.height/r.height};nudgeOffsets[dragTarget].dx=dragStartOX+(pos.x-dragStartX)/DPR;nudgeOffsets[dragTarget].dy=dragStartOY+(pos.y-dragStartY)/DPR;drawGraph();e.preventDefault();}},{passive:false});
+canvas.addEventListener('touchend',()=>{dragTarget=null;});
+
+// ─── Tooltip ───
+const tooltipEl=document.getElementById('tooltip');
+function showTooltip(e,idx){
+    const Em=parseFloat(maxESlider.value),Hm=parseFloat(maxHSlider.value),n=parseFloat(curveSlider.value);
+    const rE=parseFloat(rESlider.value),rH=parseFloat(rHSlider.value);
+    const pts=computePoints(Em,Hm,n,rE,rH),p=pts[idx];
+    const isEff=p.type==='on';
+    tooltipEl.innerHTML=`<div class="tt-label">Point ${p.label}</div>
+        <div class="tt-row"><span class="tt-key">Education:</span><span class="tt-val">${p.x.toFixed(1)}</span></div>
+        <div class="tt-row"><span class="tt-key">Healthcare:</span><span class="tt-val">${p.y.toFixed(1)}</span></div>
+        <div class="tt-row"><span class="tt-key">Status:</span><span class="tt-val" style="color:${isEff?'#6b46c1':'#2b6cb0'}">${isEff?'Prod. efficient':'Inefficient'}</span></div>`;
+    const cr=canvas.parentElement.getBoundingClientRect();
+    tooltipEl.style.left=(e.clientX-cr.left+16)+'px';tooltipEl.style.top=(e.clientY-cr.top-20)+'px';
+    tooltipEl.classList.add('visible');
+}
+function hideTooltip(){tooltipEl.classList.remove('visible');}
+
+function updateSelectedPanel(){
+    const box=document.getElementById('selected-info');
+    if(selectedPoint===null){box.innerHTML='<div style="color:#a0aec0;font-size:0.85rem;text-align:center;padding:8px 0;">Click a point on the graph or table</div>';return;}
+    const Em=parseFloat(maxESlider.value),Hm=parseFloat(maxHSlider.value),n=parseFloat(curveSlider.value);
+    const rE=parseFloat(rESlider.value),rH=parseFloat(rHSlider.value);
+    const pts=computePoints(Em,Hm,n,rE,rH),p=pts[selectedPoint];
+    const isEff=p.type==='on';
+    const col=isEff?'#6b46c1':'#2b6cb0';
+    let extra='';
+    if(isEff&&p.x>0&&p.y>0.5){const sl=ppfSlope(p.x,Em,Hm,n);extra=`<div class="info-row"><span class="info-label">Opp. cost</span><span class="info-value">${Math.abs(sl).toFixed(2)} H per E</span></div>`;}
+    box.innerHTML=`<div class="info-row"><span class="info-label">Point</span><span class="info-value highlight" style="font-size:1.1rem;">${p.label}</span></div>
+        <div class="info-row"><span class="info-label">Education</span><span class="info-value highlight">${p.x.toFixed(1)}</span></div>
+        <div class="info-row"><span class="info-label">Healthcare</span><span class="info-value highlight">${p.y.toFixed(1)}</span></div>
+        <div class="info-row"><span class="info-label">Efficiency</span><span class="info-value" style="color:${col}">${isEff?'Productively efficient':'Inefficient'}</span></div>${extra}`;
+}
+
+function updatePointTable(){
+    const Em=parseFloat(maxESlider.value),Hm=parseFloat(maxHSlider.value),n=parseFloat(curveSlider.value);
+    const rE=parseFloat(rESlider.value),rH=parseFloat(rHSlider.value);
+    const pts=computePoints(Em,Hm,n,rE,rH);
+    document.getElementById('point-tbody').innerHTML=pts.map((p,i)=>{
+        const isEff=p.type==='on';
+        const badge=isEff?'<span class="status-badge status-efficient">Efficient</span>':'<span class="status-badge status-inefficient">Inefficient</span>';
+        return`<tr class="${selectedPoint===i?'selected':''}" onclick="selectPoint(${i})" style="cursor:pointer;"><td><strong>${p.label}</strong></td><td>${p.x.toFixed(1)}</td><td>${p.y.toFixed(1)}</td><td>${badge}</td></tr>`;
+    }).join('');
+}
+function selectPoint(i){selectedPoint=selectedPoint===i?null:i;drawGraph();updateSelectedPanel();updatePointTable();}
+
+function updateCompare(){
+    const Em=parseFloat(maxESlider.value),Hm=parseFloat(maxHSlider.value),n=parseFloat(curveSlider.value);
+    const rE=parseFloat(rESlider.value),rH=parseFloat(rHSlider.value);
+    const pts=computePoints(Em,Hm,n,rE,rH);
+    const R=pts.find(p=>p.label==='R'),C=pts.find(p=>p.label==='C');
+    const dE=C.x-R.x, dH=C.y-R.y;
+    const bothBetter=dE>0&&dH>0;
+    const statusRaw=getStatus(R.x,R.y,Em,Hm,n);
+
+    let html=`<div class="comparison-box">
+        <div class="comparison-title">Comparing R (\\(E_1=${R.x.toFixed(0)},\\; H_1=${R.y.toFixed(0)}\\)) to C (\\(E_2=${C.x.toFixed(0)},\\; H_2=${C.y.toFixed(0)}\\))</div>
+        <div class="comparison-row"><span>Education</span><span class="comparison-val ${dE>0?'better':'worse'}">C has ${dE>0?'+':''}${dE.toFixed(1)} (\\(E_2 ${dE>0?'>':'<'} E_1\\))</span></div>
+        <div class="comparison-row"><span>Healthcare</span><span class="comparison-val ${dH>0?'better':'worse'}">C has ${dH>0?'+':''}${dH.toFixed(1)} (\\(H_2 ${dH>0?'>':'<'} H_1\\))</span></div>
+    </div>`;
+    if(bothBetter){
+        html+=`<p style="margin:12px 0 0 0;line-height:1.7;font-size:0.95rem;color:#4a5568;">Since point C provides <strong>more of both goods</strong> than R, point R is unambiguously wasteful. The economy at R has idle resources or misallocated inputs—it could reach C without any trade-off. This is the hallmark of <strong>productive inefficiency</strong>: being inside the frontier means improvement is possible in every direction.</p>`;
+    } else if(statusRaw==='on') {
+        html+=`<p style="margin:12px 0 0 0;line-height:1.7;font-size:0.95rem;color:#6b46c1;">With the current R position, R is actually on the PPF! Adjust R's sliders to move it inside the frontier to see the inefficiency comparison.</p>`;
+    } else {
+        html+=`<p style="margin:12px 0 0 0;line-height:1.7;font-size:0.95rem;color:#4a5568;">At the current position, moving from R to C involves a trade-off in one dimension. Try adjusting R so it is clearly inside the frontier to see why inefficiency means both goods can increase.</p>`;
+    }
+    document.getElementById('compare-content').innerHTML=html;
+    if(typeof renderMathInElement!=='undefined')renderMathInElement(document.getElementById('section-compare'),{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});
+}
+
+// ─── Draw ───
+function drawGraph(){
+    labelHitBoxes=[];pointHitBoxes=[];
+    const Em=parseFloat(maxESlider.value),Hm=parseFloat(maxHSlider.value),n=parseFloat(curveSlider.value);
+    const rE=parseFloat(rESlider.value),rH=parseFloat(rHSlider.value);
+    graphMaxX=Math.max(Em*1.15,50);graphMaxY=Math.max(Hm*1.15,50);
+
+    document.getElementById('maxH-value').textContent=Hm;
+    document.getElementById('maxE-value').textContent=Em;
+    document.getElementById('curve-value').textContent=n.toFixed(1);
+    document.getElementById('rE-value').textContent=rE;
+    document.getElementById('rH-value').textContent=rH;
+    document.getElementById('disp-maxH').textContent=Hm;
+    document.getElementById('disp-maxE').textContent=Em;
+    document.getElementById('disp-curve').textContent=n.toFixed(1);
+
+    const statusR=getStatus(rE,rH,Em,Hm,n);
+    const rStatusEl=document.getElementById('r-status');
+    if(statusR==='inside'){rStatusEl.textContent='Inside PPF (inefficient)';rStatusEl.style.color='#2b6cb0';}
+    else if(statusR==='on'){rStatusEl.textContent='On PPF (efficient!)';rStatusEl.style.color='#6b46c1';}
+    else{rStatusEl.textContent='Outside PPF (unattainable)';rStatusEl.style.color='#e53e3e';}
+
+    const pts=computePoints(Em,Hm,n,rE,rH);
+    const R=pts.find(p=>p.label==='R'),C=pts.find(p=>p.label==='C');
+
+    updatePointTable();updateSelectedPanel();updateCompare();
+
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+    const{width,height}=getGD(),S=DPR;
+
+    // Grid
+    if(isVis('show-gridlines')){ctx.strokeStyle='#edf2f7';ctx.lineWidth=S;const nt=8;for(let i=0;i<=nt;i++){const gx=margin.left+(i/nt)*width;ctx.beginPath();ctx.moveTo(gx,margin.top);ctx.lineTo(gx,margin.top+height);ctx.stroke();const gy=margin.top+(i/nt)*height;ctx.beginPath();ctx.moveTo(margin.left,gy);ctx.lineTo(margin.left+width,gy);ctx.stroke();}}
+
+    // Shading
+    if(isVis('show-shading')&&isVis('show-ppf')){ctx.fillStyle='rgba(128,90,213,0.04)';ctx.beginPath();ctx.moveTo(tCX(0),tCY(0));ctx.lineTo(tCX(0),tCY(Hm));for(let i=0;i<=300;i++){const e=(i/300)*Em;ctx.lineTo(tCX(e),tCY(ppfH(e,Em,Hm,n)));}ctx.lineTo(tCX(Em),tCY(0));ctx.closePath();ctx.fill();}
+
+    // Axes
+    ctx.strokeStyle='#a0aec0';ctx.lineWidth=2*S;ctx.beginPath();ctx.moveTo(margin.left,margin.top);ctx.lineTo(margin.left,margin.top+height);ctx.lineTo(margin.left+width,margin.top+height);ctx.stroke();
+
+    // Tick labels
+    if(isVis('show-axis-numbers')){ctx.fillStyle='#718096';ctx.font=`${14*S}px Segoe UI`;const nt=8;ctx.textAlign='center';for(let i=0;i<=nt;i++){const v=(i/nt)*graphMaxX;ctx.fillText(Math.round(v),tCX(v),margin.top+height+25*S);}ctx.textAlign='right';for(let i=0;i<=nt;i++){const v=(i/nt)*graphMaxY;ctx.fillText(Math.round(v),margin.left-10*S,tCY(v)+5*S);}}
+
+    // Axis titles
+    if(isVis('show-xaxis-label')){const ng=getNudge('xaxis-label');const lbl=getLabel('label-xaxis','Education');ctx.fillStyle='#4a5568';ctx.font=`italic ${16*S}px Georgia,serif`;ctx.textAlign='center';const bx=margin.left+width/2+ng.dx,by=canvas.height-10*S+ng.dy;ctx.fillText(lbl,bx,by);const tw=ctx.measureText(lbl).width;registerLabelLTWH('xaxis-label',bx-tw/2-4*S,by-18*S,tw+8*S,24*S);}
+    if(isVis('show-yaxis-label')){const ng=getNudge('yaxis-label');const lbl=getLabel('label-yaxis','Healthcare');ctx.fillStyle='#4a5568';ctx.font=`italic ${16*S}px Georgia,serif`;ctx.textAlign='center';ctx.save();const bx=20*S+ng.dx,by=margin.top+height/2+ng.dy;ctx.translate(bx,by);ctx.rotate(-Math.PI/2);ctx.fillText(lbl,0,0);ctx.restore();const tw=ctx.measureText(lbl).width;registerLabelLTWH('yaxis-label',bx-14*S,by-tw/2-4*S,28*S,tw+8*S);}
+
+    // PPF curve
+    if(isVis('show-ppf')){ctx.strokeStyle='#805ad5';ctx.lineWidth=3*S;ctx.beginPath();let st=false;for(let i=0;i<=300;i++){const e=(i/300)*Em;const h=ppfH(e,Em,Hm,n);if(!st){ctx.moveTo(tCX(e),tCY(h));st=true;}else ctx.lineTo(tCX(e),tCY(h));}ctx.stroke();
+        if(isVis('show-ppf-label')){const ng=getNudge('ppf-label');const le=Em*0.72;const lh=ppfH(le,Em,Hm,n);const lx=tCX(le)+10*S+ng.dx,ly=tCY(lh)+30*S+ng.dy;ctx.fillStyle='#805ad5';ctx.font=`bold ${15*S}px Segoe UI`;ctx.textAlign='left';ctx.fillText('PPF₂',lx,ly);const tw=ctx.measureText('PPF₂').width;registerLabelLTWH('ppf-label',lx-4*S,ly-18*S,tw+8*S,26*S);}
+    }
+
+    // R→C improvement highlight (green shaded rectangle)
+    if(isVis('show-rc-highlight')&&R&&C&&statusR==='inside'){
+        const dE=C.x-R.x,dH=C.y-R.y;
+        if(dE>0&&dH>0){
+            ctx.fillStyle='rgba(56,161,105,0.08)';
+            ctx.fillRect(tCX(R.x),tCY(C.y),tCX(C.x)-tCX(R.x),tCY(R.y)-tCY(C.y));
+            ctx.strokeStyle='rgba(56,161,105,0.25)';ctx.lineWidth=1.5*S;ctx.setLineDash([4*S,3*S]);
+            ctx.strokeRect(tCX(R.x),tCY(C.y),tCX(C.x)-tCX(R.x),tCY(R.y)-tCY(C.y));
+            ctx.setLineDash([]);
+        }
+    }
+
+    // Dashed lines for points
+    if(isVis('show-perpendicular')&&isVis('show-points')){
+        ctx.lineWidth=1.5*S;ctx.setLineDash([6*S,4*S]);
+        pts.forEach(p=>{
+            if(p.x>0&&p.y>0.5&&p.x<graphMaxX&&p.y<graphMaxY){
+                const col=p.type==='on'?'rgba(107,70,193,0.3)':'rgba(43,108,176,0.35)';
+                ctx.strokeStyle=col;
+                ctx.beginPath();ctx.moveTo(tCX(p.x),tCY(p.y));ctx.lineTo(tCX(p.x),tCY(0));ctx.stroke();
+                ctx.beginPath();ctx.moveTo(tCX(p.x),tCY(p.y));ctx.lineTo(tCX(0),tCY(p.y));ctx.stroke();
+            }
+        });
+        ctx.setLineDash([]);
+    }
+
+    // E₁, E₂, H₁, H₂ annotations
+    if(isVis('show-axis-annotations')&&isVis('show-points')&&R&&C){
+        ctx.font=`italic ${13*S}px Georgia,serif`;ctx.textAlign='center';
+
+        // E₁ under R
+        const ngE1=getNudge('annot-E1');
+        ctx.fillStyle='#2b6cb0';
+        const e1x=tCX(R.x)+ngE1.dx, e1y=margin.top+height+50*S+ngE1.dy;
+        ctx.fillText('E₁',e1x,e1y);
+        const e1tw=ctx.measureText('E₁').width;
+        registerLabelLTWH('annot-E1',e1x-e1tw/2-4*S,e1y-14*S,e1tw+8*S,22*S);
+
+        // E₂ under C
+        const ngE2=getNudge('annot-E2');
+        ctx.fillStyle='#6b46c1';
+        const e2x=tCX(C.x)+ngE2.dx, e2y=margin.top+height+50*S+ngE2.dy;
+        ctx.fillText('E₂',e2x,e2y);
+        const e2tw=ctx.measureText('E₂').width;
+        registerLabelLTWH('annot-E2',e2x-e2tw/2-4*S,e2y-14*S,e2tw+8*S,22*S);
+
+        // H₁ left of R
+        ctx.textAlign='right';
+        const ngH1=getNudge('annot-H1');
+        ctx.fillStyle='#2b6cb0';
+        const h1x=margin.left-20*S+ngH1.dx, h1y=tCY(R.y)+5*S+ngH1.dy;
+        ctx.fillText('H₁',h1x,h1y);
+        const h1tw=ctx.measureText('H₁').width;
+        registerLabelLTWH('annot-H1',h1x-h1tw-4*S,h1y-14*S,h1tw+8*S,22*S);
+
+        // H₂ left of C
+        const ngH2=getNudge('annot-H2');
+        ctx.fillStyle='#6b46c1';
+        const h2x=margin.left-20*S+ngH2.dx, h2y=tCY(C.y)+5*S+ngH2.dy;
+        ctx.fillText('H₂',h2x,h2y);
+        const h2tw=ctx.measureText('H₂').width;
+        registerLabelLTWH('annot-H2',h2x-h2tw-4*S,h2y-14*S,h2tw+8*S,22*S);
+    }
+
+    // Points
+    if(isVis('show-points')){
+        pts.forEach((p,i)=>{
+            if(p.x>graphMaxX||p.y>graphMaxY)return;
+            const isSel=selectedPoint===i;
+            const px=tCX(p.x),py=tCY(p.y);
+
+            if(isSel){const g=ctx.createRadialGradient(px,py,0,px,py,24*S);g.addColorStop(0,'rgba(214,158,46,0.35)');g.addColorStop(1,'rgba(214,158,46,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(px,py,24*S,0,Math.PI*2);ctx.fill();}
+
+            const color=p.type==='on'?'#805ad5':'#2b6cb0';
+            const r=isSel?10*S:8*S;
+            ctx.fillStyle=color;ctx.beginPath();ctx.arc(px,py,r,0,Math.PI*2);ctx.fill();
+            ctx.strokeStyle='#fff';ctx.lineWidth=2.5*S;ctx.stroke();
+            registerPoint(i,px,py,r);
+
+            if(isVis('show-point-labels')){
+                const ng=getNudge('point-'+p.label);
+                ctx.fillStyle='#1a202c';ctx.font=`bold ${14*S}px Segoe UI`;ctx.textAlign='center';
+                // Positioning per image
+                let lxO=0,lyO=-16*S;
+                if(p.label==='A'){lxO=-18*S;lyO=-6*S;}
+                else if(p.label==='B'){lxO=2*S;lyO=-16*S;}
+                else if(p.label==='C'){lxO=10*S;lyO=-16*S;}
+                else if(p.label==='D'){lxO=14*S;lyO=-8*S;}
+                else if(p.label==='F'){lxO=16*S;lyO=-6*S;}
+                else if(p.label==='R'){lxO=14*S;lyO=6*S;}
+                const lx=px+lxO+ng.dx,ly=py+lyO+ng.dy;
+                ctx.fillText(p.label,lx,ly);
+                const tw=ctx.measureText(p.label).width;
+                registerLabelLTWH('point-'+p.label,lx-tw/2-4*S,ly-14*S,tw+8*S,22*S);
+            }
+        });
+    }
+}
+
+// ─── Listeners ───
+[maxHSlider,maxESlider,curveSlider,rESlider,rHSlider].forEach(s=>s.addEventListener('input',drawGraph));
+document.getElementById('display-toggle-btn').addEventListener('click',()=>{const p=document.getElementById('display-panel'),a=document.getElementById('display-arrow');const o=p.classList.toggle('open');a.classList.toggle('open',o);});
+document.querySelectorAll('.display-options-panel input').forEach(i=>{i.addEventListener('input',drawGraph);i.addEventListener('change',drawGraph);});
+
+document.getElementById('copy-plot-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-plot-btn'),l=document.getElementById('copy-label');try{const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);btn.classList.add('copied');l.textContent='Copied!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Copy';},1500);}catch{l.textContent='Failed';setTimeout(()=>{l.textContent='Copy';},1500);}});
+document.getElementById('save-plot-btn').addEventListener('click',()=>{const btn=document.getElementById('save-plot-btn'),l=document.getElementById('save-label');const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='efficiency_ppf.png';a.click();btn.classList.add('copied');l.textContent='Saved!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Save';},1500);});
+
+// ═══════════════════════════════════════════════════════
+// URL STATE
+// ═══════════════════════════════════════════════════════
+const DEFAULTS={Hmax:100,Emax:100,n:2,rE:25,rH:55,'show-xaxis-label':true,'show-yaxis-label':true,'show-axis-numbers':true,'show-gridlines':true,'show-ppf':true,'show-ppf-label':true,'show-shading':true,'show-points':true,'show-point-labels':true,'show-perpendicular':true,'show-axis-annotations':true,'show-rc-highlight':true,'label-xaxis':'Education','label-yaxis':'Healthcare','sec-graph':true,'sec-explanation':true,'sec-compare':true,'sec-points':true,'sec-ppfparams':true,'sec-pointR':true,'sec-keyvals':true,'sec-selected':true,'closed-title':false,'closed-subtitle':false,'closed-graph':false,'closed-explanation':false,'closed-compare':false,'closed-points':false,'closed-ppfparams':false,'closed-pointR':false,'closed-keyvals':false,'closed-selected':false,'disp-open':false};
+const CHECKBOX_IDS=['show-xaxis-label','show-yaxis-label','show-axis-numbers','show-gridlines','show-ppf','show-ppf-label','show-shading','show-points','show-point-labels','show-perpendicular','show-axis-annotations','show-rc-highlight'];
+const LABEL_IDS=['label-xaxis','label-yaxis'];
+const NUDGE_KEYS=['xaxis-label','yaxis-label','ppf-label','point-A','point-B','point-C','point-D','point-F','point-R','annot-E1','annot-E2','annot-H1','annot-H2'];
+
+function buildStateObject(){
+    const s={};
+    const Hm=parseFloat(maxHSlider.value),Em=parseFloat(maxESlider.value),n=parseFloat(curveSlider.value),re=parseFloat(rESlider.value),rh=parseFloat(rHSlider.value);
+    if(Hm!==DEFAULTS.Hmax)s.Hmax=Hm;if(Em!==DEFAULTS.Emax)s.Emax=Em;if(n!==DEFAULTS.n)s.n=n;if(re!==DEFAULTS.rE)s.rE=re;if(rh!==DEFAULTS.rH)s.rH=rh;
+    for(const id of CHECKBOX_IDS){const el=document.getElementById(id);if(el&&el.checked!==DEFAULTS[id])s[id]=el.checked?1:0;}
+    for(const id of LABEL_IDS){const el=document.getElementById(id);if(el&&el.value!==DEFAULTS[id])s[id]=el.value;}
+    for(const k of NUDGE_KEYS){const o=nudgeOffsets[k];if(o&&(Math.abs(o.dx)>0.5||Math.abs(o.dy)>0.5))s['n_'+k]=Math.round(o.dx)+','+Math.round(o.dy);}
+    const allSec=['graph','explanation','compare','points','ppfparams','pointR','keyvals','selected'];
+    for(const sec of allSec){const body=document.getElementById('body-'+sec);const isOpen=!body.classList.contains('collapsed');if(isOpen!==DEFAULTS['sec-'+sec])s['sec-'+sec]=isOpen?1:0;}
+    const dispOpen=document.getElementById('display-panel').classList.contains('open');if(dispOpen!==DEFAULTS['disp-open'])s['disp-open']=dispOpen?1:0;
+    for(const name of Object.keys(PANEL_NAMES)){const el=document.getElementById('section-'+name);const isClosed=el&&el.classList.contains('panel-closed');if(isClosed!==DEFAULTS['closed-'+name])s['closed-'+name]=isClosed?1:0;}
+    return s;
+}
+function stateToHash(state){const p=new URLSearchParams();for(const[k,v]of Object.entries(state))p.set(k,v);return p.toString();}
+function loadStateFromHash(){
+    const hash=window.location.hash.slice(1);if(!hash)return;const params=new URLSearchParams(hash);
+    if(params.has('Hmax'))maxHSlider.value=params.get('Hmax');if(params.has('Emax'))maxESlider.value=params.get('Emax');if(params.has('n'))curveSlider.value=params.get('n');
+    if(params.has('rE'))rESlider.value=params.get('rE');if(params.has('rH'))rHSlider.value=params.get('rH');
+    for(const id of CHECKBOX_IDS){if(params.has(id)){const el=document.getElementById(id);if(el)el.checked=params.get(id)==='1';}}
+    for(const id of LABEL_IDS){if(params.has(id)){const el=document.getElementById(id);if(el)el.value=params.get(id);}}
+    for(const k of NUDGE_KEYS){const key='n_'+k;if(params.has(key)){const parts=params.get(key).split(',');if(parts.length===2)nudgeOffsets[k]={dx:parseFloat(parts[0]),dy:parseFloat(parts[1])};}}
+    const allSec=['graph','explanation','compare','points','ppfparams','pointR','keyvals','selected'];
+    for(const sec of allSec){const key='sec-'+sec;if(params.has(key)){const open=params.get(key)==='1';const body=document.getElementById('body-'+sec),toggle=document.getElementById('toggle-'+sec);if(open){body.classList.remove('collapsed');if(toggle)toggle.textContent='▼';}else{body.classList.add('collapsed');if(toggle)toggle.textContent='▶';}}}
+    if(params.has('disp-open')){const o=params.get('disp-open')==='1';const panel=document.getElementById('display-panel'),arrow=document.getElementById('display-arrow');if(o){panel.classList.add('open');arrow.classList.add('open');}else{panel.classList.remove('open');arrow.classList.remove('open');}}
+    for(const name of Object.keys(PANEL_NAMES)){const key='closed-'+name;if(params.has(key)){const el=document.getElementById('section-'+name);if(el){if(params.get(key)==='1')el.classList.add('panel-closed');else el.classList.remove('panel-closed');}}}
+}
+
+document.getElementById('copy-url-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-url-btn');const state=buildStateObject();const hash=stateToHash(state);const url=window.location.origin+window.location.pathname+(hash?'#'+hash:'');try{await navigator.clipboard.writeText(url);btn.textContent='✓ Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copy link with current state';btn.classList.remove('copied');},2000);}catch{prompt('Copy this URL:',url);}});
+document.getElementById('reset-url-btn').addEventListener('click',()=>{
+    maxHSlider.value=DEFAULTS.Hmax;maxESlider.value=DEFAULTS.Emax;curveSlider.value=DEFAULTS.n;rESlider.value=DEFAULTS.rE;rHSlider.value=DEFAULTS.rH;
+    for(const id of CHECKBOX_IDS){const el=document.getElementById(id);if(el)el.checked=DEFAULTS[id];}
+    for(const id of LABEL_IDS){const el=document.getElementById(id);if(el)el.value=DEFAULTS[id];}
+    for(const k of NUDGE_KEYS){delete nudgeOffsets[k];}
+    ['graph','explanation','compare','points','ppfparams','pointR','keyvals','selected'].forEach(sec=>{const body=document.getElementById('body-'+sec),toggle=document.getElementById('toggle-'+sec);if(body)body.classList.remove('collapsed');if(toggle)toggle.textContent='▼';});
+    document.getElementById('display-panel').classList.remove('open');document.getElementById('display-arrow').classList.remove('open');
+    Object.keys(PANEL_NAMES).forEach(name=>{const el=document.getElementById('section-'+name);if(el)el.classList.remove('panel-closed');});
+    selectedPoint=null;updateRestoreBar();updateLayout();history.replaceState(null,'',window.location.pathname);drawGraph();
+});
+
+loadStateFromHash();updateRestoreBar();updateLayout();drawGraph();
+</script>
+</body>
+</html>

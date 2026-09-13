@@ -1,0 +1,16 @@
+# The Budget Constraint
+
+A consumer with income $M$ facing prices $P_x$ and $P_y$ can afford any bundle
+satisfying $P_x X + P_y Y \le M$. The boundary of that set is the budget line.
+
+{{< appfig budget_constraint_1 caption="Figure 4.1: The budget line and six bundles. Bundles A through F all exhaust the budget." >}}
+
+Any single bundle can be read off directly. Selecting one reports its cost and
+whatever income is left over:
+
+{{< appfig budget_constraint_selected_c caption="Figure 4.2: Bundle C costs exactly the full budget of $10.00." >}}
+
+Raising the price of the good on the horizontal axis pivots the line inward
+around the vertical intercept, since $M/P_y$ is unchanged:
+
+{{< appfig budget_constraint_price_rise caption="Figure 4.3: A rise in the price of the x good pivots the budget line inward." live=true >}}

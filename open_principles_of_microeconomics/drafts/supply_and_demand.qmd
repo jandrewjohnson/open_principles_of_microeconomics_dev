@@ -1,0 +1,15 @@
+# Supply and Demand
+
+## Shifts in supply
+
+A change in a non-price determinant moves the whole supply curve.
+
+{{< appfig supply_shift_1 caption="Figure 3.1: A rightward shift (S₀ to S₂) and a leftward shift (S₀ to S₁)." >}}
+
+At a higher price the same shifts produce different quantities:
+
+{{< appfig supply_shift_high_price caption="Figure 3.2: Supply shifts read at $22,000." >}}
+
+For a figure that stays interactive in place, add `live=true`:
+
+{{< appfig supply_shift_increase_only caption="Figure 3.3: Increase in supply only." live=true >}}

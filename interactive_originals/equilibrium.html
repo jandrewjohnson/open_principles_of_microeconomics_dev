@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply and Demand Equilibrium</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+*{box-sizing:border-box}body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f7fa;color:#2d3748;margin:0;padding:20px;min-height:100vh}.container{max-width:1200px;margin:0 auto}h1{text-align:center;font-weight:400;font-size:1.8rem;margin-bottom:8px;color:#1a202c}.subtitle{text-align:center;color:#718096;margin-bottom:24px;font-size:.95rem}.main-content{display:grid;grid-template-columns:1fr 320px;gap:24px}@media(max-width:900px){.main-content{grid-template-columns:1fr}}.main-content.left-empty{grid-template-columns:0 1fr}.main-content.right-empty{grid-template-columns:1fr}.main-content.left-empty .left-column{display:none}.main-content.right-empty .controls{display:none}.left-column{display:flex;flex-direction:column;gap:0}.graph-container{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);position:relative;overflow:visible}.graph-header{display:flex;align-items:center;padding:12px 20px;cursor:pointer;user-select:none}.graph-header:hover{background:#f7fafc;border-radius:12px 12px 0 0}.graph-header .panel-title{margin-bottom:0}.graph-body{padding:0 20px 20px 20px;position:relative}.graph-body.collapsed{display:none}canvas{display:block;width:100%;height:auto;cursor:default}canvas.hovering-label{cursor:grab}canvas.dragging{cursor:grabbing}.plot-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;gap:4px;opacity:0;transition:opacity .2s}.graph-container:hover .plot-actions{opacity:1}.plot-action-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.7rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1}.plot-action-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}.plot-action-btn.copied{color:#38a169;border-color:#c6f6d5;background:rgba(240,255,244,.9)}.plot-action-btn svg{width:12px;height:12px;flex-shrink:0}.panel-close-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.7rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1;flex-shrink:0}.panel-close-btn:hover{background:#fff;color:#e53e3e;border-color:#feb2b2}.panel-header-actions{position:absolute;top:8px;right:8px;z-index:10;display:flex;align-items:center;gap:4px;opacity:0;transition:opacity .2s;flex-shrink:0}.panel-collapse-btn{background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(226,232,240,.7);border-radius:6px;padding:4px 8px;font-size:.65rem;color:#a0aec0;cursor:pointer;display:flex;align-items:center;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;line-height:1}.panel-collapse-btn:hover{background:#fff;color:#4a5568;border-color:#cbd5e0}.panel-closed{display:none!important}.left-section{position:relative}.left-section:hover .panel-header-actions{opacity:1}.control-panel{position:relative}.control-panel:hover .panel-header-actions{opacity:1}.graph-container:hover>.graph-header .panel-header-actions{opacity:1}.title-wrapper:hover .panel-header-actions{opacity:1}.subtitle-wrapper:hover .panel-header-actions{opacity:1}.restore-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.restore-bar:empty{display:none;margin:0;padding:0;border:none}.restore-btn{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:4px 10px;font-size:.72rem;color:#718096;cursor:pointer;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s}.restore-btn:hover{background:#f7fafc;border-color:#cbd5e0;color:#4a5568}.restore-label{font-size:.7rem;color:#a0aec0}.controls{display:flex;flex-direction:column;gap:16px}.control-panel{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}.control-panel-header{display:flex;align-items:center;padding:16px 20px;cursor:pointer;user-select:none}.control-panel-header:hover{background:#f7fafc;border-radius:12px}.control-panel-header .panel-title{margin-bottom:0}.control-panel-body{padding:0 20px 20px 20px}.control-panel-body.collapsed{display:none}.panel-title{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:#718096;margin-bottom:16px;font-weight:600}.slider-group{margin-bottom:16px}.slider-group:last-child{margin-bottom:0}.slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.9rem;color:#4a5568}.slider-value{background:#edf2f7;padding:4px 10px;border-radius:4px;font-family:Monaco,Consolas,monospace;font-size:.85rem;color:#2b6cb0;font-weight:500}input[type=range]{width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none;-webkit-appearance:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#4299e1;cursor:pointer;box-shadow:0 2px 6px rgba(66,153,225,.3);transition:transform .15s}input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}.info-box{background:#f7fafc;border-radius:8px;padding:16px;border-left:3px solid #4299e1}.info-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.9rem}.info-label{color:#718096}.info-value{font-family:Monaco,Consolas,monospace;color:#1a202c}.info-value.highlight{color:#2b6cb0;font-weight:600}.legend{display:flex;flex-direction:column;gap:8px;margin-top:12px}.legend-item{display:flex;align-items:center;gap:10px;font-size:.85rem;color:#4a5568}.legend-line{width:24px;height:3px;border-radius:2px;flex-shrink:0}.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}.equation-box{background:#f7fafc;border-radius:8px;padding:14px 16px;text-align:center;margin-top:8px;border:1px solid #e2e8f0;font-size:1.05rem}.left-section{margin-top:20px;background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:visible}.left-section-header{display:flex;align-items:center;padding:16px 24px;cursor:pointer;user-select:none}.left-section-header:hover{background:#f7fafc;border-radius:12px}.left-section-header .panel-title{margin-bottom:0}.left-section-body{padding:0 24px 20px 24px}.left-section-body.collapsed{display:none}.left-section-body p{margin:0 0 14px 0;line-height:1.7;font-size:.95rem;color:#4a5568}.left-section-body p:last-child{margin-bottom:0}.display-options-wrapper{margin-top:24px}.display-options-toggle{background:none;border:none;color:#a0aec0;font-size:.78rem;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px}.display-options-toggle:hover{color:#718096}.display-options-toggle .arrow{font-size:.6rem;transition:transform .2s}.display-options-toggle .arrow.open{transform:rotate(90deg)}.display-options-panel{display:none;margin-top:8px;background:#fff;border-radius:12px;padding:16px 20px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.08)}.display-options-panel.open{display:block}.display-options-panel .panel-title{font-size:.75rem;margin-bottom:12px}.opt-row{display:flex;align-items:center;gap:8px;padding:3px 0}.opt-row label{font-size:.8rem;color:#4a5568;cursor:pointer;white-space:nowrap}.opt-row input[type=checkbox]{accent-color:#4299e1;cursor:pointer;margin:0;width:14px;height:14px}.opt-section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:#a0aec0;margin:10px 0 4px;font-weight:600}.opt-section-label:first-child{margin-top:0}body.embed-mode{padding:8px;background:transparent;min-height:auto}.embed-mode h1,.embed-mode .subtitle,.embed-mode .left-section,.embed-mode .display-options-wrapper{display:none!important}body.embed-hide-controls .controls{display:none!important}body.embed-hide-controls .main-content{grid-template-columns:1fr}.katex{font-size:1em}.info-row .katex{font-size:.95em}.equation-box .katex{font-size:1.1em}.url-state-bar{margin-top:14px;padding-top:14px;border-top:1px solid #e2e8f0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.url-state-bar button{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:6px 12px;font-size:.78rem;color:#4a5568;cursor:pointer;font-family:'Segoe UI',system-ui,sans-serif;transition:all .15s;white-space:nowrap}.url-state-bar button:hover{background:#f7fafc;border-color:#cbd5e0}.url-state-bar button.copied{color:#38a169;border-color:#c6f6d5;background:#f0fff4}.url-state-bar .url-hint{font-size:.7rem;color:#a0aec0}
+</style>
+</head>
+<body>
+<div class="container">
+    <div id="section-title" class="title-wrapper" style="position:relative"><h1>Supply and Demand Equilibrium</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+    <div id="section-subtitle" class="subtitle-wrapper" style="position:relative"><p class="subtitle" style="margin-bottom:24px">Where supply meets demand, the market clears — any other price creates a surplus or shortage</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+    <div class="main-content">
+        <div class="left-column">
+            <div class="graph-container" id="section-graph">
+                <div class="graph-header" onclick="tog('graph')"><div class="panel-title" style="margin-bottom:0">A. Market Equilibrium</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+                <div class="graph-body" id="body-graph">
+                    <div class="plot-actions">
+                        <button class="plot-action-btn" id="copy-plot-btn" title="Copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy</span></button>
+                        <button class="plot-action-btn" id="save-plot-btn" title="Save"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save</span></button>
+                    </div>
+                    <canvas id="graph" width="1400" height="1200"></canvas>
+                </div>
+            </div>
+            <div class="left-section" id="section-explanation"><div class="left-section-header" onclick="tog('explanation')"><div class="panel-title" style="margin-bottom:0">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+                <div class="left-section-body" id="body-explanation">
+                    <p>The <strong>equilibrium price and quantity</strong> occur where the supply and demand curves intersect—point E. At the equilibrium price of $1.40, the quantity demanded equals the quantity supplied at 600 million gallons. There is no pressure for the price to change.</p>
+                    <p>At an <strong>above-equilibrium price</strong> like $1.80, suppliers want to sell more than consumers want to buy, creating an <em>excess supply</em> (surplus). The surplus bracket on the graph shows the gap between supply and demand quantities. Competitive pressure from unsold inventory pushes the price back down toward equilibrium.</p>
+                    <p>At a <strong>below-equilibrium price</strong> like $1.20, consumers want to buy more than producers are willing to sell, creating an <em>excess demand</em> (shortage). Consumers competing for scarce goods push the price back up. This self-correcting mechanism is the invisible hand of the market driving price toward equilibrium.</p>
+                </div>
+            </div>
+            <div class="left-section" id="section-analysis"><div class="left-section-header" onclick="tog('analysis')"><div class="panel-title" style="margin-bottom:0">Surplus &amp; Shortage Analysis</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-analysis" onclick="event.stopPropagation();tog('analysis')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('analysis')">✕</button></div></div>
+                <div class="left-section-body" id="body-analysis"><div id="analysis-content"></div></div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="control-panel" id="section-price"><div class="control-panel-header" onclick="tog('price')"><div class="panel-title" style="margin-bottom:0">Price Exploration</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-price" onclick="event.stopPropagation();tog('price')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('price')">✕</button></div></div>
+                <div class="control-panel-body" id="body-price">
+                    <div class="slider-group"><div class="slider-label"><span>Explored price</span><span class="slider-value" id="ep-val">$1.80</span></div><input type="range" id="ep" min="0.80" max="2.40" value="1.80" step="0.05"></div>
+                    <div class="info-box" id="ep-info"></div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-shifts"><div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title" style="margin-bottom:0">Shift Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+                <div class="control-panel-body" id="body-shifts">
+                    <div class="slider-group"><div class="slider-label"><span>Demand shift (Q)</span><span class="slider-value" id="dsh-val">0</span></div><input type="range" id="dsh" min="-200" max="200" value="0" step="10"></div>
+                    <div class="slider-group"><div class="slider-label"><span>Supply shift (Q)</span><span class="slider-value" id="ssh-val">0</span></div><input type="range" id="ssh" min="-200" max="200" value="0" step="10"></div>
+                </div>
+            </div>
+            <div class="control-panel" id="section-equilibrium"><div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title" style="margin-bottom:0">Equilibrium</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+                <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div>
+                    <div class="legend" style="margin-top:12px">
+                        <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>Demand (D) &amp; Supply (S)</span></div>
+                        <div class="legend-item"><div class="legend-dot" style="background:#38a169"></div><span>Equilibrium (E)</span></div>
+                        <div class="legend-item"><div class="legend-line" style="background:#d53f8c;height:1px;border:1px dashed #d53f8c"></div><span>Explored price line</span></div>
+                    </div>
+                    <div class="equation-box" style="margin-top:12px">\( Q_d(P^*) = Q_s(P^*) \quad \Rightarrow \quad \text{Equilibrium} \)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="display-options-wrapper">
+        <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+        <div class="display-options-panel" id="display-panel">
+            <div class="panel-title">Plot Element Visibility <span style="font-weight:400;font-size:.65rem;color:#a0aec0;text-transform:none;letter-spacing:0"> — drag labels to reposition</span></div>
+            <div class="opt-row"><input type="checkbox" id="show-gridlines" checked><label for="show-gridlines">Gridlines</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-axis-numbers" checked><label for="show-axis-numbers">Axis ticks</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-points" checked><label for="show-points">Data points</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-eq-lines" checked><label for="show-eq-lines">Equilibrium dashed lines</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-explored" checked><label for="show-explored">Explored price line</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-brackets" checked><label for="show-brackets">Surplus/shortage brackets</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-annotations" checked><label for="show-annotations">Price annotations</label></div>
+            <div class="opt-row"><input type="checkbox" id="show-labels" checked><label for="show-labels">S, D, E labels</label></div>
+            <div class="restore-bar" id="restore-bar"></div>
+            <div class="url-state-bar"><button id="copy-url-btn">📋 Copy link with current state</button><button id="reset-url-btn">↺ Reset to defaults</button><span class="url-hint">Link encodes all parameters</span></div>
+        </div>
+    </div>
+</div>
+<script>
+(function(){const p=new URLSearchParams(window.location.search);if(p.has('embed')){document.body.classList.add('embed-mode');const h=p.get('hide');if(h)h.split(',').forEach(s=>document.body.classList.add('embed-hide-'+s.trim()));}})();
+function renderAllMath(){if(typeof renderMathInElement!=='undefined')renderMathInElement(document.body,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});}
+document.addEventListener("DOMContentLoaded",renderAllMath);window.addEventListener('load',renderAllMath);
+
+function tog(n){const b=document.getElementById('body-'+n),t=document.getElementById('toggle-'+n);if(b&&t)t.textContent=b.classList.toggle('collapsed')?'▶':'▼';}
+const PANEL_NAMES={title:'Title',subtitle:'Subtitle',graph:'Graph',explanation:'Explanation',analysis:'Analysis',price:'Price',shifts:'Shifts',equilibrium:'Equilibrium'};
+const LEFT_PANELS=['graph','explanation','analysis'],RIGHT_PANELS=['price','shifts','equilibrium'];
+function closePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.add('panel-closed');updateRestore();updateLayout();}
+function restorePanel(n){const e=document.getElementById('section-'+n);if(e)e.classList.remove('panel-closed');updateRestore();updateLayout();}
+function updateLayout(){const mc=document.querySelector('.main-content');mc.classList.toggle('left-empty',LEFT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));mc.classList.toggle('right-empty',RIGHT_PANELS.every(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed')));}
+function updateRestore(){const bar=document.getElementById('restore-bar');const closed=Object.keys(PANEL_NAMES).filter(n=>document.getElementById('section-'+n)?.classList.contains('panel-closed'));if(!closed.length){bar.innerHTML='';return;}bar.innerHTML='<span class="restore-label">Restore:</span>'+closed.map(n=>`<button class="restore-btn" onclick="restorePanel('${n}')">${PANEL_NAMES[n]}</button>`).join('');}
+
+const nudgeOffsets={};const DPR=2;
+function getNudge(t){const o=nudgeOffsets[t];return o?{dx:o.dx*DPR,dy:o.dy*DPR}:{dx:0,dy:0};}
+const canvas=document.getElementById('graph'),ctx=canvas.getContext('2d');
+const epS=document.getElementById('ep'),dshS=document.getElementById('dsh'),sshS=document.getElementById('ssh');
+function isVis(id){const e=document.getElementById(id);return e?e.checked:true;}
+
+// Data from image
+const D_BASE=[{p:2.20,q:420},{p:2.00,q:460},{p:1.80,q:500},{p:1.60,q:550},{p:1.40,q:600},{p:1.20,q:700},{p:1.00,q:800}];
+const S_BASE=[{p:1.00,q:500},{p:1.20,q:550},{p:1.40,q:600},{p:1.60,q:640},{p:1.80,q:680},{p:2.00,q:700},{p:2.20,q:720}];
+
+function getDPts(){const s=parseFloat(dshS.value);return D_BASE.map(pt=>({p:pt.p,q:pt.q+s}));}
+function getSPts(){const s=parseFloat(sshS.value);return S_BASE.map(pt=>({p:pt.p,q:pt.q+s}));}
+
+// Linear interpolation to find Q at a given P
+function interpQ(pts,price){
+    const sorted=[...pts].sort((a,b)=>a.p-b.p);
+    if(price<=sorted[0].p)return sorted[0].q;
+    if(price>=sorted[sorted.length-1].p)return sorted[sorted.length-1].q;
+    for(let i=0;i<sorted.length-1;i++){
+        if(price>=sorted[i].p&&price<=sorted[i+1].p){
+            const t=(price-sorted[i].p)/(sorted[i+1].p-sorted[i].p);
+            return sorted[i].q+t*(sorted[i+1].q-sorted[i].q);
+        }
+    }
+    return sorted[0].q;
+}
+
+// Find equilibrium (where Qd = Qs)
+function findEq(dPts,sPts){
+    // Search price from 0.80 to 2.40
+    let bestP=1.40,bestDiff=Infinity;
+    for(let p=0.80;p<=2.40;p+=0.001){
+        const qd=interpQ(dPts,p),qs=interpQ(sPts,p);
+        const diff=Math.abs(qd-qs);
+        if(diff<bestDiff){bestDiff=diff;bestP=p;}
+    }
+    return{p:Math.round(bestP*100)/100,q:Math.round(interpQ(dPts,bestP))};
+}
+
+const margin={top:80,right:120,bottom:120,left:160};
+const xMin=300,xMax=950,yMin=0.60,yMax=2.40;
+function getGD(){return{width:canvas.width-margin.left-margin.right,height:canvas.height-margin.top-margin.bottom};}
+function tCX(x){return margin.left+((x-xMin)/(xMax-xMin))*getGD().width;}
+function tCY(y){return margin.top+getGD().height-((y-yMin)/(yMax-yMin))*getGD().height;}
+
+// Drag labels
+let labelHitBoxes=[];
+function regLabel(k,x,y,w,h){labelHitBoxes.push({key:k,x,y,w,h});}
+function m2c(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height};}
+function hitL(cx,cy){for(let i=labelHitBoxes.length-1;i>=0;i--){const b=labelHitBoxes[i];if(cx>=b.x&&cx<=b.x+b.w&&cy>=b.y&&cy<=b.y+b.h)return b.key;}return null;}
+let dragTarget=null,dsx=0,dsy=0,dsox=0,dsoy=0;
+canvas.addEventListener('mousedown',e=>{const pos=m2c(e);const hl=hitL(pos.x,pos.y);if(hl){dragTarget=hl;dsx=pos.x;dsy=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dsox=nudgeOffsets[hl].dx;dsoy=nudgeOffsets[hl].dy;canvas.classList.add('dragging');e.preventDefault();}});
+canvas.addEventListener('mousemove',e=>{const pos=m2c(e);if(dragTarget){nudgeOffsets[dragTarget].dx=dsox+(pos.x-dsx)/DPR;nudgeOffsets[dragTarget].dy=dsoy+(pos.y-dsy)/DPR;drawGraph();}else{canvas.classList.toggle('hovering-label',!!hitL(pos.x,pos.y));}});
+canvas.addEventListener('mouseup',()=>{if(dragTarget){dragTarget=null;canvas.classList.remove('dragging');}});
+canvas.addEventListener('mouseleave',()=>{dragTarget=null;canvas.classList.remove('dragging','hovering-label');});
+canvas.addEventListener('touchstart',e=>{const t=e.touches[0],r=canvas.getBoundingClientRect(),pos={x:(t.clientX-r.left)*canvas.width/r.width,y:(t.clientY-r.top)*canvas.height/r.height};const hl=hitL(pos.x,pos.y);if(hl){dragTarget=hl;dsx=pos.x;dsy=pos.y;if(!nudgeOffsets[hl])nudgeOffsets[hl]={dx:0,dy:0};dsox=nudgeOffsets[hl].dx;dsoy=nudgeOffsets[hl].dy;e.preventDefault();}},{passive:false});
+canvas.addEventListener('touchmove',e=>{if(dragTarget){const t=e.touches[0],r=canvas.getBoundingClientRect(),pos={x:(t.clientX-r.left)*canvas.width/r.width,y:(t.clientY-r.top)*canvas.height/r.height};nudgeOffsets[dragTarget].dx=dsox+(pos.x-dsx)/DPR;nudgeOffsets[dragTarget].dy=dsoy+(pos.y-dsy)/DPR;drawGraph();e.preventDefault();}},{passive:false});
+canvas.addEventListener('touchend',()=>{dragTarget=null;});
+
+function updateAnalysis(){
+    const dPts=getDPts(),sPts=getSPts();
+    const eq=findEq(dPts,sPts);
+    const ep=parseFloat(epS.value);
+    const qd=interpQ(dPts,ep),qs=interpQ(sPts,ep);
+    const diff=qs-qd;
+    let html='';
+    if(Math.abs(ep-eq.p)<0.03){
+        html=`<div style="background:rgba(56,161,105,.08);border-radius:8px;padding:14px;border:1px solid rgba(56,161,105,.2);"><strong style="color:#38a169;">At equilibrium ($${eq.p.toFixed(2)})</strong><br>Q<sub>d</sub> = Q<sub>s</sub> = ${eq.q} million gallons. No surplus or shortage.</div>`;
+    } else if(diff>0){
+        html=`<div style="background:rgba(229,62,62,.06);border-radius:8px;padding:14px;border:1px solid rgba(229,62,62,.15);"><strong style="color:#e53e3e;">Excess Supply (Surplus) at $${ep.toFixed(2)}</strong><br>Q<sub>s</sub> = ${Math.round(qs)} M gal &gt; Q<sub>d</sub> = ${Math.round(qd)} M gal<br>Surplus = <strong>${Math.round(diff)} million gallons</strong><br><em style="font-size:.88rem;color:#718096;">Price is above equilibrium → unsold inventory pushes price down</em></div>`;
+    } else {
+        html=`<div style="background:rgba(43,108,176,.06);border-radius:8px;padding:14px;border:1px solid rgba(43,108,176,.15);"><strong style="color:#2b6cb0;">Excess Demand (Shortage) at $${ep.toFixed(2)}</strong><br>Q<sub>d</sub> = ${Math.round(qd)} M gal &gt; Q<sub>s</sub> = ${Math.round(qs)} M gal<br>Shortage = <strong>${Math.round(Math.abs(diff))} million gallons</strong><br><em style="font-size:.88rem;color:#718096;">Price is below equilibrium → competition among buyers pushes price up</em></div>`;
+    }
+    document.getElementById('analysis-content').innerHTML=html;
+}
+
+function drawGraph(){
+    labelHitBoxes=[];
+    const S=DPR,dPts=getDPts(),sPts=getSPts();
+    const eq=findEq(dPts,sPts);
+    const ep=parseFloat(epS.value);
+    const qd_ep=interpQ(dPts,ep),qs_ep=interpQ(sPts,ep);
+
+    document.getElementById('ep-val').textContent='$'+ep.toFixed(2);
+    document.getElementById('dsh-val').textContent=(parseFloat(dshS.value)>0?'+':'')+dshS.value;
+    document.getElementById('ssh-val').textContent=(parseFloat(sshS.value)>0?'+':'')+sshS.value;
+    document.getElementById('eq-info').innerHTML=`<div class="info-row"><span class="info-label">Equilibrium price \\(P^*\\)</span><span class="info-value highlight">$${eq.p.toFixed(2)}</span></div><div class="info-row"><span class="info-label">Equilibrium qty \\(Q^*\\)</span><span class="info-value highlight">${eq.q} M gal</span></div>`;
+    document.getElementById('ep-info').innerHTML=`<div class="info-row"><span class="info-label">Q<sub>d</sub> at $${ep.toFixed(2)}</span><span class="info-value">${Math.round(qd_ep)} M</span></div><div class="info-row"><span class="info-label">Q<sub>s</sub> at $${ep.toFixed(2)}</span><span class="info-value">${Math.round(qs_ep)} M</span></div><div class="info-row"><span class="info-label">${qs_ep>qd_ep?'Surplus':'Shortage'}</span><span class="info-value" style="color:${qs_ep>qd_ep?'#e53e3e':'#2b6cb0'}">${Math.round(Math.abs(qs_ep-qd_ep))} M gal</span></div>`;
+    updateAnalysis();
+    if(typeof renderMathInElement!=='undefined')renderMathInElement(document.getElementById('eq-info'),{delimiters:[{left:"\\(",right:"\\)",display:false}],throwOnError:false});
+
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+    const{width,height}=getGD();
+
+    // Grid
+    if(isVis('show-gridlines')){ctx.strokeStyle='#edf2f7';ctx.lineWidth=S;for(let q=300;q<=900;q+=100){const x=tCX(q);ctx.beginPath();ctx.moveTo(x,margin.top);ctx.lineTo(x,margin.top+height);ctx.stroke();}for(let p=0.60;p<=2.40;p+=0.20){const y=tCY(p);ctx.beginPath();ctx.moveTo(margin.left,y);ctx.lineTo(margin.left+width,y);ctx.stroke();}}
+
+    // Axes
+    ctx.strokeStyle='#a0aec0';ctx.lineWidth=2*S;ctx.beginPath();ctx.moveTo(margin.left,margin.top);ctx.lineTo(margin.left,margin.top+height);ctx.lineTo(margin.left+width,margin.top+height);ctx.stroke();
+
+    // Ticks
+    if(isVis('show-axis-numbers')){ctx.fillStyle='#718096';ctx.font=`${13*S}px Segoe UI`;ctx.textAlign='center';for(let q=300;q<=900;q+=100)ctx.fillText(q,tCX(q),margin.top+height+25*S);ctx.textAlign='right';for(let p=0.60;p<=2.40;p+=0.20)ctx.fillText('$'+p.toFixed(2),margin.left-12*S,tCY(p)+5*S);}
+
+    // Axis labels
+    const ngX=getNudge('xaxis');ctx.fillStyle='#2b6cb0';ctx.font=`bold ${14*S}px Segoe UI`;ctx.textAlign='center';
+    const xlx=margin.left+width/2+ngX.dx,xly=canvas.height-14*S+ngX.dy;
+    ctx.fillText('Quantity of Gasoline (millions of gallons)',xlx,xly);
+    const xtw=ctx.measureText('Quantity of Gasoline (millions of gallons)').width;
+    regLabel('xaxis',xlx-xtw/2-4*S,xly-16*S,xtw+8*S,22*S);
+
+    const ngY=getNudge('yaxis');ctx.fillStyle='#2b6cb0';ctx.font=`bold ${14*S}px Segoe UI`;ctx.textAlign='center';
+    ctx.save();const ylx=28*S+ngY.dx,yly=margin.top+height/2+ngY.dy;
+    ctx.translate(ylx,yly);ctx.rotate(-Math.PI/2);ctx.fillText('P ($ per gallon)',0,0);ctx.restore();
+    const ytw=ctx.measureText('P ($ per gallon)').width;
+    regLabel('yaxis',ylx-14*S,yly-ytw/2-4*S,28*S,ytw+8*S);
+
+    // Explored price line
+    if(isVis('show-explored')&&Math.abs(ep-eq.p)>0.03){
+        ctx.strokeStyle='#d53f8c';ctx.lineWidth=1.5*S;ctx.setLineDash([6*S,4*S]);
+        ctx.beginPath();ctx.moveTo(margin.left,tCY(ep));ctx.lineTo(margin.left+width,tCY(ep));ctx.stroke();ctx.setLineDash([]);
+        // Vertical dashes from curve intersections to x-axis
+        ctx.strokeStyle='rgba(213,63,140,0.3)';ctx.lineWidth=1.5*S;ctx.setLineDash([5*S,3*S]);
+        ctx.beginPath();ctx.moveTo(tCX(qd_ep),tCY(ep));ctx.lineTo(tCX(qd_ep),tCY(yMin));ctx.stroke();
+        ctx.beginPath();ctx.moveTo(tCX(qs_ep),tCY(ep));ctx.lineTo(tCX(qs_ep),tCY(yMin));ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Annotation
+        if(isVis('show-annotations')){
+            const ng=getNudge('ep-annot');
+            const txt=ep>eq.p?'An above-equilibrium price':'A below-equilibrium price';
+            ctx.fillStyle='#d53f8c';ctx.font=`${12*S}px Segoe UI`;ctx.textAlign='left';
+            const ax=margin.left+width+8*S+ng.dx,ay=tCY(ep)+5*S+ng.dy;
+            ctx.fillText(txt,ax,ay);
+            const tw=ctx.measureText(txt).width;
+            regLabel('ep-annot',ax-4*S,ay-14*S,tw+8*S,22*S);
+        }
+
+        // Bracket for surplus/shortage
+        if(isVis('show-brackets')){
+            const leftQ=Math.min(qd_ep,qs_ep),rightQ=Math.max(qd_ep,qs_ep);
+            const lx=tCX(leftQ),rx=tCX(rightQ),by=tCY(ep);
+            const isSurplus=qs_ep>qd_ep;
+            const bracketY=isSurplus?by-20*S:by+20*S;
+            const tipY=isSurplus?bracketY-12*S:bracketY+12*S;
+            ctx.strokeStyle='#2b6cb0';ctx.lineWidth=1.5*S;
+            // Horizontal bracket
+            ctx.beginPath();ctx.moveTo(lx,by);ctx.lineTo(lx,bracketY);ctx.stroke();
+            ctx.beginPath();ctx.moveTo(rx,by);ctx.lineTo(rx,bracketY);ctx.stroke();
+            ctx.beginPath();ctx.moveTo(lx,bracketY);ctx.lineTo(rx,bracketY);ctx.stroke();
+            // Center tick
+            const cx=(lx+rx)/2;
+            ctx.beginPath();ctx.moveTo(cx,bracketY);ctx.lineTo(cx,tipY);ctx.stroke();
+            // Label
+            const ng=getNudge('bracket');
+            const lbl=isSurplus?'Excess supply\nor surplus':'Excess demand\nor shortage';
+            const lines=lbl.split('\n');
+            ctx.fillStyle='#2b6cb0';ctx.font=`${11*S}px Segoe UI`;ctx.textAlign='center';
+            const ty=isSurplus?tipY-10*S+ng.dy:tipY+14*S+ng.dy;
+            lines.forEach((line,i)=>ctx.fillText(line,cx+ng.dx,ty+i*15*S));
+            const maxTW=Math.max(...lines.map(l=>ctx.measureText(l).width));
+            regLabel('bracket',cx-maxTW/2-4*S+ng.dx,ty-14*S,maxTW+8*S,lines.length*15*S+10*S);
+        }
+    }
+
+    // Equilibrium dashed lines
+    if(isVis('show-eq-lines')){
+        ctx.strokeStyle='rgba(0,0,0,0.2)';ctx.lineWidth=1.5*S;ctx.setLineDash([5*S,3*S]);
+        ctx.beginPath();ctx.moveTo(tCX(eq.q),tCY(eq.p));ctx.lineTo(tCX(eq.q),tCY(yMin));ctx.stroke();
+        ctx.beginPath();ctx.moveTo(tCX(eq.q),tCY(eq.p));ctx.lineTo(margin.left,tCY(eq.p));ctx.stroke();
+        ctx.setLineDash([]);
+        // Eq price annotation
+        if(isVis('show-annotations')){
+            const ng=getNudge('eq-annot');
+            ctx.fillStyle='#718096';ctx.font=`${12*S}px Segoe UI`;ctx.textAlign='left';
+            const ax=margin.left+width+8*S+ng.dx,ay=tCY(eq.p)+5*S+ng.dy;
+            ctx.fillText('Equilibrium price',ax,ay);
+            const tw=ctx.measureText('Equilibrium price').width;
+            regLabel('eq-annot',ax-4*S,ay-14*S,tw+8*S,22*S);
+        }
+    }
+
+    // Demand curve
+    ctx.strokeStyle='#2b6cb0';ctx.lineWidth=2.5*S;ctx.beginPath();
+    const dSorted=[...dPts].sort((a,b)=>a.q-b.q);
+    dSorted.forEach((pt,i)=>{if(i===0)ctx.moveTo(tCX(pt.q),tCY(pt.p));else ctx.lineTo(tCX(pt.q),tCY(pt.p));});ctx.stroke();
+
+    // Supply curve
+    ctx.strokeStyle='#2b6cb0';ctx.lineWidth=2.5*S;ctx.beginPath();
+    const sSorted=[...sPts].sort((a,b)=>a.q-b.q);
+    sSorted.forEach((pt,i)=>{if(i===0)ctx.moveTo(tCX(pt.q),tCY(pt.p));else ctx.lineTo(tCX(pt.q),tCY(pt.p));});ctx.stroke();
+
+    // Points
+    if(isVis('show-points')){
+        [...dPts,...sPts].forEach(pt=>{
+            ctx.fillStyle='#2b6cb0';ctx.beginPath();ctx.arc(tCX(pt.q),tCY(pt.p),6*S,0,Math.PI*2);ctx.fill();
+            ctx.strokeStyle='#fff';ctx.lineWidth=1.5*S;ctx.stroke();
+        });
+    }
+
+    // Equilibrium point
+    const epx=tCX(eq.q),epy=tCY(eq.p);
+    ctx.fillStyle='#38a169';ctx.beginPath();ctx.arc(epx,epy,9*S,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle='#fff';ctx.lineWidth=2.5*S;ctx.stroke();
+
+    // Labels: S, D, E
+    if(isVis('show-labels')){
+        // D label at bottom-right of demand curve
+        const dLast=dSorted[dSorted.length-1];
+        const ngD=getNudge('dlabel');
+        ctx.fillStyle='#2b6cb0';ctx.font=`bold ${16*S}px Segoe UI`;ctx.textAlign='center';
+        const dlx=tCX(dLast.q)+16*S+ngD.dx,dly=tCY(dLast.p)+6*S+ngD.dy;
+        ctx.fillText('D',dlx,dly);
+        const dtw=ctx.measureText('D').width;
+        regLabel('dlabel',dlx-dtw/2-4*S,dly-16*S,dtw+8*S,24*S);
+
+        // S label at top-right of supply curve
+        const sLast=sSorted[sSorted.length-1];
+        const ngS=getNudge('slabel');
+        const slx=tCX(sLast.q)+8*S+ngS.dx,sly=tCY(sLast.p)-18*S+ngS.dy;
+        ctx.fillText('S',slx,sly);
+        const stw=ctx.measureText('S').width;
+        regLabel('slabel',slx-stw/2-4*S,sly-16*S,stw+8*S,24*S);
+
+        // E label
+        const ngE=getNudge('elabel');
+        const elx=epx-18*S+ngE.dx,ely=epy-4*S+ngE.dy;
+        ctx.fillStyle='#38a169';ctx.fillText('E',elx,ely);
+        const etw=ctx.measureText('E').width;
+        regLabel('elabel',elx-etw/2-4*S,ely-16*S,etw+8*S,24*S);
+    }
+}
+
+[epS,dshS,sshS].forEach(s=>s.addEventListener('input',drawGraph));
+document.getElementById('display-toggle-btn').addEventListener('click',()=>{const p=document.getElementById('display-panel'),a=document.getElementById('display-arrow');a.classList.toggle('open',p.classList.toggle('open'));});
+document.querySelectorAll('.display-options-panel input').forEach(i=>{i.addEventListener('input',drawGraph);i.addEventListener('change',drawGraph);});
+document.getElementById('copy-plot-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-plot-btn'),l=document.getElementById('copy-label');try{const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);btn.classList.add('copied');l.textContent='Copied!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Copy';},1500);}catch{l.textContent='Failed';setTimeout(()=>{l.textContent='Copy';},1500);}});
+document.getElementById('save-plot-btn').addEventListener('click',()=>{const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='equilibrium.png';a.click();const btn=document.getElementById('save-plot-btn'),l=document.getElementById('save-label');btn.classList.add('copied');l.textContent='Saved!';setTimeout(()=>{btn.classList.remove('copied');l.textContent='Save';},1500);});
+
+// URL state
+const DEFAULTS={ep:1.80,dsh:0,ssh:0};
+const CB_IDS=['show-gridlines','show-axis-numbers','show-points','show-eq-lines','show-explored','show-brackets','show-annotations','show-labels'];
+const NK=['xaxis','yaxis','dlabel','slabel','elabel','ep-annot','eq-annot','bracket'];
+function buildState(){const s={};const ep=parseFloat(epS.value),dsh=parseFloat(dshS.value),ssh=parseFloat(sshS.value);if(ep!==DEFAULTS.ep)s.ep=ep;if(dsh!==0)s.dsh=dsh;if(ssh!==0)s.ssh=ssh;for(const id of CB_IDS){const el=document.getElementById(id);if(el&&!el.checked)s[id]=0;}for(const k of NK){const o=nudgeOffsets[k];if(o&&(Math.abs(o.dx)>0.5||Math.abs(o.dy)>0.5))s['n_'+k]=Math.round(o.dx)+','+Math.round(o.dy);}return s;}
+function loadHash(){const h=window.location.hash.slice(1);if(!h)return;const p=new URLSearchParams(h);if(p.has('ep'))epS.value=p.get('ep');if(p.has('dsh'))dshS.value=p.get('dsh');if(p.has('ssh'))sshS.value=p.get('ssh');for(const id of CB_IDS){if(p.has(id)){const el=document.getElementById(id);if(el)el.checked=p.get(id)==='1';}}for(const k of NK){const key='n_'+k;if(p.has(key)){const pts=p.get(key).split(',');if(pts.length===2)nudgeOffsets[k]={dx:parseFloat(pts[0]),dy:parseFloat(pts[1])};}}}
+document.getElementById('copy-url-btn').addEventListener('click',async()=>{const btn=document.getElementById('copy-url-btn');const st=buildState();const qs=new URLSearchParams();for(const[k,v]of Object.entries(st))qs.set(k,v);const url=location.origin+location.pathname+(qs.toString()?'#'+qs:'');try{await navigator.clipboard.writeText(url);btn.textContent='✓ Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copy link with current state';btn.classList.remove('copied');},2000);}catch{prompt('Copy:',url);}});
+document.getElementById('reset-url-btn').addEventListener('click',()=>{epS.value=DEFAULTS.ep;dshS.value=0;sshS.value=0;for(const id of CB_IDS){const el=document.getElementById(id);if(el)el.checked=true;}for(const k of NK)delete nudgeOffsets[k];Object.keys(PANEL_NAMES).forEach(n=>{const el=document.getElementById('section-'+n);if(el)el.classList.remove('panel-closed');});['graph','explanation','analysis','price','shifts','equilibrium'].forEach(s=>{const b=document.getElementById('body-'+s),t=document.getElementById('toggle-'+s);if(b)b.classList.remove('collapsed');if(t)t.textContent='▼';});updateRestore();updateLayout();history.replaceState(null,'',location.pathname);drawGraph();});
+
+loadHash();updateRestore();updateLayout();drawGraph();
+</script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productive and Allocative Efficiency</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Productive and Allocative Efficiency</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A point inside the frontier wastes resources: some other point gives more of both goods</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Efficient and Inefficient Production</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p><strong>Productive efficiency</strong> means it is impossible to produce more of one good without decreasing the quantity produced of the other. All choices along the PPF, including A, B, C, D, and F, display productive efficiency. Moving from any one of these points to another necessarily involves a trade-off: more Healthcare means less Education, or vice versa.</p>
+          <p>Point <strong>R</strong> lies inside the frontier and is <em>productively inefficient</em>. The economy at R is wasting resources or using them sub-optimally, so it could produce more of both goods. Comparing R to point C makes this clear: C has both more Education (\(E_2 > E_1\)) and more Healthcare (\(H_2 > H_1\)) than R, proving that R is wasteful.</p>
+          <p><strong>Allocative efficiency</strong> goes further. It asks not just whether resources are fully employed, but whether the economy is producing the <em>right mix</em> of goods. Among all the productively efficient points on the PPF, allocative efficiency identifies the particular combination that society values most. Which point on the PPF is allocatively efficient depends on societal preferences: economics cannot prescribe this choice, but it can confirm that whatever is chosen should at least be on the frontier.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-compare">
+        <div class="left-section-header" onclick="tog('compare')"><div class="panel-title">Why R Is Inefficient: R vs C</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-compare" onclick="event.stopPropagation();tog('compare')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('compare')">✕</button></div></div>
+        <div class="left-section-body" id="body-compare"><div id="compare-content"></div></div>
+      </div>
+
+      <div class="left-section" id="section-points">
+        <div class="left-section-header" onclick="tog('points')"><div class="panel-title">Point Details</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-points" onclick="event.stopPropagation();tog('points')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('points')">✕</button></div></div>
+        <div class="left-section-body" id="body-points">
+          <table class="data-table">
+            <thead><tr><th>Point</th><th>Education</th><th>Healthcare</th><th>Status</th></tr></thead>
+            <tbody id="point-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-ppfparams">
+        <div class="control-panel-header" onclick="tog('ppfparams')"><div class="panel-title">PPF Shape</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-ppfparams" onclick="event.stopPropagation();tog('ppfparams')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('ppfparams')">✕</button></div></div>
+        <div class="control-panel-body" id="body-ppfparams" data-sliders="max_health,max_education,n_ppf"></div>
+      </div>
+      <div class="control-panel" id="section-pointR">
+        <div class="control-panel-header" onclick="tog('pointR')"><div class="panel-title">Inefficient Point R</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-pointR" onclick="event.stopPropagation();tog('pointR')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('pointR')">✕</button></div></div>
+        <div class="control-panel-body" id="body-pointR">
+          <div data-sliders="r_education,r_health"></div>
+          <div class="info-box" style="margin-top:12px">
+            <div class="info-row"><span class="info-label">Position</span><span class="info-value" id="r-status">Inside PPF (inefficient)</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key Values</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keyvals')">✕</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="info-box">
+            <div class="info-row"><span class="info-label">Max Healthcare</span><span class="info-value highlight" id="disp-maxH">100</span></div>
+            <div class="info-row"><span class="info-label">Max Education</span><span class="info-value highlight" id="disp-maxE">100</span></div>
+            <div class="info-row"><span class="info-label">Curvature \( n \)</span><span class="info-value" id="disp-curve">2.0</span></div>
+          </div>
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#805ad5"></div><span>PPF₂ curve</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#805ad5"></div><span>On PPF (productively efficient)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0"></div><span>Inside PPF (inefficient)</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="control-panel" id="section-selected">
+        <div class="control-panel-header" onclick="tog('selected')"><div class="panel-title">Selected Point</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-selected" onclick="event.stopPropagation();tog('selected')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('selected')">✕</button></div></div>
+        <div class="control-panel-body" id="body-selected"><div class="info-box" id="selected-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition, click a point to select it</small></div>
+      <div data-toggles></div>
+      <div data-texts></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ppfH = (E, Em, Hm, n) => {
+  const r = E / Em;
+  if (r >= 1) return 0;
+  if (r <= 0) return Hm;
+  const ins = 1 - Math.pow(r, n);
+  return ins <= 0 ? 0 : Hm * Math.pow(ins, 1 / n);
+};
+const ppfSlope = (E, Em, Hm, n) => {
+  const H = ppfH(E, Em, Hm, n);
+  if (H <= 0.01) return -Infinity;
+  const er = E / Em, hr = H / Hm;
+  return er <= 0.001 ? 0 : -(Hm / Em) * Math.pow(er, n - 1) / Math.pow(hr, n - 1);
+};
+const statusOf = (x, y, Em, Hm, n) => {
+  if (x < 0 || y < 0) return 'outside';
+  const lhs = Math.pow(x / Em, n) + Math.pow(y / Hm, n);
+  if (Math.abs(lhs - 1) < 0.02) return 'on';
+  return lhs < 1 ? 'inside' : 'outside';
+};
+
+// A, B, C, D, F sit on the frontier; R is placed by its own two sliders.
+const ON_PPF = [
+  { label:'A', x:5,  dx:-18, dy:-6 },
+  { label:'B', x:25, dx:2,   dy:-16 },
+  { label:'C', x:35, dx:10,  dy:-16 },
+  { label:'D', x:60, dx:14,  dy:-8 },
+  { label:'F', x:95, dx:16,  dy:-6 },
+];
+const points = (Em, Hm, n, rE, rH) => [
+  ...ON_PPF.map(p => ({ ...p, y: ppfH(p.x, Em, Hm, n), type:'on' })),
+  { label:'R', x:rE, y:rH, type:'inside', dx:14, dy:6 },
+];
+
+const AXES = { xMin:0, xMax:120, yMin:0, yMax:120, margin:{top:80, right:80, bottom:120, left:140} };
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'efficiency_ppf.png',
+  axes: AXES,
+  sliders: [
+    { id:'max_health',    label:'Max Healthcare (H<sub>max</sub>)', min:40, max:200, value:100, step:5 },
+    { id:'max_education', label:'Max Education (E<sub>max</sub>)',  min:40, max:200, value:100, step:5 },
+    { id:'n_ppf',         label:'Curvature (n)', min:1, max:4, value:2, step:0.1, fmt:v => v.toFixed(1) },
+    { id:'r_education',   label:'R: Education (E₁)',  min:5, max:90, value:25, step:1 },
+    { id:'r_health',      label:'R: Healthcare (H₁)', min:5, max:90, value:55, step:1 },
+  ],
+  toggles: [
+    { id:'show_xlabel',      label:'X-axis label' },
+    { id:'show_ylabel',      label:'Y-axis label' },
+    { id:'show_ticks',       label:'Axis tick numbers' },
+    { id:'show_grid',        label:'Gridlines' },
+    { id:'show_ppf',         label:'PPF curve' },
+    { id:'show_curvelabel',    label:'PPF₂ label' },
+    { id:'show_shading',     label:'Attainable region shading' },
+    { id:'show_points',      label:'All points (A, B, C, D, F, R)' },
+    { id:'show_labels',      label:'Point labels' },
+    { id:'show_droplines',   label:'Dashed lines to axes' },
+    { id:'show_annot',       label:'E₁, E₂, H₁, H₂ annotations' },
+    { id:'show_gain',        label:'R to C improvement highlight' },
+  ],
+  texts: [
+    { id:'lbl_x', label:'X-axis label text', value:'Education' },
+    { id:'lbl_y', label:'Y-axis label text', value:'Healthcare' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', compare:'R vs C', points:'Point Details', ppfparams:'PPF Shape', pointR:'Point R', keyvals:'Key Values', selected:'Selected Point' },
+  leftPanels:  ['graph','explanation','compare','points'],
+  rightPanels: ['ppfparams','pointR','keyvals','selected'],
+  nudgeKeys: ['x','y','ppf','pt.A','pt.B','pt.C','pt.D','pt.F','pt.R','an.E1','an.E2','an.H1','an.H2'],
+
+  pointTooltip(key, g) {
+    const p = points(g.val('max_education'), g.val('max_health'), g.val('n_ppf'), g.val('r_education'), g.val('r_health'))
+      .find(q => q.label === key);
+    if (!p) return '';
+    const eff = p.type === 'on';
+    return `<div class="tt-label">Point ${p.label}</div>` +
+      `<div class="tt-row"><span class="tt-key">${g.text('lbl_x')}:</span><span class="tt-val">${p.x.toFixed(1)}</span></div>` +
+      `<div class="tt-row"><span class="tt-key">${g.text('lbl_y')}:</span><span class="tt-val">${p.y.toFixed(1)}</span></div>` +
+      `<div class="tt-row"><span class="tt-key">Status:</span><span class="tt-val" style="color:${eff ? '#6b46c1' : '#2b6cb0'}">${eff ? 'Prod. efficient' : 'Inefficient'}</span></div>`;
+  },
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, margin, height } = g;
+    const Em = val('max_education'), Hm = val('max_health'), n = val('n_ppf');
+    const rE = val('r_education'), rH = val('r_health');
+    const xLab = g.text('lbl_x'), yLab = g.text('lbl_y');
+
+    AXES.xMax = Math.max(Em * 1.15, 50);
+    AXES.yMax = Math.max(Hm * 1.15, 50);
+    const gmx = AXES.xMax, gmy = AXES.yMax;
+
+    const pts = points(Em, Hm, n, rE, rH);
+    const R = pts.find(p => p.label === 'R'), C = pts.find(p => p.label === 'C');
+    const rStatus = statusOf(R.x, R.y, Em, Hm, n);
+    const sel = g.selected ? pts.find(p => p.label === g.selected) : null;
+
+    // ---- Side panels ----
+    g.setText('disp-maxH', Hm);
+    g.setText('disp-maxE', Em);
+    g.setText('disp-curve', n.toFixed(1));
+    const rText = { inside:['Inside PPF (inefficient)', '#2b6cb0'], on:['On PPF (efficient!)', '#6b46c1'], outside:['Outside PPF (unattainable)', '#e53e3e'] }[rStatus];
+    g.setText('r-status', `<span style="color:${rText[1]}">${rText[0]}</span>`);
+
+    g.setText('point-tbody', pts.map(p => {
+      const eff = p.type === 'on';
+      const col = eff ? '#805ad5' : '#2b6cb0';
+      return `<tr${g.selected === p.label ? ' class="selected"' : ''} onclick="selectPoint('${p.label}')" style="cursor:pointer">` +
+        `<td style="color:${col}"><strong>${p.label}</strong></td><td>${p.x.toFixed(1)}</td><td>${p.y.toFixed(1)}</td>` +
+        `<td><span class="status-badge" style="background:${eff ? 'rgba(128,90,213,.12)' : 'rgba(43,108,176,.12)'};color:${col}">${eff ? 'Efficient' : 'Inefficient'}</span></td></tr>`;
+    }).join(''));
+
+    if (!sel) {
+      g.setText('selected-info', '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Click a point on the graph or table</div>');
+    } else {
+      const eff = sel.type === 'on', col = eff ? '#6b46c1' : '#2b6cb0';
+      g.setText('selected-info',
+        `<div class="info-row"><span class="info-label">Point</span><span class="info-value highlight" style="font-size:1.1rem">${sel.label}</span></div>` +
+        `<div class="info-row"><span class="info-label">${xLab}</span><span class="info-value highlight">${sel.x.toFixed(1)}</span></div>` +
+        `<div class="info-row"><span class="info-label">${yLab}</span><span class="info-value highlight">${sel.y.toFixed(1)}</span></div>` +
+        `<div class="info-row"><span class="info-label">Efficiency</span><span class="info-value" style="color:${col}">${eff ? 'Productively efficient' : 'Inefficient'}</span></div>` +
+        (eff && sel.x > 0 && sel.y > 0.5 ? `<div class="info-row"><span class="info-label">Opp. cost</span><span class="info-value">${Math.abs(ppfSlope(sel.x, Em, Hm, n)).toFixed(2)} H per E</span></div>` : ''));
+    }
+
+    const dE = C.x - R.x, dH = C.y - R.y;
+    let cmp = `<div class="info-box">` +
+      `<div class="info-row" style="font-weight:600;color:#4a5568">Comparing R (\\(E_1=${R.x.toFixed(0)},\\; H_1=${R.y.toFixed(0)}\\)) to C (\\(E_2=${C.x.toFixed(0)},\\; H_2=${C.y.toFixed(0)}\\))</div>` +
+      `<div class="info-row"><span class="info-label">${xLab}</span><span class="info-value" style="color:${dE > 0 ? '#38a169' : '#e53e3e'}">C has ${dE > 0 ? '+' : ''}${dE.toFixed(1)}</span></div>` +
+      `<div class="info-row"><span class="info-label">${yLab}</span><span class="info-value" style="color:${dH > 0 ? '#38a169' : '#e53e3e'}">C has ${dH > 0 ? '+' : ''}${dH.toFixed(1)}</span></div></div>`;
+    if (dE > 0 && dH > 0) {
+      cmp += `<p style="margin:12px 0 0 0;line-height:1.7;font-size:.95rem;color:#4a5568">Since point C provides <strong>more of both goods</strong> than R, point R is unambiguously wasteful. The economy at R has idle resources or misallocated inputs, so it could reach C without any trade-off. This is the hallmark of <strong>productive inefficiency</strong>: being inside the frontier means improvement is possible in every direction.</p>`;
+    } else if (rStatus === 'on') {
+      cmp += `<p style="margin:12px 0 0 0;line-height:1.7;font-size:.95rem;color:#6b46c1">With the current R position, R is actually on the PPF. Adjust R's sliders to move it inside the frontier to see the inefficiency comparison.</p>`;
+    } else {
+      cmp += `<p style="margin:12px 0 0 0;line-height:1.7;font-size:.95rem;color:#4a5568">At the current position, moving from R to C involves a trade-off in one dimension. Try adjusting R so it is clearly inside the frontier to see why inefficiency means both goods can increase.</p>`;
+    }
+    g.setText('compare-content', cmp);
+    g.renderMath(document.getElementById('section-compare'));
+
+    // ---- Plot ----
+    g.clear();
+    if (vis('show_grid')) g.gridlines(gmx / 8, gmy / 8);
+    if (vis('show_shading') && vis('show_ppf'))
+      g.fillUnder(E => ppfH(E, Em, Hm, n), 0, Em, 'rgba(128,90,213,0.04)', 300);
+    g.axes();
+    if (vis('show_ticks')) {
+      const xs = [], ys = [];
+      for (let i = 0; i <= 8; i++) { xs.push((i / 8) * gmx); ys.push((i / 8) * gmy); }
+      g.xTicks(xs, v => Math.round(v));
+      g.yTicks(ys, v => Math.round(v));
+    }
+    g.axisLabels(vis('show_xlabel') ? xLab : null, vis('show_ylabel') ? yLab : null);
+
+    if (vis('show_ppf')) {
+      g.plotFn(E => ppfH(E, Em, Hm, n), 0, Em, { color:'#805ad5', lw:3, steps:300 });
+      if (vis('show_curvelabel')) {
+        const lE = Em * 0.72;
+        g.label('PPF₂', tCX(lE) + 10 * S, tCY(ppfH(lE, Em, Hm, n)) + 30 * S,
+          { key:'ppf', font:`bold ${15 * S}px ${g.font}`, color:'#805ad5' });
+      }
+    }
+
+    // The rectangle of simultaneous gains available by moving R to C
+    if (vis('show_gain') && rStatus === 'inside' && dE > 0 && dH > 0) {
+      const x = tCX(R.x), y = tCY(C.y), w = tCX(C.x) - tCX(R.x), h = tCY(R.y) - tCY(C.y);
+      ctx.fillStyle = 'rgba(56,161,105,0.08)'; ctx.fillRect(x, y, w, h);
+      ctx.strokeStyle = 'rgba(56,161,105,0.25)'; ctx.lineWidth = 1.5 * S;
+      ctx.setLineDash([4 * S, 3 * S]); ctx.strokeRect(x, y, w, h); ctx.setLineDash([]);
+    }
+
+    if (vis('show_droplines') && vis('show_points')) {
+      pts.forEach(p => {
+        if (p.x > 0 && p.y > 0.5 && p.x < gmx && p.y < gmy) {
+          const col = p.type === 'on' ? 'rgba(107,70,193,0.3)' : 'rgba(43,108,176,0.35)';
+          g.dashed(tCX(p.x), tCY(p.y), tCX(p.x), tCY(0), col, 1.5);
+          g.dashed(tCX(p.x), tCY(p.y), tCX(0), tCY(p.y), col, 1.5);
+        }
+      });
+    }
+
+    if (vis('show_annot') && vis('show_points')) {
+      const font = `italic ${13 * S}px ${g.font}`;
+      const below = margin.top + height + 50 * S;
+      g.label('E₁', tCX(R.x), below, { key:'an.E1', font, color:'#2b6cb0', align:'center' });
+      g.label('E₂', tCX(C.x), below, { key:'an.E2', font, color:'#6b46c1', align:'center' });
+      g.label('H₁', margin.left - 20 * S, tCY(R.y) + 5 * S, { key:'an.H1', font, color:'#2b6cb0', align:'right' });
+      g.label('H₂', margin.left - 20 * S, tCY(C.y) + 5 * S, { key:'an.H2', font, color:'#6b46c1', align:'right' });
+    }
+
+    if (vis('show_points')) {
+      pts.forEach(p => {
+        if (p.x > gmx || p.y > gmy) return;
+        const isSel = g.selected === p.label;
+        const px = tCX(p.x), py = tCY(p.y);
+        if (isSel) {
+          const glow = ctx.createRadialGradient(px, py, 0, px, py, 24 * S);
+          glow.addColorStop(0, 'rgba(214,158,46,0.35)');
+          glow.addColorStop(1, 'rgba(214,158,46,0)');
+          ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(px, py, 24 * S, 0, Math.PI * 2); ctx.fill();
+        }
+        const r = (isSel ? 10 : 8) * S;
+        ctx.fillStyle = p.type === 'on' ? '#805ad5' : '#2b6cb0';
+        ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5 * S; ctx.stroke();
+        g.regPoint(p.label, px, py, r);
+        if (vis('show_labels'))
+          g.label(p.label, px + p.dx * S, py + p.dy * S, { key:'pt.' + p.label, font:`bold ${14 * S}px ${g.font}`, align:'center' });
+      });
+    }
+  },
+});
+</script>
+</body>
+</html>
