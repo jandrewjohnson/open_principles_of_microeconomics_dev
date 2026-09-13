@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifts in Demand</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Shifts in Demand</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A shift of the entire demand curve means a change in demand; at every price, more or less is wanted</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Demand Shifts: D₂, D₀, D₁</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p><strong>D₀</strong> is the original demand curve. A shift to <strong>D₁</strong> (rightward) represents an <em>increase in demand</em>: at every price, consumers want to buy more. A shift to <strong>D₂</strong> (leftward) represents a <em>decrease in demand</em>: at every price, consumers want to buy less.</p>
+          <p>At price $20,000: on D₀ the quantity demanded is 18 million (point Q). After a rightward shift to D₁, quantity rises to 20 million (point S). After a leftward shift to D₂, quantity falls to 14.4 million (point T). These are all different curves, meaning different demand schedules, not movements along one curve.</p>
+          <p>At the higher price of $22,000, point R on D₀ shows 17 million demanded. Moving from Q to R is movement <em>along</em> D₀ caused by a price change. Moving from Q to S is a <em>shift</em> of the curve caused by non-price factors like income, tastes, expectations, or the price of related goods.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-comparison">
+        <div class="left-section-header" onclick="tog('comparison')"><div class="panel-title">Point Comparison</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-comparison" onclick="event.stopPropagation();tog('comparison')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('comparison')">✕</button></div></div>
+        <div class="left-section-body" id="body-comparison"><div id="comp-content"></div></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Demand Shifts</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-epinfo">
+        <div class="control-panel-header" onclick="tog('epinfo')"><div class="panel-title">At Explored Price</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-epinfo" onclick="event.stopPropagation();tog('epinfo')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('epinfo')">✕</button></div></div>
+        <div class="control-panel-body" id="body-epinfo"><div class="info-box" id="ep-info"></div></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>D₀ (original demand)</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0;opacity:.5"></div><span>D₁ (increased) / D₂ (decreased)</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#d53f8c;height:1px;border:1px dashed #d53f8c"></div><span>Explored price lines</span></div>
+          </div>
+          <div class="equation-box">\(\text{Shift} \neq \text{Movement along curve}\)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Data (from textbook figure) ----
+const D0 = [{p:26000,q:13},{p:24000,q:15},{p:22000,q:17},{p:20000,q:18},{p:18000,q:19.5},{p:16000,q:21}];
+const shiftC = (pts, dq) => pts.map(pt => ({ p: pt.p, q: pt.q + dq }));
+const fmtP = v => '$' + v.toLocaleString();
+const REF_P = 22000;   // the second, fixed price line this figure also reads off
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'demand_shifts.png',
+  axes: { xMin:8, xMax:28, yMin:10000, yMax:28000, margin:{top:60, right:80, bottom:100, left:160} },
+  sliders: [
+    { id:'dq_d1', label:'D₁ shift (rightward)', min:0,     max:6,     value:2,     step:0.5,  fmt:v => '+' + v.toFixed(1) },
+    { id:'dq_d2', label:'D₂ shift (leftward)',  min:-8,    max:0,     value:-3.5,  step:0.5,  fmt:v => v.toFixed(1) },
+    { id:'p',     label:'Explored price',       min:10000, max:28000, value:20000, step:1000, fmt:fmtP },
+  ],
+  toggles: [
+    { id:'show_grid',       label:'Gridlines' },
+    { id:'show_points',     label:'Data points' },
+    { id:'show_pricelines', label:'Price dashed lines' },
+    { id:'show_arrows',     label:'Shift arrows' },
+    { id:'show_annot',      label:'Annotations' },
+    { id:'show_labels',     label:'Curve & point labels' },
+    { id:'show_d2',         label:'Show D₂ (decrease)' },
+    { id:'show_d1',         label:'Show D₁ (increase)' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', comparison:'Comparison', shifts:'Shifts', epinfo:'Price Info', keyvals:'Key' },
+  leftPanels:  ['graph','explanation','comparison'],
+  rightPanels: ['shifts','epinfo','keyvals'],
+  nudgeKeys: ['x','y','d0','d1','d2','pt.Q','pt.T','pt.S','pt.R','an.Q','an.T','an.S'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, margin, width, yMin } = g;
+    const dq1 = val('dq_d1'), dq2 = val('dq_d2'), p = val('p');
+    const D1 = shiftC(D0, dq1), D2 = shiftC(D0, dq2);
+    const q0 = g.interpQ(D0, p), q1 = g.interpQ(D1, p), q2 = g.interpQ(D2, p);
+    const separateRef = Math.abs(p - REF_P) > 500;
+
+    // ---- Side panels ----
+    g.setText('ep-info',
+      `<div class="info-row"><span class="info-label">D₂ quantity</span><span class="info-value">${q2.toFixed(1)} M</span></div>` +
+      `<div class="info-row"><span class="info-label">D₀ quantity</span><span class="info-value highlight">${q0.toFixed(1)} M</span></div>` +
+      `<div class="info-row"><span class="info-label">D₁ quantity</span><span class="info-value">${q1.toFixed(1)} M</span></div>`);
+    g.setText('comp-content',
+      '<div class="compare-grid">' +
+      `<div class="compare-card red"><div class="card-title">D₀ to D₂ (decrease)</div>At ${fmtP(p)}: Q drops from ${q0.toFixed(1)} to ${q2.toFixed(1)} M<br>Change: ${(q2 - q0).toFixed(1)} M</div>` +
+      `<div class="compare-card green"><div class="card-title">D₀ to D₁ (increase)</div>At ${fmtP(p)}: Q rises from ${q0.toFixed(1)} to ${q1.toFixed(1)} M<br>Change: +${(q1 - q0).toFixed(1)} M</div>` +
+      '</div>');
+
+    // ---- Plot ----
+    g.clear();
+    if (vis('show_grid')) g.gridlines(1, 2000);
+    g.axes();
+    g.xTicks([8, 13, 14.4, 17, 18, 20, 23, 28], v => v);
+    g.yTicks([10000, 12000, 14000, 16000, 18000, 20000, 22000, 24000, 26000, 28000], fmtP);
+    g.axisLabels('Quantity', 'Price');
+
+    if (vis('show_pricelines')) {
+      g.dashed(margin.left, tCY(p), margin.left + width, tCY(p), '#d53f8c', 1.5);
+      if (separateRef) g.dashed(margin.left, tCY(REF_P), margin.left + width, tCY(REF_P), '#d53f8c', 1.5);
+      [q0, q1, q2].forEach(q => {
+        if (q > g.xMin && q < g.xMax) g.dashed(tCX(q), tCY(p), tCX(q), tCY(yMin), 'rgba(213,63,140,0.3)', 1.5);
+      });
+      if (separateRef) {
+        const qr = g.interpQ(D0, REF_P);
+        g.dashed(tCX(qr), tCY(REF_P), tCX(qr), tCY(yMin), 'rgba(213,63,140,0.3)', 1.5);
+      }
+    }
+
+    if (vis('show_d2')) g.curve(D2, '#2b6cb0', 0.6, 2.5);
+    g.curve(D0, '#2b6cb0', 1, 2.5);
+    if (vis('show_d1')) g.curve(D1, '#2b6cb0', 0.6, 2.5);
+
+    if (vis('show_points')) {
+      if (vis('show_d2')) g.points(D2, '#2b6cb0', 0.6, 6);
+      g.points(D0, '#2b6cb0', 1, 6);
+      if (vis('show_d1')) g.points(D1, '#2b6cb0', 0.6, 6);
+    }
+
+    if (vis('show_arrows')) {
+      const prices = [24000, REF_P, p - 2000];
+      prices.forEach(ap => {
+        if (ap <= yMin || ap >= g.yMax) return;
+        const a0 = g.interpQ(D0, ap);
+        if (vis('show_d2')) g.drawArrow(tCX(a0) - 14 * S, tCY(ap), tCX(g.interpQ(D2, ap)) + 14 * S, tCY(ap));
+        if (vis('show_d1')) g.drawArrow(tCX(a0) + 14 * S, tCY(ap), tCX(g.interpQ(D1, ap)) - 14 * S, tCY(ap));
+      });
+    }
+
+    if (vis('show_labels')) {
+      const curveLabel = (txt, key, pts) => {
+        const end = pts[pts.length - 1];
+        g.label(txt, tCX(end.q) + 16 * S, tCY(end.p) + 16 * S,
+          { key, font:`bold ${14 * S}px ${g.font}`, color:'#2b6cb0', align:'center' });
+      };
+      curveLabel('D₀', 'd0', D0);
+      if (vis('show_d1')) curveLabel('D₁', 'd1', D1);
+      if (vis('show_d2')) curveLabel('D₂', 'd2', D2);
+
+      const named = [{ label:'Q', q:q0, p }, { label:'T', q:q2, p }, { label:'S', q:q1, p }];
+      if (separateRef) named.push({ label:'R', q:g.interpQ(D0, REF_P), p:REF_P });
+      named.forEach(np => g.namedPoint(np.label, np.q, np.p));
+
+      if (vis('show_annot')) {
+        [{ key:'an.T', q:q2 }, { key:'an.Q', q:q0 }, { key:'an.S', q:q1 }].forEach(a => {
+          g.label(`P = ${fmtP(p)}\nQ = ${a.q.toFixed(1)} million`, tCX(a.q), tCY(p) + 20 * S,
+            { key:a.key, font:`${10 * S}px ${g.font}`, color:'#4a5568', align:'center' });
+        });
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>

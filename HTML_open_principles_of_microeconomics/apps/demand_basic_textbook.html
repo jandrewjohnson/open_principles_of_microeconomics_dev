@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Demand Curve</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Demand Curve</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The downward-sloping relationship between price and quantity demanded</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Reading a Point off the Demand Curve</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The demand curve shows how the quantity demanded of a good changes as its price changes, holding all else constant. At price \(P_0\), consumers demand quantity \(Q_0\). The dashed lines from the point to each axis show how to read off the price and quantity coordinates.</p>
+          <p>The curve slopes downward because of the <strong>law of demand</strong>: as price falls, quantity demanded rises. This reflects both a <em>substitution effect</em> (the good becomes relatively cheaper, so consumers buy more of it) and an <em>income effect</em> (a lower price effectively increases purchasing power). Move the point along the curve to explore different price and quantity combinations, or adjust the steepness and position to see how the curve changes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-point">
+        <div class="control-panel-header" onclick="tog('point')"><div class="panel-title">Point</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-point" onclick="event.stopPropagation();tog('point')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('point')">✕</button></div></div>
+        <div class="control-panel-body" id="body-point">
+          <div data-sliders="t"></div>
+          <div class="info-box" id="pt-info" style="margin-top:12px"></div>
+        </div>
+      </div>
+      <div class="control-panel" id="section-curve">
+        <div class="control-panel-header" onclick="tog('curve')"><div class="panel-title">Curve Shape</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-curve" onclick="event.stopPropagation();tog('curve')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('curve')">✕</button></div></div>
+        <div class="control-panel-body" id="body-curve" data-sliders="n_d,dq_d"></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keyvals')">✕</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>Demand curve D</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#d53f8c;height:1px;border:1px dashed #d53f8c"></div><span>Reading lines to the axes</span></div>
+          </div>
+          <div class="equation-box" style="margin-top:12px">\( Q_d = f(P), \quad \frac{\Delta Q_d}{\Delta P} < 0 \)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Conceptual diagram: no units, just an abstract 0 to 100 space on both axes.
+// The line is centred on (50 + dq_d, 50) and rotated by the steepness slider.
+const lineOf = g => {
+  const sl = g.val('n_d'), hs = g.val('dq_d');
+  const cx = 50 + hs, cy = 50, half = 50;
+  const dx = half / Math.sqrt(1 + sl * sl), dy = sl * dx;
+  return { x1: cx - dx, y1: cy + dy, x2: cx + dx, y2: cy - dy };
+};
+const at = (L, t) => ({ x: L.x1 + t * (L.x2 - L.x1), y: L.y1 + t * (L.y2 - L.y1) });
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'demand_basic.png',
+  axes: { xMin:0, xMax:100, yMin:0, yMax:100, margin:{top:60, right:60, bottom:100, left:120} },
+  sliders: [
+    { id:'t', label:'Point position (t)', min:0.1, max:0.9, value:0.45, step:0.01, fmt:v => v.toFixed(2) },
+    { id:'n_d',  label:'Steepness', min:0.3, max:3,  value:1, step:0.1, fmt:v => v.toFixed(1) },
+    { id:'dq_d', label:'Horizontal shift (Q)', min:-30, max:30, value:0, step:1, fmt:v => (v > 0 ? '+' : '') + v },
+  ],
+  toggles: [
+    { id:'show_droplines',  label:'Dashed reading lines' },
+    { id:'show_arrows',     label:'Reading arrows' },
+    { id:'show_labels',     label:'P₀ and Q₀ labels' },
+    { id:'show_curvelabel', label:'D label' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', point:'Point', curve:'Curve', keyvals:'Key' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['point','curve','keyvals'],
+  nudgeKeys: ['x','y','an.P0','an.Q0','d'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, margin, height } = g;
+    const L = lineOf(g);
+    const pt = at(L, val('t'));
+    const px = tCX(pt.x), py = tCY(pt.y);
+
+    // ---- Side panel ----
+    g.setText('pt-info', `<div class="info-row"><span class="info-label">P₀ (relative)</span><span class="info-value highlight">${pt.y.toFixed(1)}</span></div>` +
+      `<div class="info-row"><span class="info-label">Q₀ (relative)</span><span class="info-value highlight">${pt.x.toFixed(1)}</span></div>` +
+      `<div class="info-row"><span class="info-label">Slope</span><span class="info-value">\u2212${val('n_d').toFixed(1)}</span></div>`);
+
+    // ---- Plot ----
+    g.clear();
+    // Conceptual axes: blue, with arrowheads, and no tick numbers
+    g.axes('#2b6cb0');
+    ctx.fillStyle = '#2b6cb0';
+    ctx.beginPath(); ctx.moveTo(margin.left, margin.top - 4 * S); ctx.lineTo(margin.left - 6 * S, margin.top + 8 * S); ctx.lineTo(margin.left + 6 * S, margin.top + 8 * S); ctx.closePath(); ctx.fill();
+    const baseY = margin.top + height, rightX = margin.left + g.width;
+    ctx.beginPath(); ctx.moveTo(rightX + 4 * S, baseY); ctx.lineTo(rightX - 8 * S, baseY - 6 * S); ctx.lineTo(rightX - 8 * S, baseY + 6 * S); ctx.closePath(); ctx.fill();
+
+    g.axisLabels('Quantity Demanded', 'Price');
+
+    if (vis('show_droplines')) {
+      g.dashed(margin.left, py, px, py, '#d53f8c', 1.5);
+      g.dashed(px, py, px, baseY, '#d53f8c', 1.5);
+    }
+
+    if (vis('show_arrows')) {
+      g.drawArrow(margin.left + 30 * S, py, px - 14 * S, py, '#1a202c');
+      g.drawArrow(px, py + 14 * S, px, baseY - 30 * S, '#1a202c');
+    }
+
+    // Demand line, extended a little past the sampled span
+    const ext = 0.15;
+    const ex1 = L.x1 - (L.x2 - L.x1) * ext, ey1 = L.y1 - (L.y2 - L.y1) * ext;
+    const ex2 = L.x2 + (L.x2 - L.x1) * ext, ey2 = L.y2 + (L.y2 - L.y1) * ext;
+    ctx.strokeStyle = '#2b6cb0'; ctx.lineWidth = 3 * S;
+    ctx.beginPath(); ctx.moveTo(tCX(ex1), tCY(ey1)); ctx.lineTo(tCX(ex2), tCY(ey2)); ctx.stroke();
+
+    ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(px, py, 9 * S, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5 * S; ctx.stroke();
+
+    if (vis('show_labels')) {
+      g.label('P₀', margin.left - 14 * S, py + 5 * S, { key:'an.P0', font:`${14 * S}px ${g.font}`, align:'right' });
+      g.label('Q₀', px, baseY + 30 * S, { key:'an.Q0', font:`${14 * S}px ${g.font}`, align:'center' });
+    }
+
+    if (vis('show_curvelabel')) {
+      const d = at(L, 0.8);
+      g.label('D', tCX(d.x) + 18 * S, tCY(d.y), { key:'d', font:`bold ${18 * S}px ${g.font}`, color:'#2b6cb0' });
+    }
+  },
+});
+</script>
+</body>
+</html>

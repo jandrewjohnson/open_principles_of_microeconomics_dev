@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Principles of Microeconomics - 19. International Trade</title>
+<title>19. International Trade – Open Principles of Microeconomics</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -21,8 +27,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,15 +73,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./20_globalization.html" rel="next">
 <link href="./18_public_economy.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3c274391243a21fbfff11e61af129e9f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,8 +111,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -117,7 +125,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -135,19 +143,19 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./19_international_trade.html"><span class="chapter-title">19. International Trade</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -277,9 +285,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -346,7 +354,7 @@ window.Quarto = {
 </header>
 
 
-<div id="fig-19_1" class="quarto-figure quarto-figure-center quarto-float anchored" width="6.5in" height="3.9166666666666665in">
+<div id="fig-19_1" class="quarto-float quarto-figure quarto-figure-center anchored" width="6.5in" height="3.9166666666666665in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-19_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/19-introduction-to-international-trade_rId20.jpeg" id="fig-19_1" style="width:6.5in;height:3.91667in" class="figure-img">
@@ -403,14 +411,14 @@ Figure&nbsp;19.1
 </section>
 <section id="a-numerical-example-of-absolute-and-comparative-advantage" class="level4">
 <h4 class="anchored" data-anchor-id="a-numerical-example-of-absolute-and-comparative-advantage">A Numerical Example of Absolute and Comparative Advantage</h4>
-<p>Consider a hypothetical world with two countries, Saudi Arabia and the United States, and two products, oil and corn. Further assume that consumers in both countries desire both these goods. These goods are homogeneous, meaning that consumers/producers cannot differentiate between corn or oil from either country. There is only one resource available in both countries, labor hours. Saudi Arabia can produce oil with fewer resources, while the United States can produce corn with fewer resources. <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>How Many Hours It Takes to Produce Oil and Corn</span></a> illustrates the advantages of the two countries, expressed in terms of how many hours it takes to produce one unit of each good.</p>
-<div id="tbl-table_19_1" class="quarto-float anchored">
+<p>Consider a hypothetical world with two countries, Saudi Arabia and the United States, and two products, oil and corn. Further assume that consumers in both countries desire both these goods. These goods are homogeneous, meaning that consumers/producers cannot differentiate between corn or oil from either country. There is only one resource available in both countries, labor hours. Saudi Arabia can produce oil with fewer resources, while the United States can produce corn with fewer resources. <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>19.1</span></a> illustrates the advantages of the two countries, expressed in terms of how many hours it takes to produce one unit of each good.</p>
+<div id="tbl-table_19_1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.1: How Many Hours It Takes to Produce Oil and Corn
 </figcaption>
 <div aria-describedby="tbl-table_19_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Country</th>
@@ -434,15 +442,15 @@ Table&nbsp;19.1: How Many Hours It Takes to Produce Oil and Corn
 </div>
 </figure>
 </div>
-<p>In <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>How Many Hours It Takes to Produce Oil and Corn</span></a>, Saudi Arabia has an absolute advantage in producing oil because it only takes an hour to produce a barrel of oil compared to two hours in the United States. The United States has an absolute advantage in producing corn.</p>
-<p>To simplify, let’s say that Saudi Arabia and the United States each have 100 worker hours (see <a href="#tbl-table_19_2" class="quarto-xref">Table&nbsp;<span>Production Possibilities before Trade</span></a>). <a href="#fig-19_2">Figure 19.2</a> illustrates what each country is capable of producing on its own using a production possibility frontier (PPF) graph. Recall from <a href="02_choice_with_scarcity.html" class="quarto-xref"><span>2. Choice with Scarcity</span></a> that the production possibilities frontier shows the maximum amount that each country can produce given its limited resources, in this case workers, and its level of technology.</p>
-<div id="tbl-table_19_2" class="quarto-float anchored">
+<p>In <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>19.1</span></a>, Saudi Arabia has an absolute advantage in producing oil because it only takes an hour to produce a barrel of oil compared to two hours in the United States. The United States has an absolute advantage in producing corn.</p>
+<p>To simplify, let’s say that Saudi Arabia and the United States each have 100 worker hours (see <a href="#tbl-table_19_2" class="quarto-xref">Table&nbsp;<span>19.2</span></a>). <a href="#fig-19_2">Figure 19.2</a> illustrates what each country is capable of producing on its own using a production possibility frontier (PPF) graph. Recall from <a href="02_choice_with_scarcity.html" class="quarto-xref"><span>2. Choice with Scarcity</span></a> that the production possibilities frontier shows the maximum amount that each country can produce given its limited resources, in this case workers, and its level of technology.</p>
+<div id="tbl-table_19_2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.2: Production Possibilities before Trade
 </figcaption>
 <div aria-describedby="tbl-table_19_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 40%">
@@ -475,7 +483,7 @@ Table&nbsp;19.2: Production Possibilities before Trade
 </div>
 </figure>
 </div>
-<div id="fig-19_2" class="quarto-figure quarto-figure-center quarto-float anchored" width="6.5in" height="2.625in">
+<div id="fig-19_2" class="quarto-float quarto-figure quarto-figure-center anchored" width="6.5in" height="2.625in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-19_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/19-1-absolute-and-comparative-advantage_rId30.jpeg" id="fig-19_2" style="width:6.5in;height:2.625in" class="figure-img">
@@ -485,15 +493,15 @@ Figure&nbsp;19.2
 </figcaption>
 </figure>
 </div>
-<p>Figure 19.2 Production Possibilities Frontiers (a) Saudi Arabia can produce 100 barrels of oil at maximum and zero corn (point A), or 25 bushels of corn and zero oil (point B). It can also produce other combinations of oil and corn if it wants to consume both goods, such as at point C. Here it chooses to produce/consume 60 barrels of oil, leaving 40 work hours that to allocate to produce 10 bushels of corn, using the data in <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>How Many Hours It Takes to Produce Oil and Corn</span></a>. (b) If the United States produces only oil, it can produce, at maximum, 50 barrels and zero corn (point A'), or at the other extreme, it can produce a maximum of 100 bushels of corn and no oil (point B'). Other combinations of both oil and corn are possible, such as point C'. All points above the frontiers are impossible to produce given the current level of resources and technology.</p>
-<p>Arguably Saudi and U.S. consumers desire both oil and corn to live. Let’s say that before trade occurs, both countries produce and consume at point C or C'. Thus, before trade, the Saudi Arabian economy will devote 60 worker hours to produce oil, as <a href="#tbl-table_19_3" class="quarto-xref">Table&nbsp;<span>Production before Trade</span></a> shows. Given the information in <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>How Many Hours It Takes to Produce Oil and Corn</span></a>, this choice implies that it produces/consumes 60 barrels of oil. With the remaining 40 worker hours, since it needs four hours to produce a bushel of corn, it can produce only 10 bushels. To be at point C', the U.S. economy devotes 40 worker hours to produce 20 barrels of oil and it can allocate the remaining worker hours to produce 60 bushels of corn.</p>
-<div id="tbl-table_19_3" class="quarto-float anchored">
+<p>Figure 19.2 Production Possibilities Frontiers (a) Saudi Arabia can produce 100 barrels of oil at maximum and zero corn (point A), or 25 bushels of corn and zero oil (point B). It can also produce other combinations of oil and corn if it wants to consume both goods, such as at point C. Here it chooses to produce/consume 60 barrels of oil, leaving 40 work hours that to allocate to produce 10 bushels of corn, using the data in <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>19.1</span></a>. (b) If the United States produces only oil, it can produce, at maximum, 50 barrels and zero corn (point A'), or at the other extreme, it can produce a maximum of 100 bushels of corn and no oil (point B'). Other combinations of both oil and corn are possible, such as point C'. All points above the frontiers are impossible to produce given the current level of resources and technology.</p>
+<p>Arguably Saudi and U.S. consumers desire both oil and corn to live. Let’s say that before trade occurs, both countries produce and consume at point C or C'. Thus, before trade, the Saudi Arabian economy will devote 60 worker hours to produce oil, as <a href="#tbl-table_19_3" class="quarto-xref">Table&nbsp;<span>19.3</span></a> shows. Given the information in <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>19.1</span></a>, this choice implies that it produces/consumes 60 barrels of oil. With the remaining 40 worker hours, since it needs four hours to produce a bushel of corn, it can produce only 10 bushels. To be at point C', the U.S. economy devotes 40 worker hours to produce 20 barrels of oil and it can allocate the remaining worker hours to produce 60 bushels of corn.</p>
+<div id="tbl-table_19_3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.3: Production before Trade
 </figcaption>
 <div aria-describedby="tbl-table_19_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 32%">
 <col style="width: 32%">
@@ -527,14 +535,14 @@ Table&nbsp;19.3: Production before Trade
 </div>
 </figure>
 </div>
-<p>The slope of the production possibility frontier illustrates the opportunity cost of producing oil in terms of corn. Using all its resources, the United States can produce 50 barrels of oil <em>or</em> 100 bushels of corn; therefore, the opportunity cost of one barrel of oil is two bushels of corn—or the slope is 1/2. Thus, in the U.S. production possibility frontier graph, every increase in oil production of one barrel implies a decrease of two bushels of corn. Saudi Arabia can produce 100 barrels of oil <em>or</em> 25 bushels of corn. The opportunity cost of producing one barrel of oil is the loss of 1/4 of a bushel of corn that Saudi workers could otherwise have produced. In terms of corn, notice that Saudi Arabia gives up the least to produce a barrel of oil. <a href="#tbl-table_19_4" class="quarto-xref">Table&nbsp;<span>Opportunity Cost and Comparative Advantage</span></a> summarizes these calculations.</p>
-<div id="tbl-table_19_4" class="quarto-float anchored">
+<p>The slope of the production possibility frontier illustrates the opportunity cost of producing oil in terms of corn. Using all its resources, the United States can produce 50 barrels of oil <em>or</em> 100 bushels of corn; therefore, the opportunity cost of one barrel of oil is two bushels of corn—or the slope is 1/2. Thus, in the U.S. production possibility frontier graph, every increase in oil production of one barrel implies a decrease of two bushels of corn. Saudi Arabia can produce 100 barrels of oil <em>or</em> 25 bushels of corn. The opportunity cost of producing one barrel of oil is the loss of 1/4 of a bushel of corn that Saudi workers could otherwise have produced. In terms of corn, notice that Saudi Arabia gives up the least to produce a barrel of oil. <a href="#tbl-table_19_4" class="quarto-xref">Table&nbsp;<span>19.4</span></a> summarizes these calculations.</p>
+<div id="tbl-table_19_4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.4: Opportunity Cost and Comparative Advantage
 </figcaption>
 <div aria-describedby="tbl-table_19_4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 43%">
@@ -563,8 +571,8 @@ Table&nbsp;19.4: Opportunity Cost and Comparative Advantage
 </div>
 </figure>
 </div>
-<p>Again recall that we defined comparative advantage as the opportunity cost of producing goods. Since Saudi Arabia gives up the least to produce a barrel of oil, (<span class="math inline">\(\frac{\text{1}}{\text{4}}\)</span>&nbsp;&lt;&nbsp;<span class="math inline">\(\text{2}\)</span> in <a href="#tbl-table_19_4" class="quarto-xref">Table&nbsp;<span>Opportunity Cost and Comparative Advantage</span></a>) it has a comparative advantage in oil production. The United States gives up the least to produce a bushel of corn, so it has a comparative advantage in corn production.</p>
-<p>In this example, there is symmetry between absolute and comparative advantage. Saudi Arabia needs fewer worker hours to produce oil (absolute advantage, see <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>How Many Hours It Takes to Produce Oil and Corn</span></a>), and also gives up the least in terms of other goods to produce oil (comparative advantage, see <a href="#tbl-table_19_4" class="quarto-xref">Table&nbsp;<span>Opportunity Cost and Comparative Advantage</span></a>). Such symmetry is not always the case, as we will show after we have discussed gains from trade fully, but first, read the following Clear It Up feature to make sure you understand why the PPF line in the graphs is straight.</p>
+<p>Again recall that we defined comparative advantage as the opportunity cost of producing goods. Since Saudi Arabia gives up the least to produce a barrel of oil, (<span class="math inline">\(\frac{\text{1}}{\text{4}}\)</span>&nbsp;&lt;&nbsp;<span class="math inline">\(\text{2}\)</span> in <a href="#tbl-table_19_4" class="quarto-xref">Table&nbsp;<span>19.4</span></a>) it has a comparative advantage in oil production. The United States gives up the least to produce a bushel of corn, so it has a comparative advantage in corn production.</p>
+<p>In this example, there is symmetry between absolute and comparative advantage. Saudi Arabia needs fewer worker hours to produce oil (absolute advantage, see <a href="#tbl-table_19_1" class="quarto-xref">Table&nbsp;<span>19.1</span></a>), and also gives up the least in terms of other goods to produce oil (comparative advantage, see <a href="#tbl-table_19_4" class="quarto-xref">Table&nbsp;<span>19.4</span></a>). Such symmetry is not always the case, as we will show after we have discussed gains from trade fully, but first, read the following Clear It Up feature to make sure you understand why the PPF line in the graphs is straight.</p>
 </section>
 <section id="clear-it-up" class="level4 Heading3Grey">
 <h4 class="Heading3Grey anchored" data-anchor-id="clear-it-up">Clear It Up</h4>
@@ -575,14 +583,14 @@ Table&nbsp;19.4: Opportunity Cost and Comparative Advantage
 </section>
 <section id="gains-from-trade" class="level4">
 <h4 class="anchored" data-anchor-id="gains-from-trade">Gains from Trade</h4>
-<p>Consider the trading positions of the United States and Saudi Arabia after they have specialized and traded. Before trade, Saudi Arabia produces/consumes 60 barrels of oil and 10 bushels of corn. The United States produces/consumes 20 barrels of oil and 60 bushels of corn. Given their current production levels, if the United States can trade an amount of corn fewer than 60 bushels and receive in exchange an amount of oil greater than 20 barrels, it will gain from trade. With trade, the United States can consume more of both goods than it did without specialization and trade. (Recall that <a href="01_introduction.html" class="quarto-xref"><span>1. Introduction</span></a> defined specialization as it applies to workers and firms. Economists also use specialization to describe the occurrence when a country shifts resources to focus on producing a good that offers comparative advantage.) Similarly, if Saudi Arabia can trade an amount of oil less than 60 barrels and receive in exchange an amount of corn greater than 10 bushels, it will have more of both goods than it did before specialization and trade. <a href="#tbl-table_19_5" class="quarto-xref">Table&nbsp;<span>The Range of Trades That Benefit Both the United States and Saudi Arabia</span></a> illustrates the range of trades that would benefit both sides.</p>
-<div id="tbl-table_19_5" class="quarto-float anchored">
+<p>Consider the trading positions of the United States and Saudi Arabia after they have specialized and traded. Before trade, Saudi Arabia produces/consumes 60 barrels of oil and 10 bushels of corn. The United States produces/consumes 20 barrels of oil and 60 bushels of corn. Given their current production levels, if the United States can trade an amount of corn fewer than 60 bushels and receive in exchange an amount of oil greater than 20 barrels, it will gain from trade. With trade, the United States can consume more of both goods than it did without specialization and trade. (Recall that <a href="01_introduction.html" class="quarto-xref"><span>1. Introduction</span></a> defined specialization as it applies to workers and firms. Economists also use specialization to describe the occurrence when a country shifts resources to focus on producing a good that offers comparative advantage.) Similarly, if Saudi Arabia can trade an amount of oil less than 60 barrels and receive in exchange an amount of corn greater than 10 bushels, it will have more of both goods than it did before specialization and trade. <a href="#tbl-table_19_5" class="quarto-xref">Table&nbsp;<span>19.5</span></a> illustrates the range of trades that would benefit both sides.</p>
+<div id="tbl-table_19_5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.5: The Range of Trades That Benefit Both the United States and Saudi Arabia
 </figcaption>
 <div aria-describedby="tbl-table_19_5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 47%">
 <col style="width: 52%">
@@ -614,14 +622,14 @@ Table&nbsp;19.5: The Range of Trades That Benefit Both the United States and Sau
 <section id="what-are-the-opportunity-costs-and-gains-from-trade" class="level5 Heading4Grey">
 <h5 class="Heading4Grey anchored" data-anchor-id="what-are-the-opportunity-costs-and-gains-from-trade">What are the opportunity costs and gains from trade?</h5>
 <p>The range of trades that will benefit each country is based on the country’s opportunity cost of producing each good. The United States can produce 100 bushels of corn or 50 barrels of oil. For the United States, the opportunity cost of producing one barrel of oil is two bushels of corn. If we divide the numbers above by 50, we get the same ratio: one barrel of oil is equivalent to two bushels of corn, or (100/50 = 2 and 50/50 = 1). In a trade with Saudi Arabia, if the United States is going to give up 100 bushels of corn in exports, it must import at least 50 barrels of oil to be just as well off. Clearly, to gain from trade it needs to be able to gain more than a half barrel of oil for its bushel of corn—or why trade at all?</p>
-<p>Recall that David Ricardo argued that if each country specializes in its comparative advantage, it will benefit from trade, and total global output will increase. How can we show gains from trade as a result of comparative advantage and specialization? <a href="#tbl-table_19_6" class="quarto-xref">Table&nbsp;<span>How Specialization Expands Output</span></a> shows the output assuming that each country specializes in its comparative advantage and produces no other good. This is 100% specialization. Specialization leads to an increase in total world production. (Compare the total world production in <a href="#tbl-table_19_3" class="quarto-xref">Table&nbsp;<span>Production before Trade</span></a> to that in <a href="#tbl-table_19_6" class="quarto-xref">Table&nbsp;<span>How Specialization Expands Output</span></a>.)</p>
-<div id="tbl-table_19_6" class="quarto-float anchored">
+<p>Recall that David Ricardo argued that if each country specializes in its comparative advantage, it will benefit from trade, and total global output will increase. How can we show gains from trade as a result of comparative advantage and specialization? <a href="#tbl-table_19_6" class="quarto-xref">Table&nbsp;<span>19.6</span></a> shows the output assuming that each country specializes in its comparative advantage and produces no other good. This is 100% specialization. Specialization leads to an increase in total world production. (Compare the total world production in <a href="#tbl-table_19_3" class="quarto-xref">Table&nbsp;<span>19.3</span></a> to that in <a href="#tbl-table_19_6" class="quarto-xref">Table&nbsp;<span>19.6</span></a>.)</p>
+<div id="tbl-table_19_6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.6: How Specialization Expands Output
 </figcaption>
 <div aria-describedby="tbl-table_19_6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 17%">
 <col style="width: 40%">
@@ -655,8 +663,8 @@ Table&nbsp;19.6: How Specialization Expands Output
 </div>
 </figure>
 </div>
-<p>What if we did not have complete specialization, as in <a href="#tbl-table_19_6" class="quarto-xref">Table&nbsp;<span>How Specialization Expands Output</span></a>? Would there still be gains from trade? Consider another example, such as when the United States and Saudi Arabia start at C and C', respectively, as <a href="#fig-19_2">Figure 19.2</a> shows. Consider what occurs when trade is allowed and the United States exports 20 bushels of corn to Saudi Arabia in exchange for 20 barrels of oil.</p>
-<div id="fig-19_3" class="quarto-figure quarto-figure-center quarto-float anchored" width="4.875in" height="3.7399989063867016in">
+<p>What if we did not have complete specialization, as in <a href="#tbl-table_19_6" class="quarto-xref">Table&nbsp;<span>19.6</span></a>? Would there still be gains from trade? Consider another example, such as when the United States and Saudi Arabia start at C and C', respectively, as <a href="#fig-19_2">Figure 19.2</a> shows. Consider what occurs when trade is allowed and the United States exports 20 bushels of corn to Saudi Arabia in exchange for 20 barrels of oil.</p>
+<div id="fig-19_3" class="quarto-float quarto-figure quarto-figure-center anchored" width="4.875in" height="3.7399989063867016in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-19_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/19-1-absolute-and-comparative-advantage_rId40.jpeg" id="fig-19_3" style="width:4.875in;height:3.74in" class="figure-img">
@@ -689,14 +697,14 @@ Figure&nbsp;19.3
 </section>
 <section id="production-possibilities-and-comparative-advantage" class="level4">
 <h4 class="anchored" data-anchor-id="production-possibilities-and-comparative-advantage">Production Possibilities and Comparative Advantage</h4>
-<p>Consider the example of trade between the United States and Mexico described in <a href="#tbl-table_19_7" class="quarto-xref">Table&nbsp;<span>Resources Needed to Produce Shoes and Refrigerators</span></a>. In this example, it takes four U.S. workers to produce 1,000 pairs of shoes, but it takes five Mexican workers to do so. It takes one U.S. worker to produce 1,000 refrigerators, but it takes four Mexican workers to do so. The United States has an absolute advantage in productivity with regard to both shoes and refrigerators; that is, it takes fewer workers in the United States than in Mexico to produce both a given number of shoes and a given number of refrigerators.</p>
-<div id="tbl-table_19_7" class="quarto-float anchored">
+<p>Consider the example of trade between the United States and Mexico described in <a href="#tbl-table_19_7" class="quarto-xref">Table&nbsp;<span>19.7</span></a>. In this example, it takes four U.S. workers to produce 1,000 pairs of shoes, but it takes five Mexican workers to do so. It takes one U.S. worker to produce 1,000 refrigerators, but it takes four Mexican workers to do so. The United States has an absolute advantage in productivity with regard to both shoes and refrigerators; that is, it takes fewer workers in the United States than in Mexico to produce both a given number of shoes and a given number of refrigerators.</p>
+<div id="tbl-table_19_7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.7: Resources Needed to Produce Shoes and Refrigerators
 </figcaption>
 <div aria-describedby="tbl-table_19_7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
 <col style="width: 41%">
@@ -730,14 +738,14 @@ Table&nbsp;19.7: Resources Needed to Produce Shoes and Refrigerators
 <section id="mutually-beneficial-trade-with-comparative-advantage" class="level4">
 <h4 class="anchored" data-anchor-id="mutually-beneficial-trade-with-comparative-advantage">Mutually Beneficial Trade with Comparative Advantage</h4>
 <p>When nations increase production in their area of comparative advantage and trade with each other, both countries can benefit. Again, the production possibility frontier is a useful tool to visualize this benefit.</p>
-<p>Consider a situation where the United States and Mexico each have 40 workers. For example, as <a href="#tbl-table_19_8" class="quarto-xref">Table&nbsp;<span>Production Possibilities before Trade with Complete Specialization</span></a> shows, if the United States divides its labor so that 40 workers are making shoes, then, since it takes four workers in the United States to make 1,000 shoes, a total of 10,000 shoes will be produced. (If four workers can make 1,000 shoes, then 40 workers will make 10,000 shoes). If the 40 workers in the United States are making refrigerators, and each worker can produce 1,000 refrigerators, then a total of 40,000 refrigerators will be produced.</p>
-<div id="tbl-table_19_8" class="quarto-float anchored">
+<p>Consider a situation where the United States and Mexico each have 40 workers. For example, as <a href="#tbl-table_19_8" class="quarto-xref">Table&nbsp;<span>19.8</span></a> shows, if the United States divides its labor so that 40 workers are making shoes, then, since it takes four workers in the United States to make 1,000 shoes, a total of 10,000 shoes will be produced. (If four workers can make 1,000 shoes, then 40 workers will make 10,000 shoes). If the 40 workers in the United States are making refrigerators, and each worker can produce 1,000 refrigerators, then a total of 40,000 refrigerators will be produced.</p>
+<div id="tbl-table_19_8" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.8: Production Possibilities before Trade with Complete Specialization
 </figcaption>
 <div aria-describedby="tbl-table_19_8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 34%">
@@ -771,7 +779,7 @@ Table&nbsp;19.8: Production Possibilities before Trade with Complete Specializat
 </figure>
 </div>
 <p>As always, the slope of the production possibility frontier for each country is the opportunity cost of one refrigerator in terms of foregone shoe production–when labor is transferred from producing the latter to producing the former (see <a href="#fig-19_4">Figure 19.4</a>).</p>
-<div id="fig-19_4" class="quarto-figure quarto-figure-center quarto-float anchored" width="6.5in" height="2.835in">
+<div id="fig-19_4" class="quarto-float quarto-figure quarto-figure-center anchored" width="6.5in" height="2.835in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-19_4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/19-2-what-happens-when-a-country-has-an-absolute-advantage-in-all-goods_rId25.jpeg" id="fig-19_4" style="width:6.5in;height:2.835in" class="figure-img">
@@ -782,14 +790,14 @@ Figure&nbsp;19.4
 </figure>
 </div>
 <p>Figure 19.4 Production Possibility Frontiers (a) With 40 workers, the United States can produce either 10,000 shoes and zero refrigerators or 40,000 refrigerators and zero shoes. (b) With 40 workers, Mexico can produce a maximum of 8,000 shoes and zero refrigerators, or 10,000 refrigerators and zero shoes. All other points on the production possibility line are possible combinations of the two goods that can be produced given current resources. Point A on both graphs is where the countries start producing and consuming before trade. Point B is where they end up after trade.</p>
-<p>Let’s say that, in the situation before trade, each nation prefers to produce a combination of shoes and refrigerators that is shown at point A. <a href="#tbl-table_19_9" class="quarto-xref">Table&nbsp;<span>Total Production at Point A before Trade</span></a> shows the output of each good for each country and the total output for the two countries.</p>
-<div id="tbl-table_19_9" class="quarto-float anchored">
+<p>Let’s say that, in the situation before trade, each nation prefers to produce a combination of shoes and refrigerators that is shown at point A. <a href="#tbl-table_19_9" class="quarto-xref">Table&nbsp;<span>19.9</span></a> shows the output of each good for each country and the total output for the two countries.</p>
+<div id="tbl-table_19_9" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.9: Total Production at Point A before Trade
 </figcaption>
 <div aria-describedby="tbl-table_19_9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 21%">
 <col style="width: 32%">
@@ -823,14 +831,14 @@ Table&nbsp;19.9: Total Production at Point A before Trade
 </div>
 </figure>
 </div>
-<p>Continuing with this scenario, suppose that each country transfers some amount of labor toward its area of comparative advantage. For example, the United States transfers six workers away from shoes and toward producing refrigerators. As a result, U.S. production of shoes decreases by 1,500 units (6/4 × 1,000), while its production of refrigerators increases by 6,000 (that is, 6/1 × 1,000). Mexico also moves production toward its area of comparative advantage, transferring 10 workers away from refrigerators and toward production of shoes. As a result, production of refrigerators in Mexico falls by 2,500 (10/4 × 1,000), but production of shoes increases by 2,000 pairs (10/5 × 1,000). Notice that when both countries shift production toward each of their comparative advantages (what they are relatively better at), their combined production of both goods rises, as shown in <a href="#tbl-table_19_10" class="quarto-xref">Table&nbsp;<span>Shifting Production Toward Comparative Advantage Raises Total Output</span></a>. The reduction of shoe production by 1,500 pairs in the United States is more than offset by the gain of 2,000 pairs of shoes in Mexico, while the reduction of 2,500 refrigerators in Mexico is more than offset by the additional 6,000 refrigerators produced in the United States.</p>
-<div id="tbl-table_19_10" class="quarto-float anchored">
+<p>Continuing with this scenario, suppose that each country transfers some amount of labor toward its area of comparative advantage. For example, the United States transfers six workers away from shoes and toward producing refrigerators. As a result, U.S. production of shoes decreases by 1,500 units (6/4 × 1,000), while its production of refrigerators increases by 6,000 (that is, 6/1 × 1,000). Mexico also moves production toward its area of comparative advantage, transferring 10 workers away from refrigerators and toward production of shoes. As a result, production of refrigerators in Mexico falls by 2,500 (10/4 × 1,000), but production of shoes increases by 2,000 pairs (10/5 × 1,000). Notice that when both countries shift production toward each of their comparative advantages (what they are relatively better at), their combined production of both goods rises, as shown in <a href="#tbl-table_19_10" class="quarto-xref">Table&nbsp;<span>19.10</span></a>. The reduction of shoe production by 1,500 pairs in the United States is more than offset by the gain of 2,000 pairs of shoes in Mexico, while the reduction of 2,500 refrigerators in Mexico is more than offset by the additional 6,000 refrigerators produced in the United States.</p>
+<div id="tbl-table_19_10" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.10: Shifting Production Toward Comparative Advantage Raises Total Output
 </figcaption>
 <div aria-describedby="tbl-table_19_10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Country</th>
@@ -864,15 +872,15 @@ Table&nbsp;19.10: Shifting Production Toward Comparative Advantage Raises Total 
 <section id="how-opportunity-cost-sets-the-boundaries-of-trade" class="level4">
 <h4 class="anchored" data-anchor-id="how-opportunity-cost-sets-the-boundaries-of-trade">How Opportunity Cost Sets the Boundaries of Trade</h4>
 <p>This example shows that both parties can benefit from specializing in their comparative advantages and trading. By using the opportunity costs in this example, it is possible to identify the range of possible trades that would benefit each country.</p>
-<p>Mexico started out, before specialization and trade, producing 4,000 pairs of shoes and 5,000 refrigerators (see <a href="#fig-19_4">Figure 19.4</a> and <a href="#tbl-table_19_9" class="quarto-xref">Table&nbsp;<span>Total Production at Point A before Trade</span></a>). Then, in the numerical example given, Mexico shifted production toward its comparative advantage and produced 6,000 pairs of shoes but only 2,500 refrigerators. Thus, if Mexico can export no more than 2,000 pairs of shoes (giving up 2,000 pairs of shoes) in exchange for imports of at least 2,500 refrigerators (a gain of 2,500 refrigerators), it will be able to consume more of both goods than before trade. Mexico will be unambiguously better off. Conversely, the United States started off, before specialization and trade, producing 5,000 pairs of shoes and 20,000 refrigerators. In the example, it then shifted production toward its comparative advantage, producing only 3,500 shoes but 26,000 refrigerators. If the United States can export no more than 6,000 refrigerators in exchange for imports of at least 1,500 pairs of shoes, it will be able to consume more of both goods and will be unambiguously better off.</p>
-<p>The range of trades that can benefit both nations is shown in <a href="#tbl-table_19_11" class="quarto-xref">Table&nbsp;<span>The Range of Trades That Benefit Both the United States and Mexico</span></a>. For example, a trade where the U.S. exports 4,000 refrigerators to Mexico in exchange for 1,800 pairs of shoes would benefit both sides, in the sense that both countries would be able to consume more of both goods than in a world without trade.</p>
-<div id="tbl-table_19_11" class="quarto-float anchored">
+<p>Mexico started out, before specialization and trade, producing 4,000 pairs of shoes and 5,000 refrigerators (see <a href="#fig-19_4">Figure 19.4</a> and <a href="#tbl-table_19_9" class="quarto-xref">Table&nbsp;<span>19.9</span></a>). Then, in the numerical example given, Mexico shifted production toward its comparative advantage and produced 6,000 pairs of shoes but only 2,500 refrigerators. Thus, if Mexico can export no more than 2,000 pairs of shoes (giving up 2,000 pairs of shoes) in exchange for imports of at least 2,500 refrigerators (a gain of 2,500 refrigerators), it will be able to consume more of both goods than before trade. Mexico will be unambiguously better off. Conversely, the United States started off, before specialization and trade, producing 5,000 pairs of shoes and 20,000 refrigerators. In the example, it then shifted production toward its comparative advantage, producing only 3,500 shoes but 26,000 refrigerators. If the United States can export no more than 6,000 refrigerators in exchange for imports of at least 1,500 pairs of shoes, it will be able to consume more of both goods and will be unambiguously better off.</p>
+<p>The range of trades that can benefit both nations is shown in <a href="#tbl-table_19_11" class="quarto-xref">Table&nbsp;<span>19.11</span></a>. For example, a trade where the U.S. exports 4,000 refrigerators to Mexico in exchange for 1,800 pairs of shoes would benefit both sides, in the sense that both countries would be able to consume more of both goods than in a world without trade.</p>
+<div id="tbl-table_19_11" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.11: The Range of Trades That Benefit Both the United States and Mexico
 </figcaption>
 <div aria-describedby="tbl-table_19_11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 49%">
 <col style="width: 50%">
@@ -905,13 +913,13 @@ Table&nbsp;19.11: The Range of Trades That Benefit Both the United States and Me
 <section id="calculating-absolute-and-comparative-advantage" class="level5 Heading4Grey">
 <h5 class="Heading4Grey anchored" data-anchor-id="calculating-absolute-and-comparative-advantage">Calculating Absolute and Comparative Advantage</h5>
 <p>In Canada a worker can produce 20 barrels of oil or 40 tons of lumber. In Venezuela, a worker can produce 60 barrels of oil or 30 tons of lumber.</p>
-<div id="tbl-table_19_12" class="quarto-float anchored">
+<div id="tbl-table_19_12" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.12: Production Possibilities in Canada and Venezuela
 </figcaption>
 <div aria-describedby="tbl-table_19_12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Country</th>
@@ -948,7 +956,7 @@ Table&nbsp;19.12: Production Possibilities in Canada and Venezuela
 <li>In this example, is absolute advantage the same as comparative advantage, or not?</li>
 <li>In what product should Canada specialize? In what product should Venezuela specialize?</li>
 </ol>
-<p>Step 1. Make a table like <a href="#tbl-table_19_12" class="quarto-xref">Table&nbsp;<span>Production Possibilities in Canada and Venezuela</span></a>.</p>
+<p>Step 1. Make a table like <a href="#tbl-table_19_12" class="quarto-xref">Table&nbsp;<span>19.12</span></a>.</p>
 <p>Step 2. To calculate absolute advantage, look at the larger of the numbers for each product. One worker in Canada can produce more lumber (40 tons versus 30 tons), so Canada has the absolute advantage in lumber. One worker in Venezuela can produce 60 barrels of oil compared to a worker in Canada who can produce only 20.</p>
 <p>Step 3. To calculate comparative advantage, find the opportunity cost of producing one barrel of oil in both countries. The country with the lowest opportunity cost has the comparative advantage. With the same labor time, Canada can produce either 20 barrels of oil or 40 tons of lumber. So in effect, 20 barrels of oil is equivalent to 40 tons of lumber: 20 oil = 40 lumber. Divide both sides of the equation by 20 to calculate the opportunity cost of one barrel of oil in Canada. 20/20 oil = 40/20 lumber. 1 oil = 2 lumber. To produce one additional barrel of oil in Canada has an opportunity cost of 2 lumber. Calculate the same way for Venezuela: 60 oil = 30 lumber. Divide both sides of the equation by 60. One oil in Venezuela has an opportunity cost of 1/2 lumber. Because 1/2 lumber &lt; 2 lumber, Venezuela has the comparative advantage in producing oil.</p>
 <p>Step 4. Calculate the opportunity cost of one lumber by reversing the numbers, with lumber on the left side of the equation. In Canada, 40 lumber is equivalent in labor time to 20 barrels of oil: 40 lumber = 20 oil. Divide each side of the equation by 40. The opportunity cost of one lumber is 1/2 oil. In Venezuela, the equivalent labor time will produce 30 lumber or 60 oil: 30 lumber = 60 oil. Divide each side by 30. One lumber has an opportunity cost of two oil. Canada has the lower opportunity cost in producing lumber.</p>
@@ -975,14 +983,14 @@ Table&nbsp;19.12: Production Possibilities in Canada and Venezuela
 </section>
 <section id="the-prevalence-of-intra-industry-trade-between-similar-economies" class="level4">
 <h4 class="anchored" data-anchor-id="the-prevalence-of-intra-industry-trade-between-similar-economies">The Prevalence of Intra-Industry Trade between Similar Economies</h4>
-<p>The theory of comparative advantage suggests that trade should happen between economies with large differences in opportunity costs of production. Roughly half of all U.S. trade involves shipping goods between the fairly similar high-income economies of Japan, Canada, and the United States. Furthermore, the trade has an important geographic component—the biggest trading partners of the United States are Canada and Mexico (see <a href="#tbl-table_19_13" class="quarto-xref">Table&nbsp;<span>Top Trading Partners (November 2021) (Source: https://www.census.gov/foreign-trade/statistics/highlights/toppartners.html)</span></a>).</p>
-<div id="tbl-table_19_13" class="quarto-float anchored">
+<p>The theory of comparative advantage suggests that trade should happen between economies with large differences in opportunity costs of production. Roughly half of all U.S. trade involves shipping goods between the fairly similar high-income economies of Japan, Canada, and the United States. Furthermore, the trade has an important geographic component—the biggest trading partners of the United States are Canada and Mexico (see <a href="#tbl-table_19_13" class="quarto-xref">Table&nbsp;<span>19.13</span></a>).</p>
+<div id="tbl-table_19_13" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.13: Top Trading Partners (November 2021) (Source: https://www.census.gov/foreign-trade/statistics/highlights/toppartners.html)
 </figcaption>
 <div aria-describedby="tbl-table_19_13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Country</th>
@@ -1021,14 +1029,14 @@ Table&nbsp;19.13: Top Trading Partners (November 2021) (Source: https://www.cens
 </div>
 </figure>
 </div>
-<p>Moreover, the theory of comparative advantage suggests that each economy should specialize to a degree in certain products, and then exchange those products. A high proportion of trade, however, is intra-industry trade—that is, trade of goods within the same industry from one country to another. For example, the United States produces and exports autos and imports autos. <a href="#tbl-table_19_14" class="quarto-xref">Table&nbsp;<span>Some Intra-Industry U.S. Exports and Imports in 2021 (Source: https://www.census.gov/foreign-trade/data/index.html)</span></a> shows some of the largest categories of U.S. exports and imports. In all of these categories, the United States is both a substantial exporter and a substantial importer of goods from the same industry. In 2021, according to the U.S. Census Bureau, the United States exported $131 billion worth of autos, and imported $317 billion worth of autos. About 60% of U.S. trade and 60% of European trade is intra-industry trade.</p>
-<div id="tbl-table_19_14" class="quarto-float anchored">
+<p>Moreover, the theory of comparative advantage suggests that each economy should specialize to a degree in certain products, and then exchange those products. A high proportion of trade, however, is intra-industry trade—that is, trade of goods within the same industry from one country to another. For example, the United States produces and exports autos and imports autos. <a href="#tbl-table_19_14" class="quarto-xref">Table&nbsp;<span>19.14</span></a> shows some of the largest categories of U.S. exports and imports. In all of these categories, the United States is both a substantial exporter and a substantial importer of goods from the same industry. In 2021, according to the U.S. Census Bureau, the United States exported $131 billion worth of autos, and imported $317 billion worth of autos. About 60% of U.S. trade and 60% of European trade is intra-industry trade.</p>
+<div id="tbl-table_19_14" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_19_14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;19.14: Some Intra-Industry U.S. Exports and Imports in 2021 (Source: https://www.census.gov/foreign-trade/data/index.html)
 </figcaption>
 <div aria-describedby="tbl-table_19_14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 27%">
 <col style="width: 35%">
@@ -1092,7 +1100,7 @@ Table&nbsp;19.14: Some Intra-Industry U.S. Exports and Imports in 2021 (Source: 
 <h4 class="anchored" data-anchor-id="economies-of-scale-competition-variety">Economies of Scale, Competition, Variety</h4>
 <p>A second broad reason that intra-industry trade between similar nations produces economic gains involves economies of scale. The concept of economies of scale, as we introduced in <a href="07_production_and_costs.html" class="quarto-xref"><span>7. Production and Costs</span></a>, means that as the scale of output goes up, average costs of production decline—at least up to a point. <a href="#fig-19_5">Figure 19.5</a> illustrates economies of scale for a plant producing toaster ovens. The horizontal axis of the figure shows the quantity of production by a certain firm or at a certain manufacturing plant. The vertical axis measures the average cost of production. Production plant S produces a small level of output at 30 units and has an average cost of production of $30 per toaster oven. Plant M produces at a medium level of output at 50 units, and has an average cost of production of $20 per toaster oven. Plant L produces 150 units of output with an average cost of production of only $10 per toaster oven. Although plant V can produce 200 units of output, it still has the same unit cost as Plant L.</p>
 <p>In this example, a small or medium plant, like S or M, will not be able to compete in the market with a large or a very large plant like L or V, because the firm that operates L or V will be able to produce and sell its output at a lower price. In this example, economies of scale operate up to point L, but beyond point L to V, the additional scale of production does not continue to reduce average costs of production.</p>
-<div id="fig-19_5" class="quarto-figure quarto-figure-center quarto-float anchored" width="3.25in" height="2.17in">
+<div id="fig-19_5" class="quarto-float quarto-figure quarto-figure-center anchored" width="3.25in" height="2.17in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-19_5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/19-3-intra-industry-trade-between-similar-economies_rId34.jpeg" id="fig-19_5" style="width:3.25in;height:2.17in" class="figure-img">
@@ -1159,43 +1167,58 @@ Figure&nbsp;19.5
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -1203,213 +1226,235 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
           } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
         }
-        return container.innerHTML
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1417,198 +1462,174 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./18_public_economy.html" class="pagination-link  aria-label=" &lt;span="" public="" economy&lt;="" span&gt;"="">
+      <a href="./18_public_economy.html" class="pagination-link" aria-label="18. Public Economy">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">18. Public Economy</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./20_globalization.html" class="pagination-link" aria-label="<span class='chapter-number'>20</span>&nbsp; <span class='chapter-title'>20. Globalization</span>">
+      <a href="./20_globalization.html" class="pagination-link" aria-label="20. Globalization">
         <span class="nav-page-text"><span class="chapter-title">20. Globalization</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 19. International Trade {#sec-chapter-19}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 19. International Trade {#sec-chapter-19}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/19-introduction-to-international-trade_rId20.jpeg)</span>{width="6.5in" height="3.9166666666666665in" #fig-19_1}</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Figure 19.1 Apple or Samsung iPhone? While the iPhone is readily</span>
@@ -1783,10 +1804,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>of the two countries, expressed in terms of how many hours it takes to</span>
 <span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>produce one unit of each good.</span>
 <span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>| Country        | Oil (hours per barrel) | Corn (hours per bushel) |</span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>|----------------|------------------------|-------------------------|</span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>| Saudi Arabia   | 1                      | 4                       |</span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>| United States  | 2                      | 1                       |</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country        <span class="pp">|</span> Oil (hours per barrel) <span class="pp">|</span> Corn (hours per bushel) <span class="pp">|</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------|------------------------|-------------------------|</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Saudi Arabia   <span class="pp">|</span> 1                      <span class="pp">|</span> 4                       <span class="pp">|</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> United States  <span class="pp">|</span> 2                      <span class="pp">|</span> 1                       <span class="pp">|</span></span>
 <span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>: How Many Hours It Takes to Produce Oil and Corn {#tbl-table_19_1}</span>
 <span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
@@ -1804,10 +1825,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>each country can produce given its limited resources, in this case</span>
 <span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>workers, and its level of technology.</span>
 <span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>| Country        | Oil Production using 100 worker hours (barrels) |      | Corn Production using 100 worker hours (bushels) |</span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>|----------------|------------------------------------------------|------|-------------------------------------------------|</span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>| Saudi Arabia   | 100                                            |   or | 25                                              |</span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>| United States  | 50                                             |   or | 100                                             |</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country        <span class="pp">|</span> Oil Production using 100 worker hours (barrels) <span class="pp">|</span>      <span class="pp">|</span> Corn Production using 100 worker hours (bushels) <span class="pp">|</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------|------------------------------------------------|------|-------------------------------------------------|</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Saudi Arabia   <span class="pp">|</span> 100                                            <span class="pp">|</span>   or <span class="pp">|</span> 25                                              <span class="pp">|</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> United States  <span class="pp">|</span> 50                                             <span class="pp">|</span>   or <span class="pp">|</span> 100                                             <span class="pp">|</span></span>
 <span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>: Production Possibilities before Trade {#tbl-table_19_2}</span>
 <span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
@@ -1838,11 +1859,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>devotes 40 worker hours to produce 20 barrels of oil and it can allocate</span>
 <span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>the remaining worker hours to produce 60 bushels of corn.</span>
 <span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>| Country                  | Oil Production (barrels) | Corn Production (bushels) |</span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>|--------------------------|--------------------------|---------------------------|</span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>| Saudi Arabia (C)         | 60                       | 10                        |</span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>| United States (C')       | 20                       | 60                        |</span>
-<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>| **Total World Production** | **80**                  | **70**                    |</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country                  <span class="pp">|</span> Oil Production (barrels) <span class="pp">|</span> Corn Production (bushels) <span class="pp">|</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------------------|--------------------------|---------------------------|</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Saudi Arabia (C)         <span class="pp">|</span> 60                       <span class="pp">|</span> 10                        <span class="pp">|</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> United States (C')       <span class="pp">|</span> 20                       <span class="pp">|</span> 60                        <span class="pp">|</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Total World Production** | **80**                  | **70**                    <span class="pp">|</span></span>
 <span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>: Production before Trade {#tbl-table_19_3}</span>
 <span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
@@ -1859,10 +1880,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>notice that Saudi Arabia gives up the least to produce a barrel of oil.</span>
 <span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>@tbl-table_19_4 summarizes these calculations.</span>
 <span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>| Country        | Opportunity cost of one unit — Oil (in terms of corn) | Opportunity cost of one unit — Corn (in terms of oil) |</span>
-<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>|----------------|-----------------------------------------------------|------------------------------------------------------|</span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>| Saudi Arabia   | ¼                                                   | 4                                                    |</span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>| United States  | 2                                                   | ½                                                    |</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country        <span class="pp">|</span> Opportunity cost of one unit — Oil (in terms of corn) <span class="pp">|</span> Opportunity cost of one unit — Corn (in terms of oil) <span class="pp">|</span></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------|-----------------------------------------------------|------------------------------------------------------|</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Saudi Arabia   <span class="pp">|</span> ¼                                                   <span class="pp">|</span> 4                                                    <span class="pp">|</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> United States  <span class="pp">|</span> 2                                                   <span class="pp">|</span> ½                                                    <span class="pp">|</span></span>
 <span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>: Opportunity Cost and Comparative Advantage {#tbl-table_19_4}</span>
 <span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
@@ -1921,10 +1942,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>specialization and trade. @tbl-table_19_5 illustrates the</span>
 <span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>range of trades that would benefit both sides.</span>
 <span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>| The U.S. economy, after specialization, will benefit if it: | The Saudi Arabian economy, after specialization, will benefit if it: |</span>
-<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>|-------------------------------------------------------------|--------------------------------------------------------------------|</span>
-<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>| Exports no more than 60 bushels of corn                      | Imports at least 10 bushels of corn                               |</span>
-<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>| Imports at least 20 barrels of oil                           | Exports less than 60 barrels of oil                               |</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The U.S. economy, after specialization, will benefit if it: <span class="pp">|</span> The Saudi Arabian economy, after specialization, will benefit if it: <span class="pp">|</span></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------------------------------------------------------------|--------------------------------------------------------------------|</span></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Exports no more than 60 bushels of corn                      <span class="pp">|</span> Imports at least 10 bushels of corn                               <span class="pp">|</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Imports at least 20 barrels of oil                           <span class="pp">|</span> Exports less than 60 barrels of oil                               <span class="pp">|</span></span>
 <span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>: The Range of Trades That Benefit Both the United States and Saudi Arabia {#tbl-table_19_5}</span>
 <span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a></span>
@@ -1963,11 +1984,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>specialization. Specialization leads to an increase in total world</span>
 <span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>production. (Compare the total world production in @tbl-table_19_3 to that in @tbl-table_19_6.)</span>
 <span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>| Country                  | Quantity produced after 100% specialization — Oil (barrels) | Quantity produced after 100% specialization — Corn (bushels) |</span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>|--------------------------|-----------------------------------------------------------|------------------------------------------------------------|</span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>| Saudi Arabia             | 100                                                       | 0                                                          |</span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>| United States            | 0                                                         | 100                                                        |</span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>| **Total World Production** | **100**                                                   | **100**                                                    |</span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country                  <span class="pp">|</span> Quantity produced after 100% specialization — Oil (barrels) <span class="pp">|</span> Quantity produced after 100% specialization — Corn (bushels) <span class="pp">|</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------------------|-----------------------------------------------------------|------------------------------------------------------------|</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Saudi Arabia             <span class="pp">|</span> 100                                                       <span class="pp">|</span> 0                                                          <span class="pp">|</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> United States            <span class="pp">|</span> 0                                                         <span class="pp">|</span> 100                                                        <span class="pp">|</span></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Total World Production** | **100**                                                   | **100**                                                    <span class="pp">|</span></span>
 <span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>: How Specialization Expands Output {#tbl-table_19_6}</span>
 <span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
@@ -2035,10 +2056,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>States than in Mexico to produce both a given number of shoes and a</span>
 <span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>given number of refrigerators.</span>
 <span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>| Country        | Number of Workers needed to produce 1,000 units — Shoes | Number of Workers needed to produce 1,000 units — Refrigerators |</span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>|----------------|-------------------------------------------------------|--------------------------------------------------------------|</span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>| United States   | 4 workers                                             | 1 worker                                                     |</span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>| Mexico          | 5 workers                                             | 4 workers                                                    |</span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country        <span class="pp">|</span> Number of Workers needed to produce 1,000 units — Shoes <span class="pp">|</span> Number of Workers needed to produce 1,000 units — Refrigerators <span class="pp">|</span></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------|-------------------------------------------------------|--------------------------------------------------------------|</span></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> United States   <span class="pp">|</span> 4 workers                                             <span class="pp">|</span> 1 worker                                                     <span class="pp">|</span></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mexico          <span class="pp">|</span> 5 workers                                             <span class="pp">|</span> 4 workers                                                    <span class="pp">|</span></span>
 <span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>: Resources Needed to Produce Shoes and Refrigerators {#tbl-table_19_7}</span>
 <span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a></span>
@@ -2076,10 +2097,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a>1,000 refrigerators, then a total of 40,000 refrigerators will be</span>
 <span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a>produced.</span>
 <span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a>| Country        | Shoe Production — using 40 workers |        | Refrigerator Production — using 40 workers |</span>
-<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a>|----------------|-----------------------------------|--------|-------------------------------------------|</span>
-<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a>| United States   | 10,000 shoes                      |   or   | 40,000 refrigerators                      |</span>
-<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a>| Mexico          | 8,000 shoes                       |   or   | 10,000 refrigerators                      |</span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country        <span class="pp">|</span> Shoe Production — using 40 workers <span class="pp">|</span>        <span class="pp">|</span> Refrigerator Production — using 40 workers <span class="pp">|</span></span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------|-----------------------------------|--------|-------------------------------------------|</span></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> United States   <span class="pp">|</span> 10,000 shoes                      <span class="pp">|</span>   or   <span class="pp">|</span> 40,000 refrigerators                      <span class="pp">|</span></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mexico          <span class="pp">|</span> 8,000 shoes                       <span class="pp">|</span>   or   <span class="pp">|</span> 10,000 refrigerators                      <span class="pp">|</span></span>
 <span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a>: Production Possibilities before Trade with Complete Specialization {#tbl-table_19_8}</span>
 <span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a></span>
@@ -2105,11 +2126,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a>A. @tbl-table_19_9 shows the output of each good for each</span>
 <span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a>country and the total output for the two countries.</span>
 <span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a>| Country        | Current Shoe Production | Current Refrigerator Production |</span>
-<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a>|----------------|------------------------|----------------------------------|</span>
-<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a>| United States   | 5,000                  | 20,000                           |</span>
-<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a>| Mexico          | 4,000                  | 5,000                            |</span>
-<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a>| **Total**       | **9,000**              | **25,000**                        |</span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country        <span class="pp">|</span> Current Shoe Production <span class="pp">|</span> Current Refrigerator Production <span class="pp">|</span></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------|------------------------|----------------------------------|</span></span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> United States   <span class="pp">|</span> 5,000                  <span class="pp">|</span> 20,000                           <span class="pp">|</span></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mexico          <span class="pp">|</span> 4,000                  <span class="pp">|</span> 5,000                            <span class="pp">|</span></span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Total**       | **9,000**              | **25,000**                        <span class="pp">|</span></span>
 <span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a>: Total Production at Point A before Trade {#tbl-table_19_9}</span>
 <span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a></span>
@@ -2131,11 +2152,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a>the reduction of 2,500 refrigerators in Mexico is more than offset by</span>
 <span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a>the additional 6,000 refrigerators produced in the United States.</span>
 <span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a>| Country        | Shoe Production | Refrigerator Production |</span>
-<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a>|----------------|-----------------|--------------------------|</span>
-<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a>| United States   | 3,500           | 26,000                   |</span>
-<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a>| Mexico          | 6,000           | 2,500                    |</span>
-<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a>| **Total**       | **9,500**       | **28,500**               |</span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country        <span class="pp">|</span> Shoe Production <span class="pp">|</span> Refrigerator Production <span class="pp">|</span></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------|-----------------|--------------------------|</span></span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> United States   <span class="pp">|</span> 3,500           <span class="pp">|</span> 26,000                   <span class="pp">|</span></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mexico          <span class="pp">|</span> 6,000           <span class="pp">|</span> 2,500                    <span class="pp">|</span></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Total**       | **9,500**       | **28,500**               <span class="pp">|</span></span>
 <span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a>: Shifting Production Toward Comparative Advantage Raises</span>
 <span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a>Total Output {#tbl-table_19_10}</span>
@@ -2179,10 +2200,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a>benefit both sides, in the sense that both countries would be able to</span>
 <span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>consume more of both goods than in a world without trade.</span>
 <span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a>| The U.S. economy, after specialization, will benefit if it: | The Mexican economy, after specialization, will benefit if it: |</span>
-<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>|------------------------------------------------------------|--------------------------------------------------------------|</span>
-<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>| *Exports* fewer than 6,000 refrigerators                    | *Imports* at least 2,500 refrigerators                        |</span>
-<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a>| *Imports* at least 1,500 pairs of shoes                      | *Exports* no more than 2,000 pairs of shoes                    |</span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The U.S. economy, after specialization, will benefit if it: <span class="pp">|</span> The Mexican economy, after specialization, will benefit if it: <span class="pp">|</span></span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------------------------------------------|--------------------------------------------------------------|</span></span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> *Exports* fewer than 6,000 refrigerators                    | *Imports* at least 2,500 refrigerators                        <span class="pp">|</span></span>
+<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> *Imports* at least 1,500 pairs of shoes                      | *Exports* no more than 2,000 pairs of shoes                    <span class="pp">|</span></span>
 <span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a>: The Range of Trades That Benefit Both the United States and Mexico {#tbl-table_19_11}</span>
 <span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a></span>
@@ -2213,10 +2234,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a>In Venezuela, a worker can produce 60 barrels of oil or 30 tons of</span>
 <span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a>lumber.</span>
 <span id="cb1-605"><a href="#cb1-605" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a>| Country   | Oil (barrels) |        | Lumber (tons) |        |</span>
-<span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a>|-----------|---------------|--------|---------------|--------|</span>
-<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a>| Canada    | 20            | *or*   | 40            |        |</span>
-<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a>| Venezuela | 60            | *or*   | 30            |        |</span>
+<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country   <span class="pp">|</span> Oil (barrels) <span class="pp">|</span>        <span class="pp">|</span> Lumber (tons) <span class="pp">|</span>        <span class="pp">|</span></span>
+<span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------|---------------|--------|---------------|--------|</span></span>
+<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Canada    <span class="pp">|</span> 20            <span class="pp">|</span> *or*   <span class="pp">|</span> 40            <span class="pp">|</span>        <span class="pp">|</span></span>
+<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Venezuela <span class="pp">|</span> 60            <span class="pp">|</span> *or*   <span class="pp">|</span> 30            <span class="pp">|</span>        <span class="pp">|</span></span>
 <span id="cb1-610"><a href="#cb1-610" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a>: Production Possibilities in Canada and Venezuela {#tbl-table_19_12}</span>
 <span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a></span>
@@ -2330,13 +2351,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-720"><a href="#cb1-720" aria-hidden="true" tabindex="-1"></a>component---the biggest trading partners of the United States are Canada</span>
 <span id="cb1-721"><a href="#cb1-721" aria-hidden="true" tabindex="-1"></a>and Mexico (see @tbl-table_19_13).</span>
 <span id="cb1-722"><a href="#cb1-722" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-723"><a href="#cb1-723" aria-hidden="true" tabindex="-1"></a>| Country      | U.S. Exports Go to ... | U.S. Imports Come from ... |</span>
-<span id="cb1-724"><a href="#cb1-724" aria-hidden="true" tabindex="-1"></a>|--------------|------------------------|-----------------------------|</span>
-<span id="cb1-725"><a href="#cb1-725" aria-hidden="true" tabindex="-1"></a>| China        | 8.6%                   | 17.7%                       |</span>
-<span id="cb1-726"><a href="#cb1-726" aria-hidden="true" tabindex="-1"></a>| Canada       | 17.6%                  | 12.6%                       |</span>
-<span id="cb1-727"><a href="#cb1-727" aria-hidden="true" tabindex="-1"></a>| Japan        | 4.3%                   | 4.3%                        |</span>
-<span id="cb1-728"><a href="#cb1-728" aria-hidden="true" tabindex="-1"></a>| Mexico       | 15.8%                  | 13.6%                       |</span>
-<span id="cb1-729"><a href="#cb1-729" aria-hidden="true" tabindex="-1"></a>| South Korea  | 3.8%                   | 3.3%                        |</span>
+<span id="cb1-723"><a href="#cb1-723" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Country      <span class="pp">|</span> U.S. Exports Go to ... <span class="pp">|</span> U.S. Imports Come from ... <span class="pp">|</span></span>
+<span id="cb1-724"><a href="#cb1-724" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------|------------------------|-----------------------------|</span></span>
+<span id="cb1-725"><a href="#cb1-725" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> China        <span class="pp">|</span> 8.6%                   <span class="pp">|</span> 17.7%                       <span class="pp">|</span></span>
+<span id="cb1-726"><a href="#cb1-726" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Canada       <span class="pp">|</span> 17.6%                  <span class="pp">|</span> 12.6%                       <span class="pp">|</span></span>
+<span id="cb1-727"><a href="#cb1-727" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Japan        <span class="pp">|</span> 4.3%                   <span class="pp">|</span> 4.3%                        <span class="pp">|</span></span>
+<span id="cb1-728"><a href="#cb1-728" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mexico       <span class="pp">|</span> 15.8%                  <span class="pp">|</span> 13.6%                       <span class="pp">|</span></span>
+<span id="cb1-729"><a href="#cb1-729" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> South Korea  <span class="pp">|</span> 3.8%                   <span class="pp">|</span> 3.3%                        <span class="pp">|</span></span>
 <span id="cb1-730"><a href="#cb1-730" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-731"><a href="#cb1-731" aria-hidden="true" tabindex="-1"></a>: Top Trading Partners (November 2021) (Source:</span>
 <span id="cb1-732"><a href="#cb1-732" aria-hidden="true" tabindex="-1"></a>https://www.census.gov/foreign-trade/statistics/highlights/toppartners.html) {#tbl-table_19_13}</span>
@@ -2354,14 +2375,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-744"><a href="#cb1-744" aria-hidden="true" tabindex="-1"></a>worth of autos, and imported \$317 billion worth of autos. About 60% of</span>
 <span id="cb1-745"><a href="#cb1-745" aria-hidden="true" tabindex="-1"></a>U.S. trade and 60% of European trade is intra-industry trade.</span>
 <span id="cb1-746"><a href="#cb1-746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-747"><a href="#cb1-747" aria-hidden="true" tabindex="-1"></a>| Some U.S. Exports        | Quantity of Exports ($ billions) | Quantity of Imports ($ billions) |</span>
-<span id="cb1-748"><a href="#cb1-748" aria-hidden="true" tabindex="-1"></a>|--------------------------|----------------------------------|-----------------------------------|</span>
-<span id="cb1-749"><a href="#cb1-749" aria-hidden="true" tabindex="-1"></a>| Autos                    | $131                             | $317                              |</span>
-<span id="cb1-750"><a href="#cb1-750" aria-hidden="true" tabindex="-1"></a>| Food and beverages       | $147                             | $167                              |</span>
-<span id="cb1-751"><a href="#cb1-751" aria-hidden="true" tabindex="-1"></a>| Capital goods            | $474                             | $695                              |</span>
-<span id="cb1-752"><a href="#cb1-752" aria-hidden="true" tabindex="-1"></a>| Consumer goods           | $201                             | $699                              |</span>
-<span id="cb1-753"><a href="#cb1-753" aria-hidden="true" tabindex="-1"></a>| Industrial supplies      | $578                             | $589                              |</span>
-<span id="cb1-754"><a href="#cb1-754" aria-hidden="true" tabindex="-1"></a>| Other transportation     | $63                              | $113                              |</span>
+<span id="cb1-747"><a href="#cb1-747" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Some U.S. Exports        <span class="pp">|</span> Quantity of Exports ($ billions) <span class="pp">|</span> Quantity of Imports ($ billions) <span class="pp">|</span></span>
+<span id="cb1-748"><a href="#cb1-748" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------------------|----------------------------------|-----------------------------------|</span></span>
+<span id="cb1-749"><a href="#cb1-749" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Autos                    <span class="pp">|</span> $131                             <span class="pp">|</span> $317                              <span class="pp">|</span></span>
+<span id="cb1-750"><a href="#cb1-750" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Food and beverages       <span class="pp">|</span> $147                             <span class="pp">|</span> $167                              <span class="pp">|</span></span>
+<span id="cb1-751"><a href="#cb1-751" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Capital goods            <span class="pp">|</span> $474                             <span class="pp">|</span> $695                              <span class="pp">|</span></span>
+<span id="cb1-752"><a href="#cb1-752" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Consumer goods           <span class="pp">|</span> $201                             <span class="pp">|</span> $699                              <span class="pp">|</span></span>
+<span id="cb1-753"><a href="#cb1-753" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Industrial supplies      <span class="pp">|</span> $578                             <span class="pp">|</span> $589                              <span class="pp">|</span></span>
+<span id="cb1-754"><a href="#cb1-754" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Other transportation     <span class="pp">|</span> $63                              <span class="pp">|</span> $113                              <span class="pp">|</span></span>
 <span id="cb1-755"><a href="#cb1-755" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-756"><a href="#cb1-756" aria-hidden="true" tabindex="-1"></a>: Some Intra-Industry U.S. Exports and Imports in 2021</span>
 <span id="cb1-757"><a href="#cb1-757" aria-hidden="true" tabindex="-1"></a>(Source: https://www.census.gov/foreign-trade/data/index.html) {#tbl-table_19_14}</span>
@@ -2612,7 +2633,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-1002"><a href="#cb1-1002" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1003"><a href="#cb1-1003" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Textbook license and version note</span></span>
 <span id="cb1-1004"><a href="#cb1-1004" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-1005"><a href="#cb1-1005" aria-hidden="true" tabindex="-1"></a>This textbook is an Open-Educational Resource (OER) textbook, licensed under an open-source Creative Commons Share-Alike (CC-SA) license, and is adapted from another OER textbook provided by <span class="co">[</span><span class="ot">OpenStax.org</span><span class="co">](https://openstax.org/)</span> at <span class="ot">&lt;https://openstax.org/details/books/principles-microeconomics-3e&gt;</span>. See the <span class="co">[</span><span class="ot">Github repository</span><span class="co">](https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev)</span> for details and to (hopefully) edit/correct/improve the book yourself!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-1005"><a href="#cb1-1005" aria-hidden="true" tabindex="-1"></a>This textbook is an Open-Educational Resource (OER) textbook, licensed under an open-source Creative Commons Share-Alike (CC-SA) license, and is adapted from another OER textbook provided by <span class="co">[</span><span class="ot">OpenStax.org</span><span class="co">](https://openstax.org/)</span> at <span class="ot">&lt;https://openstax.org/details/books/principles-microeconomics-3e&gt;</span>. See the <span class="co">[</span><span class="ot">Github repository</span><span class="co">](https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev)</span> for details and to (hopefully) edit/correct/improve the book yourself!</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

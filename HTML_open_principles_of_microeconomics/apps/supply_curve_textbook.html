@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply Curve for Gasoline</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Supply Curve for Gasoline</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">As the price of gasoline rises, the quantity supplied increases: the law of supply</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Supply Curve</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>A <strong>supply curve</strong> shows the relationship between the price of a good and the quantity producers are willing to sell, holding all other factors constant. The <strong>law of supply</strong> states that as the price rises, the quantity supplied rises, and vice versa, giving the curve its upward slope.</p>
+          <p>Each point represents a price and quantity pair from the supply schedule. As the price of gasoline rises from $1.00 to $2.20 per gallon, the quantity supplied increases from 500 to 720 million gallons. Higher prices make production more profitable, which encourages producers to supply more.</p>
+          <p>The <strong>supply shift</strong> slider explores what happens when non-price factors change (input costs, technology, number of sellers). Moving <em>along</em> the curve is a change in quantity supplied (price-driven); shifting the <em>entire curve</em> is a change in supply (driven by other factors).</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-elasticity">
+        <div class="left-section-header" onclick="tog('elasticity')"><div class="panel-title">Elasticity</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-elasticity" onclick="event.stopPropagation();tog('elasticity')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('elasticity')">✕</button></div></div>
+        <div class="left-section-body" id="body-elasticity"><div id="elasticity-content"></div></div>
+      </div>
+
+      <div class="left-section" id="section-schedule">
+        <div class="left-section-header" onclick="tog('schedule')"><div class="panel-title">Supply Schedule</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-schedule" onclick="event.stopPropagation();tog('schedule')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('schedule')">✕</button></div></div>
+        <div class="left-section-body" id="body-schedule">
+          <table class="data-table">
+            <thead><tr><th>Price ($/gal)</th><th>Qty (M gal)</th><th>ΔP</th><th>ΔQ</th></tr></thead>
+            <tbody id="schedule-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shift">
+        <div class="control-panel-header" onclick="tog('shift')"><div class="panel-title">Shift Supply</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shift" onclick="event.stopPropagation();tog('shift')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shift')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shift">
+          <div data-sliders></div>
+          <div style="font-size:.82rem;color:#718096;line-height:1.5;margin-top:4px">H-shift = change in quantity supplied at every price level. V-shift = change in the price needed to bring forth every quantity.</div>
+        </div>
+      </div>
+      <div class="control-panel" id="section-selected">
+        <div class="control-panel-header" onclick="tog('selected')"><div class="panel-title">Selected Point</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-selected" onclick="event.stopPropagation();tog('selected')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('selected')">✕</button></div></div>
+        <div class="control-panel-body" id="body-selected"><div class="info-box" id="selected-info"></div></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keyvals')">✕</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>Supply curve S</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:rgba(43,108,176,.3);border:1px dashed rgba(43,108,176,.5);height:1px"></div><span>Original S (when shifted)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0"></div><span>Price and quantity points</span></div>
+          </div>
+          <div class="equation-box" style="margin-top:12px">\( Q_s = f(P) \quad \text{with} \quad \frac{\Delta Q_s}{\Delta P} > 0 \)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition, click a point to select it</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Data (from the textbook schedule) ----
+const BASE = [{p:1.00,q:500},{p:1.20,q:550},{p:1.40,q:600},{p:1.60,q:640},{p:1.80,q:680},{p:2.00,q:700},{p:2.20,q:720}];
+const fmtP = v => '$' + v.toFixed(2);
+// Points are keyed by their index in the schedule, so sel=3 names the fourth row.
+const shifted = g => BASE.map(pt => ({ p: +(pt.p + g.val('dp_s')).toFixed(2), q: pt.q + g.val('dq_s') }));
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'supply_curve.png',
+  axes: { xMin:300, xMax:950, yMin:0.80, yMax:2.40, margin:{top:80, right:80, bottom:120, left:160} },
+  sliders: [
+    { id:'dq_s', label:'Horizontal shift (Q)', min:-200, max:200, value:0, step:10, fmt:v => (v > 0 ? '+' : '') + v },
+    { id:'dp_s', label:'Vertical shift (P)', min:-0.60, max:0.60, value:0, step:0.05, fmt:v => '$' + (v >= 0 ? '+' : '') + v.toFixed(2) },
+  ],
+  toggles: [
+    { id:'show_grid',       label:'Gridlines' },
+    { id:'show_ticks',      label:'Axis tick numbers' },
+    { id:'show_points',     label:'Data points' },
+    { id:'show_annot',      label:'Point annotations' },
+    { id:'show_curvelabel', label:'Curve label' },
+    { id:'show_droplines',  label:'Dashed lines for selected point' },
+    { id:'show_s0', label:'Original curve when shifted' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', elasticity:'Elasticity', schedule:'Schedule', shift:'Shift', selected:'Selected', keyvals:'Key' },
+  leftPanels:  ['graph','explanation','elasticity','schedule'],
+  rightPanels: ['shift','selected','keyvals'],
+  nudgeKeys: ['x','y','s','an.0','an.1','an.2','an.3','an.4','an.5','an.6'],
+
+  pointTooltip(key, g) {
+    const p = shifted(g)[Number(key)];
+    if (!p) return '';
+    return `<div class="tt-label">${fmtP(p.p)} per gallon</div>` +
+      `<div class="tt-row"><span class="tt-key">Quantity:</span><span class="tt-val">${p.q} million gallons</span></div>`;
+  },
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, margin, yMin } = g;
+    const pts = shifted(g);
+    const isShifted = val('dq_s') !== 0 || val('dp_s') !== 0;
+    const selIdx = g.selected === null ? null : Number(g.selected);
+    const sel = selIdx === null ? null : pts[selIdx];
+
+    // ---- Side panels ----
+    g.setText('schedule-tbody', pts.map((p, i) => {
+      const dp = i > 0 ? fmtP(p.p - pts[i - 1].p) : '-';
+      const dq = i > 0 ? (p.q - pts[i - 1].q > 0 ? '+' : '') + (p.q - pts[i - 1].q) : '-';
+      return `<tr${selIdx === i ? ' class="selected"' : ''} onclick="selectPoint('${i}')" style="cursor:pointer">` +
+        `<td>${fmtP(p.p)}</td><td>${p.q}</td><td>${dp}</td><td>${dq}</td></tr>`;
+    }).join(''));
+
+    g.setText('selected-info', sel
+      ? `<div class="info-row"><span class="info-label">Price</span><span class="info-value highlight">${fmtP(sel.p)}/gal</span></div>` +
+        `<div class="info-row"><span class="info-label">Quantity</span><span class="info-value highlight">${sel.q} M gal</span></div>` +
+        `<div class="info-row"><span class="info-label">Total expenditure</span><span class="info-value">$${(sel.p * sel.q).toFixed(0)}M</span></div>`
+      : '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Click a point on the graph or table</div>');
+
+    let el = '<p style="margin:0 0 12px;line-height:1.7;font-size:.95rem;color:#4a5568"><strong>Midpoint elasticity</strong> between adjacent points:</p><div style="display:flex;flex-direction:column;gap:6px">';
+    for (let i = 0; i < pts.length - 1; i++) {
+      const a = pts[i], b = pts[i + 1];
+      const pctQ = ((b.q - a.q) / ((a.q + b.q) / 2)) * 100;
+      const pctP = ((b.p - a.p) / ((a.p + b.p) / 2)) * 100;
+      const e = pctQ / pctP, mag = Math.abs(e);
+      const label = mag > 1.01 ? 'Elastic' : mag < 0.99 ? 'Inelastic' : 'Unit elastic';
+      const color = mag > 1.01 ? '#e53e3e' : mag < 0.99 ? '#38a169' : '#d69e2e';
+      el += `<div style="background:#f7fafc;border-radius:6px;padding:8px 12px;border:1px solid #edf2f7;font-size:.85rem">` +
+        `<span style="color:#718096">${fmtP(a.p)} to ${fmtP(b.p)}:</span>` +
+        `<span style="font-family:Monaco,Consolas,monospace;font-weight:600;color:${color};margin-left:8px">ε = ${e.toFixed(2)}</span>` +
+        `<span style="font-size:.75rem;color:${color};margin-left:4px">(${label})</span></div>`;
+    }
+    g.setText('elasticity-content', el + '</div>');
+
+    // ---- Plot ----
+    g.clear();
+    if (vis('show_grid')) g.gridlines(100, 0.20);
+    g.axes();
+    if (vis('show_ticks')) {
+      const qs = [], ps = [];
+      for (let q = 300; q <= 900; q += 100) qs.push(q);
+      for (let p = 1.00; p <= 2.201; p += 0.20) ps.push(p);
+      g.xTicks(qs, v => v.toFixed(0));
+      g.yTicks(ps, fmtP);
+    }
+    g.axisLabels('Quantity of Gasoline (millions of gallons)', 'Price ($ per gallon)');
+
+    if (isShifted && vis('show_s0')) {
+      ctx.setLineDash([6 * S, 4 * S]);
+      g.curve(BASE, 'rgba(43,108,176,0.25)', 1, 2);
+      ctx.setLineDash([]);
+    }
+    g.curve(pts, '#2b6cb0', 1, 3);
+
+    if (vis('show_droplines') && sel) {
+      g.dashed(tCX(sel.q), tCY(sel.p), tCX(sel.q), tCY(yMin), 'rgba(214,158,46,0.4)', 1.5);
+      g.dashed(tCX(sel.q), tCY(sel.p), margin.left, tCY(sel.p), 'rgba(214,158,46,0.4)', 1.5);
+    }
+
+    if (vis('show_points')) {
+      pts.forEach((p, i) => {
+        const px = tCX(p.q), py = tCY(p.p), isSel = selIdx === i;
+        if (isSel) {
+          const glow = ctx.createRadialGradient(px, py, 0, px, py, 22 * S);
+          glow.addColorStop(0, 'rgba(214,158,46,0.3)');
+          glow.addColorStop(1, 'rgba(214,158,46,0)');
+          ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(px, py, 22 * S, 0, Math.PI * 2); ctx.fill();
+        }
+        const r = (isSel ? 9 : 7) * S;
+        ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2 * S; ctx.stroke();
+        g.regPoint(String(i), px, py, r);
+        if (vis('show_annot'))
+          g.label(`(${fmtP(p.p)} per gallon, ${p.q} million gallons)`, px + 14 * S, py + 4 * S,
+            { key:'an.' + i, font:`${11 * S}px ${g.font}`, color:'#2b6cb0' });
+      });
+    }
+
+    if (vis('show_curvelabel')) {
+      const tip = pts[BASE.length - 1];
+      g.label('S', tCX(tip.q) - 10 * S, tCY(tip.p) - 24 * S,
+        { key:'s', font:`bold ${18 * S}px ${g.font}`, color:'#2b6cb0', align:'center' });
+    }
+  },
+});
+</script>
+</body>
+</html>

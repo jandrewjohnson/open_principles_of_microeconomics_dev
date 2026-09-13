@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply and Demand Equilibrium</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Supply and Demand Equilibrium</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Where supply meets demand the market clears; any other price creates a surplus or a shortage</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Equilibrium, Surplus and Shortage</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The <strong>equilibrium price and quantity</strong> occur where the supply and demand curves intersect, at point E. At the equilibrium price of $1.40, the quantity demanded equals the quantity supplied at 600 million gallons. There is no pressure for the price to change.</p>
+          <p>At an <strong>above-equilibrium price</strong> like $1.80, suppliers want to sell more than consumers want to buy, creating an <em>excess supply</em> (surplus). The surplus bracket on the graph shows the gap between supply and demand quantities. Competitive pressure from unsold inventory pushes the price back down toward equilibrium.</p>
+          <p>At a <strong>below-equilibrium price</strong> like $1.20, consumers want to buy more than producers are willing to sell, creating an <em>excess demand</em> (shortage). Consumers competing for scarce goods push the price back up. This self-correcting mechanism is the invisible hand of the market driving price toward equilibrium.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-analysis">
+        <div class="left-section-header" onclick="tog('analysis')"><div class="panel-title">Surplus and Shortage Analysis</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-analysis" onclick="event.stopPropagation();tog('analysis')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('analysis')">✕</button></div></div>
+        <div class="left-section-body" id="body-analysis"><div id="analysis-content"></div></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-price">
+        <div class="control-panel-header" onclick="tog('price')"><div class="panel-title">Price Exploration</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-price" onclick="event.stopPropagation();tog('price')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('price')">✕</button></div></div>
+        <div class="control-panel-body" id="body-price"><div data-sliders="p"></div><div class="info-box" id="ep-info" style="margin-top:12px"></div></div>
+      </div>
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Equilibrium</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium">
+          <div class="info-box" id="eq-info"></div>
+          <div class="legend" style="margin-top:12px">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>Demand (D) and Supply (S)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#38a169"></div><span>Equilibrium (E)</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#d53f8c;height:1px;border:1px dashed #d53f8c"></div><span>Explored price line</span></div>
+          </div>
+          <div class="equation-box" style="margin-top:12px">\( Q_d(P^*) = Q_s(P^*) \quad \Rightarrow \quad \text{Equilibrium} \)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Data (from textbook figure) ----
+const D_BASE = [{p:2.20,q:420},{p:2.00,q:460},{p:1.80,q:500},{p:1.60,q:550},{p:1.40,q:600},{p:1.20,q:700},{p:1.00,q:800}];
+const S_BASE = [{p:1.00,q:500},{p:1.20,q:550},{p:1.40,q:600},{p:1.60,q:640},{p:1.80,q:680},{p:2.00,q:700},{p:2.20,q:720}];
+const shiftQ = (pts, dq) => pts.map(pt => ({ p: pt.p, q: pt.q + dq }));
+const fmtP = v => '$' + v.toFixed(2);
+
+// Equilibrium by scanning the price range for the smallest Qd - Qs gap.
+function findEq(g, dPts, sPts) {
+  let bestP = 1.40, bestDiff = Infinity;
+  for (let p = 0.80; p <= 2.40; p += 0.001) {
+    const diff = Math.abs(g.interpQ(dPts, p) - g.interpQ(sPts, p));
+    if (diff < bestDiff) { bestDiff = diff; bestP = p; }
+  }
+  return { p: Math.round(bestP * 100) / 100, q: Math.round(g.interpQ(dPts, bestP)) };
+}
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'equilibrium.png',
+  axes: { xMin:300, xMax:950, yMin:0.60, yMax:2.40, margin:{top:80, right:120, bottom:120, left:160} },
+  sliders: [
+    { id:'p',    label:'Explored price', min:0.80, max:2.40, value:1.80, step:0.05, fmt:fmtP },
+    { id:'dq_d', label:'Demand shift (Q)', min:-200, max:200, value:0, step:10, fmt:v => (v > 0 ? '+' : '') + v },
+    { id:'dq_s', label:'Supply shift (Q)', min:-200, max:200, value:0, step:10, fmt:v => (v > 0 ? '+' : '') + v },
+  ],
+  toggles: [
+    { id:'show_grid',       label:'Gridlines' },
+    { id:'show_ticks',      label:'Axis ticks' },
+    { id:'show_points',     label:'Data points' },
+    { id:'show_eqlines',    label:'Equilibrium dashed lines' },
+    { id:'show_pricelines', label:'Explored price line' },
+    { id:'show_brackets',   label:'Surplus/shortage brackets' },
+    { id:'show_annot',      label:'Price annotations' },
+    { id:'show_labels',     label:'S, D, E labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', analysis:'Analysis', price:'Price', shifts:'Shifts', equilibrium:'Equilibrium' },
+  leftPanels:  ['graph','explanation','analysis'],
+  rightPanels: ['price','shifts','equilibrium'],
+  nudgeKeys: ['x','y','d','s','pt.E','an.p','an.E','an.gap'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, margin, width, yMin } = g;
+    const dPts = shiftQ(D_BASE, val('dq_d')), sPts = shiftQ(S_BASE, val('dq_s'));
+    const eq = findEq(g, dPts, sPts);
+    const p = val('p');
+    const qd = g.interpQ(dPts, p), qs = g.interpQ(sPts, p);
+    const atEq = Math.abs(p - eq.p) < 0.03;
+    const surplus = qs > qd;
+
+    // ---- Side panels ----
+    g.setText('eq-info',
+      `<div class="info-row"><span class="info-label">Equilibrium price \\(P^*\\)</span><span class="info-value highlight">${fmtP(eq.p)}</span></div>` +
+      `<div class="info-row"><span class="info-label">Equilibrium qty \\(Q^*\\)</span><span class="info-value highlight">${eq.q} M gal</span></div>`);
+    g.renderMath(document.getElementById('eq-info'));
+    g.setText('ep-info',
+      `<div class="info-row"><span class="info-label">Q<sub>d</sub> at ${fmtP(p)}</span><span class="info-value">${Math.round(qd)} M</span></div>` +
+      `<div class="info-row"><span class="info-label">Q<sub>s</sub> at ${fmtP(p)}</span><span class="info-value">${Math.round(qs)} M</span></div>` +
+      `<div class="info-row"><span class="info-label">${surplus ? 'Surplus' : 'Shortage'}</span><span class="info-value" style="color:${surplus ? '#e53e3e' : '#2b6cb0'}">${Math.round(Math.abs(qs - qd))} M gal</span></div>`);
+
+    if (atEq) {
+      g.setText('analysis-content',
+        `<div class="compare-card green"><div class="card-title">At equilibrium (${fmtP(eq.p)})</div>Q<sub>d</sub> = Q<sub>s</sub> = ${eq.q} million gallons. No surplus or shortage.</div>`);
+    } else if (surplus) {
+      g.setText('analysis-content',
+        `<div class="compare-card red"><div class="card-title">Excess supply (surplus) at ${fmtP(p)}</div>` +
+        `Q<sub>s</sub> = ${Math.round(qs)} M gal &gt; Q<sub>d</sub> = ${Math.round(qd)} M gal<br>` +
+        `Surplus = <strong>${Math.round(qs - qd)} million gallons</strong><br>` +
+        `<em style="font-size:.88rem;color:#718096">Price is above equilibrium, so unsold inventory pushes price down</em></div>`);
+    } else {
+      g.setText('analysis-content',
+        `<div class="compare-card blue" style="margin-top:0"><div class="card-title">Excess demand (shortage) at ${fmtP(p)}</div>` +
+        `Q<sub>d</sub> = ${Math.round(qd)} M gal &gt; Q<sub>s</sub> = ${Math.round(qs)} M gal<br>` +
+        `Shortage = <strong>${Math.round(qd - qs)} million gallons</strong><br>` +
+        `<em style="font-size:.88rem;color:#718096">Price is below equilibrium, so competition among buyers pushes price up</em></div>`);
+    }
+
+    // ---- Plot ----
+    g.clear();
+    if (vis('show_grid')) g.gridlines(100, 0.20);
+    g.axes();
+    if (vis('show_ticks')) {
+      const qs_ticks = [], ps_ticks = [];
+      for (let q = 300; q <= 900; q += 100) qs_ticks.push(q);
+      for (let pv = 0.60; pv <= 2.401; pv += 0.20) ps_ticks.push(pv);
+      g.xTicks(qs_ticks, v => v.toFixed(0));
+      g.yTicks(ps_ticks, fmtP);
+    }
+    g.axisLabels('Quantity of Gasoline (millions of gallons)', 'P ($ per gallon)');
+
+    // Explored price line, only when it is away from equilibrium
+    if (vis('show_pricelines') && !atEq) {
+      g.dashed(margin.left, tCY(p), margin.left + width, tCY(p), '#d53f8c', 1.5);
+      g.dashed(tCX(qd), tCY(p), tCX(qd), tCY(yMin), 'rgba(213,63,140,0.3)', 1.5);
+      g.dashed(tCX(qs), tCY(p), tCX(qs), tCY(yMin), 'rgba(213,63,140,0.3)', 1.5);
+
+      if (vis('show_annot'))
+        g.label(p > eq.p ? 'An above-equilibrium price' : 'A below-equilibrium price',
+          margin.left + width + 8 * S, tCY(p) + 5 * S,
+          { key:'an.p', font:`${12 * S}px ${g.font}`, color:'#d53f8c' });
+
+      // Bracket spanning the gap between the two quantities (app specific)
+      if (vis('show_brackets')) {
+        const lx = tCX(Math.min(qd, qs)), rx = tCX(Math.max(qd, qs)), by = tCY(p);
+        const bracketY = surplus ? by - 20 * S : by + 20 * S;
+        const tipY = surplus ? bracketY - 12 * S : bracketY + 12 * S;
+        const cx = (lx + rx) / 2;
+        ctx.strokeStyle = '#2b6cb0'; ctx.lineWidth = 1.5 * S;
+        [[lx, by, lx, bracketY], [rx, by, rx, bracketY], [lx, bracketY, rx, bracketY], [cx, bracketY, cx, tipY]]
+          .forEach(([x1, y1, x2, y2]) => { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); });
+        g.label(surplus ? 'Excess supply\nor surplus' : 'Excess demand\nor shortage',
+          cx, surplus ? tipY - 10 * S : tipY + 14 * S,
+          { key:'an.gap', font:`${11 * S}px ${g.font}`, color:'#2b6cb0', align:'center', lineH:15 * S });
+      }
+    }
+
+    if (vis('show_eqlines')) {
+      g.dashed(tCX(eq.q), tCY(eq.p), tCX(eq.q), tCY(yMin), 'rgba(0,0,0,0.2)', 1.5);
+      g.dashed(tCX(eq.q), tCY(eq.p), margin.left, tCY(eq.p), 'rgba(0,0,0,0.2)', 1.5);
+      if (vis('show_annot'))
+        g.label('Equilibrium price', margin.left + width + 8 * S, tCY(eq.p) + 5 * S,
+          { key:'an.E', font:`${12 * S}px ${g.font}`, color:'#718096' });
+    }
+
+    g.curve(dPts, '#2b6cb0', 1, 2.5);
+    g.curve(sPts, '#2b6cb0', 1, 2.5);
+    if (vis('show_points')) g.points([...dPts, ...sPts], '#2b6cb0', 1, 6);
+
+    // Equilibrium marker. Drawn here rather than with g.namedPoint because this
+    // figure puts a green E to the left of the dot, not the house style letter.
+    const ex = tCX(eq.q), ey = tCY(eq.p);
+    ctx.fillStyle = '#38a169'; ctx.beginPath(); ctx.arc(ex, ey, 9 * S, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5 * S; ctx.stroke();
+
+    if (vis('show_labels')) {
+      g.label('E', ex - 18 * S, ey - 4 * S, { key:'pt.E', font:`bold ${16 * S}px ${g.font}`, color:'#38a169', align:'center' });
+      const dEnd = [...dPts].sort((a, b) => a.q - b.q).pop();
+      const sEnd = [...sPts].sort((a, b) => a.q - b.q).pop();
+      const big = { font:`bold ${16 * S}px ${g.font}`, color:'#2b6cb0', align:'center' };
+      g.label('D', tCX(dEnd.q) + 16 * S, tCY(dEnd.p) + 6 * S, { key:'d', ...big });
+      g.label('S', tCX(sEnd.q) + 8 * S, tCY(sEnd.p) - 18 * S, { key:'s', ...big });
+    }
+  },
+});
+</script>
+</body>
+</html>

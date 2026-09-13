@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Open Principles of Microeconomics - 6. Consumer Choice</title>
+<title>6. Consumer Choice – Open Principles of Microeconomics</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -21,8 +27,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,15 +73,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./07_production_and_costs.html" rel="next">
 <link href="./05_elasticity.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3c274391243a21fbfff11e61af129e9f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,8 +111,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -117,7 +125,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -135,19 +143,19 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_consumer_choice.html"><span class="chapter-title">6. Consumer Choice</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -277,9 +285,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -345,7 +353,7 @@ window.Quarto = {
 </header>
 
 
-<div id="fig-6_1" class="quarto-figure quarto-figure-center quarto-float anchored" height="3.6999989063867016in" width="6.5in">
+<div id="fig-6_1" class="quarto-float quarto-figure quarto-figure-center anchored" height="3.6999989063867016in" width="6.5in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-6_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/6-introduction-to-consumer-choices_rId20.jpeg" id="fig-6_1" style="width:6.5in;height:3.7in" class="figure-img">
@@ -391,14 +399,14 @@ Figure&nbsp;6.1
 <li>Propose decisions that maximize utility</li>
 <li>Explain marginal utility and the significance of diminishing marginal utility</li>
 </ul>
-<p>Information on the consumption choices of Americans is available from the Consumer Expenditure Survey carried out by the U.S. Bureau of Labor Statistics. <a href="#tbl-table_6_1" class="quarto-xref">Table&nbsp;<span>U.S. Consumption Choices in 2015 (Source:http://www.bls.gov/cex/csxann13.pdf)</span></a> shows spending patterns for the average U.S. household. The first row shows income and, after taxes and personal savings are subtracted, it shows that, in 2015, the average U.S. household spent $48,109 on consumption. The table then breaks down consumption into various categories. The average U.S. household spent roughly one-third of its consumption on shelter and other housing expenses, another one-third on food and vehicle expenses, and the rest on a variety of items, as shown. These patterns will vary for specific households by differing levels of family income, by geography, and by preferences.</p>
-<div id="tbl-table_6_1" class="quarto-float anchored">
+<p>Information on the consumption choices of Americans is available from the Consumer Expenditure Survey carried out by the U.S. Bureau of Labor Statistics. <a href="#tbl-table_6_1" class="quarto-xref">Table&nbsp;<span>6.1</span></a> shows spending patterns for the average U.S. household. The first row shows income and, after taxes and personal savings are subtracted, it shows that, in 2015, the average U.S. household spent $48,109 on consumption. The table then breaks down consumption into various categories. The average U.S. household spent roughly one-third of its consumption on shelter and other housing expenses, another one-third on food and vehicle expenses, and the rest on a variety of items, as shown. These patterns will vary for specific households by differing levels of family income, by geography, and by preferences.</p>
+<div id="tbl-table_6_1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_6_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6.1: U.S. Consumption Choices in 2015 (Source:http://www.bls.gov/cex/csxann13.pdf)
 </figcaption>
 <div aria-describedby="tbl-table_6_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 47%">
 <col style="width: 53%">
@@ -464,7 +472,7 @@ Table&nbsp;6.1: U.S. Consumption Choices in 2015 (Source:http://www.bls.gov/cex/
 <h4 class="anchored" data-anchor-id="total-utility-and-diminishing-marginal-utility">Total Utility and Diminishing Marginal Utility</h4>
 <p>To understand how a household will make its choices, economists look at what consumers can afford, as shown in a budget constraint (or budget line), and the total utility or satisfaction derived from those choices. In a budget constraint line, the quantity of one good is on the horizontal axis and the quantity of the other good on the vertical axis. The budget constraint line shows the various combinations of two goods that are affordable given consumer income. Consider José's situation, shown in <a href="#fig-6_2">Figure 6.2</a>. José likes to collect T-shirts and watch movies.</p>
 <p>In <a href="#fig-6_2">Figure 6.2</a> we show the quantity of T-shirts on the horizontal axis while we show the quantity of movies on the vertical axis. If José had unlimited income or goods were free, then he could consume without limit. However, José, like all of us, faces a budget constraint. José has a total of $56 to spend. The price of T-shirts is $14 and the price of movies is $7. Notice that the vertical intercept of the budget constraint line is at eight movies and zero T-shirts ($56/$7=8). The horizontal intercept of the budget constraint is four, where José spends of all of his money on T-shirts and no movies ($56/14=4). The slope of the budget constraint line is rise/run or –8/4=–2. The specific choices along the budget constraint line show the combinations of affordable T-shirts and movies.</p>
-<div id="fig-6_2" class="quarto-figure quarto-figure-center quarto-float anchored" height="2.505in" width="4.88in">
+<div id="fig-6_2" class="quarto-float quarto-figure quarto-figure-center anchored" height="2.505in" width="4.88in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-6_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/6-1-consumption-choices_rId26.jpeg" id="fig-6_2" style="width:4.88in;height:2.505in" class="figure-img">
@@ -476,19 +484,19 @@ Figure&nbsp;6.2
 </div>
 <p>Figure 6.2 A Choice between Consumption Goods José has income of $56. Movies cost $7 and T-shirts cost $14. The points on the budget constraint line show the combinations of affordable movies and T-shirts.</p>
 <p>José wishes to choose the combination that will provide him with the greatest utility, which is the term economists use to describe a person’s level of satisfaction or happiness with their choices.</p>
-<p>Let’s begin with an assumption, which we will discuss in more detail later, that José can measure his own utility with something called <em>utils</em>. (It is important to note that you cannot make comparisons between the utils of individuals. If one person gets 20 utils from a cup of coffee and another gets 10 utils, this does not mean than the first person gets more enjoyment from the coffee than the other or that they enjoy the coffee twice as much. The reason why is that utils are subjective to an individual. The way one person measures utils is not the same as the way someone else does.) <a href="#tbl-table_6_2" class="quarto-xref">Table&nbsp;<span>Total and Marginal Utility</span></a> shows how José’s utility is connected with his T-shirt or movie consumption. The first column of the table shows the quantity of T-shirts consumed. The second column shows the total utility, or total amount of satisfaction, that José receives from consuming that number of T-shirts. The most common pattern of total utility, in this example, is that consuming additional goods leads to greater total utility, but at a decreasing rate. The third column shows marginal utility, which is the additional utility provided by one additional unit of consumption. This equation for marginal utility is:</p>
+<p>Let’s begin with an assumption, which we will discuss in more detail later, that José can measure his own utility with something called <em>utils</em>. (It is important to note that you cannot make comparisons between the utils of individuals. If one person gets 20 utils from a cup of coffee and another gets 10 utils, this does not mean than the first person gets more enjoyment from the coffee than the other or that they enjoy the coffee twice as much. The reason why is that utils are subjective to an individual. The way one person measures utils is not the same as the way someone else does.) <a href="#tbl-table_6_2" class="quarto-xref">Table&nbsp;<span>6.2</span></a> shows how José’s utility is connected with his T-shirt or movie consumption. The first column of the table shows the quantity of T-shirts consumed. The second column shows the total utility, or total amount of satisfaction, that José receives from consuming that number of T-shirts. The most common pattern of total utility, in this example, is that consuming additional goods leads to greater total utility, but at a decreasing rate. The third column shows marginal utility, which is the additional utility provided by one additional unit of consumption. This equation for marginal utility is:</p>
 <p><span class="math display">\[
 \mathrm{MU}=\frac{\text { change in total utility }}{\text { change in quantity }}
 \]</span></p>
 <p>Notice that marginal utility diminishes as additional units are consumed, which means that each subsequent unit of a good consumed provides less <em>additional</em> utility. For example, the first T-shirt José picks is his favorite and it gives him an addition of 22 utils. The fourth T-shirt is just something to wear when all his other clothes are in the wash and yields only 18 additional utils. This is an example of the law of diminishing marginal utility, which holds that the additional utility decreases with each unit added. Diminishing marginal utility is another example of the more general law of diminishing returns we learned earlier in <a href="02_choice_with_scarcity.html" class="quarto-xref"><span>2. Choice with Scarcity</span></a>.</p>
-<p>The rest of <a href="#tbl-table_6_2" class="quarto-xref">Table&nbsp;<span>Total and Marginal Utility</span></a> shows the quantity of movies that José attends, and his total and marginal utility from seeing each movie. Total utility follows the expected pattern: it increases as the number of movies that José watches rises. Marginal utility also follows the expected pattern: each additional movie brings a smaller gain in utility than the previous one. The first movie José attends is the one he wanted to see the most, and thus provides him with the highest level of utility or satisfaction. The fifth movie he attends is just to kill time. Notice that total utility is also the sum of the marginal utilities. Read the next Work It Out feature for instructions on how to calculate total utility.</p>
-<div id="tbl-table_6_2" class="quarto-float anchored">
+<p>The rest of <a href="#tbl-table_6_2" class="quarto-xref">Table&nbsp;<span>6.2</span></a> shows the quantity of movies that José attends, and his total and marginal utility from seeing each movie. Total utility follows the expected pattern: it increases as the number of movies that José watches rises. Marginal utility also follows the expected pattern: each additional movie brings a smaller gain in utility than the previous one. The first movie José attends is the one he wanted to see the most, and thus provides him with the highest level of utility or satisfaction. The fifth movie he attends is just to kill time. Notice that total utility is also the sum of the marginal utilities. Read the next Work It Out feature for instructions on how to calculate total utility.</p>
+<div id="tbl-table_6_2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_6_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6.2: Total and Marginal Utility
 </figcaption>
 <div aria-describedby="tbl-table_6_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
 <col style="width: 13%">
@@ -577,14 +585,14 @@ Table&nbsp;6.2: Total and Marginal Utility
 </div>
 </figure>
 </div>
-<p><a href="#tbl-table_6_3" class="quarto-xref">Table&nbsp;<span>Finding the Choice with the Highest Utility</span></a> looks at each point on the budget constraint in <a href="#fig-6_2">Figure 6.2</a>, and adds up José’s total utility for five possible combinations of T-shirts and movies.</p>
-<div id="tbl-table_6_3" class="quarto-float anchored">
+<p><a href="#tbl-table_6_3" class="quarto-xref">Table&nbsp;<span>6.3</span></a> looks at each point on the budget constraint in <a href="#fig-6_2">Figure 6.2</a>, and adds up José’s total utility for five possible combinations of T-shirts and movies.</p>
+<div id="tbl-table_6_3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_6_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6.3: Finding the Choice with the Highest Utility
 </figcaption>
 <div aria-describedby="tbl-table_6_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Point</th>
@@ -636,23 +644,23 @@ Table&nbsp;6.3: Finding the Choice with the Highest Utility
 <h5 class="Heading4Grey anchored" data-anchor-id="calculating-total-utility">Calculating Total Utility</h5>
 <p>Let’s look at how José makes his decision in more detail.</p>
 <p>Step 1. Observe that, at point Q (for example), José consumes three T-shirts and two movies.</p>
-<p>Step 2. Look at <a href="#tbl-table_6_3" class="quarto-xref">Table&nbsp;<span>Finding the Choice with the Highest Utility</span></a>. You can see from the fourth row/second column that three T-shirts are worth 63 utils. Similarly, the second row/fifth column shows that two movies are worth 31 utils.</p>
+<p>Step 2. Look at <a href="#tbl-table_6_3" class="quarto-xref">Table&nbsp;<span>6.3</span></a>. You can see from the fourth row/second column that three T-shirts are worth 63 utils. Similarly, the second row/fifth column shows that two movies are worth 31 utils.</p>
 <p>Step 3. From this information, you can calculate that point Q has a total utility of 94 (63 + 31).</p>
-<p>Step 4. You can repeat the same calculations for each point on <a href="#tbl-table_6_3" class="quarto-xref">Table&nbsp;<span>Finding the Choice with the Highest Utility</span></a>, in which the total utility numbers are shown in the last column.</p>
+<p>Step 4. You can repeat the same calculations for each point on <a href="#tbl-table_6_3" class="quarto-xref">Table&nbsp;<span>6.3</span></a>, in which the total utility numbers are shown in the last column.</p>
 <p>For José, the highest total utility for all possible combinations of goods occurs at point S, with a total utility of 103 from consuming one T-shirt and six movies.</p>
 </section>
 </section>
 <section id="choosing-with-marginal-utility" class="level4">
 <h4 class="anchored" data-anchor-id="choosing-with-marginal-utility">Choosing with Marginal Utility</h4>
 <p>Most people approach their utility-maximizing combination of choices in a step-by-step way. This approach is based on looking at the tradeoffs, measured in terms of marginal utility, of consuming less of one good and more of another.</p>
-<p>For example, say that José starts off thinking about spending all his money on T-shirts and choosing point P, which corresponds to four T-shirts and no movies, as <a href="#fig-6_2">Figure 6.2</a> illustrates. José chooses this starting point randomly as he has to start somewhere. Then he considers giving up the last T-shirt, the one that provides him the least marginal utility, and using the money he saves to buy two movies instead. <a href="#tbl-table_6_4" class="quarto-xref">Table&nbsp;<span>A Step-by-Step Approach to Maximizing Utility</span></a> tracks the step-by-step series of decisions José needs to make (<em>Key</em>: T-shirts are $14, movies are $7, and income is $56). The following Work It Out feature explains how marginal utility can affect decision making.</p>
-<div id="tbl-table_6_4" class="quarto-float anchored">
+<p>For example, say that José starts off thinking about spending all his money on T-shirts and choosing point P, which corresponds to four T-shirts and no movies, as <a href="#fig-6_2">Figure 6.2</a> illustrates. José chooses this starting point randomly as he has to start somewhere. Then he considers giving up the last T-shirt, the one that provides him the least marginal utility, and using the money he saves to buy two movies instead. <a href="#tbl-table_6_4" class="quarto-xref">Table&nbsp;<span>6.4</span></a> tracks the step-by-step series of decisions José needs to make (<em>Key</em>: T-shirts are $14, movies are $7, and income is $56). The following Work It Out feature explains how marginal utility can affect decision making.</p>
+<div id="tbl-table_6_4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_6_4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6.4: A Step-by-Step Approach to Maximizing Utility
 </figcaption>
 <div aria-describedby="tbl-table_6_4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 3%">
 <col style="width: 16%">
@@ -716,25 +724,25 @@ Table&nbsp;6.4: A Step-by-Step Approach to Maximizing Utility
 <section id="decision-making-by-comparing-marginal-utility" class="level5 Heading4Grey">
 <h5 class="Heading4Grey anchored" data-anchor-id="decision-making-by-comparing-marginal-utility">Decision Making by Comparing Marginal Utility</h5>
 <p>José could use the following thought process (if he thought in utils) to make his decision regarding how many T-shirts and movies to purchase:</p>
-<p>Step 1. From <a href="#tbl-table_6_2" class="quarto-xref">Table&nbsp;<span>Total and Marginal Utility</span></a>, José can see that the marginal utility of the fourth T-shirt is 18. If José gives up the fourth T-shirt, then he loses 18 utils.</p>
+<p>Step 1. From <a href="#tbl-table_6_2" class="quarto-xref">Table&nbsp;<span>6.2</span></a>, José can see that the marginal utility of the fourth T-shirt is 18. If José gives up the fourth T-shirt, then he loses 18 utils.</p>
 <p>Step 2. Giving up the fourth T-shirt, however, frees up $14 (the price of a T-shirt), allowing José to buy the first two movies (at $7 each).</p>
 <p>Step 3. José knows that the marginal utility of the first movie is 16 and the marginal utility of the second movie is 15. Thus, if José moves from point P to point Q, he gives up 18 utils (from the T-shirt), but gains 31 utils (from the movies).</p>
-<p>Step 4. Gaining 31 utils and losing 18 utils is a net gain of 13. This is just another way of saying that the total utility at Q (94 according to the last column in <a href="#tbl-table_6_3" class="quarto-xref">Table&nbsp;<span>Finding the Choice with the Highest Utility</span></a>) is 13 more than the total utility at P (81).</p>
+<p>Step 4. Gaining 31 utils and losing 18 utils is a net gain of 13. This is just another way of saying that the total utility at Q (94 according to the last column in <a href="#tbl-table_6_3" class="quarto-xref">Table&nbsp;<span>6.3</span></a>) is 13 more than the total utility at P (81).</p>
 <p>Step 5. Thus, for José, it makes sense to give up the fourth T-shirt in order to buy two movies.</p>
 <p>José clearly prefers point Q to point P. Now repeat this step-by-step process of decision making with marginal utilities. José thinks about giving up the third T-shirt and surrendering a marginal utility of 20, in exchange for purchasing two more movies that promise a combined marginal utility of 27. José prefers point R to point Q. What if José thinks about going beyond R to point S? Giving up the second T-shirt means a marginal utility loss of 21, and the marginal utility gain from the fifth and sixth movies would combine to make a marginal utility gain of 23, so José prefers point S to R.</p>
 <p>However, if José seeks to go beyond point S to point T, he finds that the loss of marginal utility from giving up the first T-shirt is 22, while the marginal utility gain from the last two movies is only a total of 19. If José were to choose point T, his utility would fall to 100. Through these stages of thinking about marginal tradeoffs, José again concludes that S, with one T-shirt and six movies, is the choice that will provide him with the highest level of total utility. This step-by-step approach will reach the same conclusion regardless of José’s starting point.</p>
-<p>We can develop a more systematic way of using this approach by focusing on satisfaction per dollar. If an item costing $5 yields 10 utils, then it’s worth 2 utils per dollar spent. Marginal utility per dollar is the amount of additional utility José receives divided by the product's price. <a href="#tbl-table_6_5" class="quarto-xref">Table&nbsp;<span>Marginal Utility per Dollar</span></a> shows the marginal utility per dollar for José's T shirts and movies.</p>
+<p>We can develop a more systematic way of using this approach by focusing on satisfaction per dollar. If an item costing $5 yields 10 utils, then it’s worth 2 utils per dollar spent. Marginal utility per dollar is the amount of additional utility José receives divided by the product's price. <a href="#tbl-table_6_5" class="quarto-xref">Table&nbsp;<span>6.5</span></a> shows the marginal utility per dollar for José's T shirts and movies.</p>
 <p><span class="math display">\[
 \text { marginal utility per dollar }=\frac{\text { marginal utility }}{\text { price }}
 \]</span></p>
 <p>If José wants to maximize the utility he gets from his limited budget, he will always purchase the item with the greatest marginal utility per dollar of expenditure (assuming he can afford it with his remaining budget). José starts with no purchases. If he purchases a T-shirt, the marginal utility per dollar spent will be 1.6. If he purchases a movie, the marginal utility per dollar spent will be 2.3. Therefore, José’s first purchase will be the movie. Why? Because it gives him the highest marginal utility per dollar and is affordable. Next, José will purchase another movie. Why? Because the marginal utility of the next movie (2.14) is greater than the marginal utility of the next T-shirt (1.6). Note that when José has no T- shirts, the next one is the first one. José will continue to purchase the next good with the highest marginal utility per dollar until he exhausts his budget. He will continue purchasing movies because they give him a greater "bang for the buck" until the sixth movie which gives the same marginal utility per dollar as the first T-shirt purchase. José has just enough budget to purchase both. So in total, José will purchase six movies and one T-shirt.</p>
-<div id="tbl-table_6_5" class="quarto-float anchored">
+<div id="tbl-table_6_5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table_6_5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6.5: Marginal Utility per Dollar
 </figcaption>
 <div aria-describedby="tbl-table_6_5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 8%">
@@ -860,7 +868,7 @@ Table&nbsp;6.5: Marginal Utility per Dollar
 <p>Step 1. If we traded a dollar more of movies for a dollar more of T-shirts, the marginal utility gained from T-shirts would exactly offset the marginal utility lost from fewer movies. In other words, the net gain would be zero.</p>
 <p>Step 2. Products, however, usually cost more than a dollar, so we cannot trade a dollar’s worth of movies. The best we can do is trade two movies for another T-shirt, since in this example T-shirts cost twice what a movie does.</p>
 <p>Step 3. If we trade two movies for one T-shirt, we would end up at point R (two T-shirts and four movies).</p>
-<p>Step 4. Choice 4 in <a href="#tbl-table_6_4" class="quarto-xref">Table&nbsp;<span>A Step-by-Step Approach to Maximizing Utility</span></a> shows that if we move to point R, we would gain 21 utils from one more T-shirt, but lose 23 utils from two fewer movies, so we would end up with less total utility at point R.</p>
+<p>Step 4. Choice 4 in <a href="#tbl-table_6_4" class="quarto-xref">Table&nbsp;<span>6.4</span></a> shows that if we move to point R, we would gain 21 utils from one more T-shirt, but lose 23 utils from two fewer movies, so we would end up with less total utility at point R.</p>
 <p>In short, the general rule shows us the utility-maximizing choice, which is called the consumer equilibrium.</p>
 <p>There is another equivalent way to think about this. We can also express the general rule as <em>the ratio of the prices of the two goods should be equal to the ratio of the marginal utilities.</em> When we divide the price of good 1 by the price of good 2, at the utility-maximizing point this will equal the marginal utility of good 1 divided by the marginal utility of good 2.</p>
 <p><span class="math display">\[
@@ -892,7 +900,7 @@ Table&nbsp;6.5: Marginal Utility per Dollar
 <section id="how-changes-in-income-affect-consumer-choices" class="level4">
 <h4 class="anchored" data-anchor-id="how-changes-in-income-affect-consumer-choices">How Changes in Income Affect Consumer Choices</h4>
 <p>Let’s begin with a concrete example illustrating how changes in income level affect consumer choices. <a href="#fig-6_3">Figure 6.3</a> shows a budget constraint that represents Kimberly’s choice between concert tickets at $50 each and getting away overnight to a bed-and-breakfast for $200 per night. Kimberly has $1,000 per year to spend between these two choices. After thinking about her total utility and marginal utility and applying the decision rule that the ratio of the marginal utilities to the prices should be equal between the two products, Kimberly chooses point M, with eight concerts and three overnight getaways as her utility-maximizing choice.</p>
-<div id="fig-6_3" class="quarto-figure quarto-figure-center quarto-float anchored" height="2.535in" width="3.25in">
+<div id="fig-6_3" class="quarto-float quarto-figure quarto-figure-center anchored" height="2.535in" width="3.25in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-6_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId23.jpeg" id="fig-6_3" style="width:3.25in;height:2.535in" class="figure-img">
@@ -911,7 +919,7 @@ Figure&nbsp;6.3
 <section id="how-price-changes-affect-consumer-choices" class="level4">
 <h4 class="anchored" data-anchor-id="how-price-changes-affect-consumer-choices">How Price Changes Affect Consumer Choices</h4>
 <p>For analyzing the possible effect of a change in price on consumption, let’s again use a concrete example. <a href="#fig-6_4">Figure 6.4</a> represents Sergei's consumer choice, who chooses between purchasing baseball bats and cameras. A price increase for baseball bats would have no effect on the ability to purchase cameras, but it would reduce the number of bats Sergei could afford to buy. Thus a price increase for baseball bats, the good on the horizontal axis, causes the budget constraint to rotate inward, as if on a hinge, from the vertical axis. As in the previous section, the point labeled M represents the originally preferred point on the original budget constraint, which Sergei has chosen after contemplating his total utility and marginal utility and the tradeoffs involved along the budget constraint. In this example, the units along the horizontal and vertical axes are not numbered, so the discussion must focus on whether Sergei will consume more or less of certain goods, not on numerical amounts.</p>
-<div id="fig-6_4" class="quarto-figure quarto-figure-center quarto-float anchored" height="2.295in" width="4.88in">
+<div id="fig-6_4" class="quarto-float quarto-figure quarto-figure-center anchored" height="2.295in" width="4.88in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-6_4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId33.jpeg" id="fig-6_4" style="width:4.88in;height:2.295in" class="figure-img">
@@ -934,7 +942,7 @@ Figure&nbsp;6.4
 <section id="the-foundations-of-demand-curves" class="level4">
 <h4 class="anchored" data-anchor-id="the-foundations-of-demand-curves">The Foundations of Demand Curves</h4>
 <p>Changes in the price of a good lead the budget constraint to rotate. A rotation in the budget constraint means that when individuals are seeking their highest utility, the quantity that is demanded of that good will change. In this way, the logical foundations of demand curves—which show a connection between prices and quantity demanded—are based on the underlying idea of individuals seeking utility. <a href="#fig-6_5">Figure 6.5</a> (a) shows a budget constraint with a choice between housing and “everything else.” (Putting “everything else” on the vertical axis can be a useful approach in some cases, especially when the focus of the analysis is on one particular good.) We label the preferred choice on the original budget constraint that provides the highest possible utility M<sub>0</sub>. The other three budget constraints represent successively higher prices for housing of P<sub>1</sub>, P<sub>2</sub>, and P<sub>3</sub>. As the budget constraint rotates in, and in, and in again, we label the utility-maximizing choices M<sub>1</sub>, M<sub>2</sub>, and M<sub>3</sub>, and the quantity demanded of housing falls from Q<sub>0</sub> to Q<sub>1</sub> to Q<sub>2</sub> to Q<sub>3</sub>.</p>
-<div id="fig-6_5" class="quarto-figure quarto-figure-center quarto-float anchored" height="5.085in" width="3.25in">
+<div id="fig-6_5" class="quarto-float quarto-figure quarto-figure-center anchored" height="5.085in" width="3.25in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-6_5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId42.jpeg" id="fig-6_5" style="width:3.25in;height:5.085in" class="figure-img">
@@ -995,7 +1003,7 @@ Figure&nbsp;6.5
 <p>In what category did consumers worldwide increase their spending during the Great Recession? Higher education. According to the United Nations Educational, Scientific, and Cultural Organization (UNESCO), enrollment in colleges and universities rose one-third in China and almost two-thirds in Saudi Arabia, nearly doubled in Pakistan, tripled in Uganda, and surged by three million—18 percent—in the United States. Why were consumers willing to spend on education during lean times? Both individuals and countries view higher education as the way to prosperity. Many feel that increased earnings are a significant benefit of attending college.</p>
 <p>U.S. Bureau of Labor Statistics data from May 2012 supports this view, as <a href="#fig-6_6">Figure 6.6</a> shows. They show a positive correlation between earnings and education. The data also indicate that unemployment rates fall with higher levels of education and training.</p>
 <p>Why spend the money to go to college during recession? Because if you are unemployed (or underemployed, working fewer hours than you would like), the opportunity cost of your time is low. If you’re unemployed, you don’t have to give up work hours and income by going to college.</p>
-<div id="fig-6_6" class="quarto-figure quarto-figure-center quarto-float anchored" height="3.275in" width="6.36in">
+<div id="fig-6_6" class="quarto-float quarto-figure quarto-figure-center anchored" height="3.275in" width="6.36in">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-6_6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="media/6-3-behavioral-economics-an-alternative-framework-for-consumer-choice_rId25.jpeg" id="fig-6_6" style="width:6.36in;height:3.275in" class="figure-img">
@@ -1020,43 +1028,58 @@ Figure&nbsp;6.6
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -1064,213 +1087,235 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
           } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
         }
-        return container.innerHTML
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1278,198 +1323,174 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05_elasticity.html" class="pagination-link  aria-label=" &lt;span="" elasticity&lt;="" span&gt;"="">
+      <a href="./05_elasticity.html" class="pagination-link" aria-label="5. Elasticity">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">5. Elasticity</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07_production_and_costs.html" class="pagination-link" aria-label="<span class='chapter-number'>7</span>&nbsp; <span class='chapter-title'>7. Production and Costs</span>">
+      <a href="./07_production_and_costs.html" class="pagination-link" aria-label="7. Production and Costs">
         <span class="nav-page-text"><span class="chapter-title">7. Production and Costs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Consumer Choice {#sec-chapter-6}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Consumer Choice {#sec-chapter-6}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="al">![](media/6-introduction-to-consumer-choices_rId20.jpeg)</span>{width="6.5in" height="3.6999989063867016in" #fig-6_1}</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Figure 6.1 Investment Choices We generally view higher education as a</span>
@@ -1572,21 +1593,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>households by differing levels of family income, by geography, and by</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>preferences.</span>
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>| Average Household Income before Taxes    | $62,481                                        |</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>|-----------------------------------------------|-----------------------------------------------------|</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>| **Average Annual Expenditures**               | **$48,109**                                        |</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>| Food at home                                  | $3,264                                             |</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>| Food away from home                           | $2,505                                             |</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>| Housing                                       | $16,557                                            |</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>| Apparel and services                          | $1,700                                             |</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>| Transportation                                | $7,677                                             |</span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>| Healthcare                                    | $3,157                                             |</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>| Entertainment                                 | $2,504                                             |</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>| Education                                     | $1,074                                             |</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>| Personal insurance and pensions               | $5,357                                             |</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>| All else: alcohol, tobacco, reading, personal care, cash contributions, miscellaneous | $3,356 |</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Average Household Income before Taxes    <span class="pp">|</span> $62,481                                        <span class="pp">|</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------------------------|-----------------------------------------------------|</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Average Annual Expenditures**               | **$48,109**                                        <span class="pp">|</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Food at home                                  <span class="pp">|</span> $3,264                                             <span class="pp">|</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Food away from home                           <span class="pp">|</span> $2,505                                             <span class="pp">|</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Housing                                       <span class="pp">|</span> $16,557                                            <span class="pp">|</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Apparel and services                          <span class="pp">|</span> $1,700                                             <span class="pp">|</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Transportation                                <span class="pp">|</span> $7,677                                             <span class="pp">|</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Healthcare                                    <span class="pp">|</span> $3,157                                             <span class="pp">|</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Entertainment                                 <span class="pp">|</span> $2,504                                             <span class="pp">|</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Education                                     <span class="pp">|</span> $1,074                                             <span class="pp">|</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Personal insurance and pensions               <span class="pp">|</span> $5,357                                             <span class="pp">|</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> All else: alcohol, tobacco, reading, personal care, cash contributions, miscellaneous <span class="pp">|</span> $3,356 <span class="pp">|</span></span>
 <span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>: U.S. Consumption Choices in 2015 (Source:http://www.bls.gov/cex/csxann13.pdf) {#tbl-table_6_1}</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>: U.S. Consumption Choices in 2015 (Source<span class="sc">:http:</span>//www.bls.gov/cex/csxann13.pdf) {#tbl-table_6_1}</span>
 <span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Total Utility and Diminishing Marginal Utility</span></span>
 <span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
@@ -1669,16 +1690,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>next Work It Out feature for instructions on how to calculate total</span>
 <span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>utility.</span>
 <span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>| T-Shirts (Quantity) | Total Utility | Marginal Utility | Movies (Quantity) | Total Utility | Marginal Utility |</span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>|----------------------|---------------|-------------------|---------------------|--------------|-------------------|</span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>| 1                    | 22            | 22                | 1                   | 16           | 16                |</span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>| 2                    | 43            | 21                | 2                   | 31           | 15                |</span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>| 3                    | 63            | 20                | 3                   | 45           | 14                |</span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>| 4                    | 81            | 18                | 4                   | 58           | 13                |</span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>| 5                    | 97            | 16                | 5                   | 70           | 12                |</span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>| 6                    | 111           | 14                | 6                   | 81           | 11                |</span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>| 7                    | 123           | 12                | 7                   | 91           | 10                |</span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>| 8                    | 133           | 10                | 8                   | 100          | 9                 |</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> T-Shirts (Quantity) <span class="pp">|</span> Total Utility <span class="pp">|</span> Marginal Utility <span class="pp">|</span> Movies (Quantity) <span class="pp">|</span> Total Utility <span class="pp">|</span> Marginal Utility <span class="pp">|</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------------|---------------|-------------------|---------------------|--------------|-------------------|</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1                    <span class="pp">|</span> 22            <span class="pp">|</span> 22                <span class="pp">|</span> 1                   <span class="pp">|</span> 16           <span class="pp">|</span> 16                <span class="pp">|</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2                    <span class="pp">|</span> 43            <span class="pp">|</span> 21                <span class="pp">|</span> 2                   <span class="pp">|</span> 31           <span class="pp">|</span> 15                <span class="pp">|</span></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3                    <span class="pp">|</span> 63            <span class="pp">|</span> 20                <span class="pp">|</span> 3                   <span class="pp">|</span> 45           <span class="pp">|</span> 14                <span class="pp">|</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4                    <span class="pp">|</span> 81            <span class="pp">|</span> 18                <span class="pp">|</span> 4                   <span class="pp">|</span> 58           <span class="pp">|</span> 13                <span class="pp">|</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5                    <span class="pp">|</span> 97            <span class="pp">|</span> 16                <span class="pp">|</span> 5                   <span class="pp">|</span> 70           <span class="pp">|</span> 12                <span class="pp">|</span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 6                    <span class="pp">|</span> 111           <span class="pp">|</span> 14                <span class="pp">|</span> 6                   <span class="pp">|</span> 81           <span class="pp">|</span> 11                <span class="pp">|</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 7                    <span class="pp">|</span> 123           <span class="pp">|</span> 12                <span class="pp">|</span> 7                   <span class="pp">|</span> 91           <span class="pp">|</span> 10                <span class="pp">|</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 8                    <span class="pp">|</span> 133           <span class="pp">|</span> 10                <span class="pp">|</span> 8                   <span class="pp">|</span> 100          <span class="pp">|</span> 9                 <span class="pp">|</span></span>
 <span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>: Total and Marginal Utility {#tbl-table_6_2}</span>
 <span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
@@ -1686,13 +1707,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>in <span class="co">[</span><span class="ot">Figure 6.2</span><span class="co">](#fig-6_2)</span>, and adds up José's total utility for</span>
 <span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>five possible combinations of T-shirts and movies.</span>
 <span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>| Point | T-Shirts | Movies | Total Utility |</span>
-<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>|-------|----------|--------|---------------|</span>
-<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>| P     | 4        | 0      | 81 + 0 = 81   |</span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>| Q     | 3        | 2      | 63 + 94 = 94  |</span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>| R     | 2        | 4      | 43 + 58 = 101 |</span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>| S     | 1        | 6      | 22 + 81 = 103 |</span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>| T     | 0        | 8      | 0 + 100 = 100 |</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Point <span class="pp">|</span> T-Shirts <span class="pp">|</span> Movies <span class="pp">|</span> Total Utility <span class="pp">|</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------|----------|--------|---------------|</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> P     <span class="pp">|</span> 4        <span class="pp">|</span> 0      <span class="pp">|</span> 81 + 0 = 81   <span class="pp">|</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Q     <span class="pp">|</span> 3        <span class="pp">|</span> 2      <span class="pp">|</span> 63 + 94 = 94  <span class="pp">|</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> R     <span class="pp">|</span> 2        <span class="pp">|</span> 4      <span class="pp">|</span> 43 + 58 = 101 <span class="pp">|</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> S     <span class="pp">|</span> 1        <span class="pp">|</span> 6      <span class="pp">|</span> 22 + 81 = 103 <span class="pp">|</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> T     <span class="pp">|</span> 0        <span class="pp">|</span> 8      <span class="pp">|</span> 0 + 100 = 100 <span class="pp">|</span></span>
 <span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>: Finding the Choice with the Highest Utility {#tbl-table_6_3}</span>
 <span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
@@ -1737,13 +1758,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>\$7, and income is \$56). The following Work It Out feature explains how</span>
 <span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>marginal utility can affect decision making.</span>
 <span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>| Try   | Which Has                          | Total Utility                                        | Marginal Gain and Loss of Utility, Compared with Previous Choice                 | Conclusion                   |</span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>|-------|------------------------------------|------------------------------------------------------|-------------------------------------------------------------------------------------|-------------------------------|</span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>| Choice 1: P | 4 T-shirts and 0 movies        | 81 from 4 T-shirts + 0 from 0 movies = 81             | –                                                                                   | –                             |</span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>| Choice 2: Q | 3 T-shirts and 2 movies        | 63 from 3 T-shirts + 31 from 2 movies = 94            | Loss of 18 from 1 less T-shirt, but gain of 31 from 2 more movies, for a net utility gain of 13    | Q is preferred over P         |</span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>| Choice 3: R | 2 T-shirts and 4 movies        | 43 from 2 T-shirts + 58 from 4 movies = 101           | Loss of 20 from 1 less T-shirt, but gain of 27 from 2 more movies, for a net utility gain of 7     | R is preferred over Q         |</span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>| Choice 4: S | 1 T-shirt and 6 movies         | 22 from 1 T-shirt + 81 from 6 movies = 103            | Loss of 21 from 1 less T-shirt, but gain of 23 from 2 more movies, for a net utility gain of 2      | S is preferred over R         |</span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>| Choice 5: T | 0 T-shirts and 8 movies         | 0 from 0 T-shirts + 100 from 8 movies = 100           | Loss of 22 from 1 less T-shirt, but gain of 19 from 2 more movies, for a net utility loss of 3     | S is preferred over T         |</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Try   <span class="pp">|</span> Which Has                          <span class="pp">|</span> Total Utility                                        <span class="pp">|</span> Marginal Gain and Loss of Utility, Compared with Previous Choice                 <span class="pp">|</span> Conclusion                   <span class="pp">|</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------|------------------------------------|------------------------------------------------------|-------------------------------------------------------------------------------------|-------------------------------|</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Choice 1: P <span class="pp">|</span> 4 T-shirts and 0 movies        <span class="pp">|</span> 81 from 4 T-shirts + 0 from 0 movies = 81             <span class="pp">|</span> –                                                                                   <span class="pp">|</span> –                             <span class="pp">|</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Choice 2: Q <span class="pp">|</span> 3 T-shirts and 2 movies        <span class="pp">|</span> 63 from 3 T-shirts + 31 from 2 movies = 94            <span class="pp">|</span> Loss of 18 from 1 less T-shirt, but gain of 31 from 2 more movies, for a net utility gain of 13    <span class="pp">|</span> Q is preferred over P         <span class="pp">|</span></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Choice 3: R <span class="pp">|</span> 2 T-shirts and 4 movies        <span class="pp">|</span> 43 from 2 T-shirts + 58 from 4 movies = 101           <span class="pp">|</span> Loss of 20 from 1 less T-shirt, but gain of 27 from 2 more movies, for a net utility gain of 7     <span class="pp">|</span> R is preferred over Q         <span class="pp">|</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Choice 4: S <span class="pp">|</span> 1 T-shirt and 6 movies         <span class="pp">|</span> 22 from 1 T-shirt + 81 from 6 movies = 103            <span class="pp">|</span> Loss of 21 from 1 less T-shirt, but gain of 23 from 2 more movies, for a net utility gain of 2      <span class="pp">|</span> S is preferred over R         <span class="pp">|</span></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Choice 5: T <span class="pp">|</span> 0 T-shirts and 8 movies         <span class="pp">|</span> 0 from 0 T-shirts + 100 from 8 movies = 100           <span class="pp">|</span> Loss of 22 from 1 less T-shirt, but gain of 19 from 2 more movies, for a net utility loss of 3     <span class="pp">|</span> S is preferred over T         <span class="pp">|</span></span>
 <span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>: A Step-by-Step Approach to Maximizing Utility {#tbl-table_6_4}</span>
 <span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
@@ -1823,15 +1844,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>as the first T-shirt purchase. José has just enough budget to purchase</span>
 <span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>both. So in total, José will purchase six movies and one T-shirt.</span>
 <span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a>| Quantity of T-Shirts | Total Utility | Marginal Utility | Marginal Utility per Dollar | Quantity of Movies | Total Utility | Marginal Utility | Marginal Utility per Dollar |</span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>|-----------------------|---------------|-------------------|-----------------------------|--------------------|---------------|-------------------|-----------------------------|</span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>| 1                     | 22            | 22                | 22/$14=1.6                   | 1                  | 16            | 16                | 16/$7=2.3                   |</span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>| 2                     | 43            | 21                | 21/$14=1.5                   | 2                  | 31            | 15                | 15/$7=2.14                  |</span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>| 3                     | 63            | 20                | 20/$14=1.4                   | 3                  | 45            | 14                | 14/$7=2                     |</span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>| 4                     | 81            | 18                | 18/$14=1.3                   | 4                  | 58            | 13                | 13/$7=1.9                   |</span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>| 5                     | 97            | 16                | 16/$14=1.1                   | 5                  | 70            | 12                | 12/$7=1.7                   |</span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>| 6                     | 111           | 14                | 14/$14=1                    | 6                  | 81            | 11                | 11/$7=1.6                   |</span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>| 7                     | 123           | 12                | 12/$14=1.2                   | 7                  | 91            | 10                | 10/$7=1.4                   |</span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Quantity of T-Shirts <span class="pp">|</span> Total Utility <span class="pp">|</span> Marginal Utility <span class="pp">|</span> Marginal Utility per Dollar <span class="pp">|</span> Quantity of Movies <span class="pp">|</span> Total Utility <span class="pp">|</span> Marginal Utility <span class="pp">|</span> Marginal Utility per Dollar <span class="pp">|</span></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------|---------------|-------------------|-----------------------------|--------------------|---------------|-------------------|-----------------------------|</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1                     <span class="pp">|</span> 22            <span class="pp">|</span> 22                <span class="pp">|</span> 22/$14=1.6                   <span class="pp">|</span> 1                  <span class="pp">|</span> 16            <span class="pp">|</span> 16                <span class="pp">|</span> 16/$7=2.3                   <span class="pp">|</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2                     <span class="pp">|</span> 43            <span class="pp">|</span> 21                <span class="pp">|</span> 21/$14=1.5                   <span class="pp">|</span> 2                  <span class="pp">|</span> 31            <span class="pp">|</span> 15                <span class="pp">|</span> 15/$7=2.14                  <span class="pp">|</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3                     <span class="pp">|</span> 63            <span class="pp">|</span> 20                <span class="pp">|</span> 20/$14=1.4                   <span class="pp">|</span> 3                  <span class="pp">|</span> 45            <span class="pp">|</span> 14                <span class="pp">|</span> 14/$7=2                     <span class="pp">|</span></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4                     <span class="pp">|</span> 81            <span class="pp">|</span> 18                <span class="pp">|</span> 18/$14=1.3                   <span class="pp">|</span> 4                  <span class="pp">|</span> 58            <span class="pp">|</span> 13                <span class="pp">|</span> 13/$7=1.9                   <span class="pp">|</span></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5                     <span class="pp">|</span> 97            <span class="pp">|</span> 16                <span class="pp">|</span> 16/$14=1.1                   <span class="pp">|</span> 5                  <span class="pp">|</span> 70            <span class="pp">|</span> 12                <span class="pp">|</span> 12/$7=1.7                   <span class="pp">|</span></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 6                     <span class="pp">|</span> 111           <span class="pp">|</span> 14                <span class="pp">|</span> 14/$14=1                    <span class="pp">|</span> 6                  <span class="pp">|</span> 81            <span class="pp">|</span> 11                <span class="pp">|</span> 11/$7=1.6                   <span class="pp">|</span></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 7                     <span class="pp">|</span> 123           <span class="pp">|</span> 12                <span class="pp">|</span> 12/$14=1.2                   <span class="pp">|</span> 7                  <span class="pp">|</span> 91            <span class="pp">|</span> 10                <span class="pp">|</span> 10/$7=1.4                   <span class="pp">|</span></span>
 <span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>: Marginal Utility per Dollar {#tbl-table_6_5}</span>
 <span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
@@ -2413,7 +2434,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-942"><a href="#cb1-942" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-943"><a href="#cb1-943" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Textbook license and version note</span></span>
 <span id="cb1-944"><a href="#cb1-944" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-945"><a href="#cb1-945" aria-hidden="true" tabindex="-1"></a>This textbook is an Open-Educational Resource (OER) textbook, licensed under an open-source Creative Commons Share-Alike (CC-SA) license, and is adapted from another OER textbook provided by <span class="co">[</span><span class="ot">OpenStax.org</span><span class="co">](https://openstax.org/)</span> at <span class="ot">&lt;https://openstax.org/details/books/principles-microeconomics-3e&gt;</span>. See the <span class="co">[</span><span class="ot">Github repository</span><span class="co">](https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev)</span> for details and to (hopefully) edit/correct/improve the book yourself!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-945"><a href="#cb1-945" aria-hidden="true" tabindex="-1"></a>This textbook is an Open-Educational Resource (OER) textbook, licensed under an open-source Creative Commons Share-Alike (CC-SA) license, and is adapted from another OER textbook provided by <span class="co">[</span><span class="ot">OpenStax.org</span><span class="co">](https://openstax.org/)</span> at <span class="ot">&lt;https://openstax.org/details/books/principles-microeconomics-3e&gt;</span>. See the <span class="co">[</span><span class="ot">Github repository</span><span class="co">](https://github.com/jandrewjohnson/open_principles_of_microeconomics_dev)</span> for details and to (hopefully) edit/correct/improve the book yourself!</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
