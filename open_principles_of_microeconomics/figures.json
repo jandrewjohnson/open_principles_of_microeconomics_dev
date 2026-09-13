@@ -1,0 +1,118 @@
+{
+  "apps_dir": "apps",
+  "figures": {
+    "budget_constraint_1": {
+      "app": "budget_constraint_textbook.html",
+      "state": "v=1"
+    },
+    "budget_constraint_price_rise": {
+      "app": "budget_constraint_textbook.html",
+      "state": "v=1&p_x=1&show_points=0&show_labels=0"
+    },
+    "budget_constraint_selected_c": {
+      "app": "budget_constraint_textbook.html",
+      "state": "v=1&sel=C"
+    },
+    "comparative_advantage_1": {
+      "app": "comparative_advantage_textbook.html",
+      "state": "v=1"
+    },
+    "comparative_advantage_us_wheat_boom": {
+      "app": "comparative_advantage_textbook.html",
+      "state": "v=1&max_wheat_us=90"
+    },
+    "demand_basic_1": {
+      "app": "demand_basic_textbook.html",
+      "state": "v=1"
+    },
+    "demand_curve_1": {
+      "app": "demand_curve_textbook.html",
+      "state": "v=1"
+    },
+    "demand_curve_shifted_right": {
+      "app": "demand_curve_textbook.html",
+      "state": "v=1&dq_d=100"
+    },
+    "demand_shift_dd_1": {
+      "app": "demand_shift_dd_textbook.html",
+      "state": "v=1"
+    },
+    "demand_shift_factors_1": {
+      "app": "demand_shift_factors_textbook.html",
+      "state": "v=1"
+    },
+    "demand_shifts_1": {
+      "app": "demand_shifts_textbook.html",
+      "state": "v=1"
+    },
+    "demand_shifts_increase_only": {
+      "app": "demand_shifts_textbook.html",
+      "state": "v=1&show_d2=0"
+    },
+    "demand_two_points_1": {
+      "app": "demand_two_points_textbook.html",
+      "state": "v=1"
+    },
+    "efficiency_ppf_1": {
+      "app": "efficiency_ppf_textbook.html",
+      "state": "v=1"
+    },
+    "efficiency_ppf_r_selected": {
+      "app": "efficiency_ppf_textbook.html",
+      "state": "v=1&sel=R"
+    },
+    "equilibrium_1": {
+      "app": "equilibrium_textbook.html",
+      "state": "v=1&@an.E=-75,3&@an.gap=0,-19&@an.p=-100,-15"
+    },
+    "equilibrium_at_market_clearing": {
+      "app": "equilibrium_textbook.html",
+      "state": "v=1&p=1.4"
+    },
+    "equilibrium_shortage": {
+      "app": "equilibrium_textbook.html",
+      "state": "v=1&p=1.15"
+    },
+    "individual_vs_social_1": {
+      "app": "individual_vs_social_textbook.html",
+      "state": "v=1"
+    },
+    "individual_vs_social_linear_ppf": {
+      "app": "individual_vs_social_textbook.html",
+      "state": "v=1&n_ppf=1"
+    },
+    "ppf_1": {
+      "app": "ppf_textbook.html",
+      "state": "v=1"
+    },
+    "ppf_inefficient_point": {
+      "app": "ppf_textbook.html",
+      "state": "v=1&sel=C"
+    },
+    "ppf_linear": {
+      "app": "ppf_textbook.html",
+      "state": "v=1&n_ppf=1"
+    },
+    "supply_curve_1": {
+      "app": "supply_curve_textbook.html",
+      "state": "v=1"
+    },
+    "supply_curve_shifted_left": {
+      "app": "supply_curve_textbook.html",
+      "state": "v=1&dq_s=-100"
+    },
+    "supply_shift_1": {
+      "app": "supply_shifts_textbook.html",
+      "state": "v=1"
+    },
+    "supply_shift_high_price": {
+      "app": "supply_shifts_textbook.html",
+      "state": "v=1&dq_s1=-2&p=22000"
+    },
+    "supply_shift_increase_only": {
+      "app": "supply_shifts_textbook.html",
+      "state": "v=1&show_annot=0&show_s1=0"
+    }
+  },
+  "out_dir": "figures"
+}
