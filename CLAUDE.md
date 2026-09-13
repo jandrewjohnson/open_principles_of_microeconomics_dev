@@ -42,7 +42,8 @@ Libraries. Two routes put it there, and both read the committed HTML folder:
 subtree of the website repo (changed files only, nothing deleted, orphans
 reported) and commits and pushes, using `linneabean.publishing.site`; the
 full-website script in `website_dev` copies the same folder in when the whole
-site is rebuilt. Commit the HTML folder here after a build either way.
+site is rebuilt. `publish_book.py` commits the two rendered output folders in this repo
+itself, nothing else; pushing this repo is up to you.
 
 ## Hard rules
 

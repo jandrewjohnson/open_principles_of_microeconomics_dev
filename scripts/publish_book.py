@@ -26,15 +26,18 @@ to OTHER_RENDERED_open_principles_of_microeconomics/.
 
 Publishing copies the HTML into the open_principles_of_microeconomics subtree
 of the website repo the same way the course sites do (changed files only,
-nothing deleted, orphans reported), then commits and pushes that repo. This
-script does not commit this repo: commit the HTML folder yourself, because the
-full-website script in website_dev copies the committed folder in when the
-whole site is rebuilt.
+nothing deleted, orphans reported), then commits and pushes that repo.
+
+The rendered output folders in this repo are also committed here, since the
+full-website script in website_dev copies the committed HTML folder in when
+the whole site is rebuilt. Only those two folders are staged; your source
+changes and the push of this repo are yours.
 """
 import argparse
 import os
 import pathlib
 import shutil
+import subprocess
 import sys
 
 from interactive_textbook_pipeline import build, output_dir
@@ -42,7 +45,7 @@ from interactive_textbook_pipeline import build, output_dir
 REPO = pathlib.Path(__file__).resolve().parent.parent
 
 try:
-    from linneabean.publishing.site import find_repo, publish_subtree
+    from linneabean.publishing.site import find_repo, publish_subtree, run
 except ImportError:
     # linneabean is a devstack repo checked out beside this one; its publishing
     # module needs nothing beyond the standard library, so use the source tree
@@ -52,7 +55,7 @@ except ImportError:
         if (_src / "linneabean").is_dir():
             sys.path.insert(0, str(_src))
             break
-    from linneabean.publishing.site import find_repo, publish_subtree
+    from linneabean.publishing.site import find_repo, publish_subtree, run
 
 BOOK = REPO / "open_principles_of_microeconomics"
 OTHER = REPO / "OTHER_RENDERED_open_principles_of_microeconomics"
@@ -77,6 +80,18 @@ def move_print_editions(html_dir):
         print("no PDF or DOCX in the HTML output to move")
 
 
+def commit_rendered_output(html_dir):
+    """Commit the rendered output folders in this repo, nothing else."""
+    folders = [html_dir.relative_to(REPO).as_posix(), OTHER.relative_to(REPO).as_posix()]
+    run("git add -A -- " + " ".join(f'"{f}"' for f in folders), cwd=REPO)
+    staged = subprocess.run("git diff --cached --quiet -- " + " ".join(f'"{f}"' for f in folders),
+                            shell=True, cwd=REPO).returncode
+    if staged == 0:
+        print("rendered output unchanged; nothing to commit here")
+        return
+    run('git commit -m "Rebuild book output"', cwd=REPO)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pdf", action="store_true", help="also render the PDF")
@@ -99,6 +114,9 @@ def main():
     html_dir = output_dir(BOOK)
     move_print_editions(html_dir)
 
+    if not args.dry_run:
+        commit_rendered_output(html_dir)
+
     if not args.no_publish:
         site = find_repo(SITE_CANDIDATES, base=REPO)
         print("website repo:", site)
@@ -113,7 +131,7 @@ def main():
     done = "book build complete"
     if not args.no_publish and not args.dry_run:
         done += ", published"
-    print(f"\n{done}\nremember to commit {html_dir.name}/ in this repo if it changed")
+    print(f"\n{done}")
 
 
 if __name__ == "__main__":
