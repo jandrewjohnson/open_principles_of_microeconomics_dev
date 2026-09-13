@@ -38,7 +38,7 @@ states of the same apps and are not placed anywhere yet.
 
 The book is published at justinandrewjohnson.com and is moving to UMN
 Libraries. Two routes put it there, and both read the committed HTML folder:
-`publish_book.py --publish` copies it into the `open_principles_of_microeconomics`
+`publish_book.py` copies it into the `open_principles_of_microeconomics`
 subtree of the website repo (changed files only, nothing deleted, orphans
 reported) and commits and pushes, using `linneabean.publishing.site`; the
 full-website script in `website_dev` copies the same folder in when the whole
@@ -66,11 +66,11 @@ site is rebuilt. Commit the HTML folder here after a build either way.
 pip install -e ../interactive_textbook_pipeline   # once
 playwright install chromium                       # once
 python -m pytest tests/ -q                        # all 14 apps, headless
-python scripts/publish_book.py                    # HTML build with link verification
+python scripts/publish_book.py                    # figures, HTML build, link verification, publish to the site
+python scripts/publish_book.py --no-publish       # build only
+python scripts/publish_book.py --dry-run          # build, then report what would be published
 python scripts/publish_book.py --pdf --docx       # plus print editions
 python scripts/publish_book.py --check            # fail if any PNG would change
-python scripts/publish_book.py --publish          # also copy the HTML into the website repo, commit, push
-python scripts/publish_book.py --publish --dry-run   # report what --publish would copy
 itp sync open_principles_of_microeconomics        # after a fresh clone, before opening an app by hand
 ```
 
