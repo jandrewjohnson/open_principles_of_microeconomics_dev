@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifts in Supply and Demand</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Shifts in Supply and Demand</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">When one curve moves, the market's equilibrium price and quantity move with it</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. A Shift in Supply and a Shift in Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="850"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Both panels start from the same market. Demand <strong>D₀</strong> slopes down (buyers want more at lower prices) and supply <strong>S₀</strong> slopes up (sellers offer more at higher prices). They cross at <strong>E₀</strong>, the equilibrium: the one price at which the quantity buyers want equals the quantity sellers offer.</p>
+          <p>In panel (a) something raises the cost of producing the good, so sellers need a higher price for every quantity. Supply shifts up to <strong>S₁</strong>, and the market moves to <strong>E₁</strong>: a higher price and a smaller quantity. In panel (b) buyers want less of the good at every price, so demand shifts down to <strong>D₁</strong>. The new equilibrium <strong>E₁</strong> has a lower price and a smaller quantity.</p>
+          <p>Notice that quantity falls in both panels but price moves in opposite directions. That asymmetry is how economists tell, from prices and quantities alone, whether a change came from the supply side or the demand side. Use the sliders to reverse either shift or make the curves steeper, and watch where E₁ lands.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders="dp_s1,dp_d1"></div>
+      </div>
+      <div class="control-panel" id="section-slopes">
+        <div class="control-panel-header" onclick="tog('slopes')"><div class="panel-title">Curve Slopes</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-slopes" onclick="event.stopPropagation();tog('slopes')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('slopes')">✕</button></div></div>
+        <div class="control-panel-body" id="body-slopes" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Equilibria</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium">
+          <div id="eq-table"></div>
+          <div class="legend" style="margin-top:12px">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>Demand (D₀, D₁)</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#c05621"></div><span>Supply (S₀, S₁)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#38a169"></div><span>Original equilibrium E₀</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#e53e3e"></div><span>New equilibrium E₁</span></div>
+          </div>
+          <div class="equation-box" style="margin-top:12px">\( Q_d(P^*) = Q_s(P^*) \)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- Two panel layout, in design pixels on a 1700 x 850 canvas ----
+const S0 = 2;                                   // design pixel ratio
+const GAP = 60 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50*S0, right:30*S0, bottom:62*S0, left:80*S0 };
+const QMIN = 200, QMAX = 1300, PMIN = 0.5, PMAX = 2.1;
+const AXES = [
+  { xMin:QMIN, xMax:QMAX, yMin:PMIN, yMax:PMAX, margin:MG, left:0,        width:PW },
+  { xMin:QMIN, xMax:QMAX, yMin:PMIN, yMax:PMAX, margin:MG, left:PW + GAP, width:PW },
+];
+
+// ---- Data ----
+// Both original curves pass through the same point, so the slope sliders
+// pivot D0 and S0 around E0 rather than moving it. A shift slider moves the
+// whole curve up or down by that many dollars (the vertical shift dp_ of the
+// key vocabulary). With unit slopes this is exactly the chapter 3 figure:
+// D0: P = 2.0 - 0.001 Q and S0: P = 0.5 + 0.001 Q, crossing at (750, $1.25).
+const Q0 = 750, P0 = 1.25;
+const line = (slope, dp) => {
+  const a = P0 + dp - slope * Q0 / 1000, b = slope / 1000;   // P = a + b Q
+  return { at: q => a + b * q, inv: p => (p - a) / b };
+};
+const demand = (n, dp) => line(-n, dp);
+const supply = (n, dp) => line(n, dp);
+const cross = (d, s) => {
+  // a_d + b_d q = a_s + b_s q
+  const q = (s.at(0) - d.at(0)) / ((d.at(1) - d.at(0)) - (s.at(1) - s.at(0)));
+  return { q, p: d.at(q) };
+};
+const fmtP = v => '$' + v.toFixed(2);
+const fmtQ = v => Math.round(v).toString();
+
+const COL = { d:'#2b6cb0', s:'#c05621', e0:'#38a169', e1:'#e53e3e', ink:'#1a202c', grey:'#718096' };
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'market_shifts.png',
+  axes: AXES,
+  sliders: [
+    { id:'dp_s1', label:'Supply shift (panel a)', min:-0.6, max:0.6, value:0.2,  step:0.05, fmt:v => (v > 0 ? '+' : '') + fmtP(v).replace('$-', '-$') },
+    { id:'dp_d1', label:'Demand shift (panel b)', min:-0.6, max:0.6, value:-0.2, step:0.05, fmt:v => (v > 0 ? '+' : '') + fmtP(v).replace('$-', '-$') },
+    { id:'n_d',   label:'Demand slope',           min:0.4,  max:2,   value:1,    step:0.1,  fmt:v => v.toFixed(1) },
+    { id:'n_s',   label:'Supply slope',           min:0.4,  max:2,   value:1,    step:0.1,  fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_grid',       label:'Gridlines' },
+    { id:'show_ticks',      label:'Axis tick numbers' },
+    { id:'show_eqlines',    label:'Dashed lines to the axes' },
+    { id:'show_annot',      label:'Price and quantity readouts' },
+    { id:'show_labels',     label:'E₀ / E₁ labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_arrows',     label:'Shift arrow' },
+    { id:'show_captions',   label:'Panel titles' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shifts:'Shifts', slopes:'Slopes', equilibrium:'Equilibria' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','slopes','equilibrium'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b',
+              'd0.a','s0.a','s1.a','d0.b','d1.b','s0.b',
+              'pt.a.E0','pt.a.E1','pt.b.E0','pt.b.E1',
+              'an.a.p0','an.a.q0','an.a.p1','an.a.q1',
+              'an.b.p0','an.b.q0','an.b.p1','an.b.q1'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const nd = val('n_d'), ns = val('n_s');
+    const d0 = demand(nd, 0), s0 = supply(ns, 0);
+    const s1 = supply(ns, val('dp_s1')), d1 = demand(nd, val('dp_d1'));
+    const e0 = cross(d0, s0);
+    const PANELS = [
+      { id:'a', title:'(a) Shift in supply', curves:[{c:d0, key:'d0', name:'D₀', col:COL.d}, {c:s0, key:'s0', name:'S₀', col:COL.s}, {c:s1, key:'s1', name:'S₁', col:COL.s, dashed:true}], e1: cross(d0, s1) },
+      { id:'b', title:'(b) Shift in demand', curves:[{c:d0, key:'d0', name:'D₀', col:COL.d}, {c:d1, key:'d1', name:'D₁', col:COL.d, dashed:true}, {c:s0, key:'s0', name:'S₀', col:COL.s}], e1: cross(d1, s0) },
+    ];
+
+    // ---- Side panel ----
+    const row = (head, e, col) => `<tr><td style="text-align:left;font-weight:600;color:${col}">${head}</td><td>${fmtP(e.p)}</td><td>${fmtQ(e.q)}</td></tr>`;
+    g.setText('eq-table',
+      '<table class="data-table"><thead><tr><th></th><th>Price</th><th>Quantity</th></tr></thead><tbody>' +
+      row('E₀ original', e0, COL.e0) +
+      row('E₁ after supply shift (a)', PANELS[0].e1, COL.e1) +
+      row('E₁ after demand shift (b)', PANELS[1].e1, COL.e1) +
+      '</tbody></table>');
+
+    // ---- Plot ----
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i);
+      const { x0, y0, width, height, tCX, tCY } = pan;
+      const bottom = y0 + height;
+
+      if (vis('show_grid')) pan.gridlines(100, 0.2);
+      pan.axes();
+      if (vis('show_ticks')) {
+        const xs = [], ys = [];
+        for (let q = QMIN; q <= QMAX + 1e-9; q += 200) xs.push(q);
+        for (let p = 0.6; p <= PMAX + 1e-9; p += 0.2) ys.push(p);
+        pan.xTicks(xs, v => v.toFixed(0));
+        pan.yTicks(ys, v => v.toFixed(1));
+      }
+      pan.axisLabels('Quantity', 'Price', P.id);
+      if (vis('show_captions'))
+        pan.label(P.title, x0 + width / 2, y0 - 24 * S, { font:`bold ${16 * S}px ${g.font}`, color:COL.ink, align:'center' });
+
+      // Curves, clipped to the plot area. Each is a straight line, so the
+      // visible run is the Q interval where its price stays inside the axes.
+      P.curves.forEach(cv => {
+        const qa = Math.max(QMIN, Math.min(cv.c.inv(PMIN), cv.c.inv(PMAX)));
+        const qb = Math.min(QMAX, Math.max(cv.c.inv(PMIN), cv.c.inv(PMAX)));
+        if (qb <= qa) return;
+        if (cv.dashed) ctx.setLineDash([12 * S, 8 * S]);
+        pan.plotFn(cv.c.at, qa, qb, { color: cv.col, lw: 2.5, steps: 2 });
+        ctx.setLineDash([]);
+        if (vis('show_curvelabel'))
+          pan.label(cv.name, tCX(qb) + 8 * S, tCY(cv.c.at(qb)) + 6 * S, { key:`${cv.key}.${P.id}`, font:`bold ${16 * S}px ${g.font}`, color:cv.col });
+      });
+
+      // Equilibrium points: dashed guides to both axes, readouts, letter labels
+      const drawEq = (e, which, col) => {
+        const ex = tCX(e.q), ey = tCY(e.p);
+        const n = which === 0 ? '0' : '1';
+        if (vis('show_eqlines')) {
+          pan.dashed(x0, ey, ex, ey, col, 1.5);
+          pan.dashed(ex, ey, ex, bottom, col, 1.5);
+        }
+        if (vis('show_annot')) {
+          const font = `${12 * S}px ${g.font}`;
+          // Boxed readouts, so they stay legible where they cross a curve.
+          const boxed = (txt, x, y, key, align) => {
+            const ng = g.getNudge(key);
+            ctx.font = font;
+            const w = ctx.measureText(txt).width, lx = x + ng.dx, ly = y + ng.dy;
+            const left = align === 'center' ? lx - w / 2 : lx;
+            ctx.fillStyle = 'rgba(255,255,255,0.85)';
+            ctx.fillRect(left - 3 * S, ly - 11 * S, w + 6 * S, 15 * S);
+            pan.label(txt, x, y, { key, font, color:col, align });
+          };
+          boxed(fmtP(e.p), x0 + 6 * S, ey + 4 * S, `an.${P.id}.p${n}`, 'left');
+          // The two quantity readouts are staggered so they never overlap.
+          boxed(fmtQ(e.q), ex, bottom - (which === 0 ? 8 : 30) * S, `an.${P.id}.q${n}`, 'center');
+        }
+        return { ex, ey };
+      };
+      const c0 = drawEq(e0, 0, COL.e0), c1 = drawEq(P.e1, 1, COL.e1);
+
+      // Thick arrow from E0 to E1, shortened so it starts and ends at the dots
+      if (vis('show_arrows')) {
+        const dx = c1.ex - c0.ex, dy = c1.ey - c0.ey, len = Math.hypot(dx, dy);
+        if (len > 24 * S) {
+          const ux = dx / len, uy = dy / len, r = 11 * S;
+          const x1 = c0.ex + ux * r, y1 = c0.ey + uy * r, x2 = c1.ex - ux * r, y2 = c1.ey - uy * r;
+          const hl = 14 * S, hw = 8 * S;
+          ctx.strokeStyle = COL.ink; ctx.fillStyle = COL.ink; ctx.globalAlpha = 0.85; ctx.lineWidth = 5 * S; ctx.lineCap = 'round';
+          ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2 - ux * hl * 0.6, y2 - uy * hl * 0.6); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(x2, y2);
+          ctx.lineTo(x2 - ux * hl + uy * hw, y2 - uy * hl - ux * hw); ctx.lineTo(x2 - ux * hl - uy * hw, y2 - uy * hl + ux * hw); ctx.closePath(); ctx.fill();
+          ctx.globalAlpha = 1; ctx.lineCap = 'butt';
+        }
+      }
+
+      // Dots on top of everything else
+      [[c0, COL.e0], [c1, COL.e1]].forEach(([c, col]) => {
+        ctx.fillStyle = col; ctx.beginPath(); ctx.arc(c.ex, c.ey, 9 * S, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2.5 * S; ctx.stroke();
+      });
+
+      // Letter labels sit up and to the right, joined to the dot by a dotted leader
+      if (vis('show_labels')) {
+        [[c0, 'E₀', `pt.${P.id}.E0`, COL.e0], [c1, 'E₁', `pt.${P.id}.E1`, COL.e1]].forEach(([c, txt, key, col]) => {
+          const ng = g.getNudge(key);
+          const lx = c.ex + 55 * S + ng.dx, ly = c.ey - 60 * S + ng.dy;
+          const ddx = c.ex - lx, ddy = c.ey - ly, dl = Math.hypot(ddx, ddy);
+          if (dl > 30 * S) {
+            ctx.strokeStyle = COL.grey; ctx.lineWidth = 1.5 * S; ctx.setLineDash([3 * S, 4 * S]);
+            ctx.beginPath(); ctx.moveTo(lx, ly + 5 * S); ctx.lineTo(c.ex - ddx / dl * 13 * S, c.ey - ddy / dl * 13 * S); ctx.stroke();
+            ctx.setLineDash([]);
+          }
+          pan.label(txt, c.ex + 55 * S, c.ey - 60 * S, { key, font:`bold ${16 * S}px ${g.font}`, color:col, align:'center' });
+        });
+      }
+    });
+  },
+});
+</script>
+</body>
+</html>
