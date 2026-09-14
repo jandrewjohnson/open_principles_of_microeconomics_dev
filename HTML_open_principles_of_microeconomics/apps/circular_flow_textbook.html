@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Circular Flow Diagram</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Circular Flow Diagram</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Households and firms meet in two markets; goods and labor go one way round, payments go the other. Drag boxes and labels to rearrange.</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Households, Firms and Two Markets</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1720" height="1180"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The circular flow diagram pictures the economy as two groups, <strong>households</strong> and <strong>firms</strong>, that meet in two markets. In the <strong>goods and services market</strong> (top) firms sell and households buy. In the <strong>labor market</strong>, or market for factors of production (bottom), households sell labor and other resources and firms buy them.</p>
+          <p>Firms produce and sell goods and services to households: arrow <strong>A</strong>. Households pay for them, and those payments become the firms' revenue: arrow <strong>B</strong>. Where do households get the money? They supply labor and other inputs to firms: arrow <strong>C</strong>. Firms pay for those inputs with wages, salaries and other factor payments: arrow <strong>D</strong>. Arrows A and B are the two sides of the product market; C and D are the two sides of the factor market.</p>
+          <p>The <span style="color:#e53e3e;font-weight:600">solid flows</span> are money and run clockwise; the <span style="color:#2b6cb0;font-weight:600">dashed flows</span> are real things, goods and labor, and run the other way. Every dollar one group spends is income to the other, which is why the flow never stops.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-layout">
+        <div class="control-panel-header" onclick="tog('layout')"><div class="panel-title">Layout and Animation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-layout" onclick="event.stopPropagation();tog('layout')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('layout')">✕</button></div></div>
+        <div class="control-panel-body" id="body-layout" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keyvals')">✕</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0"></div><span>Households</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#c05621"></div><span>Firms</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#38a169"></div><span>Goods and services market</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#805ad5"></div><span>Labor (factor) market</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#e53e3e"></div><span>Money flows, clockwise (B, D)</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0;height:1px;border:1px dashed #2b6cb0"></div><span>Real flows, counter-clockwise (A, C)</span></div>
+          </div>
+          <div class="equation-box" style="margin-top:12px">\( \text{Spending} = \text{Revenue} = \text{Factor payments} = \text{Income} \)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag boxes and labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// A schematic laid out in design pixels on a 1720 x 1180 canvas (the 3611
+// original's 860 x 660 layout at the library's design ratio): four boxes at
+// the cardinal points of a ring, eight quarter-turn arcs between them. There
+// are no data axes. Boxes are draggable through the library by registering
+// each as a label hit box whose nudge moves the whole box, so a rearranged
+// diagram travels in the URL hash like any other figure state.
+//
+// Ported from apec_3611/src/games/circular_flow_explanation.html. The flow
+// labels carry the letters A to D that the chapter text refers to.
+const COL = {
+  hh: { fill:'#ebf4ff', stroke:'#2b6cb0', text:'#2b6cb0' },
+  fi: { fill:'#fff5eb', stroke:'#c05621', text:'#9c4221' },
+  gm: { fill:'#f0fff4', stroke:'#38a169', text:'#276749' },
+  fm: { fill:'#faf5ff', stroke:'#805ad5', text:'#553c9a' },
+  money:'#e53e3e', real:'#2b6cb0', math:'#4a5568',
+};
+const qB  = (t, a, b, c) => { const u = 1 - t; return u * u * a + 2 * u * t * b + t * t * c; };
+const qBD = (t, a, b, c) => 2 * (1 - t) * (b - a) + 2 * t * (c - b);
+
+// Animation is live only: particles are never drawn in embed mode, so the
+// rendered figure is deterministic. The loop is the one piece of app state
+// outside the library; a second animated app would move it there.
+let animT = 0, animLast = 0, animPending = false;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'circular_flow.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'gap_x', label:'Agent spacing',    min:200, max:340, value:275, step:5 },
+    { id:'gap_y', label:'Market spacing',   min:160, max:260, value:220, step:5 },
+    { id:'speed', label:'Animation speed',  min:0.2, max:3,   value:1,   step:0.1, fmt:v => v.toFixed(1) + 'x' },
+  ],
+  toggles: [
+    { id:'show_households',   label:'Households' },
+    { id:'show_firms',        label:'Firms' },
+    { id:'show_gm',           label:'Goods and services market' },
+    { id:'show_fm',           label:'Labor (factor) market' },
+    { id:'show_money',        label:'Money flows (solid)' },
+    { id:'show_real',         label:'Real flows (dashed)' },
+    { id:'show_agentlabels',  label:'Household and firm labels' },
+    { id:'show_marketlabels', label:'Market labels' },
+    { id:'show_flowlabels',   label:'Flow labels (A to D)' },
+    { id:'show_icons',        label:'Icons', checked:false },
+    { id:'show_math',         label:'What each group maximizes', checked:false },
+    { id:'show_anim',         label:'Animate flows (live only)', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Diagram', explanation:'Explanation', layout:'Layout', keyvals:'Key' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['layout','keyvals'],
+  nudgeKeys: ['box.hh','box.fi','box.gm','box.fm',
+              'flow.a1','flow.a2','flow.b1','flow.b2','flow.c1','flow.c2','flow.d1','flow.d2'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W, H } = g;
+    const s = S, cx = W / 2, cy = H / 2;
+    const embed = !!(window.econViz && window.econViz.embed);
+    const animate = vis('show_anim') && !embed;
+
+    // ---- Boxes (centre, size), nudged by dragging ----
+    const place = (key, x, y, w, h) => { const n = g.getNudge(key); return { key, x: x + n.dx, y: y + n.dy, w, h }; };
+    const B = {
+      hh: place('box.hh', cx - val('gap_x') * s, cy, 170 * s, 100 * s),
+      fi: place('box.fi', cx + val('gap_x') * s, cy, 170 * s, 100 * s),
+      gm: place('box.gm', cx, cy - val('gap_y') * s, 240 * s, 56 * s),
+      fm: place('box.fm', cx, cy + val('gap_y') * s, 240 * s, 56 * s),
+    };
+    const shown = { hh: vis('show_households'), fi: vis('show_firms'), gm: vis('show_gm'), fm: vis('show_fm') };
+
+    // ---- Flow geometry ----
+    // Each arc leaves an agent box vertically and arrives at a market pill
+    // horizontally (or the reverse), as a quadratic bezier whose control
+    // point sits at the corner of the two endpoints' bounding box. Money
+    // (inner, clockwise) uses the attach points nearer the centre; real
+    // flows (outer, counter-clockwise) use the ones further out.
+    const xAt = (b, f) => b.x - b.w / 2 + b.w * f, yAt = (b, f) => b.y - b.h / 2 + b.h * f;
+    const top = b => b.y - b.h / 2, bot = b => b.y + b.h / 2, lft = b => b.x - b.w / 2, rgt = b => b.x + b.w / 2;
+    const arc  = (id, x1, y1, x2, y2, label) => ({ id, x1, y1, cpx:x1, cpy:y2, x2, y2, label });
+    const arcR = (id, x1, y1, x2, y2, label) => ({ id, x1, y1, cpx:x2, cpy:y1, x2, y2, label });
+    const { hh, fi, gm, fm } = B;
+    const money = [
+      arc ('b1', xAt(hh, 2/3), top(hh),      lft(gm),      yAt(gm, 2/3), 'B: Payment for\ngoods and services'),
+      arcR('b2', rgt(gm),      yAt(gm, 2/3), xAt(fi, 1/3), top(fi),      'B: Revenue\nto firms'),
+      arc ('d1', xAt(fi, 1/3), bot(fi),      rgt(fm),      yAt(fm, 1/3), 'D: Wages, salaries\nand benefits'),
+      arcR('d2', lft(fm),      yAt(fm, 1/3), xAt(hh, 2/3), bot(hh),      'D: Income\nto households'),
+    ];
+    const real = [
+      arc ('a1', xAt(fi, 2/3), top(fi),      rgt(gm),      yAt(gm, 1/3), 'A: Goods and services\nsold by firms'),
+      arcR('a2', lft(gm),      yAt(gm, 1/3), xAt(hh, 1/3), top(hh),      'A: Goods and services\nbought by households'),
+      arc ('c1', xAt(hh, 1/3), bot(hh),      lft(fm),      yAt(fm, 2/3), 'C: Labor and\nother resources'),
+      arcR('c2', rgt(fm),      yAt(fm, 2/3), xAt(fi, 2/3), bot(fi),      'C: Inputs\nhired by firms'),
+    ];
+
+    const drawArc = (p, color, dashed) => {
+      ctx.save();
+      ctx.lineWidth = 2.5 * s; ctx.strokeStyle = color; ctx.setLineDash(dashed ? [8 * s, 5 * s] : []);
+      ctx.beginPath(); ctx.moveTo(p.x1, p.y1); ctx.quadraticCurveTo(p.cpx, p.cpy, p.x2, p.y2); ctx.stroke();
+      ctx.setLineDash([]);
+      const t = 0.97, ax = qB(t, p.x1, p.cpx, p.x2), ay = qB(t, p.y1, p.cpy, p.y2);
+      const ang = Math.atan2(qBD(t, p.y1, p.cpy, p.y2), qBD(t, p.x1, p.cpx, p.x2)), hl = 10 * s;
+      ctx.translate(ax, ay); ctx.rotate(ang);
+      ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(-hl, -hl * 0.45); ctx.lineTo(-hl, hl * 0.45); ctx.closePath();
+      ctx.fillStyle = color; ctx.fill();
+      ctx.restore();
+
+      if (!vis('show_flowlabels')) return;
+      // Label at the arc's midpoint, pushed inward for money and outward for
+      // real flows, on a translucent card so it stays legible over a curve.
+      const mx = qB(0.5, p.x1, p.cpx, p.x2), my = qB(0.5, p.y1, p.cpy, p.y2);
+      const ndx = mx - cx, ndy = my - cy, nd = Math.hypot(ndx, ndy) || 1;
+      const push = color === COL.money ? -34 * s : 44 * s;
+      const key = 'flow.' + p.id, n = g.getNudge(key);
+      const lx = mx + ndx / nd * push + n.dx, ly = my + ndy / nd * push + n.dy;
+      const font = `600 ${11 * s}px ${g.font}`, lineH = 14 * s;
+      ctx.font = font;
+      const lines = p.label.split('\n');
+      const w = Math.max(...lines.map(l => ctx.measureText(l).width)), h = lines.length * lineH;
+      ctx.fillStyle = 'rgba(255,255,255,0.88)';
+      ctx.beginPath(); ctx.roundRect(lx - w / 2 - 6 * s, ly - h / 2 - 3 * s, w + 12 * s, h + 6 * s, 4 * s); ctx.fill();
+      g.label(p.label, mx + ndx / nd * push, my + ndy / nd * push - h / 2 + 11 * s, { key, font, color, align:'center', lineH });
+    };
+    const drawParticles = (paths, color) => {
+      paths.forEach(p => {
+        for (let i = 0; i < 5; i++) {
+          const t = (animT * 0.12 + i / 5) % 1;
+          ctx.beginPath(); ctx.arc(qB(t, p.x1, p.cpx, p.x2), qB(t, p.y1, p.cpy, p.y2), 3.5 * s, 0, Math.PI * 2);
+          ctx.fillStyle = color; ctx.globalAlpha = 0.75; ctx.fill(); ctx.globalAlpha = 1;
+        }
+      });
+    };
+    const box = (o, c, label, icon, math) => {
+      if (!shown[o.key.slice(4)]) return;
+      const hasMath = vis('show_math') && math;
+      const h = hasMath ? o.h : o.h - 15 * s;
+      const x = o.x - o.w / 2, y = o.y - h / 2;
+      ctx.beginPath(); ctx.roundRect(x, y, o.w, h, 12 * s); ctx.fillStyle = c.fill; ctx.fill();
+      ctx.strokeStyle = c.stroke; ctx.lineWidth = 2 * s; ctx.stroke();
+      g.regLabel(o.key, x, y, o.w, h);
+      if (!vis('show_agentlabels')) return;
+      ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      let ty = y + (hasMath ? 22 * s : h / 2);
+      if (vis('show_icons')) { ctx.font = `${20 * s}px sans-serif`; ctx.fillText(icon, o.x, ty - 2 * s); ty += 16 * s; }
+      ctx.font = `700 ${15 * s}px ${g.font}`; ctx.fillStyle = c.text; ctx.fillText(label, o.x, ty);
+      if (hasMath) {
+        ctx.font = `italic ${10.5 * s}px ${g.font}`; ctx.fillStyle = COL.math;
+        math.forEach((m, i) => ctx.fillText(m, o.x, ty + 17 * s + i * 13 * s));
+      }
+      ctx.restore();
+    };
+    const pill = (o, c, label, sub, icon) => {
+      if (!shown[o.key.slice(4)]) return;
+      const x = o.x - o.w / 2, y = o.y - o.h / 2;
+      ctx.beginPath(); ctx.roundRect(x, y, o.w, o.h, o.h / 2); ctx.fillStyle = c.fill; ctx.fill();
+      ctx.strokeStyle = c.stroke; ctx.lineWidth = 2 * s; ctx.stroke();
+      g.regLabel(o.key, x, y, o.w, o.h);
+      if (!vis('show_marketlabels')) return;
+      ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = `700 ${13 * s}px ${g.font}`; ctx.fillStyle = c.text; ctx.fillText(label, o.x, o.y - 7 * s);
+      ctx.font = `${10.5 * s}px ${g.font}`; ctx.globalAlpha = 0.7; ctx.fillText(sub, o.x, o.y + 9 * s); ctx.globalAlpha = 1;
+      if (vis('show_icons')) { ctx.font = `${15 * s}px sans-serif`; ctx.fillText(icon, x + 22 * s, o.y); }
+      ctx.restore();
+    };
+
+    // ---- Plot ----
+    g.clear();
+    if (vis('show_money')) money.forEach(p => drawArc(p, COL.money, false));
+    if (vis('show_real'))  real.forEach(p => drawArc(p, COL.real, true));
+    if (animate) {
+      if (vis('show_money')) drawParticles(money, COL.money);
+      if (vis('show_real'))  drawParticles(real, COL.real);
+    }
+    box(B.hh, COL.hh, 'Households', '🏠', ['max U(X₁, X₂, …)', 's.t.  p·X ≤ M']);
+    box(B.fi, COL.fi, 'Firms', '🏭', ['max π = p·f(L,K) − wL − rK', 's.t.  Y = f(L, K)']);
+    pill(B.gm, COL.gm, 'Goods and Services Market', '(product market)', '🛒');
+    pill(B.fm, COL.fm, 'Labor Market', '(factors of production)', '⚙️');
+
+    if (animate) {
+      if (!animPending) {
+        animPending = true;
+        requestAnimationFrame(ts => {
+          animPending = false;
+          if (animLast) animT += Math.min((ts - animLast) / 1000, 0.1) * val('speed');
+          animLast = ts;
+          window.econViz.draw();
+        });
+      }
+    } else {
+      animLast = 0;
+    }
+  },
+});
+</script>
+</body>
+</html>
