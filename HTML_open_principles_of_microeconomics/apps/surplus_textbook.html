@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consumer and Producer Surplus</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Consumer and Producer Surplus</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">In the market for tablets, buyers who would have paid more than $80 and sellers who would have accepted less both come away with a surplus</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Market for Tablets</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The equilibrium price is $80 and the equilibrium quantity is 28 million tablets. The part of the demand curve above the equilibrium and to the left shows buyers who would have paid more: at point J, for example, 20 million tablets would sell at $90. Those buyers paid $80 and received a benefit beyond what they paid. The amount people would have been willing to pay minus what they actually paid is <strong>consumer surplus</strong>, the area F above the market price and below the demand curve.</p>
+          <p>The supply curve shows what firms would accept. At point K, firms would still supply 14 million tablets at $45; those firms received $80 instead. The price received minus the price a producer would have accepted is <strong>producer surplus</strong>, the area G between the market price and the supply curve below the equilibrium.</p>
+          <p>Consumer surplus plus producer surplus is <strong>social surplus</strong>, F + G. It is larger at the equilibrium quantity than at any other quantity, which is the sense in which the market equilibrium is efficient. Turn on the shading to see the two areas, and shift a curve to see how they change.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-surplus">
+        <div class="control-panel-header" onclick="tog('surplus')"><div class="panel-title">Surplus at Equilibrium</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-surplus" onclick="event.stopPropagation();tog('surplus')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('surplus')">✕</button></div></div>
+        <div class="control-panel-body" id="body-surplus">
+          <div class="info-box" id="surplus-info"></div>
+          <div class="legend" style="margin-top:12px">
+            <div class="legend-item"><div class="legend-dot" style="background:rgba(43,108,176,.35)"></div><span>F: consumer surplus</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:rgba(56,161,105,.35)"></div><span>G: producer surplus</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 3.23 of the book: the tablet market. Curves are chosen so the
+// book's numbers hold: E at 28 million and $80, J on demand at 20 million
+// and $90, K on supply at 14 million and $45. The areas are lettered F and G
+// as in the figure; shading them is a toggle that defaults off.
+const BLUE = '#2b6cb0', GREEN = '#38a169', PINK = '#a855c7';
+const QE = 28, PE = 80;
+const KD = Math.log(90 / 80) / 8, KS = Math.log(80 / 45) / 14;
+const demand = dq => q => PE * Math.exp(-KD * (q - dq - QE));
+const supply = dq => q => PE * Math.exp(KS * (q - dq - QE));
+const qOfD = (dq, p) => dq + QE - Math.log(p / PE) / KD;
+const qOfS = (dq, p) => dq + QE + Math.log(p / PE) / KS;
+function cross(d, s) {
+  let lo = 0, hi = 60;
+  for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (d(m) - s(m) > 0 ? lo = m : hi = m); }
+  const q = (lo + hi) / 2;
+  return { q, p: d(q) };
+}
+const integrate = (fn, a, b, n = 200) => { let s = 0; for (let i = 0; i < n; i++) { const x = a + (i + 0.5) * (b - a) / n; s += fn(x); } return s * (b - a) / n; };
+const fmtM = v => '$' + Math.round(v).toLocaleString() + ' million';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'surplus.png',
+  axes: { xMin:0, xMax:40, yMin:0, yMax:140, margin:{top:70, right:100, bottom:130, left:160} },
+  sliders: [
+    { id:'dq_d', label:'Shift of demand (millions)', min:-10, max:10, value:0, step:1, fmt:v => (v > 0 ? '+' : '') + v },
+    { id:'dq_s', label:'Shift of supply (millions)', min:-10, max:10, value:0, step:1, fmt:v => (v > 0 ? '+' : '') + v },
+  ],
+  toggles: [
+    { id:'show_grid',       label:'Gridlines' },
+    { id:'show_shading',    label:'Shade the surplus areas', checked:false },
+    { id:'show_points',     label:'Points J and K' },
+    { id:'show_droplines',  label:'Dashed lines to the axes' },
+    { id:'show_labels',     label:'Area letters F and G' },
+    { id:'show_annot',      label:'Consumer and producer surplus text' },
+    { id:'show_curvelabel', label:'Curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shifts:'Shifts', surplus:'Surplus' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','surplus'],
+  nudgeKeys: ['x','y','d','s','pt.E','pt.J','pt.K','an.F','an.G','an.cs','an.ps'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, width, height, xMax, yMax } = g;
+    const D = demand(val('dq_d')), Sf = supply(val('dq_s'));
+    const e = cross(D, Sf);
+    const axisY = y0 + height;
+    const cs = integrate(q => Math.min(D(q), yMax) - e.p, 0, e.q), ps = integrate(q => e.p - Sf(q), 0, e.q);
+
+    const row = (k, v, hi) => `<div class="info-row"><span class="info-label">${k}</span><span class="info-value${hi ? ' highlight' : ''}">${v}</span></div>`;
+    g.setText('surplus-info',
+      row('Equilibrium', `${e.q.toFixed(1)} million at $${e.p.toFixed(0)}`, true) +
+      row('Consumer surplus (F)', fmtM(cs)) + row('Producer surplus (G)', fmtM(ps)) + row('Social surplus (F + G)', fmtM(cs + ps), true));
+
+    // ---- Plot ----
+    g.clear();
+    if (vis('show_grid')) g.gridlines(10, 20);
+
+    // Shaded areas: above the price under demand, and below the price above supply
+    if (vis('show_shading')) {
+      const region = (topFn, botFn, a, b, color) => {
+        ctx.fillStyle = color; ctx.beginPath();
+        const n = 120;
+        for (let i = 0; i <= n; i++) { const q = a + (i / n) * (b - a); const y = Math.min(topFn(q), yMax); i ? ctx.lineTo(tCX(q), tCY(y)) : ctx.moveTo(tCX(q), tCY(y)); }
+        for (let i = n; i >= 0; i--) { const q = a + (i / n) * (b - a); ctx.lineTo(tCX(q), tCY(botFn(q))); }
+        ctx.closePath(); ctx.fill();
+      };
+      region(D, () => e.p, 0, e.q, 'rgba(43,108,176,0.18)');
+      region(() => e.p, Sf, 0, e.q, 'rgba(56,161,105,0.18)');
+    }
+
+    g.axes(BLUE);
+    // Arrowheads on both axes, as in the book
+    ctx.fillStyle = BLUE;
+    ctx.beginPath(); ctx.moveTo(x0, y0 - 2 * S); ctx.lineTo(x0 - 6 * S, y0 + 10 * S); ctx.lineTo(x0 + 6 * S, y0 + 10 * S); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x0 + width + 2 * S, axisY); ctx.lineTo(x0 + width - 10 * S, axisY - 6 * S); ctx.lineTo(x0 + width - 10 * S, axisY + 6 * S); ctx.closePath(); ctx.fill();
+    g.xTicks([10, 14, 20, 28, 30], v => v);
+    g.yTicks([20, 40, 60, 80, 100, 120], v => '$' + v);
+    g.axisLabels('Quantity (in millions)', 'Price');
+
+    if (vis('show_droplines')) {
+      g.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+      g.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+    }
+
+    const pTop = yMax * 0.95;
+    const qa = Math.max(0, qOfD(val('dq_d'), pTop)), qb = Math.min(xMax - 2, qOfD(val('dq_d'), 55));
+    g.plotFn(D, qa, qb, { color: BLUE, lw: 2.5 });
+    const sa = Math.max(0, qOfS(val('dq_s'), 20)), sb = Math.min(xMax - 2, qOfS(val('dq_s'), pTop));
+    g.plotFn(Sf, sa, sb, { color: BLUE, lw: 2.5 });
+    if (vis('show_curvelabel')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      g.label('D', tCX(qb) + 10 * S, tCY(D(qb)) + 6 * S, { key:'d', ...f });
+      g.label('S', tCX(sb) + 6 * S, tCY(Sf(sb)) - 10 * S, { key:'s', align:'center', ...f });
+    }
+
+    const dot = (q, p) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+    dot(e.q, e.p);
+    const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+    g.label('E', tCX(e.q) + 14 * S, tCY(e.p) + 6 * S, { key:'pt.E', ...f });
+    if (vis('show_points')) {
+      const jq = 20, kq = 14;
+      dot(jq, D(jq)); dot(kq, Sf(kq));
+      g.label('J', tCX(jq) + 2 * S, tCY(D(jq)) - 14 * S, { key:'pt.J', align:'center', ...f });
+      g.label('K', tCX(kq) + 8 * S, tCY(Sf(kq)) + 26 * S, { key:'pt.K', align:'center', ...f });
+    }
+    if (vis('show_labels')) {
+      const lf = { font:`${18 * S}px ${g.font}`, color:BLUE, align:'center' };
+      g.label('F', tCX(e.q * 0.18), tCY(e.p + (Math.min(D(e.q * 0.3), yMax) - e.p) * 0.45), { key:'an.F', ...lf });
+      g.label('G', tCX(e.q * 0.18), tCY(Sf(e.q * 0.18) + (e.p - Sf(e.q * 0.18)) * 0.5), { key:'an.G', ...lf });
+    }
+    if (vis('show_annot')) {
+      // Both texts sit to the left of E, straddling the price line, as in the book
+      const af = { font:`${15 * S}px ${g.font}`, color:BLUE, align:'left' };
+      g.label('Consumer surplus', tCX(2), tCY(e.p) - 12 * S, { key:'an.cs', ...af });
+      g.label('Producer surplus', tCX(2), tCY(e.p) + 22 * S, { key:'an.ps', ...af });
+    }
+  },
+});
+</script>
+</body>
+</html>

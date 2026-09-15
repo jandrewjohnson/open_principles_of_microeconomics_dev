@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Efficiency and Price Floors and Ceilings</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Efficiency and Price Floors and Ceilings</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A price control transfers surplus from one side of the market to the other and blocks trades both sides wanted, which is the deadweight loss</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Reduced Social Surplus</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p><strong>Panel (a), a price ceiling.</strong> Left to the market, a new back-pain drug sells at $600 a month to 20,000 people. Consumer surplus is T + U and producer surplus is V + W + X. A price ceiling of $400 makes firms produce only 15,000. Two things happen. The total surplus falls: the loss, U + W, is the <strong>deadweight loss</strong>, money thrown away that benefits no one, because the control blocks trades both sides were willing to make. And some producer surplus moves to consumers: the new consumer surplus is T + V and the new producer surplus is X, so V is transferred. The consumers' gain is less than the producers' loss, which is the deadweight loss seen another way.</p>
+          <p><strong>Panel (b), a price floor.</strong> Movie tickets sell at $8 with 1,800 attending. Consumer surplus is G + H + J, producer surplus I + K. A price floor of $12 cuts the quantity demanded to 1,400. The new consumer surplus is G and the new producer surplus is H + I: H is transferred from consumers to producers, and J + K is the deadweight loss.</p>
+          <p>A ceiling, like rent control, transfers producer surplus to consumers, which is why consumers often favor them; a floor, like a farm price support, transfers consumer surplus to producers. Both block trades and create deadweight loss. Move the sliders to change the controls; turn on the shading to see the areas.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-policy">
+        <div class="control-panel-header" onclick="tog('policy')"><div class="panel-title">Price Controls</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-policy" onclick="event.stopPropagation();tog('policy')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('policy')">✕</button></div></div>
+        <div class="control-panel-body" id="body-policy" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-surplus">
+        <div class="control-panel-header" onclick="tog('surplus')"><div class="panel-title">Who Gains, Who Loses</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-surplus" onclick="event.stopPropagation();tog('surplus')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('surplus')">✕</button></div></div>
+        <div class="control-panel-body" id="body-surplus">
+          <div id="surplus-info"></div>
+          <div class="legend" style="margin-top:12px">
+            <div class="legend-item"><div class="legend-dot" style="background:rgba(43,108,176,.35)"></div><span>Consumer surplus after the control</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:rgba(56,161,105,.35)"></div><span>Producer surplus after the control</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:rgba(229,62,62,.35)"></div><span>Deadweight loss</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 3.24 of the book: two panels, a price ceiling on a $600 drug and a
+// price floor on $8 movie tickets, each schematic apart from the equilibrium
+// and control values on the axes. The lettered areas (T U V W X, and G H I
+// J K) are placed as in the book's figure; shading and numeric readouts are
+// extras behind a default-off toggle and a side panel.
+const S0 = 2;
+const GAP = 80 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50, right:70, bottom:190, left:150 };
+const BLUE = '#2b6cb0', PINK = '#a855c7', GREY = '#718096';
+const CS_FILL = 'rgba(43,108,176,0.18)', PS_FILL = 'rgba(56,161,105,0.18)', DWL_FILL = 'rgba(229,62,62,0.2)';
+
+// Each panel: exponential D and S through the equilibrium, with the
+// curvatures chosen so the control quantity in the book comes out exactly.
+const PANEL = [
+  { id:'a', kind:'ceiling', caption:'(a) Reduced social surplus from a price ceiling', qe:20000, pe:600, qc:15000,
+    kd: 0.00006, ks: Math.log(600 / 400) / 5000, xMax:30000, yMax:1000, xTicks:[15000, 20000], yTicks:[400, 600], fmtP:v => '$' + v, fmtQ:v => v.toLocaleString(),
+    letters:{ cs:['T', 'U'], ps:['V', 'W', 'X'] }, unit:'people', money:'$' },
+  { id:'b', kind:'floor', caption:'(b) Reduced social surplus from a price floor', qe:1800, pe:8, qc:1400,
+    kd: Math.log(12 / 8) / 400, ks: 0.0009, xMax:3000, yMax:20, xTicks:[1400, 1800], yTicks:[8, 12], fmtP:v => '$' + v, fmtQ:v => v.toLocaleString(),
+    letters:{ cs:['G', 'H', 'J'], ps:['I', 'K'] }, unit:'tickets', money:'$' },
+];
+const AXES = PANEL.map((P, i) => ({ xMin:0, xMax:P.xMax, yMin:0, yMax:P.yMax, margin:MG, left:i * (PW + GAP), width:PW }));
+const integrate = (fn, a, b, n = 200) => { let s = 0; for (let i = 0; i < n; i++) { const x = a + (i + 0.5) * (b - a) / n; s += fn(x); } return s * (b - a) / n; };
+const money = v => '$' + Math.round(v).toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'surplus_price_controls.png',
+  axes: AXES,
+  sliders: [
+    { id:'p_ceiling', label:'Price ceiling (a)', min:200, max:800, value:400, step:25, fmt:v => '$' + v },
+    { id:'p_floor',   label:'Price floor (b)',   min:4,   max:16,  value:12,  step:0.5, fmt:v => '$' + v.toFixed(2) },
+  ],
+  toggles: [
+    { id:'show_shading',    label:'Shade the surplus areas', checked:false },
+    { id:'show_letters',    label:'Area letters' },
+    { id:'show_ticks',      label:'Axis numbers' },
+    { id:'show_droplines',  label:'Dashed lines to the axes' },
+    { id:'show_annot',      label:'"Price ceiling" and "Price floor" text' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_captions',   label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', policy:'Controls', surplus:'Surplus' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['policy','surplus'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','d.a','s.a','d.b','s.b','an.a.control','an.b.control',
+              'an.a.T','an.a.U','an.a.V','an.a.W','an.a.X','an.b.G','an.b.H','an.b.I','an.b.J','an.b.K'],
+
+  draw(g) {
+    const { S, ctx, val, vis, H } = g;
+    let info = '';
+
+    g.clear();
+    PANEL.forEach((P, i) => {
+      const pan = g.panel(i);
+      const { x0, y0, width, height, tCX, tCY, xMax, yMax } = pan;
+      const axisY = y0 + height;
+      const D = q => P.pe * Math.exp(-P.kd * (q - P.qe)), Sf = q => P.pe * Math.exp(P.ks * (q - P.qe));
+      const qOfD = p => P.qe - Math.log(p / P.pe) / P.kd, qOfS = p => P.qe + Math.log(p / P.pe) / P.ks;
+      const pc = P.kind === 'ceiling' ? val('p_ceiling') : val('p_floor');
+      const binding = P.kind === 'ceiling' ? pc < P.pe : pc > P.pe;
+      // Quantity traded under the control: the short side of the market
+      const qc = binding ? (P.kind === 'ceiling' ? qOfS(pc) : qOfD(pc)) : P.qe;
+      const pTop = yMax * 0.95;
+
+      // ---- Surplus numbers ----
+      const cs0 = integrate(q => Math.min(D(q), yMax) - P.pe, 0, P.qe), ps0 = integrate(q => P.pe - Sf(q), 0, P.qe);
+      const cs1 = binding ? integrate(q => Math.min(D(q), yMax) - pc, 0, qc) : cs0;
+      const ps1 = binding ? integrate(q => pc - Sf(q), 0, qc) : ps0;
+      const dwl = cs0 + ps0 - cs1 - ps1;
+      const row = (k, v) => `<div class="info-row"><span class="info-label">${k}</span><span class="info-value">${v}</span></div>`;
+      info += `<div class="info-box" style="margin-bottom:10px"><div style="font-weight:600;color:#2b6cb0;margin-bottom:4px">Panel (${P.id}), ${P.kind} at ${P.fmtP(pc)}${binding ? '' : ' (not binding)'}</div>` +
+        row('Consumer surplus', `${money(cs0)} to ${money(cs1)}`) + row('Producer surplus', `${money(ps0)} to ${money(ps1)}`) +
+        `<div class="info-row"><span class="info-label">Deadweight loss</span><span class="info-value" style="color:#e53e3e">${money(dwl)}</span></div></div>`;
+
+      // ---- Shading ----
+      const region = (topFn, botFn, a, b, color) => {
+        if (b <= a) return;
+        ctx.fillStyle = color; ctx.beginPath();
+        const n = 100;
+        for (let k = 0; k <= n; k++) { const q = a + (k / n) * (b - a); const y = Math.min(topFn(q), yMax); k ? ctx.lineTo(tCX(q), tCY(y)) : ctx.moveTo(tCX(q), tCY(y)); }
+        for (let k = n; k >= 0; k--) { const q = a + (k / n) * (b - a); ctx.lineTo(tCX(q), tCY(Math.max(botFn(q), 0))); }
+        ctx.closePath(); ctx.fill();
+      };
+      if (vis('show_shading')) {
+        const pTrade = binding ? pc : P.pe;
+        region(D, () => pTrade, 0, qc, CS_FILL);
+        region(() => pTrade, Sf, 0, qc, PS_FILL);
+        if (binding) region(D, Sf, qc, P.qe, DWL_FILL);
+      }
+
+      // ---- Axes with arrowheads, P and Q labels ----
+      pan.axes(BLUE);
+      ctx.fillStyle = BLUE;
+      ctx.beginPath(); ctx.moveTo(x0, y0 - 2 * S); ctx.lineTo(x0 - 6 * S, y0 + 10 * S); ctx.lineTo(x0 + 6 * S, y0 + 10 * S); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(x0 + width + 2 * S, axisY); ctx.lineTo(x0 + width - 10 * S, axisY - 6 * S); ctx.lineTo(x0 + width - 10 * S, axisY + 6 * S); ctx.closePath(); ctx.fill();
+      pan.label('Q', x0 + width / 2, axisY + 70 * S, { key:'x.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+      pan.label('P', pan.left + 26 * S, y0 + height / 2 + 6 * S, { key:'y.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+      if (vis('show_ticks')) {
+        pan.xTicks(binding ? [qc, P.qe] : [P.qe], v => P.fmtQ(Math.round(v)));
+        pan.yTicks(binding ? [pc, P.pe] : [P.pe], v => P.fmtP(v));
+      }
+
+      // ---- Dashed lines, control line ----
+      if (vis('show_droplines')) {
+        pan.dashed(x0, tCY(P.pe), tCX(P.qe), tCY(P.pe), PINK, 1.5);
+        pan.dashed(tCX(P.qe), tCY(P.pe), tCX(P.qe), axisY, PINK, 1.5);
+        if (binding) pan.dashed(tCX(qc), tCY(Math.min(D(qc), yMax)), tCX(qc), axisY, PINK, 1.5);
+      }
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 1.5 * S;
+      ctx.beginPath(); ctx.moveTo(x0, tCY(pc)); ctx.lineTo(x0 + width, tCY(pc)); ctx.stroke();
+      if (vis('show_annot'))
+        pan.label(P.kind === 'ceiling' ? 'Price\nceiling' : 'Price\nfloor', x0 + width - 8 * S, tCY(pc) + (P.kind === 'ceiling' ? -30 : 22) * S,
+          { key:'an.' + P.id + '.control', font:`${15 * S}px ${g.font}`, color:BLUE, align:'right', lineH:20 * S });
+
+      // ---- Curves ----
+      const qa = Math.max(0, qOfD(pTop)), qb = Math.min(xMax * 0.8, qOfD(P.pe * 0.55));
+      pan.plotFn(D, qa, qb, { color: BLUE, lw: 2.5 });
+      const sa = Math.max(0, qOfS(P.pe * 0.3)), sb = Math.min(xMax * 0.95, qOfS(pTop));
+      pan.plotFn(Sf, sa, sb, { color: BLUE, lw: 2.5 });
+      if (vis('show_curvelabel')) {
+        const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+        pan.label('D', tCX(qb) + 8 * S, tCY(D(qb)) + 14 * S, { key:'d.' + P.id, ...f });
+        pan.label('S', tCX(sb) + 6 * S, tCY(Sf(sb)) - 10 * S, { key:'s.' + P.id, align:'center', ...f });
+      }
+
+      // ---- Area letters, placed inside the regions the book letters ----
+      if (vis('show_letters')) {
+        const lf = { font:`${17 * S}px ${g.font}`, color:BLUE, align:'center' };
+        const L = (name, q, p) => pan.label(name, tCX(q), tCY(p) + 6 * S, { key:`an.${P.id}.${name}`, ...lf });
+        const mid = (qc + P.qe) / 2, left = qc * 0.4;
+        const hi = Math.max(pc, P.pe), lo = Math.min(pc, P.pe);
+        const capD = q => Math.min(D(q), yMax * 0.9);
+        if (P.kind === 'ceiling') {
+          L('T', left, hi + (capD(left) - hi) * 0.4);
+          L('U', mid, hi + (capD(mid) - hi) * 0.5);
+          L('V', left, (lo + hi) / 2);
+          L('W', mid, (Sf(mid) + hi) / 2);
+          L('X', left, (Sf(left) + lo) / 2);
+        } else {
+          L('G', left, hi + (capD(left) - hi) * 0.4);
+          L('H', left, (lo + hi) / 2);
+          L('J', mid, (lo + capD(mid)) / 2);
+          L('K', mid, (Sf(mid) + lo) / 2);
+          L('I', left, (Sf(left) + lo) / 2);
+        }
+      }
+
+      if (vis('show_captions'))
+        pan.label(P.caption, x0 + width / 2, H - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY, align:'center' });
+    });
+    g.setText('surplus-info', info);
+  },
+});
+</script>
+</body>
+</html>
