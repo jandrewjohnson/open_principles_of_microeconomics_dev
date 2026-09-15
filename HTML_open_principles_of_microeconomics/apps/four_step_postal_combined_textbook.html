@@ -90,7 +90,7 @@ new EconViz({
   canvas: 'graph',
   stateVersion: 1,
   downloadName: 'four_step_postal_combined.png',
-  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:100, bottom:200, left:170} },
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:100, bottom:240, left:170} },
   sliders: [
     { id:'dq_s1', label:'Shift of supply', min:-4, max:4, value:-2.4, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
     { id:'dq_d1', label:'Shift of demand', min:-4, max:4, value:-3.0, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
@@ -133,7 +133,7 @@ new EconViz({
     // ---- Plot ----
     g.clear();
     g.axes(BLUE);
-    g.label('Quantity', x0 + (xMax > 0 ? (tCX(xMax) - x0) / 2 : 0), axisY + 78 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+    g.label('Quantity', x0 + (xMax > 0 ? (tCX(xMax) - x0) / 2 : 0), axisY + 98 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
     const ylx = g.left + 30 * S, mid = y0 + height / 2, ny = g.getNudge('y');
     ctx.save(); ctx.translate(ylx + ny.dx, mid + ny.dy); ctx.rotate(-Math.PI / 2);
     ctx.font = `bold ${14 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'center'; ctx.fillText('Price', 0, 0); ctx.restore();
@@ -189,7 +189,7 @@ new EconViz({
       const opposed = Math.sign(e1.p - e0.p) * Math.sign(e2.p - e0.p) < 0;
       if (opposed) { g.drawArrow(ylx, mid + 100 * S, ylx, top, INK); g.drawArrow(ylx, mid + 100 * S, ylx, bot, INK); }
       else if (Math.abs(e3.p - e0.p) > 0.05) g.drawArrow(ylx, e3.p < e0.p ? top : bot, ylx, e3.p < e0.p ? bot : top, INK);
-      const qy = axisY + 50 * S, xa = tCX(Math.max(e0.q, e3.q)), xb = tCX(Math.min(e0.q, e3.q));
+      const qy = axisY + 72 * S, xa = tCX(Math.max(e0.q, e3.q)), xb = tCX(Math.min(e0.q, e3.q));
       if (Math.abs(e3.q - e0.q) > 0.05) g.drawArrow(e3.q < e0.q ? xa + 30 * S : xb - 30 * S, qy, e3.q < e0.q ? xb - 20 * S : xa + 20 * S, qy, INK);
     }
 
