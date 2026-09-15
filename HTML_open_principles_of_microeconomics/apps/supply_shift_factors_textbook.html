@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factors That Shift Supply</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Factors That Shift Supply</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Changes in the cost of production move the whole supply curve, outward on the left and inward on the right; a change in the product's own price does not</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Increases and Decreases in Supply</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="850"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Changes in the cost of inputs, natural conditions, technology and government decisions all affect the cost of production, and so how much firms are willing to supply at any given price. Panel (a) lists the changes that <strong>increase</strong> supply, shifting the curve out from S₀ to S₁: favorable natural conditions, a fall in input prices, improved technology, and lower product taxes or less costly regulations.</p>
+          <p>Panel (b) lists the same factors reversed, which <strong>decrease</strong> supply and shift the curve in from S₀ to S₁: poor natural conditions, a rise in input prices, a decline in technology (not common), and higher product taxes or more costly regulations.</p>
+          <p>Notice what is not on either list: the price of the product itself. A change in that price moves the economy <em>along</em> the supply curve (a change in quantity supplied); it does not shift the curve.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-curve">
+        <div class="control-panel-header" onclick="tog('curve')"><div class="panel-title">Curve Shape</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-curve" onclick="event.stopPropagation();tog('curve')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('curve')">✕</button></div></div>
+        <div class="control-panel-body" id="body-curve" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>S₀ (original) and S₁ (after the shift)</span></div>
+          </div>
+          <div class="equation-box">\(\text{Shift} \neq \text{Movement along curve}\)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 3.15 of the book, the supply twin of demand_shift_factors. Laid out
+// directly in design pixels rather than data units: the two panels are
+// schematic, with no numbered axes. The factor lists, their order and
+// wording, and the direction of the arrows follow the book's figure.
+// g.label takes design pixels, so every callout stays draggable through the
+// library.
+const FACTORS = {
+  a: ['Favorable natural conditions for\nproduction', 'A fall in input prices', 'Improved technology',
+      'Lower product\ntaxes/ less costly\nregulations'],
+  b: ['Poor natural conditions for\nproduction', 'A rise in input prices', 'A decline in technology\n(not common)',
+      'Higher product taxes/\nmore costly\nregulations'],
+};
+// Vertical position of each factor label, as a fraction of the plot height
+const FRACS = [0.08, 0.32, 0.46, 0.62];
+// Arrow heights along the curve, as a fraction of the curve's run
+const ARROWS = [0.82, 0.55, 0.28];
+
+// A schematic convex supply curve sampled across the panel box: rising from
+// the lower left, steepening toward the upper right.
+const makeCurve = (ox, oy, w, h, xOff, curv) => {
+  const pts = [], n = 100;
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    const norm = (Math.exp(curv * t) - 1) / (Math.exp(curv) - 1);
+    pts.push({ x: ox + t * w + xOff, y: oy + h * (0.97 - 0.9 * norm) });
+  }
+  return pts;
+};
+const at = (pts, f) => pts[Math.round(f * (pts.length - 1))];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'supply_shift_factors.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'dq_s1', label:'Shift amount', min:5,   max:35,  value:16,  step:1,   fmt:v => v + '%' },
+    { id:'n_s',   label:'Curvature',    min:0.2, max:3.0, value:1.6, step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_arrows',   label:'Shift arrows' },
+    { id:'show_annot',    label:'Factor labels' },
+    { id:'show_labels',   label:'S₀ / S₁ labels' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', curve:'Curve', keyvals:'Key' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['curve','keyvals'],
+  nudgeKeys: ['x.a','x.b','s0.a','s1.a','s0.b','s1.b',
+              'an.a0','an.a1','an.a2','an.a3','an.b0','an.b1','an.b2','an.b3'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W, H } = g;
+    const shiftPct = val('dq_s1'), curv = val('n_s');
+    const gap = 50 * S, pw = (W - gap) / 2;
+
+    g.clear();
+
+    [true, false].forEach(increase => {
+      const side = increase ? 'a' : 'b';
+      const px = increase ? 0 : pw + gap;
+      const mL = 52 * S, mT = 28 * S, mB = 56 * S, mR = 8 * S;
+      const pW = pw - mL - mR, pH = H - mT - mB;
+      const ax = px + mL, ay = mT;
+
+      ctx.strokeStyle = '#2b6cb0'; ctx.lineWidth = 2 * S;
+      ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax, ay + pH); ctx.lineTo(ax + pW, ay + pH); ctx.stroke();
+
+      // Price runs up the side of each panel and is not draggable, matching the original
+      ctx.save();
+      ctx.translate(px + 14 * S, ay + pH / 2); ctx.rotate(-Math.PI / 2);
+      ctx.font = `bold ${12 * S}px ${g.font}`; ctx.textAlign = 'center'; ctx.fillStyle = '#2b6cb0';
+      ctx.fillText('Price', 0, 0);
+      ctx.restore();
+      g.label('Quantity', ax + pW / 2, H - 20 * S, { key:'x.' + side, font:`bold ${12 * S}px ${g.font}`, color:'#2b6cb0', align:'center' });
+
+      // The curves sit in the right part of the panel, leaving room for the list
+      const sh = pW * (shiftPct / 100), run = pW * 0.36, cx0 = ax + pW * 0.42;
+      const c0 = makeCurve(cx0, ay, run, pH, increase ? 0 : sh, curv);
+      const c1 = makeCurve(cx0, ay, run, pH, increase ? sh : 0, curv);
+      ctx.strokeStyle = '#2b6cb0'; ctx.lineWidth = 2.5 * S;
+      [c0, c1].forEach(pts => {
+        ctx.beginPath();
+        pts.forEach((p, i) => i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
+        ctx.stroke();
+      });
+
+      if (vis('show_labels')) {
+        const font = `bold ${12 * S}px ${g.font}`;
+        const e0 = c0[c0.length - 1], e1 = c1[c1.length - 1];
+        g.label('S₀', e0.x + 4 * S, e0.y - 6 * S, { key:'s0.' + side, font, color:'#2b6cb0' });
+        g.label('S₁', e1.x + 4 * S, e1.y - 6 * S, { key:'s1.' + side, font, color:'#2b6cb0' });
+      }
+
+      if (vis('show_arrows')) {
+        ARROWS.forEach(frac => {
+          const p0 = at(c0, frac), p1 = at(c1, frac), gp = 10 * S;
+          g.drawArrow(increase ? p0.x + gp : p0.x - gp, p0.y, increase ? p1.x - gp : p1.x + gp, p1.y);
+        });
+      }
+
+      if (vis('show_annot')) {
+        const font = `${11 * S}px ${g.font}`;
+        FACTORS[side].forEach((txt, i) => {
+          g.label(txt, ax + 12 * S, ay + pH * FRACS[i] + 12 * S, { key:`an.${side}${i}`, font, color:'#2b6cb0', lineH:15 * S });
+        });
+      }
+
+      if (vis('show_captions'))
+        g.label(increase ? '(a) Factors that increase supply' : '(b) Factors that decrease supply',
+          ax + pW / 2, H - 5 * S, { font:`${11 * S}px ${g.font}`, color:'#718096', align:'center' });
+    });
+  },
+});
+</script>
+</body>
+</html>
