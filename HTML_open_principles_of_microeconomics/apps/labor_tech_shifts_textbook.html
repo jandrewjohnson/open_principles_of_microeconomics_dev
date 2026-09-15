@@ -161,7 +161,8 @@ new EconViz({
       // Three arrows between D0 and D1: near the top, at E0's wage, near the bottom
       if (vis('show_arrows') && e1 && Math.abs(P.dq) > 0.3) {
         const topP = Math.min(pTop, demand(0)(0.6), demand(P.dq)(0.6)) * 0.9;
-        [topP, e0.p * 1.18, e0.p * 0.5].forEach(p => {
+        // The middle arrow sits just above E0 for a leftward shift and just below it for a rightward one, clear of the E labels
+        [topP, e1.q < e0.q ? e0.p * 1.18 : e0.p * 0.82, e0.p * 0.5].forEach(p => {
           const a = qOfD(0, p), b = qOfD(P.dq, p), gp = 9 * S * Math.sign(a - b || 1);
           if (Math.min(a, b) > 0.3 && Math.max(a, b) < xMax - 0.3 && Math.abs(tCX(a) - tCX(b)) > 40 * S)
             pan.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
