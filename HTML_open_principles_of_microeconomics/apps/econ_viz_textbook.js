@@ -705,6 +705,21 @@ class EconViz {
         ctx.lineTo(x2 - ux * hl + uy * hw, y2 - uy * hl - ux * hw); ctx.lineTo(x2 - ux * hl - uy * hw, y2 - uy * hl + ux * hw); ctx.closePath(); ctx.fill();
       },
 
+      // Curly brace from (x1,y1) to (x2,y2) in design px. The tip sits on the
+      // left of the direction of travel (below a left-to-right brace, left of
+      // a top-to-bottom one); opts.flip puts it on the other side.
+      // opts: {depth, color, lw}
+      brace(x1, y1, x2, y2, opts = {}) {
+        const L = Math.hypot(x2 - x1, y2 - y1); if (L < 4) return;
+        const ux = (x2 - x1) / L, uy = (y2 - y1) / L, f = opts.flip ? -1 : 1, nx = -uy * f, ny = ux * f;
+        const d = opts.depth ?? 10 * S, r = Math.min(8 * S, L / 4);
+        const P = (t, s) => [x1 + ux * t + nx * s, y1 + uy * t + ny * s];
+        ctx.strokeStyle = opts.color || '#2b6cb0'; ctx.lineWidth = (opts.lw || 2) * S; ctx.beginPath();
+        ctx.moveTo(...P(0, 0)); ctx.quadraticCurveTo(...P(0, d / 2), ...P(r, d / 2)); ctx.lineTo(...P(L / 2 - r, d / 2));
+        ctx.quadraticCurveTo(...P(L / 2, d / 2), ...P(L / 2, d)); ctx.quadraticCurveTo(...P(L / 2, d / 2), ...P(L / 2 + r, d / 2));
+        ctx.lineTo(...P(L - r, d / 2)); ctx.quadraticCurveTo(...P(L, d / 2), ...P(L, 0)); ctx.stroke();
+      },
+
       // Polyline through {p,q} data points, sorted by p
       curve(pts, color = '#2b6cb0', alpha = 1, lw = 2.5) {
         const s = [...pts].sort((a, b) => a.p - b.p);

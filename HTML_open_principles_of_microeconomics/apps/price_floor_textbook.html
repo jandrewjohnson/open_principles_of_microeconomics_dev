@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Price Floor Example: European Wheat Prices</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Price Floor Example: European Wheat Prices</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A price support holds the price above the equilibrium. Quantity supplied then exceeds quantity demanded, and the gap is a surplus.</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Market for Wheat</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Without government intervention, the price of wheat would adjust so that quantity supplied equals quantity demanded at the equilibrium E₀, with price P₀ and quantity Q₀.</p>
+          <p>A price support keeps the price above the market equilibrium, at the price Pf shown by the horizontal line. At Pf, farmers supply Qs but buyers only want Qd. The quantity supplied exceeds the quantity demanded, so there is <strong>excess supply, a surplus</strong>. If the government buys up that surplus, farmers benefit from the floor, but taxpayers and consumers of food pay the cost.</p>
+          <p>Lower the floor below P₀ and it stops binding: the market simply clears at E₀.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-policy">
+        <div class="control-panel-header" onclick="tog('policy')"><div class="panel-title">Price Floor</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-policy" onclick="event.stopPropagation();tog('policy')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('policy')">✕</button></div></div>
+        <div class="control-panel-body" id="body-policy"><div data-sliders></div><div class="info-box" id="floor-info" style="margin-top:12px"></div></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>Demand (D) and supply (S)</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0;height:1px"></div><span>Price floor Pf</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0"></div><span>E₀, and the quantities Qd and Qs at the floor</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 3.22 of the book: a schematic price floor with no numbers. Convex
+// D and S, E0 with dashed lines for P0 and Q0, a horizontal floor line at Pf,
+// the points Qd and Qs on it with dashed lines down to the axis, and a brace
+// above the line for the surplus, as in the book's figure.
+const BLUE = '#2b6cb0', PINK = '#a855c7';
+const D_A = 9, S_A = 0.9, K = 0.22;
+const demand = q => D_A * Math.exp(-K * q), supply = q => S_A * Math.exp(K * q);
+const qOfD = p => -Math.log(p / D_A) / K, qOfS = p => Math.log(p / S_A) / K;
+const e0 = (() => { const q = Math.log(D_A / S_A) / (2 * K); return { q, p: demand(q) }; })();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'price_floor.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:100, bottom:160, left:150} },
+  sliders: [
+    { id:'p', label:'Price floor Pf', min:1, max:8, value:4.2, step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_floor',      label:'Price floor line' },
+    { id:'show_droplines',  label:'Dashed lines to the axes' },
+    { id:'show_brace',      label:'Surplus brace and label' },
+    { id:'show_labels',     label:'P, Q and E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_annot',      label:'"Price floor set here"' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', policy:'Price floor', keyvals:'Key' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['policy','keyvals'],
+  nudgeKeys: ['x','y','d','s','pt.E0','an.P0','an.Pf','an.Qd','an.Q0','an.Qs','an.floor','an.surplus'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, width, height, xMax, yMax } = g;
+    const pf = val('p'), axisY = y0 + height;
+    const binding = vis('show_floor') && pf > e0.p + 0.05;
+    const qd = qOfD(pf), qs = qOfS(pf);
+
+    g.setText('floor-info', vis('show_floor')
+      ? (binding
+        ? `<div class="info-row"><span class="info-label">At Pf</span><span class="info-value">Qs &gt; Qd</span></div>` +
+          `<div class="info-row"><span class="info-label">Result</span><span class="info-value" style="color:#e53e3e">Surplus of ${(qs - qd).toFixed(1)} units</span></div>`
+        : '<div style="color:#718096;font-size:.85rem;padding:4px 0">The floor is below the equilibrium price, so it does not bind: the market clears at E₀.</div>')
+      : '');
+
+    // ---- Plot ----
+    g.clear();
+    g.axes(BLUE);
+    g.axisLabels('Quantity', 'Price');
+
+    const pTop = yMax * 0.93, pBot = 0.8;
+    g.plotFn(demand, Math.max(0.3, qOfD(pTop)), Math.min(xMax - 0.3, qOfD(pBot)), { color: BLUE, lw: 2.5 });
+    g.plotFn(supply, Math.max(0.3, qOfS(pBot)), Math.min(xMax - 0.3, qOfS(pTop)), { color: BLUE, lw: 2.5 });
+    if (vis('show_curvelabel')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' };
+      g.label('D', tCX(Math.max(0.3, qOfD(pTop))) - 4 * S, tCY(pTop) - 12 * S, { key:'d', ...f });
+      g.label('S', tCX(Math.min(xMax - 0.3, qOfS(pTop))) + 6 * S, tCY(pTop) - 12 * S, { key:'s', ...f });
+    }
+
+    if (vis('show_droplines')) {
+      g.dashed(x0, tCY(e0.p), tCX(e0.q), tCY(e0.p), PINK, 1.5);
+      g.dashed(tCX(e0.q), tCY(e0.p), tCX(e0.q), axisY, PINK, 1.5);
+      if (binding) [qd, qs].forEach(q => g.dashed(tCX(q), tCY(pf), tCX(q), axisY, PINK, 1.5));
+    }
+
+    if (vis('show_floor')) {
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 1.5 * S;
+      ctx.beginPath(); ctx.moveTo(x0, tCY(pf)); ctx.lineTo(x0 + width, tCY(pf)); ctx.stroke();
+      if (vis('show_annot'))
+        g.label('Price floor set here', x0 + width - 8 * S, tCY(pf) + 24 * S, { key:'an.floor', font:`${15 * S}px ${g.font}`, color:BLUE, align:'right' });
+      if (binding && vis('show_brace') && qs - qd > 0.3) {
+        g.brace(tCX(qd), tCY(pf) - 12 * S, tCX(qs), tCY(pf) - 12 * S, { depth: 14 * S, flip: true });
+        g.label('Excess supply\nor surplus', (tCX(qd) + tCX(qs)) / 2, tCY(pf) - 52 * S,
+          { key:'an.surplus', font:`${15 * S}px ${g.font}`, color:BLUE, align:'center', lineH:20 * S });
+      }
+    }
+
+    const dot = (q, p) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+    dot(e0.q, e0.p);
+    if (binding) { dot(qd, pf); dot(qs, pf); }
+
+    if (vis('show_labels')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      g.label('E₀', tCX(e0.q) - 8 * S, tCY(e0.p) - 12 * S, { key:'pt.E0', align:'right', ...f });
+      g.label('P₀', x0 - 14 * S, tCY(e0.p) + 6 * S, { key:'an.P0', align:'right', ...f });
+      g.label('Q₀', tCX(e0.q), axisY + 30 * S, { key:'an.Q0', align:'center', ...f });
+      if (vis('show_floor')) g.label('Pf', x0 - 14 * S, tCY(pf) + 6 * S, { key:'an.Pf', align:'right', ...f });
+      if (binding) {
+        g.label('Qd', tCX(qd), axisY + 30 * S, { key:'an.Qd', align:'center', ...f });
+        g.label('Qs', tCX(qs), axisY + 30 * S, { key:'an.Qs', align:'center', ...f });
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>
