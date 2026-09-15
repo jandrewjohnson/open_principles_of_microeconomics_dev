@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Print News Market: A Four-Step Analysis</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Print News Market: A Four-Step Analysis</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A change in tastes from print to digital news shifts demand for print news to the left; both equilibrium price and quantity fall</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Market for Print News</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">The Four Steps</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p><strong>Step 1.</strong> Draw the demand and supply model for the market before the event. D₀ and S₀ show the original relationships; here the analysis is done without specific numbers on the axes.</p>
+          <p><strong>Step 2.</strong> Did the change affect supply or demand? A change in tastes, from print, radio and television news to digital sources, changed the <strong>demand</strong> for the former.</p>
+          <p><strong>Step 3.</strong> Positive or negative? A shift to digital sources means a lower quantity of print news demanded at every price, so the demand curve shifts to the left, from D₀ to D₁.</p>
+          <p><strong>Step 4.</strong> Compare the equilibria. The new equilibrium E₁ has a lower quantity and a lower price than the original E₀. The arrows on the axes show the direction of both changes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Result</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium">
+          <div class="info-box" id="eq-info"></div>
+          <div class="legend" style="margin-top:12px">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>D₀ and D₁ (demand), S₀ (supply)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0"></div><span>E₀ original, E₁ new equilibrium</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 3.17 of the book: a schematic four-step analysis with no numbers.
+// Convex demand and supply curves, demand shifted left to D1, E0 and E1 with
+// dashed lines to both axes, three leftward arrows between the demand
+// curves, and an arrow on each axis showing that price and quantity both
+// fall, exactly the elements of the book's figure.
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+const D_A = 9, S_A = 0.9, K = 0.22;                    // D0: 9 e^(-Kq), S0: 0.9 e^(Kq)
+const demand = dq => q => D_A * Math.exp(-K * (q - dq));  // dq < 0 shifts left
+const supply = dq => q => S_A * Math.exp(K * (q - dq));
+const qOfD = (dq, p) => dq - Math.log(p / D_A) / K;
+const qOfS = (dq, p) => dq + Math.log(p / S_A) / K;
+// D(q) - S(q) is monotone, so bisection finds the crossing.
+function cross(d, s) {
+  let lo = 0, hi = 10;
+  for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (d(m) - s(m) > 0 ? lo = m : hi = m); }
+  const q = (lo + hi) / 2;
+  return { q, p: d(q) };
+}
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'four_step_print_news.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:100, bottom:150, left:170} },
+  sliders: [
+    { id:'dq_d1', label:'Shift of demand', min:-4, max:4, value:-1.8, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+    { id:'dq_s',  label:'Shift of supply', min:-4, max:4, value:0,    step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_d1',         label:'D₁ (after the change in tastes)' },
+    { id:'show_eqlines',    label:'Dashed lines to the axes' },
+    { id:'show_arrows',     label:'Shift arrows' },
+    { id:'show_outcome',    label:'Arrows on the axes for the change in P and Q' },
+    { id:'show_labels',     label:'P₀, P₁, Q₀, Q₁ and E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Four steps', shifts:'Shifts', equilibrium:'Result' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','equilibrium'],
+  nudgeKeys: ['x','y','d0','d1','s0','pt.E0','pt.E1','an.P0','an.P1','an.Q0','an.Q1'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, width, height, xMax, yMax } = g;
+    const dqd = val('dq_d1'), dqs = val('dq_s');
+    const D0 = demand(0), D1 = demand(dqd), S0 = supply(dqs);
+    const e0 = cross(D0, S0), e1 = cross(D1, S0);
+    const showD1 = vis('show_d1');
+    const axisY = y0 + height;
+
+    // ---- Side panel ----
+    const dir = (a, b) => b < a - 1e-6 ? 'falls' : b > a + 1e-6 ? 'rises' : 'is unchanged';
+    g.setText('eq-info', showD1
+      ? `<div class="info-row"><span class="info-label">Equilibrium price</span><span class="info-value highlight">${dir(e0.p, e1.p)}</span></div>` +
+        `<div class="info-row"><span class="info-label">Equilibrium quantity</span><span class="info-value highlight">${dir(e0.q, e1.q)}</span></div>`
+      : '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Turn on D₁ to see the change</div>');
+
+    // ---- Plot ----
+    g.clear();
+    g.axes(BLUE);
+    g.axisLabels('Quantity', 'Price');
+
+    const eqs = showD1 ? [[e0, '0'], [e1, '1']] : [[e0, '0']];
+    if (vis('show_eqlines')) eqs.forEach(([e]) => {
+      g.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+      g.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+    });
+
+    // Curves, clipped to the plot area by inverting each function
+    const pTop = yMax * 0.93, pBot = 0.8;
+    const drawD = (dq, key, name) => {
+      const qa = Math.max(0.2, qOfD(dq, pTop)), qb = Math.min(xMax - 0.3, qOfD(dq, pBot));
+      if (qb <= qa) return;
+      g.plotFn(demand(dq), qa, qb, { color: BLUE, lw: 2.5 });
+      if (vis('show_curvelabel')) g.label(name, tCX(qb) + 10 * S, tCY(demand(dq)(qb)) + 6 * S, { key, font:`bold ${16 * S}px ${g.font}`, color:BLUE });
+    };
+    const qa = Math.max(0.2, qOfS(dqs, pBot)), qb = Math.min(xMax - 0.3, qOfS(dqs, pTop));
+    g.plotFn(S0, qa, qb, { color: BLUE, lw: 2.5 });
+    if (vis('show_curvelabel')) g.label('S₀', tCX(qb) + 6 * S, tCY(S0(qb)) - 10 * S, { key:'s0', font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+    drawD(0, 'd0', 'D₀');
+    if (showD1) drawD(dqd, 'd1', 'D₁');
+
+    // Three arrows between D0 and D1 at three price levels
+    if (vis('show_arrows') && showD1 && Math.abs(dqd) > 0.3) {
+      // Top arrow sits just below the higher of the two curves' visible tops
+      const topP = Math.min(pTop, demand(0)(0.6), demand(dqd)(0.6)) * 0.92;
+      [topP, e0.p * 1.15, e0.p * 0.55].forEach(p => {
+        const a = qOfD(0, p), b = qOfD(dqd, p), gp = 16 * S * Math.sign(a - b || 1);
+        if (Math.min(a, b) > 0.3 && Math.abs(tCX(a) - tCX(b)) > 40 * S) g.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
+      });
+    }
+
+    // Outcome arrows along the axes: price and quantity both move E0 -> E1
+    if (vis('show_outcome') && showD1) {
+      // Below the rotated "Price" label, in its column, pointing the way price moved
+      const ax = g.left + 28 * S, mid = y0 + height / 2, top = mid + 70 * S, bot = mid + 150 * S;
+      if (Math.abs(e1.p - e0.p) > 0.05) g.drawArrow(ax, e1.p < e0.p ? top : bot, ax, e1.p < e0.p ? bot : top, INK);
+      const qy = axisY + 70 * S, xa = tCX(Math.max(e0.q, e1.q)), xb = tCX(Math.min(e0.q, e1.q));
+      if (Math.abs(e1.q - e0.q) > 0.05) g.drawArrow(e1.q < e0.q ? xa + 40 * S : xb - 40 * S, qy, e1.q < e0.q ? xb - 30 * S : xa + 30 * S, qy, INK);
+    }
+
+    // Equilibrium dots and letters
+    eqs.forEach(([e, n]) => {
+      const ex = tCX(e.q), ey = tCY(e.p);
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(ex, ey, 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (!vis('show_labels')) return;
+      const sub = n === '0' ? '₀' : '₁', f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      g.label('E' + sub, ex - 6 * S, ey - 14 * S, { key:'pt.E' + n, align:'right', ...f });
+      g.label('P' + sub, x0 - 14 * S, ey + 6 * S, { key:'an.P' + n, align:'right', ...f });
+      g.label('Q' + sub, ex, axisY + 30 * S, { key:'an.Q' + n, align:'center', ...f });
+    });
+  },
+});
+</script>
+</body>
+</html>
