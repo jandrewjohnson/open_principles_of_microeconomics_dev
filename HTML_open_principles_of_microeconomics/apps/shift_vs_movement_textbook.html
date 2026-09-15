@@ -140,10 +140,11 @@ new EconViz({
         const a = A.inv(p), b = B.inv(p), gp = 9 * S * Math.sign(a - b || 1);
         if (Math.min(a, b) < 0.3 || Math.max(a, b) > xMax - 0.3 || Math.abs(tCX(a) - tCX(b)) < 30 * S) return;
         g.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
-        g.label(txt, (tCX(a) + tCX(b)) / 2, tCY(p) - 12 * S, { key, font:`${15 * S}px ${g.font}`, color:BLUE, align:'center' });
+        // Label near the arrow's tip, above it, as the book places them
+        g.label(txt, tCX(b) * 0.65 + tCX(a) * 0.35, tCY(p) - 12 * S, { key, font:`${15 * S}px ${g.font}`, color:BLUE, align:'center' });
       };
       shift(S0, S1, e1.p + 1.4, 'an.shift1', 'Shift 1');
-      if (show2) shift(S1, S2, e2.p + 0.55, 'an.shift2', 'Shift 2');
+      if (show2) shift(S1, S2, e2.p + 0.3, 'an.shift2', 'Shift 2');
       if (show3) shift(D0, D1, e0.p - 1.6, 'an.shift3', 'Shift 3');
     }
 
@@ -151,8 +152,11 @@ new EconViz({
       if (!e) return;
       const ex = tCX(e.q), ey = tCY(e.p);
       ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(ex, ey, 7 * S, 0, Math.PI * 2); ctx.fill();
-      if (vis('show_labels'))
-        g.label('E' + { '0':'₀', '1':'₁', '2':'₂', '3':'₃' }[n], ex + 8 * S, ey - 12 * S, { key:'pt.E' + n, font:`bold ${16 * S}px ${g.font}`, color:BLUE });
+      if (!vis('show_labels')) return;
+      const f = { key:'pt.E' + n, font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      // E1 goes up and to the left of its dot, clear of the Shift 2 arrow
+      if (n === '1') g.label('E₁', ex - 8 * S, ey - 12 * S, { ...f, align:'right' });
+      else g.label('E' + { '0':'₀', '2':'₂', '3':'₃' }[n], ex + 8 * S, ey - 12 * S, f);
     });
   },
 });
