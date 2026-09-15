@@ -156,7 +156,7 @@ new EconViz({
         if (vis('show_droplines')) [qs, qd].forEach(q => g.dashed(tCX(q), tCY(pc), tCX(q), tCY(yMin), '#a855c7', 1.5));
         if (vis('show_brace') && shortage > 0.2) {
           g.brace(tCX(qs), tCY(pc) + 12 * S, tCX(qd), tCY(pc) + 12 * S, { depth: 14 * S });
-          g.label('Excess demand\nor shortage\nfrom price ceiling', (tCX(qs) + tCX(qd)) / 2, tCY(pc) + 52 * S,
+          g.label('Excess demand\nor shortage\nfrom price ceiling', (tCX(qs) + tCX(qd)) / 2, tCY(pc) + 72 * S,
             { key:'an.shortage', font:`${15 * S}px ${g.font}`, color:'#2b6cb0', align:'center', lineH:20 * S });
         }
       }
