@@ -182,7 +182,7 @@ new EconViz({
         const inv = p => c.kind === 'd' ? qOfD(c.dq, p) : qOfS(c.dq, p);
         const inv0 = p => c.kind === 'd' ? qOfD(0, p) : qOfS(0, p);
         const hiP = Math.max(e0.p, e1.p), loP = Math.min(e0.p, e1.p);
-        [hiP * 1.5, (hiP + loP) / 2 + (c.kind === 'd' ? 0.35 : 0), loP * 0.65].forEach(p => {
+        [hiP * 1.85, hiP * 1.4, loP * 0.65].forEach(p => {
           if (p < pBot || p > pTop) return;
           const a = inv0(p), b = inv(p), gp = 9 * S * Math.sign(a - b || 1);
           if (Math.min(a, b) > 0.3 && Math.max(a, b) < xMax - 0.3 && Math.abs(tCX(a) - tCX(b)) > 40 * S)
