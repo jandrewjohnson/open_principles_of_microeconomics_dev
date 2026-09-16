@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Total Product and Marginal Product Curves</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Total Product and Marginal Product Curves</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The general shapes: total product rises slowly, then quickly, then levels off, so marginal product rises, peaks and falls</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The General Case</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="800"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>These are the general shapes behind the lumberjack numbers. Total product (TP) rises slowly at first, then quickly while the extra workers make the fixed capital more productive, then more and more slowly as the capital is stretched thin. Marginal product (MP) is the slope of the total product curve, so it rises while TP is bending upward, peaks where TP is steepest, and then falls as diminishing marginal product sets in.</p>
+          <p>The sliders move the point where TP is steepest, which is where MP peaks, and change how sharply the switch from increasing to diminishing returns happens.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shape">
+        <div class="control-panel-header" onclick="tog('shape')"><div class="panel-title">Shape</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shape" onclick="event.stopPropagation();tog('shape')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shape')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shape"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 7.6 of the book: unnumbered axes, an S-shaped TP curve on the
+// left and its slope, the hump-shaped MP curve, on the right. TP is a
+// logistic curve; MP is its derivative, so the peak of MP sits under the
+// steepest point of TP.
+const S0 = 2;
+const GAP = 130 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50, right:60, bottom:130, left:130 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:10, yMin:0, yMax:3,  margin:MG, left:PW + GAP, width:PW },
+];
+const BLUE = '#2b6cb0';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'tp_mp_general.png',
+  axes: AXES,
+  sliders: [
+    { id:'l0', label:'Labor at which MP peaks',       min:2.5, max:6, value:4,   step:0.5, fmt:v => v.toFixed(1) },
+    { id:'k',  label:'Sharpness of the turn',         min:0.8, max:2, value:1.2, step:0.2, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_peak', label:'Dashed line at the MP peak', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shape:'Shape' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shape'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b'],
+
+  draw(g) {
+    const { S, val, vis } = g;
+    const l0 = val('l0'), k = val('k');
+    const tp = L => 1 + 8 / (1 + Math.exp(-k * (L - l0)));
+    const mp = L => { const e = Math.exp(-k * (L - l0)); return 8 * k * e / ((1 + e) * (1 + e)); };
+    g.setText('info', `<div class="info-row"><span class="info-label">Peak marginal product</span><span class="info-value highlight">${mp(l0).toFixed(2)} at L = ${l0.toFixed(1)}</span></div>`);
+
+    g.clear();
+    const A = g.panel(0), B = g.panel(1);
+    A.axes(BLUE); A.axisLabels('L', 'TP', 'a');
+    B.axes(BLUE); B.axisLabels('L', 'MP', 'b');
+    A.plotFn(tp, 0.4, 9.7, { color:BLUE, lw:2.5 });
+    B.plotFn(mp, 1.6, 9.7, { color:BLUE, lw:2.5 });
+    if (vis('show_peak')) {
+      A.dashed(A.tCX(l0), A.tCY(0), A.tCX(l0), A.tCY(tp(l0)), '#a855c7', 1.5);
+      B.dashed(B.tCX(l0), B.tCY(0), B.tCX(l0), B.tCY(mp(l0)), '#a855c7', 1.5);
+    }
+  },
+});
+</script>
+</body>
+</html>

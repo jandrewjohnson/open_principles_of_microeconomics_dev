@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost Curves at the Clip Joint</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Cost Curves at the Clip Joint</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Average total cost, average variable cost and marginal cost per haircut; marginal cost cuts each average curve at its lowest point</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Per-Unit Costs at the Clip Joint</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Average total cost (ATC) is total cost divided by output: $320 for 40 haircuts is $8 each. It starts high, because at low output the $160 fixed cost is spread over few haircuts, falls as the fixed cost is spread more thinly, and eventually rises again as diminishing returns push total cost up faster than output. Average variable cost (AVC) leaves out the fixed cost, so it lies below ATC and the gap between them, the average fixed cost, shrinks as output grows.</p>
+          <p>Marginal cost (MC) is the cost of one more haircut. Whenever MC is below an average, it pulls the average down; whenever it is above, it pushes the average up. So MC crosses AVC and ATC at their minimum points, marked by the dots and dashed lines. All three curves come from the table's costs; the sliders change the fixed cost and the wage, and the curves follow.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-costs">
+        <div class="control-panel-header" onclick="tog('costs')"><div class="panel-title">Costs</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-costs" onclick="event.stopPropagation();tog('costs')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('costs')">✕</button></div></div>
+        <div class="control-panel-body" id="body-costs"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+
+// Figure 7.8 of the book: MC, ATC and AVC for the Clip Joint from table
+// 7.10, each a smooth curve through its column of the table. The dots mark
+// where MC crosses AVC and ATC, at each average's minimum.
+const Q = [0, 16, 40, 60, 72, 80, 84];
+const BLUE = '#2b6cb0', PINK = '#a855c7';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'cost_curves_clip_joint.png',
+  axes: { xMin:0, xMax:100, yMin:0, yMax:21, margin:{top:50, right:80, bottom:130, left:170} },
+  sliders: [
+    { id:'fc',   label:'Fixed cost per day',      min:80, max:240, value:160, step:40, fmt:v => '$' + v },
+    { id:'wage', label:'Wage per barber per day', min:40, max:120, value:80, step:20, fmt:v => '$' + v },
+  ],
+  toggles: [
+    { id:'show_mc',     label:'Marginal cost (MC)' },
+    { id:'show_atc',    label:'Average total cost (ATC)' },
+    { id:'show_avc',    label:'Average variable cost (AVC)' },
+    { id:'show_dashed', label:'Dots and dashed lines at the minimum points' },
+    { id:'show_labels', label:'Curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', costs:'Costs' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['costs'],
+  nudgeKeys: ['x','y','mc','atc','avc'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, yMax } = g;
+    const fc = val('fc'), w = val('wage');
+    // Table 7.10's per-unit costs, each plotted at its row's output as the book does, joined by
+    // a smooth monotone curve; a left anchor extends each curve toward the axis the way the book draws it
+    const rows = Q.slice(1).map((q, i) => ({ q, atc: (fc + w * (i + 1)) / q, avc: w * (i + 1) / q, mc: w / (q - Q[i]) }));
+    const MC  = hermite([5, ...rows.map(r => r.q)],  [w / 16 * 0.9, ...rows.map(r => r.mc)]);
+    const ATC = hermite([12, ...rows.map(r => r.q)], [(fc + w * 12 / 16) / 12, ...rows.map(r => r.atc)]);
+    const AVC = hermite([5, ...rows.map(r => r.q)],  [w / 16 * 1.1, ...rows.map(r => r.avc)]);
+    const mc = MC.f, atc = ATC.f, avc = AVC.f;
+    // First output at which a curve is on the chart
+    const startOf = (f, from) => { let q = from; while (q < 40 && f(q) > yMax * 0.95) q += 0.5; return q; };
+    // Where MC rises through an average curve, scanning from the right so the crossing on the rising part is found
+    const crossing = f => { let q = 84; while (q > 20 && mc(q) > f(q)) q -= 0.25; return q; };
+    const qAvc = crossing(avc), qAtc = crossing(atc);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">MC meets AVC at</span><span class="info-value highlight">${qAvc.toFixed(0)} haircuts, $${avc(qAvc).toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">MC meets ATC at</span><span class="info-value highlight">${qAtc.toFixed(0)} haircuts, $${atc(qAtc).toFixed(2)}</span></div>`
+      + Q.slice(1).map((q, i) => `<div class="info-row"><span class="info-label">${q} haircuts</span><span class="info-value" style="font-size:.8rem">ATC $${atc(q).toFixed(2)} · AVC $${avc(q).toFixed(2)}</span></div>`).join(''));
+
+    g.clear();
+    g.axes();
+    g.xTicks([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], v => v);
+    g.yTicks([0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20], v => v);
+    g.axisLabels('Output', 'Cost ($)');
+
+    const f = { font:`bold ${15 * S}px ${g.font}`, color:BLUE };
+    // Each curve stops where it would leave the chart at the top
+    const endOf = f => { let q = 84; while (q > 60 && f(q) > yMax * 0.98) q -= 0.25; return q; };
+    if (vis('show_avc')) { const a = startOf(avc, 5); g.plotFn(avc, a, 84, { color:BLUE, lw:2 }); if (vis('show_labels')) g.label('AVC', tCX(84) + 8 * S, tCY(avc(84)) + 6 * S, { key:'avc', ...f }); }
+    if (vis('show_atc')) { const a = startOf(atc, 12); g.plotFn(atc, a, 84, { color:BLUE, lw:2 }); if (vis('show_labels')) g.label('ATC', tCX(84) + 8 * S, tCY(atc(84)) - 6 * S, { key:'atc', ...f }); }
+    if (vis('show_mc'))  { const a = startOf(mc, 5), b = endOf(mc); g.plotFn(mc, a, b, { color:BLUE, lw:2 }); if (vis('show_labels')) g.label('MC', tCX(b) - 26 * S, tCY(mc(b)) + 6 * S, { key:'mc', align:'right', ...f }); }
+
+    if (vis('show_dashed') && vis('show_mc')) [[qAvc, avc, vis('show_avc')], [qAtc, atc, vis('show_atc')]].forEach(([q, fn, on]) => {
+      if (!on) return;
+      g.dashed(x0, tCY(fn(q)), tCX(q), tCY(fn(q)), PINK, 1.5);
+      g.dashed(tCX(q), tCY(fn(q)), tCX(q), y0 + height, PINK, 1.5);
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(fn(q)), 6 * S, 0, Math.PI * 2); ctx.fill();
+    });
+  },
+});
+</script>
+</body>
+</html>

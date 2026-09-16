@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Short-Run Average Cost Curves to Long-Run Average Cost Curves</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>From Short-Run Average Cost Curves to Long-Run Average Cost Curves</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Each short-run curve is one level of fixed cost; the long-run curve is the lowest cost of producing each output when the firm can pick its plant size</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Building the Long-Run Average Cost Curve</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="950"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Each short-run average cost (SRAC) curve belongs to one level of fixed cost: SRAC₁ is a small factory, SRAC₂ a medium one, SRAC₃ large, SRAC₄ and SRAC₅ very large and ultra-large. Between the five drawn here lie infinitely many others. The long-run average cost (LRAC) curve is the lowest cost of producing each quantity when fixed costs can vary, so it is the bottom edge of the whole family. A firm planning to produce Q₃ should build the plant on SRAC₃; SRAC₂ or SRAC₄ would produce Q₃ at a higher cost.</p>
+          <p>Where LRAC slopes down, from Q₁ through Q₂ to Q₃, larger scale means lower average cost: economies of scale. Where it is flat, around Q₃ to Q₄, there are constant returns to scale. Where it rises, from Q₄ to Q₅, the firm has grown so large that it is hard to manage: diseconomies of scale. The slider changes how sharply each short-run curve bends.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-plants">
+        <div class="control-panel-header" onclick="tog('plants')"><div class="panel-title">Plants</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-plants" onclick="event.stopPropagation();tog('plants')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('plants')">✕</button></div></div>
+        <div class="control-panel-body" id="body-plants"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 7.10 of the book: five U-shaped SRAC curves tangent to a
+// long-run curve that falls, runs flat, then rises. Each SRAC is a parabola
+// tangent to LRAC at its Q, so the tangency sits right of the SRAC minimum
+// on the falling part and left of it on the rising part, as in the book.
+const QS = [0.7, 2.3, 4.5, 6.9, 8.7], QA = 4.5, QB = 6.9, C = 2, K1 = 0.114, K2 = 0.54;
+const SUB = ['₁', '₂', '₃', '₄', '₅'];
+const lrac = q => q < QA ? C + K1 * (QA - q) ** 2 : q > QB ? C + K2 * (q - QB) ** 2 : C;
+const dlrac = q => q < QA ? -2 * K1 * (QA - q) : q > QB ? 2 * K2 * (q - QB) : 0;
+const BLUE = '#2b6cb0', PURPLE = '#a855c7', PINK = '#d53f8c', INK = '#1a202c', GREEN = '#38a169';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'srac_lrac.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:8, margin:{top:40, right:90, bottom:360, left:150} },
+  sliders: [
+    { id:'s',     label:'Curvature of each SRAC', min:0.8, max:2.4, value:1.4, step:0.2, fmt:v => v.toFixed(1) },
+    { id:'plant', label:'Plant to highlight',      min:1,   max:5,   value:3,   step:1 },
+  ],
+  toggles: [
+    { id:'show_srac',      label:'SRAC curves' },
+    { id:'show_dashed',    label:'Dashed lines to Q₁ to Q₅' },
+    { id:'show_labels',    label:'Curve labels' },
+    { id:'show_regions',   label:'Economies, constant returns, diseconomies' },
+    { id:'show_highlight', label:'Highlight the chosen plant', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', plants:'Plants' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['plants'],
+  nudgeKeys: ['x','y','lrac','srac.1','srac.2','srac.3','srac.4','srac.5','an.econ','an.const','an.dis'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, yMax } = g;
+    const s = val('s'), plant = val('plant');
+    const srac = i => { const q0 = QS[i], y0v = lrac(q0), m = dlrac(q0); return q => y0v + m * (q - q0) + s * (q - q0) ** 2; };
+    const axisY = y0 + height;
+    g.setText('info', QS.map((q, i) => `<div class="info-row"><span class="info-label">SRAC${SUB[i]} touches LRAC at Q${SUB[i]}</span><span class="info-value${vis('show_highlight') && plant === i + 1 ? ' highlight' : ''}">cost ${lrac(q).toFixed(2)}</span></div>`).join(''));
+
+    g.clear();
+    g.axes(BLUE);
+    g.axisLabels(null, 'Cost ($)');
+    g.label('Output', x0 + g.width / 2, axisY + 64 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+
+    if (vis('show_srac')) QS.forEach((q0, i) => {
+      const f = srac(i), top = yMax * 0.92;
+      // Extent of each arm: as far as the curve stays on the chart
+      let a = q0, b = q0;
+      while (a > 0.2 && f(a - 0.02) < top) a -= 0.02;
+      while (b < 9.8 && f(b + 0.02) < top) b += 0.02;
+      const hi = vis('show_highlight') && plant === i + 1;
+      g.plotFn(f, a, b, { color: hi ? GREEN : PURPLE, lw: hi ? 3 : 2 });
+      if (vis('show_labels')) {
+        // Left of the left arm, except the last curve which is labelled on its right arm
+        const right = i === QS.length - 1;
+        const lx = right ? b - 0.15 : a + 0.15, ly = f(right ? b - 0.15 : a + 0.15);
+        g.label('SRAC' + SUB[i], tCX(lx) + (right ? -20 : 18) * S, tCY(ly) + 6 * S, { key:'srac.' + (i + 1), font:`${15 * S}px ${g.font}`, color: hi ? GREEN : BLUE, align: right ? 'right' : 'left' });
+      }
+    });
+    g.plotFn(lrac, 0.3, 9.4, { color:BLUE, lw:2.5 });
+    if (vis('show_labels')) {
+      const nd = g.getNudge('lrac'), lx = tCX(9.3) + 20 * S + nd.dx, ly = tCY(lrac(9.3)) + 46 * S + nd.dy;
+      g.drawArrow(lx - 4 * S, ly - 16 * S, tCX(9.35) + 6 * S, tCY(lrac(9.35)) + 6 * S, INK);
+      g.label('LRAC', tCX(9.3) + 20 * S, tCY(lrac(9.3)) + 46 * S, { key:'lrac', font:`${15 * S}px ${g.font}`, color:BLUE, align:'center' });
+    }
+    QS.forEach((q, i) => {
+      if (vis('show_dashed')) { g.dashed(tCX(q), tCY(lrac(q)), tCX(q), axisY, PINK, 1.5); g.label('Q' + SUB[i], tCX(q), axisY + 30 * S, { font:`${15 * S}px ${g.font}`, color:BLUE, align:'center' }); }
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(lrac(q)), 6 * S, 0, Math.PI * 2); ctx.fill();
+    });
+
+    if (vis('show_regions')) [
+      ['an.econ',  1.5, 'Economies\nof scale'],
+      ['an.const', 5.6, 'Constant\nreturns\nto scale'],
+      ['an.dis',   7.8, 'Diseconomies\nof scale'],
+    ].forEach(([key, q, txt]) => {
+      const nd = g.getNudge(key), tx = tCX(q) + nd.dx, ty = axisY + 130 * S + nd.dy;
+      g.drawArrow(tx, ty - 24 * S, tCX(q) + nd.dx, tCY(lrac(q)) + 12 * S, BLUE);
+      g.label(txt, tCX(q), axisY + 130 * S, { key, font:`${15 * S}px ${g.font}`, color:BLUE, align:'center', lineH:20 * S });
+    });
+  },
+});
+</script>
+</body>
+</html>

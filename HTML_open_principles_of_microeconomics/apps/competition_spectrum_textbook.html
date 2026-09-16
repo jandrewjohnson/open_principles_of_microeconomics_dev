@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Spectrum of Competition</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Spectrum of Competition</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">From many firms selling identical products to a single firm with no rivals: the four market structures of the chapters ahead</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Market Structures</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="560"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Market structure describes how competitive an industry is: how many firms there are, how similar their products are, and how easily new firms can enter. At one end of the spectrum, perfect competition has many firms all selling an identical product, so no single firm has any influence over the price. At the other end, a monopoly is one firm selling a product with no close substitutes and facing no competition.</p>
+          <p>Between them lie monopolistic competition, with many firms selling similar but not identical products, and oligopoly, with only a few firms selling identical or similar products. The next three chapters take these structures one at a time.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-layout">
+        <div class="control-panel-header" onclick="tog('layout')"><div class="panel-title">Layout</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-layout" onclick="event.stopPropagation();tog('layout')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('layout')">✕</button></div></div>
+        <div class="control-panel-body" id="body-layout"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 7.2 of the book: a horizontal line with four positions, each with
+// the number of firms above, the kind of product below, and the name of the
+// market structure in bold. No axes; the layout is drawn directly.
+const COLS = [
+  { id:'pc',  firms:'Many firms', product:'Identical\nproduct',                 name:'Perfect\nCompetition' },
+  { id:'mc',  firms:'Many firms', product:'Similar but\nnot identical\nproducts', name:'Monopolistic\nCompetition' },
+  { id:'ol',  firms:'Few firms',  product:'Identical or\nsimilar\nproducts',    name:'Oligopoly' },
+  { id:'mo',  firms:'One firm',   product:'No similar\nproduct',                name:'Monopoly' },
+];
+const BLUE = '#2b6cb0';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'competition_spectrum.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'spread', label:'Width of the spectrum line (% of the canvas)', min:60, max:90, value:80, step:5, fmt:v => v + '%' },
+  ],
+  toggles: [
+    { id:'show_firms',   label:'Number of firms' },
+    { id:'show_product', label:'Kind of product' },
+    { id:'show_names',   label:'Market structure names' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Diagram', explanation:'Explanation', layout:'Layout' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['layout'],
+  nudgeKeys: ['col.pc','col.mc','col.ol','col.mo'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W } = g;
+    const half = W * val('spread') / 200, cx = W / 2, x1 = cx - half, x2 = cx + half;
+    const lineY = 80 * S;
+    g.setText('info', COLS.map(c => `<div class="info-row"><span class="info-label">${c.name.replace('\n', ' ')}</span><span class="info-value" style="font-size:.8rem">${c.firms.toLowerCase()}, ${c.product.replace(/\n/g, ' ').toLowerCase()}</span></div>`).join(''));
+
+    g.clear();
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath(); ctx.moveTo(x1, lineY); ctx.lineTo(x2, lineY); ctx.stroke();
+    COLS.forEach((c, i) => {
+      // Ends of the line get the two outer columns; the inner two sit at the thirds
+      const x = x1 + (x2 - x1) * [0, 0.33, 0.67, 1][i];
+      const tickH = (i === 0 || i === 3 ? 12 : 8) * S;
+      ctx.beginPath(); ctx.moveTo(x, lineY - tickH); ctx.lineTo(x, lineY + tickH); ctx.stroke();
+      const nd = g.getNudge('col.' + c.id);
+      const f = { align:'center', color:BLUE };
+      if (vis('show_firms'))   g.label(c.firms,   x + nd.dx, lineY - 28 * S + nd.dy, { font:`${16 * S}px ${g.font}`, ...f });
+      if (vis('show_product')) g.label(c.product, x + nd.dx, lineY + 44 * S + nd.dy, { font:`${16 * S}px ${g.font}`, lineH:22 * S, ...f });
+      if (vis('show_names'))   g.label(c.name,    x + nd.dx, lineY + 132 * S + nd.dy, { font:`bold ${17 * S}px ${g.font}`, lineH:24 * S, ...f });
+      g.regLabel('col.' + c.id, x + nd.dx - 80 * S, lineY - 44 * S + nd.dy, 160 * S, 210 * S);
+    });
+  },
+});
+</script>
+</body>
+</html>

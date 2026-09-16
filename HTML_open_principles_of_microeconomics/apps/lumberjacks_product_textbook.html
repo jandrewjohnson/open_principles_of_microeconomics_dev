@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Total and Marginal Product for Trees</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Total and Marginal Product for Trees</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">One lumberjack with a two-person saw cuts four trees; a second adds six, and after that each extra worker adds less</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Short Run Production Function for Trees</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The left panel plots total product, the number of trees cut per hour, against the number of lumberjacks using one two-person saw. The right panel plots marginal product, the extra trees from one more lumberjack. The second lumberjack adds more than the first, six trees against four, because the saw works far better with two people on it.</p>
+          <p>From the third worker on, marginal product falls: a third can oil the saw or fetch water, a fourth adds one tree, a fifth adds nothing. This is the law of diminishing marginal product, and it comes from the fixed capital, the single saw. The sliders change what the second and third lumberjacks add, and the total product curve follows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-product">
+        <div class="control-panel-header" onclick="tog('product')"><div class="panel-title">Marginal Products</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-product" onclick="event.stopPropagation();tog('product')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('product')">✕</button></div></div>
+        <div class="control-panel-body" id="body-product"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 7.5 of the book: table 7.2 drawn as two panels, total product on
+// the left and marginal product on the right, with panel titles above and
+// # of Lumberjacks on both horizontal axes.
+const S0 = 2;
+const GAP = 130 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:120, right:60, bottom:170, left:170 };
+const AXES = [
+  { xMin:0.7, xMax:5.3, yMin:0, yMax:15,  margin:MG, left:0,        width:PW },
+  { xMin:0.7, xMax:5.3, yMin:0, yMax:7.5, margin:MG, left:PW + GAP, width:PW },
+];
+const BLUE = '#2b6cb0';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'lumberjacks_product.png',
+  axes: AXES,
+  sliders: [
+    { id:'mp2', label:'Trees added by the 2nd lumberjack', min:2, max:8, value:6, step:1 },
+    { id:'mp3', label:'Trees added by the 3rd lumberjack', min:0, max:4, value:2, step:1 },
+  ],
+  toggles: [
+    { id:'show_titles', label:'Panel titles' },
+    { id:'show_points', label:'Dots at the table values', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', product:'Products' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['product'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','ttl.a','ttl.b'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const mp = [4, val('mp2'), val('mp3'), 1, 0];
+    const tp = mp.reduce((acc, v) => (acc.push((acc[acc.length - 1] || 0) + v), acc), []);
+    g.setText('info', tp.map((t, i) => `<div class="info-row"><span class="info-label">${i + 1} lumberjack${i ? 's' : ''}: ${t} trees</span><span class="info-value">MP ${mp[i]}</span></div>`).join(''));
+
+    g.clear();
+    const PANELS = [
+      { id:'a', title:'Short Run Total Product for Trees', ylab:'# of Trees (TP)', data:tp, ticks:[0, 2, 4, 6, 8, 10, 12, 14] },
+      { id:'b', title:'Marginal Product for Trees',        ylab:'MP',              data:mp, ticks:[0, 1, 2, 3, 4, 5, 6, 7] },
+    ];
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i);
+      const { x0, y0, width, tCX, tCY } = pan;
+      pan.axes(BLUE);
+      pan.xTicks([1, 2, 3, 4, 5], v => v);
+      pan.yTicks(P.ticks, v => v);
+      pan.axisLabels('# of Lumberjacks', P.ylab, P.id);
+      if (vis('show_titles')) pan.label(P.title, x0 + width / 2, y0 - 44 * S, { key:'ttl.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+      P.data.forEach((v, j) => j ? ctx.lineTo(tCX(j + 1), tCY(v)) : ctx.moveTo(tCX(j + 1), tCY(v)));
+      ctx.stroke();
+      if (vis('show_points')) P.data.forEach((v, j) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(j + 1), tCY(v), 5 * S, 0, Math.PI * 2); ctx.fill(); });
+    });
+  },
+});
+</script>
+</body>
+</html>

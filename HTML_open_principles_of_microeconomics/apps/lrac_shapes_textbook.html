@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The LRAC Curve and the Size and Number of Firms</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The LRAC Curve and the Size and Number of Firms</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A clear minimum forces every competitive firm to the same size; a flat bottom lets firms of many sizes compete</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Two Shapes of Long-Run Average Cost</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="800"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>In (a) the long-run average cost curve has a clear minimum at R, an output of 10,000 dishwashers at $500 each. If the market buys one million a year at $500, it will be served by 100 plants of exactly this size: a plant making 5,000 or 20,000 would have costs well above $500 and could not compete.</p>
+          <p>In (b) the curve has a flat bottom from R to S. Any plant producing between 5,000 and 20,000 can compete at $500, so the industry can contain firms of many different sizes, while plants smaller than R or larger than S face higher costs and are driven out. The sliders move the minimum in (a) and change the width of the flat bottom in (b).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shape">
+        <div class="control-panel-header" onclick="tog('shape')"><div class="panel-title">Shape</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shape" onclick="event.stopPropagation();tog('shape')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shape')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shape"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 7.11 of the book: two long-run average cost curves side by side,
+// a clear-minimum U in (a) with R at (10,000, $500) and two unlabelled dots
+// at 5,000 and 20,000, and a flat-bottomed curve in (b) from R (5,000) to
+// S (20,000), both with dashed lines to $500 on the vertical axis.
+const S0 = 2;
+const GAP = 110 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50, right:60, bottom:200, left:170 };
+const AXES = [
+  { xMin:0, xMax:25000, yMin:0, yMax:1000, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:25000, yMin:0, yMax:1000, margin:MG, left:PW + GAP, width:PW },
+];
+const BLUE = '#2b6cb0', PINK = '#a855c7', GREY = '#718096';
+const fmtQ = v => v.toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'lrac_shapes.png',
+  axes: AXES,
+  sliders: [
+    { id:'q_min', label:'(a) Output at the minimum point', min:7500, max:12500, value:10000, step:2500, fmt:fmtQ },
+    { id:'width', label:'(b) Width of the flat bottom',    min:5000, max:15000, value:15000, step:2500, fmt:fmtQ },
+  ],
+  toggles: [
+    { id:'show_dashed',   label:'Dashed lines' },
+    { id:'show_dots',     label:'Dots at 5,000 and 20,000 in (a)' },
+    { id:'show_letters',  label:'R and S labels' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shape:'Shape' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shape'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','pt.a.R','pt.b.R','pt.b.S'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const qMin = val('q_min'), R2 = 5000, S2 = 5000 + val('width');
+    const lracA = q => 500 + 3e-6 * (q - qMin) ** 2;
+    const lracB = q => q < R2 ? 500 + 3.3e-5 * (R2 - q) ** 2 : q > S2 ? 500 + 3.3e-5 * (q - S2) ** 2 : 500;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">(a) cost at 5,000 / 20,000</span><span class="info-value">$${lracA(5000).toFixed(0)} / $${lracA(20000).toFixed(0)}</span></div>`
+      + `<div class="info-row"><span class="info-label">(b) competitive sizes</span><span class="info-value highlight">${fmtQ(R2)} to ${fmtQ(S2)}</span></div>`);
+
+    g.clear();
+    const f = { font:`${16 * S}px ${g.font}`, color:BLUE };
+    [[0, lracA], [1, lracB]].forEach(([i, fn]) => {
+      const pan = g.panel(i), { x0, y0, height, width, tCX, tCY, yMax, bottom } = pan;
+      const axisY = y0 + height;
+      pan.axes(BLUE);
+      pan.xTicks([5000, 10000, 15000, 20000], fmtQ);
+      pan.yTicks([500], v => v);
+      pan.axisLabels(null, 'Dollars ($)', i ? 'b' : 'a');
+      pan.label('Output', x0 + width / 2, axisY + 62 * S, { key:'x.' + (i ? 'b' : 'a'), font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      // Draw the curve only where it is on the chart
+      let a = 500, b = 24500; const top = yMax * 0.9;
+      while (a < 24000 && fn(a) > top) a += 100;
+      while (b > a && fn(b) > top) b -= 100;
+      pan.plotFn(fn, a, b, { color:BLUE, lw:2 });
+      const dot = (q, c) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(c), 6 * S, 0, Math.PI * 2); ctx.fill(); };
+      const mark = (q, L, key) => {
+        if (vis('show_dashed')) { pan.dashed(x0, tCY(500), tCX(q), tCY(500), PINK, 1.5); pan.dashed(tCX(q), tCY(500), tCX(q), axisY, PINK, 1.5); }
+        dot(q, 500);
+        if (vis('show_letters')) pan.label(L, tCX(q), tCY(500) - 14 * S, { key, align:'center', ...f });
+      };
+      if (i === 0) {
+        mark(qMin, 'R', 'pt.a.R');
+        if (vis('show_dots')) [5000, 20000].forEach(q => { if (fn(q) < top) dot(q, fn(q)); });
+      } else {
+        mark(R2, 'R', 'pt.b.R'); mark(S2, 'S', 'pt.b.S');
+      }
+      if (vis('show_captions')) pan.label(i ? '(b) A flat-bottomed LRAC curve' : '(a) LRAC curve with a clear minimum point', x0 - 60 * S, bottom - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+    });
+  },
+});
+</script>
+</body>
+</html>
