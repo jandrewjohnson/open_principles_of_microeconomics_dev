@@ -33,7 +33,7 @@
 
     <div class="controls">
       <div class="control-panel" id="section-start">
-        <div class="control-panel-header" onclick="tog('start')"><div class="panel-title">Starting Point</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-start" onclick="event.stopPropagation();tog('start')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('start')">✕</button></div></div>
+        <div class="control-panel-header" onclick="tog('start')"><div class="panel-title">Revenue</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-start" onclick="event.stopPropagation();tog('start')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('start')">✕</button></div></div>
         <div class="control-panel-body" id="body-start"><div data-sliders></div><div class="info-box" id="step-info" style="margin-top:12px"></div></div>
       </div>
     </div>
@@ -61,7 +61,8 @@
 // C (80, $4) and D (160, $2). Between each pair a dashed step shows the
 // change, with arrows along each leg and its midpoint percentage (66.7%
 // for both, since quantity doubles as price halves), as in the book.
-const REVENUE = 320;
+const QA = 20;
+let REVENUE = 320;
 const demand = q => REVENUE / q;
 const pct = (a, b) => Math.abs(b - a) / ((a + b) / 2) * 100;
 
@@ -69,23 +70,24 @@ new EconViz({
   canvas: 'graph',
   stateVersion: 1,
   downloadName: 'unitary_demand.png',
-  axes: { xMin:0, xMax:200, yMin:1, yMax:17, margin:{top:70, right:110, bottom:130, left:160} },
+  axes: { xMin:0, xMax:200, yMin:0, yMax:17, margin:{top:70, right:110, bottom:130, left:160} },
   sliders: [
-    { id:'q', label:'Quantity at A', min:10, max:40, value:20, step:5, fmt:v => v },
+    { id:'rev', label:'Revenue at every point (P × Q)', min:240, max:320, value:320, step:20, fmt:v => '$' + v },
   ],
   toggles: [
     { id:'show_steps',  label:'Dashed steps with arrows' },
     { id:'show_pct',    label:'Percentage changes' },
     { id:'show_annot',  label:'Point letters and coordinates' },
   ],
-  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', start:'Start' },
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', start:'Revenue' },
   leftPanels:  ['graph','explanation'],
   rightPanels: ['start'],
   nudgeKeys: ['x','y','pt.A','pt.B','pt.C','pt.D','an.AB.p','an.AB.q','an.BC.p','an.BC.q','an.CD.p','an.CD.q'],
 
   draw(g) {
     const { S, ctx, tCX, tCY, val, vis, xMax, yMax, yMin } = g;
-    const qs = [0, 1, 2, 3].map(i => val('q') * Math.pow(2, i));
+    REVENUE = val('rev');
+    const qs = [0, 1, 2, 3].map(i => QA * Math.pow(2, i));
     const pts = ['A', 'B', 'C', 'D'].map((L, i) => ({ L, q: qs[i], p: demand(qs[i]) }));
     const PINK = '#a855c7', INK = '#1a202c';
 
@@ -95,7 +97,7 @@ new EconViz({
     g.clear();
     g.axes();
     g.xTicks([0, 50, 100, 150, 200], v => v);
-    const yt = []; for (let p = 1; p <= 17; p++) yt.push(p);
+    const yt = []; for (let p = 0; p <= 17; p++) yt.push(p);
     g.yTicks(yt, v => '$' + v);
     g.axisLabels('Q', 'P');
 
@@ -110,13 +112,15 @@ new EconViz({
       g.drawArrow(tCX(a.q), ay, tCX(b.q) - 4 * S, ay, INK);
       if (vis('show_pct')) {
         const f = { font:`${14 * S}px ${g.font}`, color:'#2b6cb0' };
-        g.label(pct(a.p, b.p).toFixed(1) + '%', ax - 8 * S, tCY(a.p) + (tCY(b.p) - tCY(a.p)) * 0.2 + 5 * S, { key:`an.${a.L}${b.L}.p`, align:'right', ...f });
-        // Lower for inner steps so the next step's price label has room; the last step has no neighbour
-        g.label(pct(a.q, b.q).toFixed(1) + '%', (tCX(a.q) + tCX(b.q)) / 2, ay + (i === pts.length - 2 ? 28 : 46) * S, { key:`an.${a.L}${b.L}.q`, align:'center', ...f });
+        // Midway down the arrow, but never closer than a line to the previous step's quantity label
+        const py = Math.max((tCY(a.p) + tCY(b.p)) / 2 + 5 * S, i > 0 ? tCY(a.p) + 70 * S : 0);
+        g.label(pct(a.p, b.p).toFixed(1) + '%', ax - 8 * S, py, { key:`an.${a.L}${b.L}.p`, align:'right', ...f });
+        // Left-aligned at the start of the arrow so it stays clear of the next step's price label
+        g.label(pct(a.q, b.q).toFixed(1) + '%', tCX(a.q) + 2 * S, ay + 30 * S, { key:`an.${a.L}${b.L}.q`, ...f });
       }
     });
 
-    g.plotFn(demand, Math.max(1, REVENUE / (yMax * 0.98)), Math.min(xMax * 0.92, REVENUE / (yMin + 0.4)), { color:'#2b6cb0', lw:2.5 });
+    g.plotFn(demand, Math.max(1, REVENUE / (yMax * 0.98)), Math.min(xMax * 0.92, REVENUE / (yMin + 1.4)), { color:'#2b6cb0', lw:2.5 });
     pts.forEach(p => {
       ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(tCX(p.q), tCY(p.p), 6 * S, 0, Math.PI * 2); ctx.fill();
       if (vis('show_annot')) g.label(`${p.L} (${p.q}, $${Number.isInteger(p.p) ? p.p : p.p.toFixed(2)})`, tCX(p.q) + 12 * S, tCY(p.p) - 10 * S, { key:'pt.' + p.L, font:`${15 * S}px ${g.font}`, color:'#2b6cb0' });

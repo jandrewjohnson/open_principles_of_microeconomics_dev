@@ -164,7 +164,7 @@ new EconViz({
         if (n === '0') pan.label(txt, ex + 14 * S, ey + 6 * S, f);
         else {
           // Up and to the left of the dot, joined to it by a short arrow, as the book draws it in (b)
-          const ox = P.id === 'a' ? 30 : 70, oy = P.id === 'a' ? 60 : 90;
+          const ox = P.id === 'a' ? 30 : 50, oy = P.id === 'a' ? 60 : 104;
           const n = g.getNudge(f.key), lx = ex - ox * S + n.dx, ly = ey - oy * S + n.dy;
           pan.drawArrow(lx - 20 * S, ly + 8 * S, ex - 8 * S, ey - 8 * S, '#4a5568');
           pan.label(txt, ex - ox * S, ey - oy * S, { ...f, align:'right' });
