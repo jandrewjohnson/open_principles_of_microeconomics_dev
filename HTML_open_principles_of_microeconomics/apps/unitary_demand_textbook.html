@@ -110,8 +110,9 @@ new EconViz({
       g.drawArrow(tCX(a.q), ay, tCX(b.q) - 4 * S, ay, INK);
       if (vis('show_pct')) {
         const f = { font:`${14 * S}px ${g.font}`, color:'#2b6cb0' };
-        g.label(pct(a.p, b.p).toFixed(1) + '%', ax - 8 * S, tCY(a.p) + (tCY(b.p) - tCY(a.p)) * 0.25 + 5 * S, { key:`an.${a.L}${b.L}.p`, align:'right', ...f });
-        g.label(pct(a.q, b.q).toFixed(1) + '%', (tCX(a.q) + tCX(b.q)) / 2, ay + 32 * S, { key:`an.${a.L}${b.L}.q`, align:'center', ...f });
+        g.label(pct(a.p, b.p).toFixed(1) + '%', ax - 8 * S, tCY(a.p) + (tCY(b.p) - tCY(a.p)) * 0.2 + 5 * S, { key:`an.${a.L}${b.L}.p`, align:'right', ...f });
+        // Lower for inner steps so the next step's price label has room; the last step has no neighbour
+        g.label(pct(a.q, b.q).toFixed(1) + '%', (tCX(a.q) + tCX(b.q)) / 2, ay + (i === pts.length - 2 ? 28 : 46) * S, { key:`an.${a.L}${b.L}.q`, align:'center', ...f });
       }
     });
 

@@ -109,7 +109,7 @@ new EconViz({
       g.drawArrow(tCX(a.q), ay, tCX(b.q) - 4 * S, ay, INK);
       if (vis('show_pct')) {
         const f = { font:`${14 * S}px ${g.font}`, color:'#2b6cb0' };
-        g.label(pct(a.p, b.p).toFixed(1) + '%', ax - 8 * S, tCY(b.p) + (tCY(a.p) - tCY(b.p)) * 0.25 + 5 * S, { key:`an.${a.L}${b.L}.p`, align:'right', ...f });
+        g.label(pct(a.p, b.p).toFixed(1) + '%', ax - 8 * S, tCY(b.p) + (tCY(a.p) - tCY(b.p)) * 0.15 + 5 * S, { key:`an.${a.L}${b.L}.p`, align:'right', ...f });
         g.label(pct(a.q, b.q).toFixed(1) + '%', (tCX(a.q) + tCX(b.q)) / 2, ay - 10 * S, { key:`an.${a.L}${b.L}.q`, align:'center', ...f });
       }
     });

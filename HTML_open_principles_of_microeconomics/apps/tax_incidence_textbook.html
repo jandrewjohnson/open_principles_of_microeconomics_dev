@@ -174,7 +174,7 @@ new EconViz({
         ctx.font = `${14 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'center'; ctx.fillText('Excise tax', 0, 5 * S); ctx.restore();
         g.regLabel(`an.${P.id}.tax`, tx - 10 * S, ty - 40 * S, 20 * S, 80 * S);
         // "Tax revenue" below the rectangle with an arrow up into it
-        const rx = x0 + (tCX(qt) - x0) * 0.25, ry = tCY(pp) + 44 * S;
+        const rx = x0 + Math.max((tCX(qt) - x0) * 0.25, 62 * S), ry = tCY(pp) + 44 * S;
         const nr = g.getNudge(`an.${P.id}.revenue`);
         pan.drawArrow(rx + nr.dx, ry - 20 * S + nr.dy, rx + nr.dx, tCY(pp) - (tCY(pp) - tCY(pc)) * 0.35, INK);
         pan.label('Tax\nrevenue', rx, ry + 12 * S, { key:`an.${P.id}.revenue`, font:`${14 * S}px ${g.font}`, color:BLUE, align:'center', lineH:18 * S });
