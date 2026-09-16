@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Choice between Consumption Goods</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Choice between Consumption Goods</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">José has $56 to spend on T-shirts at $14 and movies at $7; the points on the budget constraint are the affordable combinations</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. José's Budget Constraint</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The budget constraint shows every combination of T-shirts and movies José can afford. Its vertical intercept is income divided by the price of a movie ($56 / $7 = 8 movies) and its horizontal intercept is income divided by the price of a T-shirt ($56 / $14 = 4 T-shirts), so its slope is −8/4 = −2: each T-shirt costs two movies.</p>
+          <p>The lettered points are the combinations with whole numbers of each good. Moving the income or price sliders shifts or rotates the line and the affordable points move with it. The utility toggles add the total utility of each point from the chapter's table, which is how José finds that S, one T-shirt and six movies, is his best choice.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-budget">
+        <div class="control-panel-header" onclick="tog('budget')"><div class="panel-title">Income and Prices</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-budget" onclick="event.stopPropagation();tog('budget')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('budget')">✕</button></div></div>
+        <div class="control-panel-body" id="body-budget"><div data-sliders></div></div>
+      </div>
+      <div class="control-panel" id="section-points">
+        <div class="control-panel-header" onclick="tog('points')"><div class="panel-title">Points on the Line</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-points" onclick="event.stopPropagation();tog('points')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('points')">✕</button></div></div>
+        <div class="control-panel-body" id="body-points"><div class="info-box" id="pt-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 6.2 of the book: José's budget constraint with income $56, T-shirts
+// $14 and movies $7, from T (0 shirts, 8 movies) down to P (4 shirts, 0
+// movies). The letters run T, S, R, Q, P from the top as in the book, and
+// continue backwards through the alphabet if a cheaper line has more points.
+// Total utility per unit comes from Table 6.2 (index = quantity).
+const TU_SHIRTS = [0, 22, 43, 63, 81, 97, 111, 123, 133];
+const TU_MOVIES = [0, 16, 31, 45, 58, 70, 81, 91, 100];
+const LETTERS = 'TSRQPONMLKJ';
+const BLUE = '#2b6cb0', GREEN = '#38a169';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'jose_budget.png',
+  axes: { xMin:0, xMax:5, yMin:0, yMax:9, margin:{top:60, right:120, bottom:130, left:170} },
+  sliders: [
+    { id:'income', label:'Income',           min:28, max:70, value:56, step:7,   fmt:v => '$' + v },
+    { id:'p_t',    label:'Price of a T-shirt', min:7,  max:28, value:14, step:7, fmt:v => '$' + v },
+    { id:'p_m',    label:'Price of a movie',   min:7,  max:14, value:7,  step:3.5, fmt:v => '$' + v.toFixed(2).replace('.00', '') },
+  ],
+  toggles: [
+    { id:'show_letters', label:'Point letters' },
+    { id:'show_utility', label:'Total utility at each point', checked:false },
+    { id:'show_best',    label:'Highlight the highest-utility point', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', budget:'Budget', points:'Points' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['budget','points'],
+  nudgeKeys: ['x','y','pt.T','pt.S','pt.R','pt.Q','pt.P','pt.O','pt.N','pt.M','pt.L','pt.K','pt.J'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, xMax, yMax } = g;
+    const I = val('income'), pt = val('p_t'), pm = val('p_m');
+    const xInt = I / pt, yInt = I / pm;
+    // Whole-number T-shirt counts along the line, with the movies that go with them
+    const pts = [];
+    for (let t = 0; t <= Math.floor(xInt + 1e-9) && t < LETTERS.length; t++) {
+      const m = (I - pt * t) / pm;
+      const tu = Number.isInteger(m) && t < TU_SHIRTS.length && m < TU_MOVIES.length ? TU_SHIRTS[t] + TU_MOVIES[m] : null;
+      pts.push({ L: LETTERS[t], t, m, tu });
+    }
+    const best = pts.reduce((b, p) => (p.tu !== null && (b === null || p.tu > b.tu)) ? p : b, null);
+
+    g.setText('pt-info', pts.map(p =>
+      `<div class="info-row"><span class="info-label">${p.L}: ${p.t} T-shirt${p.t === 1 ? '' : 's'}, ${Number.isInteger(p.m) ? p.m : p.m.toFixed(1)} movie${p.m === 1 ? '' : 's'}</span><span class="info-value${best && p.L === best.L ? ' highlight' : ''}">${p.tu === null ? '–' : p.tu + ' utils'}</span></div>`).join('')
+      + `<div class="info-row"><span class="info-label">Slope of the line</span><span class="info-value">${(-pt / pm).toFixed(2)}</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.xTicks([0, 1, 2, 3, 4, 5], v => v);
+    g.yTicks([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], v => v);
+    g.axisLabels('T-shirts', 'Movies');
+
+    // The budget line, clipped to the axes
+    const xEnd = Math.min(xInt, xMax), yStart = Math.min(yInt, yMax);
+    const xAtTop = (I - pm * yMax) / pt;
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+    ctx.moveTo(tCX(yInt > yMax ? xAtTop : 0), tCY(yStart)); ctx.lineTo(tCX(xEnd), tCY(xInt > xMax ? (I - pt * xMax) / pm : 0)); ctx.stroke();
+
+    pts.forEach(p => {
+      if (p.m > yMax + 1e-9) return;
+      const px = tCX(p.t), py = tCY(p.m);
+      const isBest = vis('show_best') && best && p.L === best.L;
+      ctx.fillStyle = isBest ? GREEN : BLUE; ctx.beginPath(); ctx.arc(px, py, (isBest ? 8 : 6) * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_letters')) {
+        const txt = p.L + (vis('show_utility') && p.tu !== null ? ` (${p.tu} utils)` : '');
+        g.label(txt, px + 12 * S, py - 12 * S, { key:'pt.' + p.L, font:`${16 * S}px ${g.font}`, color: isBest ? GREEN : BLUE });
+      }
+    });
+  },
+});
+</script>
+</body>
+</html>

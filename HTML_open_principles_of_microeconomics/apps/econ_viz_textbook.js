@@ -604,8 +604,9 @@ class EconViz {
 
   /* ---------- drawing helpers ---------- */
   // cfg.axes is one spec, or an array of them for a multi-panel figure. Each
-  // spec may carry `left` and `width` in design px to place its panel on the
-  // canvas; g.panel(i) returns the same helper API bound to panel i.
+  // spec may carry `left`, `top`, `width` and `height` in design px to place
+  // its panel on the canvas (side by side, stacked, or both); g.panel(i)
+  // returns the same helper API bound to panel i.
   _specs() { return Array.isArray(this.cfg.axes) ? this.cfg.axes : [this.cfg.axes]; }
   _helpers(idx = 0) {
     // An app that draws entirely on its own (adapter mode) need not declare
@@ -614,15 +615,17 @@ class EconViz {
     const S = this.S, ctx = this.ctx, canvas = this.canvas, ax = this._specs()[idx] || NO_AXES;
     const margin = ax.margin;
     const W = this.W, H = this.H;
-    const left = ax.left || 0;
+    const left = ax.left || 0, top = ax.top || 0;
     const width = (ax.width || W) - margin.left - margin.right;
     const height = (ax.height || H) - margin.top - margin.bottom;
+    // The panel's own box on the canvas; bottom is where its x-axis label goes.
+    const bottom = top + (ax.height || H);
     // x0 / y0 are the top left corner of this panel's plot area.
-    const x0 = left + margin.left, y0 = margin.top;
+    const x0 = left + margin.left, y0 = top + margin.top;
     const tCX = x => x0 + ((x - ax.xMin) / (ax.xMax - ax.xMin)) * width;
     const tCY = y => y0 + height - ((y - ax.yMin) / (ax.yMax - ax.yMin)) * height;
     return {
-      ctx, S, canvas, W, H, width, height, margin, left, x0, y0, tCX, tCY, font: ECON_VIZ_FONT,
+      ctx, S, canvas, W, H, width, height, margin, left, top, bottom, x0, y0, tCX, tCY, font: ECON_VIZ_FONT,
       panel: i => this._helpers(i),
       xMin: ax.xMin, xMax: ax.xMax, yMin: ax.yMin, yMax: ax.yMax,
       val: id => this.val(id),
@@ -664,7 +667,7 @@ class EconViz {
         ctx.fillStyle = '#2b6cb0'; ctx.font = `bold ${14 * S}px ${ECON_VIZ_FONT}`; ctx.textAlign = 'center';
         if (xLabel) {
           const nx = self.getNudge('x' + sfx);
-          const xlx = x0 + width / 2 + nx.dx, xly = H - 10 * S + nx.dy;
+          const xlx = x0 + width / 2 + nx.dx, xly = bottom - 10 * S + nx.dy;
           ctx.fillText(xLabel, xlx, xly);
           const xw = ctx.measureText(xLabel).width;
           self.regLabel('x' + sfx, xlx - xw / 2 - 4 * S, xly - 16 * S, xw + 8 * S, 22 * S);

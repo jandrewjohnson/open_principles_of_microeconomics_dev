@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Impact of Education on Earnings and Unemployment Rates</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Impact of Education on Earnings and Unemployment Rates, 2012</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Median weekly earnings rise and unemployment falls with each level of education (U.S. Bureau of Labor Statistics, May 2013)</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Earnings and Unemployment by Education</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>For each level of education the upper bar is median weekly earnings in 2012 and the lower bar is the unemployment rate. Earnings rise with every step up in education, from $471 a week for those without a high school diploma to $1,735 for a professional degree, while unemployment falls from 12.4% to 2.1%.</p>
+          <p>The national medians toggle adds the figures for the whole labor force that year, $815 a week and 6.8% unemployment, so you can see which groups sat above and below them. The two bars use different scales, so compare bars of the same colour across rows, not the two bars in a row.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-layout">
+        <div class="control-panel-header" onclick="tog('layout')"><div class="panel-title">Layout</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-layout" onclick="event.stopPropagation();tog('layout')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('layout')">✕</button></div></div>
+        <div class="control-panel-body" id="body-layout"><div data-sliders></div><div class="info-box" id="data-info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag the legend and the median labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 6.6 of the book: a paired horizontal bar chart of BLS data for
+// 2012, highest degree at the top. There are no axes; the bars are drawn
+// directly, earnings and unemployment each on their own scale as in the
+// book. The national medians from the caption are behind a toggle.
+const DATA = [
+  { label:'Professional Degree',            earn:1735, unemp:2.1 },
+  { label:'Doctoral Degree',                earn:1624, unemp:2.5 },
+  { label:"Master's Degree",                earn:1300, unemp:3.5 },
+  { label:"Bachelor's Degree",              earn:1066, unemp:4.5 },
+  { label:"Associate's Degree",             earn:785,  unemp:6.2 },
+  { label:'Some college',                   earn:727,  unemp:7.7 },
+  { label:'High school diploma',            earn:652,  unemp:8.3 },
+  { label:'Less than a High school diploma', earn:471, unemp:12.4 },
+];
+const NAT = { earn:815, unemp:6.8 };
+const BLUE = '#2b6cb0', LIGHT = '#f4f5f7', INK = '#1a202c', RED = '#c53030';
+const money = v => '$' + v.toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'education_earnings.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'bar_h', label:'Bar thickness', min:12, max:22, value:18, step:2 },
+  ],
+  toggles: [
+    { id:'show_earn',   label:'Median weekly earnings' },
+    { id:'show_unemp',  label:'Unemployment rate' },
+    { id:'show_values', label:'Values at the end of each bar' },
+    { id:'show_legend', label:'Legend' },
+    { id:'show_nat',    label:'National medians ($815, 6.8%)', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Chart', explanation:'Explanation', layout:'Layout' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['layout'],
+  nudgeKeys: ['lg','an.nat_earn','an.nat_unemp'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W, H } = g;
+    const barH = val('bar_h') * S;
+    const labelX = 150 * S, barX = 156 * S, barMax = 380 * S;
+    const kE = barMax / 1735, kU = barMax * 0.9 / 12.4;
+    const rowH = (H - 40 * S) / DATA.length, top = 20 * S;
+
+    g.setText('data-info', DATA.map(d => `<div class="info-row"><span class="info-label">${d.label}</span><span class="info-value">${money(d.earn)} · ${d.unemp}%</span></div>`).join(''));
+
+    g.clear();
+    // Category axis line down the left of the bars, with a short tick per row as in the book
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 1.5 * S; ctx.beginPath(); ctx.moveTo(barX, top); ctx.lineTo(barX, top + rowH * DATA.length); ctx.stroke();
+
+    const both = vis('show_earn') && vis('show_unemp');
+    DATA.forEach((d, i) => {
+      const cy = top + rowH * (i + 0.5);
+      ctx.beginPath(); ctx.moveTo(barX - 8 * S, top + rowH * i); ctx.lineTo(barX, top + rowH * i); ctx.stroke();
+      // Category label, wrapped on the last row like the book
+      ctx.fillStyle = BLUE; ctx.font = `${15 * S}px ${g.font}`; ctx.textAlign = 'right';
+      const words = d.label.length > 22 ? [d.label.slice(0, d.label.lastIndexOf(' ', 22)), d.label.slice(d.label.lastIndexOf(' ', 22) + 1)] : [d.label];
+      words.forEach((w, j) => ctx.fillText(w, labelX, cy + (j - (words.length - 1) / 2) * 20 * S + 5 * S));
+
+      const yE = both ? cy - barH - 1 * S : cy - barH / 2, yU = both ? cy + 1 * S : cy - barH / 2;
+      if (vis('show_earn')) {
+        ctx.fillStyle = BLUE; ctx.fillRect(barX, yE, d.earn * kE, barH);
+        ctx.strokeStyle = INK; ctx.lineWidth = 1 * S; ctx.strokeRect(barX, yE, d.earn * kE, barH);
+        if (vis('show_values')) { ctx.fillStyle = BLUE; ctx.font = `${15 * S}px ${g.font}`; ctx.textAlign = 'left'; ctx.fillText(money(d.earn), barX + d.earn * kE + 8 * S, yE + barH / 2 + 5 * S); }
+      }
+      if (vis('show_unemp')) {
+        ctx.fillStyle = LIGHT; ctx.fillRect(barX, yU, d.unemp * kU, barH);
+        ctx.strokeStyle = INK; ctx.lineWidth = 1 * S; ctx.strokeRect(barX, yU, d.unemp * kU, barH);
+        if (vis('show_values')) { ctx.fillStyle = BLUE; ctx.font = `${15 * S}px ${g.font}`; ctx.textAlign = 'left'; ctx.fillText(d.unemp.toFixed(1) + '%', barX + d.unemp * kU + 8 * S, yU + barH / 2 + 5 * S); }
+      }
+    });
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 1.5 * S; ctx.beginPath(); ctx.moveTo(barX - 8 * S, top + rowH * DATA.length); ctx.lineTo(barX, top + rowH * DATA.length); ctx.stroke();
+
+    if (vis('show_nat')) {
+      const bottom = top + rowH * DATA.length;
+      if (vis('show_earn')) {
+        const x = barX + NAT.earn * kE;
+        g.dashed(x, top, x, bottom, RED, 1.5);
+        g.label(`National median ${money(NAT.earn)}`, x + 6 * S, bottom + 18 * S, { key:'an.nat_earn', font:`${13 * S}px ${g.font}`, color:RED });
+      }
+      if (vis('show_unemp')) {
+        const x = barX + NAT.unemp * kU;
+        g.dashed(x, top, x, bottom, '#718096', 1.5);
+        g.label(`National unemployment ${NAT.unemp}%`, x + 6 * S, top - 6 * S, { key:'an.nat_unemp', font:`${13 * S}px ${g.font}`, color:'#4a5568' });
+      }
+    }
+
+    if (vis('show_legend')) {
+      const nl = g.getNudge('lg'), lx = 660 * S + nl.dx, ly = 150 * S + nl.dy;
+      const rows = [];
+      if (vis('show_earn')) rows.push([BLUE, 'Median weekly earnings']);
+      if (vis('show_unemp')) rows.push([LIGHT, 'Unemployment rate']);
+      rows.forEach(([c, t], j) => {
+        const y = ly + j * 44 * S;
+        ctx.fillStyle = c; ctx.fillRect(lx, y - 12 * S, 24 * S, 24 * S); ctx.strokeStyle = INK; ctx.lineWidth = 1 * S; ctx.strokeRect(lx, y - 12 * S, 24 * S, 24 * S);
+        ctx.fillStyle = BLUE; ctx.font = `${15 * S}px ${g.font}`; ctx.textAlign = 'left'; ctx.fillText(t, lx + 36 * S, y + 5 * S);
+      });
+      g.regLabel('lg', lx - 6 * S, ly - 20 * S, 220 * S, rows.length * 44 * S);
+    }
+  },
+});
+</script>
+</body>
+</html>
