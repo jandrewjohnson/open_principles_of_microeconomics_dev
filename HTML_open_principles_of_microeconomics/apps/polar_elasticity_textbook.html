@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinite and Zero Elasticity</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Infinite and Zero Elasticity</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The two extreme cases: a horizontal curve is perfectly elastic, a vertical one perfectly inelastic</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Polar Cases</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="800"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p><strong>Infinite elasticity.</strong> A horizontal demand or supply curve means an infinite quantity is demanded or supplied at one specific price: quantity is extremely responsive to price, going from zero for prices close to P to infinite when the price reaches P. Perfectly elastic curves are unrealistic, but goods with readily available inputs whose production can easily expand (pizza, bread, pencils) have highly elastic supply, and luxuries with many substitutes (cruises, sports vehicles) have highly elastic demand.</p>
+          <p><strong>Zero elasticity.</strong> A vertical curve means a percentage change in price, no matter how large, leaves quantity unchanged. Goods with a limited supply of inputs (diamond rings, apartments facing Central Park) have highly inelastic supply; necessities with no close substitutes (life-saving drugs, gasoline) have highly inelastic demand.</p>
+          <p>Switch between the two cases in the display options; the sliders move the lines.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-position">
+        <div class="control-panel-header" onclick="tog('position')"><div class="panel-title">Position</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-position" onclick="event.stopPropagation();tog('position')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('position')">✕</button></div></div>
+        <div class="control-panel-body" id="body-position" data-sliders></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figures 5.4 and 5.5 of the book: two panels, a demand curve on the left
+// and a supply curve on the right, both horizontal (infinite elasticity,
+// figure 5.4) or both vertical (zero elasticity, figure 5.5). Nothing else
+// is drawn: P and Q axis letters, a curve letter and a caption per panel.
+const S0 = 2;
+const GAP = 120 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:40, right:60, bottom:150, left:110 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:PW + GAP, width:PW },
+];
+const BLUE = '#2b6cb0', GREY = '#718096';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'polar_elasticity.png',
+  axes: AXES,
+  sliders: [
+    { id:'p', label:'Price of the horizontal curve', min:1, max:9, value:4.5, step:0.5, fmt:v => v.toFixed(1) },
+    { id:'q', label:'Quantity of the vertical curve', min:1, max:9, value:4.5, step:0.5, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_vertical',   label:'Zero elasticity (vertical) instead of infinite (horizontal)', checked:false },
+    { id:'show_curvelabel', label:'Curve letters' },
+    { id:'show_captions',   label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', position:'Position' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['position'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','d.a','s.b'],
+
+  draw(g) {
+    const { S, ctx, val, vis, H } = g;
+    const vertical = vis('show_vertical');
+    g.clear();
+    [{ id:'a', letter:'D', key:'d.a', word:'demand' }, { id:'b', letter:'S', key:'s.b', word:'supply' }].forEach((P, i) => {
+      const pan = g.panel(i);
+      const { x0, y0, width, height, tCX, tCY } = pan;
+      const axisY = y0 + height;
+      pan.axes(BLUE);
+      pan.label('Q', x0 + width / 2, axisY + 40 * S, { key:'x.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+      pan.label('P', pan.left + 40 * S, y0 + height / 2 + 6 * S, { key:'y.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+      if (vertical) { const x = tCX(val('q')); ctx.moveTo(x, y0 + 10 * S); ctx.lineTo(x, axisY); }
+      else { const y = tCY(val('p')); ctx.moveTo(x0, y); ctx.lineTo(x0 + width * 0.92, y); }
+      ctx.stroke();
+      if (vis('show_curvelabel')) {
+        const f = { key:P.key, font:`${17 * S}px ${g.font}`, color:BLUE };
+        if (vertical) pan.label(P.letter, tCX(val('q')) + 10 * S, y0 + 28 * S, f);
+        else pan.label(P.letter, x0 + width * 0.92 - 4 * S, tCY(val('p')) - 12 * S, { ...f, align:'right' });
+      }
+      if (vis('show_captions'))
+        pan.label(`(${P.id}) Perfectly ${vertical ? 'inelastic' : 'elastic'} ${P.word} curve`, x0 + width / 2, H - 10 * S, { font:`${14 * S}px ${g.font}`, color:GREY, align:'center' });
+    });
+  },
+});
+</script>
+</body>
+</html>
