@@ -79,8 +79,8 @@ new EconViz({
   downloadName: 'nurses_2030.png',
   axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:110, bottom:170, left:170} },
   sliders: [
-    { id:'dq_d1', label:'Shift of demand (baby boomers)',  min:0,  max:4, value:2,    step:0.1, fmt:v => '+' + v.toFixed(1) },
-    { id:'dq_s1', label:'Shift of supply (retirements)',   min:-4, max:0, value:-0.8, step:0.1, fmt:v => v.toFixed(1) },
+    { id:'dq_d1', label:'Shift of demand (baby boomers)',  min:0,  max:4, value:3,    step:0.1, fmt:v => '+' + v.toFixed(1) },
+    { id:'dq_s1', label:'Shift of supply (retirements)',   min:-4, max:0, value:-1.1, step:0.1, fmt:v => v.toFixed(1) },
   ],
   toggles: [
     { id:'show_s1',         label:'S₁ (supply after retirements)' },
@@ -138,7 +138,7 @@ new EconViz({
         if (Math.min(a, b) < 0.3 || Math.max(a, b) > xMax - 0.3 || Math.abs(tCX(a) - tCX(b)) < 30 * S) return;
         g.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
       };
-      shift(D0, D1, e0.p * 0.75);
+      shift(D0, D1, e0.p * 0.9);
       if (showS1) shift(S0, S1, e1.p * 1.55);
     }
 
