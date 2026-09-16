@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Card Interest Rates: Another Price Ceiling Example</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Credit Card Interest Rates: Another Price Ceiling Example</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A law caps the interest rate on credit cards below the market rate; at the cap, borrowers want more credit than card issuers will supply</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Credit Card Market</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>In this financial market the vertical axis shows the interest rate, the price. Demanders are households and businesses; suppliers are the companies that issue credit cards. The figure uses no specific numbers, which would be hypothetical anyway, and focuses on the underlying relationships.</p>
+          <p>Imagine a law imposes a price ceiling that holds the interest rate at Rc, below the rate R₀ that would otherwise prevail. The horizontal dashed line at Rc is the ceiling. At the lower rate the quantity of credit card debt demanded rises from Q₀ to Qd, but the quantity supplied falls from Q₀ to Qs. Quantity demanded exceeds quantity supplied, so a number of people who want cards and would pay the going rate find that companies will not issue them one. The result is a credit shortage.</p>
+          <p>Many states have usury laws that cap interest rates, but in most cases the cap is well above the market rate. Raise the ceiling above R₀ and it stops binding: it has no practical effect unless the equilibrium rate rises to meet it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-policy">
+        <div class="control-panel-header" onclick="tog('policy')"><div class="panel-title">Interest Rate Ceiling</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-policy" onclick="event.stopPropagation();tog('policy')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('policy')">✕</button></div></div>
+        <div class="control-panel-body" id="body-policy"><div data-sliders></div><div class="info-box" id="ceiling-info" style="margin-top:12px"></div></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>Demand (D) and supply (S)</span></div>
+            <div class="legend-item"><div class="legend-line" style="background:#a855c7;height:1px;border:1px dashed #a855c7"></div><span>Price ceiling Rc</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0"></div><span>E₀, and the quantities Qs and Qd at the ceiling</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 4.8 of the book: a schematic price ceiling on credit card interest
+// rates, the mirror of the price_floor app (figure 3.22). D and S, E0 with
+// dashed R0 and Q0, a dashed ceiling line at Rc labelled "Price ceiling set
+// here", Qs and Qd on it with dashed lines to the axis, and a brace below
+// for the shortage, as in the book's figure.
+const BLUE = '#2b6cb0', PINK = '#a855c7';
+const D_A = 9, S_A = 0.9, K = 0.22;
+const demand = q => D_A * Math.exp(-K * q), supply = q => S_A * Math.exp(K * q);
+const qOfD = p => -Math.log(p / D_A) / K, qOfS = p => Math.log(p / S_A) / K;
+const e0 = (() => { const q = Math.log(D_A / S_A) / (2 * K); return { q, p: demand(q) }; })();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'credit_price_ceiling.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:100, bottom:160, left:150} },
+  sliders: [
+    { id:'p', label:'Interest rate ceiling Rc', min:1, max:8, value:1.8, step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_ceiling',    label:'Price ceiling line' },
+    { id:'show_droplines',  label:'Dashed lines to the axes' },
+    { id:'show_brace',      label:'Shortage brace and label' },
+    { id:'show_labels',     label:'R, Q and E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_annot',      label:'"Price ceiling set here"' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', policy:'Ceiling', keyvals:'Key' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['policy','keyvals'],
+  nudgeKeys: ['x','y','d','s','pt.E0','an.R0','an.Rc','an.Qs','an.Q0','an.Qd','an.ceiling','an.shortage'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, width, height, xMax, yMax } = g;
+    const rc = val('p'), axisY = y0 + height;
+    const binding = vis('show_ceiling') && rc < e0.p - 0.05;
+    const qd = qOfD(rc), qs = qOfS(rc);
+
+    g.setText('ceiling-info', vis('show_ceiling')
+      ? (binding
+        ? `<div class="info-row"><span class="info-label">At Rc</span><span class="info-value">Qd &gt; Qs</span></div>` +
+          `<div class="info-row"><span class="info-label">Result</span><span class="info-value" style="color:#e53e3e">Credit shortage of ${(qd - qs).toFixed(1)} units</span></div>`
+        : '<div style="color:#718096;font-size:.85rem;padding:4px 0">The ceiling is above the equilibrium rate, so it does not bind: the market clears at E₀.</div>')
+      : '');
+
+    g.clear();
+    g.axes(BLUE);
+    g.axisLabels('Quantity (credit card lending and borrowing)', 'Interest Rate');
+
+    const pTop = yMax * 0.93, pBot = 0.8;
+    const da = Math.max(0.3, qOfD(pTop)), sb = Math.min(xMax - 0.3, qOfS(pTop));
+    g.plotFn(demand, da, Math.min(xMax - 0.3, qOfD(pBot)), { color: BLUE, lw: 2.5 });
+    g.plotFn(supply, Math.max(0.3, qOfS(pBot)), sb, { color: BLUE, lw: 2.5 });
+    if (vis('show_curvelabel')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' };
+      g.label('D', tCX(da) - 4 * S, tCY(pTop) - 12 * S, { key:'d', ...f });
+      g.label('S', tCX(sb) + 6 * S, tCY(pTop) - 12 * S, { key:'s', ...f });
+    }
+
+    if (vis('show_droplines')) {
+      g.dashed(x0, tCY(e0.p), tCX(e0.q), tCY(e0.p), PINK, 1.5);
+      g.dashed(tCX(e0.q), tCY(e0.p), tCX(e0.q), axisY, PINK, 1.5);
+      if (binding) [qs, qd].forEach(q => g.dashed(tCX(q), tCY(rc), tCX(q), axisY, PINK, 1.5));
+    }
+
+    if (vis('show_ceiling')) {
+      g.dashed(x0, tCY(rc), x0 + width, tCY(rc), PINK, 1.5);
+      if (vis('show_annot'))
+        g.label('Price ceiling\nset here', x0 + width - 8 * S, tCY(rc) - 36 * S, { key:'an.ceiling', font:`${15 * S}px ${g.font}`, color:BLUE, align:'right', lineH:20 * S });
+      if (binding && vis('show_brace') && qd - qs > 0.3) {
+        g.brace(tCX(qs), tCY(rc) + 12 * S, tCX(qd), tCY(rc) + 12 * S, { depth: 14 * S });
+        g.label('Excess demand\nor shortage', (tCX(qs) + tCX(qd)) / 2, tCY(rc) + 52 * S,
+          { key:'an.shortage', font:`${15 * S}px ${g.font}`, color:BLUE, align:'center', lineH:20 * S });
+      }
+    }
+
+    const dot = (q, p) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+    dot(e0.q, e0.p);
+    if (binding) { dot(qs, rc); dot(qd, rc); }
+
+    if (vis('show_labels')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      g.label('E₀', tCX(e0.q) - 8 * S, tCY(e0.p) - 12 * S, { key:'pt.E0', align:'right', ...f });
+      g.label('R₀', x0 - 14 * S, tCY(e0.p) + 6 * S, { key:'an.R0', align:'right', ...f });
+      g.label('Q₀', tCX(e0.q), axisY + 30 * S, { key:'an.Q0', align:'center', ...f });
+      if (vis('show_ceiling')) g.label('Rc', x0 - 14 * S, tCY(rc) + 6 * S, { key:'an.Rc', align:'right', ...f });
+      if (binding) {
+        g.label('Qs', tCX(qs), axisY + 30 * S, { key:'an.Qs', align:'center', ...f });
+        g.label('Qd', tCX(qd), axisY + 30 * S, { key:'an.Qd', align:'center', ...f });
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>

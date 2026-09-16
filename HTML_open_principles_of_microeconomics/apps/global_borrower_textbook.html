@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The United States as a Global Borrower</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The United States as a Global Borrower</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Foreign investors supply financial capital to U.S. markets; when fears about U.S. public debt make them less eager, that supply shifts left</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. U.S. Financial Markets</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1150"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">The Four Steps</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p><strong>Step 1.</strong> Draw demand and supply for financial capital in the original scenario, in which foreign investors pour money into the U.S. economy. The supply of capital includes the funds arriving from abroad. The original equilibrium E₀ occurs at the rate of return R₀ and quantity of financial investment Q₀.</p>
+          <p><strong>Step 2.</strong> Diminished confidence in the U.S. economy as a place to invest affects <strong>supply</strong>: U.S. financial assets come to be seen as more risky.</p>
+          <p><strong>Step 3.</strong> When foreign investors' enthusiasm diminishes, the supply of financial capital shifts to the left, from S₀ to S₁.</p>
+          <p><strong>Step 4.</strong> The new equilibrium E₁ occurs at a higher interest rate R₁ and a lower quantity of financial capital Q₁. Turn S₁ off to see the market before the change.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Result</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figures 4.6 and 4.7 of the book: the U.S. financial market before and
+// after foreign investors lose confidence. Schematic, no numbers: D0 and S0
+// with E0 at R0 and Q0 (4.6), then S1 shifted left with E1 at R1 and Q1 and
+// three leftward arrows (4.7). Same convex curves as the other schematic
+// four-step apps.
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+const D_A = 9, S_A = 0.9, K = 0.22;
+const demand = dq => q => D_A * Math.exp(-K * (q - dq));
+const supply = dq => q => S_A * Math.exp(K * (q - dq));
+const qOfD = (dq, p) => dq - Math.log(p / D_A) / K;
+const qOfS = (dq, p) => dq + Math.log(p / S_A) / K;
+function cross(d, s) {
+  let lo = 0, hi = 10;
+  for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (d(m) - s(m) > 0 ? lo = m : hi = m); }
+  const q = (lo + hi) / 2;
+  return { q, p: d(q) };
+}
+const dir = (a, b) => b < a - 1e-6 ? 'falls' : b > a + 1e-6 ? 'rises' : 'is unchanged';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'global_borrower.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:100, bottom:150, left:170} },
+  sliders: [
+    { id:'dq_s1', label:'Shift of supply', min:-4, max:4, value:-2, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+    { id:'dq_d',  label:'Shift of demand', min:-4, max:4, value:0,  step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_s1',         label:'S₁ (after the loss of confidence)' },
+    { id:'show_eqlines',    label:'Dashed lines to the axes' },
+    { id:'show_arrows',     label:'Shift arrows' },
+    { id:'show_labels',     label:'R, Q and E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Four steps', shifts:'Shifts', equilibrium:'Result' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','equilibrium'],
+  nudgeKeys: ['x','y','d0','s0','s1','pt.E0','pt.E1','an.R0','an.R1','an.Q0','an.Q1'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, xMax, yMax } = g;
+    const dqs = val('dq_s1'), dqd = val('dq_d');
+    const D0 = demand(dqd), S0 = supply(0), S1 = supply(dqs);
+    const e0 = cross(D0, S0), e1 = vis('show_s1') ? cross(D0, S1) : null;
+    const axisY = y0 + height;
+
+    g.setText('eq-info', e1
+      ? `<div class="info-row"><span class="info-label">Rate of return</span><span class="info-value highlight">${dir(e0.p, e1.p)}</span></div>` +
+        `<div class="info-row"><span class="info-label">Quantity of financial capital</span><span class="info-value highlight">${dir(e0.q, e1.q)}</span></div>`
+      : '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Turn on S₁ to see the change</div>');
+
+    g.clear();
+    g.axes(BLUE);
+    g.axisLabels('Quantity of Financial Capital', 'Rate of Return');
+
+    const eqs = e1 ? [[e0, '0'], [e1, '1']] : [[e0, '0']];
+    if (vis('show_eqlines')) eqs.forEach(([e]) => {
+      g.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+      g.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+    });
+
+    const pTop = yMax * 0.93, pBot = 0.8;
+    const qa = Math.max(0.2, qOfD(dqd, pTop)), qb = Math.min(xMax - 0.3, qOfD(dqd, pBot));
+    g.plotFn(D0, qa, qb, { color: BLUE, lw: 2.5 });
+    if (vis('show_curvelabel')) g.label('D₀', tCX(qb) + 10 * S, tCY(D0(qb)) + 6 * S, { key:'d0', font:`bold ${16 * S}px ${g.font}`, color:BLUE });
+    const drawS = (dq, key, name) => {
+      const a = Math.max(0.2, qOfS(dq, pBot)), b = Math.min(xMax - 0.3, qOfS(dq, pTop));
+      if (b <= a) return;
+      g.plotFn(supply(dq), a, b, { color: BLUE, lw: 2.5 });
+      if (vis('show_curvelabel')) g.label(name, tCX(b) + 6 * S, tCY(supply(dq)(b)) - 10 * S, { key, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+    };
+    drawS(0, 's0', 'S₀');
+    if (e1) drawS(dqs, 's1', 'S₁');
+
+    if (vis('show_arrows') && e1 && Math.abs(dqs) > 0.3) {
+      const hi = Math.max(e0.p, e1.p), lo = Math.min(e0.p, e1.p);
+      [hi * 1.7, hi * 1.3, lo * 0.55].forEach(p => {
+        if (p < pBot || p > pTop) return;
+        const a = qOfS(0, p), b = qOfS(dqs, p), gp = 9 * S * Math.sign(a - b || 1);
+        if (Math.min(a, b) > 0.3 && Math.max(a, b) < xMax - 0.3 && Math.abs(tCX(a) - tCX(b)) > 40 * S)
+          g.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
+      });
+    }
+
+    eqs.forEach(([e, n]) => {
+      const ex = tCX(e.q), ey = tCY(e.p);
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(ex, ey, 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (!vis('show_labels')) return;
+      const sub = n === '0' ? '₀' : '₁', f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      g.label('E' + sub, ex + 8 * S, ey - 12 * S, { key:'pt.E' + n, ...f });
+      g.label('R' + sub, x0 - 14 * S, ey + 6 * S, { key:'an.R' + n, align:'right', ...f });
+      g.label('Q' + sub, ex, axisY + 30 * S, { key:'an.Q' + n, align:'center', ...f });
+    });
+  },
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demand and Supply Curves</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Demand and Supply Curves</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">One diagram for goods, labor and financial capital: the price, the wage and the rate of return all play the same role</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. A Generic Market</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1250"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The horizontal axis shows a quantity: of a good or service, of labor for a given job, or of financial capital. The vertical axis shows the matching measure of price: the price of a good or service, the wage in the labor market, or the rate of return (such as the interest rate) in the financial market. The same demand and supply curves, and the same equilibrium E at P and Q, explain how economic events change prices, wages and rates of return.</p>
+          <p>There are only four possibilities: an event shifts the demand curve right or left, or the supply curve right or left. The key to analyzing an event is to decide which of the four happened, by thinking back to the lists of factors that shift each curve. If more than one factor changes at once, economists isolate each change and analyze it on its own. Use the sliders to try each of the four shifts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Result</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 4.9 of the book: a generic demand and supply diagram whose axis
+// titles list all three markets. D, S and E at P and Q with dashed lines,
+// nothing else. The sliders shift either curve so a reader can try the four
+// possibilities the text names; the shifted curve replaces the original.
+const BLUE = '#2b6cb0', PINK = '#a855c7';
+const D_A = 9, S_A = 0.9, K = 0.22;
+const demand = dq => q => D_A * Math.exp(-K * (q - dq));
+const supply = dq => q => S_A * Math.exp(K * (q - dq));
+const qOfD = (dq, p) => dq - Math.log(p / D_A) / K;
+const qOfS = (dq, p) => dq + Math.log(p / S_A) / K;
+function cross(d, s) {
+  let lo = 0, hi = 10;
+  for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (d(m) - s(m) > 0 ? lo = m : hi = m); }
+  const q = (lo + hi) / 2;
+  return { q, p: d(q) };
+}
+const dir = (a, b) => b < a - 1e-6 ? 'falls' : b > a + 1e-6 ? 'rises' : 'is unchanged';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'generic_market.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:100, bottom:230, left:190} },
+  sliders: [
+    { id:'dq_d', label:'Shift of demand', min:-3, max:3, value:0, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+    { id:'dq_s', label:'Shift of supply', min:-3, max:3, value:0, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_eqlines',    label:'Dashed lines to the axes' },
+    { id:'show_labels',     label:'P, Q and E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shifts:'Shifts', equilibrium:'Result' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','equilibrium'],
+  nudgeKeys: ['x','y','d','s','pt.E','an.P','an.Q'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, xMax, yMax } = g;
+    const dqd = val('dq_d'), dqs = val('dq_s');
+    const D = demand(dqd), Sf = supply(dqs);
+    const e = cross(D, Sf), base = cross(demand(0), supply(0));
+    const axisY = y0 + height;
+
+    g.setText('eq-info', (dqd || dqs)
+      ? `<div class="info-row"><span class="info-label">Price, wage or rate of return</span><span class="info-value highlight">${dir(base.p, e.p)}</span></div>` +
+        `<div class="info-row"><span class="info-label">Quantity</span><span class="info-value highlight">${dir(base.q, e.q)}</span></div>`
+      : '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Shift a curve to see the change</div>');
+
+    g.clear();
+    g.axes(BLUE);
+    // Three-line axis titles, one line per market, as in the book
+    const tf = `bold ${14 * S}px ${g.font}`;
+    g.label('Quantity of Goods and Services\nQuantity of Labor\nQuantity of Financial Capital', x0 + (tCX(xMax) - x0) / 2, axisY + 62 * S, { key:'x', font:tf, color:BLUE, align:'center', lineH:20 * S });
+    const ny = g.getNudge('y'), ylx = g.left + 26 * S, mid = y0 + height / 2;
+    ctx.save(); ctx.translate(ylx + ny.dx, mid + ny.dy); ctx.rotate(-Math.PI / 2);
+    ctx.font = tf; ctx.fillStyle = BLUE; ctx.textAlign = 'center';
+    ['Price', 'Wage', 'Rate of Return'].forEach((t, i) => ctx.fillText(t, 0, (i - 1) * 20 * S + 6 * S));
+    ctx.restore();
+    g.regLabel('y', ylx + ny.dx - 32 * S, mid + ny.dy - 70 * S, 64 * S, 140 * S);
+
+    if (vis('show_eqlines')) {
+      g.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+      g.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+    }
+
+    const pTop = yMax * 0.93, pBot = 0.8;
+    const da = Math.max(0.3, qOfD(dqd, pTop)), db = Math.min(xMax - 0.3, qOfD(dqd, pBot));
+    const sa = Math.max(0.3, qOfS(dqs, pBot)), sb = Math.min(xMax - 0.3, qOfS(dqs, pTop));
+    if (db > da) g.plotFn(D, da, db, { color: BLUE, lw: 2.5 });
+    if (sb > sa) g.plotFn(Sf, sa, sb, { color: BLUE, lw: 2.5 });
+    if (vis('show_curvelabel')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      g.label('D', tCX(db) + 10 * S, tCY(D(db)) + 6 * S, { key:'d', ...f });
+      g.label('S', tCX(sb) + 6 * S, tCY(Sf(sb)) - 10 * S, { key:'s', align:'center', ...f });
+    }
+
+    ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(e.q), tCY(e.p), 7 * S, 0, Math.PI * 2); ctx.fill();
+    if (vis('show_labels')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      g.label('E', tCX(e.q) + 14 * S, tCY(e.p) + 6 * S, { key:'pt.E', ...f });
+      g.label('P', x0 - 14 * S, tCY(e.p) + 6 * S, { key:'an.P', align:'right', ...f });
+      g.label('Q', tCX(e.q), axisY + 30 * S, { key:'an.Q', align:'center', ...f });
+    }
+  },
+});
+</script>
+</body>
+</html>
