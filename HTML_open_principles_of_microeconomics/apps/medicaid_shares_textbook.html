@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicaid Enrollment and Spending</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Medicaid Enrollment and Spending</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Children are the largest group of Medicaid enrollees but the smallest share of its spending; people who are blind or have a disability are the reverse</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Who Is Enrolled and Where the Money Goes</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="2400" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The left circle divides Medicaid enrollees into four groups, and the right one divides Medicaid spending among the same groups. The two look very different. Children are 39 percent of enrollees but only 19 percent of spending, because most children need relatively little care.</p>
+          <p>People who are blind or have a disability are 15 percent of enrollees and 38 percent of spending, and people over 65 are 8 percent of enrollees and 16 percent of spending. Long-term care, nursing homes and continuous treatment are expensive, so a small share of enrollees accounts for a large share of the budget. The slider picks a group and the side panel gives both of its shares and the ratio between them.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-group">
+        <div class="control-panel-header" onclick="tog('group')"><div class="panel-title">Groups</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-group" onclick="event.stopPropagation();tog('group')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('group')">✕</button></div></div>
+        <div class="control-panel-body" id="body-group"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+// Years leaning up to the right, the way the book sets them under a crowded axis
+const leaned = (g, txt, x, y, size) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${(size || 13) * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+// A series name with a leader line back to its curve, as the book labels these
+const called = (g, txt, key, lx, ly, tx, ty, align) => {
+  const nd = g.getNudge(key), ax = lx + nd.dx, ay = ly + nd.dy;
+  g.drawArrow(ax + (align === 'right' ? 10 : -10) * g.S, ay - 5 * g.S, tx, ty, INK);
+  g.label(txt, lx, ly, { key, align, font:`${15 * g.S}px ${g.font}`, color:BLUE });
+};
+
+// Figure 15.7 of the book: the same four groups as a share of enrollment and
+// as a share of spending, drawn as two circles.
+const GROUPS = [
+  { name:'Children', enrol:39, spend:19, color:'#f6c445' },
+  { name:'Aged',     enrol:8,  spend:16, color:'#1a9e8f' },
+  { name:'Blind or have\na disability', enrol:15, spend:38, color:'#2f6fb5' },
+  { name:'Adults',   enrol:38, spend:28, color:'#5c2f63' },
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'medicaid_shares.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'group', label:'Group to read', min:1, max:4, value:3, step:1, fmt:v => GROUPS[v - 1].name.replace('\n', ' ') },
+  ],
+  toggles: [
+    { id:'show_labels',   label:'Slice labels with percentages' },
+    { id:'show_captions', label:'Panel captions' },
+    { id:'show_pick',     label:'Pull out the chosen group', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Chart', explanation:'Explanation', group:'Groups' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['group'],
+  nudgeKeys: ['cap.a','cap.b'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W, H } = g;
+    const pick = val('group') - 1;
+    g.setText('info', GROUPS.map((gr, i) =>
+      `<div class="info-row"><span class="info-label">${gr.name.replace('\n', ' ')}</span><span class="info-value${i === pick ? ' highlight' : ''}">${gr.enrol}% of enrollees, ${gr.spend}% of spending</span></div>`).join('')
+      + `<div class="info-row"><span class="info-label">Spending per enrollee, ${GROUPS[pick].name.replace('\n', ' ')}</span><span class="info-value highlight">${(GROUPS[pick].spend / GROUPS[pick].enrol).toFixed(1)} times the enrollment share</span></div>`);
+
+    g.clear();
+    // Small circles with wide margins: each carries four labels, two a side
+    const R = 120 * S;
+    [['enrol', '(a) Medicaid enrollment', W * 0.25], ['spend', '(b) Medicaid spending', W * 0.75]].forEach(([key, caption, cx], panel) => {
+      const cy = H * 0.44;
+      // The book starts each circle at twelve o'clock and runs clockwise
+      let a0 = -Math.PI / 2;
+      GROUPS.forEach((gr, i) => {
+        const frac = gr[key] / GROUPS.reduce((t, x) => t + x[key], 0), a1 = a0 + frac * Math.PI * 2;
+        const mid = (a0 + a1) / 2, out = vis('show_pick') && i === pick ? 18 * S : 0;
+        const ox = Math.cos(mid) * out, oy = Math.sin(mid) * out;
+        ctx.fillStyle = gr.color; ctx.beginPath(); ctx.moveTo(cx + ox, cy + oy);
+        ctx.arc(cx + ox, cy + oy, R, a0, a1); ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2 * S; ctx.stroke();
+        if (vis('show_labels')) {
+          // A short leader from the slice edge out to the name, on whichever side the slice faces
+          const right = Math.cos(mid) >= 0;
+          const ex = cx + Math.cos(mid) * (R + 6 * S) + ox, ey = cy + Math.sin(mid) * (R + 6 * S) + oy;
+          const lx = cx + (right ? 1 : -1) * (R + 70 * S), ly = ey;
+          ctx.strokeStyle = BLUE; ctx.lineWidth = 1.5 * S;
+          ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(lx, ly); ctx.stroke();
+          const lines = (gr.name + ' (' + gr[key] + '%)').split('\n');
+          ctx.font = `${14 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = right ? 'left' : 'right';
+          lines.forEach((t, k) => ctx.fillText(t, lx + (right ? 8 : -8) * S, ly + 5 * S + k * 20 * S));
+        }
+        a0 = a1;
+      });
+      if (vis('show_captions')) g.label(caption, cx - R, H - 24 * S, { key:'cap.' + (panel ? 'b' : 'a'), font:`${15 * S}px ${g.font}`, color:GREY });
+    });
+  },
+});
+</script>
+</body>
+</html>

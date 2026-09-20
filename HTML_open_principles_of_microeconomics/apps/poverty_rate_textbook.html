@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S. Poverty Rate</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>U.S. Poverty Rate</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The share of people below the poverty line fell from 15 percent in 2011 to 10.5 percent in 2019, then rose again in 2020</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Percentage Below the Poverty Line</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The poverty line is an income threshold set by the federal government, adjusted for family size and updated for inflation. This chart tracks the share of people living in households below it.</p>
+          <p>The rate held near 15 percent through the aftermath of the Great Recession, fell steadily from 2014 as the labor market recovered, reached 10.5 percent in 2019, and turned back up in 2020. The repeated years on the axis mark points where the Census Bureau changed how it collects or processes the data, so the two values for the same year are not directly comparable with each other. The slider reads any year; the series is read from the book's own figure.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-years">
+        <div class="control-panel-header" onclick="tog('years')"><div class="panel-title">Years</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-years" onclick="event.stopPropagation();tog('years')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('years')">✕</button></div></div>
+        <div class="control-panel-body" id="body-years"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+// Years leaning up to the right, the way the book sets them under a crowded axis
+const leaned = (g, txt, x, y, size) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${(size || 13) * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+// A series name with a leader line back to its curve, as the book labels these
+const called = (g, txt, key, lx, ly, tx, ty, align) => {
+  const nd = g.getNudge(key), ax = lx + nd.dx, ay = ly + nd.dy;
+  g.drawArrow(ax + (align === 'right' ? 10 : -10) * g.S, ay - 5 * g.S, tx, ty, INK);
+  g.label(txt, lx, ly, { key, align, font:`${15 * g.S}px ${g.font}`, color:BLUE });
+};
+
+// Figure 15.2 of the book. The repeated years are the book's own: the Census
+// Bureau changed its methods, so two readings are shown for those years and
+// the footnote markers are kept.
+const POINTS = [
+  ['2011', 15.0], ['2012', 15.0], ['2013³', 14.5], ['2013²', 14.8], ['2014', 14.8], ['2015', 13.5],
+  ['2016', 12.7], ['2017', 12.3], ['2017¹', 12.3], ['2018', 11.8], ['2019', 10.5], ['2020', 11.4],
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'poverty_rate.png',
+  axes: { xMin:0, xMax:11, yMin:0, yMax:16, margin:{top:60, right:90, bottom:230, left:230} },
+  sliders: [
+    { id:'point', label:'Reading to mark', min:1, max:12, value:12, step:1, fmt:v => POINTS[v - 1][0] },
+  ],
+  toggles: [
+    { id:'show_mark', label:'Mark the chosen reading', checked:false },
+    { id:'show_grid', label:'Gridlines', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Chart', explanation:'Explanation', years:'Years' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['years'],
+  nudgeKeys: ['x','y','an.mark'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, width, height } = g;
+    const pick = val('point') - 1;
+    const lo = POINTS.reduce((a, b) => b[1] < a[1] ? b : a);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">${POINTS[pick][0]}</span><span class="info-value highlight">${POINTS[pick][1].toFixed(1)}%</span></div>`
+      + `<div class="info-row"><span class="info-label">Lowest reading shown</span><span class="info-value">${lo[1].toFixed(1)}% in ${lo[0]}</span></div>`
+      + `<div class="info-row"><span class="info-label">Change across the period</span><span class="info-value">${(POINTS[POINTS.length - 1][1] - POINTS[0][1]).toFixed(1)} points</span></div>`);
+
+    g.clear();
+    if (vis('show_grid')) { ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1 * S;
+      for (let v = 2; v <= 16; v += 2) { ctx.beginPath(); ctx.moveTo(x0, tCY(v)); ctx.lineTo(x0 + width, tCY(v)); ctx.stroke(); } }
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+    ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+    for (let v = 0; v <= 16; v += 2) ctx.fillText(v.toFixed(1), x0 - 10 * S, tCY(v) + 5 * S);
+    g.axisLabels(null, 'Percentage of People Below the Poverty Line');
+    g.label('Year', x0 + width / 2, y0 + height + 105 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+    POINTS.forEach(([lab], i) => leaned(g, lab, tCX(i), y0 + height + 20 * S));
+
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+    POINTS.forEach(([, v], i) => { const px = tCX(i), py = tCY(v); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); });
+    ctx.stroke();
+    if (vis('show_mark')) {
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(pick), tCY(POINTS[pick][1]), 7 * S, 0, Math.PI * 2); ctx.fill();
+      g.label(`${POINTS[pick][1].toFixed(1)}%`, tCX(pick), tCY(POINTS[pick][1]) - 18 * S, { key:'an.mark', align:'center', font:`${15 * S}px ${g.font}`, color:BLUE });
+    }
+  },
+});
+</script>
+</body>
+</html>

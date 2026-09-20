@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Would Wages Rise for High-Skilled Labor?</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Why Would Wages Rise for High-Skilled Labor?</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Many more workers now hold college degrees, which by itself would push their wages down; wages rose anyway, so demand must have grown faster still</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Market for High-Skilled Labor</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The number of four-year degrees awarded each year in the United States has more than doubled since 1970, so the supply of high-skilled labor has shifted right, from S₀ to S₁. On its own that shift would have lowered the wage for high-skilled work.</p>
+          <p>Instead the gap between college and high school earnings widened: workers aged 25 to 34 with degrees earned about 1.85 times as much as high school graduates in 2020, up from 1.59 times in 1995. For the wage to rise while supply was growing, demand must have shifted right by more, from D₀ to D₁. Technology that raises what skilled workers can produce, and global markets that let the best of them sell to far more customers, are the usual explanations. The sliders move each curve separately, so you can see what each one does on its own.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shifts</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+// Years leaning up to the right, the way the book sets them under a crowded axis
+const leaned = (g, txt, x, y, size) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${(size || 13) * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+// A series name with a leader line back to its curve, as the book labels these
+const called = (g, txt, key, lx, ly, tx, ty, align) => {
+  const nd = g.getNudge(key), ax = lx + nd.dx, ay = ly + nd.dy;
+  g.drawArrow(ax + (align === 'right' ? 10 : -10) * g.S, ay - 5 * g.S, tx, ty, INK);
+  g.label(txt, lx, ly, { key, align, font:`${15 * g.S}px ${g.font}`, color:BLUE });
+};
+
+// Figure 15.9 of the book: curved supply and demand for high-skilled labor,
+// both shifting right, with the demand shift the larger of the two.
+const K = 0.16, Q0 = 5, W0 = 6;
+const dem = (dq, q) => W0 * Math.exp(-K * (q - Q0 - dq));
+const sup = (sq, q) => W0 * Math.exp(K * (q - Q0 - sq));
+const eq = (dq, sq) => { const q = Q0 + (dq + sq) / 2; return { q, p: dem(dq, q) }; };
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'high_skilled_wages.png',
+  axes: { xMin:0, xMax:11, yMin:0, yMax:13, margin:{top:50, right:180, bottom:160, left:170} },
+  sliders: [
+    { id:'ds', label:'Shift of supply (more graduates)', min:0, max:3, value:2, step:0.5, fmt:v => '+' + v.toFixed(1) },
+    { id:'dd', label:'Shift of demand (technology and global markets)', min:0, max:4, value:3, step:0.5, fmt:v => '+' + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_new',    label:'The shifted curves S₁ and D₁' },
+    { id:'show_dashed', label:'Dashed lines to the axes' },
+    { id:'show_labels', label:'Curve and equilibrium labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shifts:'Shifts' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts'],
+  nudgeKeys: ['x','y','s0','s1','d0','d1','pt.E0','pt.E1','an.w0','an.w1','an.q0','an.q1'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, yMax } = g;
+    const sq = val('ds'), dq = val('dd'), axisY = y0 + height;
+    const e0 = eq(0, 0), e1 = eq(dq, sq);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Before</span><span class="info-value">wage ${e0.p.toFixed(2)}, quantity ${e0.q.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">After both shifts</span><span class="info-value highlight">wage ${e1.p.toFixed(2)}, quantity ${e1.q.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Supply shift alone would give</span><span class="info-value">wage ${eq(0, sq).p.toFixed(2)}</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.axisLabels('Quantity of High-Skilled Labor', 'Wage');
+    const top = yMax * 0.93;
+    const drawD = d => { const a = Q0 + d - Math.log(top / W0) / K; g.plotFn(q => dem(d, q), Math.max(0.3, a), 10.6, { color:BLUE, lw:2 }); };
+    const drawS = s => { const b = Q0 + s + Math.log(top / W0) / K; g.plotFn(q => sup(s, q), 0.4, Math.min(10.6, b), { color:BLUE, lw:2 }); };
+    drawD(0); drawS(0);
+    if (vis('show_new')) { drawD(dq); drawS(sq); }
+
+    const mark = (e, key, name, wkey, qkey, wname, qname) => {
+      if (vis('show_dashed')) { g.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5); g.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5); }
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(e.q), tCY(e.p), 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_labels')) {
+        const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+        g.label(name, tCX(e.q) + 14 * S, tCY(e.p) - 10 * S, { key, ...f });
+        g.label(wname, x0 - 12 * S, tCY(e.p) + 6 * S, { key:wkey, align:'right', ...f });
+        g.label(qname, tCX(e.q), axisY + 34 * S, { key:qkey, align:'center', ...f });
+      }
+    };
+    mark(e0, 'pt.E0', 'E₀', 'an.w0', 'an.q0', 'W₀', 'Q₀');
+    if (vis('show_new')) mark(e1, 'pt.E1', 'E₁', 'an.w1', 'an.q1', 'W₁', 'Q₁');
+    if (vis('show_labels')) {
+      const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+      g.label('S₀', tCX(Q0 + Math.log(top / W0) / K) + 6 * S, tCY(top) - 14 * S, { key:'s0', align:'center', ...f });
+      g.label('D₀', tCX(10.6) + 10 * S, tCY(dem(0, 10.6)) + 6 * S, { key:'d0', ...f });
+      if (vis('show_new')) {
+        g.label('S₁', tCX(Q0 + sq + Math.log(top / W0) / K) + 6 * S, tCY(top) - 14 * S, { key:'s1', align:'center', ...f });
+        g.label('D₁', tCX(10.6) + 10 * S, tCY(dem(dq, 10.6)) + 6 * S, { key:'d1', ...f });
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>

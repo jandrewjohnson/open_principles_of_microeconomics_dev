@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Poverty Trap</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Poverty Trap</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A guarantee that falls dollar for dollar with earnings leaves a family no better off for working; withdrawing it more slowly restores the gain</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Income Against Hours of Leisure</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>A single parent earning $8 an hour with 2,500 hours available faces the lower budget line: all leisure and no income at the right, 2,500 hours of work and $20,000 at the left. The preferred choice is 2,000 hours of work, 500 hours of leisure and $16,000 of income.</p>
+          <p>Now guarantee the family $18,000 and take away a dollar of support for every dollar earned. The budget line goes flat: the family has $18,000 whether it works zero hours or two thousand. Only past about 2,300 hours of work does income rise above the guarantee at all. Withdrawing the support more slowly, 50 cents on the dollar, tilts the line back upward, so an extra hour of work is worth $4 rather than nothing. The family can then choose a point like R, working as much as before for more income, or S, working less for more income than it started with. The slider sets how fast the support is withdrawn.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-program">
+        <div class="control-panel-header" onclick="tog('program')"><div class="panel-title">The Program</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-program" onclick="event.stopPropagation();tog('program')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('program')">✕</button></div></div>
+        <div class="control-panel-body" id="body-program"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+// Years leaning up to the right, the way the book sets them under a crowded axis
+const leaned = (g, txt, x, y, size) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${(size || 13) * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+// A series name with a leader line back to its curve, as the book labels these
+const called = (g, txt, key, lx, ly, tx, ty, align) => {
+  const nd = g.getNudge(key), ax = lx + nd.dx, ay = ly + nd.dy;
+  g.drawArrow(ax + (align === 'right' ? 10 : -10) * g.S, ay - 5 * g.S, tx, ty, INK);
+  g.label(txt, lx, ly, { key, align, font:`${15 * g.S}px ${g.font}`, color:BLUE });
+};
+
+// Figures 15.3 and 15.4 of the book: 2,500 hours available at $8 an hour,
+// a guarantee of $18,000, and a phase-out rate the slider sets. At 100 cents
+// on the dollar the budget line is flat, which is figure 15.3; at 50 cents
+// it is the tilted line of figure 15.4.
+const HOURS = 2500, WAGE = 8, GUARANTEE = 18000;
+const earn = l => WAGE * (HOURS - l);
+const net = (rate, l) => earn(l) + Math.max(0, GUARANTEE - rate * earn(l));
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'poverty_trap.png',
+  axes: { xMin:0, xMax:2800, yMin:0, yMax:30000, margin:{top:50, right:100, bottom:290, left:230} },
+  sliders: [
+    { id:'phaseout', label:'Support withdrawn per $1 earned', min:0, max:100, value:100, step:25, fmt:v => v + '¢' },
+  ],
+  toggles: [
+    { id:'show_program', label:'The antipoverty program' },
+    { id:'show_choices', label:'The choices R and S on the new budget line', checked:false },
+    { id:'show_arrows',  label:'The leisure and labor arrows' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', program:'Program' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['program'],
+  nudgeKeys: ['x','y','pt.A','pt.R','pt.S'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, width } = g;
+    const rate = val('phaseout') / 100, axisY = y0 + height;
+    const flat = rate >= 0.999;
+    g.setText('info', [0, 500, 1000, 1500, 2000, 2500].map(worked => {
+      const l = HOURS - worked;
+      return `<div class="info-row"><span class="info-label">${worked.toLocaleString()} hours of work</span><span class="info-value">earns $${earn(l).toLocaleString()}, keeps $${Math.round(net(rate, l)).toLocaleString()}</span></div>`;
+    }).join(''));
+
+    g.clear();
+    g.axes();
+    g.xTicks([0, 500, 1000, 1500, 2000, 2500], v => v.toLocaleString());
+    g.yTicks([0, 5000, 10000, 15000, 16000, 18000, 20000, 25000, 30000], v => '$' + v.toLocaleString());
+    g.axisLabels(null, 'Income');
+
+    // The budget line without the program, from all work to all leisure
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+    ctx.moveTo(tCX(0), tCY(earn(0))); ctx.lineTo(tCX(HOURS), tCY(0)); ctx.stroke();
+
+    if (vis('show_program')) {
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 3 * S; ctx.beginPath();
+      for (let i = 0; i <= 200; i++) { const l = 2800 * i / 200, px = tCX(l), py = tCY(net(rate, Math.min(l, HOURS)));
+        i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+      ctx.stroke();
+      // The book runs a dashed line along the guarantee and down at the last hour
+      g.dashed(x0, tCY(GUARANTEE), tCX(HOURS), tCY(GUARANTEE), PINK, 1.5);
+      if (!flat) g.dashed(tCX(HOURS), tCY(GUARANTEE), tCX(HOURS), axisY, PINK, 1.5);
+    }
+
+    // The preferred choice on the original line, called A in the first figure and P in the second
+    const dot = (l, inc) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(l), tCY(inc), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+    g.dashed(x0, tCY(16000), tCX(500), tCY(16000), PINK, 1.5);
+    g.dashed(tCX(500), tCY(16000), tCX(500), axisY, PINK, 1.5);
+    dot(500, 16000);
+    const f = { font:`${16 * S}px ${g.font}`, color:BLUE };
+    g.label(flat ? 'A' : 'P', tCX(500) + 16 * S, tCY(16000) - 12 * S, { key:'pt.A', ...f });
+    if (vis('show_choices') && vis('show_program') && !flat) {
+      [[500, 'R'], [1000, 'S']].forEach(([l, n]) => { dot(l, net(rate, l)); g.label(n, tCX(l) + 16 * S, tCY(net(rate, l)) - 12 * S, { key:'pt.' + n, ...f }); });
+    }
+
+    if (vis('show_arrows')) {
+      // The book puts two arrows under the axis: leisure rising to the right, labor to the left
+      const a1 = axisY + 70 * S, a2 = axisY + 118 * S;
+      g.drawArrow(x0, a1, x0 + width * 0.52, a1, BLUE);
+      g.label('Leisure (hours)', x0 + width * 0.55, a1 + 6 * S, { font:`bold ${15 * S}px ${g.font}`, color:BLUE });
+      g.drawArrow(x0 + width, a2, x0 + width * 0.48, a2, BLUE);
+      g.label('Labor (hours)', x0 + width * 0.45, a2 + 6 * S, { align:'right', font:`bold ${15 * S}px ${g.font}`, color:BLUE });
+    }
+  },
+});
+</script>
+</body>
+</html>
