@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tradeoff between Economic Output and Environmental Protection</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Tradeoff between Economic Output and Environmental Protection</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Every point on the frontier trades output for protection; a point inside it, like M, wastes both</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Production Possibility Frontier</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1100"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The frontier shows the best combinations a country can reach. At P it has plenty of economic output and little environmental protection; at T the reverse. Moving along the curve from P toward T buys protection at the cost of output, and economists have little to say about where a society should sit: a low-income country may reasonably weigh output more heavily, a richer one protection.</p>
+          <p>What economists do agree on is that a point like M, inside the frontier, is a mistake. From M the country could have more output for the same protection, at Q, or more protection for the same output, at S, or some of both. Command-and-control rules sometimes land a country at M; market-oriented tools are a way of getting back to the frontier. The slider moves M in and out, and the side panel says how much output and protection are being given up.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-waste">
+        <div class="control-panel-header" onclick="tog('waste')"><div class="panel-title">Inefficiency</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-waste" onclick="event.stopPropagation();tog('waste')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('waste')">✕</button></div></div>
+        <div class="control-panel-body" id="body-waste"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 12.5 of the book: a production possibility frontier with P, Q, R,
+// S and T on it and the inefficient point M inside, joined by dashed lines
+// up to Q and across to S.
+const X = 9.5, Y = 9.4, N = 2.2;
+const ppf = x => Y * Math.pow(Math.max(0, 1 - Math.pow(x / X, N)), 1 / N);
+const inv = y => X * Math.pow(Math.max(0, 1 - Math.pow(y / Y, N)), 1 / N);
+const BLUE = '#2b6cb0', PINK = '#a855c7';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'output_environment_ppf.png',
+  axes: { xMin:0, xMax:10.4, yMin:0, yMax:10.4, margin:{top:50, right:120, bottom:140, left:150} },
+  sliders: [
+    { id:'qx',    label:'Where Q sits along the frontier', min:3, max:5.5, value:4.2, step:0.3, fmt:v => v.toFixed(1) },
+    { id:'waste', label:'How far M falls short of the frontier', min:1, max:3, value:2, step:0.5, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_m',      label:'The inefficient point M' },
+    { id:'show_dashed', label:'Dashed lines from M to Q and S' },
+    { id:'show_labels', label:'Point labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', waste:'Inefficiency' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['waste'],
+  nudgeKeys: ['x','y','pt.P','pt.Q','pt.R','pt.S','pt.T','pt.M'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height } = g;
+    const qx = val('qx'), m = { x: qx, y: ppf(qx) - val('waste') };
+    const sx = inv(m.y);
+    const PTS = [
+      { n:'P', x: qx * 0.47 },
+      { n:'Q', x: qx },
+      // R keeps its distance from Q, so the letters stay apart when M is close to the frontier
+      { n:'R', x: qx + Math.max(1, (sx - qx) * 0.42) },
+      { n:'S', x: sx },
+      { n:'T', x: sx + (X - sx) * 0.55 },
+    ].map(p => ({ ...p, y: ppf(p.x) }));
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">At M, moving up to Q</span><span class="info-value highlight">${(ppf(qx) - m.y).toFixed(1)} more output, same protection</span></div>`
+      + `<div class="info-row"><span class="info-label">At M, moving across to S</span><span class="info-value highlight">${(sx - qx).toFixed(1)} more protection, same output</span></div>`
+      + `<div class="info-row"><span class="info-label">Along the frontier from P to T</span><span class="info-value">output falls as protection rises</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.axisLabels('Environmental Protection', 'Economic Output');
+    g.plotFn(ppf, 0, X, { color:BLUE, lw:2.5 });
+
+    if (vis('show_m') && vis('show_dashed')) {
+      g.dashed(tCX(m.x), tCY(ppf(qx)), tCX(m.x), y0 + height, PINK, 1.5);
+      g.dashed(x0, tCY(m.y), tCX(sx), tCY(m.y), PINK, 1.5);
+    }
+    const f = { font:`${16 * S}px ${g.font}`, color:BLUE };
+    PTS.forEach(p => {
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(p.x), tCY(p.y), 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_labels')) g.label(p.n, tCX(p.x) + 14 * S, tCY(p.y) - 14 * S, { key:'pt.' + p.n, ...f });
+    });
+    if (vis('show_m')) {
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(m.x), tCY(m.y), 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_labels')) g.label('M', tCX(m.x) + 14 * S, tCY(m.y) - 12 * S, { key:'pt.M', ...f });
+    }
+  },
+});
+</script>
+</body>
+</html>
