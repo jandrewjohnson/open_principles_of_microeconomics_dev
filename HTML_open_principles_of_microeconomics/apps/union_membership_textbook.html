@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentage of Wage and Salary Workers Who Are Union Members</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Percentage of Wage and Salary Workers Who Are Union Members</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Union membership climbed steeply in the 1930s and 1940s, peaked near 28 percent in the mid-1950s, and has fallen ever since</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Union Membership by Year</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1900" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Barely 7 percent of wage and salary workers belonged to a union in the early 1930s. Membership then roughly quadrupled in under fifteen years, as new labor law and wartime industry brought millions into unions, and peaked at about 28 percent in the mid-1950s.</p>
+          <p>The decline since has been long and steady rather than sharp: about a quarter of workers in the early 1970s, a sixth by 1990, and 10.3 percent in 2021. Leaving out government workers, whose unions have held up better, only 6.1 percent of private-sector workers now belong to one. The slider drops the early years, which makes the pace of the decline easier to read. The series is read from the book's own figure, so treat it as close to but not exactly the published percentages.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-years">
+        <div class="control-panel-header" onclick="tog('years')"><div class="panel-title">Years Shown</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-years" onclick="event.stopPropagation();tog('years')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('years')">✕</button></div></div>
+        <div class="control-panel-body" id="body-years"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', BAR = '#2f6fb5', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7';
+// Years leaning up to the right, the way the book sets them under a
+// crowded axis
+const leaned = (g, txt, x, y) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${13 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+
+// Figure 14.11 of the book, read off its own line year by year. The sharp
+// rise of the late 1930s and 1940s is the reason this one is kept annual
+// rather than sampled every few years.
+const FIRST = 1930;
+const PCT = [7.5, 7.3, 7.0, 7.2, 7.5, 8.5, 9.5, 15.0, 19.0, 19.5,
+             19.5, 20.0, 19.5, 24.0, 26.5, 27.3, 26.5, 26.0, 25.5, 24.3,
+             25.5, 26.5, 26.0, 27.5, 28.3, 28.5, 28.0, 27.5, 27.3, 27.0,
+             26.5, 25.5, 25.3, 25.0, 25.0, 24.8, 24.8, 25.0, 25.0, 24.8,
+             24.8, 24.5, 24.3, 24.5, 24.0, 22.0, 21.5, 21.0, 20.0, 21.5,
+             20.5, 19.8, 19.5, 20.1, 18.8, 18.0, 17.5, 17.0, 16.8, 16.4,
+             16.1, 16.1, 15.8, 15.8, 15.5, 14.9, 14.5, 14.1, 13.9, 13.9,
+             13.5, 13.4, 13.3, 12.9, 12.5, 12.5, 12.0, 12.1, 12.4, 12.3,
+             11.9, 11.8, 11.3, 11.3, 11.1, 11.1, 10.7];
+const YEARS = PCT.map((v, i) => FIRST + i);
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'union_membership.png',
+  axes: { xMin:1930, xMax:2020, yMin:0, yMax:30, margin:{top:60, right:80, bottom:230, left:150} },
+  sliders: [
+    { id:'from', label:'First year shown', min:1930, max:1980, value:1930, step:10, fmt:v => v },
+  ],
+  toggles: [
+    { id:'show_peak', label:'Mark the peak', checked:false },
+    { id:'show_grid', label:'Gridlines', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Chart', explanation:'Explanation', years:'Years' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['years'],
+  nudgeKeys: ['x','y','an.peak'],
+
+  draw(g) {
+    const { S, ctx, val, vis, x0, y0, width, height } = g;
+    const first = val('from'), shown = YEARS.map((y, i) => [y, PCT[i]]).filter(([y]) => y >= first);
+    const lastY = YEARS[YEARS.length - 1];
+    const xOf = y => x0 + ((y - first) / (lastY + 4 - first)) * width;
+    const yOf = v => y0 + height - (v / 30) * height;
+    const peak = shown.reduce((a, b) => b[1] > a[1] ? b : a);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Highest share shown</span><span class="info-value highlight">${peak[1].toFixed(1)}% in ${peak[0]}</span></div>`
+      + `<div class="info-row"><span class="info-label">${lastY}</span><span class="info-value">${PCT[PCT.length - 1].toFixed(1)}%</span></div>`
+      + `<div class="info-row"><span class="info-label">Fall from the peak</span><span class="info-value">${(peak[1] - PCT[PCT.length - 1]).toFixed(1)} points</span></div>`);
+
+    g.clear();
+    if (vis('show_grid')) { ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1 * S;
+      for (let v = 5; v <= 30; v += 5) { ctx.beginPath(); ctx.moveTo(x0, yOf(v)); ctx.lineTo(x0 + width, yOf(v)); ctx.stroke(); } }
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+    ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+    for (let v = 0; v <= 30; v += 5) ctx.fillText(v, x0 - 10 * S, yOf(v) + 5 * S);
+    g.axisLabels(null, 'Percentage');
+    g.label('Year', x0 + width / 2, y0 + height + 100 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+    for (let y = Math.ceil(first / 10) * 10; y <= 2020; y += 10) leaned(g, y, xOf(y), y0 + height + 20 * S);
+
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+    shown.forEach(([y, v], i) => { const px = xOf(y), py = yOf(v); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); });
+    ctx.stroke();
+    if (vis('show_peak')) {
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(xOf(peak[0]), yOf(peak[1]), 7 * S, 0, Math.PI * 2); ctx.fill();
+      g.label(`${peak[1].toFixed(1)}% in ${peak[0]}`, xOf(peak[0]) + 14 * S, yOf(peak[1]) - 14 * S, { key:'an.peak', font:`${15 * S}px ${g.font}`, color:BLUE });
+    }
+  },
+});
+</script>
+</body>
+</html>

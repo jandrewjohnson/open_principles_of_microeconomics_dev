@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Union Wage Negotiations</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Union Wage Negotiations</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A union that wins a wage above the market level raises pay for those who keep their jobs, and leaves more people wanting union work than there are jobs</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. A Wage Above the Market Level</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1150"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>With no union the labor market settles at E, a wage W<sub>e</sub> and Q<sub>e</sub> jobs. A union that can credibly threaten a strike can negotiate a higher wage W<sub>u</sub> for its members.</p>
+          <p>At that higher wage firms want fewer workers, Q<sub>d</sub>, while more people want the jobs, Q<sub>s</sub>. The gap between them is an excess supply of labor: workers who would like union jobs at that wage but cannot get one. Union members who keep their jobs are better off, which is the union's point of view; the cost falls on the workers who are not hired. The slider sets how far above the market wage the union pushes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-union">
+        <div class="control-panel-header" onclick="tog('union')"><div class="panel-title">Union Wage</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-union" onclick="event.stopPropagation();tog('union')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('union')">✕</button></div></div>
+        <div class="control-panel-body" id="body-union"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+// A name with a small subscript, and sometimes a normal-size tail. Unicode
+// has no subscript c or d, so every subscript here is drawn by hand: two
+// fillText calls at different sizes sharing one nudge key.
+const subLabel = (g, main, sub, tail, key, x, y, align) => {
+  const { S, ctx } = g, nd = g.getNudge(key), BIG = `${15 * S}px ${g.font}`, SMALL = `${11 * S}px ${g.font}`;
+  ctx.font = BIG;   const w = ctx.measureText(main).width, wt = tail ? ctx.measureText(tail).width : 0;
+  ctx.font = SMALL; const ws = sub ? ctx.measureText(sub).width : 0;
+  const total = w + ws + wt;
+  const lx = (align === 'right' ? x - total : align === 'center' ? x - total / 2 : x) + nd.dx, ly = y + nd.dy;
+  ctx.textAlign = 'left'; ctx.fillStyle = BLUE;
+  ctx.font = BIG;   ctx.fillText(main, lx, ly);
+  if (sub) { ctx.font = SMALL; ctx.fillText(sub, lx + w + 1 * S, ly + 5 * S); }
+  if (tail) { ctx.font = BIG; ctx.fillText(tail, lx + w + ws + 2 * S, ly); }
+  g.regLabel(key, lx - 4 * S, ly - 14 * S, total + 8 * S, 22 * S);
+};
+
+// Figure 14.12 of the book: curved supply and demand for labor crossing in
+// the middle, with the union wage a set distance above the equilibrium.
+const K = 0.2, QE = 5, WE = 7;
+const dem = q => WE * Math.exp(-K * (q - QE)), sup = q => WE * Math.exp(K * (q - QE));
+const qOfD = w => QE - Math.log(w / WE) / K, qOfS = w => QE + Math.log(w / WE) / K;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'union_wage_floor.png',
+  axes: { xMin:0, xMax:10.5, yMin:0, yMax:13, margin:{top:50, right:150, bottom:150, left:190} },
+  sliders: [
+    { id:'premium', label:'Union wage above the market level', min:1, max:4, value:2.5, step:0.5, fmt:v => '+' + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_union',  label:'The union wage and the quantities it brings' },
+    { id:'show_brace',  label:'The excess supply brace' },
+    { id:'show_labels', label:'Curve and point labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', union:'Union' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['union'],
+  nudgeKeys: ['x','y','s','d','an.e','an.wu','an.we','an.qd','an.qe','an.qs','an.excess'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, yMax } = g;
+    const wu = WE + val('premium'), qd = qOfD(wu), qs = qOfS(wu), axisY = y0 + height;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Without a union</span><span class="info-value">${QE.toFixed(1)} jobs at a wage of ${WE.toFixed(1)}</span></div>`
+      + `<div class="info-row"><span class="info-label">At the union wage of ${wu.toFixed(1)}</span><span class="info-value highlight">${qd.toFixed(2)} jobs</span></div>`
+      + `<div class="info-row"><span class="info-label">Workers wanting union jobs</span><span class="info-value">${qs.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Excess supply of labor</span><span class="info-value highlight">${(qs - qd).toFixed(2)}</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.axisLabels('Quantity of Labor', 'Wage');
+    const top = yMax * 0.93;
+    g.plotFn(dem, Math.max(0.3, qOfD(top)), 10.2, { color:BLUE, lw:2 });
+    g.plotFn(sup, 0.6, Math.min(10.2, qOfS(top)), { color:BLUE, lw:2 });
+
+    const dot = (q, w) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(w), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+    g.dashed(x0, tCY(WE), tCX(QE), tCY(WE), PINK, 1.5);
+    g.dashed(tCX(QE), tCY(WE), tCX(QE), axisY, PINK, 1.5);
+    dot(QE, WE);
+    if (vis('show_union')) {
+      g.dashed(x0, tCY(wu), tCX(qs), tCY(wu), PINK, 1.5);
+      [qd, qs].forEach(q => g.dashed(tCX(q), tCY(wu), tCX(q), axisY, PINK, 1.5));
+    }
+    if (vis('show_union') && vis('show_brace')) {
+      // Above the union wage line, spanning the gap between the two quantities
+      const by = tCY(wu) - 16 * S;
+      g.brace(tCX(qd), by, tCX(qs), by, { flip:true, depth:14 * S, lw:2.5 });
+      g.label('Excess supply\nof labor', tCX((qd + qs) / 2), by - 40 * S, { key:'an.excess', align:'center', font:`${15 * S}px ${g.font}`, color:BLUE, lineH:24 * S });
+    }
+    if (vis('show_labels')) {
+      subLabel(g, 'S', null, null, 's', tCX(Math.min(10.2, qOfS(top))) + 10 * S, tCY(Math.min(top, sup(10.2))) - 10 * S, 'left');
+      subLabel(g, 'D', null, null, 'd', tCX(10.2) + 10 * S, tCY(dem(10.2)) + 6 * S, 'left');
+      subLabel(g, 'E', null, null, 'an.e', tCX(QE) + 14 * S, tCY(WE) - 6 * S, 'left');
+      subLabel(g, 'W', 'e', null, 'an.we', x0 - 12 * S, tCY(WE) + 6 * S, 'right');
+      subLabel(g, 'Q', 'e', null, 'an.qe', tCX(QE), axisY + 34 * S, 'center');
+      if (vis('show_union')) {
+        subLabel(g, 'W', 'u', null, 'an.wu', x0 - 12 * S, tCY(wu) + 6 * S, 'right');
+        subLabel(g, 'Q', 'd', null, 'an.qd', tCX(qd), axisY + 34 * S, 'center');
+        subLabel(g, 'Q', 's', null, 'an.qs', tCX(qs), axisY + 34 * S, 'center');
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>

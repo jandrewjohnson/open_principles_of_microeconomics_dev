@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilateral Monopoly</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Bilateral Monopoly</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">When a union bargains with a sole employer, both sides want fewer jobs than a competitive market would have, and the wage lands somewhere in between</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. A Union Meets a Sole Employer</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>This is the monopsony diagram with the union added. The employer would like to hold employment at L*, where the marginal cost of labor equals what a worker is worth, and pay only W<sub>m</sub>, the wage the supply curve says will attract that many workers. The union would like the wage at W<sub>u</sub>, the height of the demand curve at the same L*, which is the most the employer could pay for that many workers.</p>
+          <p>So both sides push employment to the same place, below what a competitive market would hire, and the two of them are left bargaining over a wage anywhere between W<sub>m</sub> and W<sub>u</sub>. Economics does not say where in that range they land: that depends on the relative bargaining power of the two sides. The slider moves the demand for labor, which widens or narrows the range.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-demand">
+        <div class="control-panel-header" onclick="tog('demand')"><div class="panel-title">Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-demand" onclick="event.stopPropagation();tog('demand')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('demand')">✕</button></div></div>
+        <div class="control-panel-body" id="body-demand"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+// A name with a small subscript, and sometimes a normal-size tail. Unicode
+// has no subscript c or d, so every subscript here is drawn by hand: two
+// fillText calls at different sizes sharing one nudge key.
+const subLabel = (g, main, sub, tail, key, x, y, align) => {
+  const { S, ctx } = g, nd = g.getNudge(key), BIG = `${15 * S}px ${g.font}`, SMALL = `${11 * S}px ${g.font}`;
+  ctx.font = BIG;   const w = ctx.measureText(main).width, wt = tail ? ctx.measureText(tail).width : 0;
+  ctx.font = SMALL; const ws = sub ? ctx.measureText(sub).width : 0;
+  const total = w + ws + wt;
+  const lx = (align === 'right' ? x - total : align === 'center' ? x - total / 2 : x) + nd.dx, ly = y + nd.dy;
+  ctx.textAlign = 'left'; ctx.fillStyle = BLUE;
+  ctx.font = BIG;   ctx.fillText(main, lx, ly);
+  if (sub) { ctx.font = SMALL; ctx.fillText(sub, lx + w + 1 * S, ly + 5 * S); }
+  if (tail) { ctx.font = BIG; ctx.fillText(tail, lx + w + ws + 2 * S, ly); }
+  g.regLabel(key, lx - 4 * S, ly - 14 * S, total + 8 * S, 22 * S);
+};
+
+const sL = L => L, mcL = L => 2 * L - 1;
+const dL = (a, L) => a - 1.4 * L;
+// Monopsony hires where marginal cost meets demand; a competitive market
+// hires where supply meets demand
+const lMono = a => (a + 1) / 3.4, lComp = a => a / 2.4;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'bilateral_monopoly.png',
+  axes: { xMin:0, xMax:9, yMin:0, yMax:12.5, margin:{top:50, right:200, bottom:150, left:190} },
+  sliders: [
+    { id:'demand', label:'Strength of labor demand', min:10, max:14, value:12, step:1, fmt:v => v },
+  ],
+  toggles: [
+    { id:'show_range',  label:'The wage range the two sides bargain over' },
+    { id:'show_brace',  label:'Brace across the range', checked:false },
+    { id:'show_labels', label:'Curve and point labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', demand:'Demand' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['demand'],
+  nudgeKeys: ['x','y','mc','sx','s','d','an.wu','an.wm','an.l','an.range'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, yMax } = g;
+    const a = val('demand'), axisY = y0 + height;
+    const ls = lMono(a), wm = sL(ls), wu = dL(a, ls), lc = lComp(a);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Employment both sides settle on</span><span class="info-value highlight">${ls.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">A competitive market would hire</span><span class="info-value">${lc.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">The employer would pay</span><span class="info-value">${wm.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">The union would ask</span><span class="info-value">${wu.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Wage range left to bargaining</span><span class="info-value highlight">${(wu - wm).toFixed(2)} wide</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.axisLabels('Labor (L)', 'Wage (W)');
+    const top = yMax * 0.95;
+    g.plotFn(sL, 0.4, Math.min(8.8, top), { color:BLUE, lw:2 });
+    g.plotFn(mcL, 0.4, Math.min(8.8, (top + 1) / 2), { color:BLUE, lw:2 });
+    g.plotFn(L => dL(a, L), Math.max(0.2, (a - top) / 1.4), Math.min(8.8, a / 1.4), { color:BLUE, lw:2 });
+
+    if (vis('show_range')) {
+      g.dashed(tCX(ls), tCY(wu), tCX(ls), axisY, PINK, 1.5);
+      [wu, wm].forEach(w => g.dashed(x0, tCY(w), tCX(ls), tCY(w), PINK, 1.5));
+      ctx.fillStyle = BLUE; [wu, wm].forEach(w => { ctx.beginPath(); ctx.arc(tCX(ls), tCY(w), 7 * S, 0, Math.PI * 2); ctx.fill(); });
+    }
+    if (vis('show_range') && vis('show_brace')) {
+      const bx = tCX(ls) + 12 * S;
+      g.brace(bx, tCY(wu), bx, tCY(wm), { depth:14 * S, lw:2.5 });
+      g.label('Wage settled\nby bargaining', tCX(ls) + 44 * S, tCY((wu + wm) / 2) - 14 * S, { key:'an.range', font:`${15 * S}px ${g.font}`, color:BLUE, lineH:24 * S });
+    }
+    if (vis('show_labels')) {
+      subLabel(g, 'MC', 'L', null, 'mc', tCX(Math.min(8.8, (top + 1) / 2)), tCY(top) - 16 * S, 'center');
+      subLabel(g, 'Market', null, null, 'sx', tCX(8.8) + 10 * S, tCY(sL(8.8)) - 16 * S, 'left');
+      subLabel(g, 'S', 'L', null, 's', tCX(8.8) + 10 * S, tCY(sL(8.8)) + 10 * S, 'left');
+      const de = Math.min(8.8, a / 1.4);
+      subLabel(g, 'D', 'L', null, 'd', tCX(de) + 10 * S, tCY(dL(a, de)) + 6 * S, 'left');
+      if (vis('show_range')) {
+        subLabel(g, 'W', 'u', null, 'an.wu', x0 - 12 * S, tCY(wu) + 6 * S, 'right');
+        subLabel(g, 'W', 'm', null, 'an.wm', x0 - 12 * S, tCY(wm) + 6 * S, 'right');
+        subLabel(g, 'L*', null, null, 'an.l', tCX(ls), axisY + 34 * S, 'center');
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>
