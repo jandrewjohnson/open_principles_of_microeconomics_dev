@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marginal Revenue and Marginal Cost for the HealthPill Monopoly</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Marginal Revenue and Marginal Cost for the HealthPill Monopoly</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Marginal revenue falls as the monopoly sells more, and turns negative past 7 units; the best output is where it meets marginal cost</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Marginals at HealthPill</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Each extra unit a monopoly sells brings in the new price but forces every other unit down to that price too, so marginal revenue is below the price and falls steadily. Here it reaches zero at 7 units and is negative beyond that: an eighth unit actually reduces total revenue. Marginal cost falls at first and then rises steeply.</p>
+          <p>While marginal revenue is above marginal cost, at 4 units it is $600 against $250, another unit adds to profit. Where marginal cost is above marginal revenue, at 6 units it is $850 against $200, cutting back adds to profit. The best output is the last unit whose marginal revenue still covers its marginal cost, which is 5. The slider raises or lowers the demand schedule and the crossing moves with it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-demand">
+        <div class="control-panel-header" onclick="tog('demand')"><div class="panel-title">Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-demand" onclick="event.stopPropagation();tog('demand')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('demand')">✕</button></div></div>
+        <div class="control-panel-body" id="body-demand"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+// Tables 9.2 to 9.5 of the book: the HealthPill monopoly. Price falls by
+// $100 for each extra unit, so total revenue is a hill, while total cost
+// climbs steeply at the end. Table 9.2 prints total cost at Q = 2 as $750,
+// but the marginal cost ($275) and average cost ($388) columns of tables
+// 9.3 and 9.5 both imply $775, which is what the app uses.
+const Q = [1, 2, 3, 4, 5, 6, 7, 8];
+const TC = [500, 775, 1000, 1250, 1650, 2500, 4000, 6400];
+const MCV = TC.map((c, i) => c - (i ? TC[i - 1] : 0));
+const ACV = TC.map((c, i) => c / Q[i]);
+const MC = hermite(Q, MCV), AC = hermite(Q, ACV), TCf = hermite(Q, TC);
+const STEP = 100;                                    // price falls $100 an extra unit
+const price = (a, q) => a - STEP * q;                // a = 1300 in the book
+const trOf = (a, q) => price(a, q) * q;
+const mrOf = (a, q) => a + STEP - 2 * STEP * q;      // TR(q) - TR(q-1)
+// The largest whole unit whose marginal revenue still covers its marginal cost
+const qStar = a => { let best = 1; Q.forEach((q, i) => { if (mrOf(a, q) >= MCV[i]) best = q; }); return best; };
+const money = v => '$' + Math.round(v).toLocaleString();
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+
+// The book draws these figures with the horizontal rule at zero and the frame
+// along the bottom, so a curve can dip below the axis and still be read off it.
+const zeroAxes = (g, ticks) => {
+  const { S, ctx, tCX, tCY, x0, y0, width, height } = g;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x0, tCY(0)); ctx.lineTo(x0 + width, tCY(0)); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'center';
+  ticks.forEach(v => ctx.fillText(v, tCX(v), tCY(0) + 22 * S));
+};
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'healthpill_marginal.png',
+  axes: { xMin:0, xMax:9, yMin:-500, yMax:3000, margin:{top:50, right:180, bottom:120, left:190} },
+  sliders: [
+    { id:'a', label:'Price of the first unit', min:1100, max:1500, value:1300, step:50, fmt:money },
+  ],
+  toggles: [
+    { id:'show_points', label:'Dots at the table values' },
+    { id:'show_annot',  label:'Maximum possible profit' },
+    { id:'show_labels', label:'Curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', demand:'Demand' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['demand'],
+  nudgeKeys: ['x','y','mc','mr','an.max'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis } = g;
+    const a = val('a'), mr = q => mrOf(a, q), qs = qStar(a);
+    g.setText('info', Q.map((q, i) => `<div class="info-row"><span class="info-label">${q} units</span><span class="info-value${q === qs ? ' highlight' : ''}">MR ${money(mr(q))} · MC ${money(MCV[i])}</span></div>`).join(''));
+
+    g.clear();
+    zeroAxes(g, [1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    g.yTicks([-500, 0, 500, 1000, 1500, 2000, 2500, 3000], v => v.toLocaleString());
+    g.axisLabels('Quantity', 'Marginal Cost/Marginal Revenue ($)');
+    g.plotFn(MC.f, 1, 8, { color:BLUE, lw:2 });
+    g.plotFn(mr, 1, 8, { color:BLUE, lw:2 });
+    if (vis('show_points')) Q.forEach((q, i) => [MCV[i], mr(q)].forEach(v => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(v), 7 * S, 0, Math.PI * 2); ctx.fill(); }));
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    if (vis('show_labels')) {
+      g.label('Marginal cost', tCX(8) - 20 * S, tCY(MCV[7]) - 30 * S, { key:'mc', align:'center', ...f });
+      g.label('Marginal revenue', tCX(1.6), tCY(mr(1.6)) - 24 * S, { key:'mr', ...f });
+    }
+    if (vis('show_annot')) {
+      const nd = g.getNudge('an.max'), lx = tCX(qs) - 26 * S + nd.dx, ly = tCY(MCV[qs - 1]) - 130 * S + nd.dy;
+      g.drawArrow(lx, ly + 16 * S, tCX(qs) - 6 * S, tCY(MCV[qs - 1]) - 16 * S, INK);
+      g.label('Maximum\npossible\nprofit', tCX(qs) - 26 * S, tCY(MCV[qs - 1]) - 190 * S, { key:'an.max', align:'center', lineH:26 * S, ...f });
+    }
+  },
+});
+</script>
+</body>
+</html>

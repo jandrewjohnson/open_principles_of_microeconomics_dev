@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Perceived Demand Curve for a Perfect Competitor and a Monopolist</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Perceived Demand Curve for a Perfect Competitor and a Monopolist</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A price taker can sell a low or a high quantity at the same price; a monopolist must cut the price to sell more</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Two Perceived Demand Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="800"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>In (a) the perfectly competitive firm sees a flat demand curve. It is so small a part of its market that it can sell a low quantity Ql or a high quantity Qh at exactly the same market price P. Its own choice of output does not move the price.</p>
+          <p>In (b) the monopolist is the whole market, so the demand curve it perceives is the market demand curve, which slopes down. Choosing the low quantity Ql puts it at S, where it can charge the high price Ph; choosing the high quantity Qh puts it at R, where it can charge only the low price Pl. Its problem is to pick the pair of price and quantity that earns the most profit. The sliders move Ql and Qh in both panels at once.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-quantities">
+        <div class="control-panel-header" onclick="tog('quantities')"><div class="panel-title">Quantities</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-quantities" onclick="event.stopPropagation();tog('quantities')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('quantities')">✕</button></div></div>
+        <div class="control-panel-body" id="body-quantities"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 9.3 of the book: unnumbered axes. In (a) a flat perceived demand
+// curve with dots at Ql and Qh; in (b) a downward-sloping one with S above
+// Ql and R above Qh, each with dashed lines to the axes.
+const S0 = 2;
+const GAP = 140 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50, right:180, bottom:180, left:150 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:7, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:10, yMin:0, yMax:7, margin:MG, left:PW + GAP, width:PW },
+];
+const P_FLAT = 4, dem = q => 18 / (q + 2);
+const BLUE = '#2b6cb0', PINK = '#a855c7', GREY = '#718096';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'perceived_demand.png',
+  axes: AXES,
+  sliders: [
+    { id:'q_l', label:'Low quantity (Ql)',  min:1, max:4, value:2.5, step:0.5, fmt:v => v.toFixed(1) },
+    { id:'q_h', label:'High quantity (Qh)', min:5, max:9, value:6.5, step:0.5, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_dashed',   label:'Dashed lines to the axes' },
+    { id:'show_labels',   label:'Price, quantity and point labels' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', quantities:'Quantities' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['quantities'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','d.a','d.b','pt.S','pt.R'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const ql = val('q_l'), qh = val('q_h');
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">(a) price at Ql and at Qh</span><span class="info-value">the same P</span></div>`
+      + `<div class="info-row"><span class="info-label">(b) price at Ql (S)</span><span class="info-value highlight">Ph, the higher price</span></div>`
+      + `<div class="info-row"><span class="info-label">(b) price at Qh (R)</span><span class="info-value">Pl, the lower price</span></div>`);
+
+    g.clear();
+    const f = { font:`${16 * S}px ${g.font}`, color:BLUE };
+    [0, 1].forEach(i => {
+      const pan = g.panel(i), { x0, y0, width, height, tCX, tCY, bottom } = pan;
+      const axisY = y0 + height, flat = i === 0;
+      pan.axes(BLUE);
+      pan.axisLabels(null, 'Price ($)', flat ? 'a' : 'b');
+      pan.label('Quantity', x0 + width / 2, axisY + 62 * S, { key:'x.' + (flat ? 'a' : 'b'), font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+
+      const pOf = q => flat ? P_FLAT : dem(q);
+      if (flat) { ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath(); ctx.moveTo(x0, tCY(P_FLAT)); ctx.lineTo(tCX(9.4), tCY(P_FLAT)); ctx.stroke(); }
+      else pan.plotFn(dem, 0.6, 9.4, { color:BLUE, lw:2 });
+
+      [[ql, 'Ql', 'S'], [qh, 'Qh', 'R']].forEach(([q, ql_lbl, letter]) => {
+        const p = pOf(q);
+        if (vis('show_dashed')) {
+          pan.dashed(tCX(q), tCY(p), tCX(q), axisY, PINK, 1.5);
+          if (!flat) pan.dashed(x0, tCY(p), tCX(q), tCY(p), PINK, 1.5);
+        }
+        ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill();
+        if (vis('show_labels')) {
+          pan.label(ql_lbl, tCX(q), axisY + 30 * S, { align:'center', ...f });
+          if (!flat) {
+            pan.label(letter === 'S' ? 'Ph' : 'Pl', x0 - 12 * S, tCY(p) + 6 * S, { align:'right', ...f });
+            pan.label(letter, tCX(q) + 12 * S, tCY(p) - 12 * S, { key:'pt.' + letter, ...f });
+          }
+        }
+      });
+      if (vis('show_labels')) {
+        if (flat) pan.label('P', x0 - 12 * S, tCY(P_FLAT) + 6 * S, { align:'right', ...f });
+        pan.label('Perceived\ndemand', tCX(9.4) + 14 * S, tCY(pOf(9.4)) - 6 * S, { key:'d.' + (flat ? 'a' : 'b'), lineH:22 * S, ...f });
+      }
+      if (vis('show_captions')) pan.label(flat ? '(a) Perceived demand for a perfect competitor' : '(b) Perceived demand for a monopolist', pan.left + 30 * S, bottom - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+    });
+  },
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How a Profit-Maximizing Monopoly Decides Price</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>How a Profit-Maximizing Monopoly Decides Price</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Three steps: find the quantity where MR = MC, read the price off demand, then read profit off average cost</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Monopolist's Three Steps</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Step 1 is the quantity Q₁ where marginal revenue meets marginal cost. Producing less would mean giving up units whose revenue exceeds their cost; producing more would mean adding units that cost more than they bring in.</p>
+          <p>Step 2 is the price. Drawing a line straight up from Q₁ to the perceived demand curve reaches point R, and the height of R is the price P₁ the market will pay for that quantity. Step 3 is profit. Total revenue is Q₁ times P₁; total cost is Q₁ times the average cost of producing Q₁, which is the height of point S on the average cost curve, P₂. The shaded rectangle between them is profit. The axes carry no numbers, as in the book; the slider shifts demand and all three steps follow.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-demand">
+        <div class="control-panel-header" onclick="tog('demand')"><div class="panel-title">Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-demand" onclick="event.stopPropagation();tog('demand')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('demand')">✕</button></div></div>
+        <div class="control-panel-body" id="body-demand"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 9.7 of the book: a schematic with unnumbered axes. Demand is a
+// straight line and marginal revenue falls twice as fast; marginal cost is
+// a parabola and average cost is its integral plus a fixed cost, so the
+// MR = MC point sits below S on the average cost curve, as the book draws it.
+const SLOPE = 1, MC0 = 1.2, KMC = 0.45, QMC = 1.5, FIXED = 10;
+const mc = q => MC0 + KMC * (q - QMC) ** 2;
+const vc = q => MC0 * q + KMC * ((q - QMC) ** 3 + QMC ** 3) / 3;
+const ac = q => (FIXED + vc(q)) / q;
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'monopoly_three_steps.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:190, right:430, bottom:130, left:350} },
+  sliders: [
+    { id:'a', label:'Height of the demand curve', min:9, max:11, value:10, step:0.5, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_shade',  label:'Profit rectangle' },
+    { id:'show_dashed', label:'Dashed lines at Q₁, P₁ and P₂' },
+    { id:'show_steps',  label:'Step annotations' },
+    { id:'show_labels', label:'Curve and point labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', demand:'Demand' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['demand'],
+  nudgeKeys: ['x','y','d','mr','mc','ac','pt.R','pt.S','an.s1','an.s2','an.s3'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, yMax } = g;
+    const a = val('a'), dem = q => a - SLOPE * q, mr = q => a - 2 * SLOPE * q;
+    // Where marginal revenue meets marginal cost
+    let lo = 0.5, hi = 9;
+    for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (mr(m) - mc(m) > 0 ? lo = m : hi = m); }
+    const q1 = (lo + hi) / 2, p1 = dem(q1), p2 = ac(q1), axisY = y0 + height;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Step 1: quantity where MR = MC</span><span class="info-value highlight">Q₁</span></div>`
+      + `<div class="info-row"><span class="info-label">Step 2: price from the demand curve</span><span class="info-value">P₁ at R</span></div>`
+      + `<div class="info-row"><span class="info-label">Step 3: average cost of Q₁</span><span class="info-value">P₂ at S</span></div>`
+      + `<div class="info-row"><span class="info-label">Profit per unit</span><span class="info-value highlight">${(p1 - p2).toFixed(2)}</span></div>`);
+
+    g.clear();
+    if (vis('show_shade')) { ctx.fillStyle = 'rgba(66,153,176,0.22)'; ctx.fillRect(x0, tCY(p1), tCX(q1) - x0, tCY(p2) - tCY(p1)); }
+    g.axes(BLUE);
+    g.axisLabels(null, 'Price ($)');
+    g.label('Quantity', x0 + g.width / 2, axisY + 64 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+
+    // Each curve drawn only where it stays on the chart
+    const top = yMax * 0.97;
+    let bMc = QMC; while (bMc < 9.6 && mc(bMc + 0.02) < top) bMc += 0.02;
+    let aAc = 0.5; while (aAc < 9 && ac(aAc) > top) aAc += 0.05;
+    let bAc = 9.4; while (bAc > aAc && ac(bAc) > top) bAc -= 0.05;
+    const qDem = Math.max(0, (a - top) / SLOPE), qMr = Math.max(0, (a - top) / (2 * SLOPE));
+    g.plotFn(dem, qDem, Math.min(9.7, a / SLOPE), { color:BLUE, lw:2 });
+    g.plotFn(mr, qMr, Math.min(9.7, a / (2 * SLOPE)), { color:BLUE, lw:2 });
+    g.plotFn(mc, 0.5, bMc, { color:BLUE, lw:2 });
+    g.plotFn(ac, aAc, bAc, { color:BLUE, lw:2 });
+
+    if (vis('show_dashed')) {
+      g.dashed(tCX(q1), tCY(p1), tCX(q1), axisY, PINK, 1.5);
+      [p1, p2].forEach(p => g.dashed(x0, tCY(p), tCX(q1), tCY(p), PINK, 1.5));
+    }
+    const dot = (q, p) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+    dot(q1, p1); dot(q1, p2); dot(q1, mc(q1));
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    if (vis('show_labels')) {
+      g.label('P₁', x0 - 12 * S, tCY(p1) + 6 * S, { align:'right', ...f });
+      g.label('P₂', x0 - 12 * S, tCY(p2) + 6 * S, { align:'right', ...f });
+      g.label('Q₁', tCX(q1), axisY + 30 * S, { align:'center', ...f });
+      g.label('R', tCX(q1) - 12 * S, tCY(p1) - 32 * S, { key:'pt.R', align:'right', ...f });
+      g.label('S', tCX(q1) + 12 * S, tCY(p2) - 10 * S, { key:'pt.S', ...f });
+      g.label('Marginal\ncost', tCX(bMc) + 10 * S, tCY(mc(bMc)) + 4 * S, { key:'mc', lineH:22 * S, ...f });
+      g.label('Average\ncost', tCX(bAc) + 10 * S, tCY(ac(bAc)) + 4 * S, { key:'ac', lineH:22 * S, ...f });
+      g.label('Demand', tCX(Math.min(9.7, a / SLOPE)) + 10 * S, tCY(dem(Math.min(9.7, a / SLOPE))) + 6 * S, { key:'d', ...f });
+      g.label('Marginal revenue', tCX(Math.min(9.7, a / (2 * SLOPE))) + 10 * S, tCY(0) + 34 * S, { key:'mr', ...f });
+    }
+    if (vis('show_steps')) {
+      // Step 2 above the figure, step 1 to the right of the MR = MC dot, step 3 out to the left of the box
+      const n2 = g.getNudge('an.s2'), x2 = tCX(q1) - 60 * S + n2.dx, y2 = 40 * S + n2.dy;
+      g.drawArrow(x2 + 10 * S, y2 + 20 * S, tCX(q1) + 10 * S, tCY(p1) - 12 * S, INK);
+      g.label('Step 2: Look at demand curve to see\nwhat price to charge for Q₁', tCX(q1) - 60 * S, 40 * S, { key:'an.s2', align:'right', lineH:26 * S, ...f });
+
+      const sx = tCX(q1 + 1.6), sy = tCY(mc(q1) - 0.6);
+      const n1 = g.getNudge('an.s1'), x1 = sx + n1.dx, y1 = sy + n1.dy;
+      g.drawArrow(x1 - 10 * S, y1 - 6 * S, tCX(q1) + 14 * S, tCY(mc(q1)) - 4 * S, INK);
+      g.label('Step1: Identify the\nquantity (Q₁)\nwhere MR = MC', sx, sy, { key:'an.s1', lineH:24 * S, font:`${13 * S}px ${g.font}`, color:BLUE });
+
+      const n3 = g.getNudge('an.s3'), x3 = x0 - 20 * S + n3.dx, y3 = tCY(p2) + 60 * S + n3.dy;
+      g.drawArrow(x3 + 6 * S, y3 - 5 * S, x0 + (tCX(q1) - x0) * 0.35, tCY((p1 + p2) / 2) + 10 * S, INK);
+      g.label('Step 3: Identify\nprofit', x0 - 20 * S, tCY(p2) + 60 * S, { key:'an.s3', align:'right', lineH:26 * S, ...f });
+    }
+  },
+});
+</script>
+</body>
+</html>

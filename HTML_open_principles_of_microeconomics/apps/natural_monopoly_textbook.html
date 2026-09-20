@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economies of Scale and Natural Monopoly</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Economies of Scale and Natural Monopoly</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Demand meets the long-run average cost curve while it is still falling, so the market has room for only one producer</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Airplane Market</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The long-run average cost curve for airplane manufacturing falls up to 8,000 planes a year, where average cost reaches p₀, is flat from 8,000 to 20,000 planes, and rises beyond 20,000. Market demand crosses that curve at only 5,000 planes a year, at a price p₁ above p₀. There the market has room for one producer.</p>
+          <p>A second firm entering at a smaller scale, say 4,000 planes, would have higher average costs than the firm already there and could not compete. Entering at 8,000 planes would give it lower average costs, but it could not sell 8,000 planes: there is not enough demand. That is a natural monopoly, and it arises whenever the quantity demanded falls short of the output at the bottom of the long-run average cost curve. The slider grows or shrinks the market, and the side panel says whether one firm or more can survive.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-market">
+        <div class="control-panel-header" onclick="tog('market')"><div class="panel-title">Market Size</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-market" onclick="event.stopPropagation();tog('market')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('market')">✕</button></div></div>
+        <div class="control-panel-body" id="body-market"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 9.2 of the book: an LRAC curve that falls to p0 at 8,000 planes,
+// runs flat to 20,000 and rises after that, with a market demand curve
+// crossing it at 5,000 planes and a price p1 above p0. The y axis carries
+// no numbers, only p0 and p1, as in the book.
+const QMIN = 8000, QMAX = 20000, P0 = 3, DROP = 1.2, RISE = 1.5;
+const lrac = q => q < QMIN ? P0 + DROP * (QMIN / q - 1) : q > QMAX ? P0 + RISE * ((q - QMAX) / 4000) ** 2 : P0;
+const BLUE = '#2b6cb0', PINK = '#a855c7', GREY = '#718096';
+// Demand at the default market size passes through the LRAC curve at 5,000
+const C0 = 5000 * lrac(5000);
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'natural_monopoly.png',
+  axes: { xMin:0, xMax:24000, yMin:0, yMax:9, margin:{top:50, right:150, bottom:130, left:180} },
+  sliders: [
+    { id:'market', label:'Size of the market', min:0.6, max:2, value:1, step:0.2, fmt:v => '×' + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_dashed', label:'Dashed lines at p₀, p₁ and the three quantities' },
+    { id:'show_labels', label:'Curve and price labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', market:'Market' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['market'],
+  nudgeKeys: ['x','y','lrac','d','an.p0','an.p1'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height } = g;
+    const dem = q => C0 * val('market') / q;
+    // Demand starts above LRAC on the left and ends below it, so one bisection finds the crossing
+    let lo = 1200, hi = 23000;
+    for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (dem(m) - lrac(m) > 0 ? lo = m : hi = m); }
+    const qe = (lo + hi) / 2, p1 = lrac(qe);
+    const natural = qe < QMIN - 100;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Demand meets LRAC at</span><span class="info-value highlight">${Math.round(qe / 100) * 100} planes</span></div>`
+      + `<div class="info-row"><span class="info-label">Cheapest scale to build at</span><span class="info-value">${QMIN.toLocaleString()} planes</span></div>`
+      + `<div class="info-row"><span class="info-label">${natural ? 'Room for one firm only' : 'Room for more than one firm'}</span><span class="info-value" style="font-size:.8rem">${natural ? 'natural monopoly' : 'demand reaches the flat part'}</span></div>`);
+
+    g.clear();
+    g.axes(BLUE);
+    g.xTicks([4000, 6000, 8000, 12000, 16000, 20000], v => v.toLocaleString());
+    g.axisLabels('Output', 'Cost or Price ($)');
+
+    // LRAC drawn from wherever it comes onto the chart
+    let a = 1200; while (a < QMIN && lrac(a) > g.yMax * 0.95) a += 50;
+    g.plotFn(lrac, a, 23800, { color:BLUE, lw:2 });
+    let da = 1200; while (da < 23000 && dem(da) > g.yMax * 0.95) da += 50;
+    const db = Math.min(23000, C0 * val('market') / (P0 * 0.42));
+    g.plotFn(dem, da, db, { color:BLUE, lw:2 });
+
+    const dot = (q, p) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    if (vis('show_dashed')) {
+      [[qe, p1], [QMIN, P0], [QMAX, P0]].forEach(([q, p]) => g.dashed(tCX(q), tCY(p), tCX(q), y0 + height, PINK, 1.5));
+      g.dashed(x0, tCY(P0), tCX(QMIN), tCY(P0), PINK, 1.5);
+      if (natural) g.dashed(x0, tCY(p1), tCX(qe), tCY(p1), PINK, 1.5);
+    }
+    [[qe, p1], [QMIN, P0], [QMAX, P0]].forEach(([q, p]) => dot(q, p));
+    if (vis('show_labels')) {
+      g.label('p₀', x0 - 12 * S, tCY(P0) + 6 * S, { key:'an.p0', align:'right', ...f });
+      if (natural) g.label('p₁', x0 - 12 * S, tCY(p1) + 6 * S, { key:'an.p1', align:'right', ...f });
+      g.label('LRAC', tCX(22000), tCY(lrac(22000)) - 22 * S, { key:'lrac', align:'center', ...f });
+      g.label('Demand', tCX(db) - 10 * S, tCY(dem(db)) - 16 * S, { key:'d', align:'right', ...f });
+    }
+  },
+});
+</script>
+</body>
+</html>
