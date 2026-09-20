@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Market for Flu Shots with Spillover Benefits</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Market for Flu Shots with Spillover Benefits</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Buyers count only their own protection, so the market stops short of the socially worthwhile number of shots; a subsidy equal to the spillover closes the gap</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. A Positive Externality and a Subsidy</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The market demand curve D<sub>Market</sub> reflects only the marginal private benefit: what a vaccinated person gains from not catching flu. Supply is the marginal private cost of producing the shots. They meet at Q<sub>Market</sub> and P<sub>Market</sub>.</p>
+          <p>But a vaccinated person also makes everyone around them less likely to catch flu, a benefit no buyer counts. Adding it gives the marginal social benefit, Ds, which lies above market demand, and the socially worthwhile quantity Q<sub>Social</sub> is larger than Q<sub>Market</sub>. A voucher worth exactly the spillover closes the gap: suppliers receive P<sub>Social</sub>, buyers pay only P<sub>Subsidy</sub>, and the quantity rises to the socially optimal level. The slider sets how large the spillover benefit is.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-spill">
+        <div class="control-panel-header" onclick="tog('spill')"><div class="panel-title">Spillover</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-spill" onclick="event.stopPropagation();tog('spill')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('spill')">✕</button></div></div>
+        <div class="control-panel-body" id="body-spill"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 13.3 of the book: unnumbered axes with straight lines. Supply is
+// marginal private cost; market demand is marginal private benefit; adding
+// the spillover benefit to every unit lifts it to marginal social benefit.
+const A = 1, B = 0.9, C = 9, D = 0.85;
+const mpc = q => A + B * q, mpb = q => C - D * q;
+const BLUE = '#2b6cb0', PINK = '#c2427c', INK = '#1a202c';
+// A name with a small subscript, and sometimes a normal-size tail, the way
+// the book sets these. Unicode has no subscript letters for most of the
+// alphabet, so the pieces are drawn separately and share one nudge key.
+const subLabel = (g, main, sub, tail, key, x, y, align) => {
+  const { S, ctx } = g, nd = g.getNudge(key), BIG = `${15 * S}px ${g.font}`, SMALL = `${11 * S}px ${g.font}`;
+  ctx.font = BIG;   const w = ctx.measureText(main).width, wt = tail ? ctx.measureText(tail).width : 0;
+  ctx.font = SMALL; const ws = ctx.measureText(sub).width;
+  const total = w + ws + wt;
+  const lx = (align === 'right' ? x - total : align === 'center' ? x - total / 2 : x) + nd.dx, ly = y + nd.dy;
+  ctx.textAlign = 'left'; ctx.fillStyle = BLUE;
+  ctx.font = BIG;   ctx.fillText(main, lx, ly);
+  ctx.font = SMALL; ctx.fillText(sub, lx + w + 1 * S, ly + 5 * S);
+  if (tail) { ctx.font = BIG; ctx.fillText(tail, lx + w + ws + 2 * S, ly); }
+  g.regLabel(key, lx - 4 * S, ly - 14 * S, total + 8 * S, 22 * S);
+};
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'flu_shots_subsidy.png',
+  axes: { xMin:0, xMax:11.5, yMin:0, yMax:10.5, margin:{top:50, right:280, bottom:150, left:210} },
+  sliders: [
+    { id:'spill', label:'Spillover benefit per shot', min:1, max:4, value:3, step:0.5, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_social', label:'Ds (MSB), with the spillover benefit added' },
+    { id:'show_dashed', label:'Dashed lines to the axes' },
+    { id:'show_brace',  label:'The subsidy brace' },
+    { id:'show_labels', label:'Curve, price and quantity labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', spill:'Spillover' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['spill'],
+  nudgeKeys: ['x','y','s','dm','ds','an.sub','an.pm','an.ps','an.psub','an.qm','an.qs'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, xMax, yMax } = g;
+    const sp = val('spill'), msb = q => mpb(q) + sp;
+    const qm = (C - A) / (B + D), pm = mpc(qm);
+    const qs = (C + sp - A) / (B + D), ps = mpc(qs), psub = ps - sp;
+    const axisY = y0 + height;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Market on its own</span><span class="info-value">${qm.toFixed(2)} shots at ${pm.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Socially worthwhile</span><span class="info-value highlight">${qs.toFixed(2)} shots</span></div>`
+      + `<div class="info-row"><span class="info-label">Suppliers receive</span><span class="info-value">${ps.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Buyers pay after the voucher</span><span class="info-value">${psub.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Subsidy per shot</span><span class="info-value highlight">${sp.toFixed(2)}</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.axisLabels('Quantity of Flu Vaccines', 'Price per Vaccine');
+    // Each line is drawn across the part of the chart it crosses
+    const line = fn => { ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+      let first = true;
+      for (let i = 0; i <= 200; i++) { const q = xMax * i / 200, p = fn(q);
+        if (p < 0 || p > yMax * 0.98) { first = true; continue; }
+        const x = tCX(q), y = tCY(p); first ? ctx.moveTo(x, y) : ctx.lineTo(x, y); first = false; }
+      ctx.stroke(); };
+    line(mpc); line(mpb);
+    if (vis('show_social')) line(msb);
+
+    if (vis('show_dashed')) {
+      [[qm, pm], [qs, ps]].forEach(([q, p], i) => {
+        if (i === 1 && !vis('show_social')) return;
+        g.dashed(x0, tCY(p), tCX(q), tCY(p), PINK, 1.5);
+        g.dashed(tCX(q), tCY(p), tCX(q), axisY, PINK, 1.5);
+      });
+      if (vis('show_social')) g.dashed(x0, tCY(psub), tCX(qs), tCY(psub), PINK, 1.5);
+    }
+    if (vis('show_brace') && vis('show_social')) {
+      // Just right of the social quantity, spanning the gap the voucher pays
+      const bx = tCX(qs) + 10 * S;
+      g.brace(bx, tCY(ps), bx, tCY(psub), { depth:14 * S, lw:2.5 });
+      const nd = g.getNudge('an.sub'), lx = tCX(qs) + 90 * S + nd.dx, ly = tCY((ps + psub) / 2) - 24 * S + nd.dy;
+      g.drawArrow(lx - 6 * S, ly + 8 * S, bx + 20 * S, tCY((ps + psub) / 2) - 4 * S, INK);
+      g.label('Subsidy', tCX(qs) + 90 * S, tCY((ps + psub) / 2) - 24 * S, { key:'an.sub', font:`${15 * S}px ${g.font}`, color:BLUE });
+    }
+    if (vis('show_labels')) {
+      subLabel(g, 'S', '', ' (MPC)', 's', tCX(Math.min(xMax, (yMax * 0.95 - A) / B)) + 10 * S, tCY(yMax * 0.95) + 6 * S, 'left');
+      subLabel(g, 'D', 'Market', ' (MPB)', 'dm', tCX(C / D) - 20 * S, tCY(0) - 30 * S, 'right');
+      if (vis('show_social')) subLabel(g, 'D', 's', ' (MSB)', 'ds', tCX(11.2) + 6 * S, tCY(msb(11.2)) + 6 * S, 'left');
+      subLabel(g, 'P', 'Market', null, 'an.pm', x0 - 12 * S, tCY(pm) + 6 * S, 'right');
+      subLabel(g, 'Q', 'Market', null, 'an.qm', tCX(qm), axisY + 34 * S, 'center');
+      if (vis('show_social')) {
+        subLabel(g, 'P', 'Social', null, 'an.ps', x0 - 12 * S, tCY(ps) + 6 * S, 'right');
+        subLabel(g, 'P', 'Subsidy', null, 'an.psub', x0 - 12 * S, tCY(psub) + 6 * S, 'right');
+        subLabel(g, 'Q', 'Social', null, 'an.qs', tCX(qs), axisY + 34 * S, 'center');
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>

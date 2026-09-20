@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patents Filed and Granted</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Patents Filed and Granted</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Applications to the U.S. Patent and Trademark Office climbed steeply from the mid-1990s; grants rose too, but far more slowly</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Applications and Grants by Year</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="2200" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Patent applications roughly tripled between 1990 and 2010 and kept climbing after that, with the sharpest acceleration starting in the mid-1990s as the internet arrived and made a great many other inventions possible. Grants rose as well, but nothing like as fast, so the gap between the two series widens steadily across the chart.</p>
+          <p>A patent gives an inventor an exclusive right for a limited time, which is one of the main ways governments try to close the gap between the private and the social return on research. The slider drops the early years and rescales the chart, which makes the recent years easier to compare. These two series are read from the book's figure rather than from the Patent Office tables, so treat them as close to but not exactly the published counts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-years">
+        <div class="control-panel-header" onclick="tog('years')"><div class="panel-title">Years Shown</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-years" onclick="event.stopPropagation();tog('years')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('years')">✕</button></div></div>
+        <div class="control-panel-body" id="body-years"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 13.4 of the book: applications filed and patents granted each
+// year. The two series are read off the book's own bars, to the nearest
+// thousand, so they track the figure rather than the Patent Office tables.
+const YEARS = [];
+for (let y = 1990; y <= 2020; y++) YEARS.push(y);
+const FILED = [180, 180, 188, 190, 207, 228, 212, 233, 261, 289, 315, 345, 357, 367, 382, 417, 452, 485, 485, 483, 520, 536, 577, 609, 615, 630, 648, 652, 643, 670, 646].map(v => v * 1000);
+const GRANTED = [100, 107, 108, 110, 114, 114, 122, 124, 164, 170, 176, 184, 185, 188, 182, 158, 197, 184, 185, 192, 245, 248, 277, 303, 326, 326, 334, 352, 339, 392, 389].map(v => v * 1000);
+const BLUE = '#2b6cb0', BAR = '#2f6fb5', GREY = '#718096', INK = '#1a202c';
+const fmt = v => v.toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'patents_filed_granted.png',
+  axes: { xMin:0, xMax:31, yMin:0, yMax:700000, margin:{top:60, right:60, bottom:260, left:200} },
+  sliders: [
+    { id:'from', label:'First year shown', min:1990, max:2010, value:1990, step:5, fmt:v => v },
+  ],
+  toggles: [
+    { id:'show_granted', label:'Patents granted' },
+    { id:'show_grid',    label:'Gridlines' },
+    { id:'show_legend',  label:'Legend' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Chart', explanation:'Explanation', years:'Years' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['years'],
+  nudgeKeys: ['x','y','lg'],
+
+  draw(g) {
+    const { S, ctx, val, vis, x0, y0, width, height } = g;
+    const first = YEARS.indexOf(val('from'));
+    const years = YEARS.slice(first), filed = FILED.slice(first), granted = GRANTED.slice(first);
+    const axisY = y0 + height, n = years.length;
+    const peak = Math.max(...filed);
+    const step = 100000, top = Math.ceil(peak / step) * step;
+    const yOf = v => axisY - (v / top) * height;
+    const colW = width / n, barW = colW * 0.32;
+    const gap = filed.map((v, i) => v - granted[i]);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">${years[0]}</span><span class="info-value">${fmt(filed[0])} filed, ${fmt(granted[0])} granted</span></div>`
+      + `<div class="info-row"><span class="info-label">2020</span><span class="info-value">${fmt(filed[filed.length - 1])} filed, ${fmt(granted[granted.length - 1])} granted</span></div>`
+      + `<div class="info-row"><span class="info-label">Filed, ${years[0]} to 2020</span><span class="info-value highlight">${(filed[filed.length - 1] / filed[0]).toFixed(1)} times as many</span></div>`
+      + `<div class="info-row"><span class="info-label">Widest gap</span><span class="info-value">${years[gap.indexOf(Math.max(...gap))]}: ${fmt(Math.max(...gap))}</span></div>`);
+
+    g.clear();
+    if (vis('show_grid')) { ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1 * S;
+      for (let v = step; v <= top; v += step) { ctx.beginPath(); ctx.moveTo(x0, yOf(v)); ctx.lineTo(x0 + width, yOf(v)); ctx.stroke(); } }
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, axisY); ctx.lineTo(x0 + width, axisY); ctx.stroke();
+    ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+    for (let v = 0; v <= top; v += step) ctx.fillText(fmt(v), x0 - 10 * S, yOf(v) + 5 * S);
+    g.axisLabels(null, 'Number of Patents');
+    g.label('Year', x0 + width / 2, axisY + 110 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+
+    years.forEach((y, i) => {
+      const cx = x0 + colW * (i + 0.5);
+      const both = vis('show_granted');
+      const xF = both ? cx - barW - 1 * S : cx - barW / 2;
+      ctx.fillStyle = BAR; ctx.fillRect(xF, yOf(filed[i]), barW, axisY - yOf(filed[i]));
+      if (both) {
+        const xG = cx + 1 * S;
+        ctx.fillStyle = '#fff'; ctx.fillRect(xG, yOf(granted[i]), barW, axisY - yOf(granted[i]));
+        ctx.strokeStyle = INK; ctx.lineWidth = 1 * S; ctx.strokeRect(xG, yOf(granted[i]), barW, axisY - yOf(granted[i]));
+      }
+      // Years lean up to the right, as the book sets them
+      ctx.save(); ctx.translate(cx + 4 * S, axisY + 16 * S); ctx.rotate(-Math.PI / 4);
+      ctx.font = `${13 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(y, 0, 0); ctx.restore();
+    });
+
+    if (vis('show_legend')) {
+      const rows = [[BAR, 'Patents filed', false]];
+      if (vis('show_granted')) rows.push(['#fff', 'Patents granted', true]);
+      // The legend sits high inside the chart, but clear of whichever bars it spans
+      const span = (rows.length - 1) * 340 * S + 290 * S;
+      const under = Math.max(...filed.slice(0, Math.min(Math.ceil(span / colW), n)));
+      const lgVal = Math.min(top * 0.93, Math.max(under + top * 0.06, top * 0.82));
+      const nd = g.getNudge('lg'), lx = x0 + 60 * S + nd.dx, ly = yOf(lgVal) + nd.dy;
+      rows.forEach(([c, t, edge], j) => {
+        const bx = lx + j * 340 * S;
+        ctx.fillStyle = c; ctx.fillRect(bx, ly - 14 * S, 26 * S, 28 * S);
+        if (edge) { ctx.strokeStyle = INK; ctx.lineWidth = 1 * S; ctx.strokeRect(bx, ly - 14 * S, 26 * S, 28 * S); }
+        ctx.fillStyle = BLUE; ctx.font = `${16 * S}px ${g.font}`; ctx.textAlign = 'left'; ctx.fillText(t, bx + 38 * S, ly + 6 * S);
+      });
+      g.regLabel('lg', lx - 8 * S, ly - 22 * S, rows.length * 340 * S, 40 * S);
+    }
+  },
+});
+</script>
+</body>
+</html>
