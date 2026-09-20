@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monopolistic Competition, Entry, and Exit</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Monopolistic Competition, Entry, and Exit</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Profits pull rivals in and push the firm's demand curve left; losses drive rivals out and push it right; both end where demand just touches average cost</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Entry and Exit</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="2000" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>In (a) the firm starts on demand curve D₀. Marginal revenue MR₀ meets marginal cost at S, fixing the output Q₀, and the demand curve gives the price P₀ at T. Since P₀ is above average cost, the firm earns a profit, and that profit attracts competitors. Every firm that enters takes some of its customers, so its perceived demand curve slides left to D₁ and marginal revenue to MR₁. The new output is Q₁ at U and the new price is P₁ at Y, where the demand curve just touches the average cost curve, so profit is zero and entry stops.</p>
+          <p>In (b) the firm starts out losing money: at Q₀ the price P₀ at X is below average cost. Firms leave the industry, and the customers they release shift this firm's demand curve right to D₁, until at Z the price P₁ again just equals average cost. Either way the long run ends with price equal to average cost, at a quantity below the lowest point of the average cost curve. The slider sets how far the starting demand curve sits from the long-run one.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shift">
+        <div class="control-panel-header" onclick="tog('shift')"><div class="panel-title">Shift</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shift" onclick="event.stopPropagation();tog('shift')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shift')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shift"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// A schematic firm: marginal cost is a parabola, average cost is its
+// integral plus a fixed cost, so marginal cost cuts average cost at its
+// lowest point. The long-run demand curve D1 is the one that just touches
+// average cost at the quantity where its marginal revenue meets marginal
+// cost, which is the zero-profit tangency the chapter describes.
+const MC0 = 1.2, KMC = 0.45, QMC = 1.5, FIXED = 10, SLOPE = 1;
+const mc = q => MC0 + KMC * (q - QMC) ** 2;
+const vc = q => MC0 * q + KMC * ((q - QMC) ** 3 + QMC ** 3) / 3;
+const ac = q => (FIXED + vc(q)) / q;
+// Tangency: SLOPE * Q + MC(Q) - AC(Q) = 0, then the intercept follows
+let lo = 0.6, hi = 8;
+for (let i = 0; i < 80; i++) { const m = (lo + hi) / 2; (SLOPE * m + mc(m) - ac(m) < 0 ? lo = m : hi = m); }
+const Q_LR = (lo + hi) / 2, A_LR = ac(Q_LR) + SLOPE * Q_LR;
+// Where marginal revenue from an intercept meets marginal cost
+const qOf = a => { let lo = 0.5, hi = 9; for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (a - 2 * SLOPE * m - mc(m) > 0 ? lo = m : hi = m); } return (lo + hi) / 2; };
+const BLUE = '#2b6cb0', PURPLE = '#5b3f8d', MAUVE = '#b06fc7', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+
+const S0 = 2;
+const GAP = 60 * S0, PW = (2000 - GAP) / 2;
+const MG = { top:50, right:120, bottom:270, left:130 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:11, margin:MG, left:0,        width:PW, height:1000 },
+  { xMin:0, xMax:10, yMin:0, yMax:11, margin:MG, left:PW + GAP, width:PW, height:1000 },
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'entry_exit.png',
+  axes: AXES,
+  sliders: [
+    { id:'shift', label:'How far D₀ starts from the long-run curve', min:1, max:2, value:1.6, step:0.2, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_d0',     label:'The starting curves D₀ and MR₀' },
+    { id:'show_arrows', label:'Shift arrows' },
+    { id:'show_dashed', label:'Dashed lines at the prices and quantities' },
+    { id:'show_labels', label:'Curve and point labels' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shift:'Shift' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shift'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','mc.a','ac.a','mc.b','ac.b','pt.T','pt.S','pt.Y','pt.U','pt.X','pt.W','pt.Z','pt.Yb'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const d = val('shift');
+    const PANELS = [
+      { id:'a', a0: A_LR + d, caption:'(a) Profit induces entry; shift to zero profit' },
+      { id:'b', a0: A_LR - d, caption:'(b) Loss induces exit; shift to zero profit' },
+    ];
+    let info = '';
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i), { x0, y0, width, height, tCX, tCY, yMax, bottom } = pan;
+      const axisY = y0 + height, top = yMax * 0.97;
+      const q0 = qOf(P.a0), p0 = P.a0 - SLOPE * q0, prof = (p0 - ac(q0)) * q0;
+      const q1 = Q_LR, p1 = A_LR - SLOPE * q1;
+      info += `<div class="info-row"><span class="info-label">(${P.id}) start: ${q0.toFixed(2)} at ${p0.toFixed(2)}</span><span class="info-value" style="color:${prof >= 0 ? '#2b6cb0' : '#c53030'}">${prof >= 0 ? 'profit ' : 'loss '}${Math.abs(prof).toFixed(2)}</span></div>`;
+
+      pan.axes(BLUE);
+      pan.axisLabels(null, 'Price ($)', P.id);
+      pan.label('Quantity', x0 + width / 2, axisY + 96 * S, { key:'x.' + P.id, font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+
+      // Straight lines, clipped where they would leave the chart
+      const line = (a, slope, color) => {
+        const qa = Math.max(0, (a - top) / slope), qb = Math.min(9.8, a / slope);
+        pan.plotFn(q => a - slope * q, qa, qb, { color, lw:1.5 });
+        return qb;
+      };
+      let bMc = QMC; while (bMc < 9.6 && mc(bMc + 0.02) < top) bMc += 0.02;
+      let aAc = 0.5; while (aAc < 9 && ac(aAc) > top) aAc += 0.05;
+      let bAc = 9.4; while (bAc > aAc && ac(bAc) > top) bAc -= 0.05;
+
+      const xD1 = line(A_LR, SLOPE, MAUVE), xM1 = line(A_LR, 2 * SLOPE, MAUVE);
+      let xD0 = 0, xM0 = 0;
+      if (vis('show_d0')) { xD0 = line(P.a0, SLOPE, PURPLE); xM0 = line(P.a0, 2 * SLOPE, PURPLE); }
+      pan.plotFn(mc, 0.5, bMc, { color:BLUE, lw:2 });
+      pan.plotFn(ac, aAc, bAc, { color:BLUE, lw:2 });
+
+      if (vis('show_arrows') && vis('show_d0')) {
+        // One arrow between the two demand curves and one between the two marginal revenue curves
+        const dir = P.a0 > A_LR ? -1 : 1;
+        [[A_LR, P.a0, SLOPE, 3.5], [A_LR, P.a0, 2 * SLOPE, 1.6]].forEach(([aL, aS, sl, pLev]) => {
+          const qA = (aL - pLev) / sl, qB = (aS - pLev) / sl;
+          if (Math.abs(tCX(qA) - tCX(qB)) > 30 * S) pan.drawArrow(tCX(qB) - dir * 8 * S, tCY(pLev), tCX(qA) + dir * 8 * S, tCY(pLev), INK);
+        });
+      }
+
+      const dot = (q, p) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+      const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+      // (a) T on D0 above S on MR0, Y on D1 above U on MR1; (b) the same points named X, W, Z, Y
+      const names = i === 0 ? { hi0:'T', lo0:'S', hi1:'Y', lo1:'U' } : { hi0:'X', lo0:'W', hi1:'Z', lo1:'Yb' };
+      if (vis('show_dashed')) {
+        pan.dashed(tCX(q1), tCY(p1), tCX(q1), axisY, PINK, 1.5);
+        pan.dashed(x0, tCY(p1), tCX(q1), tCY(p1), PINK, 1.5);
+        if (vis('show_d0')) { pan.dashed(tCX(q0), tCY(p0), tCX(q0), axisY, PINK, 1.5); pan.dashed(x0, tCY(p0), tCX(q0), tCY(p0), PINK, 1.5); }
+      }
+      dot(q1, p1); dot(q1, mc(q1));
+      if (vis('show_d0')) { dot(q0, p0); dot(q0, mc(q0)); }
+      if (vis('show_labels')) {
+        const lbl = (key, txt, q, p, dx, dy, align) => pan.label(txt, tCX(q) + dx * S, tCY(p) + dy * S, { key:'pt.' + key, align, ...f });
+        lbl(names.hi1, i === 0 ? 'Y' : 'Z', q1, p1, i === 0 ? -14 : 14, i === 0 ? 22 : -16, i === 0 ? 'right' : 'left');
+        lbl(names.lo1, i === 0 ? 'U' : 'Y', q1, mc(q1), -14, 26, 'right');
+        if (vis('show_d0')) {
+          lbl(names.hi0, i === 0 ? 'T' : 'X', q0, p0, i === 0 ? 14 : -14, i === 0 ? -14 : 22, i === 0 ? 'left' : 'right');
+          lbl(names.lo0, i === 0 ? 'S' : 'W', q0, mc(q0), i === 0 ? 14 : -14, 26, i === 0 ? 'left' : 'right');
+        }
+        pan.label('P₁', x0 - 12 * S, tCY(p1) + 6 * S, { align:'right', ...f });
+        if (vis('show_d0')) pan.label('P₀', x0 - 12 * S, tCY(p0) + 6 * S, { align:'right', ...f });
+        pan.label('MC', tCX(bMc) + 10 * S, tCY(mc(bMc)) + 6 * S, { key:'mc.' + P.id, ...f });
+        pan.label('AC', tCX(bAc) + 10 * S, tCY(ac(bAc)) + 6 * S, { key:'ac.' + P.id, ...f });
+        // Labels that sit in a row drop to a second line whenever they would crowd their neighbour
+        const row = (items, yTop, yStep, xStep, align, opts) => {
+          let prev = -1e9, up = false;
+          items.sort((a, b) => a[0] - b[0]).forEach(([x, txt]) => {
+            up = (x - prev < 58 * S) ? !up : false; prev = x;
+            pan.label(txt, x + (up ? xStep : 0), yTop + (up ? yStep : 0), { align, ...opts });
+          });
+        };
+        const qs = [[tCX(q1), 'Q₁']], ends = [[tCX(xM1) + 6 * S, 'MR₁'], [tCX(xD1) + 6 * S, 'D₁']];
+        if (vis('show_d0')) { qs.push([tCX(q0), 'Q₀']); ends.push([tCX(xM0) + 6 * S, 'MR₀'], [tCX(xD0) + 6 * S, 'D₀']); }
+        row(qs, axisY + 30 * S, 28 * S, 0, 'center', f);
+        row(ends, axisY - 14 * S, -32 * S, 10 * S, 'left', { font:`${14 * S}px ${g.font}`, color:PURPLE });
+      }
+      if (vis('show_captions')) pan.label(P.caption, pan.left + 30 * S, bottom - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+    });
+    g.setText('info', info);
+  },
+});
+</script>
+</body>
+</html>

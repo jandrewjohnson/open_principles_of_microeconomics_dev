@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How a Monopolistic Competitor Chooses its Output and Price</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>How a Monopolistic Competitor Chooses its Output and Price</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The Authentic Chinese Pizza shop produces 40 pizzas where MR = MC, charges the $16 the demand curve allows, and earns $60</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Profit at Authentic Chinese Pizza</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The pizza shop competes with other restaurants but its product is differentiated, so it faces a downward-sloping demand curve rather than a market price. It picks its output the way a monopoly does: produce up to the quantity where marginal revenue equals marginal cost, which here is 40 pizzas, then read the price off the demand curve, which is $16.</p>
+          <p>Total revenue is the whole rectangle, 40 pizzas at $16, or $640. Total cost is the lighter rectangle, 40 pizzas at an average cost of $14.50, or $580. The difference, the band on top, is the $60 profit. Unlike a monopoly, this firm cannot keep that profit: other restaurants will copy the idea and enter, which is what the next figure shows. The slider raises or lowers the whole demand schedule.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-demand">
+        <div class="control-panel-header" onclick="tog('demand')"><div class="panel-title">Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-demand" onclick="event.stopPropagation();tog('demand')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('demand')">✕</button></div></div>
+        <div class="control-panel-body" id="body-demand"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+// Table 10.1 of the book: the Authentic Chinese Pizza shop. Price, total
+// cost and the marginal and average columns that follow from them.
+const Q = [10, 20, 30, 40, 50, 60, 70, 80];
+const PRICE = [23, 20, 18, 16, 14, 12, 10, 8];
+const TC = [340, 400, 480, 580, 700, 840, 1020, 1280];
+const TR = PRICE.map((p, i) => p * Q[i]);
+const MRV = TR.map((r, i) => (r - (i ? TR[i - 1] : 0)) / 10);
+const MCV = TC.map((c, i) => (c - (i ? TC[i - 1] : 0)) / 10);
+const ACV = TC.map((c, i) => c / Q[i]);
+const MC = hermite(Q, MCV), AC = hermite(Q, ACV);
+const money = v => '$' + (Math.round(v * 100) / 100).toLocaleString();
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+
+// The book draws this figure with the frame along the bottom and a separate
+// rule at zero carrying the x tick labels, so marginal revenue can dip below.
+const zeroAxes = (g, ticks) => {
+  const { S, ctx, tCX, tCY, x0, y0, width, height } = g;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x0, tCY(0)); ctx.lineTo(x0 + width, tCY(0)); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'center';
+  ticks.forEach(v => ctx.fillText(v, tCX(v), tCY(0) + 22 * S));
+};
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'pizza_profit.png',
+  axes: { xMin:0, xMax:90, yMin:-10, yMax:35, margin:{top:50, right:220, bottom:130, left:170} },
+  sliders: [
+    { id:'dp', label:'Shift of the demand schedule', min:-4, max:4, value:0, step:1, fmt:v => (v > 0 ? '+$' : v < 0 ? '−$' : '$') + Math.abs(v) },
+  ],
+  toggles: [
+    { id:'show_boxes',  label:'Total cost and total profit rectangles' },
+    { id:'show_dashed', label:'Dashed lines at the chosen price and quantity' },
+    { id:'show_annot',  label:'Labels on the rectangles and the chosen point' },
+    { id:'show_labels', label:'Curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', demand:'Demand' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['demand'],
+  nudgeKeys: ['x','y','mc','ac','d','mr','an.profit','an.cost','an.pt'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0 } = g;
+    const dp = val('dp');
+    const dem = hermite(Q, PRICE.map(p => p + dp)), mr = hermite(Q, MRV.map(m => m + dp));
+    let qs = Q[0]; Q.forEach((q, i) => { if (MRV[i] + dp >= MCV[i]) qs = q; });
+    const i = Q.indexOf(qs), p = PRICE[i] + dp, a = ACV[i], profit = (p - a) * qs;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Quantity where MR = MC</span><span class="info-value highlight">${qs} pizzas</span></div>`
+      + `<div class="info-row"><span class="info-label">Price from the demand curve</span><span class="info-value">${money(p)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Total revenue</span><span class="info-value">${money(p * qs)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Total cost (${qs} × ${money(a)})</span><span class="info-value">${money(a * qs)}</span></div>`
+      + `<div class="info-row"><span class="info-label">${profit >= 0 ? 'Total profit' : 'Total loss'}</span><span class="info-value highlight" style="${profit < 0 ? 'color:#c53030' : ''}">${money(Math.abs(profit))}</span></div>`);
+
+    g.clear();
+    if (vis('show_boxes')) {
+      ctx.fillStyle = 'rgba(213,63,140,0.16)'; ctx.fillRect(x0, tCY(a), tCX(qs) - x0, tCY(0) - tCY(a));
+      ctx.fillStyle = profit >= 0 ? 'rgba(66,110,176,0.45)' : 'rgba(213,63,140,0.45)';
+      ctx.fillRect(x0, tCY(Math.max(p, a)), tCX(qs) - x0, Math.abs(tCY(a) - tCY(p)));
+    }
+    zeroAxes(g, [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]);
+    g.yTicks([-10, -5, 0, 5, 10, 15, 20, 25, 30, 35], v => v);
+    g.axisLabels('Quantity', 'Price ($)');
+    g.plotFn(MC.f, 10, 80, { color:BLUE, lw:2 });
+    g.plotFn(AC.f, 10, 80, { color:BLUE, lw:2 });
+    g.plotFn(dem.f, 10, 80, { color:BLUE, lw:2 });
+    g.plotFn(mr.f, 10, 80, { color:BLUE, lw:2 });
+    if (vis('show_dashed')) {
+      g.dashed(x0, tCY(p), tCX(qs), tCY(p), PINK, 1.5);
+      g.dashed(tCX(qs), tCY(p), tCX(qs), tCY(0), PINK, 1.5);
+    }
+    ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(qs), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill();
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    if (vis('show_labels')) {
+      g.label('Marginal cost', tCX(72) - 10 * S, tCY(MC.f(72)) - 16 * S, { key:'mc', align:'right', ...f });
+      g.label('Average cost', tCX(80) + 12 * S, tCY(ACV[7]) + 6 * S, { key:'ac', ...f });
+      g.label('Demand', tCX(80) + 12 * S, tCY(dem.f(80)) + 6 * S, { key:'d', ...f });
+      g.label('Marginal revenue', tCX(80) + 12 * S, tCY(mr.f(80)) + 6 * S, { key:'mr', ...f });
+    }
+    if (vis('show_annot')) {
+      g.label(`(${qs}, ${money(p)})`, tCX(qs) + 14 * S, tCY(p) - 16 * S, { key:'an.pt', ...f });
+      if (vis('show_boxes')) {
+        g.label('Total cost', tCX(qs / 2), tCY(a / 2), { key:'an.cost', align:'center', ...f });
+        // Left of Q = 10, where none of the four curves has started yet
+        const nd = g.getNudge('an.profit'), lx = tCX(10) + nd.dx, ly = tCY(Math.max(p, a) + 11) + nd.dy;
+        g.drawArrow(lx + 4 * S, ly + 12 * S, tCX(qs * 0.55), tCY((p + a) / 2) - 5 * S, INK);
+        g.label(profit >= 0 ? 'Total\nprofit' : 'Total\nloss', tCX(10), tCY(Math.max(p, a) + 11), { key:'an.profit', align:'right', lineH:22 * S, ...f });
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>
