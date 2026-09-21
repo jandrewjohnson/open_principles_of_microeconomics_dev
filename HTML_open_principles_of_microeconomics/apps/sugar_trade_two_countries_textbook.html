@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sugar Trade between Brazil and the United States</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Sugar Trade between Brazil and the United States</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Sugar is cheap in Brazil and dear in the United States, so trade raises the Brazilian price, lowers the American one, and meets at 16 cents</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Two Markets, One Price</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="2000" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Without trade, sugar settles at 12 cents a pound in Brazil and 24 cents in the United States, the points marked E. That gap is an invitation: buy in Brazil, sell in the United States. Every ton shipped takes sugar out of the Brazilian market and adds it to the American one, so the Brazilian price rises and the American price falls.</p>
+          <p>The two prices meet at 16 cents. There Brazilian farmers supply 40 tons while Brazilian buyers take 25, and the 15-ton gap is exported. In the United States growers supply 72 tons while buyers want 87, and the same 15 tons arrive as imports. The slider opens the border by degrees, from no trade at all to fully open, and everything in between is the partial protectionism the book's middle pair of lines describes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-trade">
+        <div class="control-panel-header" onclick="tog('trade')"><div class="panel-title">The Trade</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-trade" onclick="event.stopPropagation();tog('trade')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('trade')">✕</button></div></div>
+        <div class="control-panel-body" id="body-trade"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+
+// Figure 20.2 of the book, drawn from its table 20.1. Prices are in cents a
+// pound and quantities in tons. The book's own vertical axis is labelled in
+// cents but its tick marks read .05, .10 and so on, which are dollars; this
+// ticks in cents, to agree with the title.
+const S0 = 2;
+const GAP = 140, PW = (2000 - GAP) / 2;
+const MG = { top:50, right:270, bottom:260, left:150 };
+const AXES = [
+  { xMin:0, xMax:70,  yMin:0, yMax:30, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:120, yMin:0, yMax:30, margin:MG, left:PW + GAP, width:PW },
+];
+const PRICES = [8, 12, 14, 16, 20, 24, 28];
+const MARKET = [
+  { tag:'a', caption:'(a) Brazil', noTrade:12,
+    S:[20, 30, 35, 40, 45, 50, 55], D:[35, 30, 28, 25, 21, 18, 15], xTicks:[0, 20, 40, 60] },
+  { tag:'b', caption:'(b) The United States', noTrade:24,
+    S:[60, 66, 69, 72, 76, 80, 82], D:[100, 93, 90, 87, 83, 80, 78], xTicks:[0, 20, 40, 60, 80, 100, 120] },
+].map(m => ({ ...m, fitS: hermite(PRICES, m.S), fitD: hermite(PRICES, m.D) }));
+const FREE = 16;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'sugar_trade_two_countries.png',
+  axes: AXES,
+  sliders: [
+    { id:'open', label:'How far the border is open', min:0, max:100, value:50, step:10, fmt:v => v + '%' },
+  ],
+  toggles: [
+    { id:'show_lines',  label:'The three price lines' },
+    { id:'show_braces', label:'Braces on exports and imports' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graphs', explanation:'Explanation', trade:'The Trade' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['trade'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','cap.a','cap.b','cv.Sa','cv.Da','cv.Sb','cv.Db',
+              'pl.a0','pl.a1','pl.a2','pl.b0','pl.b1','pl.b2','br.a','br.b','E.a','E.b'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const o = val('open') / 100;
+    // The border opens by degrees: each price walks from its own no-trade
+    // level to the single free-trade price of 16 cents.
+    const price = MARKET.map(m => m.noTrade + (FREE - m.noTrade) * o);
+    const qty = MARKET.map((m, i) => ({ s: m.fitS.f(price[i]), d: m.fitD.f(price[i]) }));
+    const n = v => Math.round(v * 10) / 10;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Price in Brazil</span><span class="info-value">${n(price[0])} cents</span></div>`
+      + `<div class="info-row"><span class="info-label">Brazil supplies, buys</span><span class="info-value">${n(qty[0].s)}, ${n(qty[0].d)} tons</span></div>`
+      + `<div class="info-row"><span class="info-label">Brazil exports</span><span class="info-value highlight">${n(qty[0].s - qty[0].d)} tons</span></div>`
+      + `<div class="info-row"><span class="info-label">Price in the United States</span><span class="info-value">${n(price[1])} cents</span></div>`
+      + `<div class="info-row"><span class="info-label">United States supplies, buys</span><span class="info-value">${n(qty[1].s)}, ${n(qty[1].d)} tons</span></div>`
+      + `<div class="info-row"><span class="info-label">United States imports</span><span class="info-value highlight">${n(qty[1].d - qty[1].s)} tons</span></div>`);
+
+    g.clear();
+    MARKET.forEach((m, i) => {
+      const pan = g.panel(i), { x0, y0, width, height, tCX, tCY } = pan;
+      const ys = []; for (let v = 0; v <= 30; v += 5) ys.push(v);
+      frame(g, pan, { tag:m.tag, xTicks:m.xTicks, yTicks:ys, fmtX:v => v, fmtY:v => v,
+        xLabel:'Quantity (tons of sugar)', yLabel:'Price (cents per pound)' });
+
+      [['S', m.fitS, 'cv.S' + m.tag], ['D', m.fitD, 'cv.D' + m.tag]].forEach(([nm, fit, key]) => {
+        ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+        for (let k = 0; k <= 120; k++) { const p = 8 + 20 * k / 120, px = tCX(fit.f(p)), py = tCY(p);
+          k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+        ctx.stroke();
+        PRICES.forEach(p => dot(g, tCX(fit.f(p)), tCY(p)));
+        g.label(nm, tCX(fit.f(28)) + (nm === 'S' ? 14 : -14) * S, tCY(28) - 14 * S,
+          { key, align: nm === 'S' ? 'left' : 'right', font:`${18 * S}px ${g.font}`, color:INK });
+      });
+
+      // The no-trade point, where domestic supply meets domestic demand
+      dot(g, tCX(m.fitS.f(m.noTrade)), tCY(m.noTrade));
+      g.label('E', tCX(m.fitS.f(m.noTrade)) + 14 * S, tCY(m.noTrade) + 8 * S,
+        { key:'E.' + m.tag, font:`${18 * S}px ${g.font}`, color:INK });
+
+      if (vis('show_lines')) {
+        // Three price lines, labelled in a stack at the right so their own
+        // leaders, not their positions, say which is which.
+        // The middle line only earns its own label while it sits between
+        // the other two; at either end it lies on one of them.
+        const mid = Math.abs(price[i] - m.noTrade) > 0.1 && Math.abs(price[i] - FREE) > 0.1;
+        const rows = [
+          { p:m.noTrade, text:'Price with\nno trade' },
+          ...(mid ? [{ p:price[i], text:'Price with partial\nprotectionism' }] : []),
+          { p:FREE,      text:'Price with\nfree trade' },
+        ].sort((r, q) => q.p - r.p);
+        const top = Math.max(...rows.map(r => r.p));
+        rows.forEach((r, k) => {
+          g.dashed(x0, tCY(r.p), x0 + width, tCY(r.p), PINK, 1.6);
+          const lx = x0 + width + 26 * S, ly = tCY(top) - 30 * S + k * 44 * S;
+          g.drawArrow(lx - 10 * S, ly - 6 * S, x0 + width - 4 * S, tCY(r.p), INK);
+          g.label(r.text, lx, ly, { key:'pl.' + m.tag + k, font:`${13 * S}px ${g.font}`, color:BLUE, lineH:22 * S });
+        });
+      }
+
+      if (vis('show_braces') && Math.abs(qty[i].s - qty[i].d) > 0.2) {
+        const lo = Math.min(qty[i].s, qty[i].d), hi = Math.max(qty[i].s, qty[i].d);
+        // The brace can be narrow when the border is barely open, so its
+        // name sits beside it rather than over it.
+        const by = tCY(price[i]) - 30 * S, span = tCX(hi) - tCX(lo);
+        g.brace(tCX(lo), by, tCX(hi), by, { depth: Math.min(16 * S, span / 3), color:INK, lw:2.4 });
+        // Brazil has room to the right of its brace, the United States to the left
+        g.label(i ? 'Imports' : 'Exports',
+          i ? tCX(lo) - 30 * S : tCX(hi) + 30 * S, by - 2 * S,
+          { key:'br.' + m.tag, align: i ? 'right' : 'left', font:`${16 * S}px ${g.font}`, color:BLUE });
+      }
+
+      if (vis('show_captions'))
+        g.label(m.caption, x0 + width / 2, y0 + height + 100 * S,
+          { key:'cap.' + m.tag, align:'center', font:`${16 * S}px ${g.font}`, color:BLUE });
+    });
+  },
+});
+</script>
+</body>
+</html>
