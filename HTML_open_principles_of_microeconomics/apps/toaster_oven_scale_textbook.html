@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economies of Scale in a Toaster Oven Plant</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Economies of Scale in a Toaster Oven Plant</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Average cost falls from $30 to $10 as the plant grows, and then stops falling: plant V is bigger than L but no cheaper</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Average Cost and the Size of the Plant</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>A small plant, S, turns out 30 toaster ovens at an average cost of $30 each. A medium plant, M, makes 50 at $20 each. A large plant, L, makes 150 at $10 each. Spreading the fixed costs of the building and the machinery over more units is what drives the average down.</p>
+          <p>Past 150 units the fall stops. Plant V makes 200 units and still pays $10 each, so there is nothing more to gain from size alone. This is why intra-industry trade between similar countries pays. A plant big enough to reach the bottom of this curve may be larger than one country's market, and trade lets it sell abroad while its customers keep a choice of suppliers. The slider reads the curve at any output.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-cost">
+        <div class="control-panel-header" onclick="tog('cost')"><div class="panel-title">Costs</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-cost" onclick="event.stopPropagation();tog('cost')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('cost')">✕</button></div></div>
+        <div class="control-panel-body" id="body-cost"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+
+// Figure 19.5 of the book: average cost against output for one plant, with
+// S, M, L and V marked and dashed guides to both axes. Economies of scale
+// run out at 150 units. (The book's own vertical axis prints its 5 as 50.)
+const S0 = 2;
+const QS = [30, 40, 50, 70, 90, 110, 130, 150, 200];
+const AC = [30, 24, 20, 15.5, 13, 11.5, 10.4, 10, 10];
+const FIT = hermite(QS, AC);
+const cost = q => q >= 150 ? 10 : FIT.f(q);
+const PLANTS = [
+  { k:'S', q:30,  c:30 }, { k:'M', q:50,  c:20 },
+  { k:'L', q:150, c:10 }, { k:'V', q:200, c:10 },
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'toaster_oven_scale.png',
+  axes: { xMin:0, xMax:250, yMin:0, yMax:35, margin:{top:50, right:90, bottom:190, left:190} },
+  sliders: [
+    { id:'q', label:'Output to read', min:30, max:200, value:50, step:10, fmt:v => v + ' ovens' },
+  ],
+  toggles: [
+    { id:'show_guides', label:'Dashed lines from each plant to both axes' },
+    { id:'show_labels', label:'The S, M, L and V labels' },
+    { id:'show_read',   label:'Mark the output being read', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', cost:'Costs' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['cost'],
+  nudgeKeys: ['x.a','y.a','p.S','p.M','p.L','p.V'],
+
+  draw(g) {
+    const { S, ctx, val, vis, tCX, tCY, x0, y0, width, height } = g;
+    const q = val('q'), c = cost(q);
+    const money = v => '$' + v.toFixed(2).replace(/\.00$/, '');
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Output</span><span class="info-value">${q} ovens</span></div>`
+      + `<div class="info-row"><span class="info-label">Average cost</span><span class="info-value highlight">${money(c)} an oven</span></div>`
+      + `<div class="info-row"><span class="info-label">Total cost</span><span class="info-value">${money(c * q)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Cost at plant S</span><span class="info-value">$30 an oven</span></div>`
+      + `<div class="info-row"><span class="info-label">Cost at plant L</span><span class="info-value">$10 an oven</span></div>`
+      + `<div class="info-row"><span class="info-label">Scale stops paying at</span><span class="info-value highlight">150 ovens</span></div>`);
+
+    g.clear();
+    const xs = []; for (let v = 0; v <= 250; v += 50) xs.push(v);
+    const ys = []; for (let v = 0; v <= 35; v += 5) ys.push(v);
+    frame(g, g, { tag:'a', xTicks:xs, yTicks:ys, fmtX:v => v, fmtY:v => v,
+      xLabel:'Quantity of Production', yLabel:'Average Cost of Production ($)' });
+    // The book prints 30 and 50 under the axis as well as the round hundreds
+    ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'center';
+    [30, 50].forEach(v => ctx.fillText(v, tCX(v), y0 + height + 30 * S));
+
+    if (vis('show_guides')) PLANTS.forEach(p => {
+      g.dashed(tCX(p.q), tCY(p.c), tCX(p.q), tCY(0), MAROON, 1.5);
+      g.dashed(tCX(p.q), tCY(p.c), tCX(0), tCY(p.c), MAROON, 1.5);
+    });
+
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+    for (let i = 0; i <= 300; i++) { const v = 30 + 170 * i / 300, px = tCX(v), py = tCY(cost(v));
+      i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.stroke();
+
+    if (vis('show_read')) {
+      g.dashed(tCX(q), tCY(c), tCX(q), tCY(0), PINK, 1.6);
+      dot(g, tCX(q), tCY(c), PINK);
+    }
+    PLANTS.forEach(p => {
+      dot(g, tCX(p.q), tCY(p.c));
+      if (vis('show_labels'))
+        g.label(p.k, tCX(p.q) - 4 * S, tCY(p.c) - 20 * S,
+          { key:'p.' + p.k, align:'center', font:`${19 * S}px ${g.font}`, color:INK });
+    });
+  },
+});
+</script>
+</body>
+</html>

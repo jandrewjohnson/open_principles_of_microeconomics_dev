@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trade Takes a Country Past Its Own Frontier</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Trade Takes a Country Past Its Own Frontier</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Saudi Arabia starts at C, sends 20 barrels of oil abroad for 20 bushels of corn, and consumes at D, which it could never have produced alone</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Saudi Arabia, Before and After Trade</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1100"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Saudi Arabia begins at point C, producing 60 barrels of oil and 10 bushels of corn. It then exports some of that oil and receives corn in return. Production stays at C, but consumption moves to D, and D sits outside the frontier. No rearrangement of Saudi labour could have reached it.</p>
+          <p>Whether D clears the frontier depends entirely on the price. At home, one more bushel of corn costs four barrels of oil, so a barrel is worth a quarter of a bushel. Any trade that returns more than a quarter of a bushel per barrel beats what Saudi Arabia could do for itself, and the panel says which side of that line the current price falls on. The book's example, twenty barrels for twenty bushels, is a price of one bushel per barrel, four times the domestic cost.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-trade">
+        <div class="control-panel-header" onclick="tog('trade')"><div class="panel-title">The Trade</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-trade" onclick="event.stopPropagation();tog('trade')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('trade')">✕</button></div></div>
+        <div class="control-panel-body" id="body-trade"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+
+// Figure 19.3 of the book: the Saudi frontier from A to B, production at C,
+// and consumption at D beyond the line after trade. The book's own drawing
+// puts D a little short of 30 bushels; the text says 30, and so does this.
+const S0 = 2;
+const MAX_OIL = 100, MAX_CORN = 25, HOME_COST = 0.25;   // bushels per barrel at home
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'saudi_gains_from_trade.png',
+  axes: { xMin:0, xMax:40, yMin:0, yMax:110, margin:{top:50, right:80, bottom:190, left:180} },
+  sliders: [
+    { id:'export', label:'Barrels of oil exported', min:0, max:40, value:20, step:5, fmt:v => v + ' barrels' },
+    { id:'price',  label:'Bushels of corn per barrel', min:0.25, max:2.5, value:1, step:0.25, fmt:v => v.toFixed(2) },
+  ],
+  toggles: [
+    { id:'show_d',      label:'Point D and the path to it' },
+    { id:'show_labels', label:'The A, B, C and D labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', trade:'The Trade' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['trade'],
+  nudgeKeys: ['x.a','y.a','A.a','B.a','C.a','D.a'],
+
+  draw(g) {
+    const { S, ctx, val, vis, tCX, tCY } = g;
+    const ex = val('export'), price = val('price');
+    const C = { x:10, y:60 }, D = { x: C.x + ex * price, y: C.y - ex };
+    // The frontier is corn = MAX_CORN * (1 - oil / MAX_OIL); D clears it when
+    // the corn it holds beats what the same oil could have bought at home.
+    const onFrontier = MAX_CORN * (1 - D.y / MAX_OIL);
+    const beyond = D.x > onFrontier + 1e-9;
+    const n = v => Math.round(v * 10) / 10;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Produces at C</span><span class="info-value">${C.y} barrels, ${C.x} bushels</span></div>`
+      + `<div class="info-row"><span class="info-label">Exports</span><span class="info-value">${ex} barrels of oil</span></div>`
+      + `<div class="info-row"><span class="info-label">Imports</span><span class="info-value">${n(ex * price)} bushels of corn</span></div>`
+      + `<div class="info-row"><span class="info-label">Consumes at D</span><span class="info-value highlight">${n(D.y)} barrels, ${n(D.x)} bushels</span></div>`
+      + `<div class="info-row"><span class="info-label">Cost of a barrel at home</span><span class="info-value">${HOME_COST} bushel</span></div>`
+      + `<div class="info-row"><span class="info-label">Price in this trade</span><span class="info-value">${price.toFixed(2)} bushels a barrel</span></div>`
+      + `<div class="info-row"><span class="info-label">Is D beyond the frontier?</span><span class="info-value highlight">${beyond ? 'yes, Saudi Arabia gains' : 'no, it could have done this alone'}</span></div>`);
+
+    g.clear();
+    const xs = []; for (let v = 0; v <= 40; v += 10) xs.push(v);
+    const ys = []; for (let v = 0; v <= 110; v += 10) ys.push(v);
+    frame(g, g, { tag:'a', xTicks:xs, yTicks:ys, fmtX:v => v, fmtY:v => v,
+      xLabel:'Corn (bushels)', yLabel:'Oil (barrels)' });
+
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(tCX(0), tCY(MAX_OIL)); ctx.lineTo(tCX(MAX_CORN), tCY(0)); ctx.stroke();
+
+    if (vis('show_d')) {
+      // Down from C by the oil sent away, then across by the corn received
+      g.dashed(tCX(C.x), tCY(C.y), tCX(C.x), tCY(D.y), MAROON, 1.6);
+      g.dashed(tCX(C.x), tCY(D.y), tCX(D.x), tCY(D.y), MAROON, 1.6);
+    }
+    const P = { A:{ x:0, y:MAX_OIL }, B:{ x:MAX_CORN, y:0 }, C };
+    if (vis('show_d')) P.D = D;
+    Object.keys(P).forEach(k => {
+      dot(g, tCX(P[k].x), tCY(P[k].y));
+      if (vis('show_labels'))
+        g.label(k, tCX(P[k].x) + 12 * S, tCY(P[k].y) - 14 * S,
+          { key:k + '.a', font:`${18 * S}px ${g.font}`, color:INK });
+    });
+  },
+});
+</script>
+</body>
+</html>
