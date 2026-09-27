@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splitting a Price Rise into Two Effects</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Splitting a Price Rise into Two Effects</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A dearer haircut changes what Ogden can afford and what it is worth trading, and the dashed line separates the two</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Substitution and Income</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="1300"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Ogden has $120. Haircuts cost $20 and pizzas $6, and he chooses A, ten pizzas and three haircuts. Then haircuts rise to $30. His budget line pivots inward and he ends at B, ten pizzas and two haircuts.</p>
+          <p>The move from A to B is really two moves at once. The dashed line has the new, steeper price of haircuts but is placed to keep Ogden exactly as well off as before. Sliding along his original curve from A to the dashed line's tangency at C is the substitution effect: haircuts are dearer relative to pizza, so he takes fewer haircuts and more pizza. Dropping from C to B is the income effect: the price rise has made him poorer, which pulls both back down. The slider sets the new price of a haircut.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-effects">
+        <div class="control-panel-header" onclick="tog('effects')"><div class="panel-title">The Two Effects</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-effects" onclick="event.stopPropagation();tog('effects')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('effects')">✕</button></div></div>
+        <div class="control-panel-body" id="body-effects"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+
+// An indifference curve of constant-elasticity shape through (x0, y0). The
+// exponent r fixes the slope there: dy/dx = -r*y/x, so a curve tangent to a
+// budget line of slope -p at (x0, y0) has r = p*x0/y0.
+const power = (x0, y0, r) => x => y0 * Math.pow(x0 / x, r);
+const tangentR = (x0, y0, p) => p * x0 / y0;
+// Draw f over [lo, hi], skipping anything that leaves the panel
+const curve = (g, f, lo, hi, opts) => {
+  const { ctx, S, tCX, tCY } = g, o = opts || {};
+  ctx.strokeStyle = o.color || BLUE; ctx.lineWidth = (o.lw || 2) * S;
+  if (o.dash) ctx.setLineDash([9 * S, 6 * S]);
+  ctx.beginPath();
+  let started = false;
+  for (let k = 0; k <= 400; k++) {
+    const x = lo + (hi - lo) * k / 400, y = f(x);
+    if (!isFinite(y) || y > (o.yMax ?? 1e9) || y < (o.yMin ?? -1e9)) { started = false; continue; }
+    const px = tCX(x), py = tCY(y);
+    started ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+    started = true;
+  }
+  ctx.stroke(); ctx.setLineDash([]);
+};
+// A short arrow with its letter, the way the book marks the two effects
+const effect = (g, letter, x1, y1, x2, y2) => {
+  const { S } = g;
+  g.drawArrow(x1, y1, x2, y2, MAROON);
+  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+  const horiz = Math.abs(x2 - x1) > Math.abs(y2 - y1);
+  g.label(letter, horiz ? mx : mx - 16 * S, horiz ? my - 12 * S : my + 6 * S,
+    { align:'center', font:`${16 * S}px ${g.font}`, color:MAROON });
+};
+
+// Figure B4 of the book. $120 to spend, pizzas at $6 and haircuts starting
+// at $20. The book's own drawing puts A and B at about six pizzas while its
+// labels read ten; the arithmetic and the text give ten, and so does this.
+const S0 = 2;
+const M = 120, P_PIZZA = 6, P_HAIR0 = 20;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'substitution_income_effects.png',
+  axes: { xMin:0, xMax:24, yMin:0, yMax:7, margin:{top:60, right:200, bottom:360, left:260} },
+  sliders: [
+    { id:'price', label:'New price of a haircut', min:20, max:40, value:30, step:5, fmt:v => '$' + v },
+  ],
+  toggles: [
+    { id:'show_dashed',  label:'The dashed line that separates the effects' },
+    { id:'show_points',  label:'The labelled points' },
+    { id:'show_effects', label:'The s and i arrows on the axes' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', effects:'The Two Effects' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['effects'],
+  nudgeKeys: ['x.a','y.a','p.A','p.B','p.C'],
+
+  draw(g) {
+    const { S, ctx, val, vis, tCX, tCY, x0, y0, width, height } = g;
+    const p1 = val('price');
+    // With equal spending shares the best choice is half the budget on each
+    const A = { x: M / (2 * P_PIZZA), y: M / (2 * P_HAIR0) };
+    const B = { x: M / (2 * P_PIZZA), y: M / (2 * p1) };
+    const U = A.x * A.y;                       // the original curve is y = U/x
+    const slope1 = P_PIZZA / p1;               // haircuts given up per pizza
+    const C = { x: Math.sqrt(U / slope1), y: Math.sqrt(U * slope1) };
+    const n = v => Math.round(v * 10) / 10;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">A, before</span><span class="info-value">${n(A.x)} pizzas, ${n(A.y)} haircuts</span></div>`
+      + `<div class="info-row"><span class="info-label">C, same utility, new prices</span><span class="info-value highlight">${n(C.x)} pizzas, ${n(C.y)} haircuts</span></div>`
+      + `<div class="info-row"><span class="info-label">B, after</span><span class="info-value">${n(B.x)} pizzas, ${n(B.y)} haircuts</span></div>`
+      + `<div class="info-row"><span class="info-label">Substitution effect, A to C</span><span class="info-value">${n(C.x - A.x)} pizzas, ${n(C.y - A.y)} haircuts</span></div>`
+      + `<div class="info-row"><span class="info-label">Income effect, C to B</span><span class="info-value">${n(B.x - C.x)} pizzas, ${n(B.y - C.y)} haircuts</span></div>`);
+
+    g.clear();
+    const xs = []; for (let v = 0; v <= 20; v += 10) xs.push(v);
+    const ys = []; for (let v = 2; v <= 6; v += 2) ys.push(v);
+    frame(g, g, { tag:'a', xTicks:xs, yTicks:ys, fmtX:v => v, fmtY:v => v,
+      xLabel:'Pizza', yLabel:'Haircuts' });
+
+    const budget = pHair => { ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+      ctx.beginPath(); ctx.moveTo(tCX(0), tCY(M / pHair)); ctx.lineTo(tCX(M / P_PIZZA), tCY(0)); ctx.stroke(); };
+    budget(P_HAIR0); budget(p1);
+    curve(g, x => U / x, 3, 24, { yMax:6.9 });
+    curve(g, x => (B.x * B.y) / x, 3, 24, { yMax:6.9 });
+    if (vis('show_dashed')) {
+      const top = C.y + slope1 * C.x;
+      ctx.save(); ctx.setLineDash([10 * S, 7 * S]);
+      ctx.strokeStyle = MAROON; ctx.lineWidth = 2 * S;
+      ctx.beginPath(); ctx.moveTo(tCX(0), tCY(top)); ctx.lineTo(tCX(top / slope1), tCY(0)); ctx.stroke();
+      ctx.restore();
+    }
+    if (vis('show_points')) {
+      [['A', A, 1], ['B', B, -1], ['C', C, 1]].forEach(([k, p, up]) => {
+        dot(g, tCX(p.x), tCY(p.y));
+        g.label(`${k} (${n(p.x)}, ${n(p.y)})`, tCX(p.x) + 16 * S, tCY(p.y) - up * 14 * S,
+          { key:'p.' + k, font:`${17 * S}px ${g.font}`, color:INK });
+      });
+    }
+    if (vis('show_effects')) {
+      // Down the haircuts axis, along the pizza axis
+      effect(g, 's', x0 - 40 * S, tCY(A.y), x0 - 40 * S, tCY(C.y));
+      effect(g, 'i', x0 - 80 * S, tCY(C.y), x0 - 80 * S, tCY(B.y));
+      effect(g, 's', tCX(A.x), y0 + height + 110 * S, tCX(C.x), y0 + height + 110 * S);
+      effect(g, 'i', tCX(C.x), y0 + height + 160 * S, tCX(B.x), y0 + height + 160 * S);
+    }
+  },
+});
+</script>
+</body>
+</html>

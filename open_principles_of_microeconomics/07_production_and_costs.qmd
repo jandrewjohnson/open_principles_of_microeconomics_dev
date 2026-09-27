@@ -79,7 +79,7 @@ market structures, which we will explore in @sec-chapter-8,
 @sec-chapter-9,
 and @sec-chapter-10.
 
-![](media/7-introduction-to-production-costs-and-industry-structure_rId29.jpeg){width="4.88in" height="1.495in" #fig-7_2}
+{{< appfig competition_spectrum_1 id="fig-7_2" >}}
 
 Figure 7.2 The Spectrum of Competition Firms face different competitive
 situations. At one extreme---perfect competition---many firms are all
@@ -443,11 +443,11 @@ illustrate. [Figure 7.5](#fig-7_5) graphically shows the data
 from @tbl-table_7_2. [Figure 7.6](#fig-7_6) shows the
 more general cases of total product and marginal product curves.
 
-![](media/7-2-production-in-the-short-run_rId43.jpeg){width="6.5in" height="2.69257217847769in" #fig-7_5}
+{{< appfig lumberjacks_product_1 id="fig-7_5" >}}
 
 Figure 7.5
 
-![](media/7-2-production-in-the-short-run_rId45.jpeg){width="6.055in" height="2.27in" #fig-7_6}
+{{< appfig tp_mp_general_1 id="fig-7_6" >}}
 
 Figure 7.6
 
@@ -650,7 +650,7 @@ fifth column. For example, with two barbers the total cost is: \$160 +
 
 : Output and Total Costs for the Clip Joint {#tbl-table_7_9}
 
-![](media/7-3-costs-in-the-short-run_rId34.jpeg){width="3.25in" height="2.185in" #fig-7_7}
+{{< appfig total_cost_clip_joint_1 id="fig-7_7" >}}
 
 Figure 7.7 How Output Affects Total Costs At zero production, the fixed
 costs of \$160 are still present. As production increases, variable
@@ -719,7 +719,7 @@ costs. These new measures analyze costs on a per-unit (rather than a
 total) basis and are reflected in the curves in [Figure
 7.8](#fig-7_8).
 
-![](media/7-3-costs-in-the-short-run_rId41.jpeg){width="2.79in" height="2.29in" #fig-7_8}
+{{< appfig cost_curves_clip_joint_1 id="fig-7_8" >}}
 
 Figure 7.8 Cost Curves at the Clip Joint We can also present the
 information on total costs, fixed cost, and variable cost on a per-unit
@@ -1136,7 +1136,7 @@ the average cost of production falls to \$8 per alarm clock. For a large
 factory like L, with an output of 5,000, the average cost of production
 declines still further to \$4 per alarm clock.
 
-![](media/7-5-costs-in-the-long-run_rId26.jpeg){width="4.875in" height="2.37in" #fig-7_9}
+{{< appfig economies_of_scale_1 id="fig-7_9" >}}
 
 Figure 7.9 Economies of Scale A small factory like S produces 1,000
 alarm clocks at an average cost of \$12 per clock. A medium factory like
@@ -1205,7 +1205,7 @@ of investment in fixed cost physical capital---knowing that different
 choices about capital investment in the present will cause it to end up
 with different short-run average cost curves in the future.
 
-![](media/7-5-costs-in-the-long-run_rId33.jpeg){width="4.875in" height="2.67in" #fig-7_10}
+{{< appfig srac_lrac_1 id="fig-7_10" >}}
 
 Figure 7.10 From Short-Run Average Cost Curves to Long-Run Average Cost
 Curves The five different short-run average cost (SRAC) curves each
@@ -1308,7 +1308,7 @@ firms built a plant that produced 5,000 dishwashers per year or 25,000
 dishwashers per year, the average costs of production at such plants
 would be well above \$500, and the firms would not be able to compete.
 
-![](media/7-5-costs-in-the-long-run_rId44.jpeg){width="6.5in" height="2.43in" #fig-7_11}
+{{< appfig lrac_shapes_1 id="fig-7_11" >}}
 
 Figure 7.11 The LRAC Curve and the Size and Number of Firms (a) Low-cost
 firms will produce at output level R. When the LRAC curve has a clear

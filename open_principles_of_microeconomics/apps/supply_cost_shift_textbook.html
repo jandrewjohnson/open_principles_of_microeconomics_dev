@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Shift in Supply from a Cost Increase</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Shift in Supply from a Cost Increase</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A pizza firm's price is its cost of production plus its desired profit; when cheese gets dearer, the whole supply curve moves up by the increase</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Supply Curve for Pizza</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p><strong>Step 1.</strong> Draw a supply curve for pizza and pick a quantity, Q₀. A vertical line up from Q₀ to the supply curve shows the price the firm chooses, P₀.</p>
+          <p><strong>Step 2.</strong> Why that price? Think of it as two parts: the <strong>cost of production</strong> at the margin (ingredients, the oven, rent, wages) plus the firm's <strong>desired profit</strong>. Added together they give the price the firm wishes to charge, so Q₀ and P₀ are one point on the firm's supply curve.</p>
+          <p><strong>Step 3.</strong> Now suppose the cost of production rises, say cheese by $0.75 per pizza. The firm wants to raise its price by that same amount, so the new point sits directly above the old one, $0.75 higher, at P₁.</p>
+          <p><strong>Step 4.</strong> Shift the supply curve through that point. An increase in cost causes an upward (or leftward) shift of supply, from S to S': at any price the quantity supplied is smaller. Use the display options to step through the four figures, and the sliders to change the cost increase or the desired profit.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-params">
+        <div class="control-panel-header" onclick="tog('params')"><div class="panel-title">Firm's Pricing</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-params" onclick="event.stopPropagation();tog('params')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('params')">✕</button></div></div>
+        <div class="control-panel-body" id="body-params" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-readout">
+        <div class="control-panel-header" onclick="tog('readout')"><div class="panel-title">Price Breakdown</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-readout" onclick="event.stopPropagation();tog('readout')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('readout')">✕</button></div></div>
+        <div class="control-panel-body" id="body-readout">
+          <div class="info-box" id="readout"></div>
+          <div class="equation-box" style="margin-top:12px">\( P = \text{Cost of production} + \text{Desired profit} \)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figures 3.11 to 3.14 of the book, one app. The defaults are the last
+// figure (3.14); the earlier steps are the same picture with later elements
+// switched off, so the four manifest states differ only in toggles. The
+// axes are schematic, as in the book: no numbers, just P0, Q0 and P1.
+//
+// The supply curve is a straight line through (q, P0). Price P0 is the cost
+// of production plus the desired profit; a cost increase of dp_s lifts the
+// point to P1 = P0 + dp_s and the curve S' through it. With the defaults
+// (profit $0.75, increase $0.75) the new cost equals P0, which is exactly
+// how the book's figure 3.13 draws the two braces.
+const BLUE = '#2b6cb0', PINK = '#d53f8c', INK = '#1a202c';
+const SLOPE = 0.8, INTERCEPT = -1.8;          // S: P = 0.8 Q - 1.8, so P0 = $3.00 at Q0 = 6
+const fmtP = v => '$' + v.toFixed(2);
+
+// A curly brace between y1 and y2. dir = +1 puts the tip at x and the arms
+// to the right (a "{"); dir = -1 mirrors it (a "}").
+function brace(ctx, x, y1, y2, dir, s) {
+  const w = 10 * s * dir, r = Math.min(8 * s, Math.abs(y2 - y1) / 4), ym = (y1 + y2) / 2;
+  ctx.beginPath();
+  ctx.moveTo(x + w, y1);
+  ctx.quadraticCurveTo(x + w / 2, y1, x + w / 2, y1 + r);
+  ctx.lineTo(x + w / 2, ym - r);
+  ctx.quadraticCurveTo(x + w / 2, ym, x, ym);
+  ctx.quadraticCurveTo(x + w / 2, ym, x + w / 2, ym + r);
+  ctx.lineTo(x + w / 2, y2 - r);
+  ctx.quadraticCurveTo(x + w / 2, y2, x + w, y2);
+  ctx.stroke();
+}
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'supply_cost_shift.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:6, margin:{top:70, right:90, bottom:150, left:150} },
+  sliders: [
+    { id:'q',      label:'Quantity Q₀',            min:2,    max:8,   value:6,    step:0.5, fmt:v => v.toFixed(1) },
+    { id:'profit', label:'Desired profit',          min:0.25, max:1.5, value:0.75, step:0.05, fmt:fmtP },
+    { id:'dp_s',   label:'Cost increase per pizza', min:0,    max:1.5, value:0.75, step:0.05, fmt:fmtP },
+  ],
+  toggles: [
+    { id:'show_droplines',  label:'Dashed lines to the axes' },
+    { id:'show_labels',     label:'P₀, Q₀, P₁ labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_readarrows', label:'Step 1: arrows reading off the price', checked:false },
+    { id:'show_breakdown',  label:'Step 2: cost of production and desired profit' },
+    { id:'show_newpoint',   label:'Step 3: the new point at P₁' },
+    { id:'show_s1',         label:"Step 4: the shifted curve S'" },
+    { id:'show_arrows',     label:'Step 4: shift arrows' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', params:'Pricing', readout:'Breakdown' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['params','readout'],
+  nudgeKeys: ['x','y','s','s1','an.P0','an.Q0','an.P1','an.cost','an.plus','an.profit','an.newcost','an.sameprofit'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, xMax, yMax } = g;
+    const q = val('q'), profit = val('profit'), dp = val('dp_s');
+    const p0 = INTERCEPT + SLOPE * q, cost = p0 - profit, p1 = p0 + dp, newCost = cost + dp;
+    const showNew = vis('show_newpoint'), showS1 = vis('show_s1');
+    const axisY = tCY(0), px = tCX(q);
+
+    // ---- Side panel ----
+    const row = (k, v, hi) => `<div class="info-row"><span class="info-label">${k}</span><span class="info-value${hi ? ' highlight' : ''}">${v}</span></div>`;
+    g.setText('readout',
+      row('Cost of production', fmtP(cost)) + row('Desired profit', fmtP(profit)) + row('Price P₀', fmtP(p0), true) +
+      row('Cost increase', fmtP(dp)) + row('New cost of production', fmtP(newCost)) + row('New price P₁', fmtP(p1), true));
+
+    // ---- Plot ----
+    g.clear();
+    g.axes(BLUE);
+    g.axisLabels('Quantity Supplied', 'Price');
+
+    // Dashed lines from the point(s) to the axes
+    if (vis('show_droplines')) {
+      g.dashed(x0, tCY(p0), px, tCY(p0), PINK, 2);
+      g.dashed(px, tCY(p0), px, axisY, PINK, 2);
+      if (showNew) {
+        g.dashed(x0, tCY(p1), px, tCY(p1), PINK, 2);
+        g.dashed(px, tCY(p1), px, tCY(p0), PINK, 2);
+      }
+    }
+
+    // Step 1: arrows showing how the price is read off the curve
+    if (vis('show_readarrows')) {
+      g.drawArrow(px + 22 * S, tCY(p0 * 0.25), px + 22 * S, tCY(p0 * 0.6), INK);
+      g.drawArrow(tCX(q * 0.55), tCY(p0) - 16 * S, tCX(q * 0.2), tCY(p0) - 16 * S, INK);
+    }
+
+    // Curves
+    // Each curve is a short segment around the point, as in the book's
+    // figures, clipped so the shifted one stays inside the plot area.
+    const qFrom = q - 0.9;
+    const qEnd = dpv => Math.min(q + 2.8, xMax - 0.4, (yMax - 0.15 - INTERCEPT - dpv) / SLOPE);
+    const line = dpv => { const qt = qEnd(dpv); ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+      ctx.moveTo(tCX(qFrom), tCY(INTERCEPT + dpv + SLOPE * qFrom)); ctx.lineTo(tCX(qt), tCY(INTERCEPT + dpv + SLOPE * qt)); ctx.stroke(); };
+    line(0);
+    if (showS1) line(dp);
+    if (vis('show_curvelabel')) {
+      const big = { font:`bold ${18 * S}px ${g.font}`, color:BLUE, align:'left' };
+      g.label('S', tCX(qEnd(0)) + 10 * S, tCY(INTERCEPT + SLOPE * qEnd(0)) + 6 * S, { key:'s', ...big });
+      if (showS1) g.label("S'", tCX(qEnd(dp)) + 10 * S, tCY(INTERCEPT + dp + SLOPE * qEnd(dp)) + 6 * S, { key:'s1', ...big });
+    }
+
+    // Step 4: arrows from S up to S'
+    if (showS1 && vis('show_arrows') && dp > 0.05) {
+      [q + 0.8, q + 1.3].forEach(qq => {
+        const yb = tCY(INTERCEPT + SLOPE * qq), yt = tCY(INTERCEPT + dp + SLOPE * qq);
+        g.drawArrow(tCX(qq), yb - 10 * S, tCX(qq), yt + 12 * S, INK);
+      });
+    }
+
+    // Points
+    const dot = (x, y) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(x, y, 8 * S, 0, Math.PI * 2); ctx.fill(); };
+    dot(px, tCY(p0));
+    if (showNew) dot(px, tCY(p1));
+
+    // Axis letters
+    if (vis('show_labels')) {
+      const f = { font:`bold ${17 * S}px ${g.font}`, color:BLUE };
+      g.label('P₀', x0 - 14 * S, tCY(p0) + 6 * S, { key:'an.P0', align:'right', ...f });
+      g.label('Q₀', px, axisY + 30 * S, { key:'an.Q0', align:'center', ...f });
+      if (showNew) g.label('P₁', x0 - 14 * S, tCY(p1) + 6 * S, { key:'an.P1', align:'right', ...f });
+    }
+
+    // Step 2: braces to the right of the vertical line, cost below profit
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    const lf = { font:`${15 * S}px ${g.font}`, color:BLUE, align:'left' };
+    if (vis('show_breakdown')) {
+      const bx = px + 16 * S, tx = bx + 30 * S;
+      brace(ctx, bx, tCY(p0), tCY(cost), 1, S);
+      brace(ctx, bx, tCY(cost), axisY, 1, S);
+      g.label('Desired profit', tx, (tCY(p0) + tCY(cost)) / 2 + 5 * S, { key:'an.profit', ...lf });
+      g.label('+', tx + 50 * S, tCY(cost) + 6 * S, { key:'an.plus', font:`bold ${17 * S}px ${g.font}`, color:BLUE, align:'left' });
+      g.label('Cost of production', tx, (tCY(cost) + axisY) / 2 + 5 * S, { key:'an.cost', ...lf });
+    }
+
+    // Step 3: braces to the left of the vertical line for the new price
+    if (showNew) {
+      const bx = px - 16 * S, tx = bx - 40 * S;
+      brace(ctx, bx, tCY(p1), tCY(newCost), -1, S);
+      brace(ctx, bx, tCY(newCost), axisY, -1, S);
+      const rf = { font:`${15 * S}px ${g.font}`, color:BLUE, align:'right', lineH:18 * S };
+      g.label('Same desired\nprofit', tx, (tCY(p1) + tCY(newCost)) / 2 - 4 * S, { key:'an.sameprofit', ...rf });
+      g.label('New higher\ncost', tx, (tCY(newCost) + axisY) / 2 - 4 * S, { key:'an.newcost', ...rf });
+    }
+  },
+});
+</script>
+</body>
+</html>

@@ -175,7 +175,7 @@ prevailing market price. In contrast, the demand curve, as faced by a
 monopolist, is the market demand curve, since a monopolist is the only
 firm in the market, and hence is downward sloping.
 
-![](media/10-1-monopolistic-competition_rId33.jpeg){width="6.5in" height="2.305in" #fig-10_2}
+{{< appfig three_perceived_demands_1 id="fig-10_2" >}}
 
 Figure 10.2 Perceived Demand for Firms in Different Competitive Settings
 The demand curve that a perfectly competitive firm faces is perfectly
@@ -262,7 +262,7 @@ restaurants, it has a differentiated product. The firm's perceived
 demand curve is downward sloping, as [Figure 10.3](#fig-10_3)
 shows and the first two columns of @tbl-table_10_1.
 
-![](media/10-1-monopolistic-competition_rId40.jpeg){width="4.88in" height="2.755in" #fig-10_3}
+{{< appfig pizza_profit_1 id="fig-10_3" >}}
 
 Figure 10.3 How a Monopolistic Competitor Chooses its Profit Maximizing
 Output and Price To maximize profits, the Authentic Chinese Pizza shop
@@ -388,7 +388,7 @@ price P~0~. The combination of price P~0~ and quantity Q~0~ lies above
 the average cost curve, which shows that the firm is earning positive
 economic profits.
 
-![](media/10-1-monopolistic-competition_rId47.jpeg){width="6.5in" height="2.68in" #fig-10_4}
+{{< appfig entry_exit_1 id="fig-10_4" >}}
 
 Figure 10.4 Monopolistic Competition, Entry, and Exit (a) At P~0~ and
 Q~0~, the monopolistically competitive firm in this figure is making a
@@ -894,7 +894,7 @@ which the cartel successfully manages to hold down output, increase
 price, and share a monopoly level of profits even without any legally
 enforceable agreement.
 
-![](media/10-2-oligopoly_rId51.jpeg){width="3.25in" height="2.465in" #fig-10_5}
+{{< appfig kinked_demand_1 id="fig-10_5" >}}
 
 Figure 10.5 A Kinked Demand Curve Consider a member firm in an oligopoly
 cartel that is supposed to produce a quantity of 10,000 and sell at a

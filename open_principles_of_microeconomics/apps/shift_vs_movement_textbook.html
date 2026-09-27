@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifts versus Movements along a Curve</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Shifts of Demand or Supply versus Movements along a Curve</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Lee's reasoning about a drought in the wheat market: one shift is right, two are mistakes. A change in a good's own price never shifts its demand or supply curve.</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Lee's Three Shifts</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1100"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Lee's Reasoning, and the Answer</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Asked whether a drought raises or lowers the equilibrium price and quantity of wheat, Lee reasons: a drought reduces supply, so shift the supply curve back from S₀ to S₁ (<strong>Shift 1</strong>); the equilibrium moves from E₀ to E₁, quantity lower and price higher. Then a higher price makes farmers more willing to supply, so supply shifts right from S₁ to S₂ (<strong>Shift 2</strong>) and the equilibrium moves to E₂. The higher price also reduces demand, so demand shifts back from D₀ to D₁ (<strong>Shift 3</strong>) and the equilibrium moves to E₃.</p>
+          <p><strong>Answer.</strong> Shift 1 is correct: the drought shifts supply back, and the move from E₀ to E₁ is a movement <em>along</em> the original demand curve D₀. The rest is wrong, because it mixes up shifts in supply with quantity supplied and shifts in demand with quantity demanded. A higher or lower price never shifts the supply curve (Shift 2) or the demand curve (Shift 3); a price change is a movement along a given curve. A change in the price of a good never causes the demand or supply curve for that good to shift.</p>
+          <p>Think about the timeline: what happens first, what is cause and what is effect. Turn Shift 2 and Shift 3 off to see the correct analysis on its own.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Lee's Shifts</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-verdict">
+        <div class="control-panel-header" onclick="tog('verdict')"><div class="panel-title">Right or Wrong?</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-verdict" onclick="event.stopPropagation();tog('verdict')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('verdict')">✕</button></div></div>
+        <div class="control-panel-body" id="body-verdict">
+          <table class="data-table">
+            <thead><tr><th>Step</th><th>Claim</th><th>Verdict</th></tr></thead>
+            <tbody>
+              <tr><td>Shift 1</td><td style="text-align:left">Drought reduces supply: S₀ to S₁</td><td style="color:#38a169;font-weight:600">Correct</td></tr>
+              <tr><td>Shift 2</td><td style="text-align:left">Higher price shifts supply right: S₁ to S₂</td><td style="color:#e53e3e;font-weight:600">Wrong</td></tr>
+              <tr><td>Shift 3</td><td style="text-align:left">Higher price shifts demand back: D₀ to D₁</td><td style="color:#e53e3e;font-weight:600">Wrong</td></tr>
+            </tbody>
+          </table>
+          <p style="margin:10px 0 0;font-size:.85rem;color:#718096">A price change moves the market along a curve; it does not shift the curve.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 3.20 of the book, the Clear It Up on shifts versus movements: Lee's
+// three shifts drawn as the book draws them, straight parallel curves with
+// no numbers, E0 to E3, and an arrow with a "Shift n" label for each step.
+// Shift 2 and Shift 3 are the mistakes; each can be switched off so the
+// correct first step stands alone.
+const BLUE = '#2b6cb0', INK = '#1a202c';
+const D_INT = 9, D_SLOPE = -0.8, S_INT = -2, S_SLOPE = 1.1;    // D0: 9 - 0.8q, S0: 1.1q - 2
+const line = (int, slope, dq) => ({ at: q => int + slope * (q - dq), inv: p => dq + (p - int) / slope });
+const crossL = (a, b) => { const q = (b.at(0) - a.at(0)) / ((a.at(1) - a.at(0)) - (b.at(1) - b.at(0))); return { q, p: a.at(q) }; };
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'shift_vs_movement.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:110, bottom:130, left:150} },
+  sliders: [
+    { id:'dq_s1', label:'Shift 1: S₀ to S₁ (the drought)',     min:-4, max:0, value:-2.4, step:0.1, fmt:v => v.toFixed(1) },
+    { id:'dq_s2', label:'Shift 2: S₁ to S₂ (Lee\'s mistake)',   min:0,  max:4, value:1.2,  step:0.1, fmt:v => '+' + v.toFixed(1) },
+    { id:'dq_d1', label:'Shift 3: D₀ to D₁ (Lee\'s mistake)',   min:-4, max:0, value:-1.8, step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_shift2',     label:'Shift 2 (S₂ and E₂)' },
+    { id:'show_shift3',     label:'Shift 3 (D₁ and E₃)' },
+    { id:'show_arrows',     label:'Shift arrows and labels' },
+    { id:'show_labels',     label:'E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Reasoning', shifts:'Shifts', verdict:'Verdict' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','verdict'],
+  nudgeKeys: ['x','y','d0','d1','s0','s1','s2','pt.E0','pt.E1','pt.E2','pt.E3','an.shift1','an.shift2','an.shift3'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, xMax, yMax } = g;
+    const show2 = vis('show_shift2'), show3 = vis('show_shift3');
+    const dqs1 = val('dq_s1'), dqs2 = dqs1 + val('dq_s2'), dqd = val('dq_d1');
+    const D0 = line(D_INT, D_SLOPE, 0), D1 = line(D_INT, D_SLOPE, dqd);
+    const S0 = line(S_INT, S_SLOPE, 0), S1 = line(S_INT, S_SLOPE, dqs1), S2 = line(S_INT, S_SLOPE, dqs2);
+    const e0 = crossL(D0, S0), e1 = crossL(D0, S1), e2 = show2 ? crossL(D0, S2) : null, e3 = show2 && show3 ? crossL(D1, S2) : null;
+
+    g.clear();
+    g.axes(BLUE);
+    g.axisLabels('Quantity', 'Price');
+
+    // Straight curves clipped to the plot area
+    const pTop = yMax * 0.93, pBot = 0.6;
+    const seg = (L, key, name, isD) => {
+      let qa = Math.max(0.3, L.inv(isD ? pTop : pBot)), qb = Math.min(xMax - 0.3, L.inv(isD ? pBot : pTop));
+      if (qb <= qa) return;
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+      ctx.moveTo(tCX(qa), tCY(L.at(qa))); ctx.lineTo(tCX(qb), tCY(L.at(qb))); ctx.stroke();
+      if (!vis('show_curvelabel')) return;
+      const f = { key, font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      if (isD) g.label(name, tCX(qb) + 10 * S, tCY(L.at(qb)) + 6 * S, f);
+      else g.label(name, tCX(qb) + 4 * S, tCY(L.at(qb)) - 10 * S, { ...f, align:'center' });
+    };
+    seg(D0, 'd0', 'D₀', true);
+    if (show3) seg(D1, 'd1', 'D₁', true);
+    seg(S0, 's0', 'S₀', false);
+    seg(S1, 's1', 'S₁', false);
+    if (show2) seg(S2, 's2', 'S₂', false);
+
+    // Shift arrows with their labels, between the curve each step starts from and ends on
+    if (vis('show_arrows')) {
+      const shift = (A, B, p, key, txt) => {
+        const a = A.inv(p), b = B.inv(p), gp = 9 * S * Math.sign(a - b || 1);
+        if (Math.min(a, b) < 0.3 || Math.max(a, b) > xMax - 0.3 || Math.abs(tCX(a) - tCX(b)) < 30 * S) return;
+        g.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
+        // Label near the arrow's tip, above it, as the book places them
+        g.label(txt, tCX(b) * 0.65 + tCX(a) * 0.35, tCY(p) - 12 * S, { key, font:`${15 * S}px ${g.font}`, color:BLUE, align:'center' });
+      };
+      shift(S0, S1, e1.p + 1.4, 'an.shift1', 'Shift 1');
+      if (show2) shift(S1, S2, e2.p + 0.3, 'an.shift2', 'Shift 2');
+      if (show3) shift(D0, D1, e0.p - 1.6, 'an.shift3', 'Shift 3');
+    }
+
+    [[e0, '0'], [e1, '1'], [e2, '2'], [e3, '3']].forEach(([e, n]) => {
+      if (!e) return;
+      const ex = tCX(e.q), ey = tCY(e.p);
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(ex, ey, 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (!vis('show_labels')) return;
+      const f = { key:'pt.E' + n, font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      // E1 goes up and to the left of its dot, clear of the Shift 2 arrow
+      if (n === '1') g.label('E₁', ex - 8 * S, ey - 12 * S, { ...f, align:'right' });
+      else g.label('E' + { '0':'₀', '2':'₂', '3':'₃' }[n], ex + 8 * S, ey - 12 * S, f);
+    });
+  },
+});
+</script>
+</body>
+</html>

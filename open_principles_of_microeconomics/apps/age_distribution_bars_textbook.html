@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Same Population Data in Three Kinds of Bar Graph</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Same Population Data in Three Kinds of Bar Graph</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Separate bars, stacked bars and stacked percentages answer three different questions from one table</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Three Ways to Draw It</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="2000" height="1700"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>All three panels hold the same numbers. Panel (a) gives each age group its own bar, which is the arrangement to use when the question is how one group compares with another. Panel (b) stacks the groups into a single bar for each year, so the height is the whole population and the question becomes how the total is built up. Panel (c) stacks them again but scales every bar to the same height, so only the shares remain.</p>
+          <p>Reading across the three panels shows what each choice hides. Panel (a) makes the growth of the working-age group obvious but says nothing about the total; panel (c) makes the rising share of the over-65s obvious but conceals that every group is growing in absolute numbers. The slider picks out one year across all three panels at once.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-bars">
+        <div class="control-panel-header" onclick="tog('bars')"><div class="panel-title">The Numbers</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-bars" onclick="event.stopPropagation();tog('bars')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('bars')">✕</button></div></div>
+        <div class="control-panel-body" id="body-bars"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+
+// Table A4 of the appendix: U.S. population by age group, in millions.
+const YEARS = [1970, 2000, 2030];
+const GROUPS = ['19 and under', '20–64 years', 'Over 65'];
+const COUNTS = [[77.2, 107.7, 20.1], [78.4, 162.2, 34.8], [92.6, 188.2, 70.3]];
+const TOTALS = [205.0, 275.4, 351.1];
+const FILLS = ['#9c1f5f', '#f6c765', '#2f6fb5'];
+const share = (y, k) => COUNTS[y][k] / TOTALS[y] * 100;
+
+// Figure A8 of the book: (a) separate bars, (b) stacked counts, (c) stacked
+// percentages. The book's own panel (a) draws the 1970 and 2000 bars for the
+// 20-64 group at the same height though its labels differ; these are drawn
+// to the table.
+const S0 = 2;
+const GAP = 160, PW = (2000 - GAP) / 2;
+const MG = { top:60, right:90, bottom:200, left:190 };
+const AXES = [
+  { xMin:0, xMax:3, yMin:0, yMax:200, margin:MG, left:0,        top:0,   width:PW, height:760 },
+  { xMin:0, xMax:3, yMin:0, yMax:400, margin:MG, left:PW + GAP, top:0,   width:PW, height:760 },
+  { xMin:0, xMax:3, yMin:0, yMax:100, margin:MG, left:PW * 0.5, top:820, width:PW, height:760 },
+];
+const CAPS = ['(a) Bars for separate age groups',
+              '(b) Bars show total population divided into age groups',
+              '(c) Bars show total population divided into percentages'];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'age_distribution_bars.png',
+  axes: AXES,
+  sliders: [
+    { id:'pick', label:'Year to pick out', min:0, max:3, value:0, step:1, fmt:v => v ? YEARS[v - 1] : 'none' },
+  ],
+  toggles: [
+    { id:'show_values',   label:'The number on each bar' },
+    { id:'show_captions', label:'Panel captions' },
+    { id:'show_legend',   label:'Legend' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graphs', explanation:'Explanation', bars:'The Numbers' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['bars'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','x.c','y.c','cap.a','cap.b','cap.c','lg'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const pick = val('pick');
+    g.setText('info', YEARS.map((y, i) =>
+      `<div class="info-row"><span class="info-label">${y}</span><span class="info-value${pick === i + 1 ? ' highlight' : ''}">${COUNTS[i].map(v => v.toFixed(1)).join(', ')} million</span></div>`).join('')
+      + YEARS.map((y, i) =>
+        `<div class="info-row"><span class="info-label">${y} shares</span><span class="info-value">${COUNTS[i].map((v, k) => share(i, k).toFixed(1) + '%').join(', ')}</span></div>`).join(''));
+
+    g.clear();
+    const dim = i => pick && pick !== i + 1;
+    const tag = ['a', 'b', 'c'];
+
+    [0, 1, 2].forEach(pi => {
+      const pan = g.panel(pi), { x0, y0, width, height, tCY } = pan;
+      const yMax = [200, 400, 100][pi];
+      const step = [20, 50, 20][pi];
+      const ys = []; for (let v = 0; v <= yMax; v += step) ys.push(v);
+      frame(g, pan, { tag:tag[pi], xTicks:[], yTicks:ys, fmtX:v => v,
+        fmtY:v => pi === 2 ? v.toFixed(1) : v,
+        xLabel:'Time Period (year)', yLabel: pi === 2 ? 'Share of People (%)' : 'Number of People (millions)' });
+
+      const slot = width / 3;
+      YEARS.forEach((year, yi) => {
+        const cx = x0 + slot * (yi + 0.5);
+        const alpha = dim(yi) ? 0.35 : 1;
+        ctx.globalAlpha = alpha;
+        if (pi === 0) {
+          const bw = slot * 0.2;
+          GROUPS.forEach((grp, k) => {
+            const bx = cx + (k - 1) * bw * 1.12 - bw / 2, v = COUNTS[yi][k];
+            ctx.fillStyle = FILLS[k]; ctx.fillRect(bx, tCY(v), bw, y0 + height - tCY(v));
+            ctx.strokeStyle = '#3d6fb5'; ctx.lineWidth = 1.2 * S; ctx.strokeRect(bx, tCY(v), bw, y0 + height - tCY(v));
+            if (vis('show_values')) {
+              ctx.fillStyle = BLUE; ctx.font = `${14 * S}px ${g.font}`; ctx.textAlign = 'center';
+              ctx.fillText(v.toFixed(1), bx + bw / 2, tCY(v) - 10 * S);
+            }
+          });
+        } else {
+          const bw = slot * 0.42;
+          let base = 0;
+          GROUPS.forEach((grp, k) => {
+            const v = pi === 1 ? COUNTS[yi][k] : share(yi, k);
+            ctx.fillStyle = FILLS[k];
+            ctx.fillRect(cx - bw / 2, tCY(base + v), bw, tCY(base) - tCY(base + v));
+            ctx.strokeStyle = '#3d6fb5'; ctx.lineWidth = 1.2 * S;
+            ctx.strokeRect(cx - bw / 2, tCY(base + v), bw, tCY(base) - tCY(base + v));
+            if (vis('show_values')) {
+              // White reads on the maroon and blue bands, ink on the yellow one
+              ctx.fillStyle = k === 1 ? INK : '#fff';
+              ctx.font = `${15 * S}px ${g.font}`; ctx.textAlign = 'center';
+              ctx.fillText(v.toFixed(1), cx, (tCY(base) + tCY(base + v)) / 2 + 6 * S);
+            }
+            base += v;
+          });
+        }
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = BLUE; ctx.font = `${16 * S}px ${g.font}`; ctx.textAlign = 'center';
+        ctx.fillText(year, cx, y0 + height + 34 * S);
+      });
+
+      if (vis('show_captions'))
+        g.label(CAPS[pi], x0 + width / 2, y0 + height + 140 * S,
+          { key:'cap.' + tag[pi], align:'center', font:`${17 * S}px ${g.font}`, color:BLUE });
+    });
+
+    if (vis('show_legend')) {
+      const nd = g.getNudge('lg'), bx = 1380 + nd.dx, by = 1080 + nd.dy;
+      const bw = 300 * S, bh = 130 * S;
+      ctx.fillStyle = '#fff'; ctx.fillRect(bx, by, bw, bh);
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 1.5 * S; ctx.strokeRect(bx, by, bw, bh);
+      GROUPS.forEach((grp, k) => {
+        ctx.fillStyle = FILLS[k]; ctx.fillRect(bx + 20 * S, by + (20 + 38 * k) * S, 30 * S, 26 * S);
+        ctx.strokeStyle = '#3d6fb5'; ctx.lineWidth = 1 * S; ctx.strokeRect(bx + 20 * S, by + (20 + 38 * k) * S, 30 * S, 26 * S);
+        ctx.fillStyle = BLUE; ctx.font = `${18 * S}px ${g.font}`; ctx.textAlign = 'left';
+        ctx.fillText(grp, bx + 64 * S, by + (40 + 38 * k) * S);
+      });
+      g.regLabel('lg', bx, by, bw, bh);
+    }
+  },
+});
+</script>
+</body>
+</html>

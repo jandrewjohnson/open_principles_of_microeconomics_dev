@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tradeoff between Incentives and Economic Equality</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Tradeoff between Incentives and Economic Equality</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">On the pessimistic view every step toward equality costs output; on the alternative view the first steps buy both</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Two Views of the Tradeoff</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1800" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Panel (a) is the pessimistic view. Redistribution always blunts incentives, so moving from A toward B buys equality only by giving up output. On this view the only question is how much output a society is willing to trade away.</p>
+          <p>Panel (b) allows that the first steps may buy both. Public education redistributes, since what children of low-income families receive is worth more than their families pay in taxes, but it also produces the skilled workers an economy needs, so moving from C to D raises output as well as equality. Going from D to E costs almost nothing in output. Only past that, at F, does the familiar tradeoff bite. The slider moves the highlighted point along whichever curve is shown.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-view">
+        <div class="control-panel-header" onclick="tog('view')"><div class="panel-title">The Curve</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-view" onclick="event.stopPropagation();tog('view')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('view')">✕</button></div></div>
+        <div class="control-panel-body" id="body-view"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+// Years leaning up to the right, the way the book sets them under a crowded axis
+const leaned = (g, txt, x, y, size) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${(size || 13) * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+// A series name with a leader line back to its curve, as the book labels these
+const called = (g, txt, key, lx, ly, tx, ty, align) => {
+  const nd = g.getNudge(key), ax = lx + nd.dx, ay = ly + nd.dy;
+  g.drawArrow(ax + (align === 'right' ? 10 : -10) * g.S, ay - 5 * g.S, tx, ty, INK);
+  g.label(txt, lx, ly, { key, align, font:`${15 * g.S}px ${g.font}`, color:BLUE });
+};
+
+// Figure 15.10 of the book: two panels of unnumbered axes. In (a) output
+// falls from the start; in (b) it rises to a plateau before falling away.
+const S0 = 2;
+const GAP = 140 * S0, PW = (1800 - GAP) / 2;
+const MG = { top:60, right:80, bottom:220, left:190 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:PW + GAP, width:PW },
+];
+// (a) a quarter ellipse from the top left; (b) the same shape lifted into a hill
+const curveA = x => 8.4 * Math.pow(Math.max(0, 1 - Math.pow(x / 8.6, 1.7)), 1 / 1.7);
+const curveB = x => 8.4 * Math.pow(Math.max(0, 1 - Math.pow(Math.max(0, x - 3.2) / 5.6, 2.2)), 1 / 2.2) * (x < 3.2 ? 0.86 + 0.14 * (x / 3.2) ** 0.7 : 1);
+const PANELS = [
+  { id:'a', fn:curveA, pts:[['A', 2.2], ['B', 7.2]], caption:'(a) Greater equality always reduces output' },
+  { id:'b', fn:curveB, pts:[['C', 1.5], ['D', 3.0], ['E', 4.6], ['F', 7.6]], caption:'(b) Equality and output rise together but then face a tradeoff' },
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'equality_output_tradeoff.png',
+  axes: AXES,
+  sliders: [
+    { id:'spot', label:'Point to highlight', min:1, max:4, value:1, step:1, fmt:v => 'the ' + ['first', 'second', 'third', 'fourth'][v - 1] + ' point on each curve' },
+  ],
+  toggles: [
+    { id:'show_points',   label:'Lettered points' },
+    { id:'show_captions', label:'Panel captions' },
+    { id:'show_pick',     label:'Highlight the chosen point', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', view:'Curve' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['view'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','pt.A','pt.B','pt.C','pt.D','pt.E','pt.F'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const spot = val('spot');
+    g.setText('info', PANELS.map(P => {
+      const p = P.pts[Math.min(spot, P.pts.length) - 1];
+      return `<div class="info-row"><span class="info-label">(${P.id}) point ${p[0]}</span><span class="info-value${spot <= P.pts.length ? ' highlight' : ''}">equality ${p[1].toFixed(1)}, output ${P.fn(p[1]).toFixed(1)}</span></div>`;
+    }).join('') + `<div class="info-row"><span class="info-label">In (b), moving from C to D</span><span class="info-value">${(curveB(3.0) - curveB(1.5)).toFixed(2)} more output as well</span></div>`);
+
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i), { x0, y0, width, height, tCX, tCY, bottom } = pan;
+      pan.axes(BLUE);
+      pan.axisLabels(null, 'Economic Output', P.id);
+      pan.label('Equality', x0 + width / 2, y0 + height + 62 * S, { key:'x.' + P.id, font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      // Each curve runs from the vertical axis to where it meets the horizontal one
+      let end = 9.6; while (end > 1 && P.fn(end) < 0.02) end -= 0.02;
+      pan.plotFn(P.fn, 0.05, end, { color:BLUE, lw:2 });
+      if (vis('show_points')) P.pts.forEach(([n, x], k) => {
+        const on = vis('show_pick') && k === Math.min(spot, P.pts.length) - 1;
+        ctx.fillStyle = on ? '#38a169' : BLUE; ctx.beginPath(); ctx.arc(tCX(x), tCY(P.fn(x)), (on ? 9 : 7) * S, 0, Math.PI * 2); ctx.fill();
+        pan.label(n, tCX(x) + 14 * S, tCY(P.fn(x)) - 14 * S, { key:'pt.' + n, font:`${16 * S}px ${g.font}`, color: on ? '#38a169' : BLUE });
+      });
+      if (vis('show_captions')) pan.label(P.caption, pan.left + 30 * S, bottom - 20 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+    });
+  },
+});
+</script>
+</body>
+</html>

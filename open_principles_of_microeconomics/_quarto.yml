@@ -8,8 +8,12 @@ project:
     - apps/
     - figures/
 
+# Reuse cached chunk output unless the chapter's source changed. The cache
+# lives in _freeze/ and is committed, so a build that touches no Python
+# chapter starts no Jupyter kernel.
+execute:
+  freeze: auto
 
-  
 book:
   title: "Open Principles of Microeconomics"
   author: "Justin Johnson, adapted from OpenStax.org's Principles of Microeconomics"

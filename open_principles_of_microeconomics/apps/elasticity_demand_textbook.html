@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculating the Price Elasticity of Demand</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Calculating the Price Elasticity of Demand</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Along a straight-line demand curve the slope never changes, but the elasticity does. Click a point to see the elasticity to the next point up the curve.</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. A Straight-Line Demand Curve</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Price elasticity of demand is the percentage change in quantity divided by the percentage change in price, with both percentages taken by the <strong>midpoint method</strong>: the change divided by the average of the two values. That way the elasticity between two points is the same whether the price rises or falls.</p>
+          <p>From B to A the price falls from $70 to $60, a 15.4% change, while quantity rises from 2,800 to 3,000, a 6.9% change, so the elasticity is 0.45: <strong>inelastic</strong>. From G to H the price rises from $120 to $130, an 8% change, while quantity falls from 1,800 to 1,600, an 11.76% change, so the elasticity is 1.47: <strong>elastic</strong>. Demand is inelastic at the bottom of this straight line and elastic at the top. Elasticity changes along a straight-line demand curve even though its slope does not.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-table">
+        <div class="left-section-header" onclick="tog('table')"><div class="panel-title">Elasticity Between Neighboring Points</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-table" onclick="event.stopPropagation();tog('table')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('table')">✕</button></div></div>
+        <div class="left-section-body" id="body-table">
+          <table class="data-table"><thead><tr><th>Segment</th><th>% change in Q</th><th>% change in P</th><th>Elasticity</th><th></th></tr></thead><tbody id="elas-tbody"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shift">
+        <div class="control-panel-header" onclick="tog('shift')"><div class="panel-title">Demand Curve</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shift" onclick="event.stopPropagation();tog('shift')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shift')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shift" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-selected">
+        <div class="control-panel-header" onclick="tog('selected')"><div class="panel-title">Selected Point</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-selected" onclick="event.stopPropagation();tog('selected')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('selected')">✕</button></div></div>
+        <div class="control-panel-body" id="body-selected"><div class="info-box" id="selected-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 5.2 of the book: eight points A to H on a straight demand line,
+// each with its coordinates, and braces on the two segments the text
+// works through (A to B, G to H). Points are clickable: the selected point
+// reports the midpoint elasticity to the next point up the curve.
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+const BASE = LETTERS.map((L, i) => ({ L, q: 3000 - 200 * i, p: 60 + 10 * i }));
+const pct = (a, b) => (b - a) / ((a + b) / 2) * 100;
+const fmtQ = v => Math.round(v).toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'elasticity_demand.png',
+  axes: { xMin:1500, xMax:3000, yMin:40, yMax:150, margin:{top:70, right:120, bottom:130, left:160} },
+  sliders: [
+    { id:'dq_d', label:'Shift of demand', min:-400, max:400, value:0, step:50, fmt:v => (v > 0 ? '+' : '') + v },
+  ],
+  toggles: [
+    { id:'show_grid',   label:'Gridlines' },
+    { id:'show_annot',  label:'Coordinates' },
+    { id:'show_labels', label:'Point letters' },
+    { id:'show_braces', label:'Braces on A to B and G to H' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', table:'Table', shift:'Demand', selected:'Selected' },
+  leftPanels:  ['graph','explanation','table'],
+  rightPanels: ['shift','selected'],
+  nudgeKeys: ['x','y', ...LETTERS.map(L => 'pt.' + L), ...LETTERS.map(L => 'an.' + L), 'an.AB', 'an.GH'],
+
+  pointTooltip(key, g) {
+    const p = BASE.find(b => b.L === key); if (!p) return '';
+    return `<div class="tt-label">Point ${key}</div><div class="tt-row"><span class="tt-key">Q:</span><span class="tt-val">${fmtQ(p.q + g.val('dq_d'))}</span></div><div class="tt-row"><span class="tt-key">P:</span><span class="tt-val">$${p.p}</span></div>`;
+  },
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis } = g;
+    const pts = BASE.map(b => ({ ...b, q: b.q + val('dq_d') }));
+    const rows = [];
+    for (let i = 0; i < pts.length - 1; i++) {
+      const a = pts[i], b = pts[i + 1];
+      const dq = pct(a.q, b.q), dp = pct(a.p, b.p), e = Math.abs(dq / dp);
+      rows.push({ a, b, dq, dp, e });
+    }
+    const badge = e => e > 1.01 ? '<span style="color:#e53e3e;font-weight:600">elastic</span>' : e < 0.99 ? '<span style="color:#38a169;font-weight:600">inelastic</span>' : '<span style="color:#d69e2e;font-weight:600">unit elastic</span>';
+    g.setText('elas-tbody', rows.map(r =>
+      `<tr${g.selected === r.a.L ? ' class="selected"' : ''} onclick="selectPoint('${r.a.L}')" style="cursor:pointer"><td>${r.a.L} to ${r.b.L}</td><td>${r.dq.toFixed(1)}%</td><td>${r.dp.toFixed(1)}%</td><td>${r.e.toFixed(2)}</td><td>${badge(r.e)}</td></tr>`).join(''));
+    const selRow = rows.find(r => r.a.L === g.selected);
+    g.setText('selected-info', selRow
+      ? `<div class="info-row"><span class="info-label">From ${selRow.a.L} (${fmtQ(selRow.a.q)}, $${selRow.a.p}) to ${selRow.b.L} (${fmtQ(selRow.b.q)}, $${selRow.b.p})</span></div>` +
+        `<div class="info-row"><span class="info-label">% change in quantity</span><span class="info-value">${selRow.dq.toFixed(1)}%</span></div>` +
+        `<div class="info-row"><span class="info-label">% change in price</span><span class="info-value">${selRow.dp.toFixed(1)}%</span></div>` +
+        `<div class="info-row"><span class="info-label">Elasticity</span><span class="info-value highlight">${selRow.e.toFixed(2)}</span></div>`
+      : '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Click a point (A to G) on the graph or a row in the table</div>');
+
+    g.clear();
+    if (vis('show_grid')) g.gridlines(500, 30);
+    g.axes();
+    g.xTicks([1500, 2000, 2500, 3000], fmtQ);
+    g.yTicks([40, 60, 90, 120, 150], v => '$' + v);
+    g.axisLabels('Q', 'P');
+
+    g.curve(pts, '#2b6cb0', 1, 2);
+    pts.forEach((p, i) => {
+      const x = tCX(p.q), y = tCY(p.p);
+      ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill();
+      if (g.selected === p.L) { ctx.strokeStyle = '#e53e3e'; ctx.lineWidth = 2.5 * S; ctx.beginPath(); ctx.arc(x, y, 11 * S, 0, Math.PI * 2); ctx.stroke(); }
+      g.regPoint(p.L, x, y, 6 * S);
+      const high = i >= 4;
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:'#2b6cb0' };
+      const af = { font:`${14 * S}px ${g.font}`, color:'#2b6cb0' };
+      // Lower points: letter above left, coordinates below left. Upper points:
+      // letter and coordinates together above right, as the book lays them out.
+      if (vis('show_labels')) g.label(p.L, x + (high ? 12 : -14) * S, y + (high ? -12 : -14) * S, { key:'pt.' + p.L, align: high ? 'left' : 'center', ...f });
+      if (vis('show_annot')) g.label(`(${fmtQ(p.q)},${p.p})`, x + (high ? 40 : 0) * S, y + (high ? -12 : 30) * S, { key:'an.' + p.L, align: high ? 'left' : 'center', ...af });
+    });
+
+    if (vis('show_braces')) {
+      const A = pts[0], B = pts[1], G = pts[6], H = pts[7];
+      // Above the A to B segment, below the G to H segment
+      const off = 22 * S;
+      const nAB = g.getNudge('an.AB');
+      g.brace(tCX(B.q) + nAB.dx, tCY(B.p) - off + nAB.dy, tCX(A.q) + nAB.dx, tCY(A.p) - off + nAB.dy, { depth: 12 * S, flip: true });
+      g.regLabel('an.AB', tCX(B.q) + nAB.dx - 6 * S, tCY(B.p) - off - 30 * S + nAB.dy, tCX(A.q) - tCX(B.q) + 12 * S, 34 * S);
+      const nGH = g.getNudge('an.GH');
+      g.brace(tCX(H.q) + nGH.dx, tCY(H.p) + off + nGH.dy, tCX(G.q) + nGH.dx, tCY(G.p) + off + nGH.dy, { depth: 12 * S });
+      g.regLabel('an.GH', tCX(H.q) + nGH.dx - 6 * S, tCY(H.p) + off + nGH.dy, tCX(G.q) - tCX(H.q) + 12 * S, 34 * S);
+    }
+  },
+});
+</script>
+</body>
+</html>

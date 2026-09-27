@@ -1,6 +1,6 @@
 # 1. Introduction {#sec-chapter-1}
 
-![](images/cell-2-output-1.png){width="761"}
+{{< appfig market_shifts_1 >}}
 
 Economics has a powerful set of tools, many of which can be expressed by powerful images. You might have heard of supply and demand. You will learn in this book that in certain situations, economics can make accurate predictions about complex human behavior. We will learn tools that will help you analyze real-life changes, like what would happen when a pandemic disrupts our workforce or when a war disrupts our supply chains.
 
@@ -190,7 +190,7 @@ For example, an architect who is planning a major office building will often bui
 
 A good model to start with in economics is the circular flow diagram ([Figure 1.7](#fig_1_7)). It pictures the economy as consisting of two groups---households and firms---that interact in two markets: the goods and services market in which firms sell and households buy and the labor market in which households sell labor to business firms or other employees.
 
-![](media/1-3-how-economists-use-theories-and-models-to-understand-economic-issues_rId33.jpeg){#fig_1_7 width="5.05in"}
+{{< appfig circular_flow_1 id="fig_1_7" >}}
 
 Figure 1.7 The Circular Flow Diagram The circular flow diagram shows how households and firms interact in the goods and services market, and in the labor market. The direction of the arrows shows that in the goods and services market, households receive goods and services and pay firms for them. In the labor market, households provide labor and receive payment from firms through wages, salaries, and benefits.
 

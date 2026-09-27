@@ -207,7 +207,7 @@ of 8%, would find it optimal to have \$52 million of borrowing. Unless
 there is a way for the company to fully enjoy the total benefits, then
 it will borrow less than the socially optimal level of \$52 million.
 
-![](media/13-1-investments-in-innovation_rId30.jpeg){width="3.25in" height="2.265in" #fig-13_2}
+{{< appfig innovation_capital_1 id="fig-13_2" >}}
 
 Figure 13.2 Positive Externalities and Technology Big Drug faces a cost
 of borrowing of 8%. If the firm receives only the private benefits of
@@ -338,7 +338,7 @@ voucher and only pay a price of P~Subsidy~. When the government uses a
 subsidy in this way, it produces the socially optimal quantity of
 vaccinations.
 
-![](media/13-1-investments-in-innovation_rId42.jpeg){width="4.88in" height="2.89in" #fig-13_3}
+{{< appfig flu_shots_subsidy_1 id="fig-13_3" >}}
 
 Figure 13.3 The Market for Flu Shots with Spillover Benefits (A Positive
 Externality) The market demand curve does not reflect the positive
@@ -451,7 +451,7 @@ patent applications filed with the U.S. Patent and Trademark Office, as
 well as the total number of patents granted, surged in the mid-1990s
 with the invention of the internet, and is still going strong today.
 
-![](media/13-2-how-governments-can-encourage-innovation_rId25.jpeg){width="6.5in" height="2.59in" #fig-13_4}
+{{< appfig patents_filed_granted_1 id="fig-13_4" >}}
 
 Figure 13.4 Patents Filed and Granted, 1981--2012 The number of
 applications filed for patents increased substantially beginning in the

@@ -131,7 +131,7 @@ are White people.
 Visit this [website](https://www.census.gov/library/publications/2021/demo/p60-273.html) for more
 information on U.S. poverty.
 
-![](media/15-1-drawing-the-poverty-line_rId30.jpeg){width="4.88in" height="2.71in" #fig-15_2}
+{{< appfig poverty_rate_1 id="fig-15_2" >}}
 
 Figure 15.2 The U.S. Poverty Rate since 1960 The poverty rate fell
 dramatically during the 1960s, rose in the early 1980s and early 1990s,
@@ -262,7 +262,7 @@ program, each time the mother earns \$1,000, the government will deduct
 \$1,000 of its support. @tbl-table_15_3 shows what will
 happen at each combination of work and government support.
 
-![](media/15-2-the-poverty-trap_rId25.jpeg){width="3.25in" height="2.795in" #fig-15_3}
+{{< appfig poverty_trap_1 id="fig-15_3" >}}
 
 Figure 15.3 The Poverty Trap in Action The original choice is 500 hours
 of leisure, 2,000 hours of work at point A, and income of \$16,000. With
@@ -338,7 +338,7 @@ Still, it may be preferable in the long run to spend more money on a
 program that retains a greater incentive to work, rather than spending
 less money on a program that nearly eliminates any gains from working.
 
-![](media/15-2-the-poverty-trap_rId28.jpeg){width="3.25in" height="3.225in" #fig-15_4}
+{{< appfig poverty_trap_phaseout id="fig-15_4" >}}
 
 Figure 15.4 Loosening the Poverty Trap: Reducing Government Assistance
 by 50 Cents for Every \$1 Earned On the original labor-leisure
@@ -488,7 +488,7 @@ credits, child tax credits, and the TANF program all cost the federal
 government money---either in direct outlays or in loss of tax revenues.
 CTC stands for the government tax cuts for the child tax credit.
 
-![](media/15-3-the-safety-net_rId31.jpeg){width="4.88in" height="2.855in" #fig-15_5}
+{{< appfig tax_credits_spending_1 id="fig-15_5" >}}
 
 Figure 15.5 Real Federal Spending on CTC, EITC, and TANF, 1975--2016
 EITC increased from under \$10 billion in the late 1980s to almost \$42
@@ -566,7 +566,7 @@ for women and children, subsidized housing, and energy assistance. The
 federal government also transfers funds to individual states through
 special grant programs.
 
-![](media/15-3-the-safety-net_rId38.jpeg){width="4.239998906386702in" height="3.04in" #fig-15_6}
+{{< appfig safety_net_spending_1 id="fig-15_6" >}}
 
 Figure 15.6 Expenditure Comparison of TANF, SNAP, HUD, and Other Income
 Security Programs, 1988--2013 (est.) Total expenditures on income
@@ -635,7 +635,7 @@ goes to seniors, those who are blind, and people with disabilities.
 Children receive 21% of all Medicaid spending, followed by adults at
 15%.
 
-![](media/15-3-the-safety-net_rId45.jpeg){width="6.5in" height="2.38in" #fig-15_7}
+{{< appfig medicaid_shares_1 id="fig-15_7" >}}
 
 Figure 15.7 Medicaid Enrollment and Spending Part (a) shows the Medicaid
 enrollment by different populations, with children comprising the
@@ -765,7 +765,7 @@ inequality data in a Lorenz curve. This curve shows the cumulative share
 of population on the horizontal axis and the cumulative percentage of
 total income received on the vertical axis.
 
-![](media/15-4-income-inequality-measurement-and-causes_rId28.jpeg){width="3.25in" height="2.28in" #fig-15_8}
+{{< appfig lorenz_curve_1 id="fig-15_8" >}}
 
 Figure 15.8 The Lorenz Curve A Lorenz curve graphs the cumulative shares
 of income received by everyone up to a certain quintile. The income
@@ -916,7 +916,7 @@ the movement from D~0~ to D~1~. Evidently, combining both the increase
 in supply and in demand has resulted in a shift from E~0~ to E~1~, and a
 resulting higher wage.
 
-![](media/15-4-income-inequality-measurement-and-causes_rId40.jpeg){width="4.88in" height="2.71in" #fig-15_9}
+{{< appfig high_skilled_wages_1 id="fig-15_9" >}}
 
 Figure 15.9 Why Would Wages Rise for High-Skilled Labor? The proportion
 of workers attending college has increased in recent decades, so the
@@ -1152,7 +1152,7 @@ ceilings and shut off international trade. From this viewpoint, policies
 to reduce inequality may help economic output by building social support
 for allowing markets to operate.
 
-![](media/15-5-government-policies-to-reduce-income-inequality_rId36.jpeg){width="6.5in" height="2.495in" #fig-15_10}
+{{< appfig equality_output_tradeoff_1 id="fig-15_10" >}}
 
 Figure 15.10 The Tradeoff between Incentives and Economic Equality (a)
 Society faces a trade-off where any attempt to move toward greater

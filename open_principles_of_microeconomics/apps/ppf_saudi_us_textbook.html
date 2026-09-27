@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Production Possibilities Frontiers</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Production Possibilities Frontiers</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">With 100 worker hours each, Saudi Arabia can make far more oil than the United States, and the United States far more corn</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. What Each Country Can Make on Its Own</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1800" height="960"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Each country has 100 worker hours. Saudi Arabia needs one hour for a barrel of oil and four for a bushel of corn, so it can make 100 barrels or 25 bushels. The United States needs two hours for a barrel and one for a bushel, so it can make 50 barrels or 100 bushels. Those extremes are points A and B on each frontier, and the straight line between them shows every mix in between.</p>
+          <p>The slope of each line is the opportunity cost of oil in terms of corn. Saudi Arabia gives up a quarter of a bushel for a barrel; the United States gives up two bushels. Saudi Arabia therefore gives up the least to make oil, which is its comparative advantage, and the United States gives up the least to make corn. The sliders move each country's chosen point along its own frontier, and the panel keeps the running total of world output.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-output">
+        <div class="control-panel-header" onclick="tog('output')"><div class="panel-title">Production</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-output" onclick="event.stopPropagation();tog('output')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('output')">✕</button></div></div>
+        <div class="control-panel-body" id="body-output"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+
+// Figure 19.2 of the book: two production possibility frontiers side by
+// side. Saudi Arabia is one hour per barrel and four per bushel; the United
+// States is two hours per barrel and one per bushel. Both have 100 hours.
+const S0 = 2;
+const GAP = 140, PW = (1800 - GAP) / 2;
+const MG = { top:50, right:70, bottom:260, left:150 };
+const AXES = [
+  { xMin:0, xMax:30,  yMin:0, yMax:110, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:110, yMin:0, yMax:60,  margin:MG, left:PW + GAP, width:PW },
+];
+const COUNTRY = [
+  { tag:'a', caption:'(a) Saudi Arabia',      maxOil:100, maxCorn:25,  tick:'' },
+  { tag:'b', caption:'(b) The United States', maxOil:50,  maxCorn:100, tick:"'" },
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'ppf_saudi_us.png',
+  axes: AXES,
+  sliders: [
+    { id:'saudi', label:'Saudi worker hours put into oil', min:0, max:100, value:60, step:10, fmt:v => v + ' hours' },
+    { id:'us',    label:'U.S. worker hours put into oil',  min:0, max:100, value:40, step:10, fmt:v => v + ' hours' },
+  ],
+  toggles: [
+    { id:'show_points',   label:'The A, B and C points' },
+    { id:'show_captions', label:'Panel captions' },
+    { id:'show_guides',   label:'Dashed lines from C to each axis', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graphs', explanation:'Explanation', output:'Production' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['output'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','cap.a','cap.b','A.a','B.a','C.a','A.b','B.b','C.b'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    // Hours into oil decide the whole basket, because the rest goes to corn
+    const pick = [
+      { oil: val('saudi'),     corn: (100 - val('saudi')) / 4 },
+      { oil: val('us') / 2,    corn: 100 - val('us') },
+    ];
+    const n = v => Math.round(v * 10) / 10;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Saudi Arabia at C</span><span class="info-value">${n(pick[0].oil)} barrels, ${n(pick[0].corn)} bushels</span></div>`
+      + `<div class="info-row"><span class="info-label">United States at C&rsquo;</span><span class="info-value">${n(pick[1].oil)} barrels, ${n(pick[1].corn)} bushels</span></div>`
+      + `<div class="info-row"><span class="info-label">World oil</span><span class="info-value highlight">${n(pick[0].oil + pick[1].oil)} barrels</span></div>`
+      + `<div class="info-row"><span class="info-label">World corn</span><span class="info-value highlight">${n(pick[0].corn + pick[1].corn)} bushels</span></div>`
+      + `<div class="info-row"><span class="info-label">Cost of a barrel in Saudi Arabia</span><span class="info-value">&frac14; bushel</span></div>`
+      + `<div class="info-row"><span class="info-label">Cost of a barrel in the United States</span><span class="info-value">2 bushels</span></div>`);
+
+    g.clear();
+    COUNTRY.forEach((c, i) => {
+      const pan = g.panel(i), { x0, y0, width, height, tCX, tCY } = pan;
+      const xs = [], ys = [];
+      for (let v = 0; v <= (i ? 110 : 30); v += 10) xs.push(v);
+      for (let v = 0; v <= (i ? 60 : 110); v += 10) ys.push(v);
+      frame(g, pan, { tag:c.tag, xTicks:xs, yTicks:ys, fmtX:v => v, fmtY:v => v,
+        xLabel:'Corn (bushels)', yLabel:'Oil (barrels)' });
+
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+      ctx.beginPath(); ctx.moveTo(tCX(0), tCY(c.maxOil)); ctx.lineTo(tCX(c.maxCorn), tCY(0)); ctx.stroke();
+
+      const P = { A:{ x:0, y:c.maxOil }, B:{ x:c.maxCorn, y:0 }, C:{ x:pick[i].corn, y:pick[i].oil } };
+      if (vis('show_guides')) {
+        g.dashed(tCX(P.C.x), tCY(P.C.y), tCX(P.C.x), tCY(0), PINK, 1.5);
+        g.dashed(tCX(P.C.x), tCY(P.C.y), tCX(0), tCY(P.C.y), PINK, 1.5);
+      }
+      Object.keys(P).forEach(k => {
+        dot(g, tCX(P[k].x), tCY(P[k].y));
+        if (vis('show_points'))
+          g.label(k + c.tick, tCX(P[k].x) + 12 * S, tCY(P[k].y) - 14 * S,
+            { key:k + '.' + c.tag, font:`${17 * S}px ${g.font}`, color:INK });
+      });
+      if (vis('show_captions'))
+        g.label(c.caption, x0 + width / 2, y0 + height + 100 * S,
+          { key:'cap.' + c.tag, align:'center', font:`${16 * S}px ${g.font}`, color:BLUE });
+    });
+  },
+});
+</script>
+</body>
+</html>

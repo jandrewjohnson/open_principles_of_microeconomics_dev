@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology and Wages: Applying Demand and Supply</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Technology and Wages: Applying Demand and Supply</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">New technology substitutes for low-skill labor and complements high-skill labor, so demand shifts left in one market and right in the other</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Two Labor Markets</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">The Four Steps</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p><strong>Step 1.</strong> Before the new technologies, each market has an original supply curve S₀ and demand curve D₀, with the equilibrium E₀ at wage W₀ and quantity Q₀.</p>
+          <p><strong>Step 2.</strong> Does the technology affect the supply of labor from households or the demand for labor from firms? It affects the <strong>demand</strong> for labor by the firms that hire workers.</p>
+          <p><strong>Step 3.</strong> Increase or decrease? As a substitute for low-skill labor becomes available, demand for low-skill labor shifts left, from D₀ to D₁ (panel a). As the technology complement for high-skill labor becomes cheaper, demand for high-skill labor shifts right, from D₀ to D₁ (panel b).</p>
+          <p><strong>Step 4.</strong> The new equilibrium for low-skill labor, E₁ at W₁ and Q₁, has a lower wage and fewer workers hired than E₀. The new equilibrium for high-skill labor has a higher wage and more workers hired. The model predicts that computer and communications technology raises the pay of high-skill workers and reduces the pay of low-skill workers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Results</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 4.3 of the book: two schematic labor markets side by side. Demand
+// for low-skill labor shifts left (a) and demand for high-skill labor
+// shifts right (b); each panel shows S0, D0, D1, E0 and E1 with dashed
+// lines for W and Q, three shift arrows, and a caption, as in the book.
+// The two-panel drawing is the one used for figure 3.18.
+const S0 = 2;
+const GAP = 70 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50, right:80, bottom:190, left:140 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:PW + GAP, width:PW },
+];
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+const D_A = 9, S_A = 0.9, K = 0.22;
+const demand = dq => q => D_A * Math.exp(-K * (q - dq));
+const supply = q => S_A * Math.exp(K * q);
+const qOfD = (dq, p) => dq - Math.log(p / D_A) / K;
+const qOfS = p => Math.log(p / S_A) / K;
+function cross(d, s) {
+  let lo = 0, hi = 10;
+  for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (d(m) - s(m) > 0 ? lo = m : hi = m); }
+  const q = (lo + hi) / 2;
+  return { q, p: d(q) };
+}
+const dir = (a, b) => b < a - 1e-6 ? 'falls' : b > a + 1e-6 ? 'rises' : 'is unchanged';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'labor_tech_shifts.png',
+  axes: AXES,
+  sliders: [
+    { id:'dq_d1_low',  label:'Shift of demand for low-skill labor (a)',  min:-4, max:4, value:-2.6, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+    { id:'dq_d1_high', label:'Shift of demand for high-skill labor (b)', min:-4, max:4, value:2.6,  step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_d1',         label:'D₁ (after the technology)' },
+    { id:'show_eqlines',    label:'Dashed lines to the axes' },
+    { id:'show_arrows',     label:'Shift arrows' },
+    { id:'show_labels',     label:'W, Q and E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_captions',   label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Four steps', shifts:'Shifts', equilibrium:'Results' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','equilibrium'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','d0.a','d1.a','s0.a','d0.b','d1.b','s0.b',
+              'pt.a.E0','pt.a.E1','pt.b.E0','pt.b.E1',
+              'an.a.W0','an.a.W1','an.a.Q0','an.a.Q1','an.b.W0','an.b.W1','an.b.Q0','an.b.Q1'],
+
+  draw(g) {
+    const { S, ctx, val, vis, H } = g;
+    const PANELS = [
+      { id:'a', dq:val('dq_d1_low'),  xlabel:'Quantity of Low-skill Labor',  caption:'(a) Technological change and low-skill labor' },
+      { id:'b', dq:val('dq_d1_high'), xlabel:'Quantity of High-skill Labor', caption:'(b) Technological change and high-skill labor' },
+    ];
+    const e0 = cross(demand(0), supply);
+    const showD1 = vis('show_d1');
+    let info = '';
+
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i);
+      const { x0, y0, width, height, tCX, tCY, xMax, yMax } = pan;
+      const axisY = y0 + height;
+      const e1 = showD1 ? cross(demand(P.dq), supply) : null;
+      if (e1) info += `<div class="info-row"><span class="info-label">(${P.id}) wage</span><span class="info-value highlight">${dir(e0.p, e1.p)}</span></div>` +
+                      `<div class="info-row"><span class="info-label">(${P.id}) quantity hired</span><span class="info-value highlight">${dir(e0.q, e1.q)}</span></div>`;
+
+      pan.axes(BLUE);
+      pan.label(P.xlabel, x0 + width / 2, axisY + 58 * S, { key:'x.' + P.id, font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      const ylx = pan.left + 30 * S, mid = y0 + height / 2, ny = g.getNudge('y.' + P.id);
+      ctx.save(); ctx.translate(ylx + ny.dx, mid + ny.dy); ctx.rotate(-Math.PI / 2);
+      ctx.font = `bold ${14 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'center'; ctx.fillText('Wages', 0, 0); ctx.restore();
+      g.regLabel('y.' + P.id, ylx + ny.dx - 12 * S, mid + ny.dy - 30 * S, 24 * S, 60 * S);
+
+      const eqs = e1 ? [[e0, '0'], [e1, '1']] : [[e0, '0']];
+      if (vis('show_eqlines')) eqs.forEach(([e]) => {
+        pan.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+        pan.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+      });
+
+      const pTop = yMax * 0.93, pBot = 0.8;
+      const drawD = (dq, key, name) => {
+        const qa = Math.max(0.2, qOfD(dq, pTop)), qb = Math.min(xMax - 0.3, qOfD(dq, pBot));
+        if (qb <= qa) return;
+        pan.plotFn(demand(dq), qa, qb, { color: BLUE, lw: 2.5 });
+        if (vis('show_curvelabel')) pan.label(name, tCX(qb) + 10 * S, tCY(demand(dq)(qb)) + 6 * S, { key: key + '.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE });
+      };
+      const sa = Math.max(0.2, qOfS(pBot)), sb = Math.min(xMax - 0.3, qOfS(pTop));
+      pan.plotFn(supply, sa, sb, { color: BLUE, lw: 2.5 });
+      if (vis('show_curvelabel')) pan.label('S₀', tCX(sb) + 6 * S, tCY(supply(sb)) - 10 * S, { key:'s0.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+      drawD(0, 'd0', 'D₀');
+      if (showD1) drawD(P.dq, 'd1', 'D₁');
+
+      // Three arrows between D0 and D1: near the top, at E0's wage, near the bottom
+      if (vis('show_arrows') && e1 && Math.abs(P.dq) > 0.3) {
+        const topP = Math.min(pTop, demand(0)(0.6), demand(P.dq)(0.6)) * 0.9;
+        // The middle arrow sits just above E0 for a leftward shift and just below it for a rightward one, clear of the E labels
+        [topP, e1.q < e0.q ? e0.p * 1.18 : e0.p * 0.82, e0.p * 0.5].forEach(p => {
+          const a = qOfD(0, p), b = qOfD(P.dq, p), gp = 9 * S * Math.sign(a - b || 1);
+          if (Math.min(a, b) > 0.3 && Math.max(a, b) < xMax - 0.3 && Math.abs(tCX(a) - tCX(b)) > 40 * S)
+            pan.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
+        });
+      }
+
+      eqs.forEach(([e, n]) => {
+        const ex = tCX(e.q), ey = tCY(e.p);
+        ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(ex, ey, 7 * S, 0, Math.PI * 2); ctx.fill();
+        if (!vis('show_labels')) return;
+        const sub = n === '0' ? '₀' : '₁', f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+        // The new equilibrium's letter goes on the side away from the old one
+        const leftSide = e1 && ((n === '1') === (e1.q < e0.q));
+        pan.label('E' + sub, ex + (leftSide ? -8 : 8) * S, ey - 12 * S, { key:`pt.${P.id}.E${n}`, align: leftSide ? 'right' : 'left', ...f });
+        pan.label('W' + sub, x0 - 14 * S, ey + 6 * S, { key:`an.${P.id}.W${n}`, align:'right', ...f });
+        pan.label('Q' + sub, ex, axisY + 30 * S, { key:`an.${P.id}.Q${n}`, align:'center', ...f });
+      });
+
+      if (vis('show_captions'))
+        pan.label(P.caption, x0 + width / 2, H - 8 * S, { font:`${13 * S}px ${g.font}`, color:GREY, align:'center' });
+    });
+    g.setText('eq-info', info || '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Turn on D₁ to see the change</div>');
+  },
+});
+</script>
+</body>
+</html>

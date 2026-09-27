@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Positive Externalities and Technology</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Positive Externalities and Technology</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Big Drug borrows $30 million for research when it counts only its own gains, but $52 million would be worth it once the spillovers to everyone else are counted</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Big Drug's Demand for Financial Capital</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>D<sub>Private</sub> is what Big Drug is willing to borrow for research and development at each interest rate, judged by the profits it expects to keep. Studies find the original inventor captures only a third to a half of the economic value an innovation creates: the rest goes to other firms that build on the idea and to the people who use the products. Adding those spillovers gives D<sub>Social</sub>, which lies above the private curve at every rate.</p>
+          <p>At the going rate of 8 percent the firm borrows $30 million. Counting the spillovers, $52 million of that research would be worth doing. The gap is the underinvestment that positive externalities produce, and it is the reason governments subsidize research rather than leaving it to firms. The slider changes the cost of borrowing and both quantities move along their curves.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-rate">
+        <div class="control-panel-header" onclick="tog('rate')"><div class="panel-title">Cost of Borrowing</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-rate" onclick="event.stopPropagation();tog('rate')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('rate')">✕</button></div></div>
+        <div class="control-panel-body" id="body-rate"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+
+// Table 13.1 of the book: what Big Drug will borrow at each rate of return,
+// counting only its own profits and counting the spillovers too.
+const RATES = [2, 4, 6, 8, 10];
+const PRIV = [72, 52, 38, 30, 26];
+const SOC = [84, 72, 62, 52, 44];
+const qPriv = hermite(RATES, PRIV), qSoc = hermite(RATES, SOC);
+const BLUE = '#2b6cb0', PINK = '#a855c7';
+// A name with a small subscript, and sometimes a normal-size tail, the way
+// the book sets these. Unicode has no subscript letters for most of the
+// alphabet, so the pieces are drawn separately and share one nudge key.
+const subLabel = (g, main, sub, tail, key, x, y, align) => {
+  const { S, ctx } = g, nd = g.getNudge(key), BIG = `${15 * S}px ${g.font}`, SMALL = `${11 * S}px ${g.font}`;
+  ctx.font = BIG;   const w = ctx.measureText(main).width, wt = tail ? ctx.measureText(tail).width : 0;
+  ctx.font = SMALL; const ws = ctx.measureText(sub).width;
+  const total = w + ws + wt;
+  const lx = (align === 'right' ? x - total : align === 'center' ? x - total / 2 : x) + nd.dx, ly = y + nd.dy;
+  ctx.textAlign = 'left'; ctx.fillStyle = BLUE;
+  ctx.font = BIG;   ctx.fillText(main, lx, ly);
+  ctx.font = SMALL; ctx.fillText(sub, lx + w + 1 * S, ly + 5 * S);
+  if (tail) { ctx.font = BIG; ctx.fillText(tail, lx + w + ws + 2 * S, ly); }
+  g.regLabel(key, lx - 4 * S, ly - 14 * S, total + 8 * S, 22 * S);
+};
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'innovation_capital.png',
+  axes: { xMin:0, xMax:95, yMin:0, yMax:11.5, margin:{top:50, right:180, bottom:130, left:150} },
+  sliders: [
+    { id:'rate', label:'Cost of borrowing', min:2, max:10, value:8, step:1, fmt:v => v + '%' },
+  ],
+  toggles: [
+    { id:'show_social', label:'D₍Social₎, with the spillover benefits added' },
+    { id:'show_points', label:'Dots at the table values' },
+    { id:'show_dashed', label:'Dashed lines down to the quantities' },
+    { id:'show_labels', label:'Curve and equilibrium labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', rate:'Rate' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['rate'],
+  nudgeKeys: ['x','y','dp','ds','s','pt.E0','pt.E1'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, width } = g;
+    const r = val('rate'), qp = qPriv.f(r), qs = qSoc.f(r);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">At ${r}%, borrowing for its own gains</span><span class="info-value">$${qp.toFixed(0)} million</span></div>`
+      + `<div class="info-row"><span class="info-label">Worth borrowing once spillovers count</span><span class="info-value highlight">$${qs.toFixed(0)} million</span></div>`
+      + `<div class="info-row"><span class="info-label">Research that does not happen</span><span class="info-value">$${(qs - qp).toFixed(0)} million</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.xTicks([15, 30, 45, 52, 60, 75, 90], v => '$' + v);
+    g.yTicks([2, 4, 6, 8, 10], v => v + '%');
+    g.axisLabels('Quantity of Financial Capital', 'Rate of Return');
+
+    // Each demand schedule gives a quantity for a rate, so it is drawn rate by rate
+    const plotQ = fn => { ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+      for (let i = 0; i <= 200; i++) { const p = 10.6 - 9 * i / 200, x = tCX(fn(p)), y = tCY(p); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+      ctx.stroke(); };
+    const dots = vals => { if (vis('show_points')) RATES.forEach((p, i) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(vals[i]), tCY(p), 6 * S, 0, Math.PI * 2); ctx.fill(); }); };
+    plotQ(qPriv.f); dots(PRIV);
+    if (vis('show_social')) { plotQ(qSoc.f); dots(SOC); }
+
+    // The going rate of interest, a flat supply of financial capital
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+    ctx.moveTo(x0, tCY(r)); ctx.lineTo(x0 + width - 60 * S, tCY(r)); ctx.stroke();
+
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    const mark = (q, key, txt) => {
+      if (vis('show_dashed')) g.dashed(tCX(q), tCY(r), tCX(q), y0 + height, PINK, 1.5);
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(r), 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_labels')) g.label(txt, tCX(q) + 6 * S, tCY(r) - 16 * S, { key, align:'center', ...f });
+    };
+    mark(qp, 'pt.E0', 'E₀');
+    if (vis('show_social')) mark(qs, 'pt.E1', 'E₁');
+    if (vis('show_labels')) {
+      g.label('S', x0 + width - 50 * S, tCY(r) + 6 * S, { key:'s', ...f });
+      subLabel(g, 'D', 'Private', null, 'dp', tCX(qPriv.f(1.9)) + 10 * S, tCY(1.9) + 20 * S, 'left');
+      if (vis('show_social')) subLabel(g, 'D', 'Social', null, 'ds', tCX(qSoc.f(1.9)) + 10 * S, tCY(1.9) + 6 * S, 'left');
+    }
+  },
+});
+</script>
+</body>
+</html>

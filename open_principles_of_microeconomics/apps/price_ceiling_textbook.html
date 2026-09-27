@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Price Ceiling Example: Rent Control</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Price Ceiling Example: Rent Control</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Demand for rental housing rises, but a rent control law holds the price at $500. Quantity supplied stays put while quantity demanded grows, and the gap is a shortage.</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Market for Rental Housing</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The original equilibrium E₀ lies where supply S₀ meets demand D₀: a rent of $500 and 15,000 rental units. Greater income or a change in tastes shifts demand to the right, from D₀ to D₁. At the new equilibrium E₁ the rent would rise to $600 and the quantity to 17,000 units.</p>
+          <p>Now suppose the city passes a rent control law holding the price at $500. The horizontal line is that legal maximum. The forces that shifted demand are still there: at $500 the quantity supplied stays at 15,000 units, but the quantity demanded is 19,000. Quantity demanded exceeds quantity supplied, so there is a <strong>shortage</strong> of rental housing.</p>
+          <p>One irony of price ceilings: fewer apartments are rented under the ceiling (15,000) than would be at the market rent of $600 (17,000). Move the ceiling above $600 and it stops binding; the market simply settles at E₁.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-schedule">
+        <div class="left-section-header" onclick="tog('schedule')"><div class="panel-title">Table 3.7: Rent Control</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-schedule" onclick="event.stopPropagation();tog('schedule')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('schedule')">✕</button></div></div>
+        <div class="left-section-body" id="body-schedule">
+          <table class="data-table">
+            <thead><tr><th>Price</th><th>Original quantity supplied</th><th>Original quantity demanded</th><th>New quantity demanded</th></tr></thead>
+            <tbody id="schedule-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-policy">
+        <div class="control-panel-header" onclick="tog('policy')"><div class="panel-title">Rent Control</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-policy" onclick="event.stopPropagation();tog('policy')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('policy')">✕</button></div></div>
+        <div class="control-panel-body" id="body-policy"><div data-sliders></div><div class="info-box" id="ceiling-info" style="margin-top:12px"></div></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Equilibria</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 3.21 of the book: rent control as a price ceiling, drawn through the
+// schedule in table 3.7. D0, D1 and S0 with their points, E0 at $500 and
+// 15,000 and E1 at $600 and 17,000, the ceiling line at $500, dashed lines
+// down from the two quantities on it, and a brace under the line for the
+// shortage, as in the book's figure.
+const PRICES = [400, 500, 600, 700, 800];
+const QS = [12, 15, 17, 19, 20], QD0 = [18, 15, 13, 11, 10], QD1 = [23, 19, 17, 15, 14];   // thousands
+const sched = (qs, dq) => PRICES.map((p, i) => ({ p, q: qs[i] + dq }));
+const fmtP = v => '$' + Math.round(v).toLocaleString();
+const fmtQ = v => Math.round(v * 1000).toLocaleString();
+function findEq(g, dPts, sPts) {
+  let bestP = 500, bestDiff = Infinity;
+  for (let p = 400; p <= 800.01; p += 0.5) {
+    const diff = Math.abs(g.interpQ(dPts, p) - g.interpQ(sPts, p));
+    if (diff < bestDiff) { bestDiff = diff; bestP = p; }
+  }
+  return { p: Math.round(bestP), q: g.interpQ(dPts, bestP) };
+}
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'price_ceiling.png',
+  axes: { xMin:9, xMax:24, yMin:0, yMax:900, margin:{top:70, right:90, bottom:120, left:170} },
+  sliders: [
+    { id:'p',     label:'Rent ceiling',           min:300, max:800, value:500, step:25, fmt:fmtP },
+    { id:'dq_d1', label:'Extra shift of D₁ (thousands)', min:-4, max:4, value:0, step:0.5, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_grid',      label:'Gridlines' },
+    { id:'show_points',    label:'Schedule points' },
+    { id:'show_d1',        label:'D₁ (after the change in demand)' },
+    { id:'show_ceiling',   label:'Price ceiling line' },
+    { id:'show_droplines', label:'Dashed lines to the quantity axis' },
+    { id:'show_brace',     label:'Shortage brace and label' },
+    { id:'show_labels',    label:'Curve and E labels' },
+    { id:'show_annot',     label:'"Price ceiling set here"' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', schedule:'Table', policy:'Rent control', equilibrium:'Equilibria' },
+  leftPanels:  ['graph','explanation','schedule'],
+  rightPanels: ['policy','equilibrium'],
+  nudgeKeys: ['x','y','d0','d1','s0','pt.E0','pt.E1','an.ceiling','an.shortage'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, width, yMin } = g;
+    const pc = val('p'), showD1 = vis('show_d1');
+    const s0 = sched(QS, 0), d0 = sched(QD0, 0), d1 = sched(QD1, val('dq_d1'));
+    const e0 = findEq(g, d0, s0), e1 = findEq(g, d1, s0);
+    const dNow = showD1 ? d1 : d0;
+    const qs = g.interpQ(s0, pc), qd = g.interpQ(dNow, pc);
+    const eqNow = showD1 ? e1 : e0;
+    const binding = vis('show_ceiling') && pc < eqNow.p - 0.5;
+    const shortage = binding ? qd - qs : 0;
+
+    // ---- Side panels ----
+    g.setText('schedule-tbody', PRICES.map((p, i) =>
+      `<tr><td>${fmtP(p)}</td><td>${fmtQ(s0[i].q)}</td><td>${fmtQ(d0[i].q)}</td><td>${fmtQ(d1[i].q)}</td></tr>`).join(''));
+    const row = (k, v, hi) => `<div class="info-row"><span class="info-label">${k}</span><span class="info-value${hi ? ' highlight' : ''}">${v}</span></div>`;
+    g.setText('eq-info', row('E₀ (D₀, S₀)', `${fmtP(e0.p)}, ${fmtQ(e0.q)} units`, true) + (showD1 ? row('E₁ (D₁, S₀)', `${fmtP(e1.p)}, ${fmtQ(e1.q)} units`, true) : ''));
+    g.setText('ceiling-info', vis('show_ceiling')
+      ? (binding
+        ? row('Quantity supplied at ' + fmtP(pc), fmtQ(qs)) + row('Quantity demanded at ' + fmtP(pc), fmtQ(qd)) +
+          `<div class="info-row"><span class="info-label">Shortage</span><span class="info-value" style="color:#e53e3e">${fmtQ(shortage)} units</span></div>`
+        : `<div style="color:#718096;font-size:.85rem;padding:4px 0">The ceiling is above the equilibrium rent, so it does not bind: the market settles at ${fmtP(eqNow.p)}.</div>`)
+      : '');
+
+    // ---- Plot ----
+    g.clear();
+    if (vis('show_grid')) g.gridlines(1, 100);
+    g.axes();
+    const xs = []; for (let q = 10; q <= 24; q++) xs.push(q);
+    g.xTicks(xs, v => v);
+    g.yTicks([0, 100, 200, 300, 400, 500, 600, 700, 800, 900], v => v ? fmtP(v) : '0');
+    g.axisLabels('Quantity (thousands of rental units)', 'Price (dollars in monthly rent)');
+
+    if (vis('show_ceiling')) {
+      ctx.strokeStyle = '#2b6cb0'; ctx.lineWidth = 1.5 * S;
+      ctx.beginPath(); ctx.moveTo(x0, tCY(pc)); ctx.lineTo(x0 + width, tCY(pc)); ctx.stroke();
+      if (vis('show_annot'))
+        g.label('Price ceiling\nset here', tCX(21.2), tCY(pc) - 34 * S, { key:'an.ceiling', font:`${15 * S}px ${g.font}`, color:'#2b6cb0', align:'center', lineH:20 * S });
+      if (binding) {
+        if (vis('show_droplines')) [qs, qd].forEach(q => g.dashed(tCX(q), tCY(pc), tCX(q), tCY(yMin), '#a855c7', 1.5));
+        if (vis('show_brace') && shortage > 0.2) {
+          g.brace(tCX(qs), tCY(pc) + 12 * S, tCX(qd), tCY(pc) + 12 * S, { depth: 14 * S });
+          g.label('Excess demand\nor shortage\nfrom price ceiling', (tCX(qs) + tCX(qd)) / 2, tCY(pc) + 72 * S,
+            { key:'an.shortage', font:`${15 * S}px ${g.font}`, color:'#2b6cb0', align:'center', lineH:20 * S });
+        }
+      }
+    }
+
+    g.curve(d0); g.curve(s0);
+    if (showD1) g.curve(d1);
+    if (vis('show_points')) { g.points(d0); g.points(s0); if (showD1) g.points(d1); }
+
+    const dot = (q, p) => { ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+    dot(e0.q, e0.p);
+    if (showD1) dot(e1.q, e1.p);
+    if (binding) { dot(qs, pc); dot(qd, pc); }
+
+    if (vis('show_labels')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:'#2b6cb0' };
+      const top = pts => pts.reduce((a, b) => b.p > a.p ? b : a);
+      g.label('D₀', tCX(top(d0).q) + 8 * S, tCY(top(d0).p) - 14 * S, { key:'d0', ...f });
+      if (showD1) g.label('D₁', tCX(top(d1).q) + 8 * S, tCY(top(d1).p) - 14 * S, { key:'d1', ...f });
+      g.label('S₀', tCX(top(s0).q) + 8 * S, tCY(top(s0).p) - 14 * S, { key:'s0', ...f });
+      g.label('E₀', tCX(e0.q) - 4 * S, tCY(e0.p) - 14 * S, { key:'pt.E0', align:'center', ...f });
+      if (showD1) g.label('E₁', tCX(e1.q) + 4 * S, tCY(e1.p) - 14 * S, { key:'pt.E1', align:'center', ...f });
+    }
+  },
+});
+</script>
+</body>
+</html>

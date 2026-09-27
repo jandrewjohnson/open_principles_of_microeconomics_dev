@@ -120,3 +120,1008 @@ figures:
   individual_vs_social_linear_ppf:
     app: individual_vs_social_textbook.html
     state: "v=1&n_ppf=1"
+
+  market_shifts_1:
+    app: market_shifts_textbook.html
+    state: "v=1&@pt.a.E0=-39,16&@pt.a.E1=-62,21&@pt.b.E0=-58,10&@pt.b.E1=-71,7&dp_d1=-0.3&dp_s1=0.4&show_labels=0"
+
+  market_shifts_costs_fall_demand_rises:
+    app: market_shifts_textbook.html
+    state: "v=1&dp_d1=0.2&dp_s1=-0.2"
+
+  circular_flow_1:
+    app: circular_flow_textbook.html
+    state: "v=1"
+
+  circular_flow_with_market_names:
+    app: circular_flow_textbook.html
+    state: "v=1&show_markets=1"
+
+  # Figures 3.11 to 3.14: one app, four steps. The default is the last step.
+  supply_cost_shift_step1:
+    app: supply_cost_shift_textbook.html
+    state: "v=1&show_breakdown=0&show_newpoint=0&show_readarrows=1&show_s1=0"
+
+  supply_cost_shift_step2:
+    app: supply_cost_shift_textbook.html
+    state: "v=1&show_newpoint=0&show_s1=0"
+
+  supply_cost_shift_step3:
+    app: supply_cost_shift_textbook.html
+    state: "v=1&show_s1=0"
+
+  supply_cost_shift_1:
+    app: supply_cost_shift_textbook.html
+    state: "v=1"
+
+  supply_shift_factors_1:
+    app: supply_shift_factors_textbook.html
+    state: "v=1"
+
+  supply_shift_factors_big_shift:
+    app: supply_shift_factors_textbook.html
+    state: "v=1&dq_s1=30"
+
+  four_step_salmon_1:
+    app: four_step_salmon_textbook.html
+    state: "v=1"
+
+  four_step_salmon_before:
+    app: four_step_salmon_textbook.html
+    state: "v=1&show_s1=0"
+
+  four_step_print_news_1:
+    app: four_step_print_news_textbook.html
+    state: "v=1"
+
+  four_step_print_news_before:
+    app: four_step_print_news_textbook.html
+    state: "v=1&show_d1=0"
+
+  four_step_postal_1:
+    app: four_step_postal_textbook.html
+    state: "v=1"
+
+  four_step_postal_before:
+    app: four_step_postal_textbook.html
+    state: "v=1&show_d1=0&show_s1=0"
+
+  four_step_postal_combined_1:
+    app: four_step_postal_combined_textbook.html
+    state: "v=1"
+
+  four_step_postal_combined_supply_wins:
+    app: four_step_postal_combined_textbook.html
+    state: "v=1&dq_d1=-1&dq_s1=-3.5"
+
+  # The chapter 1 opener again, with its default labels, as the numeric
+  # companion to figure 3.18.
+  market_shifts_postal:
+    app: market_shifts_textbook.html
+    state: "v=1"
+
+  shift_vs_movement_1:
+    app: shift_vs_movement_textbook.html
+    state: "v=1"
+
+  shift_vs_movement_correct_step_only:
+    app: shift_vs_movement_textbook.html
+    state: "v=1&show_shift2=0&show_shift3=0"
+
+  price_ceiling_1:
+    app: price_ceiling_textbook.html
+    state: "v=1"
+
+  price_ceiling_not_binding:
+    app: price_ceiling_textbook.html
+    state: "v=1&p=650"
+
+  price_floor_1:
+    app: price_floor_textbook.html
+    state: "v=1"
+
+  price_floor_not_binding:
+    app: price_floor_textbook.html
+    state: "v=1&p=2"
+
+  surplus_1:
+    app: surplus_textbook.html
+    state: "v=1"
+
+  surplus_shaded:
+    app: surplus_textbook.html
+    state: "v=1&show_shading=1"
+
+  surplus_price_controls_1:
+    app: surplus_price_controls_textbook.html
+    state: "v=1"
+
+  surplus_price_controls_shaded:
+    app: surplus_price_controls_textbook.html
+    state: "v=1&show_shading=1"
+
+  # Chapter 4
+  labor_market_nurses_1:
+    app: labor_market_nurses_textbook.html
+    state: "v=1"
+
+  labor_market_nurses_equilibrium_only:
+    app: labor_market_nurses_textbook.html
+    state: "v=1&show_above=0&show_below=0"
+
+  labor_tech_shifts_1:
+    app: labor_tech_shifts_textbook.html
+    state: "v=1"
+
+  labor_tech_shifts_before:
+    app: labor_tech_shifts_textbook.html
+    state: "v=1&show_d1=0"
+
+  living_wage_1:
+    app: living_wage_textbook.html
+    state: "v=1"
+
+  living_wage_not_binding:
+    app: living_wage_textbook.html
+    state: "v=1&p=9"
+
+  financial_market_credit_1:
+    app: financial_market_credit_textbook.html
+    state: "v=1"
+
+  financial_market_credit_equilibrium_only:
+    app: financial_market_credit_textbook.html
+    state: "v=1&show_above=0&show_below=0"
+
+  global_borrower_before:
+    app: global_borrower_textbook.html
+    state: "v=1&show_s1=0"
+
+  global_borrower_1:
+    app: global_borrower_textbook.html
+    state: "v=1"
+
+  credit_price_ceiling_1:
+    app: credit_price_ceiling_textbook.html
+    state: "v=1"
+
+  credit_price_ceiling_not_binding:
+    app: credit_price_ceiling_textbook.html
+    state: "v=1&p=4"
+
+  generic_market_1:
+    app: generic_market_textbook.html
+    state: "v=1"
+
+  generic_market_demand_up:
+    app: generic_market_textbook.html
+    state: "v=1&dq_d=1.5"
+
+  nurses_2030_demand_only:
+    app: nurses_2030_textbook.html
+    state: "v=1&show_s1=0"
+
+  nurses_2030_1:
+    app: nurses_2030_textbook.html
+    state: "v=1"
+
+  # Chapter 5
+  elasticity_demand_1:
+    app: elasticity_demand_textbook.html
+    state: "v=1"
+
+  elasticity_demand_b_selected:
+    app: elasticity_demand_textbook.html
+    state: "v=1&sel=B"
+
+  elasticity_supply_1:
+    app: elasticity_supply_textbook.html
+    state: "v=1"
+
+  elasticity_supply_higher:
+    app: elasticity_supply_textbook.html
+    state: "v=1&p=800"
+
+  polar_elasticity_1:
+    app: polar_elasticity_textbook.html
+    state: "v=1"
+
+  polar_elasticity_zero:
+    app: polar_elasticity_textbook.html
+    state: "v=1&show_vertical=1"
+
+  unitary_demand_1:
+    app: unitary_demand_textbook.html
+    state: "v=1"
+
+  unitary_demand_rev_240:
+    app: unitary_demand_textbook.html
+    state: "v=1&rev=240"
+
+  unitary_supply_1:
+    app: unitary_supply_textbook.html
+    state: "v=1"
+
+  unitary_supply_from_60:
+    app: unitary_supply_textbook.html
+    state: "v=1&q=60"
+
+  elasticity_pass_through_1:
+    app: elasticity_pass_through_textbook.html
+    state: "v=1"
+
+  elasticity_pass_through_higher_costs:
+    app: elasticity_pass_through_textbook.html
+    state: "v=1&dq_s1=-2"
+
+  tax_incidence_1:
+    app: tax_incidence_textbook.html
+    state: "v=1"
+
+  tax_incidence_bigger:
+    app: tax_incidence_textbook.html
+    state: "v=1&tax=3"
+
+  oil_shock_1:
+    app: oil_shock_textbook.html
+    state: "v=1"
+
+  oil_shock_smaller:
+    app: oil_shock_textbook.html
+    state: "v=1&dq_s1=-2.5"
+
+  jose_budget_1:
+    app: jose_budget_textbook.html
+    state: "v=1"
+
+  jose_budget_utility:
+    app: jose_budget_textbook.html
+    state: "v=1&show_utility=1&show_best=1"
+
+  income_change_1:
+    app: income_change_textbook.html
+    state: "v=1"
+
+  income_change_1500:
+    app: income_change_textbook.html
+    state: "v=1&income=1500"
+
+  price_change_1:
+    app: price_change_textbook.html
+    state: "v=1"
+
+  price_change_steeper:
+    app: price_change_textbook.html
+    state: "v=1&ratio=1.5"
+
+  demand_derivation_1:
+    app: demand_derivation_textbook.html
+    state: "v=1"
+
+  demand_derivation_elastic:
+    app: demand_derivation_textbook.html
+    state: "v=1&elas=2"
+
+  education_earnings_1:
+    app: education_earnings_textbook.html
+    state: "v=1"
+
+  education_earnings_medians:
+    app: education_earnings_textbook.html
+    state: "v=1&show_nat=1"
+
+  competition_spectrum_1:
+    app: competition_spectrum_textbook.html
+    state: "v=1"
+
+  competition_spectrum_names_only:
+    app: competition_spectrum_textbook.html
+    state: "v=1&show_firms=0&show_product=0"
+
+  lumberjacks_product_1:
+    app: lumberjacks_product_textbook.html
+    state: "v=1"
+
+  lumberjacks_product_no_boost:
+    app: lumberjacks_product_textbook.html
+    state: "v=1&mp2=3"
+
+  tp_mp_general_1:
+    app: tp_mp_general_textbook.html
+    state: "v=1"
+
+  tp_mp_general_late_peak:
+    app: tp_mp_general_textbook.html
+    state: "v=1&l0=5.5&show_peak=1"
+
+  total_cost_clip_joint_1:
+    app: total_cost_clip_joint_textbook.html
+    state: "v=1"
+
+  total_cost_clip_joint_high_rent:
+    app: total_cost_clip_joint_textbook.html
+    state: "v=1&fc=200"
+
+  cost_curves_clip_joint_1:
+    app: cost_curves_clip_joint_textbook.html
+    state: "v=1"
+
+  cost_curves_clip_joint_high_wage:
+    app: cost_curves_clip_joint_textbook.html
+    state: "v=1&wage=120"
+
+  economies_of_scale_1:
+    app: economies_of_scale_textbook.html
+    state: "v=1"
+
+  economies_of_scale_probe:
+    app: economies_of_scale_textbook.html
+    state: "v=1&show_probe=1&q=3500"
+
+  srac_lrac_1:
+    app: srac_lrac_textbook.html
+    state: "v=1"
+
+  srac_lrac_plant_3:
+    app: srac_lrac_textbook.html
+    state: "v=1&show_highlight=1"
+
+  lrac_shapes_1:
+    app: lrac_shapes_textbook.html
+    state: "v=1"
+
+  lrac_shapes_narrow:
+    app: lrac_shapes_textbook.html
+    state: "v=1&width=7500"
+
+  raspberry_totals_1:
+    app: raspberry_totals_textbook.html
+    state: "v=1"
+
+  raspberry_totals_price_5:
+    app: raspberry_totals_textbook.html
+    state: "v=1&price=5"
+
+  raspberry_marginal_1:
+    app: raspberry_marginal_textbook.html
+    state: "v=1"
+
+  raspberry_marginal_price_6:
+    app: raspberry_marginal_textbook.html
+    state: "v=1&price=6"
+
+  raspberry_market_1:
+    app: raspberry_market_textbook.html
+    state: "v=1"
+
+  raspberry_market_more_demand:
+    app: raspberry_market_textbook.html
+    state: "v=1&dq=200"
+
+  profit_loss_ac_1:
+    app: profit_loss_ac_textbook.html
+    state: "v=1"
+
+  profit_loss_ac_no_shade:
+    app: profit_loss_ac_textbook.html
+    state: "v=1&show_shade=0&p_a=6"
+
+  shutdown_avc_1:
+    app: shutdown_avc_textbook.html
+    state: "v=1"
+
+  shutdown_avc_with_q:
+    app: shutdown_avc_textbook.html
+    state: "v=1&show_q=1"
+
+  profit_loss_shutdown_1:
+    app: profit_loss_shutdown_textbook.html
+    state: "v=1"
+
+  profit_loss_shutdown_low_fc:
+    app: profit_loss_shutdown_textbook.html
+    state: "v=1&fc=4"
+
+  lrs_industry_1:
+    app: lrs_industry_textbook.html
+    state: "v=1"
+
+  lrs_industry_big_shift:
+    app: lrs_industry_textbook.html
+    state: "v=1&dd=4"
+
+  natural_monopoly_1:
+    app: natural_monopoly_textbook.html
+    state: "v=1"
+
+  natural_monopoly_big_market:
+    app: natural_monopoly_textbook.html
+    state: "v=1&market=1.8"
+
+  perceived_demand_1:
+    app: perceived_demand_textbook.html
+    state: "v=1"
+
+  perceived_demand_wider:
+    app: perceived_demand_textbook.html
+    state: "v=1&q_l=1.5&q_h=8"
+
+  healthpill_totals_1:
+    app: healthpill_totals_textbook.html
+    state: "v=1"
+
+  healthpill_totals_gap:
+    app: healthpill_totals_textbook.html
+    state: "v=1&show_gap=1"
+
+  healthpill_marginal_1:
+    app: healthpill_marginal_textbook.html
+    state: "v=1"
+
+  healthpill_marginal_higher:
+    app: healthpill_marginal_textbook.html
+    state: "v=1&a=1500"
+
+  monopoly_profit_boxes_1:
+    app: monopoly_profit_boxes_textbook.html
+    state: "v=1"
+
+  monopoly_profit_boxes_lower:
+    app: monopoly_profit_boxes_textbook.html
+    state: "v=1&a=1100"
+
+  monopoly_three_steps_1:
+    app: monopoly_three_steps_textbook.html
+    state: "v=1"
+
+  monopoly_three_steps_higher:
+    app: monopoly_three_steps_textbook.html
+    state: "v=1&a=11"
+
+  mr_below_demand_1:
+    app: mr_below_demand_textbook.html
+    state: "v=1"
+
+  mr_below_demand_steeper:
+    app: mr_below_demand_textbook.html
+    state: "v=1&slope=1.4"
+
+  three_perceived_demands_1:
+    app: three_perceived_demands_textbook.html
+    state: "v=1"
+
+  three_perceived_demands_barely:
+    app: three_perceived_demands_textbook.html
+    state: "v=1&diff=5&show_monopoly=1"
+
+  pizza_profit_1:
+    app: pizza_profit_textbook.html
+    state: "v=1"
+
+  pizza_profit_lower_demand:
+    app: pizza_profit_textbook.html
+    state: "v=1&dp=-3"
+
+  entry_exit_1:
+    app: entry_exit_textbook.html
+    state: "v=1"
+
+  entry_exit_bigger:
+    app: entry_exit_textbook.html
+    state: "v=1&shift=2"
+
+  kinked_demand_1:
+    app: kinked_demand_textbook.html
+    state: "v=1"
+
+  kinked_demand_steeper:
+    app: kinked_demand_textbook.html
+    state: "v=1&p_cut=200"
+
+  merger_review_1:
+    app: merger_review_textbook.html
+    state: "v=1"
+
+  merger_review_since_2003:
+    app: merger_review_textbook.html
+    state: "v=1&from=2003&show_big=1"
+
+  natural_monopoly_regulation_1:
+    app: natural_monopoly_regulation_textbook.html
+    state: "v=1"
+
+  natural_monopoly_regulation_f:
+    app: natural_monopoly_regulation_textbook.html
+    state: "v=1&choice=4&show_pick=1"
+
+  pollution_supply_shift_1:
+    app: pollution_supply_shift_textbook.html
+    state: "v=1"
+
+  pollution_supply_shift_bigger:
+    app: pollution_supply_shift_textbook.html
+    state: "v=1&cost=200"
+
+  pollution_charge_1:
+    app: pollution_charge_textbook.html
+    state: "v=1"
+
+  pollution_charge_higher:
+    app: pollution_charge_textbook.html
+    state: "v=1&charge=1750&show_stop=1"
+
+  protection_costs_benefits_1:
+    app: protection_costs_benefits_textbook.html
+    state: "v=1"
+
+  protection_costs_benefits_wide:
+    app: protection_costs_benefits_textbook.html
+    state: "v=1&spread=1.4"
+
+  output_environment_ppf_1:
+    app: output_environment_ppf_textbook.html
+    state: "v=1"
+
+  output_environment_ppf_efficient:
+    app: output_environment_ppf_textbook.html
+    state: "v=1&waste=1"
+
+  innovation_capital_1:
+    app: innovation_capital_textbook.html
+    state: "v=1"
+
+  innovation_capital_cheap:
+    app: innovation_capital_textbook.html
+    state: "v=1&rate=4"
+
+  flu_shots_subsidy_1:
+    app: flu_shots_subsidy_textbook.html
+    state: "v=1"
+
+  flu_shots_subsidy_small:
+    app: flu_shots_subsidy_textbook.html
+    state: "v=1&spill=1.5"
+
+  patents_filed_granted_1:
+    app: patents_filed_granted_textbook.html
+    state: "v=1"
+
+  patents_filed_granted_since_2005:
+    app: patents_filed_granted_textbook.html
+    state: "v=1&from=2005"
+
+  labor_marginal_product_mp:
+    app: labor_marginal_product_textbook.html
+    state: "v=1"
+
+  labor_marginal_product_vmp:
+    app: labor_marginal_product_textbook.html
+    state: "v=1&measure=2"
+
+  labor_marginal_product_mrp:
+    app: labor_marginal_product_textbook.html
+    state: "v=1&measure=3"
+
+  labor_demand_equilibrium_1:
+    app: labor_demand_equilibrium_textbook.html
+    state: "v=1"
+
+  labor_demand_equilibrium_mrp:
+    app: labor_demand_equilibrium_textbook.html
+    state: "v=1&show_mrp=1"
+
+  market_wage_1:
+    app: market_wage_textbook.html
+    state: "v=1"
+
+  market_wage_more_demand:
+    app: market_wage_textbook.html
+    state: "v=1&dq=1"
+
+  monopsony_mc:
+    app: monopsony_textbook.html
+    state: "v=1"
+
+  monopsony_outcome:
+    app: monopsony_textbook.html
+    state: "v=1&show_demand=1&show_monopsony=1"
+
+  monopsony_vs_competition:
+    app: monopsony_textbook.html
+    state: "v=1&show_demand=1&show_monopsony=1&show_competitive=1"
+
+  union_wage_floor_1:
+    app: union_wage_floor_textbook.html
+    state: "v=1"
+
+  union_wage_floor_bigger:
+    app: union_wage_floor_textbook.html
+    state: "v=1&premium=4"
+
+  bilateral_monopoly_1:
+    app: bilateral_monopoly_textbook.html
+    state: "v=1"
+
+  bilateral_monopoly_brace:
+    app: bilateral_monopoly_textbook.html
+    state: "v=1&show_brace=1"
+
+  union_membership_1:
+    app: union_membership_textbook.html
+    state: "v=1"
+
+  union_membership_since_1970:
+    app: union_membership_textbook.html
+    state: "v=1&from=1970&show_peak=1"
+
+  employment_by_sector_1:
+    app: employment_by_sector_textbook.html
+    state: "v=1"
+
+  employment_by_sector_1979:
+    app: employment_by_sector_textbook.html
+    state: "v=1&year=1980&show_year=1"
+
+  wage_ratios_1:
+    app: wage_ratios_textbook.html
+    state: "v=1"
+
+  wage_ratios_2015:
+    app: wage_ratios_textbook.html
+    state: "v=1&year=2015&show_year=1"
+
+  population_projection_1:
+    app: population_projection_textbook.html
+    state: "v=1"
+
+  population_projection_hispanic:
+    app: population_projection_textbook.html
+    state: "v=1&show_pick=1"
+
+  immigration_by_decade_1:
+    app: immigration_by_decade_textbook.html
+    state: "v=1"
+
+  immigration_by_decade_share:
+    app: immigration_by_decade_textbook.html
+    state: "v=1&show_share=1"
+
+  poverty_rate_1:
+    app: poverty_rate_textbook.html
+    state: "v=1"
+
+  poverty_rate_2019:
+    app: poverty_rate_textbook.html
+    state: "v=1&point=11&show_mark=1"
+
+  poverty_trap_1:
+    app: poverty_trap_textbook.html
+    state: "v=1"
+
+  poverty_trap_phaseout:
+    app: poverty_trap_textbook.html
+    state: "v=1&phaseout=50&show_choices=1"
+
+  tax_credits_spending_1:
+    app: tax_credits_spending_textbook.html
+    state: "v=1"
+
+  tax_credits_spending_1995:
+    app: tax_credits_spending_textbook.html
+    state: "v=1&year=1995&show_year=1"
+
+  safety_net_spending_1:
+    app: safety_net_spending_textbook.html
+    state: "v=1"
+
+  safety_net_spending_2011:
+    app: safety_net_spending_textbook.html
+    state: "v=1&year=2011&show_year=1"
+
+  medicaid_shares_1:
+    app: medicaid_shares_textbook.html
+    state: "v=1"
+
+  medicaid_shares_children:
+    app: medicaid_shares_textbook.html
+    state: "v=1&group=1&show_pick=1"
+
+  lorenz_curve_1:
+    app: lorenz_curve_textbook.html
+    state: "v=1"
+
+  lorenz_curve_bottom_40:
+    app: lorenz_curve_textbook.html
+    state: "v=1&cut=40&show_gap=1"
+
+  high_skilled_wages_1:
+    app: high_skilled_wages_textbook.html
+    state: "v=1"
+
+  high_skilled_wages_supply_only:
+    app: high_skilled_wages_textbook.html
+    state: "v=1&dd=0"
+
+  equality_output_tradeoff_1:
+    app: equality_output_tradeoff_textbook.html
+    state: "v=1"
+
+  equality_output_tradeoff_second:
+    app: equality_output_tradeoff_textbook.html
+    state: "v=1&spot=2&show_pick=1"
+
+  insurance_flows_1:
+    app: insurance_flows_textbook.html
+    state: "v=1"
+
+  insurance_flows_scaled:
+    app: insurance_flows_textbook.html
+    state: "v=1&show_scaled=1&premium=2160"
+
+  corporate_profits_1:
+    app: corporate_profits_textbook.html
+    state: "v=1"
+
+  corporate_profits_crisis:
+    app: corporate_profits_textbook.html
+    state: "v=1&year=2009&show_year=1"
+
+  banks_intermediaries_1:
+    app: banks_intermediaries_textbook.html
+    state: "v=1"
+
+  banks_intermediaries_wide:
+    app: banks_intermediaries_textbook.html
+    state: "v=1&spread=34&show_labels=0"
+
+  cd_rates_1:
+    app: cd_rates_textbook.html
+    state: "v=1"
+
+  cd_rates_2020:
+    app: cd_rates_textbook.html
+    state: "v=1&year=2020&show_year=1"
+
+  bond_rates_1:
+    app: bond_rates_textbook.html
+    state: "v=1"
+
+  bond_rates_gap:
+    app: bond_rates_textbook.html
+    state: "v=1&year=2009&show_gap=1"
+
+  stock_indexes_1:
+    app: stock_indexes_textbook.html
+    state: "v=1"
+
+  stock_indexes_sp_only:
+    app: stock_indexes_textbook.html
+    state: "v=1&show_dow=0&year=2021"
+
+  new_home_prices_1:
+    app: new_home_prices_textbook.html
+    state: "v=1"
+
+  new_home_prices_peak:
+    app: new_home_prices_textbook.html
+    state: "v=1&year=2011&show_year=1"
+
+  voting_cycle_1:
+    app: voting_cycle_textbook.html
+    state: "v=1"
+
+  voting_cycle_winner:
+    app: voting_cycle_textbook.html
+    state: "v=1&alex=0&show_first=1"
+
+  ppf_saudi_us_1:
+    app: ppf_saudi_us_textbook.html
+    state: "v=1"
+
+  ppf_saudi_us_specialized:
+    app: ppf_saudi_us_textbook.html
+    state: "v=1&saudi=100&us=0&show_guides=1"
+
+  saudi_gains_from_trade_1:
+    app: saudi_gains_from_trade_textbook.html
+    state: "v=1"
+
+  saudi_gains_from_trade_no_gain:
+    app: saudi_gains_from_trade_textbook.html
+    state: "v=1&price=0.25&export=40"
+
+  ppf_us_mexico_1:
+    app: ppf_us_mexico_textbook.html
+    state: "v=1"
+
+  ppf_us_mexico_no_shift:
+    app: ppf_us_mexico_textbook.html
+    state: "v=1&us_shift=0&mx_shift=0"
+
+  toaster_oven_scale_1:
+    app: toaster_oven_scale_textbook.html
+    state: "v=1"
+
+  toaster_oven_scale_large:
+    app: toaster_oven_scale_textbook.html
+    state: "v=1&q=150&show_read=1"
+
+  sugar_trade_two_countries_1:
+    app: sugar_trade_two_countries_textbook.html
+    state: "v=1"
+
+  sugar_trade_two_countries_free:
+    app: sugar_trade_two_countries_textbook.html
+    state: "v=1&open=100"
+
+  sugar_gains_from_trade_1:
+    app: sugar_gains_from_trade_textbook.html
+    state: "v=1"
+
+  sugar_gains_from_trade_high:
+    app: sugar_gains_from_trade_textbook.html
+    state: "v=1&price=20&show_labels=0"
+
+  us_sugar_tariff_1:
+    app: us_sugar_tariff_textbook.html
+    state: "v=1"
+
+  us_sugar_tariff_shut:
+    app: us_sugar_tariff_textbook.html
+    state: "v=1&imports=0&show_surplus=1"
+
+  slope_intercept_line_1:
+    app: slope_intercept_line_textbook.html
+    state: "v=1"
+
+  slope_intercept_line_steeper:
+    app: slope_intercept_line_textbook.html
+    state: "v=1&m=5&b=0"
+
+  supply_demand_algebra_1:
+    app: supply_demand_algebra_textbook.html
+    state: "v=1"
+
+  supply_demand_algebra_flatter:
+    app: supply_demand_algebra_textbook.html
+    state: "v=1&sslope=0.4&dtop=10"
+
+  length_weight_1:
+    app: length_weight_textbook.html
+    state: "v=1"
+
+  length_weight_36:
+    app: length_weight_textbook.html
+    state: "v=1&len=36&show_girls=0"
+
+  altitude_air_density_1:
+    app: altitude_air_density_textbook.html
+    state: "v=1"
+
+  altitude_air_density_low:
+    app: altitude_air_density_textbook.html
+    state: "v=1&alt=500&show_read=1"
+
+  unemployment_rate_1:
+    app: unemployment_rate_textbook.html
+    state: "v=1"
+
+  unemployment_rate_2000:
+    app: unemployment_rate_textbook.html
+    state: "v=1&year=2000&show_year=1"
+
+  age_distribution_pies_1:
+    app: age_distribution_pies_textbook.html
+    state: "v=1"
+
+  age_distribution_pies_pulled:
+    app: age_distribution_pies_textbook.html
+    state: "v=1&pull=24&show_labels=0"
+
+  population_bars_1:
+    app: population_bars_textbook.html
+    state: "v=1"
+
+  population_bars_top4:
+    app: population_bars_textbook.html
+    state: "v=1&count=4&show_values=1"
+
+  age_distribution_bars_1:
+    app: age_distribution_bars_textbook.html
+    state: "v=1"
+
+  age_distribution_bars_2030:
+    app: age_distribution_bars_textbook.html
+    state: "v=1&pick=3&show_values=0"
+
+  unemployment_shape_1:
+    app: unemployment_shape_textbook.html
+    state: "v=1"
+
+  unemployment_shape_mild:
+    app: unemployment_shape_textbook.html
+    state: "v=1&stretch=40&show_dots=0"
+
+  unemployment_scale_1:
+    app: unemployment_scale_textbook.html
+    state: "v=1"
+
+  unemployment_scale_tight:
+    app: unemployment_scale_textbook.html
+    state: "v=1&top=12&window=10"
+
+  unemployment_window_1:
+    app: unemployment_window_textbook.html
+    state: "v=1"
+
+  unemployment_window_1990:
+    app: unemployment_window_textbook.html
+    state: "v=1&start=1990&show_dots=0"
+
+  lillys_indifference_curves_1:
+    app: lillys_indifference_curves_textbook.html
+    state: "v=1"
+
+  lillys_indifference_curves_middle:
+    app: lillys_indifference_curves_textbook.html
+    state: "v=1&pick=2&show_names=0"
+
+  lilly_budget_choice_1:
+    app: lilly_budget_choice_textbook.html
+    state: "v=1"
+
+  lilly_budget_choice_rich:
+    app: lilly_budget_choice_textbook.html
+    state: "v=1&budget=80&show_points=0"
+
+  manuel_natasha_1:
+    app: manuel_natasha_textbook.html
+    state: "v=1"
+
+  manuel_natasha_80:
+    app: manuel_natasha_textbook.html
+    state: "v=1&income=80&show_arrows=0"
+
+  substitution_income_effects_1:
+    app: substitution_income_effects_textbook.html
+    state: "v=1"
+
+  substitution_income_effects_40:
+    app: substitution_income_effects_textbook.html
+    state: "v=1&price=40&show_effects=0"
+
+  petunia_labor_supply_1:
+    app: petunia_labor_supply_textbook.html
+    state: "v=1"
+
+  petunia_labor_supply_small:
+    app: petunia_labor_supply_textbook.html
+    state: "v=1&wage=14&show_effects=0"
+
+  quentin_saving_1:
+    app: quentin_saving_textbook.html
+    state: "v=1"
+
+  quentin_saving_low:
+    app: quentin_saving_textbook.html
+    state: "v=1&ret=10&show_effects=0"
+
+  effects_steps_1:
+    app: effects_steps_textbook.html
+    state: "v=1"
+
+  effects_steps_2:
+    app: effects_steps_textbook.html
+    state: "v=1&step=2"
+
+  effects_steps_3:
+    app: effects_steps_textbook.html
+    state: "v=1&step=3"
+
+  effects_steps_4:
+    app: effects_steps_textbook.html
+    state: "v=1&step=4"
+
+  effects_steps_5:
+    app: effects_steps_textbook.html
+    state: "v=1&step=5"

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What a Worker Is Worth to the Firm</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>What a Worker Is Worth to the Firm</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Each extra worker adds less output than the last, and what that output is worth depends on whether the firm can sell it at a fixed price</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Marginal Product and What It Is Worth</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>With capital fixed, each extra worker adds less output than the one before: four widgets, then three, then two, then one. That is the marginal product of labor.</p>
+          <p>What a worker is worth to the firm is that marginal product valued in money. A firm selling in a perfectly competitive market gets the market price for every unit, so the value of the marginal product is marginal product times price: at $4 a widget, $16, $12, $8, $4. A firm with market power must cut its price to sell more, so what counts is marginal revenue, not price, and marginal revenue is falling too. Multiplying two falling numbers gives the marginal revenue product, $16, $9, $4, $1, which drops away much faster. The slider picks which of the three the chart shows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-measure">
+        <div class="control-panel-header" onclick="tog('measure')"><div class="panel-title">What to Show</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-measure" onclick="event.stopPropagation();tog('measure')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('measure')">✕</button></div></div>
+        <div class="control-panel-body" id="body-measure"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+// A name with a small subscript, and sometimes a normal-size tail. Unicode
+// has no subscript c or d, so every subscript here is drawn by hand: two
+// fillText calls at different sizes sharing one nudge key.
+const subLabel = (g, main, sub, tail, key, x, y, align) => {
+  const { S, ctx } = g, nd = g.getNudge(key), BIG = `${15 * S}px ${g.font}`, SMALL = `${11 * S}px ${g.font}`;
+  ctx.font = BIG;   const w = ctx.measureText(main).width, wt = tail ? ctx.measureText(tail).width : 0;
+  ctx.font = SMALL; const ws = sub ? ctx.measureText(sub).width : 0;
+  const total = w + ws + wt;
+  const lx = (align === 'right' ? x - total : align === 'center' ? x - total / 2 : x) + nd.dx, ly = y + nd.dy;
+  ctx.textAlign = 'left'; ctx.fillStyle = BLUE;
+  ctx.font = BIG;   ctx.fillText(main, lx, ly);
+  if (sub) { ctx.font = SMALL; ctx.fillText(sub, lx + w + 1 * S, ly + 5 * S); }
+  if (tail) { ctx.font = BIG; ctx.fillText(tail, lx + w + ws + 2 * S, ly); }
+  g.regLabel(key, lx - 4 * S, ly - 14 * S, total + 8 * S, 22 * S);
+};
+
+// Tables 14.1 to 14.3 of the book: four workers, marginal product 4, 3, 2, 1.
+// Price is a flat $4, and marginal revenue falls $4, $3, $2, $1 alongside
+// marginal product, so all three measures are clean functions of L that
+// reach zero at the fifth worker.
+const WORKERS = [1, 2, 3, 4];
+const MEASURES = [
+  { key:'mp',  fn: L => 5 - L,          vals:[4, 3, 2, 1],     ticks:[1, 2, 3, 4],
+    axis:'Marginal Product (MPₗ)', note:null, dashed:false },
+  { key:'vmp', fn: L => 4 * (5 - L),    vals:[16, 12, 8, 4],   ticks:[4, 8, 12, 16],
+    axis:'Value of the Marginal Product of Labor (VMPₗ)', note:['VMP', 'L', ' = MP', 'L', ' × P'], dashed:true },
+  { key:'mrp', fn: L => (5 - L) ** 2,   vals:[16, 9, 4, 1],    ticks:[4, 8, 12, 16],
+    axis:'Marginal Revenue Product of Labor (MRPₗ)', note:['MRP', 'L', ' = MP', 'L', ' × MR'], dashed:true },
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'labor_marginal_product.png',
+  axes: { xMin:0, xMax:5.8, yMin:0, yMax:18, margin:{top:60, right:200, bottom:130, left:230} },
+  sliders: [
+    { id:'measure', label:'Measure shown', min:1, max:3, value:1, step:1, fmt:v => ['Marginal product', 'Value of the marginal product', 'Marginal revenue product'][v - 1] },
+  ],
+  toggles: [
+    { id:'show_dashed', label:'Dashed lines to the axes' },
+    { id:'show_note',   label:'The formula beside the line' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', measure:'Measure' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['measure'],
+  nudgeKeys: ['x','y','an.note'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, yMax } = g;
+    const M = MEASURES[val('measure') - 1];
+    // The measures run to different heights, so the chart rescales with them
+    const top = M.key === 'mp' ? 5.2 : 18;
+    const yOf = v => y0 + height - (v / top) * height;
+    g.setText('info', WORKERS.map((L, i) => `<div class="info-row"><span class="info-label">Worker ${L}</span><span class="info-value">${M.key === 'mp' ? M.vals[i] + ' widgets' : '$' + M.vals[i]}</span></div>`).join(''));
+
+    g.clear();
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + g.width, y0 + height); ctx.stroke();
+    ctx.fillStyle = '#718096'; ctx.font = `${12 * S}px ${g.font}`;
+    ctx.textAlign = 'center'; [0, 1, 2, 3, 4].forEach(v => ctx.fillText(v, tCX(v), y0 + height + 24 * S));
+    ctx.textAlign = 'right'; M.ticks.forEach(v => ctx.fillText(v, x0 - 10 * S, yOf(v) + 5 * S));
+    g.axisLabels('Labor (L)', M.axis);
+
+    // The line runs from the vertical axis to where the measure reaches zero
+    ctx.strokeStyle = M.dashed ? '#a03f8f' : BLUE; ctx.lineWidth = 2 * S;
+    if (M.dashed) ctx.setLineDash([9 * S, 6 * S]);
+    ctx.beginPath();
+    for (let i = 0; i <= 100; i++) { const L = 0.7 + (5.1 - 0.7) * i / 100, x = tCX(L), y = yOf(M.fn(L)); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+    ctx.stroke(); ctx.setLineDash([]);
+
+    if (vis('show_dashed')) WORKERS.forEach((L, i) => {
+      const v = M.vals[i];
+      g.dashed(x0, yOf(v), tCX(L), yOf(v), PINK, 1.5);
+      g.dashed(tCX(L), yOf(v), tCX(L), y0 + height, PINK, 1.5);
+    });
+    if (vis('show_note') && M.note) {
+      const [m1, s1, t1, s2, t2] = M.note;
+      // Two subscripted pieces in a row, drawn as one label
+      // Low on the chart and just right of the line, where the book puts it
+      const NOTE_V = M.key === 'mp' ? 0.6 : 2.2;
+      let ln = 5; while (ln > 1 && M.fn(ln - 0.02) < NOTE_V) ln -= 0.02;
+      const nd = g.getNudge('an.note'), lx = tCX(ln + 0.15) + nd.dx, ly = yOf(NOTE_V) + nd.dy;
+      ctx.textAlign = 'left'; ctx.fillStyle = BLUE;
+      const BIG = `${15 * S}px ${g.font}`, SMALL = `${11 * S}px ${g.font}`;
+      let cx = lx;
+      [[m1, BIG, 0], [s1, SMALL, 5], [t1, BIG, 0], [s2, SMALL, 5], [t2, BIG, 0]].forEach(([txt, font, dy]) => {
+        ctx.font = font; ctx.fillText(txt, cx, ly + dy * S); cx += ctx.measureText(txt).width + (dy ? 1 : 0) * S;
+      });
+      g.regLabel('an.note', lx - 4 * S, ly - 14 * S, cx - lx + 8 * S, 22 * S);
+    }
+  },
+});
+</script>
+</body>
+</html>

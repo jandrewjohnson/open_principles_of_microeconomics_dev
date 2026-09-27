@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profit, Loss, Shutdown</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Profit, Loss, Shutdown</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The average cost and average variable cost curves cut the marginal cost curve into three zones: profit, loss but keep operating, and shut down</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Three Zones of the Marginal Cost Curve</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>A price-taking firm produces where price equals marginal cost, so the marginal cost curve tells the whole short-run story once the two average curves are drawn across it. Where MC crosses AC is the break-even point: at any price above it the firm earns a profit, and at exactly that price it earns nothing. Where MC crosses AVC is the shutdown point.</p>
+          <p>Between the two points the firm makes a loss but covers its variable costs and some of its fixed costs, so it keeps operating in the short run. Below the shutdown point it cannot even cover variable costs and shuts down at once. The slider changes the fixed cost, which lifts AC away from AVC and moves the break-even point; the shutdown point does not move, because fixed cost is not in AVC.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-costs">
+        <div class="control-panel-header" onclick="tog('costs')"><div class="panel-title">Costs</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-costs" onclick="event.stopPropagation();tog('costs')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('costs')">✕</button></div></div>
+        <div class="control-panel-body" id="body-costs"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 8.7 of the book: unnumbered axes, MC rising through the minimum
+// of AVC (the shutdown point) and the minimum of AC (the break-even point).
+// MC is a parabola, steep on its left arm so it dips well below AVC as in
+// the book; AVC is the average of its integral, so MC really does cross
+// AVC and AC at their minima; AC adds fixed cost per unit.
+const A = 1.5, B = 0.06, BL = 0.5, Q0 = 2;
+const mc = q => A + (q < Q0 ? BL : B) * (q - Q0) ** 2;
+const vc = q => q < Q0 ? A * q + BL * ((q - Q0) ** 3 + Q0 ** 3) / 3 : A * q + BL * Q0 ** 3 / 3 + B * (q - Q0) ** 3 / 3;
+const avc = q => vc(q) / q;
+const BLUE = '#2b6cb0', INK = '#1a202c';
+// Minimum of a curve on [lo, hi] by scanning
+const argmin = (f, lo, hi) => { let best = lo, bv = f(lo); for (let q = lo; q <= hi; q += 0.01) if (f(q) < bv) { bv = f(q); best = q; } return best; };
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'profit_loss_shutdown.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:5.5, margin:{top:50, right:230, bottom:110, left:130} },
+  sliders: [
+    { id:'fc', label:'Fixed cost', min:4, max:10, value:8, step:1 },
+  ],
+  toggles: [
+    { id:'show_points', label:'Break-even and shutdown points' },
+    { id:'show_zones',  label:'Zone annotations' },
+    { id:'show_labels', label:'Curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', costs:'Costs' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['costs'],
+  nudgeKeys: ['x','y','mc','ac','avc','an.be','an.sd','an.profit','an.loss','an.shut'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, yMax } = g;
+    const fc = val('fc'), ac = q => avc(q) + fc / q;
+    const qSd = argmin(avc, 1, 9), qBe = argmin(ac, 1, 9);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Break-even point (MC = AC)</span><span class="info-value highlight">price ${ac(qBe).toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Shutdown point (MC = AVC)</span><span class="info-value highlight">price ${avc(qSd).toFixed(2)}</span></div>`);
+
+    g.clear();
+    g.axes(BLUE);
+    g.axisLabels('Output', 'Cost or Price ($)');
+    const top = yMax * 0.92;
+    const upTo = (f, from) => { let b = from; while (b < 9.6 && f(b + 0.02) < top) b += 0.02; return b; };
+    let a = 0.4; while (ac(a) > top) a += 0.05;
+    const bMc = upTo(mc, Q0), bAc = 9.4, bAvc = 9.4;
+    g.plotFn(mc, 0.6, bMc, { color:BLUE, lw:2 });
+    g.plotFn(ac, a, bAc, { color:BLUE, lw:2 });
+    g.plotFn(avc, 0.6, bAvc, { color:BLUE, lw:2 });
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    if (vis('show_labels')) {
+      g.label('MC', tCX(bMc) + 8 * S, tCY(mc(bMc)) - 6 * S, { key:'mc', ...f });
+      g.label('AC', tCX(bAc) + 12 * S, tCY(ac(bAc)) + 6 * S, { key:'ac', ...f });
+      g.label('AVC', tCX(bAvc) + 12 * S, tCY(avc(bAvc)) + 6 * S, { key:'avc', ...f });
+    }
+    if (vis('show_points')) [qBe, qSd].forEach((q, i) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(i ? avc(q) : ac(q)), 7 * S, 0, Math.PI * 2); ctx.fill(); });
+    if (vis('show_zones')) {
+      // Each annotation: text at an offset from its target on the curves, joined by an arrow
+      const note = (key, txt, tx, ty, dx, dy, align) => {
+        const n = g.getNudge(key), lx = tCX(tx) + dx * S + n.dx, ly = tCY(ty) + dy * S + n.dy;
+        const ax = align === 'right' ? lx + 6 * S : lx - 6 * S;
+        g.drawArrow(ax, ly - 5 * S, tCX(tx) + (align === 'right' ? -1 : 1) * 10 * S, tCY(ty) + (dy > 0 ? 8 : -8) * S, INK);
+        g.label(txt, tCX(tx) + dx * S, tCY(ty) + dy * S, { key, align, lineH:20 * S, ...f });
+      };
+      const qMcAt = y => { let q = Q0; while (q < 9.6 && mc(q) < y) q += 0.01; return q; };
+      note('an.be',     'Break Even point', qBe, ac(qBe), -40, -40, 'right');
+      note('an.sd',     'Shutdown point',   qSd, avc(qSd), 30, 60, 'left');
+      const qp = qMcAt(ac(qBe) + 0.9); note('an.profit', 'Profit zone', qp, mc(qp), 50, 0, 'left');
+      // Anchored well right of the shutdown point so the label clears the shutdown labels even when fixed cost is low
+      const ql = Math.max((qBe + qSd) / 2, qSd + 1.8); note('an.loss', 'Loss but continue\noperating in\nshort-run zone', ql, mc(ql), 60, 100, 'left');
+      const qz = Q0 + (qSd - Q0) * 0.45; note('an.shut', 'Shutdown zone', qz, mc(qz), -50, 60, 'right');
+    }
+  },
+});
+</script>
+</body>
+</html>

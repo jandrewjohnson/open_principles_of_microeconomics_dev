@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Foundations of a Demand Curve</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Foundations of a Demand Curve: An Example of Housing</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Each rise in the price of housing rotates the budget constraint in (a) and moves the best choice; plotting each price against the housing chosen traces out the demand curve in (b)</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. From Budget Constraints to a Demand Curve</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1200" height="1800"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Panel (a) puts housing on the horizontal axis and "everything else" on the vertical. The original budget constraint, at housing price P₀, has its best choice at M₀. As the price of housing rises to P₁, P₂ and P₃ the constraint rotates in, and in, and in again, and the utility-maximizing choice moves to M₁, M₂ and M₃, with the quantity of housing falling from Q₀ to Q₁ to Q₂ to Q₃.</p>
+          <p>Panel (b) plots each price against the quantity of housing chosen at that price. The vertical dashed lines show that the quantities are the same in both panels, so M₀ becomes E₀ on the demand curve, M₁ becomes E₁, and so on. The demand curve is built from utility-maximizing choices, even though only prices and quantities can be measured. The sliders set how much the price rises at each step and how strongly the chosen quantity responds.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-prices">
+        <div class="control-panel-header" onclick="tog('prices')"><div class="panel-title">Price Rises</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-prices" onclick="event.stopPropagation();tog('prices')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('prices')">✕</button></div></div>
+        <div class="control-panel-body" id="body-prices"><div data-sliders></div><div class="info-box" id="pt-info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 6.5 of the book: two panels stacked, sharing the horizontal scale
+// so the dashed lines at Q0 to Q3 run straight down from the budget
+// constraints in (a) to the demand curve in (b). Each price rise multiplies
+// the housing price by f; the chosen quantity is Q0 * (P/P0)^(-e), with e
+// the price elasticity, which gives the book's spacing at f = 1.3, e = 1.4.
+const YINT = 8, XINT0 = 9, Q0 = 3.5;
+const SUB = ['₀', '₁', '₂', '₃'];
+const MG_A = { top:50, right:70, bottom:170, left:170 }, MG_B = { top:40, right:70, bottom:220, left:170 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:10,  margin:MG_A, top:0,   height:860 },
+  { xMin:0, xMax:10, yMin:0, yMax:3.2, margin:MG_B, top:860, height:940 },
+];
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+const TARGET_X = [0.9, 1.3, 2.9, 3.0];
+const RISE_TEXT = ['Original housing price P₀', 'Housing price rises for the first time to P₁', 'Housing price rises for the second time to P₂', 'Housing price rises for the third time to P₃'];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'demand_derivation.png',
+  axes: AXES,
+  sliders: [
+    { id:'f',    label:'Price rise at each step',            min:1.2, max:1.4, value:1.3, step:0.05, fmt:v => '×' + v.toFixed(2) },
+    { id:'elas', label:'Price elasticity of housing demand', min:0.6, max:2,   value:1.4, step:0.2,  fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_rises',    label:'The three higher prices (P₁ to P₃)' },
+    { id:'show_annot',    label:'Price labels with arrows' },
+    { id:'show_dashed',   label:'Dashed lines' },
+    { id:'show_letters',  label:'M, E, Q and P labels' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', prices:'Prices' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['prices'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','d','pt.a.M0','pt.a.M1','pt.a.M2','pt.a.M3','pt.b.E0','pt.b.E1','pt.b.E2','pt.b.E3','an.P0','an.P1','an.P2','an.P3'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const f = val('f'), e = val('elas');
+    const n = vis('show_rises') ? 4 : 1;
+    const steps = [];
+    for (let i = 0; i < n; i++) {
+      const P = Math.pow(f, i), Q = Q0 * Math.pow(P, -e), xInt = XINT0 / P;
+      steps.push({ i, P, Q, xInt, y: YINT * (1 - Q / xInt) });
+    }
+    g.setText('pt-info', steps.map(s => `<div class="info-row"><span class="info-label">P${SUB[s.i]} = ${s.P.toFixed(2)} × P₀</span><span class="info-value">Q${SUB[s.i]} = ${s.Q.toFixed(2)}</span></div>`).join(''));
+
+    g.clear();
+    const A = g.panel(0), B = g.panel(1);
+    const axisYA = A.y0 + A.height, axisYB = B.y0 + B.height;
+    const bold = { font:`bold ${14 * S}px ${g.font}`, color:BLUE }, plain = { font:`${13 * S}px ${g.font}`, color:BLUE };
+    // A label with a white halo, so a line or dash running underneath is hidden only right around the letters
+    const halo = (pan, txt, x, y, opts) => {
+      const nd = opts.key ? g.getNudge(opts.key) : { dx: 0, dy: 0 };
+      ctx.font = opts.font; ctx.textAlign = opts.align || 'left'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 5 * S; ctx.strokeText(txt, x + nd.dx, y + nd.dy);
+      pan.label(txt, x, y, opts);
+    };
+
+    // ---- Panel (a): budget constraints ----
+    A.axes(BLUE);
+    A.axisLabels(null, 'Everything Else', 'a');
+    A.label('Housing', A.x0 + A.width, axisYA + 28 * S, { key:'x.a', align:'right', ...bold });
+    steps.forEach(s => { ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath(); ctx.moveTo(A.tCX(0), A.tCY(YINT)); ctx.lineTo(A.tCX(s.xInt), A.tCY(0)); ctx.stroke(); });
+
+    if (vis('show_rises') && vis('show_annot')) {
+      // Small arrows between neighbouring intercepts, pointing left, as in the book
+      const y = 0.55, qAt = xInt => xInt * (1 - y / YINT);
+      for (let i = 1; i < steps.length; i++) {
+        const q1 = qAt(steps[i - 1].xInt), q2 = qAt(steps[i].xInt);
+        if (A.tCX(q1) - A.tCX(q2) > 26 * S) A.drawArrow(A.tCX(q1) - 6 * S, A.tCY(y), A.tCX(q2) + 6 * S, A.tCY(y), INK);
+      }
+    }
+
+    // Dashed verticals from each M down through both panels; the labels they cross are drawn on white patches afterwards
+    if (vis('show_dashed')) steps.forEach(s => {
+      const x = A.tCX(s.Q);
+      A.dashed(x, A.tCY(s.y), x, axisYB, PINK, 1.5);
+      B.dashed(B.x0, B.tCY(s.P), x, B.tCY(s.P), PINK, 1.5);
+    });
+
+    steps.forEach(s => {
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(A.tCX(s.Q), A.tCY(s.y), 6 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_letters')) {
+        // Up and to the right, away from the line through the dot, haloed since a neighbouring line usually runs there
+        halo(A, 'M' + SUB[s.i], A.tCX(s.Q) + 7 * S, A.tCY(s.y) - 7 * S, { key:'pt.a.M' + s.i, ...plain, font:`${12 * S}px ${g.font}` });
+        halo(A, 'Q' + SUB[s.i], A.tCX(s.Q), axisYA + 30 * S, { align:'center', ...plain });
+      }
+    });
+    if (vis('show_annot')) steps.forEach(s => {
+      // Stacked at the top right, each with an arrow to its own line; the targets are chosen so no arrow runs through an M label or another arrow
+      const nd = g.getNudge('an.P' + s.i);
+      const lx = A.tCX(3.6) + nd.dx, ly = A.y0 + (14 + 30 * s.i) * S + nd.dy;
+      const tx = TARGET_X[s.i], ty = YINT * (1 - tx / s.xInt);
+      const ax = lx - 8 * S, ay = ly - 5 * S, bx = A.tCX(tx), by = A.tCY(ty);
+      const L = Math.hypot(bx - ax, by - ay), ux = (bx - ax) / L, uy = (by - ay) / L;
+      A.drawArrow(ax, ay, bx - ux * 6 * S, by - uy * 6 * S, INK);
+      A.label(RISE_TEXT[s.i], A.tCX(3.6), A.y0 + (14 + 30 * s.i) * S, { key:'an.P' + s.i, font:`${13 * S}px ${g.font}`, color:BLUE });
+    });
+
+    if (vis('show_captions')) halo(A, '(a) A budget constraint diagram', A.x0 - 60 * S, A.bottom - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+
+    // ---- Panel (b): the demand curve ----
+    B.axes(BLUE);
+    B.axisLabels(null, 'Price of Housing', 'b');
+    B.label('Quantity of Housing', B.x0 + B.width / 2, axisYB + 62 * S, { key:'x.b', align:'center', ...bold });
+    const pOfQ = q => Math.pow(q / Q0, -1 / e);
+    const qTop = Q0 * Math.pow(B.yMax * 0.95, -e), qEnd = 8.6;
+    B.plotFn(pOfQ, qTop, qEnd, { color:BLUE, lw:2 });
+    if (vis('show_letters')) B.label('D', B.tCX(qEnd) + 4 * S, B.tCY(pOfQ(qEnd)) + 28 * S, { key:'d', ...bold, font:`bold ${16 * S}px ${g.font}` });
+    steps.forEach(s => {
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(B.tCX(s.Q), B.tCY(s.P), 6 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_letters')) {
+        halo(B, 'E' + SUB[s.i], B.tCX(s.Q) + 9 * S, B.tCY(s.P) - 9 * S, { key:'pt.b.E' + s.i, ...plain });
+        B.label('P' + SUB[s.i], B.x0 - 12 * S, B.tCY(s.P) + 6 * S, { align:'right', ...plain });
+        B.label('Q' + SUB[s.i], B.tCX(s.Q), axisYB + 30 * S, { align:'center', ...plain });
+      }
+    });
+    if (vis('show_captions')) B.label('(b) Deriving a demand curve', B.x0 - 60 * S, B.bottom - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+  },
+});
+</script>
+</body>
+</html>

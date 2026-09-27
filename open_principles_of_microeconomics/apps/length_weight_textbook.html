@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Length–Weight Relationship for American Boys and Girls</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Length–Weight Relationship for American Boys and Girls</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Two series on one pair of axes, showing median weight against length in the first three years of life</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Length and Median Weight</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1100"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>This is a line graph carrying two sets of data at once, one for boys and one for girls. Length runs along the horizontal axis and median weight up the vertical one. Median means half of all babies weigh more than this and half weigh less.</p>
+          <p>The two lines sit almost on top of each other, which is itself the finding: at these ages length predicts weight about equally well for both. Point A is the book's reading, a boy of 28 inches weighing about 19 pounds. The slider moves that reading along the axis, and the panel gives both figures at the chosen length. Charts of this shape are what a doctor uses to check whether a child is growing to pattern.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-read">
+        <div class="control-panel-header" onclick="tog('read')"><div class="panel-title">Reading the Graph</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-read" onclick="event.stopPropagation();tog('read')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('read')">✕</button></div></div>
+        <div class="control-panel-body" id="body-read"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+
+// Figure A3 of the book, drawn from its table: median weight in pounds
+// against length in inches, for boys and for girls, birth to 36 months.
+const S0 = 2;
+const LEN = [20, 22, 24, 26, 28, 30, 32, 34, 36, 38];
+const BOYS  = [8.0, 10.5, 13.5, 16.4, 19.0, 21.8, 24.3, 27.0, 29.3, 32.0];
+const GIRLS = [7.9, 10.5, 13.2, 16.0, 18.8, 21.2, 24.0, 26.2, 28.9, 31.3];
+const PINK2 = '#c0399b';
+const at = (arr, L) => { const i = Math.max(0, Math.min(8, Math.floor((L - 20) / 2)));
+  const t = (L - LEN[i]) / 2; return arr[i] + t * (arr[i + 1] - arr[i]); };
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'length_weight.png',
+  axes: { xMin:18, xMax:42, yMin:0, yMax:35, margin:{top:60, right:100, bottom:190, left:210} },
+  sliders: [
+    { id:'len', label:'Length to read', min:20, max:38, value:28, step:2, fmt:v => v + ' inches' },
+  ],
+  toggles: [
+    { id:'show_girls',  label:'The line for girls' },
+    { id:'show_mark',   label:'Mark the length being read' },
+    { id:'show_legend', label:'Legend' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', read:'Reading the Graph' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['read'],
+  nudgeKeys: ['x.a','y.a','mk','lg'],
+
+  draw(g) {
+    const { S, ctx, val, vis, tCX, tCY, x0, y0 } = g;
+    const L = val('len'), wb = at(BOYS, L), wg = at(GIRLS, L);
+    const n = v => Math.round(v * 10) / 10;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Length</span><span class="info-value">${L} inches</span></div>`
+      + `<div class="info-row"><span class="info-label">Median weight, boys</span><span class="info-value highlight">${n(wb)} pounds</span></div>`
+      + `<div class="info-row"><span class="info-label">Median weight, girls</span><span class="info-value">${n(wg)} pounds</span></div>`
+      + `<div class="info-row"><span class="info-label">Difference</span><span class="info-value">${n(wb - wg)} pounds</span></div>`);
+
+    g.clear();
+    const xs = []; for (let v = 18; v <= 42; v += 4) xs.push(v);
+    const ys = []; for (let v = 0; v <= 35; v += 5) ys.push(v);
+    frame(g, g, { tag:'a', xTicks:xs, yTicks:ys, fmtX:v => v.toFixed(1), fmtY:v => v.toFixed(1),
+      xLabel:'Length (inches)', yLabel:'Weight (pounds)' });
+
+    const series = [[BOYS, BLUE]];
+    if (vis('show_girls')) series.push([GIRLS, PINK2]);
+    series.forEach(([arr, color]) => {
+      ctx.strokeStyle = color; ctx.lineWidth = 2 * S; ctx.beginPath();
+      arr.forEach((w, i) => { const px = tCX(LEN[i]), py = tCY(w); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); });
+      ctx.stroke();
+      arr.forEach((w, i) => dot(g, tCX(LEN[i]), tCY(w), color));
+    });
+
+    if (vis('show_mark')) {
+      g.dashed(tCX(L), tCY(wb), tCX(L), tCY(0), MAROON, 1.5);
+      g.dashed(tCX(L), tCY(wb), x0, tCY(wb), MAROON, 1.5);
+      g.label(`${L} inches,\n${n(wb)} pounds A`, tCX(L) - 16 * S, tCY(wb) - 40 * S,
+        { key:'mk', align:'right', font:`${15 * S}px ${g.font}`, color:BLUE, lineH:22 * S });
+    }
+    if (vis('show_legend')) {
+      const nd = g.getNudge('lg'), bx = tCX(19.4) + nd.dx, by = tCY(34) + nd.dy;
+      const rows = vis('show_girls') ? [['Boys', BLUE], ['Girls', PINK2]] : [['Boys', BLUE]];
+      const bw = 150 * S, bh = (18 + 30 * rows.length) * S;
+      ctx.fillStyle = '#fff'; ctx.fillRect(bx, by, bw, bh);
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 1.5 * S; ctx.strokeRect(bx, by, bw, bh);
+      rows.forEach(([txt, color], i) => {
+        dot(g, bx + 24 * S, by + (24 + 30 * i) * S, color);
+        ctx.fillStyle = BLUE; ctx.font = `${16 * S}px ${g.font}`; ctx.textAlign = 'left';
+        ctx.fillText(txt, bx + 44 * S, by + (30 + 30 * i) * S);
+      });
+      g.regLabel('lg', bx, by, bw, bh);
+    }
+  },
+});
+</script>
+</body>
+</html>

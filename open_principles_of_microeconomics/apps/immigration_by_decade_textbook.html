@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immigration Since 1900</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Immigration Since 1900</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Immigration fell from the 1900s to the 1930s and rose again through 2009; measured against the population it lives in, the early peak was far larger</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Immigrants by Decade</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1900" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Counted head by head, the two biggest decades for immigration to the United States were the 1900s, with about 8.3 million arrivals, and the 2000s and 2010s, with about 11 million each. That is the comparison people reach for when they say immigration is at record levels.</p>
+          <p>The toggle divides each decade's arrivals by the population already living in the country at the start of it. On that measure the 1900s stand far above everything since: 8.3 million arrivals into a country of 76 million is a very different thing from 11 million into a country of 281 million. The population roughly tripled across the twentieth century, so the recent decades shrink when set against it. The slider picks a decade and the side panel gives both measures.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-decade">
+        <div class="control-panel-header" onclick="tog('decade')"><div class="panel-title">Decades</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-decade" onclick="event.stopPropagation();tog('decade')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('decade')">✕</button></div></div>
+        <div class="control-panel-body" id="body-decade"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', BAR = '#2f6fb5', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7';
+// Years leaning up to the right, the way the book sets them under a
+// crowded axis
+const leaned = (g, txt, x, y) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${13 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+
+// Figure 14.17 of the book, read off its bars. The population at the start
+// of each decade is the census count, which the toggle divides by to make
+// the point the chapter makes about the size of the country.
+const DECADES = ['1900\nto\n1909', '1910\nto\n1919', '1920\nto\n1929', '1930\nto\n1939', '1940\nto\n1949', '1950\nto\n1959',
+                 '1960\nto\n1969', '1970\nto\n1979', '1980\nto\n1989', '1990\nto\n1999', '2000\nto\n2009', '2010\nto\n2019'];
+const ARRIVALS = [8.3, 6.5, 4.3, 0.75, 1.0, 2.5, 3.3, 4.3, 6.3, 9.7, 11.4, 11.3];   // millions
+const POP = [76, 92, 106, 123, 132, 151, 179, 203, 227, 249, 281, 309];             // millions at the start of the decade
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'immigration_by_decade.png',
+  axes: { xMin:0, xMax:12, yMin:0, yMax:12, margin:{top:70, right:80, bottom:240, left:230} },
+  sliders: [
+    { id:'decade', label:'Decade to read', min:1, max:12, value:11, step:1, fmt:v => DECADES[v - 1].split('\n')[0] + 's' },
+  ],
+  toggles: [
+    { id:'show_grid',  label:'Gridlines' },
+    { id:'show_share', label:'As a share of the population at the start of the decade', checked:false },
+    { id:'show_pick',  label:'Highlight the chosen decade', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Chart', explanation:'Explanation', decade:'Decades' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['decade'],
+  nudgeKeys: ['x','y'],
+
+  draw(g) {
+    const { S, ctx, val, vis, x0, y0, width, height } = g;
+    const share = vis('show_share'), pick = val('decade') - 1;
+    const vals = share ? ARRIVALS.map((v, i) => 100 * v / POP[i]) : ARRIVALS;
+    const top = share ? 12 : 12, step = share ? 2 : 2;
+    const yOf = v => y0 + height - (v / top) * height;
+    g.setText('info', DECADES.map((d, i) => {
+      const yr = d.split('\n')[0];
+      return `<div class="info-row"><span class="info-label">${yr}s</span><span class="info-value${i === pick ? ' highlight' : ''}">${ARRIVALS[i].toFixed(1)}m, ${(100 * ARRIVALS[i] / POP[i]).toFixed(1)} per 100 people</span></div>`;
+    }).join(''));
+
+    g.clear();
+    if (vis('show_grid')) { ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1 * S;
+      for (let v = step; v <= top; v += step) { ctx.beginPath(); ctx.moveTo(x0, yOf(v)); ctx.lineTo(x0 + width, yOf(v)); ctx.stroke(); } }
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+    ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+    for (let v = 0; v <= top; v += step) ctx.fillText(share ? v.toFixed(0) : (v * 1000000).toLocaleString(), x0 - 10 * S, yOf(v) + 5 * S);
+    g.axisLabels(null, share ? 'Immigrants per 100 People Already Here' : 'Number of Immigrants');
+
+    const colW = width / DECADES.length, barW = colW * 0.45;
+    DECADES.forEach((d, i) => {
+      const cx = x0 + colW * (i + 0.5);
+      ctx.fillStyle = vis('show_pick') && i === pick ? '#1a4e85' : BAR;
+      ctx.fillRect(cx - barW / 2, yOf(vals[i]), barW, yOf(0) - yOf(vals[i]));
+      // The decade labels sit upright on three lines, as the book sets them
+      d.split('\n').forEach((line, k) => {
+        ctx.font = `${14 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'center';
+        ctx.fillText(line, cx, y0 + height + (30 + k * 30) * S);
+      });
+    });
+  },
+});
+</script>
+</body>
+</html>

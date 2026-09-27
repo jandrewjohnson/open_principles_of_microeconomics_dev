@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Voting Cycle</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Voting Cycle</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Turkey beats roast beef, roast beef beats lasagna, and lasagna beats turkey, so no menu commands a majority</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Three Families Vote Two at a Time</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="1300"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Three families agree to pick a New Year's Day menu by majority vote. Each ranks the three entrees, and each puts a different one first, so no first-choice vote settles anything. Comparing the choices two at a time looks like a way out, and it is where the trouble starts.</p>
+          <p>Turkey beats roast beef two to one. Roast beef beats lasagna two to one. That seems to settle it, until lasagna beats turkey two to one as well. Every option beats one rival and loses to another, so the winner is decided by the order in which the votes are taken rather than by what the majority wants. The slider changes the Alexander family's ranking; most of the six orderings break the cycle and leave one entree that beats both others, and the panel says which.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-votes">
+        <div class="control-panel-header" onclick="tog('votes')"><div class="panel-title">The Votes</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-votes" onclick="event.stopPropagation();tog('votes')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('votes')">✕</button></div></div>
+        <div class="control-panel-body" id="body-votes"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 18.2 of the book: three circles in a ring, with a hollow arrow
+// curving from each loser to the winner of that pair. The book's table 18.1
+// supplies the three rankings; the slider changes the third family's.
+const NAMES = ['Turkey', 'Roast beef', 'Lasagna'];
+const LOWER = ['turkey', 'roast beef', 'lasagna'];
+const FILL  = ['#e8eff9', '#eef6ee', '#f9eeee'];
+const RING  = ['#3d6fb5', '#4a7c59', '#a33b3b'];
+// Every ordering of the three entrees, first choice first.
+const ORDERS = [[0,1,2], [0,2,1], [1,0,2], [1,2,0], [2,0,1], [2,1,0]];
+const ORTEGA = 0, SCHMIDT = 3;   // the book's first two families
+const BLUE = '#2b6cb0', EDGE = '#3d6fb5';
+const ranks = order => { const r = []; order.forEach((opt, place) => r[opt] = place); return r; };
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'voting_cycle.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'alex', label:"The Alexander family's ranking", min:0, max:5, value:4, step:1,
+      fmt:v => ORDERS[v].map(i => NAMES[i]).join(' › ') },
+  ],
+  toggles: [
+    { id:'show_labels', label:'The tally on each arrow' },
+    { id:'show_first',  label:'First-place votes under each entree', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Diagram', explanation:'Explanation', votes:'Votes' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['votes'],
+  nudgeKeys: ['n.0','n.1','n.2','f.0','f.1','f.2'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W, H } = g;
+    const families = [
+      { name:'The Ortega family',    rank: ranks(ORDERS[ORTEGA]) },
+      { name:'The Schmidt family',   rank: ranks(ORDERS[SCHMIDT]) },
+      { name:'The Alexander family', rank: ranks(ORDERS[val('alex')]) },
+    ];
+    // Who wins each pair, and by how much
+    const duel = (a, b) => {
+      const av = families.filter(f => f.rank[a] < f.rank[b]).length;
+      return av >= 2 ? { win:a, lose:b, w:av, l:3 - av } : { win:b, lose:a, w:3 - av, l:av };
+    };
+    const PAIRS = [duel(1, 0), duel(0, 2), duel(2, 1)];   // beef/turkey, turkey/lasagna, lasagna/beef
+    const wins = [0, 0, 0];
+    PAIRS.forEach(d => wins[d.win]++);
+    const outright = wins.indexOf(2);
+    const firsts = [0, 0, 0];
+    families.forEach(f => firsts[f.rank.indexOf(0)]++);
+
+    g.setText('info',
+      families.map(f => `<div class="info-row"><span class="info-label">${f.name}</span><span class="info-value">${f.rank.map((p, i) => [p, i]).sort((x, y) => x[0] - y[0]).map(pi => NAMES[pi[1]]).join(' › ')}</span></div>`).join('')
+      + PAIRS.map(d => `<div class="info-row"><span class="info-label">${NAMES[d.win]} against ${LOWER[d.lose]}</span><span class="info-value">${d.w}–${d.l}</span></div>`).join('')
+      + (outright < 0
+        ? `<div class="info-row"><span class="info-label">Result</span><span class="info-value highlight">a voting cycle, so the order of the votes decides</span></div>`
+        : `<div class="info-row"><span class="info-label">Result</span><span class="info-value highlight">${NAMES[outright]} beats both rivals</span></div>`));
+
+    g.clear();
+    const cx = W / 2, cy = H * 0.47, ringR = 150 * S, R = 60 * S;
+    const ANG = [-90, 150, 30];
+    const rad = d => d * Math.PI / 180;
+    const at = i => { const n = g.getNudge('n.' + i);
+      return { x: cx + ringR * Math.cos(rad(ANG[i])) + n.dx, y: cy + ringR * Math.sin(rad(ANG[i])) + n.dy }; };
+
+    // The same hollow band used for the flows in chapter 17: blue at full
+    // width, white a little narrower inside it, and an open head on the end.
+    const ribbon = (P0, C, P1) => {
+      const bw = 20 * S, hl = 40 * S, hw = 26 * S, lw = 2.2 * S;
+      const ux = P1.x - C.x, uy = P1.y - C.y, L = Math.hypot(ux, uy) || 1;
+      const hx = ux / L, hy = uy / L;
+      const base = { x: P1.x - hx * hl, y: P1.y - hy * hl };
+      const pts = [];
+      for (let i = 0; i <= 90; i++) {
+        const t = i / 90, m = 1 - t;
+        const x = m * m * P0.x + 2 * m * t * C.x + t * t * P1.x;
+        const y = m * m * P0.y + 2 * m * t * C.y + t * t * P1.y;
+        if (Math.hypot(P1.x - x, P1.y - y) < hl * 0.9) break;
+        pts.push([x, y]);
+      }
+      pts.push([base.x, base.y]);
+      const trace = () => { ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); };
+      ctx.lineCap = 'butt'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = EDGE; ctx.lineWidth = bw; trace();
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = bw - 2 * lw; trace();
+      ctx.beginPath();
+      ctx.moveTo(P1.x, P1.y);
+      ctx.lineTo(base.x - hy * hw, base.y + hx * hw);
+      ctx.lineTo(base.x - hy * bw / 2, base.y + hx * bw / 2);
+      ctx.lineTo(base.x + hy * bw / 2, base.y - hx * bw / 2);
+      ctx.lineTo(base.x + hy * hw, base.y - hx * hw);
+      ctx.closePath();
+      ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = EDGE; ctx.lineWidth = lw; ctx.stroke();
+    };
+
+    PAIRS.forEach((d, k) => {
+      const P = at(d.lose), Q = at(d.win);
+      const mx = (P.x + Q.x) / 2, my = (P.y + Q.y) / 2;
+      const nl = Math.hypot(mx - cx, my - cy) || 1, nx = (mx - cx) / nl, ny = (my - cy) / nl;
+      const C = { x: mx + nx * 120 * S, y: my + ny * 120 * S };
+      const out = (A, pad) => { const dx = C.x - A.x, dy = C.y - A.y, L = Math.hypot(dx, dy) || 1;
+        return { x: A.x + dx / L * (R + pad), y: A.y + dy / L * (R + pad) }; };
+      const P0 = out(P, 12 * S), P1 = out(Q, 36 * S);
+      ribbon(P0, C, P1);
+      if (vis('show_labels')) {
+        const apex = { x:0.25 * P0.x + 0.5 * C.x + 0.25 * P1.x, y:0.25 * P0.y + 0.5 * C.y + 0.25 * P1.y };
+        const txt = `${d.w}–${d.l} ${NAMES[d.win]} beats\n${LOWER[d.lose]}`;
+        g.label(txt, apex.x + nx * 80 * S, apex.y + ny * 80 * S,
+          { key:'f.' + k, align:'center', font:`${19 * S}px ${g.font}`, color:BLUE, lineH:28 * S });
+      }
+    });
+
+    NAMES.forEach((name, i) => {
+      const p = at(i);
+      ctx.fillStyle = FILL[i]; ctx.beginPath(); ctx.arc(p.x, p.y, R, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = RING[i]; ctx.lineWidth = 2.5 * S; ctx.stroke();
+      ctx.fillStyle = BLUE; ctx.font = `bold ${22 * S}px ${g.font}`; ctx.textAlign = 'center';
+      ctx.fillText(name, p.x, p.y + 8 * S);
+      if (vis('show_first')) {
+        // Set straight out from the ring's centre, where no arc passes
+        const dl = Math.hypot(p.x - cx, p.y - cy) || 1, ox = (p.x - cx) / dl, oy = (p.y - cy) / dl;
+        ctx.fillStyle = '#718096'; ctx.font = `${16 * S}px ${g.font}`;
+        // Set beside the two lower circles and above the top one, so the text
+        // runs away from the ring rather than back across it
+        ctx.textAlign = Math.abs(ox) < 0.3 ? 'center' : ox < 0 ? 'right' : 'left';
+        ctx.fillText(firsts[i] === 1 ? '1 first-place vote' : `${firsts[i]} first-place votes`,
+          p.x + ox * (R + 40 * S), p.y + oy * (R + 40 * S) + 6 * S);
+        ctx.textAlign = 'center';
+      }
+      g.regLabel('n.' + i, p.x - R, p.y - R, 2 * R, 2 * R);
+    });
+  },
+});
+</script>
+</body>
+</html>

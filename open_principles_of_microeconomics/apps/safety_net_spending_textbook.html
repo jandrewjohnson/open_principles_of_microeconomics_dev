@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Federal Spending on Income Security Programs</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Federal Spending on Income Security Programs</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Spending on housing, cash welfare and nutrition assistance rose through the 2000s and jumped in the Great Recession, then eased back</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Four Programs, 1998 to 2013</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1800" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Each line is one part of the federal income security budget. The top line gathers the other income security programs, which grew from about $26 billion in 1998 to a peak near $57 billion in 2011. Housing assistance through HUD is the second line, cash welfare through TANF the third, and the nutrition programs shown here the lowest.</p>
+          <p>All four rise into the Great Recession and then flatten or fall, which is what a safety net is supposed to do: spending grows automatically when more people qualify and shrinks as they stop qualifying. The last two years are budget estimates rather than outturns. The slider reads all four series at a chosen year; the values are read from the book's figure.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-year">
+        <div class="control-panel-header" onclick="tog('year')"><div class="panel-title">Read a Year</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-year" onclick="event.stopPropagation();tog('year')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('year')">✕</button></div></div>
+        <div class="control-panel-body" id="body-year"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+// Years leaning up to the right, the way the book sets them under a crowded axis
+const leaned = (g, txt, x, y, size) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${(size || 13) * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+// A series name with a leader line back to its curve, as the book labels these
+const called = (g, txt, key, lx, ly, tx, ty, align) => {
+  const nd = g.getNudge(key), ax = lx + nd.dx, ay = ly + nd.dy;
+  g.drawArrow(ax + (align === 'right' ? 10 : -10) * g.S, ay - 5 * g.S, tx, ty, INK);
+  g.label(txt, lx, ly, { key, align, font:`${15 * g.S}px ${g.font}`, color:BLUE });
+};
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+
+// Figure 15.6 of the book, read off its four lines. Millions of dollars;
+// the last two years are estimates, as the book's axis labels say.
+const YEARS = [1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013];
+const LABELS = YEARS.map(y => y >= 2012 ? y + ' (est)' : String(y));
+const SERIES = [
+  { name:'Other income\nsecurity programs', vals:[26500, 28500, 29500, 32000, 34500, 37000, 37000, 39000, 40000, 40000, 44000, 50000, 56000, 57500, 54000, 51500] },
+  { name:'HUD',  vals:[20000, 23000, 20000, 22500, 24000, 26000, 27500, 30000, 28000, 29500, 29500, 30000, 35500, 32500, 29500, 29500] },
+  { name:'TANF', vals:[13000, 14000, 15500, 19000, 19000, 20000, 17500, 17500, 17000, 17000, 17500, 18000, 18000, 17500, 17500, 17200] },
+  { name:'SNAP', vals:[4200, 3700, 3800, 4200, 4200, 4300, 4200, 5000, 5000, 5200, 5700, 6000, 6200, 6300, 7200, 7300] },
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'safety_net_spending.png',
+  axes: { xMin:0, xMax:15, yMin:0, yMax:70000, margin:{top:60, right:420, bottom:250, left:230} },
+  sliders: [
+    { id:'year', label:'Year to read', min:1998, max:2013, value:2010, step:1, fmt:v => v >= 2012 ? v + ' (est)' : v },
+  ],
+  toggles: [
+    { id:'show_labels', label:'Series labels' },
+    { id:'show_year',   label:'Line at the year being read', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Chart', explanation:'Explanation', year:'Year' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['year'],
+  nudgeKeys: ['x','y','lb.0','lb.1','lb.2','lb.3'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, width, height } = g;
+    const i0 = YEARS.indexOf(val('year'));
+    g.setText('info', SERIES.map(s => `<div class="info-row"><span class="info-label">${s.name.replace('\n', ' ')} in ${LABELS[i0]}</span><span class="info-value">$${s.vals[i0].toLocaleString()} million</span></div>`).join(''));
+
+    g.clear();
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+    ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+    for (let v = 0; v <= 70000; v += 10000) ctx.fillText('$' + v.toLocaleString(), x0 - 10 * S, tCY(v) + 5 * S);
+    g.axisLabels(null, 'Millions of Dollars');
+    g.label('Year', x0 + width / 2, y0 + height + 110 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+    LABELS.forEach((lab, i) => leaned(g, lab, tCX(i), y0 + height + 20 * S, 12));
+    if (vis('show_year')) g.dashed(tCX(i0), y0, tCX(i0), y0 + height, PINK, 1.5);
+
+    SERIES.forEach((s, k) => {
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+      s.vals.forEach((v, i) => { const px = tCX(i), py = tCY(v); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); });
+      ctx.stroke();
+      if (vis('show_labels')) {
+        const at = 11;
+        g.drawArrow(tCX(at) + 26 * S + g.getNudge('lb.' + k).dx, tCY(s.vals[at]) + 34 * S + g.getNudge('lb.' + k).dy, tCX(at) + 4 * S, tCY(s.vals[at]) + 8 * S, INK);
+        g.label(s.name, tCX(at) + 30 * S, tCY(s.vals[at]) + 40 * S, { key:'lb.' + k, font:`${15 * S}px ${g.font}`, color:BLUE, lineH:22 * S });
+      }
+    });
+  },
+});
+</script>
+</body>
+</html>

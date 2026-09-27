@@ -60,7 +60,7 @@ for inventory and capital consumption). Despite the steep decline in
 quarterly net profit in 2008, profits have recovered and surpassed
 pre-recession levels.
 
-![](media/17-introduction-to-financial-markets_rId25.jpeg){width="4.88in" height="2.8in" #fig-17_2}
+{{< appfig corporate_profits_1 id="fig-17_2" >}}
 
 Figure 17.2 Corporate Profits After Tax (Adjusted for Inventory and
 Capital Consumption) Prior to 2008, corporate profits after tax more
@@ -484,7 +484,7 @@ financial intermediary, with a pattern of deposits flowing into a bank
 and loans flowing out, and then repayment of the loans flowing back to
 the bank, with interest payments for the original savers.
 
-![](media/17-2-how-households-supply-financial-capital_rId29.jpeg){width="4.88in" height="2.35in" #fig-17_3}
+{{< appfig banks_intermediaries_1 id="fig-17_3" >}}
 
 Figure 17.3 Banks as Financial Intermediaries Banks are a financial
 intermediary because they stand between savers and borrowers. Savers
@@ -525,8 +525,7 @@ receive a slightly higher rate of interest as compensation for promising
 to leave deposits untouched for a period of time in a CD, and thus
 forfeiting some liquidity.
 
-![](media/17-2-how-households-supply-financial-capital_rId36.jpeg){width="4.883333333333334in"
-height="2.658333333333333in" #fig-17_4}
+{{< appfig cd_rates_1 id="fig-17_4" >}}
 
 Figure 17.4 Interest Rates on Six-Month, One-Year, and Five-Year
 Certificates of Deposit The interest rates on certificates of deposit
@@ -679,8 +678,7 @@ rates tend to rise and fall together. Treasury bonds typically pay more
 than bank accounts, and corporate bonds typically pay a higher interest
 rate than Treasury bonds.
 
-![](media/17-2-how-households-supply-financial-capital_rId56.jpeg){width="4.883333333333334in"
-height="2.466666666666667in" #fig-17_5}
+{{< appfig bond_rates_1 id="fig-17_5" >}}
 
 Figure 17.5 Interest Rates for Corporate Bonds and Ten-Year U.S.
 Treasury Bonds The interest rates for corporate bonds and U.S. Treasury
@@ -759,7 +757,7 @@ the 1970s, but then started a steady climb in the 1980s. From 2000 to
 2013, stock prices bounced up and down, but ended up at about the same
 level.
 
-![](media/17-2-how-households-supply-financial-capital_rId63.jpeg){width="4.883333333333334in" height="5.425in" #fig-17_6}
+{{< appfig stock_indexes_1 id="fig-17_6" >}}
 
 Figure 17.6 The Dow Jones Industrial Index and the Standard & Poor's
 500, 1965--2021 Stock prices rose dramatically from the 1980s up to
@@ -914,7 +912,7 @@ Visit this [website](https://www.youtube.com/watch?v=FzrBurlJUNk) to watch the
 trailer for *Inside Job*, a movie that explores the modern financial
 crisis.
 
-![](media/17-2-how-households-supply-financial-capital_rId78.jpeg){width="4.875in" height="2.441666666666667in" #fig-17_7}
+{{< appfig new_home_prices_1 id="fig-17_7" >}}
 
 Figure 17.7 The Median Average Sales Price for New Single-Family Homes,
 1990--2015 The median price is the price where half of sales prices are

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What a Tariff Does to a Sugar Market</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>What a Tariff Does to a Sugar Market</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Shutting out imports moves the market from A up to E: growers gain, buyers lose more, and the country ends up with less surplus in total</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. U.S. Sugar Supply and Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="1100"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Domestic supply alone would clear the market at E. Add imports and the supply available to American buyers shifts right, so the market clears lower and further out, at A. Buyers get the quantity Qd at the price P with trade, of which domestic growers make Qs and the rest, the gap from C to A, comes in from abroad.</p>
+          <p>A tariff big enough to stop the imports pushes the market back to E. Growers gain the strip between the two prices out to their new output, which is why they lobby for it. Buyers lose that same strip and more besides, because they also lose the part of the market that simply disappears. The slider sets how much sugar the border lets in, and the shading toggle draws the two surpluses so the sizes can be compared directly.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-surplus">
+        <div class="control-panel-header" onclick="tog('surplus')"><div class="panel-title">Surplus</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-surplus" onclick="event.stopPropagation();tog('surplus')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('surplus')">✕</button></div></div>
+        <div class="control-panel-body" id="body-surplus"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+
+// Figure 20.4 of the book: a schematic sugar market with no numbers on the
+// axes. Demand is dashed, domestic supply is solid, and a second solid line
+// to its right is domestic supply plus imports. Free trade clears at A, a
+// tariff that stops the imports clears at E.
+const S0 = 2;
+const demand = q => 100 - q;             // B at 100 on the price axis
+const supply = q => 20 + 0.6 * q;        // D at 20
+const supplyQ = p => (p - 20) / 0.6;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'us_sugar_tariff.png',
+  axes: { xMin:0, xMax:110, yMin:0, yMax:110, margin:{top:70, right:200, bottom:190, left:230} },
+  sliders: [
+    { id:'imports', label:'Sugar the border lets in', min:0, max:40, value:25, step:5, fmt:v => v + ' tons' },
+  ],
+  toggles: [
+    { id:'show_labels', label:'The lettered points and the price and quantity labels' },
+    { id:'show_guides', label:'Dashed lines to the axes' },
+    { id:'show_surplus', label:'Shade consumer and producer surplus', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', surplus:'Surplus' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['surplus'],
+  nudgeKeys: ['x.a','y.a','lb.D','lb.S','lb.SI','A','B','C','D','E','pt','pn','qs','qq','qd'],
+
+  draw(g) {
+    const { S, ctx, val, vis, tCX, tCY, x0, y0, width, height } = g;
+    const m = val('imports');
+    // With imports the supply line shifts right by m, so the market clears
+    // further out and lower down.
+    const qd = (80 + 0.6 * m) / 1.6, pTrade = demand(qd), qs = supplyQ(pTrade);
+    const E = { q:50, p:50 };
+    const n = v => Math.round(v * 10) / 10;
+    const area = (b, h) => n(b * h / 2);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Price with trade</span><span class="info-value">${n(pTrade)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Bought, of which home-grown</span><span class="info-value">${n(qd)}, ${n(qs)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Imports, C to A</span><span class="info-value highlight">${n(qd - qs)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Consumer surplus</span><span class="info-value">${area(qd, 100 - pTrade)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Producer surplus</span><span class="info-value">${area(qs, pTrade - 20)}</span></div>`
+      + `<div class="info-row"><span class="info-label">With the border shut</span><span class="info-value">consumers ${area(E.q, 100 - E.p)}, producers ${area(E.q, E.p - 20)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Surplus lost by shutting it</span><span class="info-value highlight">${n(area(qd, 100 - pTrade) + area(qs, pTrade - 20) - area(E.q, 100 - E.p) - area(E.q, E.p - 20))}</span></div>`);
+
+    g.clear();
+    frame(g, g, { tag:'a', xTicks:[], yTicks:[], fmtX:v => v, fmtY:v => v, xLabel:'', yLabel:'' });
+    ctx.fillStyle = BLUE; ctx.font = `bold ${20 * S}px ${g.font}`;
+    ctx.textAlign = 'center'; ctx.fillText('P', x0, y0 - 18 * S);
+    ctx.textAlign = 'left';   ctx.fillText('Q', x0 + width + 20 * S, y0 + height + 7 * S);
+
+    // Demand, dashed the way the book draws it
+    ctx.save(); ctx.setLineDash([9 * S, 6 * S]);
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(tCX(0), tCY(100)); ctx.lineTo(tCX(100), tCY(0)); ctx.stroke();
+    ctx.restore();
+    // Domestic supply, and domestic supply plus imports beside it
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(tCX(0), tCY(20)); ctx.lineTo(tCX(105), tCY(supply(105))); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(tCX(m), tCY(20)); ctx.lineTo(tCX(105), tCY(supply(105 - m))); ctx.stroke();
+
+    if (vis('show_surplus')) {
+      ctx.fillStyle = 'rgba(126,191,232,0.45)';
+      ctx.beginPath(); ctx.moveTo(tCX(0), tCY(100)); ctx.lineTo(tCX(0), tCY(pTrade)); ctx.lineTo(tCX(qd), tCY(pTrade)); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = 'rgba(168,85,199,0.30)';
+      ctx.beginPath(); ctx.moveTo(tCX(0), tCY(20)); ctx.lineTo(tCX(0), tCY(pTrade)); ctx.lineTo(tCX(qs), tCY(pTrade)); ctx.closePath(); ctx.fill();
+    }
+
+    const P = {
+      B:{ q:0, p:100, dx:-14, dy:0, al:'right' },
+      D:{ q:0, p:20,  dx:-14, dy:6, al:'right' },
+      E:{ q:E.q, p:E.p, dx:6, dy:-18 },
+    };
+    if (m > 0) {
+      P.A = { q:qd, p:pTrade, dx:8, dy:-18 };
+      P.C = { q:qs, p:pTrade, dx:-6, dy:-18, al:'center' };
+    }
+    if (vis('show_guides')) {
+      g.dashed(x0, tCY(E.p), tCX(E.q), tCY(E.p), MAROON, 1.5);
+      g.dashed(x0, tCY(pTrade), tCX(qd), tCY(pTrade), MAROON, 1.5);
+      [[qs, 'qs'], [E.q, 'qq'], [qd, 'qd']].forEach(([q]) =>
+        g.dashed(tCX(q), tCY(q === qs ? pTrade : q === E.q ? E.p : pTrade), tCX(q), tCY(0), MAROON, 1.5));
+    }
+    Object.keys(P).forEach(k => {
+      const q = P[k];
+      dot(g, tCX(q.q), tCY(q.p));
+      if (vis('show_labels'))
+        g.label(k, tCX(q.q) + q.dx * S, tCY(q.p) + q.dy * S,
+          { key:k, align:q.al || 'left', font:`${19 * S}px ${g.font}`, color:INK });
+    });
+    if (vis('show_labels')) {
+      const f = { font:`${16 * S}px ${g.font}`, color:BLUE };
+      g.label('Demand', tCX(26), tCY(80), { key:'lb.D', align:'center', ...f });
+      g.label('Domestic\nsupply', tCX(92) + 12 * S, tCY(supply(92)) - 34 * S, { key:'lb.S', lineH:22 * S, ...f });
+      if (m > 0)
+        g.label('Domestic\nsupply +\nimports', tCX(105) + 10 * S, tCY(supply(105 - m)) - 12 * S, { key:'lb.SI', lineH:22 * S, ...f });
+      const gf = { font:`${15 * S}px ${g.font}`, color:INK };
+      // The no-trade label sits above its line and the trade label below its
+      // own, so the two never meet; with the border shut they are one price.
+      g.label('P with\nno trade', x0 - 14 * S, tCY(E.p) - 26 * S, { key:'pn', align:'right', lineH:22 * S, ...gf });
+      if (m > 0)
+        g.label('P with\ntrade', x0 - 14 * S, tCY(pTrade) + 8 * S, { key:'pt', align:'right', lineH:22 * S, ...gf });
+      (m > 0 ? [[qs, 'Qs', 'qs'], [E.q, 'Q', 'qq'], [qd, 'Qd', 'qd']] : [[E.q, 'Q', 'qq']])
+        .forEach(([q, t, key]) => g.label(t, tCX(q), y0 + height + 34 * S, { key, align:'center', ...gf }));
+    }
+  },
+});
+</script>
+</body>
+</html>

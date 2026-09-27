@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shutdown Point for the Raspberry Farm</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Shutdown Point for the Raspberry Farm</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A loss-making farm stays open if price covers average variable cost, and shuts down if it does not</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Above and Below Average Variable Cost</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="850"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Once price is below average cost the farm loses money whatever it does, so the question is which choice loses least. Shutting down still leaves the fixed cost of $62 to pay. Staying open is better whenever price covers average variable cost, because every pack then pays its own variable cost and contributes something toward the fixed cost.</p>
+          <p>In (a), at $2.00, the farm produces 65 packs and loses about $47, less than the $62 it would lose by closing, so it stays open. In (b), at $1.50, price is below average variable cost at the 60 packs where P = MC: revenue would be $90 against total cost of $165, a loss of $75, worse than the $62 from shutting down. The shutdown point is the minimum of average variable cost, about $1.72. The sliders set the price in each panel.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-prices">
+        <div class="control-panel-header" onclick="tog('prices')"><div class="panel-title">Prices</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-prices" onclick="event.stopPropagation();tog('prices')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('prices')">✕</button></div></div>
+        <div class="control-panel-body" id="body-prices"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+// Tables 8.1, 8.3 and 8.6 of the book: the raspberry farm's total cost at
+// every ten packs, from which marginal, average and average variable cost
+// follow. Fixed cost is total cost at zero output.
+const Q = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
+const TC = [62, 90, 110, 126, 138, 150, 165, 190, 230, 296, 400, 550, 715];
+const FC = TC[0];
+const QI = Q.slice(1);
+const MCV = QI.map((q, i) => (TC[i + 1] - TC[i]) / 10);
+const ACV = QI.map((q, i) => TC[i + 1] / q);
+const AVCV = QI.map((q, i) => (TC[i + 1] - FC) / q);
+const MC = hermite(QI, MCV), AC = hermite(QI, ACV), AVC = hermite(QI, AVCV), TCf = hermite(Q, TC);
+// The output where the rising part of MC reaches a price, scanning from the right
+const qStar = p => { let q = 120; while (q > 30 && MC.f(q) > p) q -= 0.25; return q; };
+// Where a curve first comes onto the chart from the left, and where it leaves at the right
+const onChart = (f, top, from = 10, to = 120) => { let a = from, b = to; while (a < b && f(a) > top) a += 0.5; while (b > a && f(b) > top) b -= 0.5; return [a, b]; };
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+
+const PW = 800, GAP = 100;
+const MG = { top:50, right:210, bottom:200, left:170 };
+const AXES = [
+  { xMin:0, xMax:120, yMin:0, yMax:12, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:120, yMin:0, yMax:12, margin:MG, left:PW + GAP, width:PW },
+];
+const PANELS = [
+  { id:'a', slider:'p_a', caption:'(a) Price is above average variable cost' },
+  { id:'b', slider:'p_b', caption:'(b) Price is below average variable cost' },
+];
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'shutdown_avc.png',
+  axes: AXES,
+  sliders: [
+    { id:'p_a', label:'(a) Price per pack', min:1.75, max:2.5, value:2,   step:0.25, fmt:v => '$' + v.toFixed(2) },
+    { id:'p_b', label:'(b) Price per pack', min:1,    max:1.5, value:1.5, step:0.25, fmt:v => '$' + v.toFixed(2) },
+  ],
+  toggles: [
+    { id:'show_ac',     label:'Average cost' },
+    { id:'show_avc',    label:'Average variable cost' },
+    { id:'show_labels', label:'Curve labels' },
+    { id:'show_q',      label:'Dashed line at the chosen output', checked:false },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', prices:'Prices' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['prices'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','ac.a','mc.a','avc.a','mr.a','ac.b','mc.b','avc.b','mr.b'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    let info = '';
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i), { x0, y0, width, height, tCX, tCY, yMax, bottom } = pan;
+      const axisY = y0 + height, p = val(P.slider), qs = qStar(p);
+      const tr = p * qs, tc = TCf.f(qs), avc = AVC.f(qs);
+      info += `<div class="info-row"><span class="info-label">(${P.id}) $${p.toFixed(2)}: ${qs.toFixed(0)} packs, AVC $${avc.toFixed(2)}</span><span class="info-value" style="color:${p >= avc ? '#2b6cb0' : '#c53030'}">${p >= avc ? 'stay open' : 'shut down'}: lose $${(tc - tr).toFixed(0)} open vs $${FC} closed</span></div>`;
+
+      pan.axes(BLUE);
+      pan.xTicks([0, 20, 40, 60, 80, 100, 120], v => v);
+      pan.yTicks([0, 2, 4, 6, 8, 10, 12], v => v);
+      pan.axisLabels(null, 'Marginal Cost/Marginal Revenue ($)', P.id);
+      pan.label('Quantity (packs of raspberries)', x0 + width / 2, axisY + 62 * S, { key:'x.' + P.id, font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+
+      const f = { font:`${14 * S}px ${g.font}`, color:BLUE };
+      const [a2, b2] = onChart(MC.f, yMax * 0.9, 10, 100);
+      pan.plotFn(MC.f, a2, b2, { color:BLUE, lw:2 });
+      if (vis('show_labels')) pan.label('Marginal cost', tCX(b2) - 4 * S, tCY(MC.f(b2)) - 14 * S, { key:'mc.' + P.id, align:'right', ...f });
+      if (vis('show_ac')) {
+        const [a1, b1] = onChart(AC.f, yMax * 0.95, 10, 100);
+        pan.plotFn(AC.f, a1, b1, { color:BLUE, lw:2 });
+        if (vis('show_labels')) pan.label('Average cost', tCX(a1) + 16 * S, tCY(AC.f(a1)) + 6 * S, { key:'ac.' + P.id, ...f });
+      }
+      if (vis('show_avc')) {
+        pan.plotFn(AVC.f, 10, 100, { color:BLUE, lw:2 });
+        if (vis('show_labels')) {
+          const n = g.getNudge('avc.' + P.id), lx = x0 + width + 40 * S + n.dx, ly = tCY(AVC.f(100)) - 10 * S + n.dy;
+          pan.drawArrow(lx - 4 * S, ly + 12 * S, tCX(100) + 8 * S, tCY(AVC.f(100)) + 8 * S, INK);
+          pan.label('Average\nvariable\ncost', x0 + width + 40 * S, tCY(AVC.f(100)) - 10 * S, { key:'avc.' + P.id, align:'left', lineH:20 * S, ...f });
+        }
+      }
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath(); ctx.moveTo(x0, tCY(p)); ctx.lineTo(tCX(100), tCY(p)); ctx.stroke();
+      if (vis('show_labels')) pan.label('Marginal\nrevenue', x0 + width + 40 * S, tCY(p) + 20 * S, { key:'mr.' + P.id, lineH:20 * S, ...f });
+      if (vis('show_q')) { pan.dashed(tCX(qs), tCY(p), tCX(qs), axisY, PINK, 1.5); ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(qs), tCY(p), 6 * S, 0, Math.PI * 2); ctx.fill(); }
+      if (vis('show_captions')) pan.label(P.caption, pan.left + 30 * S, bottom - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+    });
+    g.setText('info', info);
+  },
+});
+</script>
+</body>
+</html>

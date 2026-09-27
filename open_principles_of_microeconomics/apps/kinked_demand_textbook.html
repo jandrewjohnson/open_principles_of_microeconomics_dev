@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Kinked Demand Curve</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Kinked Demand Curve</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Rivals match a price cut but not a price rise, so a cartel member sees a demand curve that bends sharply at the agreed price</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Kink at the Agreed Price</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>An airline in a cartel has agreed to sell 10,000 seats at $500. If it cuts its price to sell more, the other members match the cut at once, so it gains almost nothing: dropping the price all the way to $300 sells only 1,000 extra seats. That is the steep lower arm of the curve.</p>
+          <p>If instead it raises its price, nobody follows, and customers move to the rivals who stayed cheap. Raising the price by $50 costs it half its seats, from 10,000 down to 5,000. That is the gentle upper arm. With losses in both directions, no member has much reason to move away from the agreed price, which is how a cartel can hold together without a contract anyone could enforce. The sliders set the agreed price and how far the price falls if the firm tries to expand.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-kink">
+        <div class="control-panel-header" onclick="tog('kink')"><div class="panel-title">The Kink</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-kink" onclick="event.stopPropagation();tog('kink')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('kink')">✕</button></div></div>
+        <div class="control-panel-body" id="body-kink"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 10.5 of the book: a demand curve with a kink at the agreed
+// 10,000 seats and $500, gentle above it (a $50 rise loses 5,000 seats)
+// and steep below (1,000 more seats costs $200 a seat).
+const Q_KINK = 10000, UP_SLOPE = 0.01, Q_UP = 5000, Q_DOWN = 11000;
+const BLUE = '#2b6cb0';
+const fmtQ = v => v.toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'kinked_demand.png',
+  axes: { xMin:0, xMax:20000, yMin:0, yMax:650, margin:{top:60, right:120, bottom:130, left:190} },
+  sliders: [
+    { id:'p_kink', label:'Price the cartel agreed',           min:400, max:600, value:500, step:50, fmt:v => '$' + v },
+    { id:'p_cut',  label:'Price if it expands to 11,000 seats', min:200, max:400, value:300, step:50, fmt:v => '$' + v },
+  ],
+  toggles: [
+    { id:'show_points', label:'The three labelled points' },
+    { id:'show_coords', label:'Coordinates beside the points' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', kink:'Kink' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['kink'],
+  nudgeKeys: ['x','y','pt.up','pt.kink','pt.down'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, yMax } = g;
+    const pK = val('p_kink'), pC = Math.min(val('p_cut'), pK - 50);
+    const downSlope = (pK - pC) / (Q_DOWN - Q_KINK);
+    const dem = q => q <= Q_KINK ? pK + UP_SLOPE * (Q_KINK - q) : Math.max(0, pK - downSlope * (q - Q_KINK));
+    const qZero = Q_KINK + pK / downSlope, qTop = Q_KINK - (yMax * 0.94 - pK) / UP_SLOPE;
+    const pts = [[Q_UP, dem(Q_UP)], [Q_KINK, pK], [Q_DOWN, pC]];
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Raise the price to ${'$' + Math.round(dem(Q_UP))}</span><span class="info-value">sells ${fmtQ(Q_UP)} seats</span></div>`
+      + `<div class="info-row"><span class="info-label">Hold the agreed price of ${'$' + pK}</span><span class="info-value highlight">sells ${fmtQ(Q_KINK)} seats</span></div>`
+      + `<div class="info-row"><span class="info-label">Cut the price to ${'$' + pC}</span><span class="info-value">sells ${fmtQ(Q_DOWN)} seats</span></div>`
+      + `<div class="info-row"><span class="info-label">Revenue at the three prices</span><span class="info-value">${'$' + Math.round(dem(Q_UP) * Q_UP / 1000)}k · ${'$' + Math.round(pK * Q_KINK / 1000)}k · ${'$' + Math.round(pC * Q_DOWN / 1000)}k</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.xTicks([0, 5000, 10000, 15000, 20000], fmtQ);
+    g.yTicks([0, 100, 200, 300, 400, 500, 600], v => '$' + v);
+    g.axisLabels('Quantity', 'Price ($)');
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+    ctx.moveTo(tCX(Math.max(0, qTop)), tCY(dem(Math.max(0, qTop))));
+    ctx.lineTo(tCX(Q_KINK), tCY(pK)); ctx.lineTo(tCX(qZero), tCY(0)); ctx.stroke();
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    if (vis('show_points')) pts.forEach(([q, p], i) => {
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_coords')) {
+        const key = ['pt.up', 'pt.kink', 'pt.down'][i];
+        // Above and left of the first, above and right of the others, as the book places them
+        const dx = i === 0 ? 14 : 16, dy = i === 0 ? -18 : i === 1 ? -18 : 6;
+        g.label(`(${fmtQ(q)}, $${Math.round(p)})`, tCX(q) + dx * S, tCY(p) + dy * S, { key, ...f });
+      }
+    });
+  },
+});
+</script>
+</body>
+</html>

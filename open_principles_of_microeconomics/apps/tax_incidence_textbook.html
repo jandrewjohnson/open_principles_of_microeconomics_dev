@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elasticity and Tax Incidence</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Elasticity and Tax Incidence</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">An excise tax drives a wedge between the price consumers pay and the price producers receive; the less elastic side of the market bears more of it</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Who Pays an Excise Tax</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>An excise tax introduces a wedge between the price consumers pay, Pc, and the price producers receive, Pp. The vertical distance between them is the tax per unit; Pe is the equilibrium price before the tax, and Qt the quantity sold with it. The shaded rectangle, the tax per unit times Qt, is the tax revenue.</p>
+          <p>In (a) demand is elastic and supply inelastic, as with beachfront hotels: consumers have other vacation choices but sellers cannot move their businesses. The tax incidence on consumers, Pc minus Pe, is smaller than the incidence on producers, Pe minus Pp. In (b) supply is elastic and demand inelastic, as with cigarettes: the incidence on consumers is the larger share. The more elastic the demand and supply curves, the lower the tax revenue.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-tax">
+        <div class="control-panel-header" onclick="tog('tax')"><div class="panel-title">The Tax</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-tax" onclick="event.stopPropagation();tog('tax')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('tax')">✕</button></div></div>
+        <div class="control-panel-body" id="body-tax" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-incidence">
+        <div class="control-panel-header" onclick="tog('incidence')"><div class="panel-title">Incidence</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-incidence" onclick="event.stopPropagation();tog('incidence')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('incidence')">✕</button></div></div>
+        <div class="control-panel-body" id="body-incidence"><div id="inc-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 5.10 of the book: two panels with straight lines. (a) elastic
+// demand and inelastic supply, (b) elastic supply and inelastic demand.
+// The tax wedge Pc to Pp at Qt, the purple tax revenue rectangle, the
+// "Excise tax" brace beside the price axis, the "Tax revenue" label with an
+// arrow into the rectangle, Pe drawn as a solid line to E, and dashed lines
+// at Qt and Qe, as in the book's figure.
+const S0 = 2;
+const GAP = 90 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50, right:80, bottom:190, left:250 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:PW + GAP, width:PW },
+];
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096', PURPLE = 'rgba(128,60,170,0.85)';
+const QE = 5, PE = 5;
+const line = slope => ({ at: q => PE + slope * (q - QE), inv: p => QE + (p - PE) / slope });
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'tax_incidence.png',
+  axes: AXES,
+  sliders: [
+    { id:'tax', label:'Excise tax per unit', min:0, max:4, value:2, step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_revenue',    label:'Tax revenue rectangle' },
+    { id:'show_droplines',  label:'Dashed lines at Qt and Qe' },
+    { id:'show_labels',     label:'Price, quantity and E labels' },
+    { id:'show_annot',      label:'"Excise tax" brace and "Tax revenue"' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_captions',   label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', tax:'Tax', incidence:'Incidence' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['tax','incidence'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','d.a','s.a','d.b','s.b','pt.a.E','pt.b.E',
+              'an.a.Pc','an.a.Pe','an.a.Pp','an.a.Qt','an.a.Qe','an.a.tax','an.a.revenue',
+              'an.b.Pc','an.b.Pe','an.b.Pp','an.b.Qt','an.b.Qe','an.b.tax','an.b.revenue'],
+
+  draw(g) {
+    const { S, ctx, val, vis, H } = g;
+    const t = val('tax');
+    const PANELS = [
+      { id:'a', dSlope:-0.3, sSlope:2,   caption:'(a) Elastic demand and inelastic supply' },
+      { id:'b', dSlope:-2,   sSlope:0.3, caption:'(b) Elastic supply and inelastic demand' },
+    ];
+    let info = '';
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i);
+      const { x0, y0, width, height, tCX, tCY, xMax, yMax } = pan;
+      const axisY = y0 + height;
+      const D = line(P.dSlope), Sf = line(P.sSlope);
+      const qt = QE - t / (P.sSlope - P.dSlope), pc = D.at(qt), pp = pc - t;
+      const revenue = t * qt;
+      info += `<div class="info-box" style="margin-bottom:10px"><div style="font-weight:600;color:#2b6cb0;margin-bottom:4px">Panel (${P.id})</div>` +
+        `<div class="info-row"><span class="info-label">Paid by consumers (Pc minus Pe)</span><span class="info-value">${(pc - PE).toFixed(2)}</span></div>` +
+        `<div class="info-row"><span class="info-label">Paid by producers (Pe minus Pp)</span><span class="info-value">${(PE - pp).toFixed(2)}</span></div>` +
+        `<div class="info-row"><span class="info-label">Tax revenue</span><span class="info-value highlight">${revenue.toFixed(2)}</span></div></div>`;
+
+      if (vis('show_revenue') && t > 0) {
+        ctx.fillStyle = PURPLE;
+        ctx.fillRect(x0, tCY(pc), tCX(qt) - x0, tCY(pp) - tCY(pc));
+      }
+      pan.axes(BLUE);
+      pan.label('Quantity', x0 + width / 2, axisY + 60 * S, { key:'x.' + P.id, font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      const ny = g.getNudge('y.' + P.id), ylx = pan.left + 20 * S, mid = y0 + height / 2;
+      ctx.save(); ctx.translate(ylx + ny.dx, mid + ny.dy); ctx.rotate(-Math.PI / 2);
+      ctx.font = `bold ${14 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'center'; ctx.fillText('Price', 0, 0); ctx.restore();
+      g.regLabel('y.' + P.id, ylx + ny.dx - 12 * S, mid + ny.dy - 30 * S, 24 * S, 60 * S);
+
+      // Pe as a solid line to E, dashed lines at Qt and Qe
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 1.5 * S; ctx.beginPath(); ctx.moveTo(x0, tCY(PE)); ctx.lineTo(tCX(QE), tCY(PE)); ctx.stroke();
+      if (vis('show_droplines')) {
+        pan.dashed(tCX(qt), tCY(pp), tCX(qt), axisY, PINK, 1.5);
+        pan.dashed(tCX(QE), tCY(PE), tCX(QE), axisY, PINK, 1.5);
+      }
+
+      const pTop = yMax * 0.93, pBot = 0.6;
+      const seg = (L, key, name, isD) => {
+        const qa = Math.max(0.3, L.inv(isD ? pTop : pBot)), qb = Math.min(xMax - 0.3, L.inv(isD ? pBot : pTop));
+        if (qb <= qa) return;
+        ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+        ctx.moveTo(tCX(qa), tCY(L.at(qa))); ctx.lineTo(tCX(qb), tCY(L.at(qb))); ctx.stroke();
+        if (!vis('show_curvelabel')) return;
+        const f = { key: key + '.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+        if (isD) pan.label(name, tCX(qb) + 10 * S, tCY(L.at(qb)) + 6 * S, f);
+        else pan.label(name, tCX(qb) + 4 * S, tCY(L.at(qb)) - 10 * S, { ...f, align:'center' });
+      };
+      seg(D, 'd', 'D', true); seg(Sf, 's', 'S', false);
+
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(QE), tCY(PE), 6 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_labels')) {
+        const f = { font:`bold ${15 * S}px ${g.font}`, color:BLUE };
+        pan.label('E', tCX(QE) + 12 * S, tCY(PE) - 8 * S, { key:'pt.' + P.id + '.E', ...f });
+        // Nudge Pc up and Pp down when they would sit on top of Pe
+        const upC = Math.max(0, 24 * S - (tCY(PE) - tCY(pc))), downP = Math.max(0, 24 * S - (tCY(pp) - tCY(PE)));
+        pan.label('Pc', x0 - 12 * S, tCY(pc) + 6 * S - upC, { key:`an.${P.id}.Pc`, align:'right', ...f });
+        pan.label('Pe', x0 - 12 * S, tCY(PE) + 6 * S, { key:`an.${P.id}.Pe`, align:'right', ...f });
+        pan.label('Pp', x0 - 12 * S, tCY(pp) + 6 * S + downP, { key:`an.${P.id}.Pp`, align:'right', ...f });
+        pan.label('Qt', tCX(qt), axisY + 30 * S, { key:`an.${P.id}.Qt`, align:'center', ...f });
+        pan.label('Qe', tCX(QE), axisY + 30 * S, { key:`an.${P.id}.Qe`, align:'center', ...f });
+      }
+      if (vis('show_annot') && t > 0) {
+        // Brace to the left of the price labels spanning the tax, with a rotated caption
+        const bx = x0 - 62 * S;
+        g.brace(bx, tCY(pc), bx, tCY(pp), { depth: 12 * S });
+        const nt = g.getNudge(`an.${P.id}.tax`), tx = bx - 28 * S + nt.dx, ty = (tCY(pc) + tCY(pp)) / 2 + nt.dy;
+        ctx.save(); ctx.translate(tx, ty); ctx.rotate(-Math.PI / 2);
+        ctx.font = `${14 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'center'; ctx.fillText('Excise tax', 0, 5 * S); ctx.restore();
+        g.regLabel(`an.${P.id}.tax`, tx - 10 * S, ty - 40 * S, 20 * S, 80 * S);
+        // "Tax revenue" below the rectangle with an arrow up into it
+        const rx = x0 + Math.max((tCX(qt) - x0) * 0.25, 35 * S), ry = tCY(pp) + 44 * S;
+        const nr = g.getNudge(`an.${P.id}.revenue`);
+        pan.drawArrow(rx + nr.dx, ry - 20 * S + nr.dy, rx + nr.dx, tCY(pp) - (tCY(pp) - tCY(pc)) * 0.35, INK);
+        pan.label('Tax\nrevenue', rx, ry + 12 * S, { key:`an.${P.id}.revenue`, font:`${14 * S}px ${g.font}`, color:BLUE, align:'center', lineH:18 * S });
+      }
+      if (vis('show_captions'))
+        pan.label(P.caption, x0 + width / 2, H - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY, align:'center' });
+    });
+    g.setText('inc-info', info);
+  },
+});
+</script>
+</body>
+</html>

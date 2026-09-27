@@ -201,7 +201,7 @@ workers, and its level of technology.
 
 : Production Possibilities before Trade {#tbl-table_19_2}
 
-![](media/19-1-absolute-and-comparative-advantage_rId30.jpeg){width="6.5in" height="2.625in" #fig-19_2}
+{{< appfig ppf_saudi_us_1 id="fig-19_2" >}}
 
 Figure 19.2 Production Possibilities Frontiers (a) Saudi Arabia can
 produce 100 barrels of oil at maximum and zero corn (point A), or 25
@@ -367,7 +367,7 @@ at C and C\', respectively, as [Figure 19.2](#fig-19_2) shows.
 Consider what occurs when trade is allowed and the United States exports
 20 bushels of corn to Saudi Arabia in exchange for 20 barrels of oil.
 
-![](media/19-1-absolute-and-comparative-advantage_rId40.jpeg){width="4.875in" height="3.7399989063867016in" #fig-19_3}
+{{< appfig saudi_gains_from_trade_1 id="fig-19_3" >}}
 
 Figure 19.3 Production Possibilities Frontier in Saudi Arabia Trade
 allows a country to go beyond its domestic production-possibility
@@ -478,7 +478,7 @@ country is the opportunity cost of one refrigerator in terms of foregone
 shoe production--when labor is transferred from producing the latter to
 producing the former (see [Figure 19.4](#fig-19_4)).
 
-![](media/19-2-what-happens-when-a-country-has-an-absolute-advantage-in-all-goods_rId25.jpeg){width="6.5in" height="2.835in" #fig-19_4}
+{{< appfig ppf_us_mexico_1 id="fig-19_4" >}}
 
 Figure 19.4 Production Possibility Frontiers (a) With 40 workers, the
 United States can produce either 10,000 shoes and zero refrigerators or
@@ -828,7 +828,7 @@ its output at a lower price. In this example, economies of scale operate
 up to point L, but beyond point L to V, the additional scale of
 production does not continue to reduce average costs of production.
 
-![](media/19-3-intra-industry-trade-between-similar-economies_rId34.jpeg){width="3.25in" height="2.17in" #fig-19_5}
+{{< appfig toaster_oven_scale_1 id="fig-19_5" >}}
 
 Figure 19.5 Economies of Scale Production Plant S, has an average cost
 of production of \$30 per toaster oven. Production plant M has an

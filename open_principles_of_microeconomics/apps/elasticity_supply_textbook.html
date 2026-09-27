@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Price Elasticity of Supply</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Price Elasticity of Supply</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">When the rent rises from $650 to $700 a month, landlords supply 13,000 units instead of 10,000. How sensitive is supply to price?</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Supply of Rental Units</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1150"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>An apartment rents for $650 per month and at that price the landlord rents 10,000 units, point A. When the price rises to $700 the landlord supplies 13,000 units, point B. Using the midpoint method, quantity rises by 26.1% (3,000 over an average of 11,500) and price rises by 7.4% (50 over an average of 675). The price elasticity of supply is 26.1 divided by 7.4, about 3.53: supply is elastic, since a 1% rise in price brings more than a 1% rise in quantity supplied.</p>
+          <p>Move point B along the curve to see the elasticity between A and B change.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-price">
+        <div class="control-panel-header" onclick="tog('price')"><div class="panel-title">Price at B</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-price" onclick="event.stopPropagation();tog('price')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('price')">✕</button></div></div>
+        <div class="control-panel-body" id="body-price"><div data-sliders></div><div class="info-box" id="elas-info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 5.3 of the book: a convex supply curve for rental units with A at
+// 10,000 units and $650 and B at 13,000 units and $700, dashed lines to the
+// axes, and the letters pointed at their dots by short arrows, as in the
+// book. The curve is an exponential through the two points.
+const QA = 10, PA = 650, QB = 13, PB = 700;
+const K = Math.log(PB / PA) / (QB - QA);
+const supply = q => PA * Math.exp(K * (q - QA));
+const qOfS = p => QA + Math.log(p / PA) / K;
+const pct = (a, b) => (b - a) / ((a + b) / 2) * 100;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'elasticity_supply.png',
+  axes: { xMin:0, xMax:25, yMin:0, yMax:1000, margin:{top:70, right:110, bottom:130, left:180} },
+  sliders: [
+    { id:'p', label:'Price at B', min:660, max:900, value:700, step:10, fmt:v => '$' + v },
+  ],
+  toggles: [
+    { id:'show_grid',      label:'Gridlines' },
+    { id:'show_droplines', label:'Dashed lines to the axes' },
+    { id:'show_labels',    label:'A and B labels' },
+    { id:'show_curvelabel', label:'Curve label' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', price:'Price' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['price'],
+  nudgeKeys: ['x','y','s','pt.A','pt.B'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, yMin, xMax, yMax } = g;
+    const pb = val('p'), qb = qOfS(pb);
+    const dq = pct(QA, qb), dp = pct(PA, pb), e = dq / dp;
+    const axisY = tCY(yMin);
+    const row = (k, v, hi) => `<div class="info-row"><span class="info-label">${k}</span><span class="info-value${hi ? ' highlight' : ''}">${v}</span></div>`;
+    g.setText('elas-info',
+      row('B', `${(qb * 1000).toLocaleString(undefined, { maximumFractionDigits: 0 })} units at $${pb}`) +
+      row('% change in quantity', dq.toFixed(1) + '%') + row('% change in price', dp.toFixed(1) + '%') +
+      row('Elasticity of supply', e.toFixed(2), true) + row('', e > 1.01 ? 'elastic' : e < 0.99 ? 'inelastic' : 'unit elastic'));
+
+    g.clear();
+    if (vis('show_grid')) g.gridlines(5, 100);
+    g.axes();
+    g.xTicks([5, 10, 15, 20], v => v);
+    g.yTicks([100, 200, 300, 400, 500, 600, 700, 800, 900], v => '$' + v);
+    g.axisLabels('Q (1,000s of rental units)', 'P ($/month)');
+
+    const PINK = '#a855c7';
+    if (vis('show_droplines')) [[QA, PA], [qb, pb]].forEach(([q, p]) => {
+      g.dashed(x0, tCY(p), tCX(q), tCY(p), PINK, 1.5);
+      g.dashed(tCX(q), tCY(p), tCX(q), axisY, PINK, 1.5);
+    });
+
+    const qa = Math.max(0.5, qOfS(yMin + 300)), qe = Math.min(xMax - 2, qOfS(yMax * 0.95));
+    g.plotFn(supply, qa, qe, { color:'#2b6cb0', lw:2.5 });
+    if (vis('show_curvelabel')) g.label('S', tCX(qe) + 8 * S, tCY(supply(qe)) - 8 * S, { key:'s', font:`bold ${16 * S}px ${g.font}`, color:'#2b6cb0' });
+
+    const dot = (q, p) => { ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(tCX(q), tCY(p), 7 * S, 0, Math.PI * 2); ctx.fill(); };
+    dot(QA, PA); dot(qb, pb);
+    if (vis('show_labels')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:'#2b6cb0' };
+      // Letters sit away from the dots with a short arrow pointing back, as in the book
+      const lab = (L, q, p, dx, dy) => {
+        const n = g.getNudge('pt.' + L), x = tCX(q), y = tCY(p), lx = x + dx + n.dx, ly = y + dy + n.dy;
+        const ddx = x - lx, ddy = y - ly, dl = Math.hypot(ddx, ddy);
+        if (dl > 24 * S) g.drawArrow(lx + (dl > 0 ? ddx / dl * 10 * S : 0), ly + ddy / dl * 10 * S - 6 * S, x - ddx / dl * 12 * S, y - ddy / dl * 12 * S, '#1a202c');
+        g.label(L, x + dx, y + dy, { key:'pt.' + L, align:'center', ...f });
+      };
+      lab('A', QA, PA, -30 * S, 60 * S);
+      lab('B', qb, pb, 60 * S, 6 * S);
+    }
+  },
+});
+</script>
+</body>
+</html>

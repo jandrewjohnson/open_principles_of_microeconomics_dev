@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Pollution Charge</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Pollution Charge</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A firm cuts pollution as long as cutting it costs less than the charge, so a $1,000 charge buys 30 pounds of abatement</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Cost of Reducing Emissions</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>A small firm emits 50 pounds of soot a year. Cutting the first 10 pounds costs it $300, because the cheapest and easiest fixes come first. The next 10 cost $500, the next $900, then $1,500, then $2,500. That rising pattern is the usual one: each further cut is harder than the last.</p>
+          <p>Now tax the pollution. The firm compares each 10-pound block against the charge and cuts whenever cutting is cheaper than paying. At $1,000 a block it cuts the first three, at $300, $500 and $900, and stops: the fourth block would cost $1,500 to cut and only $1,000 to pay for. So the charge buys 30 pounds of abatement without anyone telling the firm how to do it. The slider sets the charge, and the side panel shows where the firm stops.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-charge">
+        <div class="control-panel-header" onclick="tog('charge')"><div class="panel-title">The Charge</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-charge" onclick="event.stopPropagation();tog('charge')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('charge')">✕</button></div></div>
+        <div class="control-panel-body" id="body-charge"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+
+// Figure 12.3 of the book: what it costs the firm to cut each further ten
+// pounds of particulate emissions, and the charge it weighs that against.
+const POUNDS = [10, 20, 30, 40, 50];
+const MCV = [300, 500, 900, 1500, 2500];
+const MC = hermite(POUNDS, MCV);
+const BLUE = '#2b6cb0', PINK = '#a855c7';
+const money = v => '$' + Math.round(v).toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'pollution_charge.png',
+  axes: { xMin:0, xMax:56, yMin:0, yMax:2800, margin:{top:60, right:300, bottom:140, left:180} },
+  sliders: [
+    { id:'charge', label:'Charge for every 10 pounds emitted', min:250, max:2500, value:1000, step:250, fmt:money },
+  ],
+  toggles: [
+    { id:'show_charge', label:'The pollution charge' },
+    { id:'show_points', label:'Dots at the five blocks' },
+    { id:'show_labels', label:'Curve label' },
+    { id:'show_stop',   label:'Mark where the firm stops cutting', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', charge:'Charge' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['charge'],
+  nudgeKeys: ['x','y','mc','an.charge'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, width, y0, height } = g;
+    const charge = val('charge');
+    let cut = 0; POUNDS.forEach((q, i) => { if (MCV[i] <= charge) cut = q; });
+    const spend = MCV.filter(v => v <= charge).reduce((a, v) => a + v, 0);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Pounds the firm cuts</span><span class="info-value highlight">${cut} of 50</span></div>`
+      + `<div class="info-row"><span class="info-label">Cost of those cuts</span><span class="info-value">${money(spend)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Charge still paid on ${50 - cut} pounds</span><span class="info-value">${money(charge * (50 - cut) / 10)}</span></div>`
+      + POUNDS.map((q, i) => `<div class="info-row"><span class="info-label">Pounds ${q - 10} to ${q}</span><span class="info-value" style="color:${MCV[i] <= charge ? '#2b6cb0' : '#c53030'}">${money(MCV[i])}: ${MCV[i] <= charge ? 'cut' : 'pay the charge'}</span></div>`).join(''));
+
+    g.clear();
+    g.axes();
+    g.xTicks([10, 20, 30, 40, 50], v => v);
+    g.yTicks([300, 500, 900, 1000, 2000, 2500], v => v.toLocaleString());
+    g.axisLabels('Quantity That Particle Emissions Are Reduced (pounds)', 'Cost or Price ($)');
+    g.plotFn(MC.f, 4, 52, { color:BLUE, lw:2 });
+    if (vis('show_points')) POUNDS.forEach((q, i) => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(q), tCY(MCV[i]), 7 * S, 0, Math.PI * 2); ctx.fill(); });
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    if (vis('show_charge')) {
+      g.dashed(x0, tCY(charge), x0 + width, tCY(charge), PINK, 1.5);
+      g.label('Pollution charge', x0 + width + 12 * S, tCY(charge) + 6 * S, { key:'an.charge', ...f });
+    }
+    if (vis('show_labels')) g.label('Marginal cost ($) of\nreducing particle\nemissions', tCX(38), tCY(2700), { key:'mc', lineH:24 * S, ...f });
+    if (vis('show_stop') && cut > 0) {
+      g.dashed(tCX(cut), tCY(0), tCX(cut), tCY(MC.f(cut)), PINK, 1.5);
+      ctx.fillStyle = '#38a169'; ctx.beginPath(); ctx.arc(tCX(cut), tCY(MC.f(cut)), 9 * S, 0, Math.PI * 2); ctx.fill();
+    }
+  },
+});
+</script>
+</body>
+</html>

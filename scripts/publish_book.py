@@ -12,9 +12,18 @@ output directory, then copy the HTML into the website repo and push it.
 Usage (from anywhere):
     python scripts/publish_book.py                # build and publish
     python scripts/publish_book.py --no-publish   # build only
+    python scripts/publish_book.py --full         # render every chapter and every figure
     python scripts/publish_book.py --dry-run      # build, then report what would be published
     python scripts/publish_book.py --pdf --docx   # also the print editions
     python scripts/publish_book.py --check        # fail if any figure PNG would change
+
+The HTML build is incremental: a figure is screenshotted only when its app,
+the library, or its state changed, and a chapter is rendered only when its
+source (or, for chapters with interactive figures, the manifest) is newer
+than its HTML. A changed _quarto.yml or a new chapter forces a full render,
+because only a full render rebuilds the sidebar, the search index and the
+cross references on other pages. Pass --full after retitling a chapter or
+whenever a page looks stale. --check and the print editions are always full.
 
 Setup (once):
     pip install -e path/to/interactive_textbook_pipeline
@@ -97,6 +106,7 @@ def main():
     ap.add_argument("--pdf", action="store_true", help="also render the PDF")
     ap.add_argument("--docx", action="store_true", help="also render the DOCX")
     ap.add_argument("--check", action="store_true", help="fail if any figure PNG would change")
+    ap.add_argument("--full", action="store_true", help="render every chapter and screenshot every figure")
     ap.add_argument("--no-publish", action="store_true", help="build only; do not touch the website repo")
     ap.add_argument("--dry-run", action="store_true", help="build, then only report what would be published")
     ap.add_argument("--no-push", action="store_true", help="commit the website repo but do not push")
@@ -105,7 +115,8 @@ def main():
     os.environ.setdefault("QUARTO_PYTHON", sys.executable)
 
     # HTML first: it is the edition that gets link-verified.
-    build(BOOK, to="html", check=args.check)
+    full = args.full or args.check
+    build(BOOK, to="html", check=args.check, incremental=not full, force_figures=args.full)
 
     for fmt, wanted in (("pdf", args.pdf), ("docx", args.docx)):
         if wanted:

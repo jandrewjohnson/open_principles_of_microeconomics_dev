@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Same Series on Three Different Vertical Scales</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Same Series on Three Different Vertical Scales</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Widening the scale flattens the line, narrowing it magnifies every wobble, and averaging smooths them away</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Three Readings of One Series</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1800" height="2400"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Panel (c) runs its vertical axis from zero to thirty per cent, far beyond anything the series reaches, so the line is squashed into the bottom third and the swings look small. Panel (d) runs from three to ten, close around the data, so the same swings fill the panel. Panel (e) changes the data instead of the axis, plotting five-year averages, which removes the year-to-year movement altogether.</p>
+          <p>None of the three is wrong. All plot the real unemployment rate. But a reader shown only panel (c) would come away believing unemployment barely moves, and a reader shown only panel (d) would believe it lurches about constantly. The sliders set the top of the first panel's scale and the length of the averaging window in the third.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-scale">
+        <div class="control-panel-header" onclick="tog('scale')"><div class="panel-title">The Data</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-scale" onclick="event.stopPropagation();tog('scale')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('scale')">✕</button></div></div>
+        <div class="control-panel-body" id="body-scale"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+
+// Annual U.S. unemployment rate, 1960 to 2014, the series behind figures A5
+// and A9 to A11 of the appendix.
+const U_START = 1960;
+const U = [5.5, 6.7, 5.5, 5.7, 5.2, 4.5, 3.8, 3.8, 3.6, 3.5,
+           4.9, 5.9, 5.6, 4.9, 5.6, 8.5, 7.7, 7.1, 6.1, 5.8,
+           7.1, 7.6, 9.7, 9.6, 7.5, 7.2, 7.0, 6.2, 5.5, 5.3,
+           5.6, 6.8, 7.5, 6.9, 6.1, 5.6, 5.4, 4.9, 4.5, 4.2,
+           4.0, 4.7, 5.8, 6.0, 5.5, 5.1, 4.6, 4.6, 5.8, 9.3,
+           9.6, 8.9, 8.1, 7.4, 6.2];
+const uYear = i => U_START + i;
+const uAt = y => U[y - U_START];
+
+// Figure A10 of the book: (c) a wide vertical range, (d) a narrow one, and
+// (e) five-year averages of the same annual series.
+const S0 = 2;
+// Each box leaves room below the plot for the year labels, the axis title
+// and the caption, in that order.
+const MG = { top:50, right:90, bottom:390, left:200 };
+const PANEL = top => ({ xMin:1959, xMax:2015, yMin:0, yMax:12, margin:MG, left:0, top, width:1800, height:780 });
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'unemployment_scale.png',
+  axes: [PANEL(0), PANEL(800), PANEL(1600)],
+  sliders: [
+    { id:'top',    label:'Top of the scale in panel (c)', min:12, max:36, value:30, step:6, fmt:v => v + '%' },
+    { id:'window', label:'Years averaged in panel (e)',   min:2, max:10, value:5, step:1, fmt:v => v + ' years' },
+  ],
+  toggles: [
+    { id:'show_dots',     label:'A dot at each point' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graphs', explanation:'Explanation', scale:'The Data' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['scale'],
+  nudgeKeys: ['x.c','y.c','x.d','y.d','x.e','y.e','cap.c','cap.d','cap.e'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const top = val('top'), win = val('window');
+    // Averages over consecutive blocks of `win` years, plotted at each block's
+    // first year, which is how the book's panel (e) is built.
+    const avg = [];
+    for (let i = 0; i + win <= U.length; i += win) {
+      let s = 0; for (let k = 0; k < win; k++) s += U[i + k];
+      avg.push([uYear(i), s / win]);
+    }
+    const spread = Math.max(...avg.map(a => a[1])) - Math.min(...avg.map(a => a[1]));
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Range of the annual series</span><span class="info-value">3.5% to 9.7%</span></div>`
+      + `<div class="info-row"><span class="info-label">Panel (c) scale</span><span class="info-value">0 to ${top}%</span></div>`
+      + `<div class="info-row"><span class="info-label">Share of panel (c) the line uses</span><span class="info-value highlight">${Math.round(9.7 / top * 100)}%</span></div>`
+      + `<div class="info-row"><span class="info-label">Panel (d) scale</span><span class="info-value">3 to 10%</span></div>`
+      + `<div class="info-row"><span class="info-label">Spread left after averaging</span><span class="info-value highlight">${spread.toFixed(1)} points, against 6.2</span></div>`);
+
+    g.clear();
+    const CAPS = ['(c) Unemployment rate, with wider range of numbers on vertical axis',
+                  '(d) Unemployment rate, with smaller range of numbers on vertical axis',
+                  `(e) Unemployment rate, ${win}-year averages`];
+    const RANGE = [[0, top], [3, 10], [0, 14]];
+    const TAG = ['c', 'd', 'e'];
+
+    [0, 1, 2].forEach(pi => {
+      const pan = g.panel(pi), { x0, y0, width, height, tCX } = pan;
+      const [lo, hi] = RANGE[pi];
+      const Y = v => y0 + height - (v - lo) / (hi - lo) * height;
+      const step = pi === 0 ? Math.max(2, Math.round((hi - lo) / 10 / 2) * 2) : pi === 1 ? 1 : 2;
+
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+      ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+      ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+      for (let v = lo; v <= hi + 1e-9; v += step) ctx.fillText(v, x0 - 10 * S, Y(v) + 5 * S);
+      for (let y = 1960; y <= 2014; y += 2) {
+        ctx.save(); ctx.translate(tCX(y) + 4 * S, y0 + height + 22 * S); ctx.rotate(-Math.PI / 2);
+        ctx.fillStyle = BLUE; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+        ctx.fillText(y, 0, 0); ctx.restore();
+      }
+      const nx = g.getNudge('x.' + TAG[pi]), ny = g.getNudge('y.' + TAG[pi]);
+      ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`; ctx.textAlign = 'center';
+      ctx.fillText('Year', x0 + width / 2 + nx.dx, y0 + height + 110 * S + nx.dy);
+      g.regLabel('x.' + TAG[pi], x0 + width / 2 - 50 * S, y0 + height + 94 * S, 100 * S, 22 * S);
+      const ylx = x0 - 58 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+      ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2);
+      ctx.fillText('Unemployment Rate (%)', 0, 0); ctx.restore();
+      g.regLabel('y.' + TAG[pi], ylx - 14 * S, yly - 120 * S, 28 * S, 240 * S);
+
+      const pts = pi === 2 ? avg : U.map((v, i) => [uYear(i), v]);
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 1.8 * S; ctx.beginPath();
+      pts.forEach(([y, v], i) => { const cx = tCX(y), cy = Y(v); i ? ctx.lineTo(cx, cy) : ctx.moveTo(cx, cy); });
+      ctx.stroke();
+      if (vis('show_dots')) pts.forEach(([y, v]) => {
+        ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(y), Y(v), 4 * S, 0, Math.PI * 2); ctx.fill();
+      });
+      if (vis('show_captions'))
+        g.label(CAPS[pi], x0, y0 + height + 170 * S,
+          { key:'cap.' + TAG[pi], font:`${17 * S}px ${g.font}`, color:BLUE });
+    });
+  },
+});
+</script>
+</body>
+</html>

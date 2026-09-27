@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Many Workers a Firm Hires</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>How Many Workers a Firm Hires</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A firm facing the going wage hires up to the point where the next worker is worth exactly that wage, and a firm with market power stops sooner</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Hiring Up to the Going Wage</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>In a perfectly competitive labor market a firm can hire as many workers as it likes at the going wage, so the supply curve it faces is the flat line S<sub>L</sub>. It keeps hiring while each extra worker is worth more than the wage, and stops at L₁, where the value of the marginal product equals the wage.</p>
+          <p>A firm with market power in its output market has to cut its price to sell more, so what an extra worker brings in is marginal revenue product, not the value of the marginal product, and that curve lies below and falls faster. Such a firm stops at L₂, which is to the left of L₁. Market power in the output market therefore means fewer people employed. The slider changes the going wage; every worker to the left of the cut-off is worth more to the firm than they are paid, which is what pays for the capital they work with.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-wage">
+        <div class="control-panel-header" onclick="tog('wage')"><div class="panel-title">Market Wage</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-wage" onclick="event.stopPropagation();tog('wage')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('wage')">✕</button></div></div>
+        <div class="control-panel-body" id="body-wage"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+// A name with a small subscript, and sometimes a normal-size tail. Unicode
+// has no subscript c or d, so every subscript here is drawn by hand: two
+// fillText calls at different sizes sharing one nudge key.
+const subLabel = (g, main, sub, tail, key, x, y, align) => {
+  const { S, ctx } = g, nd = g.getNudge(key), BIG = `${15 * S}px ${g.font}`, SMALL = `${11 * S}px ${g.font}`;
+  ctx.font = BIG;   const w = ctx.measureText(main).width, wt = tail ? ctx.measureText(tail).width : 0;
+  ctx.font = SMALL; const ws = sub ? ctx.measureText(sub).width : 0;
+  const total = w + ws + wt;
+  const lx = (align === 'right' ? x - total : align === 'center' ? x - total / 2 : x) + nd.dx, ly = y + nd.dy;
+  ctx.textAlign = 'left'; ctx.fillStyle = BLUE;
+  ctx.font = BIG;   ctx.fillText(main, lx, ly);
+  if (sub) { ctx.font = SMALL; ctx.fillText(sub, lx + w + 1 * S, ly + 5 * S); }
+  if (tail) { ctx.font = BIG; ctx.fillText(tail, lx + w + ws + 2 * S, ly); }
+  g.regLabel(key, lx - 4 * S, ly - 14 * S, total + 8 * S, 22 * S);
+};
+
+// The same four-worker example as the previous figure, drawn without numbers
+// on the axes as the book draws it. Both measures reach zero at five workers.
+const vmp = L => 4 * (5 - L), mrp = L => (5 - L) ** 2;
+const lVmp = w => 5 - w / 4, lMrp = w => 5 - Math.sqrt(w);
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'labor_demand_equilibrium.png',
+  axes: { xMin:0, xMax:6, yMin:0, yMax:22, margin:{top:50, right:180, bottom:130, left:180} },
+  sliders: [
+    { id:'wage', label:'Going market wage', min:2, max:14, value:8, step:2, fmt:v => v },
+  ],
+  toggles: [
+    { id:'show_mrp',    label:'MRPₗ, for a firm with market power', checked:false },
+    { id:'show_dashed', label:'Dashed lines at the chosen quantities' },
+    { id:'show_labels', label:'Curve and point labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', wage:'Wage' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['wage'],
+  nudgeKeys: ['x','y','s','vmp','mrp','an.w','an.l1','an.l2'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, width, yMax } = g;
+    const w = val('wage'), l1 = lVmp(w), l2 = lMrp(w), axisY = y0 + height;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Competitive output market</span><span class="info-value highlight">hires ${l1.toFixed(2)} workers</span></div>`
+      + (vis('show_mrp') ? `<div class="info-row"><span class="info-label">Firm with market power</span><span class="info-value highlight">hires ${l2.toFixed(2)} workers</span></div>` : '')
+      + `<div class="info-row"><span class="info-label">Wage paid to each</span><span class="info-value">${w}</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.axisLabels('Labor (L)', 'Wage (W)');
+    // Each curve runs from where it comes onto the chart down to the axis
+    const draw = fn => { let a = 0.1; while (a < 5 && fn(a) > yMax * 0.95) a += 0.02; g.plotFn(fn, a, 5, { color:BLUE, lw:2 }); };
+    draw(vmp);
+    if (vis('show_mrp')) draw(mrp);
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+    ctx.moveTo(x0, tCY(w)); ctx.lineTo(x0 + width - 70 * S, tCY(w)); ctx.stroke();
+
+    if (vis('show_dashed')) {
+      g.dashed(x0, tCY(w), tCX(l1), tCY(w), PINK, 1.5);
+      g.dashed(tCX(l1), tCY(w), tCX(l1), axisY, PINK, 1.5);
+      if (vis('show_mrp')) g.dashed(tCX(l2), tCY(w), tCX(l2), axisY, PINK, 1.5);
+    }
+    if (vis('show_labels')) {
+      subLabel(g, 'S', 'L', null, 's', x0 + width - 60 * S, tCY(w) + 6 * S, 'left');
+      subLabel(g, 'W', 'mkt', null, 'an.w', x0 - 12 * S, tCY(w) + 6 * S, 'right');
+      subLabel(g, 'L', '1', null, 'an.l1', tCX(l1), axisY + 34 * S, 'center');
+      if (vis('show_mrp')) {
+        subLabel(g, 'VMP', 'L', null, 'vmp', tCX(4.4) + 10 * S, tCY(vmp(4.4)) + 30 * S, 'left');
+        subLabel(g, 'MRP', 'L', ' = D', 'mrp', tCX(2.6) - 10 * S, tCY(1.4), 'right');
+        subLabel(g, 'L', '2', null, 'an.l2', tCX(l2), axisY + 34 * S, 'center');
+      } else {
+        subLabel(g, 'VMP', 'L', ' = D', 'vmp', tCX(3.6) + 10 * S, tCY(vmp(3.6)) + 40 * S, 'left');
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>

@@ -142,7 +142,7 @@ where José spends of all of his money on T-shirts and no movies
 --8/4=--2. The specific choices along the budget constraint line show
 the combinations of affordable T-shirts and movies.
 
-![](media/6-1-consumption-choices_rId26.jpeg){width="4.88in" height="2.505in" #fig-6_2}
+{{< appfig jose_budget_1 id="fig-6_2" >}}
 
 Figure 6.2 A Choice between Consumption Goods José has income of \$56.
 Movies cost \$7 and T-shirts cost \$14. The points on the budget
@@ -522,7 +522,7 @@ utilities to the prices should be equal between the two products,
 Kimberly chooses point M, with eight concerts and three overnight
 getaways as her utility-maximizing choice.
 
-![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId23.jpeg){width="3.25in" height="2.535in" #fig-6_3}
+{{< appfig income_change_1 id="fig-6_3" >}}
 
 Figure 6.3 How a Change in Income Affects Consumption Choices The
 utility-maximizing choice on the original budget constraint is M. The
@@ -601,7 +601,7 @@ example, the units along the horizontal and vertical axes are not
 numbered, so the discussion must focus on whether Sergei will consume
 more or less of certain goods, not on numerical amounts.
 
-![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId33.jpeg){width="4.88in" height="2.295in" #fig-6_4}
+{{< appfig price_change_1 id="fig-6_4" >}}
 
 Figure 6.4 How a Change in Price Affects Consumption Choices The
 original utility-maximizing choice is M. When the price rises, the
@@ -679,7 +679,7 @@ again, we label the utility-maximizing choices M~1~, M~2~, and M~3~, and
 the quantity demanded of housing falls from Q~0~ to Q~1~ to Q~2~ to
 Q~3~.
 
-![](media/6-2-how-changes-in-income-and-prices-affect-consumption-choices_rId42.jpeg){width="3.25in" height="5.085in" #fig-6_5}
+{{< appfig demand_derivation_1 id="fig-6_5" >}}
 
 Figure 6.5 The Foundations of a Demand Curve: An Example of Housing (a)
 As the price increases from P~0~ to P~1~ to P~2~ to P~3~, the budget
@@ -931,7 +931,7 @@ are unemployed (or underemployed, working fewer hours than you would
 like), the opportunity cost of your time is low. If you're unemployed,
 you don't have to give up work hours and income by going to college.
 
-![](media/6-3-behavioral-economics-an-alternative-framework-for-consumer-choice_rId25.jpeg){width="6.36in" height="3.275in" #fig-6_6}
+{{< appfig education_earnings_1 id="fig-6_6" >}}
 
 Figure 6.6 The Impact of Education on Earnings and Unemployment Rates,
 2012 Those with the highest degrees in 2012 had substantially lower

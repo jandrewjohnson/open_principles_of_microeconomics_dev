@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marginal Costs and Marginal Benefits of Environmental Protection</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Marginal Costs and Marginal Benefits of Environmental Protection</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The cheap fixes and the big gains both come first, so marginal cost rises while marginal benefit falls; they meet at the efficient amount of protection</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Where the Two Curves Cross</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>At a low level of protection like Qa, pollution is heavy, there are many cheap and easy ways to cut it, and each cut brings a large benefit. Marginal benefit is far above marginal cost, so more protection is clearly worth buying.</p>
+          <p>As protection rises the easy fixes run out and the costly methods start, so marginal cost climbs. The largest benefits have already been collected, so marginal benefit falls. At Qb the two are equal, which is the efficient amount. Past that, at Qc, another unit of protection costs more than it is worth, and the resources spent on it would do more good elsewhere. The slider moves Qa and Qc away from the crossing, and the side panel compares cost and benefit at each.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-levels">
+        <div class="control-panel-header" onclick="tog('levels')"><div class="panel-title">Levels</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-levels" onclick="event.stopPropagation();tog('levels')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('levels')">✕</button></div></div>
+        <div class="control-panel-body" id="body-levels"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 12.4 of the book: unnumbered axes, marginal cost rising and
+// marginal benefit falling, with three levels of protection marked. Qb is
+// the crossing; Qa sits well to its left and Qc a little to its right.
+const mc = q => 0.5 * Math.exp(0.42 * q);
+const mb = q => 9 * Math.exp(-0.25 * q);
+const QB = Math.log(18) / 0.67;
+const BLUE = '#2b6cb0', PINK = '#a855c7';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'protection_costs_benefits.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:50, right:230, bottom:150, left:140} },
+  sliders: [
+    { id:'spread', label:'How far Qa and Qc sit from Qb', min:0.6, max:1.4, value:1, step:0.2, fmt:v => '×' + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_lines',  label:'Dashed lines at Qa, Qb and Qc' },
+    { id:'show_labels', label:'Curve and level labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', levels:'Levels' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['levels'],
+  nudgeKeys: ['x','y','mc','mb'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, y0, height, yMax } = g;
+    const k = val('spread'), qa = QB - 2.6 * k, qc = QB + 0.7 * k, axisY = y0 + height;
+    const LEVELS = [['Qa', qa], ['Qb', QB], ['Qc', qc]];
+    g.setText('info', LEVELS.map(([n, q]) =>
+      `<div class="info-row"><span class="info-label">${n}: benefit ${mb(q).toFixed(2)}, cost ${mc(q).toFixed(2)}</span><span class="info-value${n === 'Qb' ? ' highlight' : ''}" style="font-size:.8rem">${mb(q) - mc(q) > 0.05 ? 'worth protecting more' : mc(q) - mb(q) > 0.05 ? 'protecting too much' : 'the efficient level'}</span></div>`).join(''));
+
+    g.clear();
+    g.axes();
+    g.axisLabels('Environmental Protection', 'Price');
+    // Each curve is drawn across the range where it stays on the chart
+    const top = yMax * 0.95;
+    let a = 0.5; while (a < 9 && mb(a) > top) a += 0.02;
+    let b = 9.6; while (b > 1 && mc(b) > top) b -= 0.02;
+    g.plotFn(mb, a, 9.4, { color:BLUE, lw:2 });
+    g.plotFn(mc, 0.6, b, { color:BLUE, lw:2 });
+    if (vis('show_lines')) LEVELS.forEach(([, q]) => g.dashed(tCX(q), axisY, tCX(q), y0 + 20 * S, PINK, 1.5));
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    if (vis('show_labels')) {
+      LEVELS.forEach(([n, q]) => g.label(n, tCX(q), axisY + 30 * S, { align:'center', ...f }));
+      g.label('Marginal\ncost', tCX(b) + 10 * S, tCY(mc(b)) + 30 * S, { key:'mc', lineH:24 * S, ...f });
+      g.label('Marginal\nbenefits', tCX(9.4) + 10 * S, tCY(mb(9.4)) - 10 * S, { key:'mb', lineH:24 * S, ...f });
+    }
+  },
+});
+</script>
+</body>
+</html>

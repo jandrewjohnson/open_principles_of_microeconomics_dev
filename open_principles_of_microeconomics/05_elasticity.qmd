@@ -160,7 +160,7 @@ quantity and average price) for both cases.
 Let's calculate the elasticity between points A and B and between points
 G and H as [Figure 5.2](#fig-5_2) shows.
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId35.jpeg){width="4.88in" height="3.215in" #fig-5_2}
+{{< appfig elasticity_demand_1 id="fig-5_2" >}}
 
 Figure 5.2 Calculating the Price Elasticity of Demand We calculate the
 price elasticity of demand as the percentage change in quantity divided
@@ -268,7 +268,7 @@ When the price increases to \$700 per month, the landlord supplies
 13,000 units into the market. By what percentage does apartment supply
 increase? What is the price sensitivity?
 
-![](media/5-1-price-elasticity-of-demand-and-price-elasticity-of-supply_rId54.jpeg){width="3.25in" height="2.635in" #fig-5_3}
+{{< appfig elasticity_supply_1 id="fig-5_3" >}}
 
 Figure 5.3 Price Elasticity of Supply We calculate the price elasticity
 of supply as the percentage change in quantity divided by the percentage
@@ -366,7 +366,7 @@ individuals' income, and goods with many substitutes are likely to have
 highly elastic demand curves. Examples of such goods are Caribbean
 cruises and sports vehicles.
 
-![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId25.jpeg){width="4.88in" height="2.115in" #fig-5_4}
+{{< appfig polar_elasticity_1 id="fig-5_4" >}}
 
 Figure 5.4 Infinite Elasticity The horizontal lines show that an
 infinite quantity will be demanded or supplied at a specific price. This
@@ -387,7 +387,7 @@ necessities with no close substitutes are likely to have highly
 inelastic demand curves. This is the case of life-saving drugs and
 gasoline.
 
-![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId30.jpeg){width="4.88in" height="2.0999989063867015in" #fig-5_5}
+{{< appfig polar_elasticity_zero id="fig-5_5" >}}
 
 Figure 5.5 Zero Elasticity The vertical supply curve and vertical demand
 curve show that there will be zero percentage change in quantity (a)
@@ -411,7 +411,7 @@ As a result, a demand curve with constant unitary elasticity moves from
 a steeper slope on the left and a flatter slope on the right---and a
 curved shape overall.
 
-![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId34.jpeg){width="4.875in" height="4.008333333333334in" #fig-5_6}
+{{< appfig unitary_demand_1 id="fig-5_6" >}}
 
 Figure 5.6 A Constant Unitary Elasticity Demand Curve A demand curve
 with constant unitary elasticity will be a curved line. Notice how price
@@ -441,7 +441,7 @@ the horizontal axis exactly match the percentage price increases on the
 vertical axis---so this supply curve has a constant unitary elasticity
 at all points.
 
-![](media/5-2-polar-cases-of-elasticity-and-constant-elasticity_rId37.jpeg){width="4.88in" height="2.685in" #fig-5_7}
+{{< appfig unitary_supply_1 id="fig-5_7" >}}
 
 Figure 5.7 A Constant Unitary Elasticity Supply Curve A constant unitary
 elasticity supply curve is a straight line reaching up from the origin.
@@ -602,7 +602,7 @@ close to the original price. Consumers benefit more, in general, when
 the demand curve is more inelastic because the shift in the supply
 results in a much lower price for consumers.
 
-![](media/5-3-elasticity-and-pricing_rId27.jpeg){width="4.88in" height="2.935in" #fig-5_8}
+{{< appfig elasticity_pass_through_1 id="fig-5_8" >}}
 
 Figure 5.8 Passing along Cost Savings to Consumers Cost-saving gains
 cause supply to shift out to the right from S~0~ to S~1~; that is, at
@@ -689,7 +689,7 @@ quantity of youth smoking will fall by a greater percentage than the
 quantity of adult smoking in response to a given percentage increase in
 price.
 
-![](media/5-3-elasticity-and-pricing_rId31.jpeg){width="6.5in" height="2.965in" #fig-5_9}
+{{< appfig elasticity_pass_through_higher_costs id="fig-5_9" >}}
 
 Figure 5.9 Passing along Higher Costs to Consumers Higher costs, like a
 higher tax on cigarette companies for the example we gave in the text,
@@ -739,7 +739,7 @@ would result in a much lower quantity sold instead of lower prices
 received. [Figure 5.10](#fig-5_10) illustrates this relationship
 between the tax incidence and elasticity of demand and supply.
 
-![](media/5-3-elasticity-and-pricing_rId37.jpeg){width="6.5in" height="2.74in" #fig-5_10}
+{{< appfig tax_incidence_1 id="fig-5_10" >}}
 
 Figure 5.10 Elasticity and Tax Incidence An excise tax introduces a
 wedge between the price paid by consumers (Pc) and the price received by
@@ -828,7 +828,7 @@ the left in the U.S. petroleum market. [Figure 5.11](#fig-5_11)
 equilibrium point and the same identical shift of a supply curve to the
 left from S~0~ to S~1~.
 
-![](media/5-3-elasticity-and-pricing_rId42.jpeg){width="6.5in" height="2.985in" #fig-5_11}
+{{< appfig oil_shock_1 id="fig-5_11" >}}
 
 Figure 5.11 How a Shift in Supply Can Affect Price or Quantity The
 intersection (E~0~) between demand curve D and supply curve S~0~ is the

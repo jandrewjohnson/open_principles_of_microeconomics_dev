@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Thin the Air Becomes as You Climb</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>How Thin the Air Becomes as You Climb</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Air density falls steeply at first and then flattens out, so the last thousand metres cost far less weight than the first</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Altitude and Air Density</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Not every relationship is a straight line. This one is a curve: a cubic metre of air at sea level weighs about 1.2 kilograms, and the weight drops away quickly at first, then more and more slowly, until at the height of Mount Everest it is almost nothing.</p>
+          <p>The shape is why climbers carry oxygen. At 8,828 metres a cubic metre of air weighs 0.023 kilograms, about a fiftieth of the sea-level figure, so each breath brings in a fraction of the oxygen it would at the bottom. The slider reads the curve at any altitude and the panel gives the weight and how it compares with sea level.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-read">
+        <div class="control-panel-header" onclick="tog('read')"><div class="panel-title">Reading the Graph</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-read" onclick="event.stopPropagation();tog('read')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('read')">✕</button></div></div>
+        <div class="control-panel-body" id="body-read"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+
+// Figure A4 of the book, drawn from its table of altitude against air
+// density, with the Mount Everest point called out.
+const S0 = 2;
+const ALT = [0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000,
+             5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000];
+const DENS = [1.200, 1.093, 0.831, 0.678, 0.569, 0.484, 0.415, 0.357, 0.307, 0.231, 0.182,
+              0.142, 0.100, 0.085, 0.066, 0.051, 0.041, 0.025, 0.022, 0.019, 0.014];
+const FIT = hermite(ALT, DENS);
+const EVEREST = { a:8828, d:0.023 };
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'altitude_air_density.png',
+  axes: { xMin:0, xMax:10500, yMin:0, yMax:1.2, margin:{top:70, right:120, bottom:200, left:220} },
+  sliders: [
+    { id:'alt', label:'Altitude to read', min:0, max:10000, value:8500, step:500, fmt:v => v.toLocaleString() + ' m' },
+  ],
+  toggles: [
+    { id:'show_everest', label:'The Mount Everest point' },
+    { id:'show_read',    label:'Mark the altitude being read', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', read:'Reading the Graph' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['read'],
+  nudgeKeys: ['x.a','y.a','ev'],
+
+  draw(g) {
+    const { S, ctx, val, vis, tCX, tCY } = g;
+    const a = val('alt'), d = FIT.f(a);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Altitude</span><span class="info-value">${a.toLocaleString()} metres</span></div>`
+      + `<div class="info-row"><span class="info-label">Air density</span><span class="info-value highlight">${d.toFixed(3)} kg per cubic metre</span></div>`
+      + `<div class="info-row"><span class="info-label">Share of the sea-level weight</span><span class="info-value">${Math.round(d / 1.2 * 100)}%</span></div>`
+      + `<div class="info-row"><span class="info-label">At the top of Everest</span><span class="info-value">0.023 kg, at 8,828 m</span></div>`);
+
+    g.clear();
+    const xs = []; for (let v = 0; v <= 10000; v += 1000) xs.push(v);
+    const ys = []; for (let v = 0; v <= 1.2001; v += 0.2) ys.push(Math.round(v * 10) / 10);
+    frame(g, g, { tag:'a', xTicks:xs, yTicks:ys, fmtX:v => v.toLocaleString(), fmtY:v => v.toFixed(1),
+      xLabel:'Altitude (m)', yLabel:'Air Density (kg/m3)' });
+
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+    for (let k = 0; k <= 400; k++) { const x = 10000 * k / 400, px = tCX(x), py = tCY(FIT.f(x));
+      k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.stroke();
+
+    if (vis('show_everest')) {
+      // The book runs a rule across at the Everest density
+      ctx.strokeStyle = MAROON; ctx.lineWidth = 1.6 * S;
+      ctx.beginPath(); ctx.moveTo(tCX(0), tCY(EVEREST.d)); ctx.lineTo(tCX(10500), tCY(EVEREST.d)); ctx.stroke();
+      dot(g, tCX(EVEREST.a), tCY(EVEREST.d));
+      const nd = g.getNudge('ev'), lx = tCX(EVEREST.a) + nd.dx, ly = tCY(0.42) + nd.dy;
+      // Below both lines of the label, so the shaft does not cross the text
+      g.drawArrow(lx, ly + 58 * S, tCX(EVEREST.a), tCY(EVEREST.d) - 14 * S, INK);
+      g.label('Mount Everest\n(8,828 m, 0.023 kg/m3)', lx, ly,
+        { key:'ev', align:'center', font:`${16 * S}px ${g.font}`, color:BLUE, lineH:24 * S });
+    }
+    if (vis('show_read')) {
+      g.dashed(tCX(a), tCY(d), tCX(a), tCY(0), PINK, 1.6);
+      g.dashed(tCX(a), tCY(d), tCX(0), tCY(d), PINK, 1.6);
+      dot(g, tCX(a), tCY(d), PINK);
+    }
+  },
+});
+</script>
+</body>
+</html>

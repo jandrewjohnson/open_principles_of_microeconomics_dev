@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interest Rates on Certificates of Deposit</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Interest Rates on Certificates of Deposit</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Rates on six-month, one-year and five-year CDs move together with the business cycle, and all three collapsed after 2008</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Three CD Rates Since 1984</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1800" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>A certificate of deposit pays a higher rate than a savings account because the saver promises to leave the money alone for a set period. The longer the promise, the higher the rate, which is why the five-year line sits above the one-year and the one-year above the six-month.</p>
+          <p>All three follow the business cycle, rising in expansions and falling in recessions, and all three fell sharply after 2008 and stayed near zero for a decade. The high rates at the start of the series reflect the high inflation of the early 1980s: a saver lending money for five years then needed a large return simply to stay even. The slider reads all three at a chosen year; the values are sampled from the book's figure.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-year">
+        <div class="control-panel-header" onclick="tog('year')"><div class="panel-title">Read a Year</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-year" onclick="event.stopPropagation();tog('year')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('year')">✕</button></div></div>
+        <div class="control-panel-body" id="body-year"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7';
+// Years leaning up to the right, the way the book sets them under a crowded axis
+const leaned = (g, txt, x, y, size) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${(size || 13) * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+// A series name with a leader line back to its curve
+const called = (g, txt, key, lx, ly, tx, ty, align, color) => {
+  const nd = g.getNudge(key), ax = lx + nd.dx, ay = ly + nd.dy;
+  g.drawArrow(ax + (align === 'right' ? 10 : -10) * g.S, ay - 5 * g.S, tx, ty, color || INK);
+  g.label(txt, lx, ly, { key, align, font:`${15 * g.S}px ${g.font}`, color: color || BLUE });
+};
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+
+// Figure 17.4 of the book, sampled off its three lines. The five-year rate
+// sits above the one-year, which sits above the six-month, and the gaps
+// close almost entirely after 2008.
+const SAMPLES = [1984, 1986, 1988, 1990, 1992, 1994, 1996, 1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020];
+const SERIES = [
+  { name:'5-year CD',  color:'#2b6cb0', vals:[11.0, 7.4, 7.6, 8.1, 4.6, 4.7, 5.5, 5.5, 6.0, 3.5, 3.2, 4.5, 3.2, 1.9, 1.2, 1.1, 1.1, 1.5, 0.9] },
+  { name:'1-year CD',  color:'#2c8c7e', vals:[10.6, 6.4, 7.2, 7.7, 3.4, 3.7, 4.8, 5.0, 5.7, 2.1, 1.6, 4.1, 2.6, 0.9, 0.5, 0.5, 0.5, 1.0, 0.5] },
+  { name:'6-month CD', color:'#a3324f', vals:[10.4, 6.0, 6.9, 7.6, 3.1, 3.3, 4.6, 4.9, 5.6, 1.8, 1.3, 3.9, 2.3, 0.7, 0.4, 0.4, 0.4, 0.9, 0.4] },
+].map(s => ({ ...s, fit: hermite(SAMPLES, s.vals) }));
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'cd_rates.png',
+  axes: { xMin:1984, xMax:2020, yMin:0, yMax:12, margin:{top:60, right:110, bottom:200, left:190} },
+  sliders: [
+    { id:'year', label:'Year to read', min:1984, max:2020, value:2000, step:2, fmt:v => v },
+  ],
+  toggles: [
+    { id:'show_labels', label:'Series labels' },
+    { id:'show_year',   label:'Line at the year being read', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Chart', explanation:'Explanation', year:'Year' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['year'],
+  nudgeKeys: ['x','y','lb.0','lb.1','lb.2'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, width, height } = g;
+    const yr = val('year');
+    g.setText('info', SERIES.map(s => `<div class="info-row"><span class="info-label">${s.name} in ${yr}</span><span class="info-value">${s.fit.f(yr).toFixed(2)}%</span></div>`).join('')
+      + `<div class="info-row"><span class="info-label">Extra paid for locking up five years</span><span class="info-value highlight">${(SERIES[0].fit.f(yr) - SERIES[2].fit.f(yr)).toFixed(2)} points</span></div>`);
+
+    g.clear();
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+    ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+    for (let v = 0; v <= 12; v += 2) ctx.fillText(v, x0 - 10 * S, tCY(v) + 5 * S);
+    g.axisLabels(null, 'Interest Rate (%)');
+    g.label('Year', x0 + width / 2, y0 + height + 60 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+    for (let y = 1984; y <= 2020; y += 2) leaned(g, y, tCX(y), y0 + height + 20 * S);
+    if (vis('show_year')) g.dashed(tCX(yr), y0, tCX(yr), y0 + height, PINK, 1.5);
+
+    SERIES.forEach(s => {
+      ctx.strokeStyle = s.color; ctx.lineWidth = 2 * S; ctx.beginPath();
+      for (let k = 0; k <= 300; k++) { const y = 1984 + 36 * k / 300, px = tCX(y), py = tCY(s.fit.f(y)); k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+      ctx.stroke();
+    });
+    if (vis('show_labels')) {
+      called(g, '5-year CD', 'lb.0', tCX(1992.6), tCY(9.2), tCX(1990.8), tCY(SERIES[0].fit.f(1990.8)), 'left', SERIES[0].color);
+      called(g, '6-month CD', 'lb.2', tCX(1997.4), tCY(6.9), tCX(1995.6), tCY(SERIES[2].fit.f(1995.6)), 'left', SERIES[2].color);
+      called(g, '1-year CD', 'lb.1', tCX(2008.6), tCY(5.4), tCX(2006.6), tCY(SERIES[1].fit.f(2006.6)), 'left', SERIES[1].color);
+    }
+  },
+});
+</script>
+</body>
+</html>

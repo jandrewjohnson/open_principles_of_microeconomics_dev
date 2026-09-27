@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Market Wage Rate</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Market Wage Rate</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Adding up every firm's demand and every worker's supply gives the wage and the number of jobs the market settles on</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Supply and Demand for Labor</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1050"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The market demand for labor is the horizontal sum of what every firm wants to hire at each wage, and it slopes down. The market supply is the horizontal sum of what every worker is willing to offer, and it slopes up: a higher wage in one market draws people in from other jobs and other places.</p>
+          <p>Where the two meet is the going wage W<sub>market</sub> and the number of jobs L<sub>market</sub>. This is the wage an individual firm takes as given in the previous figures. The sliders shift each curve, so you can see what raises the wage and what raises employment.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shift">
+        <div class="control-panel-header" onclick="tog('shift')"><div class="panel-title">Shifts</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shift" onclick="event.stopPropagation();tog('shift')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shift')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shift"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+// A name with a small subscript, and sometimes a normal-size tail. Unicode
+// has no subscript c or d, so every subscript here is drawn by hand: two
+// fillText calls at different sizes sharing one nudge key.
+const subLabel = (g, main, sub, tail, key, x, y, align) => {
+  const { S, ctx } = g, nd = g.getNudge(key), BIG = `${15 * S}px ${g.font}`, SMALL = `${11 * S}px ${g.font}`;
+  ctx.font = BIG;   const w = ctx.measureText(main).width, wt = tail ? ctx.measureText(tail).width : 0;
+  ctx.font = SMALL; const ws = sub ? ctx.measureText(sub).width : 0;
+  const total = w + ws + wt;
+  const lx = (align === 'right' ? x - total : align === 'center' ? x - total / 2 : x) + nd.dx, ly = y + nd.dy;
+  ctx.textAlign = 'left'; ctx.fillStyle = BLUE;
+  ctx.font = BIG;   ctx.fillText(main, lx, ly);
+  if (sub) { ctx.font = SMALL; ctx.fillText(sub, lx + w + 1 * S, ly + 5 * S); }
+  if (tail) { ctx.font = BIG; ctx.fillText(tail, lx + w + ws + 2 * S, ly); }
+  g.regLabel(key, lx - 4 * S, ly - 14 * S, total + 8 * S, 22 * S);
+};
+
+// Figure 14.7 of the book: unnumbered axes, a rising market supply of labor
+// and a falling market demand, crossing in the middle of the chart.
+const dem = (dq, L) => 10 - 1.1 * (L - dq), sup = (sq, L) => 1.2 + 1.1 * (L - sq);
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'market_wage.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:11, margin:{top:50, right:170, bottom:140, left:190} },
+  sliders: [
+    { id:'dq', label:'Shift of market demand', min:-1.5, max:1.5, value:0, step:0.5, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+    { id:'sq', label:'Shift of market supply', min:-1.5, max:1.5, value:0, step:0.5, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_dashed', label:'Dashed lines to the axes' },
+    { id:'show_labels', label:'Curve and equilibrium labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shift:'Shifts' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shift'],
+  nudgeKeys: ['x','y','sx','s','dx','d','an.w','an.l'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, yMax } = g;
+    const dq = val('dq'), sq = val('sq'), axisY = y0 + height;
+    const L = (10 + 1.1 * dq - 1.2 + 1.1 * sq) / 2.2, W = dem(dq, L);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Wage the market settles on</span><span class="info-value highlight">${W.toFixed(2)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Jobs at that wage</span><span class="info-value highlight">${L.toFixed(2)}</span></div>`);
+
+    g.clear();
+    g.axes();
+    g.axisLabels('Labor (L)', 'Wage (W)');
+    // Each line spans the wages the chart shows
+    const line = (fn, lo, hi) => { ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+      ctx.moveTo(tCX(lo), tCY(fn(lo))); ctx.lineTo(tCX(hi), tCY(fn(hi))); ctx.stroke(); };
+    const qAt = (fn, p) => { let lo = -5, hi = 15; for (let i = 0; i < 50; i++) { const m = (lo + hi) / 2; (fn(m) > p ? lo = m : hi = m); } return (lo + hi) / 2; };
+    const dLo = Math.max(0.2, qAt(q => dem(dq, q), yMax * 0.95)), dHi = Math.min(9.8, qAt(q => dem(dq, q), 0.6));
+    line(q => dem(dq, q), dLo, dHi);
+    const sHi = Math.min(9.8, qAt(q => -sup(sq, q), -yMax * 0.95)), sLo = Math.max(0.2, qAt(q => -sup(sq, q), -0.6));
+    line(q => sup(sq, q), sLo, sHi);
+
+    if (vis('show_dashed')) {
+      g.dashed(x0, tCY(W), tCX(L), tCY(W), PINK, 1.5);
+      g.dashed(tCX(L), tCY(W), tCX(L), axisY, PINK, 1.5);
+    }
+    if (vis('show_labels')) {
+      subLabel(g, 'Market', null, null, 'sx', tCX(sHi) + 10 * S, tCY(sup(sq, sHi)) - 16 * S, 'left');
+      subLabel(g, 'S', 'L', null, 's', tCX(sHi) + 10 * S, tCY(sup(sq, sHi)) + 10 * S, 'left');
+      subLabel(g, 'Market', null, null, 'dx', tCX(dHi) + 10 * S, tCY(dem(dq, dHi)) - 16 * S, 'left');
+      subLabel(g, 'D', 'L', null, 'd', tCX(dHi) + 10 * S, tCY(dem(dq, dHi)) + 10 * S, 'left');
+      subLabel(g, 'W', 'market', null, 'an.w', x0 - 12 * S, tCY(W) + 6 * S, 'right');
+      subLabel(g, 'L', 'market', null, 'an.l', tCX(L), axisY + 34 * S, 'center');
+    }
+  },
+});
+</script>
+</body>
+</html>

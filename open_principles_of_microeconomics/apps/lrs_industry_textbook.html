@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Long-Run Supply in Constant, Increasing and Decreasing Cost Industries</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Long-Run Supply in Constant, Increasing and Decreasing Cost Industries</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">When demand rises, entry shifts supply out; joining the old and new long-run equilibria gives a flat, rising or falling long-run supply curve</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Long-Run Adjustment to Higher Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1800" height="750"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Each panel starts from the same long-run equilibrium where D₁ meets S₁ at Q₁. Demand then rises to D₂, price and profits rise, and new firms enter until profits are back to zero, shifting supply to S₂. The line through the two long-run equilibria is the long-run supply (LRS) curve.</p>
+          <p>In a constant-cost industry (a) entry expands supply exactly as much as demand rose, so the price returns to where it was and LRS is flat. In an increasing-cost industry (b) inputs become scarcer as the industry grows, supply shifts by less than demand, and the price settles higher: LRS slopes up. In a decreasing-cost industry (c) growth lowers costs, supply shifts by more than demand, and the price settles lower: LRS slopes down. The sliders set the demand shift and how far supply shifts in (b) and (c).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shifts</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 8.8 of the book: three panels, each with D1, D2, S1, S2 and the
+// long-run supply line through the two equilibria: flat when supply shifts
+// as much as demand, rising when it shifts less, falling when it shifts more.
+const S0 = 2;
+const N = 3, GAP = 70 * S0, PW = (1800 - 2 * GAP) / N;
+const MG = { top:50, right:90, bottom:190, left:110 };
+const AXES = [0, 1, 2].map(i => ({ xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:i * (PW + GAP), width:PW }));
+const D1 = 8, SLOPE_D = -1, S1 = -1, SLOPE_S = 1;     // D: p = 8 - q, S: p = q - 1, meeting at (4.5, 3.5)
+const BLUE = '#2b6cb0', PINK = '#a855c7', GREY = '#718096';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'lrs_industry.png',
+  axes: AXES,
+  sliders: [
+    { id:'dd',   label:'Rise in demand (all panels)',       min:2,   max:4, value:3, step:0.5, fmt:v => v.toFixed(1) },
+    { id:'ds_b', label:'(b) Supply shift, increasing cost', min:1,   max:2.5, value:2, step:0.5, fmt:v => v.toFixed(1) },
+    { id:'ds_c', label:'(c) Supply shift, decreasing cost', min:3.5, max:5, value:4, step:0.5, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_lrs',      label:'Long-run supply line' },
+    { id:'show_dashed',   label:'Dashed lines to Q₁ and Q₂' },
+    { id:'show_labels',   label:'Curve labels' },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shifts:'Shifts' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','x.c','y.c','lrs.a','lrs.b','lrs.c'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const dd = val('dd');
+    const PANELS = [
+      { id:'a', ds: dd,          caption:'(a) Constant cost' },
+      { id:'b', ds: val('ds_b'), caption:'(b) Increasing cost' },
+      { id:'c', ds: val('ds_c'), caption:'(c) Decreasing cost' },
+    ];
+    let info = '';
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i), { x0, y0, height, width, tCX, tCY, bottom } = pan;
+      const axisY = y0 + height;
+      const dem = dq => q => D1 + SLOPE_D * (q - dq), sup = dq => q => S1 + SLOPE_S * (q - dq);
+      const eq = (dq, ds) => { const q = (D1 - S1 + dq * 1 + ds * 1) / 2; return { q, p: dem(dq)(q) }; };
+      const e1 = eq(0, 0), e2 = eq(dd, P.ds);
+      info += `<div class="info-row"><span class="info-label">(${P.id}) price ${e1.p.toFixed(1)} → ${e2.p.toFixed(1)}</span><span class="info-value">Q ${e1.q.toFixed(1)} → ${e2.q.toFixed(1)}</span></div>`;
+
+      pan.axes(BLUE);
+      pan.axisLabels(null, 'Price', P.id);
+      pan.label('Quantity', x0 + width / 2, axisY + 62 * S, { key:'x.' + P.id, font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      // Each line drawn between prices 0.6 and 9.4, truncated like the book
+      // Each line runs between prices 1.6 and 9.2, truncated like the book; demand labels sit below the low end, supply labels above the high end
+      const line = (fn, qOf, txt, isD) => {
+        const clamp = q => Math.min(9.8, Math.max(0.2, q));
+        const a = clamp(qOf(9.2)), b = clamp(qOf(1.6));
+        pan.plotFn(fn, Math.min(a, b), Math.max(a, b), { color:BLUE, lw:1.5 });
+        const qEnd = Math.max(a, b);
+        if (vis('show_labels')) pan.label(txt, tCX(qEnd), tCY(fn(qEnd)) + (isD ? 22 : -10) * S, { font:`${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      };
+      line(dem(0),    p => (p - D1) / SLOPE_D,          'D₁', true);
+      line(dem(dd),   p => (p - D1) / SLOPE_D + dd,     'D₂', true);
+      line(sup(0),    p => (p - S1) / SLOPE_S,          'S₁', false);
+      line(sup(P.ds), p => (p - S1) / SLOPE_S + P.ds,   'S₂', false);
+      if (vis('show_lrs')) {
+        // Through both equilibria, extended a little past each
+        const m = (e2.p - e1.p) / (e2.q - e1.q), ext = 1.2;
+        const qa = e1.q - ext, qb = Math.min(9.6, e2.q + ext);
+        ctx.strokeStyle = BLUE; ctx.lineWidth = 3 * S; ctx.beginPath(); ctx.moveTo(tCX(qa), tCY(e1.p + m * (qa - e1.q))); ctx.lineTo(tCX(qb), tCY(e1.p + m * (qb - e1.q))); ctx.stroke();
+        if (vis('show_labels')) pan.label('LRS', tCX(qb) + 4 * S, tCY(e1.p + m * (qb - e1.q)) - 12 * S, { key:'lrs.' + P.id, font:`${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      }
+      [e1, e2].forEach((e, k) => {
+        if (vis('show_dashed')) pan.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, k ? '#4a5568' : PINK, 1.5);
+        pan.label('Q' + (k ? '₂' : '₁'), tCX(e.q), axisY + 28 * S, { font:`${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      });
+      if (vis('show_captions')) pan.label(P.caption, pan.left + 20 * S, bottom - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+    });
+    g.setText('info', info);
+  },
+});
+</script>
+</body>
+</html>

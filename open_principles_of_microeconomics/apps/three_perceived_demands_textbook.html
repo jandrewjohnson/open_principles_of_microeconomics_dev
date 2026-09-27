@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perceived Demand for Firms in Different Competitive Settings</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Perceived Demand for Firms in Different Competitive Settings</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Flat for a price taker, steep for a monopoly, and in between for a firm whose product is only somewhat different from its rivals'</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Three Perceived Demand Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1800" height="760"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>A perfectly competitive firm sees a flat demand curve: it can sell as much as it likes at the going price, and charging a penny more would lose every customer. A monopoly sees the market demand curve, which slopes down steeply, because a buyer who balks at its price has to do without the product altogether.</p>
+          <p>A monopolistic competitor sits between the two. Its product is different enough that raising the price does not lose every customer, but close substitutes are available, so it loses more customers than a monopoly would. The slider sets how differentiated the product is: at the low end the curve is nearly flat like a price taker's, at the high end nearly as steep as a monopoly's.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shape">
+        <div class="control-panel-header" onclick="tog('shape')"><div class="panel-title">Differentiation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shape" onclick="event.stopPropagation();tog('shape')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shape')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shape"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 10.2 of the book: three panels with unnumbered axes, a flat line
+// in (a), a steep convex curve in (b) and a gentler one in (c). All three
+// curves are p = A / (q + k): a large k makes the curve flat.
+const S0 = 2;
+const N = 3, GAP = 90 * S0, PW = (1800 - 2 * GAP) / N;
+const MG = { top:50, right:60, bottom:200, left:150 };
+const AXES = [0, 1, 2].map(i => ({ xMin:0, xMax:10, yMin:0, yMax:8, margin:MG, left:i * (PW + GAP), width:PW }));
+const BLUE = '#2b6cb0', GREY = '#718096';
+const curveAt = k => { const A = 4 * (5 + k); return q => A / (q + k); };
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'three_perceived_demands.png',
+  axes: AXES,
+  sliders: [
+    { id:'diff', label:'How differentiated the product is', min:1, max:5, value:3, step:1, fmt:v => ['barely', 'a little', 'somewhat', 'quite', 'highly'][v - 1] },
+  ],
+  toggles: [
+    { id:'show_captions', label:'Panel captions' },
+    { id:'show_monopoly', label:'The monopoly curve behind (c) for comparison', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shape:'Shape' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shape'],
+  nudgeKeys: ['y.a','y.b','y.c','x.a','x.b','x.c'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    // A small k bends the curve hard (the monopoly); a large one flattens it
+    const kMono = 1.2, kComp = [14, 9, 6, 4, 2.8][val('diff') - 1];
+    const mono = curveAt(kMono), comp = curveAt(kComp);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">(b) monopoly: price to sell 8 instead of 2</span><span class="info-value">${(100 * (1 - mono(8) / mono(2))).toFixed(0)}% lower</span></div>`
+      + `<div class="info-row"><span class="info-label">(c) this firm: price to sell 8 instead of 2</span><span class="info-value highlight">${(100 * (1 - comp(8) / comp(2))).toFixed(0)}% lower</span></div>`);
+
+    g.clear();
+    const PANELS = [
+      { id:'a', caption:'(a) Perfect competitor' },
+      { id:'b', caption:'(b) Monopoly' },
+      { id:'c', caption:'(c) Monopolistic competitor' },
+    ];
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i), { x0, y0, width, height, tCX, tCY, bottom } = pan;
+      const axisY = y0 + height;
+      pan.axes(BLUE);
+      pan.axisLabels(null, 'Price ($)', P.id);
+      pan.label('Quantity', x0 + width / 2, axisY + 56 * S, { key:'x.' + P.id, font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      // Each curve starts where it comes onto the chart, so a steep one does not draw above the frame
+      const from = f => { let q = 0.5; while (q < 8 && f(q) > 7.8) q += 0.02; return q; };
+      if (i === 0) { ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath(); ctx.moveTo(x0, tCY(4)); ctx.lineTo(tCX(8.6), tCY(4)); ctx.stroke(); }
+      else {
+        if (i === 2 && vis('show_monopoly')) pan.plotFn(mono, from(mono), 8.6, { color:BLUE, lw:1.5, alpha:0.35 });
+        const fn = i === 1 ? mono : comp;
+        pan.plotFn(fn, from(fn), 8.6, { color:BLUE, lw:2 });
+      }
+      if (vis('show_captions')) pan.label(P.caption, pan.left + 20 * S, bottom - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+    });
+  },
+});
+</script>
+</body>
+</html>

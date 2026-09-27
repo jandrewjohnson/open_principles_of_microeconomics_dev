@@ -26,7 +26,7 @@ utility. First we will explore the meaning of one particular
 indifference curve and then we will look at the indifference curves as a
 group.
 
-![](media/b-indifference-curves_rId23.jpeg){width="4.88in" height="4.05in" #fig-append_b_1}
+{{< appfig lillys_indifference_curves_1 id="fig-append_b_1" >}}
 
 Figure B1 Lilly's Indifference Curves Lilly would receive equal utility
 from all points on a given indifference curve. Any points on the highest
@@ -161,7 +161,7 @@ the budget line shown in [Figure B2](#fig-append_b_2). Along with the
 budget line are shown the three indifference curves from [Figure B1](#fig-append_b_1). What is Lilly's utility-maximizing choice?
 Several possibilities are identified in the diagram.
 
-![](media/b-indifference-curves_rId32.jpeg){width="3.25in" height="3.45in" #fig-append_b_2}
+{{< appfig lilly_budget_choice_1 id="fig-append_b_2" >}}
 
 Figure B2 Indifference Curves and a Budget Constraint Lilly's
 preferences are shown by the indifference curves. Lilly's budget
@@ -231,7 +231,7 @@ W, with three movies and 28 yogurts, while Natasha's utility-maximizing
 choice on the original budget set at Y will be seven movies and 12
 yogurts.
 
-![](media/b-indifference-curves_rId38.jpeg){width="6.5in" height="3.45in" #fig-append_b_3}
+{{< appfig manuel_natasha_1 id="fig-append_b_3" >}}
 
 Figure B3 Manuel and Natasha's Indifference Curves Manuel and Natasha
 originally face the same budget constraints; that is, same prices and
@@ -297,7 +297,7 @@ income effects on a graph. In [Figure B4](#fig-append_b_4), Ogden
 faces a choice between two goods: haircuts or personal pizzas. Haircuts
 cost \$20, personal pizzas cost \$6, and he has \$120 to spend.
 
-![](media/b-indifference-curves_rId45.jpeg){width="3.25in" height="2.72in" #fig-append_b_4}
+{{< appfig substitution_income_effects_1 id="fig-append_b_4" >}}
 
 Figure B4 Substitution and Income Effects The original choice is A, the
 point of tangency between the original budget constraint and
@@ -425,7 +425,7 @@ tangent to the higher indifference curve Uh. At B, Petunia has 40 hours
 of leisure per week and works 40 hours, with income of \$800 per week
 (that is, 40 hours of work at \$20 per hour).
 
-![](media/b-indifference-curves_rId51.jpeg){width="3.25in" height="2.87in" #fig-append_b_5}
+{{< appfig petunia_labor_supply_1 id="fig-append_b_5" >}}
 
 Figure B5 Effects of a Change in Petunia's Wage Petunia starts at choice
 A, the tangency between her original budget constraint and the lower
@@ -542,7 +542,7 @@ impact of the income effect on reducing present and future consumption
 in this example is shown with "i" arrows on the horizontal and vertical
 axis of [Figure B6](#fig-append_b_6).
 
-![](media/b-indifference-curves_rId55.jpeg){width="3.25in" height="3.22in" #fig-append_b_6}
+{{< appfig quentin_saving_1 id="fig-append_b_6" >}}
 
 Figure B6 Indifference Curve and an Intertemporal Budget Constraint The
 original choice is A, at the tangency between the original budget
@@ -596,7 +596,7 @@ A which will be the optimal choice, where the indifference curve will be
 tangent---but it is often easier not to draw in the indifference curve
 just yet. See [Figure B7](#fig-append_b_7).
 
-![](media/b-indifference-curves_rId60.jpeg){width="3.25in" height="3.0in" #fig-append_b_7}
+{{< appfig effects_steps_1 id="fig-append_b_7" >}}
 
 Figure B7
 
@@ -606,7 +606,7 @@ the decision-maker down to a lower level of utility, represented by a
 lower indifference curve. But at this stage, draw only the new budget
 set. See [Figure B8](#fig-append_b_8).
 
-![](media/b-indifference-curves_rId63.jpeg){width="3.25in" height="3.0in" #fig-append_b_8}
+{{< appfig effects_steps_2 id="fig-append_b_8" >}}
 
 Figure B8
 
@@ -622,7 +622,7 @@ is inserted in this step. The trick is to have the dashed line travel
 close to the original choice A, but not directly through point A. See
 [Figure B9](#fig-append_b_9).
 
-![](media/b-indifference-curves_rId66.jpeg){width="3.25in" height="3.0in" #fig-append_b_9}
+{{< appfig effects_steps_3 id="fig-append_b_9" >}}
 
 Figure B9
 
@@ -639,7 +639,7 @@ the "s" (substitution) arrow on the vertical axis, and more consumed of
 the good that is relatively less expensive, as shown by the "s" arrow on
 the horizontal axis. See [Figure B10](#CNX_Econ_A06_011).
 
-![](media/b-indifference-curves_rId69.jpeg){width="3.25in" height="3.14in" #fig-append_b_10}
+{{< appfig effects_steps_4 id="fig-append_b_10" >}}
 
 Figure B10
 
@@ -661,7 +661,7 @@ negative income effect means less consumed of each good, as shown by the
 direction of the "i" (income effect) arrows on the vertical and
 horizontal axes. See [Figure B11](#fig-append_b_11).
 
-![](media/b-indifference-curves_rId72.jpeg){width="3.25in" height="3.0in" #fig-append_b_11}
+{{< appfig effects_steps_5 id="fig-append_b_11" >}}
 
 Figure B11
 

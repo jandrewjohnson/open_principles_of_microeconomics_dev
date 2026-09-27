@@ -166,7 +166,7 @@ quantity supplied equals quantity demanded, is at a price of \$650 per
 refrigerator and a quantity of 45,000 refrigerators. @tbl-table_12_2 reflects this information in the first three
 columns.
 
-![](media/12-1-the-economics-of-pollution_rId30.jpeg){width="2.655in" height="2.77in" #fig-12_2}
+{{< appfig pollution_supply_shift_1 id="fig-12_2" >}}
 
 Figure 12.2 Taking Social Costs into Account: A Supply Shift If the firm
 takes only its own costs of production into account, then its supply
@@ -395,7 +395,7 @@ because the firm can use the cheapest and easiest method to make initial
 reductions in pollution, but additional reductions in pollution become
 more expensive.
 
-![](media/12-3-market-oriented-environmental-tools_rId24.jpeg){width="4.88in" height="3.005in" #fig-12_3}
+{{< appfig pollution_charge_1 id="fig-12_3" >}}
 
 Figure 12.3 A Pollution Charge If a pollution charge is set equal to
 \$1,000, then the firm will have an incentive to reduce pollution by 30
@@ -718,7 +718,7 @@ benefits. At this level of environmental protection, society is not
 allocating resources efficiently, because it is forfeiting too many
 resources to reduce pollution.
 
-![](media/12-4-the-benefits-and-costs-of-u-s-environmental-laws_rId32.jpeg){width="3.66in" height="2.975in" #fig-12_4}
+{{< appfig protection_costs_benefits_1 id="fig-12_4" >}}
 
 Figure 12.4 Marginal Costs and Marginal Benefits of Environmental
 Protection Reducing pollution is costly---one must sacrifice resources.
@@ -896,7 +896,7 @@ avoid choices like M, which are productively inefficient. Efficiency
 requires that the choice should be on the production possibility
 frontier.
 
-![](media/12-6-the-tradeoff-between-economic-output-and-environmental-protection_rId23.jpeg){width="3.5in" height="2.725in" #fig-12_5}
+{{< appfig output_environment_ppf_1 id="fig-12_5" >}}
 
 Figure 12.5 The Tradeoff between Economic Output and Environmental
 Protection Each society will have to weigh its own values and decide

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slope and the Algebra of Straight Lines</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Slope and the Algebra of Straight Lines</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Every straight line is a starting value plus a constant rise for each step to the right</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Line y = 3x + 9</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>A straight line is written y = b + mx. The b term is where the line meets the vertical axis, the value of y when x is zero. The m term is the slope, the rise in y for every one-step move to the right. In the book's example b is 9 and m is 3, so the line starts at 9 and climbs by 3 each time x goes up by one.</p>
+          <p>The dots are the table's values, plotted and joined. The sliders change the two terms separately, which is the quickest way to see what each one does: changing b slides the whole line up or down without tilting it, and changing m tilts it about the point where it crosses the vertical axis.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-line">
+        <div class="control-panel-header" onclick="tog('line')"><div class="panel-title">The Line</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-line" onclick="event.stopPropagation();tog('line')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('line')">✕</button></div></div>
+        <div class="control-panel-body" id="body-line"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7', MAROON = '#a03f6f';
+// One panel's frame, ticks, axis titles and caption, all in design pixels.
+const frame = (g, pan, opts) => {
+  const { S, ctx } = g, { x0, y0, width, height, tCX, tCY } = pan;
+  ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+  ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`;
+  ctx.textAlign = 'right';
+  opts.yTicks.forEach(v => ctx.fillText(opts.fmtY(v), x0 - 10 * S, tCY(v) + 5 * S));
+  ctx.textAlign = 'center';
+  opts.xTicks.forEach(v => ctx.fillText(opts.fmtX(v), tCX(v), y0 + height + 30 * S));
+  const nx = g.getNudge('x.' + opts.tag), ny = g.getNudge('y.' + opts.tag);
+  ctx.fillStyle = BLUE; ctx.font = `bold ${14 * S}px ${g.font}`;
+  const xlx = x0 + width / 2 + nx.dx, xly = y0 + height + 60 * S + nx.dy;
+  ctx.fillText(opts.xLabel, xlx, xly);
+  g.regLabel('x.' + opts.tag, xlx - 90 * S, xly - 16 * S, 180 * S, 22 * S);
+  const ylx = x0 - 50 * S + ny.dx, yly = y0 + height / 2 + ny.dy;
+  ctx.save(); ctx.translate(ylx, yly); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore();
+  g.regLabel('y.' + opts.tag, ylx - 14 * S, yly - 70 * S, 28 * S, 140 * S);
+};
+const dot = (g, x, y, color) => { const { ctx, S } = g;
+  ctx.fillStyle = color || BLUE; ctx.beginPath(); ctx.arc(x, y, 6 * S, 0, Math.PI * 2); ctx.fill(); };
+
+// Figure A1 of the book: the line y = 3x + 9 with a dot at each whole value
+// of x from 0 to 6, and the equation written at the top right.
+const S0 = 2;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'slope_intercept_line.png',
+  axes: { xMin:0, xMax:6.6, yMin:0, yMax:30, margin:{top:60, right:280, bottom:190, left:180} },
+  sliders: [
+    { id:'m', label:'The slope, m', min:1, max:5, value:3, step:1, fmt:v => v },
+    { id:'b', label:'Where it meets the vertical axis, b', min:0, max:12, value:9, step:3, fmt:v => v },
+  ],
+  toggles: [
+    { id:'show_points',   label:'A dot at each whole value of x' },
+    { id:'show_equation', label:'The equation beside the line' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', line:'The Line' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['line'],
+  nudgeKeys: ['x.a','y.a','eq'],
+
+  draw(g) {
+    const { S, ctx, val, vis, tCX, tCY } = g;
+    const m = val('m'), b = val('b'), y = x => b + m * x;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">The line</span><span class="info-value highlight">y = ${m}x + ${b}</span></div>`
+      + `<div class="info-row"><span class="info-label">y when x is 0</span><span class="info-value">${b}</span></div>`
+      + `<div class="info-row"><span class="info-label">Rise for one step right</span><span class="info-value">${m}</span></div>`
+      + `<div class="info-row"><span class="info-label">y when x is 6</span><span class="info-value">${y(6)}</span></div>`);
+
+    g.clear();
+    const xs = []; for (let v = 0; v <= 6; v++) xs.push(v);
+    const ys = []; for (let v = 0; v <= 30; v += 5) ys.push(v);
+    frame(g, g, { tag:'a', xTicks:xs, yTicks:ys, fmtX:v => v, fmtY:v => v, xLabel:'X', yLabel:'Y' });
+
+    // Draw only the part of the line that fits inside the box
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+    let started = false;
+    for (let k = 0; k <= 240; k++) {
+      const x = 6 * k / 240, v = y(x);
+      if (v > 30) { started = false; continue; }
+      const px = tCX(x), py = tCY(v);
+      started ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+      started = true;
+    }
+    ctx.stroke();
+    if (vis('show_points')) xs.forEach(x => { if (y(x) <= 30) dot(g, tCX(x), tCY(y(x))); });
+    if (vis('show_equation')) {
+      const xe = Math.min(6, (30 - b) / m), ye = y(xe);
+      g.label(`y = ${m}x + ${b}`, tCX(xe) + 20 * S, tCY(ye) + 6 * S,
+        { key:'eq', font:`${18 * S}px ${g.font}`, color:BLUE });
+    }
+  },
+});
+</script>
+</body>
+</html>

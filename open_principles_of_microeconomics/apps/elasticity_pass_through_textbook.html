@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passing Cost Changes along to Consumers</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Passing Cost Changes along to Consumers</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The same shift in supply moves mostly the price when demand is inelastic and mostly the quantity when demand is elastic</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Inelastic and Elastic Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p><strong>Cost savings.</strong> A technological breakthrough lets every aspirin factory produce more cheaply, shifting supply out to the right from S₀ to S₁. With highly inelastic demand, as in (a), the equilibrium moves from E₀ to E₁ with a substantially lower price and little change in quantity. With highly elastic demand, as in (b), the same shift brings a much greater quantity at very close to the original price. Consumers gain more from a cost saving when demand is inelastic, because it shows up as a lower price.</p>
+          <p><strong>Higher costs.</strong> Push the shift the other way, as a higher cigarette tax does, and supply moves left. With inelastic demand, as in (a), companies can pass the cost increase along as a higher price with little fall in quantity. With elastic demand, as in (b), the shift mostly reduces the quantity sold. The slider sets the shift; a negative value gives the book's figure 5.9.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Supply</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Results</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figures 5.8 and 5.9 of the book: two panels with straight lines, a steep
+// (inelastic) demand curve on the left and a flat (elastic) one on the
+// right, and the same supply shift in both. A positive shift is the
+// cost-saving figure 5.8, a negative one the higher-costs figure 5.9; the
+// captions follow. Labels P0 P1 Q0 Q1 E0 E1 and one arrow per panel.
+const S0 = 2;
+const GAP = 90 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50, right:80, bottom:190, left:140 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:PW + GAP, width:PW },
+];
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+const QE = 5, PE = 5;
+const line = (slope, dq = 0) => ({ at: q => PE + slope * (q - dq - QE), inv: p => dq + QE + (p - PE) / slope });
+const crossL = (a, b) => { const q = (b.at(0) - a.at(0)) / ((a.at(1) - a.at(0)) - (b.at(1) - b.at(0))); return { q, p: a.at(q) }; };
+const dir = (a, b) => b < a - 1e-6 ? 'falls' : b > a + 1e-6 ? 'rises' : 'is unchanged';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'elasticity_pass_through.png',
+  axes: AXES,
+  sliders: [
+    { id:'dq_s1', label:'Shift of supply (positive is a cost saving)', min:-3, max:3, value:2, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_s1',         label:'S₁ (after the shift)' },
+    { id:'show_eqlines',    label:'Dashed lines to the axes' },
+    { id:'show_arrows',     label:'Shift arrow' },
+    { id:'show_labels',     label:'P, Q and E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_captions',   label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shifts:'Shift', equilibrium:'Results' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','equilibrium'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','d.a','s0.a','s1.a','d.b','s0.b','s1.b',
+              'pt.a.E0','pt.a.E1','pt.b.E0','pt.b.E1','an.a.P0','an.a.P1','an.a.Q0','an.a.Q1','an.b.P0','an.b.P1','an.b.Q0','an.b.Q1'],
+
+  draw(g) {
+    const { S, ctx, val, vis, H } = g;
+    const dq = val('dq_s1'), saving = dq > 0;
+    const PANELS = [
+      { id:'a', dSlope:-3,    word:'inelastic' },
+      { id:'b', dSlope:-0.15, word:'elastic' },
+    ];
+    let info = '';
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i);
+      const { x0, y0, width, height, tCX, tCY, xMax, yMax } = pan;
+      const axisY = y0 + height;
+      const D = line(P.dSlope), Sa = line(1.2), Sb = line(1.2, dq);
+      const e0 = { q: QE, p: PE }, e1 = vis('show_s1') ? crossL(D, Sb) : null;
+      if (e1) info += `<div class="info-row"><span class="info-label">(${P.id}) ${P.word} demand: price</span><span class="info-value highlight">${dir(e0.p, e1.p)} ${Math.abs(e1.p - e0.p).toFixed(2)}</span></div>` +
+                      `<div class="info-row"><span class="info-label">(${P.id}) ${P.word} demand: quantity</span><span class="info-value highlight">${dir(e0.q, e1.q)} ${Math.abs(e1.q - e0.q).toFixed(2)}</span></div>`;
+
+      pan.axes(BLUE);
+      pan.label('Q', x0 + width / 2, axisY + 60 * S, { key:'x.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+      pan.label('P', pan.left + 26 * S, y0 + height / 2 + 6 * S, { key:'y.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+
+      const eqs = e1 ? [[e0, '0'], [e1, '1']] : [[e0, '0']];
+      if (vis('show_eqlines')) eqs.forEach(([e]) => {
+        pan.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+        pan.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+      });
+
+      const pTop = yMax * 0.93, pBot = 0.6;
+      const seg = (L, key, name, isD) => {
+        const qa = Math.max(0.3, L.inv(isD ? pTop : pBot)), qb = Math.min(xMax - 0.3, L.inv(isD ? pBot : pTop));
+        if (qb <= qa) return;
+        ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+        ctx.moveTo(tCX(qa), tCY(L.at(qa))); ctx.lineTo(tCX(qb), tCY(L.at(qb))); ctx.stroke();
+        if (!vis('show_curvelabel')) return;
+        const f = { key: key + '.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+        if (isD) pan.label(name, tCX(qb) + 10 * S, tCY(L.at(qb)) + 6 * S, f);
+        else pan.label(name, tCX(qb) + 4 * S, tCY(L.at(qb)) - 10 * S, { ...f, align:'center' });
+      };
+      seg(D, 'd', 'D', true); seg(Sa, 's0', 'S₀', false);
+      if (e1) seg(Sb, 's1', 'S₁', false);
+
+      if (vis('show_arrows') && e1 && Math.abs(dq) > 0.3) {
+        const p = Math.max(e0.p, e1.p) + 2.2;
+        const a = Sa.inv(p), b = Sb.inv(p), gp = 9 * S * Math.sign(a - b || 1);
+        if (Math.min(a, b) > 0.3 && Math.max(a, b) < xMax - 0.3) pan.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
+      }
+
+      eqs.forEach(([e, n]) => {
+        const ex = tCX(e.q), ey = tCY(e.p);
+        ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(ex, ey, 7 * S, 0, Math.PI * 2); ctx.fill();
+        if (!vis('show_labels')) return;
+        const sub = n === '0' ? '₀' : '₁', f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+        pan.label('E' + sub, ex + 12 * S, ey + (n === '0' ? -8 : 10) * S, { key:`pt.${P.id}.E${n}`, ...f });
+        // P labels are staggered when the two prices nearly coincide (elastic panel)
+        const closeP = e1 && Math.abs(tCY(e0.p) - tCY(e1.p)) < 30 * S;
+        pan.label('P' + sub, x0 - 14 * S, ey + 6 * S + (closeP ? (n === '0' ? -14 : 14) * S : 0), { key:`an.${P.id}.P${n}`, align:'right', ...f });
+        const closeQ = e1 && Math.abs(tCX(e0.q) - tCX(e1.q)) < 50 * S;
+        pan.label('Q' + sub, ex + (closeQ ? (n === '0' ? -26 : 26) * S : 0), axisY + 30 * S, { key:`an.${P.id}.Q${n}`, align:'center', ...f });
+      });
+
+      if (vis('show_captions'))
+        pan.label(`(${P.id}) ${saving ? 'Cost-saving' : 'Higher costs'} with ${P.word} demand`, x0 + width / 2, H - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY, align:'center' });
+    });
+    g.setText('eq-info', info || '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Turn on S₁ to see the change</div>');
+  },
+});
+</script>
+</body>
+</html>

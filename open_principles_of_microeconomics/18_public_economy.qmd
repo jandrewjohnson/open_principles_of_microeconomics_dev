@@ -559,7 +559,7 @@ Actually, no. Beef beats lasagna. In other words, the majority view may
 not win. Clearly, as any car salesperson will tell you, the way one
 presents choices to us influences our decisions.
 
-![](media/18-3-flaws-in-the-democratic-system-of-government_rId25.jpeg){width="3.25in" height="2.69in" #fig-18_2}
+{{< appfig voting_cycle_1 id="fig-18_2" >}}
 
 Figure 18.2 A Voting Cycle Given these choices, voting will struggle to
 produce a majority outcome. Turkey is favored over roast beef by 2--1

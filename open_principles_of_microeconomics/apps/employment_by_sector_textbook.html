@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employment by Sector</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Employment by Sector</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Service jobs outside government have grown almost fivefold since 1950, while manufacturing employment ended lower than it started</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Employees by Sector, 1950 to 2017</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1900" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Nongovernment services employed about 22 million people in 1950 and more than 100 million by 2017. Manufacturing employed about 14 million in 1950, peaked near 19 million around 1979, and had fallen to roughly 12 million by 2017, below where it began. Natural resources and construction stayed close to flat throughout.</p>
+          <p>That shift is the background to much of this chapter. The jobs that unions organised most successfully were concentrated in manufacturing, which is one reason union membership fell as services grew. The slider reads the three series at any year. The values are sampled from the book's figure every few years, so they trace its lines rather than the published employment counts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-year">
+        <div class="control-panel-header" onclick="tog('year')"><div class="panel-title">Read a Year</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-year" onclick="event.stopPropagation();tog('year')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('year')">✕</button></div></div>
+        <div class="control-panel-body" id="body-year"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', BAR = '#2f6fb5', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7';
+// Years leaning up to the right, the way the book sets them under a
+// crowded axis
+const leaned = (g, txt, x, y) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${13 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+// Monotone cubic (Fritsch-Carlson) through the table's points: smooth, no
+// overshoot, with a derivative, so total, average and marginal cost all come
+// from one variable-cost curve.
+function hermite(xs, ys) {
+  const n = xs.length, d = [], m = [];
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  m[0] = d[0]; m[n - 1] = d[n - 2];
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b;
+    if (s2 > 9) { const t = 3 / Math.sqrt(s2); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+  }
+  const seg = x => { let i = 0; while (i < n - 2 && x > xs[i + 1]) i++; return i; };
+  const f = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1]; };
+  const df = x => { const i = seg(x), h = xs[i + 1] - xs[i], t = (x - xs[i]) / h, t2 = t * t;
+    return ((6 * t2 - 6 * t) * ys[i] + (3 * t2 - 4 * t + 1) * h * m[i] + (-6 * t2 + 6 * t) * ys[i + 1] + (3 * t2 - 2 * t) * h * m[i + 1]) / h; };
+  return { f, df };
+}
+
+// Figure 14.13 of the book, sampled off its three lines every few years and
+// smoothed between the samples. Thousands of employees.
+const SAMPLES = [1950, 1955, 1960, 1965, 1970, 1975, 1979, 1985, 1990, 1995, 2000, 2005, 2009, 2013, 2017];
+const SERIES = [
+  { name:'Nongovernment Services', vals:[22000, 25500, 27500, 31500, 37500, 44500, 51500, 60500, 67500, 74500, 87000, 90500, 90000, 97000, 103000], mark:'circle' },
+  { name:'Manufacturing',          vals:[14000, 15800, 15000, 16500, 18000, 17000, 19000, 17500, 17800, 17200, 17000, 14000, 11800, 12000, 12400], mark:'triangle' },
+  { name:'Natural resources and construction', vals:[2700, 2900, 2800, 2900, 3300, 3200, 3600, 3300, 3400, 3300, 3600, 3700, 3000, 3000, 3400], mark:'square' },
+].map(s => ({ ...s, fit: hermite(SAMPLES, s.vals) }));
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'employment_by_sector.png',
+  axes: { xMin:1950, xMax:2017, yMin:0, yMax:120000, margin:{top:60, right:520, bottom:200, left:210} },
+  sliders: [
+    { id:'year', label:'Year to read', min:1950, max:2015, value:1980, step:5, fmt:v => v },
+  ],
+  toggles: [
+    { id:'show_marks',  label:'Markers along each line' },
+    { id:'show_labels', label:'Series labels' },
+    { id:'show_year',   label:'Line at the year being read', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Chart', explanation:'Explanation', year:'Year' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['year'],
+  nudgeKeys: ['x','y','lb.0','lb.1','lb.2'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, width, height } = g;
+    const yr = val('year');
+    g.setText('info', SERIES.map(s => `<div class="info-row"><span class="info-label">${s.name} in ${yr}</span><span class="info-value">${Math.round(s.fit.f(yr) / 100) * 100 / 1000} million</span></div>`).join(''));
+
+    g.clear();
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + height); ctx.lineTo(x0 + width, y0 + height); ctx.stroke();
+    ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+    for (let v = 0; v <= 120000; v += 20000) ctx.fillText(v.toLocaleString(), x0 - 10 * S, tCY(v) + 5 * S);
+    g.axisLabels(null, 'Thousands of Employees');
+    g.label('Year', x0 + width / 2, y0 + height + 100 * S, { key:'x', font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+    for (let y = 1950; y <= 2015; y += 5) leaned(g, y, tCX(y), y0 + height + 20 * S);
+    if (vis('show_year')) g.dashed(tCX(yr), y0, tCX(yr), y0 + height, PINK, 1.5);
+
+    SERIES.forEach((s, i) => {
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+      for (let k = 0; k <= 200; k++) { const y = 1950 + 67 * k / 200, px = tCX(y), py = tCY(s.fit.f(y)); k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+      ctx.stroke();
+      // The book puts a marker at every year, a different shape for each series
+      if (vis('show_marks')) for (let y = 1950; y <= 2017; y++) {
+        const px = tCX(y), py = tCY(s.fit.f(y)), r = 4 * S;
+        ctx.fillStyle = BLUE; ctx.beginPath();
+        if (s.mark === 'circle') ctx.arc(px, py, r, 0, Math.PI * 2);
+        else if (s.mark === 'square') ctx.rect(px - r, py - r, 2 * r, 2 * r);
+        else { ctx.moveTo(px, py - r * 1.2); ctx.lineTo(px + r * 1.1, py + r); ctx.lineTo(px - r * 1.1, py + r); ctx.closePath(); }
+        ctx.fill();
+      }
+      if (vis('show_labels')) g.label(s.name, tCX(2017) + 16 * S, tCY(s.fit.f(2017)) + 6 * S, { key:'lb.' + i, font:`${15 * S}px ${g.font}`, color:BLUE });
+    });
+  },
+});
+</script>
+</body>
+</html>

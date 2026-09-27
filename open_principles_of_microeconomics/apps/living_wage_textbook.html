@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Living Wage: Example of a Price Floor</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Living Wage: Example of a Price Floor</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A city requires employers to pay at least $12 an hour; at that wage more people want to work for the city than it wants to hire</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The City's Labor Market</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1100"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The wage is on the vertical axis because the wage is the price in a labor market. Before the living wage law, the equilibrium wage is $10 per hour and the city hires 1,200 workers, point E.</p>
+          <p>A living wage law then requires employers to pay no less than $12 per hour. At the higher wage, 1,600 workers look for jobs with the city, but the city as an employer is willing to hire only 700. At the price floor the quantity supplied exceeds the quantity demanded, and a surplus of labor exists. For workers who keep a job at the higher wage, life has improved; for those who would have worked at the old wage but lost their jobs, it has not.</p>
+          <p>Lower the floor below $10 and it stops binding: the market simply clears at E.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-schedule">
+        <div class="left-section-header" onclick="tog('schedule')"><div class="panel-title">Table 4.4: Living Wage</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-schedule" onclick="event.stopPropagation();tog('schedule')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('schedule')">✕</button></div></div>
+        <div class="left-section-body" id="body-schedule">
+          <table class="data-table"><thead><tr><th>Wage</th><th>Quantity labor demanded</th><th>Quantity labor supplied</th></tr></thead><tbody id="schedule-tbody"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-policy">
+        <div class="control-panel-header" onclick="tog('policy')"><div class="panel-title">Wage Floor</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-policy" onclick="event.stopPropagation();tog('policy')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('policy')">✕</button></div></div>
+        <div class="control-panel-body" id="body-policy"><div data-sliders></div><div class="info-box" id="floor-info" style="margin-top:12px"></div></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Equilibrium</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 4.4 of the book: a living wage as a price floor, drawn through the
+// schedule in table 4.4. D and S, E at $10 and 1,200 labelled with its
+// numbers, a dashed line at the $12 floor, dashed lines from 700 and 1,600
+// down to the axis, and a brace above the floor for the surplus, as in the
+// book's figure. The schedule points are a toggle that defaults off, since
+// the book draws smooth curves here.
+const WAGES = [8, 9, 10, 11, 12, 13, 14];
+const QD = [1900, 1500, 1200, 900, 700, 500, 400], QS = [500, 900, 1200, 1400, 1600, 1800, 1900];
+const fmtP = v => '$' + (Number.isInteger(v) ? v : v.toFixed(2));
+const fmtQ = v => Math.round(v).toLocaleString();
+const sched = qs => WAGES.map((p, i) => ({ p, q: qs[i] }));
+function findEq(g, dPts, sPts) {
+  let bestP = 10, bestDiff = Infinity;
+  for (let p = 8; p <= 14.001; p += 0.01) {
+    const diff = Math.abs(g.interpQ(dPts, p) - g.interpQ(sPts, p));
+    if (diff < bestDiff) { bestDiff = diff; bestP = p; }
+  }
+  return { p: Math.round(bestP * 100) / 100, q: g.interpQ(dPts, bestP) };
+}
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'living_wage.png',
+  axes: { xMin:0, xMax:2200, yMin:7, yMax:14.5, margin:{top:70, right:100, bottom:130, left:170} },
+  sliders: [
+    { id:'p', label:'Living wage (price floor)', min:8, max:14, value:12, step:0.5, fmt:fmtP },
+  ],
+  toggles: [
+    { id:'show_grid',      label:'Gridlines' },
+    { id:'show_points',    label:'Schedule points', checked:false },
+    { id:'show_floor',     label:'Wage floor line' },
+    { id:'show_droplines', label:'Dashed lines to the axes' },
+    { id:'show_brace',     label:'Surplus brace and label' },
+    { id:'show_labels',    label:'E and curve labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', schedule:'Table', policy:'Wage floor', equilibrium:'Equilibrium' },
+  leftPanels:  ['graph','explanation','schedule'],
+  rightPanels: ['policy','equilibrium'],
+  nudgeKeys: ['x','y','d','s','pt.E','an.surplus'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, yMin } = g;
+    const d = sched(QD), s = sched(QS);
+    const e = findEq(g, d, s);
+    const pf = val('p'), binding = vis('show_floor') && pf > e.p + 0.01;
+    const qd = g.interpQ(d, pf), qs = g.interpQ(s, pf);
+    const axisY = tCY(yMin);
+
+    g.setText('schedule-tbody', WAGES.map((p, i) => `<tr><td>${fmtP(p)}/hr</td><td>${fmtQ(QD[i])}</td><td>${fmtQ(QS[i])}</td></tr>`).join(''));
+    const row = (k, v, hi) => `<div class="info-row"><span class="info-label">${k}</span><span class="info-value${hi ? ' highlight' : ''}">${v}</span></div>`;
+    g.setText('eq-info', row('Equilibrium wage', fmtP(e.p) + '/hour', true) + row('Workers hired', fmtQ(e.q), true));
+    g.setText('floor-info', vis('show_floor')
+      ? (binding
+        ? row('Supplied at ' + fmtP(pf), fmtQ(qs) + ' workers') + row('Demanded at ' + fmtP(pf), fmtQ(qd) + ' workers') +
+          `<div class="info-row"><span class="info-label">Surplus of labor</span><span class="info-value" style="color:#e53e3e">${fmtQ(qs - qd)}</span></div>`
+        : '<div style="color:#718096;font-size:.85rem;padding:4px 0">The floor is at or below the equilibrium wage, so it does not bind.</div>')
+      : '');
+
+    g.clear();
+    if (vis('show_grid')) g.gridlines(200, 1);
+    g.axes();
+    const xt = binding ? [Math.round(qd), Math.round(e.q), Math.round(qs)] : [Math.round(e.q)];
+    g.xTicks(xt, v => v.toLocaleString());
+    g.yTicks([8, 9, 10, 11, 12, 13, 14], v => '$' + v);
+    g.axisLabels('Quantity of Labor (# of workers)', 'Wage ($/hour)');
+
+    const PINK = '#a855c7';
+    if (vis('show_droplines')) {
+      g.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+      g.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+    }
+    if (binding) {
+      g.dashed(x0, tCY(pf), tCX(qs), tCY(pf), PINK, 1.5);
+      if (vis('show_droplines')) [qd, qs].forEach(q => g.dashed(tCX(q), tCY(pf), tCX(q), axisY, PINK, 1.5));
+      if (vis('show_brace') && qs - qd > 50) {
+        g.brace(tCX(qd), tCY(pf) - 12 * S, tCX(qs), tCY(pf) - 12 * S, { depth: 12 * S, flip: true });
+        g.label('Excess supply\nor surplus', (tCX(qd) + tCX(qs)) / 2, tCY(pf) - 52 * S, { key:'an.surplus', font:`${15 * S}px ${g.font}`, color:'#2b6cb0', align:'center', lineH:20 * S });
+      }
+    }
+
+    g.curve(d); g.curve(s);
+    if (vis('show_points')) { g.points(d); g.points(s); }
+    ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(tCX(e.q), tCY(e.p), 7 * S, 0, Math.PI * 2); ctx.fill();
+
+    if (vis('show_labels')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:'#2b6cb0' };
+      const sEnd = s[s.length - 1], dEnd = d[d.length - 1];
+      g.label('S', tCX(sEnd.q) + 8 * S, tCY(sEnd.p) - 10 * S, { key:'s', ...f });
+      g.label('D', tCX(dEnd.q) + 12 * S, tCY(dEnd.p) + 6 * S, { key:'d', ...f });
+      g.label(`E (${fmtQ(e.q)}, ${fmtP(e.p)})`, tCX(e.q) + 14 * S, tCY(e.p) + 6 * S, { key:'pt.E', font:`${15 * S}px ${g.font}`, color:'#2b6cb0' });
+    }
+  },
+});
+</script>
+</body>
+</html>

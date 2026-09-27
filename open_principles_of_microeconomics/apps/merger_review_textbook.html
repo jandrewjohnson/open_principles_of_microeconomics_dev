@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number and Size of Mergers</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Number and Size of Mergers</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Mergers reported to the Federal Trade Commission follow the business cycle, and most of them are deals of a few hundred million dollars</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Mergers Reported for Review</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="2000" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Panel (a) counts the mergers reported to the Federal Trade Commission each year. Companies must report a deal once one of the firms is above a size threshold, which was $101 million of sales in 2022. The count tracks the business cycle: it collapsed after the 2001 recession, climbed back to 2,201 by 2007 as the Great Recession arrived, bottomed at 716 in 2009, and recovered after that.</p>
+          <p>Panel (b) breaks the 2012 deals down by size. The most common size was $100 to $150 million, with 298 deals. Deals under $50 million barely appear, because companies only have to report those in limited circumstances. Of the 1,400 reported deals, 364 were above $500 million and 156 above $1 billion, the 26 percent and 11 percent the chapter quotes. The slider drops the early years from panel (a) and rescales it, which makes the post-recession pattern easier to read.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-years">
+        <div class="control-panel-header" onclick="tog('years')"><div class="panel-title">Years Shown</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-years" onclick="event.stopPropagation();tog('years')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('years')">✕</button></div></div>
+        <div class="control-panel-body" id="body-years"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 11.2 of the book: two bar charts. (a) mergers reported to the
+// Federal Trade Commission each year from 1999, with the count written up
+// the side of each bar; (b) the 2012 deals by size of transaction.
+const YEARS = [1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012];
+const COUNTS = [4642, 4926, 2376, 1187, 1014, 1428, 1675, 1768, 2201, 1726, 716, 1166, 1450, 1429];
+const SIZES = ['<$50', '$50–100', '$100–150', '$150–200', '$200–300', '$300–500', '$500–1,000', '>$1,000'];
+const BY_SIZE = [4, 240, 298, 133, 158, 203, 208, 156];
+const BIG = 6;   // the first size band above $500 million
+const TOTAL = BY_SIZE.reduce((a, b) => a + b, 0);
+const S0 = 2;
+const PW_A = 1100, GAP = 60, PW_B = 2000 - PW_A - GAP;
+const AXES = [
+  { xMin:0, xMax:14, yMin:0, yMax:6000, margin:{top:120, right:30, bottom:300, left:170}, left:0,           width:PW_A },
+  { xMin:0, xMax:8,  yMin:0, yMax:350,  margin:{top:90,  right:40, bottom:300, left:150}, left:PW_A + GAP,  width:PW_B },
+];
+const BLUE = '#2b6cb0', BAR = '#2f6fb5', DARK = '#1a4e85', GREY = '#718096';
+const fmt = v => v.toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'merger_review.png',
+  axes: AXES,
+  sliders: [
+    { id:'from', label:'First year shown in (a)', min:1999, max:2005, value:1999, step:1, fmt:v => v },
+  ],
+  toggles: [
+    { id:'show_values',   label:'Count above each bar' },
+    { id:'show_big',      label:'Shade the deals above $500 million in (b)', checked:false },
+    { id:'show_captions', label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Charts', explanation:'Explanation', years:'Years' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['years'],
+  nudgeKeys: ['y.a','y.b','x.a','x.b'],
+
+  draw(g) {
+    const { S, ctx, val, vis } = g;
+    const first = YEARS.indexOf(val('from'));
+    const years = YEARS.slice(first), counts = COUNTS.slice(first);
+    const peak = Math.max(...counts);
+    // A round top just above the tallest bar, so dropping the early years rescales the chart
+    const step = peak > 3000 ? 1000 : peak > 1500 ? 500 : 250;
+    const topA = Math.ceil(peak / step) * step + (peak % step > step * 0.8 ? step : 0);
+    const big = BY_SIZE.slice(BIG).reduce((a, b) => a + b, 0);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Busiest year shown</span><span class="info-value highlight">${years[counts.indexOf(peak)]}: ${fmt(peak)} mergers</span></div>`
+      + `<div class="info-row"><span class="info-label">Quietest year shown</span><span class="info-value">${years[counts.indexOf(Math.min(...counts))]}: ${fmt(Math.min(...counts))}</span></div>`
+      + `<div class="info-row"><span class="info-label">2012 deals above $500 million</span><span class="info-value">${fmt(big)} of ${fmt(TOTAL)} (${(100 * big / TOTAL).toFixed(0)}%)</span></div>`
+      + `<div class="info-row"><span class="info-label">2012 deals above $1 billion</span><span class="info-value">${fmt(BY_SIZE[7])} (${(100 * BY_SIZE[7] / TOTAL).toFixed(0)}%)</span></div>`);
+
+    g.clear();
+    // Text turned on its side: the counts in (a) read bottom to top, the category labels lean
+    const turned = (txt, x, y, angle, font, color, align) => {
+      ctx.save(); ctx.translate(x, y); ctx.rotate(angle);
+      ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align || 'left'; ctx.fillText(txt, 0, 0); ctx.restore();
+    };
+
+    const PANELS = [
+      { id:'a', cats:years.map(String), vals:counts, top:topA, step, rotate:true,
+        yLab:'Number of Mergers', xLab:'Year', caption:'(a) Number of mergers submitted for review by the\nFederal Trade Commission, ' + years[0] + '-2012' },
+      { id:'b', cats:SIZES, vals:BY_SIZE, top:350, step:50, rotate:false,
+        yLab:'Number of Mergers', xLab:'Size of Transaction', caption:'(b) Size of transaction for mergers submitted for\nreview in 2012 (in millions of dollars)' },
+    ];
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i), { x0, y0, width, height, tCY, bottom } = pan;
+      const axisY = y0 + height, n = P.vals.length;
+      // This panel's own vertical scale, which the slider can change in (a)
+      const yOf = v => axisY - (v / P.top) * height;
+      const colW = width / n, barW = colW * 0.62;
+
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+      ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, axisY); ctx.lineTo(x0 + width, axisY); ctx.stroke();
+      ctx.fillStyle = GREY; ctx.font = `${12 * S}px ${g.font}`; ctx.textAlign = 'right';
+      for (let v = 0; v <= P.top + 1e-9; v += P.step) ctx.fillText(fmt(v), x0 - 10 * S, yOf(v) + 5 * S);
+      pan.axisLabels(null, P.yLab, P.id);
+      pan.label(P.xLab, x0 + width / 2, axisY + 80 * S, { key:'x.' + P.id, font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+
+      P.vals.forEach((v, j) => {
+        const cx = x0 + colW * (j + 0.5), h = axisY - yOf(v);
+        ctx.fillStyle = vis('show_big') && i === 1 && j >= BIG ? DARK : BAR;
+        ctx.fillRect(cx - barW / 2, yOf(v), barW, h);
+        if (vis('show_values')) {
+          const f = `${13 * S}px ${g.font}`;
+          if (P.rotate) turned(fmt(v), cx + 5 * S, yOf(v) - 10 * S, -Math.PI / 2, f, BLUE, 'left');
+          else { ctx.font = f; ctx.fillStyle = BLUE; ctx.textAlign = 'center'; ctx.fillText(fmt(v), cx, yOf(v) - 10 * S); }
+        }
+        // Category labels lean up to the right, as the book sets them
+        turned(P.cats[j], cx + 4 * S, axisY + 16 * S, -Math.PI / 4, `${13 * S}px ${g.font}`, BLUE, 'right');
+      });
+      if (vis('show_captions')) pan.label(P.caption, pan.left + 30 * S, bottom - 45 * S, { font:`${14 * S}px ${g.font}`, color:GREY, lineH:22 * S });
+    });
+  },
+});
+</script>
+</body>
+</html>

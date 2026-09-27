@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How a Shift in Supply Can Affect Price or Quantity</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>How a Shift in Supply Can Affect Price or Quantity</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">The 1973 OPEC embargo: the same cut in oil supply raises the price a lot in the short run, when demand is inelastic, and only a little in the long run, when it is elastic</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The U.S. Petroleum Market</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="950"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>In 1973 crude oil sold for $12 per barrel and the U.S. economy consumed 17 million barrels a day. That year OPEC cut off oil exports to the United States for six months, which we can read as a shift of the supply curve to the left from S₀ to S₁. Both panels start from the same equilibrium E₀ (17, 12) and show the identical shift.</p>
+          <p>The demand curves differ. In (a) demand is inelastic, as it is in the short run when people cannot quickly change how much oil they use, so the new equilibrium E₁ has a much higher price, $25, and only a slightly smaller quantity, 16. In (b) demand is elastic, as it is in the long run when cars, furnaces and habits can change, so E₁ has only a small rise in price, to $14, and a larger fall in quantity, to 13. The slider changes the size of the supply cut.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shift">
+        <div class="control-panel-header" onclick="tog('shift')"><div class="panel-title">Supply Cut</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shift" onclick="event.stopPropagation();tog('shift')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shift')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shift" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Equilibria</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 5.11 of the book: two panels with the same E0 at 17 million barrels
+// a day and $12 and the same leftward supply shift, against an inelastic
+// demand curve in (a) and an elastic one in (b). The curves are chosen so
+// the book's numbers come out: E1 at (16, 25) in (a) and (13, 14) in (b).
+const S0 = 2;
+const GAP = 90 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50, right:80, bottom:190, left:170 };
+const AXES = [
+  { xMin:0, xMax:25, yMin:0, yMax:32, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:25, yMin:0, yMax:32, margin:MG, left:PW + GAP, width:PW },
+];
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+const QE = 17, PE = 12;
+// One supply curvature and one shift satisfy both panels' book values
+const KD_A = Math.log(25 / 12), KD_B = Math.log(14 / 12) / 4;
+const SHIFT = (4 * Math.log(25 / 12) - Math.log(14 / 12)) / (Math.log(25 / 12) - Math.log(14 / 12));
+const KS = Math.log(25 / 12) / (SHIFT - 1);
+const demand = kd => q => PE * Math.exp(-kd * (q - QE));
+const supply = dq => q => PE * Math.exp(KS * (q - dq - QE));
+const qOfS = (dq, p) => dq + QE + Math.log(p / PE) / KS;
+function cross(d, s) {
+  let lo = 0, hi = 25;
+  for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (d(m) - s(m) > 0 ? lo = m : hi = m); }
+  const q = (lo + hi) / 2;
+  return { q, p: d(q) };
+}
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'oil_shock.png',
+  axes: AXES,
+  sliders: [
+    { id:'dq_s1', label:'Shift of supply (million barrels/day)', min:-8, max:0, value:-Math.round(SHIFT * 10) / 10, step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_s1',         label:'S₁ (after the embargo)' },
+    { id:'show_eqlines',    label:'Dashed lines to the axes' },
+    { id:'show_arrows',     label:'Shift arrow' },
+    { id:'show_labels',     label:'E labels with their numbers' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_captions',   label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shift:'Shift', equilibrium:'Equilibria' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shift','equilibrium'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','d.a','s0.a','s1.a','d.b','s0.b','s1.b','pt.a.E0','pt.a.E1','pt.b.E0','pt.b.E1'],
+
+  draw(g) {
+    const { S, ctx, val, vis, H } = g;
+    const dq = val('dq_s1');
+    const PANELS = [{ id:'a', kd:KD_A, word:'inelastic' }, { id:'b', kd:KD_B, word:'elastic' }];
+    let info = '';
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i);
+      const { x0, y0, width, height, tCX, tCY, xMax, yMax } = pan;
+      const axisY = y0 + height;
+      const D = demand(P.kd), Sa = supply(0), Sb = supply(dq);
+      const e0 = { q: QE, p: PE }, e1 = vis('show_s1') ? cross(D, Sb) : null;
+      if (e1) info += `<div class="info-row"><span class="info-label">(${P.id}) ${P.word} demand: E₁</span><span class="info-value highlight">(${e1.q.toFixed(0)}, $${e1.p.toFixed(0)})</span></div>`;
+
+      pan.axes(BLUE);
+      pan.xTicks([0, 5, 10, 15, 20], v => v);
+      pan.yTicks([0, 5, 10, 15, 20, 25, 30], v => '$' + v);
+      pan.axisLabels('Q (million barrels/day)', 'P (US$/barrel)', P.id);
+
+      const eqs = e1 ? [[e0, '0'], [e1, '1']] : [[e0, '0']];
+      if (vis('show_eqlines')) eqs.forEach(([e]) => {
+        pan.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+        pan.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+      });
+
+      const pTop = yMax * 0.93, pBot = 1.5;
+      const qOfD = p => QE - Math.log(p / PE) / P.kd;
+      const da = Math.max(0.5, qOfD(pTop)), db = Math.min(xMax - 1, qOfD(pBot));
+      pan.plotFn(D, da, db, { color:BLUE, lw:2.5 });
+      const drawS = (Sf, dqv, key, name) => {
+        const a = Math.max(0.5, qOfS(dqv, pBot)), b = Math.min(xMax - 1, qOfS(dqv, pTop));
+        if (b <= a) return;
+        pan.plotFn(Sf, a, b, { color:BLUE, lw:2.5 });
+        if (vis('show_curvelabel')) pan.label(name, tCX(b) + 6 * S, tCY(Sf(b)) - 10 * S, { key: key + '.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE, align:'center' });
+      };
+      drawS(Sa, 0, 's0', 'S₀');
+      if (e1) drawS(Sb, dq, 's1', 'S₁');
+      if (vis('show_curvelabel')) pan.label('D', tCX(db) + 10 * S, tCY(D(db)) + 6 * S, { key:'d.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE });
+
+      if (vis('show_arrows') && e1 && dq < -0.3) {
+        // Below E0 in (a), above E1 in (b), where the book draws them
+        const p = P.id === 'a' ? PE * 0.55 : e1.p * 1.6;
+        const a = qOfS(0, p), b = qOfS(dq, p);
+        if (Math.min(a, b) > 0.5 && Math.abs(tCX(a) - tCX(b)) > 40 * S) pan.drawArrow(tCX(a) - 9 * S, tCY(p), tCX(b) + 9 * S, tCY(p), INK);
+      }
+
+      eqs.forEach(([e, n]) => {
+        const ex = tCX(e.q), ey = tCY(e.p);
+        ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(ex, ey, 7 * S, 0, Math.PI * 2); ctx.fill();
+        if (!vis('show_labels')) return;
+        const txt = `E${n === '0' ? '₀' : '₁'} (${e.q.toFixed(0)}, ${e.p.toFixed(0)})`;
+        const f = { key:`pt.${P.id}.E${n}`, font:`${15 * S}px ${g.font}`, color:BLUE };
+        if (n === '0') pan.label(txt, ex + 14 * S, ey + 6 * S, f);
+        else {
+          // Up and to the left of the dot, joined to it by a short arrow, as the book draws it in (b)
+          const ox = P.id === 'a' ? 30 : 50, oy = P.id === 'a' ? 60 : 104;
+          const n = g.getNudge(f.key), lx = ex - ox * S + n.dx, ly = ey - oy * S + n.dy;
+          pan.drawArrow(lx - 20 * S, ly + 8 * S, ex - 8 * S, ey - 8 * S, '#4a5568');
+          pan.label(txt, ex - ox * S, ey - oy * S, { ...f, align:'right' });
+        }
+      });
+
+      if (vis('show_captions'))
+        pan.label(`(${P.id})`, pan.left + 40 * S, H - 8 * S, { font:`${14 * S}px ${g.font}`, color:GREY });
+    });
+    g.setText('eq-info', info || '<div style="color:#a0aec0;font-size:.85rem;text-align:center;padding:8px 0">Turn on S₁ to see the change</div>');
+  },
+});
+</script>
+</body>
+</html>

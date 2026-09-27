@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An Insurance Company: What Comes In, What Goes Out</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>An Insurance Company: What Comes In, What Goes Out</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Premiums and investment income flow in; claims, expenses and whatever profit or loss is left flow out</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Money In and Money Out</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1900" height="620"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>An insurance company takes in money from two sources. Premiums are the obvious one. The second is investment income: premiums collected in earlier years and not yet paid out sit as reserves, and the company invests them, usually in safe and easily sold assets, because it must be able to reach the money when a large claim arrives.</p>
+          <p>Money leaves in three ways: claims paid to customers, the expenses of running the business, and whatever is left over as profit, or the shortfall as a loss. The chapter's example has 100 drivers whose accidents cost $186,000 in a year, so a premium of $1,860 each covers the claims exactly. The sliders set the premium and the investment income, and the side panel works out whether the company ends the year ahead or behind. A toggle draws each arrow in proportion to the money moving through it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-money">
+        <div class="control-panel-header" onclick="tog('money')"><div class="panel-title">The Arithmetic</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-money" onclick="event.stopPropagation();tog('money')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('money')">✕</button></div></div>
+        <div class="control-panel-body" id="body-money"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 16.2 of the book: a box with two arrows curving in from the left
+// and three fanning out to the right. The chapter's worked example sits
+// behind it: 100 drivers, 60 small accidents at $100, 30 at $1,000 and
+// 10 at $15,000, which is $186,000 of claims in the year.
+const DRIVERS = 100, CLAIMS = 60 * 100 + 30 * 1000 + 10 * 15000;
+const BLUE = '#2b6cb0', EDGE = '#5b9bd5', INK = '#1a202c';
+const money = v => '$' + Math.round(v).toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'insurance_flows.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'premium', label:'Premium charged each driver', min:1560, max:2160, value:1860, step:100, fmt:money },
+    { id:'invest',  label:'Investment income on reserves', min:0, max:40, value:20, step:10, fmt:v => money(v * 1000) },
+  ],
+  toggles: [
+    { id:'show_headings', label:'Money In and Money Out headings' },
+    { id:'show_labels',   label:'Labels on each flow' },
+    { id:'show_scaled',   label:'Draw each arrow in proportion to its amount', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Diagram', explanation:'Explanation', money:'Arithmetic' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['money'],
+  nudgeKeys: ['box','hd.in','hd.out','in.prem','in.invest','out.claims','out.expenses','out.profit'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W, H } = g;
+    const prem = val('premium') * DRIVERS, invest = val('invest') * 1000;
+    const expenses = Math.round(prem * 0.1), profit = prem + invest - CLAIMS - expenses;
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Premiums, ${DRIVERS} drivers</span><span class="info-value">${money(prem)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Investment income</span><span class="info-value">${money(invest)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Money in</span><span class="info-value highlight">${money(prem + invest)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Claims paid</span><span class="info-value">${money(CLAIMS)}</span></div>`
+      + `<div class="info-row"><span class="info-label">Expenses</span><span class="info-value">${money(expenses)}</span></div>`
+      + `<div class="info-row"><span class="info-label">${profit >= 0 ? 'Profit' : 'Loss'}</span><span class="info-value highlight" style="${profit < 0 ? 'color:#c53030' : ''}">${money(Math.abs(profit))}</span></div>`);
+
+    g.clear();
+    // The box the money flows through, nudged by dragging
+    const nb = g.getNudge('box'), cx = W / 2 + nb.dx, cy = H * 0.52 + nb.dy, bw = 280 * S, bh = 160 * S;
+    const grad = ctx.createLinearGradient(0, cy - bh / 2, 0, cy + bh / 2);
+    grad.addColorStop(0, '#cfe4f7'); grad.addColorStop(1, '#a8cdef');
+    ctx.fillStyle = grad; ctx.fillRect(cx - bw / 2, cy - bh / 2, bw, bh);
+    ctx.strokeStyle = EDGE; ctx.lineWidth = 2 * S; ctx.strokeRect(cx - bw / 2, cy - bh / 2, bw, bh);
+    ctx.fillStyle = BLUE; ctx.font = `${20 * S}px ${g.font}`; ctx.textAlign = 'center';
+    ctx.fillText('Insurance', cx, cy - 6 * S); ctx.fillText('company', cx, cy + 24 * S);
+    g.regLabel('box', cx - bw / 2, cy - bh / 2, bw, bh);
+
+    // A fat curved arrow, thick in proportion to its share when the toggle is on
+    const flow = (x1, y1, x2, y2, cpx, cpy, share) => {
+      const lw = (vis('show_scaled') ? 8 + 34 * share : 20) * S;
+      ctx.strokeStyle = EDGE; ctx.fillStyle = EDGE; ctx.lineWidth = lw; ctx.lineCap = 'butt';
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.quadraticCurveTo(cpx, cpy, x2, y2); ctx.stroke();
+      // The head points along the tangent at the end of the curve
+      const ux = x2 - cpx, uy = y2 - cpy, L = Math.hypot(ux, uy) || 1, hx = ux / L, hy = uy / L;
+      const hl = lw * 1.5, hw = lw * 1.1;
+      ctx.beginPath(); ctx.moveTo(x2 + hx * hl, y2 + hy * hl);
+      ctx.lineTo(x2 - hy * hw, y2 + hx * hw); ctx.lineTo(x2 + hy * hw, y2 - hx * hw); ctx.closePath(); ctx.fill();
+    };
+
+    const IN = [
+      { key:'in.prem',   text:'Premiums from customers', y:H * 0.34, amount:prem },
+      { key:'in.invest', text:'Investment income',       y:H * 0.66, amount:invest },
+    ];
+    const OUT = [
+      { key:'out.claims',   text:'Payments to customers', y:H * 0.28, amount:CLAIMS },
+      { key:'out.expenses', text:'Expenses',              y:H * 0.52, amount:expenses },
+      { key:'out.profit',   text:'Profits or losses', y:H * 0.76, amount:Math.abs(profit) },
+    ];
+    const inTotal = prem + invest, outTotal = CLAIMS + expenses + Math.abs(profit);
+    const f = { font:`${19 * S}px ${g.font}`, color:BLUE };
+
+    IN.forEach(a => {
+      const x1 = W * 0.30, x2 = cx - bw / 2 - 6 * S;
+      flow(x1, a.y, x2, cy + (a.y - cy) * 0.55, (x1 + x2) / 2, a.y, a.amount / inTotal);
+      if (vis('show_labels')) g.label(a.text, x1 - 24 * S, a.y + 7 * S, { key:a.key, align:'right', ...f });
+    });
+    OUT.forEach(a => {
+      const x1 = cx + bw / 2 + 6 * S, x2 = W * 0.70;
+      flow(x1, cy + (a.y - cy) * 0.55, x2, a.y, (x1 + x2) / 2, a.y, a.amount / outTotal);
+      // Clear of the arrowhead, which grows when the arrows are drawn to scale
+      if (vis('show_labels')) g.label(a.text, x2 + 58 * S, a.y + 7 * S, { key:a.key, ...f });
+    });
+
+    if (vis('show_headings')) {
+      const h = { font:`bold ${21 * S}px ${g.font}`, color:BLUE, align:'center' };
+      g.label('Money In', W * 0.16, H * 0.11, { key:'hd.in', ...h });
+      g.label('Money Out', W * 0.84, H * 0.11, { key:'hd.out', ...h });
+    }
+  },
+});
+</script>
+</body>
+</html>

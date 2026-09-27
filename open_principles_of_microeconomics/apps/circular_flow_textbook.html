@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Circular Flow Diagram</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Circular Flow Diagram</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Households and firms interact in the goods and services market and in the labor market. Drag the boxes and labels to rearrange.</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Households and Firms</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="1100"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The circular flow diagram pictures the economy as two groups, <strong>households</strong> and <strong>firms</strong>, that interact in two markets: the <strong>goods and services market</strong>, in which firms sell and households buy, and the <strong>labor market</strong>, in which households sell labor to firms.</p>
+          <p>Firms produce and sell goods and services to households (arrow <strong>A</strong>). Households pay for those goods and services, and the payments become the firms' revenue (arrow <strong>B</strong>). Arrows A and B are the two sides of the goods and services market. Where do households get the income to pay? They provide the labor and other resources firms need (arrow <strong>C</strong>), and firms pay for them with wages, salaries and benefits (arrow <strong>D</strong>). Arrows C and D are the two sides of the labor market.</p>
+          <p>The direction of the arrows is the point: everything on the top half flows to households, everything on the bottom half flows to firms, and each group's spending is the other group's income.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-layout">
+        <div class="control-panel-header" onclick="tog('layout')"><div class="panel-title">Layout and Animation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-layout" onclick="event.stopPropagation();tog('layout')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('layout')">✕</button></div></div>
+        <div class="control-panel-body" id="body-layout" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-keyvals">
+        <div class="control-panel-header" onclick="tog('keyvals')"><div class="panel-title">Key</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-keyvals" onclick="event.stopPropagation();tog('keyvals')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('keyvals')">✕</button></div></div>
+        <div class="control-panel-body" id="body-keyvals">
+          <table class="data-table">
+            <thead><tr><th>Arrow</th><th>Flow</th><th>Market</th></tr></thead>
+            <tbody>
+              <tr><td>A</td><td style="text-align:left">Goods and services, firms to households</td><td>Goods and services</td></tr>
+              <tr><td>B</td><td style="text-align:left">Payment for goods and services, households to firms</td><td>Goods and services</td></tr>
+              <tr><td>C</td><td style="text-align:left">Labor services, households to firms</td><td>Labor</td></tr>
+              <tr><td>D</td><td style="text-align:left">Wages, salaries and benefits, firms to households</td><td>Labor</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag boxes and labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 1.7 of the book: two boxes, Households on the left and Firms on the
+// right, joined by four arrows labelled A to D exactly as the chapter text
+// names them. The 3611 course's circular flow app (which also draws the two
+// markets as boxes and separates money from real flows) was the starting
+// point, but the figure follows the book's own diagram and text, not the
+// richer course version. The market names are available as a toggle that
+// defaults off, since the text refers to them without drawing them.
+//
+// Laid out in design pixels on a 1600 x 1100 canvas; no data axes. Boxes are
+// draggable through the library by registering each as a label hit box whose
+// nudge moves the whole box.
+const BLUE = '#2b6cb0', FILL = '#ebf4ff', GREY = '#718096';
+const qB  = (t, a, b, c) => { const u = 1 - t; return u * u * a + 2 * u * t * b + t * t * c; };
+const qBD = (t, a, b, c) => 2 * (1 - t) * (b - a) + 2 * t * (c - b);
+
+// Animation is live only: particles are never drawn in embed mode, so the
+// rendered figure is deterministic. The loop is the one piece of app state
+// outside the library; a second animated app would move it there.
+let animT = 0, animLast = 0, animPending = false;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'circular_flow.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'gap_x', label:'Box spacing',      min:180, max:320, value:260, step:5 },
+    { id:'gap_y', label:'Arc height',       min:120, max:260, value:180, step:5 },
+    { id:'speed', label:'Animation speed',  min:0.2, max:3,   value:1,   step:0.1, fmt:v => v.toFixed(1) + 'x' },
+  ],
+  toggles: [
+    { id:'show_gm',         label:'Goods and services market flows (A, B)' },
+    { id:'show_fm',         label:'Labor market flows (C, D)' },
+    { id:'show_labels',     label:'Households and Firms labels' },
+    { id:'show_flowlabels', label:'Arrow labels (A to D)' },
+    { id:'show_markets',    label:'Market names', checked:false },
+    { id:'show_anim',       label:'Animate flows (live only)', checked:false },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Diagram', explanation:'Explanation', layout:'Layout', keyvals:'Key' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['layout','keyvals'],
+  nudgeKeys: ['box.hh','box.fi','flow.A','flow.B','flow.C','flow.D','mk.gm','mk.fm'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W, H } = g;
+    const s = S, cx = W / 2, cy = H / 2;
+    const embed = !!(window.econViz && window.econViz.embed);
+    const animate = vis('show_anim') && !embed;
+
+    // ---- Boxes (centre, size), nudged by dragging ----
+    const place = (key, x, y, w, h) => { const n = g.getNudge(key); return { key, x: x + n.dx, y: y + n.dy, w, h }; };
+    const hh = place('box.hh', cx - val('gap_x') * s, cy, 200 * s, 70 * s);
+    const fi = place('box.fi', cx + val('gap_x') * s, cy, 200 * s, 70 * s);
+    const top = b => b.y - b.h / 2, bot = b => b.y + b.h / 2, xAt = (b, f) => b.x - b.w / 2 + b.w * f;
+
+    // ---- Arrows ----
+    // Four arcs between the two boxes. Everything on top flows to households,
+    // everything on the bottom flows to firms, as in the book's figure. Each
+    // is a quadratic bezier whose control point sits above (or below) the
+    // centre; the outer pair reaches higher than the inner pair.
+    const rise = val('gap_y') * s, inner = rise - 80 * s;
+    const arcBetween = (id, from, to, f1, f2, edge, h, label) => {
+      const y1 = edge(from), y2 = edge(to), sign = edge === top ? -1 : 1;
+      const peak = cy + sign * h;
+      return { id, x1: xAt(from, f1), y1, x2: xAt(to, f2), y2, cpx: cx, cpy: 2 * peak - (y1 + y2) / 2, label, sign };
+    };
+    const flows = [
+      // Outer arcs attach at the outer ends of the boxes, inner arcs nearer the
+      // middle, so the two pairs never cross.
+      { market:'gm', ...arcBetween('A', fi, hh, 0.75, 0.25, top, rise,  'A: Goods and Services') },
+      { market:'fm', ...arcBetween('D', fi, hh, 0.35, 0.65, top, inner, 'D: Wages, Salaries and Benefits') },
+      { market:'fm', ...arcBetween('C', hh, fi, 0.65, 0.35, bot, inner, 'C: Labor Services') },
+      { market:'gm', ...arcBetween('B', hh, fi, 0.25, 0.75, bot, rise,  'B: Payment for Goods and Services') },
+    ].filter(f => vis('show_' + f.market));
+
+    const drawArc = p => {
+      ctx.save();
+      ctx.lineWidth = 2.5 * s; ctx.strokeStyle = BLUE;
+      ctx.beginPath(); ctx.moveTo(p.x1, p.y1); ctx.quadraticCurveTo(p.cpx, p.cpy, p.x2, p.y2); ctx.stroke();
+      const t = 0.985, ax = qB(t, p.x1, p.cpx, p.x2), ay = qB(t, p.y1, p.cpy, p.y2);
+      const ang = Math.atan2(qBD(t, p.y1, p.cpy, p.y2), qBD(t, p.x1, p.cpx, p.x2)), hl = 12 * s;
+      ctx.translate(ax, ay); ctx.rotate(ang);
+      ctx.beginPath(); ctx.moveTo(hl * 0.4, 0); ctx.lineTo(-hl * 0.6, -hl * 0.45); ctx.lineTo(-hl * 0.6, hl * 0.45); ctx.closePath();
+      ctx.fillStyle = BLUE; ctx.fill();
+      ctx.restore();
+
+      if (!vis('show_flowlabels')) return;
+      // Label just outside the arc's peak (outer pair) or just inside it
+      // (inner pair), on a translucent card so it reads over the curve.
+      const mx = qB(0.5, p.x1, p.cpx, p.x2), my = qB(0.5, p.y1, p.cpy, p.y2);
+      const isOuter = p.id === 'A' || p.id === 'B';
+      const ly = my + p.sign * (isOuter ? 22 * s : -22 * s);
+      const key = 'flow.' + p.id, n = g.getNudge(key);
+      const font = `600 ${13 * s}px ${g.font}`;
+      ctx.font = font;
+      const w = ctx.measureText(p.label).width;
+      ctx.fillStyle = 'rgba(255,255,255,0.88)';
+      ctx.beginPath(); ctx.roundRect(mx + n.dx - w / 2 - 6 * s, ly + n.dy - 12 * s, w + 12 * s, 18 * s, 4 * s); ctx.fill();
+      g.label(p.label, mx, ly, { key, font, color:BLUE, align:'center' });
+    };
+    const drawParticles = () => {
+      flows.forEach(p => {
+        for (let i = 0; i < 6; i++) {
+          const t = (animT * 0.12 + i / 6) % 1;
+          ctx.beginPath(); ctx.arc(qB(t, p.x1, p.cpx, p.x2), qB(t, p.y1, p.cpy, p.y2), 3.5 * s, 0, Math.PI * 2);
+          ctx.fillStyle = BLUE; ctx.globalAlpha = 0.6; ctx.fill(); ctx.globalAlpha = 1;
+        }
+      });
+    };
+    const box = (o, label) => {
+      const x = o.x - o.w / 2, y = o.y - o.h / 2;
+      ctx.beginPath(); ctx.roundRect(x, y, o.w, o.h, 6 * s); ctx.fillStyle = FILL; ctx.fill();
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * s; ctx.stroke();
+      g.regLabel(o.key, x, y, o.w, o.h);
+      if (!vis('show_labels')) return;
+      ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = `700 ${18 * s}px ${g.font}`; ctx.fillStyle = BLUE; ctx.fillText(label, o.x, o.y);
+      ctx.restore();
+    };
+
+    // ---- Plot ----
+    g.clear();
+    flows.forEach(drawArc);
+    if (animate) drawParticles();
+    box(hh, 'Households');
+    box(fi, 'Firms');
+    if (vis('show_markets')) {
+      const font = `italic ${14 * s}px ${g.font}`;
+      if (vis('show_gm')) g.label('Goods and services market', cx, cy - rise - 56 * s, { key:'mk.gm', font, color:GREY, align:'center' });
+      if (vis('show_fm')) g.label('Labor market', cx, cy + rise + 66 * s, { key:'mk.fm', font, color:GREY, align:'center' });
+    }
+
+    if (animate) {
+      if (!animPending) {
+        animPending = true;
+        requestAnimationFrame(ts => {
+          animPending = false;
+          if (animLast) animT += Math.min((ts - animLast) / 1000, 0.1) * val('speed');
+          animLast = ts;
+          window.econViz.draw();
+        });
+      }
+    } else {
+      animLast = 0;
+    }
+  },
+});
+</script>
+</body>
+</html>

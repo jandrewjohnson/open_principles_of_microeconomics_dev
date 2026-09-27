@@ -195,7 +195,7 @@ no trade in the United States, the equilibrium price of sugar is 24
 cents per pound and the equilibrium quantity is 80 tons. We label these
 equilibrium points as point E in each part of the figure.
 
-![](media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId29.jpeg){width="6.5in" height="2.74in" #fig-20_2}
+{{< appfig sugar_trade_two_countries_1 id="fig-20_2" >}}
 
 Figure 20.2 The Sugar Trade between Brazil and the United States Before
 trade, the equilibrium price of sugar in Brazil is 12 cents a pound and
@@ -258,7 +258,7 @@ surplus in each country. That is, both the United States and Brazil are
 better off than they would be without trade. The following Clear It Up
 feature explains how trade policy can influence low-income countries.
 
-![](media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId36.jpeg){width="6.5in" height="3.695in" #fig-20_3}
+{{< appfig sugar_gains_from_trade_1 id="fig-20_3" >}}
 
 Figure 20.3 Free Trade of Sugar Free trade results in gains from trade.
 Total surplus increases in both countries, as the two blue-shaded areas
@@ -357,7 +357,7 @@ the effects of a tariff on producers and consumers in the United States
 using two concepts that we developed in @sec-chapter-3:
 consumer surplus and producer surplus.
 
-![](media/20-1-protectionism-an-indirect-subsidy-from-consumers-to-producers_rId49.jpeg){width="3.25in" height="2.41in" #fig-20_4}
+{{< appfig us_sugar_tariff_1 id="fig-20_4" >}}
 
 Figure 20.4 U.S. Sugar Supply and Demand When there is free trade, the
 equilibrium is at point A. When there is no trade, the equilibrium is at

@@ -134,7 +134,7 @@ labor times the value of that output to the firm.
 
 : Marginal Product of Labor {#tbl-table_14_1}
 
-![](media/14-1-the-theory-of-labor-markets_rId24.jpeg){width="3.255in" height="2.405in" #fig-14_2}
+{{< appfig labor_marginal_product_mp id="fig-14_2" >}}
 
 Figure 14.2 Marginal Product of Labor Because of fixed capital, the
 marginal product of labor declines as the employer hires additional
@@ -161,7 +161,7 @@ We show this in @tbl-table_14_2, which is an expanded version of
 Note that the value of each additional worker is less than the value of
 the ones who came before.
 
-![](media/14-1-the-theory-of-labor-markets_rId27.jpeg){width="3.25in" height="2.455in" #fig-14_3}
+{{< appfig labor_marginal_product_vmp id="fig-14_3" >}}
 
 Figure 14.3 Value of the Marginal Product of Labor For firms operating
 in a competitive output market, the value of additional output sold is
@@ -185,7 +185,7 @@ labor, as Figure 14.3 shows.
 Given the market wage, profit maximizing firms hire workers up to the
 point where: W~mkt~ = VMP~L~
 
-![](media/14-1-the-theory-of-labor-markets_rId31.jpeg){width="3.255in" height="2.405in" #fig-14_4}
+{{< appfig labor_demand_equilibrium_1 id="fig-14_4" >}}
 
 Figure 14.4 Equilibrium Employment for Firms in a Competitive Labor
 Market In a perfectly competitive labor market, firms can hire all the
@@ -226,7 +226,7 @@ The Demand for Labor = MP~L~ x MR = Marginal Revenue Product
 
 : Marginal Revenue Product {#tbl-table_14_3}
 
-![](media/14-1-the-theory-of-labor-markets_rId38.jpeg){width="3.25in" height="2.455in" #fig-14_5}
+{{< appfig labor_marginal_product_mrp id="fig-14_5" >}}
 
 Figure 14.5 Marginal Revenue Product For firms with some market power in
 their output market, the value of additional output sold is the firm's
@@ -240,7 +240,7 @@ market wage, profit-maximizing firms will hire workers up to the point
 where the market wage equals the marginal revenue product, as [Figure
 14.6](#fig-14_6) shows.
 
-![](media/14-1-the-theory-of-labor-markets_rId41.jpeg){width="3.25in" height="2.405in" #fig-14_6}
+{{< appfig labor_demand_equilibrium_mrp id="fig-14_6" >}}
 
 Figure 14.6 Equilibrium Level of Employment for Firms with Market Power
 For firms with market power in their output market, they choose the
@@ -283,7 +283,7 @@ appropriate skills may change jobs, and vacancies will attract people
 from outside the geographic area. The market supply of labor is the
 horizontal summation of all individuals' supplies of labor.
 
-![](media/14-1-the-theory-of-labor-markets_rId48.jpeg){width="3.25in" height="2.405in" #fig-14_7}
+{{< appfig market_wage_1 id="fig-14_7" >}}
 
 Figure 14.7 The Market Wage Rate In a competitive labor market, the
 equilibrium wage and employment level are determined where the market
@@ -444,7 +444,7 @@ than the wage. This is because to hire one more worker requires paying a
 higher wage rate, not just for the new worker but for all the previous
 hires also. We can see this graphically in Figure 14.7.
 
-![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId24.jpeg){width="3.255in" height="2.405in" #fig-14_8}
+{{< appfig monopsony_mc id="fig-14_8" >}}
 
 Figure 14.8 The Marginal Cost of Labor Since monopsonies are the sole
 demander for labor, they face the market supply curve for labor. In
@@ -455,7 +455,7 @@ additional labor is greater than the wage, and thus for any level of
 employment (above the first worker), MC~L~ is above the Market Supply of
 Labor.
 
-![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId27.jpeg){width="3.255in" height="2.405in" #fig-14_9}
+{{< appfig monopsony_outcome id="fig-14_9" >}}
 
 Figure 14.9 Labor Market Outcomes Under Monopsony A monopsony will hire
 workers up to the point Lm where its demand for labor equals the
@@ -477,7 +477,7 @@ monopsony may be rare, many employers have some degree of market power
 in labor markets. The outcomes for those employers will be qualitatively
 similar though not as extreme as monopsony.
 
-![](media/14-2-wages-and-employment-in-an-imperfectly-competitive-labor-market_rId30.jpeg){width="3.25in" height="2.465in" #fig-14_10}
+{{< appfig monopsony_vs_competition id="fig-14_10" >}}
 
 Figure 14.10 Comparison of labor market outcomes: Monopsony vs. Perfect
 Competition A monopsony hires fewer workers (Lm) than would be hired in
@@ -577,7 +577,7 @@ union members today. If you leave out government workers (which includes
 teachers in public schools), only 6.1% of the workers employed by
 private firms now work for a union.
 
-![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId23.jpeg){width="4.875in" height="2.455in" #fig-14_11}
+{{< appfig union_membership_1 id="fig-14_11" >}}
 
 Figure 14.11 Percentage of Wage and Salary Workers Who Are Union Members
 The share of wage and salary workers who belong to unions rose sharply
@@ -609,7 +609,7 @@ result, the labor union manages to achieve, through negotiations with
 the firms, a union wage of Wu for its members, above what the
 equilibrium wage would otherwise have been.
 
-![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId26.jpeg){width="3.25in" height="2.89in" #fig-14_12}
+{{< appfig union_wage_floor_1 id="fig-14_12" >}}
 
 Figure 14.12 Union Wage Negotiations Without a union, the equilibrium at
 E would have involved the wage We and the quantity of labor Qe. However,
@@ -764,7 +764,7 @@ membership of each of these unions. Outside of government employees,
 however, unions have not had great success in organizing the service
 sector.
 
-![](media/14-3-market-power-on-the-supply-side-of-labor-markets-unions_rId35.jpeg){width="6.5in" height="3.855in" #fig-14_13}
+{{< appfig employment_by_sector_1 id="fig-14_13" >}}
 
 Figure 14.13 The Growth of Service Jobs Jobs in services have increased
 dramatically for more than the past 50 years. Jobs in government have
@@ -884,7 +884,7 @@ What happens when there is market power on both sides of the labor
 market, in other words, when a union meets a monopsony? Economists call
 such a situation a bilateral monopoly.
 
-![](media/14-4-bilateral-monopoly_rId23.jpeg){width="3.25in" height="2.405in" #fig-14_14}
+{{< appfig bilateral_monopoly_1 id="fig-14_14" >}}
 
 Figure 14.14 Bilateral Monopoly Employment, L\*, will be lower in a
 bilateral monopoly than in a competitive labor market, but the
@@ -969,7 +969,7 @@ diminished in the 1970s, but grew again so that current differences are
 as wide as they were nearly 70 years ago. In both gender and race, an
 earnings gap remains.
 
-![](media/14-5-employment-discrimination_rId25.jpeg){width="4.88in" height="2.655in" #fig-14_15}
+{{< appfig wage_ratios_1 id="fig-14_15" >}}
 
 Figure 14.15 Wage Ratios by Sex and Race The ratio of wages for Black
 workers to White workers rose substantially in the late 1960s and
@@ -1336,7 +1336,7 @@ to expected changes in the population, workforce diversity is increasing
 as the women who entered the workforce in the 1970s and 1980s are now
 moving up the promotion ladders within their organizations.
 
-![](media/14-5-employment-discrimination_rId54.jpeg){width="4.88in" height="2.68in" #fig-14_16}
+{{< appfig population_projection_1 id="fig-14_16" >}}
 
 Figure 14.16 Projected Changes in America's Racial and Ethnic Diversity
 This figure shows projected changes in the ethnic makeup of the U.S.
@@ -1387,7 +1387,7 @@ tripled during the twentieth century, the seemingly high levels in
 immigration in the 1990s and 2000s look relatively smaller when they are
 divided by the population.
 
-![](media/14-6-immigration_rId21.jpeg){width="5.3in" height="2.41in" #fig-14_17}
+{{< appfig immigration_by_decade_1 id="fig-14_17" >}}
 
 Figure 14.17 Immigration Since 1900 The number of immigrants in each
 decade declined between 1900 and the 1940s, rose sharply through 2009

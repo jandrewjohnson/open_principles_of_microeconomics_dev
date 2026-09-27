@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Monopolist's Marginal Revenue Curve versus Demand Curve</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Monopolist's Marginal Revenue Curve versus Demand Curve</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Marginal revenue starts at the same price as demand but falls twice as fast, so it always lies beneath the demand curve</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Demand and Marginal Revenue</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1300" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Selling one more unit does two things to revenue. The extra unit sells at the new, lower price, which adds revenue. But every unit that would have sold at the old higher price now sells for less, which subtracts revenue. The second effect means the revenue from one more unit is always less than its price, so the marginal revenue curve lies below the demand curve.</p>
+          <p>For a straight-line demand curve the arithmetic is tidy. Marginal revenue starts at the same point on the price axis, and falls twice as steeply, so it reaches zero at exactly half the quantity where demand reaches zero. The slider changes how steeply demand falls, and marginal revenue keeps hitting the axis halfway along.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-slope">
+        <div class="control-panel-header" onclick="tog('slope')"><div class="panel-title">Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-slope" onclick="event.stopPropagation();tog('slope')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('slope')">✕</button></div></div>
+        <div class="control-panel-body" id="body-slope"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 9.8 of the book: unnumbered axes labelled P and Q, a straight-line
+// demand curve and a marginal revenue line from the same intercept with
+// twice the slope, continuing below the axis as the book draws it.
+const A = 8;
+const BLUE = '#2b6cb0';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'mr_below_demand.png',
+  axes: { xMin:0, xMax:10, yMin:-3, yMax:10, margin:{top:60, right:150, bottom:60, left:110} },
+  sliders: [
+    { id:'slope', label:'Steepness of demand', min:0.8, max:1.4, value:1, step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_mr',     label:'Marginal revenue' },
+    { id:'show_labels', label:'Curve and axis labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', slope:'Demand' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['slope'],
+  nudgeKeys: ['d','mr','an.p','an.q'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, width } = g;
+    const b = val('slope'), dem = q => A - b * q, mr = q => A - 2 * b * q;
+    const qD = A / b, qMR = A / (2 * b);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Demand reaches zero at</span><span class="info-value">${qD.toFixed(1)} units</span></div>`
+      + `<div class="info-row"><span class="info-label">Marginal revenue reaches zero at</span><span class="info-value highlight">${qMR.toFixed(1)} units, exactly half</span></div>`);
+
+    g.clear();
+    // Axes: the vertical to the top of the chart and the horizontal at zero, with no ticks
+    const axisY = tCY(0);
+    ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S;
+    ctx.beginPath(); ctx.moveTo(x0, tCY(g.yMax)); ctx.lineTo(x0, axisY); ctx.lineTo(x0 + width, axisY); ctx.stroke();
+    g.plotFn(dem, 0, Math.min(9.8, qD), { color:BLUE, lw:2 });
+    if (vis('show_mr')) g.plotFn(mr, 0, Math.min(9.8, (A + 3) / (2 * b)), { color:BLUE, lw:2 });
+    const f = { font:`${16 * S}px ${g.font}`, color:BLUE };
+    if (vis('show_labels')) {
+      g.label('P', x0 - 4 * S, tCY(g.yMax) - 14 * S, { key:'an.p', align:'center', ...f });
+      g.label('Q', x0 + width + 16 * S, axisY + 6 * S, { key:'an.q', ...f });
+      g.label('Demand', tCX(Math.min(9.8, qD)) - 20 * S, tCY(dem(Math.min(9.8, qD))) - 34 * S, { key:'d', align:'right', ...f });
+      if (vis('show_mr')) {
+        const qEnd = Math.min(9.8, (A + 3) / (2 * b));
+        g.label('Marginal Revenue', tCX(qEnd) + 12 * S, tCY(mr(qEnd)) + 6 * S, { key:'mr', ...f });
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>

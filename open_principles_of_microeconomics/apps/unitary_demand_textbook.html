@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Constant Unitary Elasticity Demand Curve</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Constant Unitary Elasticity Demand Curve</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Between every pair of points the price and the quantity change by the same percentage, so the elasticity is 1 everywhere and the curve bends</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Unit Elastic Demand</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1300"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Constant unitary elasticity means a price change of one percent brings a quantity change of one percent. Using the midpoint method, between A and B the price changes by 66.7% and the quantity demanded also changes by 66.7%, so the elasticity is 1. Between B and C, and between C and D, both changes are again 66.7%.</p>
+          <p>In absolute terms the price steps are not identical: the price falls by $8 from A to B, by $4 from B to C, and by $2 from C to D, while quantity doubles each time. That is why a demand curve with constant unitary elasticity is steep on the left, flat on the right, and curved overall.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-start">
+        <div class="control-panel-header" onclick="tog('start')"><div class="panel-title">Revenue</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-start" onclick="event.stopPropagation();tog('start')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('start')">✕</button></div></div>
+        <div class="control-panel-body" id="body-start"><div data-sliders></div><div class="info-box" id="step-info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 5.6 of the book: the curve P = 320 / Q with A (20, $16), B (40, $8),
+// C (80, $4) and D (160, $2). Between each pair a dashed step shows the
+// change, with arrows along each leg and its midpoint percentage (66.7%
+// for both, since quantity doubles as price halves), as in the book.
+const QA = 20;
+let REVENUE = 320;
+const demand = q => REVENUE / q;
+const pct = (a, b) => Math.abs(b - a) / ((a + b) / 2) * 100;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'unitary_demand.png',
+  axes: { xMin:0, xMax:200, yMin:0, yMax:17, margin:{top:70, right:110, bottom:130, left:160} },
+  sliders: [
+    { id:'rev', label:'Revenue at every point (P × Q)', min:240, max:320, value:320, step:20, fmt:v => '$' + v },
+  ],
+  toggles: [
+    { id:'show_steps',  label:'Dashed steps with arrows' },
+    { id:'show_pct',    label:'Percentage changes' },
+    { id:'show_annot',  label:'Point letters and coordinates' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', start:'Revenue' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['start'],
+  nudgeKeys: ['x','y','pt.A','pt.B','pt.C','pt.D','an.AB.p','an.AB.q','an.BC.p','an.BC.q','an.CD.p','an.CD.q'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, xMax, yMax, yMin } = g;
+    REVENUE = val('rev');
+    const qs = [0, 1, 2, 3].map(i => QA * Math.pow(2, i));
+    const pts = ['A', 'B', 'C', 'D'].map((L, i) => ({ L, q: qs[i], p: demand(qs[i]) }));
+    const PINK = '#a855c7', INK = '#1a202c';
+
+    g.setText('step-info', pts.slice(1).map((b, i) => { const a = pts[i];
+      return `<div class="info-row"><span class="info-label">${a.L} to ${b.L}: price ${pct(a.p, b.p).toFixed(1)}%, quantity ${pct(a.q, b.q).toFixed(1)}%</span><span class="info-value highlight">1.00</span></div>`; }).join(''));
+
+    g.clear();
+    g.axes();
+    g.xTicks([0, 50, 100, 150, 200], v => v);
+    const yt = []; for (let p = 0; p <= 17; p++) yt.push(p);
+    g.yTicks(yt, v => '$' + v);
+    g.axisLabels('Q', 'P');
+
+    // Steps: from each point down to the next price, then across to the next quantity
+    if (vis('show_steps')) pts.slice(1).forEach((b, i) => {
+      const a = pts[i];
+      g.dashed(tCX(a.q), tCY(a.p), tCX(a.q), tCY(b.p), PINK, 1.5);
+      g.dashed(tCX(a.q), tCY(b.p), tCX(b.q), tCY(b.p), PINK, 1.5);
+      const ax = tCX(a.q) - 14 * S;
+      g.drawArrow(ax, tCY(a.p), ax, tCY(b.p) + 4 * S, INK);
+      const ay = tCY(b.p) + 14 * S;
+      g.drawArrow(tCX(a.q), ay, tCX(b.q) - 4 * S, ay, INK);
+      if (vis('show_pct')) {
+        const f = { font:`${14 * S}px ${g.font}`, color:'#2b6cb0' };
+        // Midway down the arrow, but never closer than a line to the previous step's quantity label
+        const py = Math.max((tCY(a.p) + tCY(b.p)) / 2 + 5 * S, i > 0 ? tCY(a.p) + 70 * S : 0);
+        g.label(pct(a.p, b.p).toFixed(1) + '%', ax - 8 * S, py, { key:`an.${a.L}${b.L}.p`, align:'right', ...f });
+        // Left-aligned at the start of the arrow so it stays clear of the next step's price label
+        g.label(pct(a.q, b.q).toFixed(1) + '%', tCX(a.q) + 2 * S, ay + 30 * S, { key:`an.${a.L}${b.L}.q`, ...f });
+      }
+    });
+
+    g.plotFn(demand, Math.max(1, REVENUE / (yMax * 0.98)), Math.min(xMax * 0.92, REVENUE / (yMin + 1.4)), { color:'#2b6cb0', lw:2.5 });
+    pts.forEach(p => {
+      ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(tCX(p.q), tCY(p.p), 6 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_annot')) g.label(`${p.L} (${p.q}, $${Number.isInteger(p.p) ? p.p : p.p.toFixed(2)})`, tCX(p.q) + 12 * S, tCY(p.p) - 10 * S, { key:'pt.' + p.L, font:`${15 * S}px ${g.font}`, color:'#2b6cb0' });
+    });
+  },
+});
+</script>
+</body>
+</html>

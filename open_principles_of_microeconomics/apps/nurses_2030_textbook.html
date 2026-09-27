@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Boomers Come of Age: The Market for Nurses to 2030</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Baby Boomers Come of Age: The Market for Nurses to 2030</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Demand for nurses rises with the baby boomers' healthcare needs while retirements shrink supply; salaries rise either way, but the number of nurses depends on which shift is larger</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Market for Nurses, 2020 to 2030</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1400" height="1150"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>In 2020 the median salary for nurses was $75,330, the original equilibrium E₀ at Pe₀ and Qe₀. As the healthcare needs of baby boomers grow, the demand for nurses increases: the demand curve shifts right from D₀ to D₁, the equilibrium quantity rises from Qe₀ to Qe₁, and the equilibrium salary rises from Pe₀ to Pe₁.</p>
+          <p>Suppose that at the same time the supply of nurses shrinks, as more nurses retire and nursing tuition rises. The leftward shift of supply from S₀ to S₁ moves the equilibrium to E₂. The two shifts together mean higher salaries for nurses, at Pe₂, but the overall effect on the number of nurses is uncertain: it depends on the relative sizes of the two shifts. In this drawing Qe₂ is below Qe₁ but above the initial Qe₀.</p>
+          <p>We do not know whether the number of nurses will rise or fall relative to 2020, but we know they will have higher salaries. Move the sliders to change the relative sizes of the shifts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Results</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figures 4.10 and 4.11 of the book: straight demand and supply lines for
+// nurses. 4.10 shifts demand right (D0 to D1, E0 to E1); 4.11 adds a
+// leftward shift of supply (S0 to S1, E2). Labels Pe and Qe with subscripts,
+// the "$75,330" note beside the original salary, and one arrow per shift,
+// as in the book. The default is 4.11; the 4.10 state hides S1.
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+const D_INT = 9, D_SLOPE = -0.8, S_INT = -2, S_SLOPE = 1.1;
+const line = (int, slope, dq) => ({ at: q => int + slope * (q - dq), inv: p => dq + (p - int) / slope });
+const crossL = (a, b) => { const q = (b.at(0) - a.at(0)) / ((a.at(1) - a.at(0)) - (b.at(1) - b.at(0))); return { q, p: a.at(q) }; };
+const dir = (a, b) => b < a - 1e-6 ? 'falls' : b > a + 1e-6 ? 'rises' : 'is unchanged';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'nurses_2030.png',
+  axes: { xMin:0, xMax:10, yMin:0, yMax:10, margin:{top:70, right:110, bottom:170, left:170} },
+  sliders: [
+    { id:'dq_d1', label:'Shift of demand (baby boomers)',  min:0,  max:4, value:3,    step:0.1, fmt:v => '+' + v.toFixed(1) },
+    { id:'dq_s1', label:'Shift of supply (retirements)',   min:-4, max:0, value:-1.1, step:0.1, fmt:v => v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_s1',         label:'S₁ (supply after retirements)' },
+    { id:'show_eqlines',    label:'Dashed lines to the axes' },
+    { id:'show_arrows',     label:'Shift arrows' },
+    { id:'show_labels',     label:'Pe, Qe and E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_annot',      label:'$75,330 note' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', shifts:'Shifts', equilibrium:'Results' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','equilibrium'],
+  nudgeKeys: ['x','y','d0','d1','s0','s1','pt.E0','pt.E1','pt.E2','an.P0','an.P1','an.P2','an.Q0','an.Q1','an.Q2','an.salary'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, xMax, yMax } = g;
+    const dqd = val('dq_d1'), dqs = val('dq_s1'), showS1 = vis('show_s1');
+    const D0 = line(D_INT, D_SLOPE, 0), D1 = line(D_INT, D_SLOPE, dqd);
+    const S0 = line(S_INT, S_SLOPE, 0), S1 = line(S_INT, S_SLOPE, dqs);
+    const e0 = crossL(D0, S0), e1 = crossL(D1, S0), e2 = showS1 ? crossL(D1, S1) : null;
+    const axisY = y0 + height;
+
+    const row = (k, v) => `<div class="info-row"><span class="info-label">${k}</span><span class="info-value highlight">${v}</span></div>`;
+    g.setText('eq-info', row('Demand shift alone: salary', dir(e0.p, e1.p)) + row('Demand shift alone: nurses', dir(e0.q, e1.q)) +
+      (e2 ? row('Both shifts: salary', dir(e0.p, e2.p)) + row('Both shifts: nurses vs 2020', dir(e0.q, e2.q)) : ''));
+
+    g.clear();
+    g.axes(BLUE);
+    g.axisLabels('Quantity of Nurses', 'Nurses Salary');
+
+    const eqs = [[e0, '0'], [e1, '1'], [e2, '2']].filter(([e]) => e);
+    if (vis('show_eqlines')) eqs.forEach(([e]) => {
+      g.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+      g.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+    });
+
+    const pTop = yMax * 0.93, pBot = 0.6;
+    const seg = (L, key, name, isD) => {
+      const qa = Math.max(0.3, L.inv(isD ? pTop : pBot)), qb = Math.min(xMax - 0.3, L.inv(isD ? pBot : pTop));
+      if (qb <= qa) return;
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2.5 * S; ctx.beginPath();
+      ctx.moveTo(tCX(qa), tCY(L.at(qa))); ctx.lineTo(tCX(qb), tCY(L.at(qb))); ctx.stroke();
+      if (!vis('show_curvelabel')) return;
+      const f = { key, font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      if (isD) g.label(name, tCX(qb) + 10 * S, tCY(L.at(qb)) + 6 * S, f);
+      else g.label(name, tCX(qb) + 4 * S, tCY(L.at(qb)) - 10 * S, { ...f, align:'center' });
+    };
+    seg(D0, 'd0', 'D₀', true); seg(D1, 'd1', 'D₁', true);
+    seg(S0, 's0', 'S₀', false);
+    if (showS1) seg(S1, 's1', 'S₁', false);
+
+    if (vis('show_arrows')) {
+      const shift = (A, B, p) => {
+        const a = A.inv(p), b = B.inv(p), gp = 9 * S * Math.sign(a - b || 1);
+        if (Math.min(a, b) < 0.3 || Math.max(a, b) > xMax - 0.3 || Math.abs(tCX(a) - tCX(b)) < 30 * S) return;
+        g.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
+      };
+      shift(D0, D1, e0.p * 0.9);
+      if (showS1) shift(S0, S1, e1.p * 1.3);
+    }
+
+    const SUB = { '0':'₀', '1':'₁', '2':'₂' };
+    eqs.forEach(([e, n]) => {
+      const ex = tCX(e.q), ey = tCY(e.p);
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(ex, ey, 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (!vis('show_labels')) return;
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+      g.label('E' + SUB[n], ex - 6 * S, ey - 14 * S, { key:'pt.E' + n, align:'right', ...f });
+      g.label('Pe' + SUB[n], x0 - 14 * S, ey + 6 * S, { key:'an.P' + n, align:'right', ...f });
+      const crowded = eqs.some(([o, m]) => m < n && Math.abs(tCX(o.q) - ex) < 60 * S);
+      g.label('Qe' + SUB[n], ex, axisY + (crowded ? 54 : 30) * S, { key:'an.Q' + n, align:'center', ...f });
+    });
+    if (vis('show_annot'))
+      g.label('$75,330', x0 + 16 * S, tCY(e0.p) + 26 * S, { key:'an.salary', font:`${15 * S}px ${g.font}`, color:BLUE });
+  },
+});
+</script>
+</body>
+</html>

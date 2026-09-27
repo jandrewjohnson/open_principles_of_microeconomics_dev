@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taking Social Costs into Account: A Supply Shift</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Taking Social Costs into Account: A Supply Shift</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Making refrigerator makers pay the $100 of pollution damage each unit causes shifts supply left, raising the price and cutting the quantity</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Refrigerator Market</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1500" height="1200"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The supply curve S<sub>private</sub> is what firms offer when they count only their own costs and can dump their waste for free. It meets demand at E₀, 45,000 refrigerators at $650. But making refrigerators also releases pollutants that cost other people about $100 a unit in worse health, lower property values and lost habitat.</p>
+          <p>If firms have to bear that cost too, every quantity now needs a price $100 higher to be worth supplying, so the supply curve shifts up and left to S<sub>social</sub>. The new equilibrium E₁ is 40,000 refrigerators at $700. Buyers pay more and fewer refrigerators are made, which is the point: the 5,000 refrigerators no longer produced were the ones whose full cost to society exceeded what anyone was willing to pay for them. The slider sets the external cost per unit.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-cost">
+        <div class="control-panel-header" onclick="tog('cost')"><div class="panel-title">External Cost</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-cost" onclick="event.stopPropagation();tog('cost')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('cost')">✕</button></div></div>
+        <div class="control-panel-body" id="body-cost"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Table 12.2 of the book: the refrigerator market at prices from $600 to
+// $900. Both supply schedules are straight lines, and an external cost of
+// c dollars a unit shifts supply up by exactly c.
+const PRICES = [600, 650, 700, 750, 800, 850, 900];
+const qD = p => 50000 - (p - 600) * 100;
+const qS = (c, p) => 40000 + (p - c - 600) * 100;
+// Demand meets the shifted supply where 50000 - 100(p-600) = 40000 + 100(p-c-600)
+const eqOf = c => { const p = (1300 + c) / 2; return { p, q: qD(p) }; };
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c';
+const fmtQ = v => Math.round(v).toLocaleString();
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'pollution_supply_shift.png',
+  axes: { xMin:0, xMax:80000, yMin:530, yMax:970, margin:{top:60, right:120, bottom:130, left:190} },
+  sliders: [
+    { id:'cost', label:'External cost of pollution per unit', min:0, max:200, value:100, step:25, fmt:v => '$' + v },
+  ],
+  toggles: [
+    { id:'show_social', label:'S₍social₎, the supply curve with pollution costs counted' },
+    { id:'show_points', label:'Dots at the table values' },
+    { id:'show_dashed', label:'Dashed lines to the axes' },
+    { id:'show_labels', label:'Curve and equilibrium labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', cost:'External Cost' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['cost'],
+  nudgeKeys: ['x','y','d','sp','ss','pt.E0','pt.E1'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, y0, height, yMin } = g;
+    const c = val('cost'), e0 = eqOf(0), e1 = eqOf(c);
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">E₀ with pollution free</span><span class="info-value">${fmtQ(e0.q)} at $${e0.p}</span></div>`
+      + (c > 0 ? `<div class="info-row"><span class="info-label">E₁ with the cost counted</span><span class="info-value highlight">${fmtQ(e1.q)} at $${e1.p}</span></div>`
+        + `<div class="info-row"><span class="info-label">Change</span><span class="info-value">${fmtQ(e0.q - e1.q)} fewer, $${e1.p - e0.p} dearer</span></div>` : ''));
+
+    g.clear();
+    g.axes();
+    g.xTicks([10000, 30000, 50000, 70000], fmtQ);
+    g.yTicks([550, 600, 650, 700, 750, 800, 850, 900, 950], v => v);
+    g.axisLabels('Refrigerators', 'Price ($)');
+    // The book breaks the price axis below $550, since the scale starts there
+    const by = tCY(yMin + 14);
+    ctx.fillStyle = '#fff'; ctx.fillRect(x0 - 5 * S, by - 9 * S, 10 * S, 18 * S);
+    ctx.strokeStyle = '#a0aec0'; ctx.lineWidth = 2 * S;
+    [-4, 4].forEach(dy => { ctx.beginPath(); ctx.moveTo(x0 - 8 * S, by + (dy + 5) * S); ctx.lineTo(x0 + 8 * S, by + (dy - 5) * S); ctx.stroke(); });
+
+    // "S" with a small subscript, the way the book sets the two supply curve names
+    const subLabel = (main, sub, key, x, y) => {
+      const nd = g.getNudge(key);
+      ctx.font = `${15 * S}px ${g.font}`; const w = ctx.measureText(main).width;
+      ctx.font = `${11 * S}px ${g.font}`; const ws = ctx.measureText(sub).width;
+      const lx = x - (w + ws) / 2 + nd.dx, ly = y + nd.dy;
+      ctx.textAlign = 'left'; ctx.fillStyle = BLUE;
+      ctx.font = `${15 * S}px ${g.font}`; ctx.fillText(main, lx, ly);
+      ctx.font = `${11 * S}px ${g.font}`; ctx.fillText(sub, lx + w + 1 * S, ly + 5 * S);
+      g.regLabel(key, lx - 4 * S, ly - 14 * S, w + ws + 8 * S, 22 * S);
+    };
+    // Each line spans the prices the table covers, labelled at the end the book labels
+    const line = (fn, key, txt, at, dx, dy, align) => {
+      ctx.strokeStyle = BLUE; ctx.lineWidth = 2 * S; ctx.beginPath();
+      ctx.moveTo(tCX(fn(600)), tCY(600)); ctx.lineTo(tCX(fn(900)), tCY(900)); ctx.stroke();
+      if (vis('show_points')) PRICES.forEach(p => { ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(fn(p)), tCY(p), 5 * S, 0, Math.PI * 2); ctx.fill(); });
+      if (vis('show_labels') && txt) g.label(txt, tCX(fn(at)) + dx * S, tCY(at) + dy * S, { key, align, font:`${15 * S}px ${g.font}`, color:BLUE });
+    };
+    line(p => qD(p), 'd', 'D', 600, 14, 22, 'left');
+    line(p => qS(0, p), 'sp', null, 900, 0, 0, 'center');
+    if (vis('show_labels')) subLabel('S', 'private', 'sp', tCX(qS(0, 900)) + 4 * S, tCY(900) - 16 * S);
+    if (vis('show_social')) {
+      line(p => qS(c, p), 'ss', null, 900, 0, 0, 'center');
+      if (vis('show_labels')) subLabel('S', 'social', 'ss', tCX(qS(c, 900)) + 4 * S, tCY(900) - 16 * S);
+    }
+
+    const f = { font:`${15 * S}px ${g.font}`, color:BLUE };
+    const mark = (e, key, txt, dx, dy, align) => {
+      if (vis('show_dashed')) { g.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5); g.dashed(tCX(e.q), tCY(e.p), tCX(e.q), y0 + height, PINK, 1.5); }
+      ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(tCX(e.q), tCY(e.p), 7 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_labels')) g.label(txt, tCX(e.q) + dx * S, tCY(e.p) + dy * S, { key, align, ...f });
+    };
+    mark(e0, 'pt.E0', `E₀ (${fmtQ(e0.q)}, ${e0.p})`, 14, 6, 'left');
+    if (vis('show_social') && c > 0) {
+      // The book writes this one to the left, with a short arrow back to the point
+      const nd = g.getNudge('pt.E1'), lx = tCX(e1.q) - 30 * S + nd.dx, ly = tCY(e1.p) - 30 * S + nd.dy;
+      g.drawArrow(lx + 8 * S, ly + 6 * S, tCX(e1.q) - 10 * S, tCY(e1.p) - 8 * S, INK);
+      mark(e1, 'pt.E1', `(${fmtQ(e1.q)}, ${e1.p}) E₁`, -30, -30, 'right');
+    }
+  },
+});
+</script>
+</body>
+</html>

@@ -106,7 +106,7 @@ demanded of nurses at different salaries.
 
 
 
-![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId24.jpeg){width="4.88in" height="2.68in" #fig-4_2}
+{{< appfig labor_market_nurses_1 id="fig-4_2" >}}
 
 Figure 4.2 Labor Market Example: Demand and Supply for Nurses in
 Minneapolis-St. Paul-Bloomington The demand curve (D) of those employers
@@ -297,7 +297,7 @@ S~0~ is the original supply curve for labor and D~0~ is the original
 demand curve for labor in each market. In each graph, the original point
 of equilibrium, E~0~, occurs at the price W~0~ and the quantity Q~0~.
 
-![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId39.jpeg){width="6.5in" height="2.855in" #fig-4_3}
+{{< appfig labor_tech_shifts_1 id="fig-4_3" >}}
 
 Figure 4.3 Technology and Wages: Applying Demand and Supply (a) The
 demand for low-skill labor shifts to the left when technology can do the
@@ -392,7 +392,7 @@ to work at the old wage rate but lost their jobs with the wage increase,
 life has not improved. @tbl-table_4_4 shows the differences
 in supply and demand at different wages.
 
-![](media/4-1-demand-and-supply-at-work-in-labor-markets_rId48.jpeg){width="3.25in" height="2.49in" #fig-4_4}
+{{< appfig living_wage_1 id="fig-4_4" >}}
 
 Figure 4.4 A Living Wage: Example of a Price Floor The original
 equilibrium in this labor market is a wage of \$10/hour and a quantity
@@ -571,7 +571,7 @@ of credit card borrowing we can measure with an interest rate. @tbl-table_4_5 sh
 consumers demand at various interest rates and the quantity that credit
 card firms (often banks) are willing to supply.
 
-![](media/4-2-demand-and-supply-in-financial-markets_rId25.jpeg){width="4.88in" height="2.53in" #fig-4_5}
+{{< appfig financial_market_credit_1 id="fig-4_5" >}}
 
 Figure 4.5 Demand and Supply for Borrowing Money with Credit Cards In
 this market for credit card borrowing, the demand curve (D) for
@@ -725,7 +725,7 @@ capital includes the funds arriving from foreign investors. The original
 equilibrium E~0~ occurs at interest rate R~0~ and quantity of financial
 investment Q~0~.
 
-![](media/4-2-demand-and-supply-in-financial-markets_rId37.jpeg){width="3.25in" height="2.535in" #fig-4_6}
+{{< appfig global_borrower_before id="fig-4_6" >}}
 
 Figure 4.6 The United States as a Global Borrower Before U.S. Debt
 Uncertainty The graph shows the demand for financial capital from and
@@ -746,7 +746,7 @@ investors' for investing their money in the U.S. economy diminishes, the
 supply of financial capital shifts to the left. [Figure
 4.7](#fig-4_7) shows the supply curve shift from S~0~ to S~1~.
 
-![](media/4-2-demand-and-supply-in-financial-markets_rId40.jpeg){width="3.25in" height="2.535in" #fig-4_7}
+{{< appfig global_borrower_1 id="fig-4_7" >}}
 
 Figure 4.7 The United States as a Global Borrower Before and After U.S.
 Debt Uncertainty The graph shows the demand for financial capital and
@@ -810,7 +810,7 @@ Consequently, a number of people who want to have credit cards and are
 willing to pay the prevailing interest rate will find that companies are
 unwilling to issue cards to them. The result will be a credit shortage.
 
-![](media/4-2-demand-and-supply-in-financial-markets_rId46.jpeg){width="3.25in" height="2.52in" #fig-4_8}
+{{< appfig credit_price_ceiling_1 id="fig-4_8" >}}
 
 Figure 4.8 Credit Card Interest Rates: Another Price Ceiling Example The
 original intersection of demand D and supply S occurs at equilibrium
@@ -895,7 +895,7 @@ time, the overall impact will depend on the degree of the shifts. When
 there are multiple variables, economists isolate each change and analyze
 it independently.
 
-![](media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId24.jpeg){width="3.25in" height="2.785in" #fig-4_9}
+{{< appfig generic_market_1 id="fig-4_9" >}}
 
 Figure 4.9 Demand and Supply Curves The figure displays a generic demand
 and supply curve. The horizontal axis shows the different measures of
@@ -977,7 +977,7 @@ in the first part of this case. The new equilibrium (E~1~) will be at
 the new equilibrium price (Pe~1~).Equilibrium quantity will also
 increase from Qe~0~ to Qe~1~.
 
-![](media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId29.jpeg){width="3.25in" height="2.535in" #fig-4_10}
+{{< appfig nurses_2030_demand_only id="fig-4_10" >}}
 
 Figure 4.10 Impact of Increasing Demand for Nurses 2020--2030 In 2020,
 the median salary for nurses was \$75,330. As demand for services
@@ -993,7 +993,7 @@ supply of nurses. The shifts in the two curves result in higher salaries
 for nurses, but the overall impact on the quantity of nurses is
 uncertain, as it depends on the relative shifts of supply and demand.
 
-![](media/4-3-the-market-system-as-an-efficient-mechanism-for-information_rId32.jpeg){width="3.25in" height="2.535in" #fig-4_11}
+{{< appfig nurses_2030_1 id="fig-4_11" >}}
 
 Figure 4.11 Impact of Decreasing Supply of Nurses between 2020 and 2030
 The increase in demand for nurses shown in [Figure 4.10](#fig-4_10) leads to both

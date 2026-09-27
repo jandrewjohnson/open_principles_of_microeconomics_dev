@@ -317,25 +317,25 @@ We know that a supply curve shows the minimum price a firm will accept to produc
 
 Step 1. Draw a graph of a supply curve for pizza. Pick a quantity (like Q~0~). If you draw a vertical line up from Q~0~ to the supply curve, you will see the price the firm chooses. [Figure 3.11](#fig-3_11) provides an example.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId70.jpeg){width="3.25in" height="1.99in" #fig-3_11}
+{{< appfig supply_cost_shift_step1 id="fig-3_11" >}}
 
 Figure 3.11 Supply Curve You can use a supply curve to show the minimum price a firm will accept to produce a given quantity of output.
 
 Step 2. Why did the firm choose that price and not some other? One way to think about this is that the price is composed of two parts. The first part is the cost of producing pizzas at the margin; in this case, the cost of producing the pizza, including cost of ingredients (e.g., dough, sauce, cheese, and pepperoni), the cost of the pizza oven, the shop rent, and the workers' wages. The second part is the firm's desired profit, which is determined, among other factors, by the profit margins in that particular business. (Desired profit is not necessarily the same as economic profit, which will be explained in Chapter 7.) If you add these two parts together, you get the price the firm wishes to charge. The quantity Q0 and associated price P0 give you one point on the firm's supply curve, as [Figure 3.12](#fig-3_12) illustrates.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId73.jpeg){width="3.25in" height="2.005in" #fig-3_12}
+{{< appfig supply_cost_shift_step2 id="fig-3_12" >}}
 
 Figure 3.12 Setting Prices The cost of production and the desired profit equal the price a firm will set for a product.
 
 Step 3. Now, suppose that the cost of production increases. Perhaps cheese has become more expensive by \$0.75 per pizza. If that is true, the firm will want to raise its price by the amount of the increase in cost (\$0.75). Draw this point on the supply curve directly above the initial point on the curve, but \$0.75 higher, as [Figure 3.13](#fig-3_13) shows.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId76.jpeg){width="3.25in" height="1.97in" #fig-3_13}
+{{< appfig supply_cost_shift_step3 id="fig-3_13" >}}
 
 Figure 3.13 Increasing Costs Leads to Increasing Price Because the cost of production and the desired profit equal the price a firm will set for a product, if the cost of production increases, the price for the product will also need to increase.
 
 Step 4. Shift the supply curve through this point. You will see that an increase in cost causes an upward (or a leftward) shift of the supply curve so that at any price, the quantities supplied will be smaller, as [Figure 3.14](#fig-3_14) illustrates.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId79.jpeg){width="3.25in" height="1.9849989063867017in" #fig-3_14}
+{{< appfig supply_cost_shift_1 id="fig-3_14" >}}
 
 Figure 3.14 Supply Curve Shifts When the cost of production increases, the supply curve shifts upwardly to a new price level.
 
@@ -345,7 +345,7 @@ Changes in the cost of inputs, natural disasters, new technologies, and the impa
 
 [Figure 3.15](#fig-3_15) summarizes factors that change the supply of goods and services. Notice that a change in the price of the product itself is not among the factors that shift the supply curve. Although a change in price of a good or service typically causes a change in quantity supplied or a movement along the supply curve for that specific good or service, it does not cause the supply curve itself to shift.
 
-![](media/3-2-shifts-in-demand-and-supply-for-goods-and-services_rId85.jpeg){width="6.5in" height="2.005in" #fig-3_15}
+{{< appfig supply_shift_factors_1 id="fig-3_15" >}}
 
 Figure 3.15 Factors That Shift Supply Curves (a) A list of factors that can cause an increase in supply from S~0~ to S~1~. (b) The same factors, if their direction is reversed, can cause a decrease in supply from S~0~ to S~1~.
 
@@ -378,7 +378,7 @@ Let's consider one example that involves a shift in supply and one that involves
 
 Suppose that during the summer of 2015, weather conditions were excellent for commercial salmon fishing off the California coast. Heavy rains meant higher than normal levels of water in the rivers, which helps the salmon to breed. Slightly cooler ocean temperatures stimulated the growth of plankton, the microscopic organisms at the bottom of the ocean food chain, providing everything in the ocean with a hearty food supply. The ocean stayed calm during fishing season, so commercial fishing operations did not lose many days to bad weather. How did these climate conditions affect the quantity and price of salmon? [Figure 3.16](#fig-3_16) illustrates the four-step approach, which we explain below, to work through this problem. @tbl-table_3_6 also provides the information to work the problem.
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId22.jpeg){width="3.395in" height="2.945in" #fig-3_16}
+{{< appfig four_step_salmon_1 id="fig-3_16" >}}
 
 Figure 3.16 Good Weather for Salmon Fishing: The Four-Step Process Unusually good weather leads to changes in the price and quantity of salmon.
 
@@ -408,7 +408,7 @@ In short, good weather conditions increased supply of the California commercial 
 
 According to the Pew Research Center for People and the Press, increasingly more people, especially younger people, are obtaining their news from online and digital sources. The majority of U.S. adults now own smartphones or tablets, and most of those Americans say they use them in part to access the news. From 2004 to 2012, the share of Americans who reported obtaining their news from digital sources increased from 24% to 39%. How has this affected consumption of print news media, and radio and television news? [Figure 3.17](#fig-3_17) and the text below illustrates using the four-step analysis to answer this question.
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId28.jpeg){width="3.255in" height="2.985in" #fig-3_17}
+{{< appfig four_step_print_news_1 id="fig-3_17" >}}
 
 Figure 3.17 The Print News Market: A Four-Step Analysis A change in tastes from print news sources to digital sources results in a leftward shift in demand for the former. The result is a decrease in both equilibrium price and quantity.
 
@@ -432,131 +432,14 @@ Moreover, rising incomes and population or changes in gasoline prices will affec
 
 The U.S. Postal Service is facing difficult challenges. Compensation for postal workers tends to increase most years due to cost-of-living increases. At the same time, increasingly more people are using email, text, and other digital message forms such as Facebook and Twitter to communicate with friends and others. What does this suggest about the continued viability of the Postal Service? [Figure 3.18](#fig-3_18) and the text below illustrate this using the four-step analysis to answer this question.
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId36.jpeg){width="6.5in" height="3.315in" #fig-3_18}
-
-```{python}
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Create an array of quantities
-quantity = np.linspace(200, 1300, 100)
-
-d0y = 2.0
-d0m = -0.001
-s0y = 0.5
-s0m = 0.001
-d1y = 1.8
-d1m = -0.001
-s1y = 0.7
-s1m = 0.001
-
-# Define the original demand and supply curves
-def original_demand(quantity):
-    return d0y + d0m * quantity
-
-def original_supply(quantity):
-    return s0y + s0m * quantity
-
-# Define the new demand and supply curves after the shift
-def new_demand(quantity):
-    return d1y + d1m * quantity
-
-def new_supply(quantity):
-    return s1y + s1m * quantity
-
-# Generate the corresponding prices for original and new curves
-original_demand_price = original_demand(quantity)
-new_demand_price = new_demand(quantity)
-original_supply_price = original_supply(quantity)
-new_supply_price = new_supply(quantity)
-
-# Find the equilibrium points for original and new curves
-original_equilibrium_quantity = (d0y - s0y) / (s0m - d0m)
-original_equilibrium_price = original_demand(original_equilibrium_quantity)
-
-new_equilibrium_quantity_supply = (d0y - s1y) / (s0m - d0m)
-new_equilibrium_price_supply = original_demand(new_equilibrium_quantity_supply)
-
-new_equilibrium_quantity_demand = (d1y - s0y) / (s0m - d0m)
-new_equilibrium_price_demand = new_demand(new_equilibrium_quantity_demand)
-
-# Create the plots
-fig, axs = plt.subplots(1, 2, figsize=(8, 4), sharey=True)
-
-
-
-
-
-
-# Set titles and labels
-axs[0].set_title('(a) Shift in supply', fontsize=16)
-axs[0].set_xlabel('Quantity', fontsize=16)
-axs[0].set_ylabel('Price', fontsize=16)
-axs[0].annotate(f'{original_equilibrium_price:.2f}', xy=(.1, original_equilibrium_price), xycoords=('axes fraction', 'data'), xytext=(5, 0), textcoords='offset points', va='center', ha='right', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
-axs[0].annotate(f'{original_equilibrium_quantity}', xy=(original_equilibrium_quantity, .03), xycoords=('data', 'axes fraction'), xytext=(0, 5), textcoords='offset points', va='bottom', ha='center', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
-axs[0].annotate(f'{new_equilibrium_price_supply:.2f}', xy=(.1, new_equilibrium_price_supply), xycoords=('axes fraction', 'data'), xytext=(5, 0), textcoords='offset points', va='center', ha='right', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
-axs[0].annotate(f'{new_equilibrium_quantity_supply}', xy=(new_equilibrium_quantity_supply, .1), xycoords=('data', 'axes fraction'), xytext=(0, 5), textcoords='offset points', va='bottom', ha='center', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
-
-# Plot for supply shift
-axs[0].plot(quantity, original_demand_price, label='$D_0$', color='blue')
-axs[0].plot(quantity, original_supply_price, label='$S_0$', color='orange')
-axs[0].plot(quantity, new_supply_price, label='$S_1$', color='orange', linestyle='--')
-axs[0].plot(original_equilibrium_quantity, original_equilibrium_price, 'o', color='green')
-axs[0].plot(new_equilibrium_quantity_supply, new_equilibrium_price_supply, 'o', color='red')
-axs[0].axhline(y=original_equilibrium_price, color='r', linestyle=':', xmax=(original_equilibrium_quantity-200)/1100)
-axs[0].axvline(x=original_equilibrium_quantity, color='r', linestyle=':', ymax=(original_equilibrium_price-0.5)/1.5)
-axs[0].axhline(y=new_equilibrium_price_supply, color='r', linestyle=':', xmax=(new_equilibrium_quantity_supply-200)/1100)
-axs[0].axvline(x=new_equilibrium_quantity_supply, color='r', linestyle=':', ymax=(new_equilibrium_price_supply-0.5)/1.5)
-
-# Annotate the equilibrium points
-axs[0].annotate('E0', xy=(original_equilibrium_quantity, original_equilibrium_price), xytext=(original_equilibrium_quantity + 100, original_equilibrium_price + 0.5), arrowprops=dict(facecolor='grey', linestyle=':', arrowstyle='->', alpha=.85))
-axs[0].annotate('E1', xy=(new_equilibrium_quantity_supply, new_equilibrium_price_supply), xytext=(new_equilibrium_quantity_supply + 100, new_equilibrium_price_supply + 0.5), arrowprops=dict(facecolor='grey', linestyle=':',  arrowstyle='->', alpha=.85))
-
-# Add a thick arrow indicating the inward shift of the supply curve
-axs[0].annotate('', xy=(new_equilibrium_quantity_supply, new_equilibrium_price_supply), xytext=(original_equilibrium_quantity, original_equilibrium_price), arrowprops=dict(facecolor='black', arrowstyle='->', alpha=.85, linewidth=4))
-
-axs[0].legend(frameon=False)
-axs[0].set_xlim(200, 1300)
-
-
-
-
-
-axs[1].set_title('(b) Shift in demand', fontsize=16)
-axs[1].set_xlabel('Quantity', fontsize=16)
-axs[1].set_ylabel('Price', fontsize=16)
-
-axs[1].annotate(f'{original_equilibrium_price:.2f}', xy=(.1, original_equilibrium_price), xycoords=('axes fraction', 'data'), xytext=(5, 0), textcoords='offset points', va='center', ha='right', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
-axs[1].annotate(f'{original_equilibrium_quantity}', xy=(original_equilibrium_quantity, .03), xycoords=('data', 'axes fraction'), xytext=(0, 5), textcoords='offset points', va='bottom', ha='center', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
-axs[1].annotate(f'{new_equilibrium_price_demand:.2f}', xy=(.1, new_equilibrium_price_demand), xycoords=('axes fraction', 'data'), xytext=(5, 0), textcoords='offset points', va='center', ha='right', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
-axs[1].annotate(f'{new_equilibrium_quantity_demand}', xy=(new_equilibrium_quantity_demand, .1), xycoords=('data', 'axes fraction'), xytext=(0, 5), textcoords='offset points', va='bottom', ha='center', bbox=dict(fc='white', alpha=0.85, edgecolor='none'))
-# Plot for demand shift
-axs[1].plot(quantity, original_demand_price, label='$D_0$', color='blue')
-axs[1].plot(quantity, new_demand_price, label='$D_1$', color='blue', linestyle='--')
-axs[1].plot(quantity, original_supply_price, label='$S_0$', color='orange')
-axs[1].plot(original_equilibrium_quantity, original_equilibrium_price, 'o', color='green')
-axs[1].plot(new_equilibrium_quantity_demand, new_equilibrium_price_demand, 'o', color='red')
-axs[1].axhline(y=original_equilibrium_price, color='r', linestyle=':', xmax=(original_equilibrium_quantity-200)/1100)
-axs[1].axvline(x=original_equilibrium_quantity, color='r', linestyle=':', ymax=(original_equilibrium_price-0.5)/1.5)
-axs[1].axhline(y=new_equilibrium_price_demand, color='r', linestyle=':', xmax=(new_equilibrium_quantity_demand-200)/1100)
-axs[1].axvline(x=new_equilibrium_quantity_demand, color='r', linestyle=':', ymax=(new_equilibrium_price_demand-0.5)/1.5)
-
-# Annotate the equilibrium points
-axs[1].annotate('$E_{0}$', xy=(original_equilibrium_quantity, original_equilibrium_price), xytext=(original_equilibrium_quantity + 100, original_equilibrium_price + 0.5), arrowprops=dict(facecolor='grey', linestyle=':',  arrowstyle='->'))
-axs[1].annotate('$E_{1}$', xy=(new_equilibrium_quantity_demand, new_equilibrium_price_demand), xytext=(new_equilibrium_quantity_demand + 100, new_equilibrium_price_demand + 0.5), arrowprops=dict(facecolor='grey', linestyle=':',  arrowstyle='->'))
-
-# Add a thick arrow indicating the inward shift of the demand curve
-axs[1].annotate('', xy=(new_equilibrium_quantity_demand, new_equilibrium_price_demand), xytext=(original_equilibrium_quantity, original_equilibrium_price), arrowprops=dict(facecolor='black', arrowstyle='->', alpha=.85, linewidth=4))
-axs[1].legend(frameon=False)
-axs[1].set_xlim(200, 1300)
-
-# Show the plots
-plt.tight_layout()
-plt.show()
-```
-
+{{< appfig four_step_postal_1 id="fig-3_18" >}}
 
 Figure 3.18 Higher Compensation for Postal Workers: A Four-Step Analysis (a) Higher labor compensation causes a leftward shift in the supply curve, a decrease in the equilibrium quantity, and an increase in the equilibrium price. (b) A change in tastes away from Postal Services causes a leftward shift in the demand curve, a decrease in the equilibrium quantity, and a decrease in the equilibrium price.
+
+Figure 3.18 is drawn without numbers. The same two shifts with numbers attached: in panel (a) a cost increase raises the supply curve by $0.20 per unit and moves the equilibrium from 750 units at $1.25 to 650 units at $1.35; in panel (b) a fall in demand of the same size moves it to 650 units at $1.15. Both shifts reduce the quantity; only the price moves in opposite directions, which is the pattern the four-step analysis below explains.
+
+{{< appfig market_shifts_postal >}}
+
 
 Since this problem involves two disturbances, we need two four-step analyses, the first to analyze the effects of higher compensation for postal workers, the second to analyze the effects of many people switching from "snail mail" to email and other digital messages.
 
@@ -582,7 +465,7 @@ Step 4. Compare the new equilibrium price and quantity to the original equilibri
 
 The final step in a scenario where both supply and demand shift is to combine the two individual analyses to determine what happens to the equilibrium quantity and price. Graphically, we superimpose the previous two diagrams one on top of the other, as in [Figure 3.19](#fig-3_19).
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId39.jpeg){width="3.255in" height="3.07in" #fig-3_19}
+{{< appfig four_step_postal_combined_1 id="fig-3_19" >}}
 
 Figure 3.19 Combined Effect of Decreased Demand and Decreased Supply Supply and demand shifts cause changes in equilibrium price and quantity.
 
@@ -602,7 +485,7 @@ One common mistake in applying the demand and supply framework is to confuse the
 
 "Well, it is clear that a drought reduces supply, so I will shift back the supply curve, as in the shift from the original supply curve S~0~ to S~1~ on the diagram (Shift 1). The equilibrium moves from E~0~ to E~1~, the equilibrium quantity is lower and the equilibrium price is higher. Then, a higher price makes farmers more likely to supply the good, so the supply curve shifts right, as shows the shift from S~1~ to S~2~, shows on the diagram (Shift 2), so that the equilibrium now moves from E~1~ to E~2~. The higher price, however, also reduces demand and so causes demand to shift back, like the shift from the original demand curve, D~0~ to D~1~ on the diagram (labeled Shift 3), and the equilibrium moves from E~2~ to E~3~."
 
-![](media/3-3-changes-in-equilibrium-price-and-quantity-the-four-step-process_rId43.jpeg){width="3.25in" height="2.53in" #fig-3_20}
+{{< appfig shift_vs_movement_1 id="fig-3_20" >}}
 
 Figure 3.20 Shifts of Demand or Supply versus Movements along a Demand or Supply Curve A shift in one curve never causes a shift in the other curve. Rather, a shift in one curve causes a movement along the second curve.
 
@@ -643,7 +526,7 @@ In many markets for goods and services, demanders outnumber suppliers. Consumers
 
 Rent control becomes a politically hot topic when rents begin to rise rapidly. Everyone needs an affordable place to live. Perhaps a change in tastes makes a certain suburb or town a more popular place to live. Perhaps locally-based businesses expand, bringing higher incomes and more people into the area. Such changes can cause a change in the demand for rental housing, as [Figure 3.21](#fig-3_21) illustrates. The original equilibrium (E~0~) lies at the intersection of supply curve S~0~ and demand curve D~0~, corresponding to an equilibrium price of \$500 and an equilibrium quantity of 15,000 units of rental housing. The effect of greater income or a change in tastes is to shift the demand curve for rental housing to the right, as the data in @tbl-table_3_7 shows and the shift from D~0~ to D~1~ on the graph. In this market, at the new equilibrium E~1~, the price of a rental unit would rise to \$600 and the equilibrium quantity would increase to 17,000 units.
 
-![](media/3-4-price-ceilings-and-price-floors_rId25.jpeg){width="3.29in" height="2.285in" #fig-3_21}
+{{< appfig price_ceiling_1 id="fig-3_21" >}}
 
 Figure 3.21 A Price Ceiling Example---Rent Control The original intersection of demand and supply occurs at E~0~. If demand shifts from D~0~ to D~1~, the new equilibrium would be at E~1~---unless a price ceiling prevents the price from rising. If the price is not permitted to rise, the quantity supplied remains at 15,000. However, after the change in demand, the quantity demanded rises to 19,000, resulting in a shortage.
 
@@ -675,7 +558,7 @@ The most common way price supports work is that the government enters the market
 
 Economists estimate that the high-income areas of the world, including the United States, Europe, and Japan, spend roughly \$1 billion per day in supporting their farmers. If the government is willing to purchase the excess supply (or to provide payments for others to purchase it), then farmers will benefit from the price floor, but taxpayers and consumers of food will pay the costs. Agricultural economists and policy makers have offered numerous proposals for reducing farm subsidies. In many countries, however, political support for subsidies for farmers remains strong. This is either because the population views this as supporting the traditional rural way of life or because of industry's lobbying power of the agro-business.
 
-![](media/3-4-price-ceilings-and-price-floors_rId31.jpeg){width="3.25in" height="2.89in" #fig-3_22}
+{{< appfig price_floor_1 id="fig-3_22" >}}
 
 Figure 3.22 European Wheat Prices: A Price Floor Example The intersection of demand (D) and supply (S) would be at the equilibrium point E~0~. However, a price floor set at Pf holds the price above E~0~ and prevents it from falling. The result of the price floor is that the quantity supplied Qs exceeds the quantity demanded Qd. There is excess supply, also called a surplus.
 
@@ -699,7 +582,7 @@ Consider a market for tablet computers, as [Figure 3.23](#fig-3_23) shows. The e
 
 For example, point J shows that if the price were \$90, 20 million tablets would be sold. Those consumers who would have been willing to pay \$90 for a tablet based on the utility they expect to receive from it, but who were able to pay the equilibrium price of \$80, clearly received a benefit beyond what they had to pay. Remember, the demand curve traces consumers' willingness to pay for different quantities. The amount that individuals would have been willing to pay, minus the amount that they actually paid, is called consumer surplus. Consumer surplus is the area labeled F---that is, the area above the market price and below the demand curve.
 
-![](media/3-5-demand-supply-and-efficiency_rId26.jpeg){width="3.25in" height="2.995in" #fig-3_23}
+{{< appfig surplus_1 id="fig-3_23" >}}
 
 Figure 3.23 Consumer and Producer Surplus The somewhat triangular area labeled by F shows the area of consumer surplus, which shows that the equilibrium price in the market was less than what many of the consumers were willing to pay. Point J on the demand curve shows that, even at the price of \$90, consumers would have been willing to purchase a quantity of 20 million. The somewhat triangular area labeled by G shows the area of producer surplus, which shows that the equilibrium price received in the market was more than what many of the producers were willing to accept for their products. For example, point K on the supply curve shows that at a price of \$45, firms would have been willing to supply a quantity of 14 million.
 
@@ -717,7 +600,7 @@ As a result, two changes occur. First, an inefficient outcome occurs and the tot
 
 A second change from the price ceiling is that some of the producer surplus is transferred to consumers. After the price ceiling is imposed, the new consumer surplus is T + V, while the new producer surplus is X. In other words, the price ceiling transfers the area of surplus (V) from producers to consumers. Note that the gain to consumers is less than the loss to producers, which is just another way of seeing the deadweight loss.
 
-![](media/3-5-demand-supply-and-efficiency_rId38.jpeg){width="6.5in" height="2.82in" #fig-3_24}
+{{< appfig surplus_price_controls_1 id="fig-3_24" >}}
 
 Figure 3.24 Efficiency and Price Floors and Ceilings (a) The original equilibrium price is \$600 with a quantity of 20,000. Consumer surplus is T + U, and producer surplus is V + W + X. A price ceiling is imposed at \$400, so firms in the market now produce only a quantity of 15,000. As a result, the new consumer surplus is T + V, while the new producer surplus is X. (b) The original equilibrium is \$8 at a quantity of 1,800. Consumer surplus is G + H + J, and producer surplus is I + K. A price floor is imposed at \$12, which means that quantity demanded falls to 1,400. As a result, the new consumer surplus is G, and the new producer surplus is H + I.
 

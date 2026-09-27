@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Higher Compensation for Postal Workers: A Four-Step Analysis</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>The Postal Service: Two Four-Step Analyses</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Higher labor compensation shifts supply left (a); a change in tastes toward digital messages shifts demand left (b). Each panel is its own analysis.</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Market for Postal Services</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">The Four Steps, Twice</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>This problem has two disturbances, so it takes two four-step analyses, one per panel. Each panel starts from the same market, D₀ and S₀, and the two diagrams are independent of each other.</p>
+          <p><strong>Panel (a), higher compensation for postal workers.</strong> Labor compensation is a cost of production, so this is a change in <strong>supply</strong>. Higher compensation lowers the quantity supplied at every price: the supply curve shifts left, from S₀ to S₁. The new equilibrium E₁ has a lower quantity and a <strong>higher</strong> price than E₀.</p>
+          <p><strong>Panel (b), a switch from mail to digital messages.</strong> A change in tastes is a change in <strong>demand</strong>. Fewer postal services are demanded at every price: the demand curve shifts left, from D₀ to D₁. The new equilibrium E₂ has a lower quantity and a <strong>lower</strong> price than E₀.</p>
+          <p>Both shifts reduce the quantity, but they push the price in opposite directions. Combining them is the final step, shown in the next figure.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-shifts">
+        <div class="control-panel-header" onclick="tog('shifts')"><div class="panel-title">Shift Curves</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-shifts" onclick="event.stopPropagation();tog('shifts')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('shifts')">✕</button></div></div>
+        <div class="control-panel-body" id="body-shifts" data-sliders></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Results</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium">
+          <div class="info-box" id="eq-info"></div>
+          <div class="legend" style="margin-top:12px">
+            <div class="legend-item"><div class="legend-line" style="background:#2b6cb0"></div><span>D₀, S₀ before; S₁ (a) and D₁ (b) after</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#2b6cb0"></div><span>E₀ original; E₁ and E₂ new equilibria</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 3.18 of the book: two independent schematic four-step analyses of
+// the same market, side by side. Panel (a) shifts supply left (E0 to E1,
+// price up, quantity down); panel (b) shifts demand left (E0 to E2, both
+// down). Curves, dashed lines, letters, three shift arrows and the arrows on
+// the axes follow the book's figure. The drawing per panel is the one used
+// for figure 3.17 (four_step_print_news), bound to each panel's axes.
+const S0 = 2;
+const GAP = 70 * S0, PW = (1700 - GAP) / 2;
+const MG = { top:50, right:80, bottom:200, left:140 };
+const AXES = [
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:0,        width:PW },
+  { xMin:0, xMax:10, yMin:0, yMax:10, margin:MG, left:PW + GAP, width:PW },
+];
+const BLUE = '#2b6cb0', PINK = '#a855c7', INK = '#1a202c', GREY = '#718096';
+const D_A = 9, S_A = 0.9, K = 0.22;                       // D0: 9 e^(-Kq), S0: 0.9 e^(Kq)
+const demand = dq => q => D_A * Math.exp(-K * (q - dq));     // dq < 0 shifts left
+const supply = dq => q => S_A * Math.exp(K * (q - dq));
+const qOfD = (dq, p) => dq - Math.log(p / D_A) / K;
+const qOfS = (dq, p) => dq + Math.log(p / S_A) / K;
+function cross(d, s) {
+  let lo = 0, hi = 10;
+  for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; (d(m) - s(m) > 0 ? lo = m : hi = m); }
+  const q = (lo + hi) / 2;
+  return { q, p: d(q) };
+}
+const dir = (a, b) => b < a - 1e-6 ? 'falls' : b > a + 1e-6 ? 'rises' : 'is unchanged';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'four_step_postal.png',
+  axes: AXES,
+  sliders: [
+    { id:'dq_s1', label:'Shift of supply (a)', min:-4, max:4, value:-2.6, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+    { id:'dq_d1', label:'Shift of demand (b)', min:-4, max:4, value:-2.8, step:0.1, fmt:v => (v > 0 ? '+' : '') + v.toFixed(1) },
+  ],
+  toggles: [
+    { id:'show_s1',         label:'S₁ in panel (a)' },
+    { id:'show_d1',         label:'D₁ in panel (b)' },
+    { id:'show_eqlines',    label:'Dashed lines to the axes' },
+    { id:'show_arrows',     label:'Shift arrows' },
+    { id:'show_outcome',    label:'Arrows on the axes for the change in P and Q' },
+    { id:'show_labels',     label:'P, Q and E labels' },
+    { id:'show_curvelabel', label:'Curve labels' },
+    { id:'show_captions',   label:'Panel captions' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Four steps', shifts:'Shifts', equilibrium:'Results' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['shifts','equilibrium'],
+  nudgeKeys: ['x.a','y.a','x.b','y.b','d0.a','s0.a','s1.a','d0.b','d1.b','s0.b',
+              'pt.a.E0','pt.a.E1','pt.b.E0','pt.b.E2',
+              'an.a.P0','an.a.P1','an.a.Q0','an.a.Q1','an.b.P0','an.b.P2','an.b.Q0','an.b.Q2'],
+
+  draw(g) {
+    const { S, ctx, val, vis, H } = g;
+    const PANELS = [
+      { id:'a', caption:'(a) Shift in supply', dqd:0, dqs:val('dq_s1'), shifted:vis('show_s1'), newSub:'1',
+        curves:[{ kind:'d', dq:0, key:'d0', name:'D₀' }, { kind:'s', dq:0, key:'s0', name:'S₀' }, { kind:'s', dq:val('dq_s1'), key:'s1', name:'S₁', isNew:true }] },
+      { id:'b', caption:'(b) Shift in demand', dqd:val('dq_d1'), dqs:0, shifted:vis('show_d1'), newSub:'2',
+        curves:[{ kind:'d', dq:0, key:'d0', name:'D₀' }, { kind:'d', dq:val('dq_d1'), key:'d1', name:'D₁', isNew:true }, { kind:'s', dq:0, key:'s0', name:'S₀' }] },
+    ];
+    const e0 = cross(demand(0), supply(0));
+    const results = PANELS.map(P => P.shifted ? cross(demand(P.dqd), supply(P.dqs)) : null);
+
+    // ---- Side panel ----
+    const row = (k, v) => `<div class="info-row"><span class="info-label">${k}</span><span class="info-value highlight">${v}</span></div>`;
+    g.setText('eq-info',
+      (results[0] ? row('(a) price', dir(e0.p, results[0].p)) + row('(a) quantity', dir(e0.q, results[0].q)) : '') +
+      (results[1] ? row('(b) price', dir(e0.p, results[1].p)) + row('(b) quantity', dir(e0.q, results[1].q)) : ''));
+
+    // ---- Plot ----
+    g.clear();
+    PANELS.forEach((P, i) => {
+      const pan = g.panel(i);
+      const { x0, y0, width, height, tCX, tCY, xMax, yMax } = pan;
+      const axisY = y0 + height, e1 = results[i];
+      pan.axes(BLUE);
+      // Axis labels drawn here so the outcome arrows can sit beside them
+      pan.label('Quantity', x0 + width / 2, axisY + 78 * S, { key:'x.' + P.id, font:`bold ${14 * S}px ${g.font}`, color:BLUE, align:'center' });
+      const ylx = pan.left + 30 * S, mid = y0 + height / 2, ny = g.getNudge('y.' + P.id);
+      ctx.save(); ctx.translate(ylx + ny.dx, mid + ny.dy); ctx.rotate(-Math.PI / 2);
+      ctx.font = `bold ${14 * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'center'; ctx.fillText('Price', 0, 0); ctx.restore();
+      g.regLabel('y.' + P.id, ylx + ny.dx - 12 * S, mid + ny.dy - 30 * S, 24 * S, 60 * S);
+
+      const eqs = e1 ? [[e0, '0'], [e1, P.newSub]] : [[e0, '0']];
+      if (vis('show_eqlines')) eqs.forEach(([e]) => {
+        pan.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+        pan.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+      });
+
+      // Curves, clipped by inverting each function
+      const pTop = yMax * 0.93, pBot = 0.8;
+      P.curves.forEach(c => {
+        if (c.isNew && !P.shifted) return;
+        const fn = c.kind === 'd' ? demand(c.dq) : supply(c.dq);
+        const inv = p => c.kind === 'd' ? qOfD(c.dq, p) : qOfS(c.dq, p);
+        const [pa, pb] = c.kind === 'd' ? [pTop, pBot] : [pBot, pTop];
+        const qa = Math.max(0.2, inv(pa)), qb = Math.min(xMax - 0.3, inv(pb));
+        if (qb <= qa) return;
+        pan.plotFn(fn, qa, qb, { color: BLUE, lw: 2.5 });
+        if (vis('show_curvelabel')) {
+          const f = { key: c.key + '.' + P.id, font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+          if (c.kind === 'd') pan.label(c.name, tCX(qb) + 10 * S, tCY(fn(qb)) + 6 * S, f);
+          else pan.label(c.name, tCX(qb) + 6 * S, tCY(fn(qb)) - 10 * S, { ...f, align:'center' });
+        }
+      });
+
+      // Three arrows between the original and shifted curve
+      if (vis('show_arrows') && e1) {
+        const c = P.curves.find(x => x.isNew);
+        const inv = p => c.kind === 'd' ? qOfD(c.dq, p) : qOfS(c.dq, p);
+        const inv0 = p => c.kind === 'd' ? qOfD(0, p) : qOfS(0, p);
+        const hiP = Math.max(e0.p, e1.p), loP = Math.min(e0.p, e1.p);
+        [hiP * 1.85, hiP * 1.4, loP * 0.65].forEach(p => {
+          if (p < pBot || p > pTop) return;
+          const a = inv0(p), b = inv(p), gp = 9 * S * Math.sign(a - b || 1);
+          if (Math.min(a, b) > 0.3 && Math.max(a, b) < xMax - 0.3 && Math.abs(tCX(a) - tCX(b)) > 40 * S)
+            pan.drawArrow(tCX(a) - gp, tCY(p), tCX(b) + gp, tCY(p), INK);
+        });
+      }
+
+      // Outcome arrows: in the Price label's column, and between the Q letters and the Quantity label
+      if (vis('show_outcome') && e1) {
+        const top = mid + 60 * S, bot = mid + 130 * S;
+        if (Math.abs(e1.p - e0.p) > 0.05) pan.drawArrow(ylx, e1.p < e0.p ? top : bot, ylx, e1.p < e0.p ? bot : top, INK);
+        const qy = axisY + 50 * S, xa = tCX(Math.max(e0.q, e1.q)), xb = tCX(Math.min(e0.q, e1.q));
+        if (Math.abs(e1.q - e0.q) > 0.05) pan.drawArrow(e1.q < e0.q ? xa + 30 * S : xb - 30 * S, qy, e1.q < e0.q ? xb - 20 * S : xa + 20 * S, qy, INK);
+      }
+
+      eqs.forEach(([e, n]) => {
+        const ex = tCX(e.q), ey = tCY(e.p);
+        ctx.fillStyle = BLUE; ctx.beginPath(); ctx.arc(ex, ey, 7 * S, 0, Math.PI * 2); ctx.fill();
+        if (!vis('show_labels')) return;
+        const sub = { '0':'₀', '1':'₁', '2':'₂' }[n], f = { font:`bold ${16 * S}px ${g.font}`, color:BLUE };
+        // E0 sits up and to the right of its dot, the new equilibrium up and to the left
+        if (n === '0') pan.label('E' + sub, ex + 8 * S, ey - 12 * S, { key:`pt.${P.id}.E${n}`, align:'left', ...f });
+        else pan.label('E' + sub, ex - 8 * S, ey - 12 * S, { key:`pt.${P.id}.E${n}`, align:'right', ...f });
+        pan.label('P' + sub, x0 - 14 * S, ey + 6 * S, { key:`an.${P.id}.P${n}`, align:'right', ...f });
+        pan.label('Q' + sub, ex, axisY + 30 * S, { key:`an.${P.id}.Q${n}`, align:'center', ...f });
+      });
+
+      if (vis('show_captions'))
+        pan.label(P.caption, pan.left + 20 * S, H - 8 * S, { font:`${13 * S}px ${g.font}`, color:GREY });
+    });
+  },
+});
+</script>
+</body>
+</html>

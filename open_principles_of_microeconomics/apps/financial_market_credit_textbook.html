@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demand and Supply for Borrowing Money with Credit Cards</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Demand and Supply for Borrowing Money with Credit Cards</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">In a financial market the quantity is money loaned or borrowed and the price is the interest rate</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. The Market for Credit Card Borrowing</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1700" height="1000"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>The horizontal axis shows the quantity of money loaned or borrowed with credit cards; the vertical axis shows the rate of return, measured here by the interest rate. The demand curve D for borrowing financial capital meets the supply curve S for lending it at equilibrium E: an interest rate of 15% and $600 billion loaned and borrowed. There the quantity demanded and the quantity supplied are equal.</p>
+          <p>At an above-equilibrium interest rate like 21%, the quantity of financial capital supplied rises to $750 billion but the quantity demanded falls to $480 billion: an excess supply, or surplus. At a below-equilibrium rate like 13%, the quantity demanded rises to $700 billion but the quantity supplied falls to $510 billion: excess demand, or a shortage.</p>
+          <p>Move the two explored interest rates to see how the surplus and shortage change. Savers who supply financial capital expect a rate of return; borrowers who demand it expect to pay one.</p>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-schedule">
+        <div class="left-section-header" onclick="tog('schedule')"><div class="panel-title">Table 4.5: Borrowing with Credit Cards</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-schedule" onclick="event.stopPropagation();tog('schedule')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('schedule')">✕</button></div></div>
+        <div class="left-section-body" id="body-schedule">
+          <table class="data-table"><thead><tr><th>Interest rate</th><th>Quantity demanded (borrowing, $ billions)</th><th>Quantity supplied (lending, $ billions)</th></tr></thead><tbody id="schedule-tbody"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-price">
+        <div class="control-panel-header" onclick="tog('price')"><div class="panel-title">Explored Interest Rates</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-price" onclick="event.stopPropagation();tog('price')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('price')">✕</button></div></div>
+        <div class="control-panel-body" id="body-price"><div data-sliders></div><div class="info-box" id="explore-info" style="margin-top:12px"></div></div>
+      </div>
+      <div class="control-panel" id="section-equilibrium">
+        <div class="control-panel-header" onclick="tog('equilibrium')"><div class="panel-title">Equilibrium</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-equilibrium" onclick="event.stopPropagation();tog('equilibrium')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('equilibrium')">✕</button></div></div>
+        <div class="control-panel-body" id="body-equilibrium"><div class="info-box" id="eq-info"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 4.5 of the book: the credit card borrowing market from table 4.5.
+// The same drawing as labor_market_nurses (figure 4.2): D and S through the
+// table's points, E at 15% and $600 billion, a dashed line at an
+// above-equilibrium rate with a brace for the surplus and one at a
+// below-equilibrium rate with a brace for the shortage, and the book's
+// descriptions beside the S, E and D letters.
+const PRICES = [11, 13, 15, 17, 19, 21];
+const QD = [800, 700, 600, 550, 500, 480], QS = [420, 510, 600, 660, 720, 750];
+const fmtP = v => Math.round(v) + '%';
+const fmtQ = v => '$' + Math.round(v).toLocaleString();
+const sched = qs => PRICES.map((p, i) => ({ p, q: qs[i] }));
+function findEq(g, dPts, sPts) {
+  let bestP = PRICES[0], bestDiff = Infinity;
+  for (let p = PRICES[0]; p <= PRICES[PRICES.length - 1] + 1e-9; p += 0.01) {
+    const diff = Math.abs(g.interpQ(dPts, p) - g.interpQ(sPts, p));
+    if (diff < bestDiff) { bestDiff = diff; bestP = p; }
+  }
+  return { p: Math.round(bestP * 100) / 100, q: g.interpQ(dPts, bestP) };
+}
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'financial_market_credit.png',
+  axes: { xMin:0, xMax:1000, yMin:0, yMax:25, margin:{top:80, right:470, bottom:130, left:190} },
+  sliders: [
+    { id:'p_above', label:'An above-equilibrium interest rate', min:15, max:21, value:21, step:1, fmt:fmtP },
+    { id:'p_below', label:'A below-equilibrium interest rate', min:11, max:15, value:13, step:1, fmt:fmtP },
+  ],
+  toggles: [
+    { id:'show_grid',    label:'Gridlines' },
+    { id:'show_points',  label:'Schedule points' },
+    { id:'show_eqlines', label:'Dashed lines at the equilibrium' },
+    { id:'show_above',   label:'Above-equilibrium rate and surplus' },
+    { id:'show_below',   label:'Below-equilibrium rate and shortage' },
+    { id:'show_labels',  label:'S, E and D labels' },
+    { id:'show_annot',   label:'Descriptions beside the labels' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', schedule:'Table', price:'Rates', equilibrium:'Equilibrium' },
+  leftPanels:  ['graph','explanation','schedule'],
+  rightPanels: ['price','equilibrium'],
+  nudgeKeys: ['x','y','s','d','pt.E','an.S','an.E','an.D','an.surplus','an.shortage'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, x0, yMin } = g;
+    const d = sched(QD), s = sched(QS);
+    const e = findEq(g, d, s);
+    const pa = val('p_above'), pb = val('p_below');
+    const qda = g.interpQ(d, pa), qsa = g.interpQ(s, pa), qdb = g.interpQ(d, pb), qsb = g.interpQ(s, pb);
+    const axisY = tCY(yMin);
+
+    g.setText('schedule-tbody', PRICES.map((p, i) => `<tr><td>${fmtP(p)}</td><td>${fmtQ(QD[i])}</td><td>${fmtQ(QS[i])}</td></tr>`).join(''));
+    const row = (k, v, hi) => `<div class="info-row"><span class="info-label">${k}</span><span class="info-value${hi ? ' highlight' : ''}">${v}</span></div>`;
+    g.setText('eq-info', row('Equilibrium interest rate', fmtP(e.p), true) + row('Equilibrium quantity', fmtQ(e.q) + ' billion', true));
+    g.setText('explore-info',
+      row('At ' + fmtP(pa) + ': supplied', fmtQ(qsa) + 'B') + row('At ' + fmtP(pa) + ': demanded', fmtQ(qda) + 'B') +
+      `<div class="info-row"><span class="info-label">Surplus</span><span class="info-value" style="color:#e53e3e">${fmtQ(Math.max(0, qsa - qda))}B</span></div>` +
+      row('At ' + fmtP(pb) + ': supplied', fmtQ(qsb) + 'B') + row('At ' + fmtP(pb) + ': demanded', fmtQ(qdb) + 'B') +
+      `<div class="info-row"><span class="info-label">Shortage</span><span class="info-value" style="color:#2b6cb0">${fmtQ(Math.max(0, qdb - qsb))}B</span></div>`);
+
+    g.clear();
+    if (vis('show_grid')) g.gridlines(200, 5);
+    g.axes();
+    g.xTicks([0, 200, 400, 600, 800, 1000], fmtQ);
+    const yt = [0, 5, 10, 15, 20, 25];
+    [pb, pa].forEach(v => { if (!yt.includes(v)) yt.push(v); });
+    g.yTicks(yt, fmtP);
+    g.axisLabels('Quantity (billions of dollars)', 'Interest Rate (%)');
+
+    const PINK = '#a855c7';
+    if (vis('show_eqlines')) {
+      g.dashed(x0, tCY(e.p), tCX(e.q), tCY(e.p), PINK, 1.5);
+      g.dashed(tCX(e.q), tCY(e.p), tCX(e.q), axisY, PINK, 1.5);
+    }
+    const bf = { font:`${15 * S}px ${g.font}`, color:'#2b6cb0', align:'center', lineH:20 * S };
+    if (vis('show_above') && qsa > qda) {
+      g.dashed(x0, tCY(pa), tCX(qsa), tCY(pa), PINK, 1.5);
+      g.brace(tCX(qda), tCY(pa) - 12 * S, tCX(qsa), tCY(pa) - 12 * S, { depth: 12 * S, flip: true });
+      g.label('Excess supply\nor surplus', (tCX(qda) + tCX(qsa)) / 2, tCY(pa) - 54 * S, { key:'an.surplus', ...bf });
+    }
+    if (vis('show_below') && qdb > qsb) {
+      g.dashed(x0, tCY(pb), tCX(qdb), tCY(pb), PINK, 1.5);
+      g.brace(tCX(qsb), tCY(pb) + 12 * S, tCX(qdb), tCY(pb) + 12 * S, { depth: 12 * S });
+      g.label('Excess\ndemand\nor shortage', (tCX(qsb) + tCX(qdb)) / 2, tCY(pb) + 48 * S, { key:'an.shortage', ...bf });
+    }
+
+    g.curve(d); g.curve(s);
+    if (vis('show_points')) { g.points(d); g.points(s); }
+    ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(tCX(e.q), tCY(e.p), 7 * S, 0, Math.PI * 2); ctx.fill();
+
+    if (vis('show_labels')) {
+      const f = { font:`bold ${16 * S}px ${g.font}`, color:'#2b6cb0' };
+      const af = { font:`${15 * S}px ${g.font}`, color:'#2b6cb0', lineH:20 * S };
+      const sEnd = s[s.length - 1], dEnd = d[0];
+      g.label('S', tCX(sEnd.q) + 14 * S, tCY(sEnd.p) + 6 * S, { key:'s', ...f });
+      g.label('E', tCX(e.q) + 14 * S, tCY(e.p) + 6 * S, { key:'pt.E', ...f });
+      g.label('D', tCX(dEnd.q) + 14 * S, tCY(dEnd.p) + 6 * S, { key:'d', ...f });
+      if (vis('show_annot')) {
+        g.label('An above-equilibrium\ninterest rate', tCX(sEnd.q) + 40 * S, tCY(sEnd.p) + 6 * S, { key:'an.S', ...af });
+        g.label('Equilibrium\ninterest rate', tCX(e.q) + 40 * S, tCY(e.p) + 6 * S, { key:'an.E', ...af });
+        g.label('A below-equilibrium\ninterest rate', tCX(dEnd.q) + 40 * S, tCY(dEnd.p) + 6 * S, { key:'an.D', ...af });
+      }
+    }
+  },
+});
+</script>
+</body>
+</html>

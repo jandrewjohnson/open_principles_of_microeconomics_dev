@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Constant Unitary Elasticity Supply Curve</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>A Constant Unitary Elasticity Supply Curve</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">A straight line through the origin: equal steps in quantity and price are shrinking percentages, but always the same percentage for both</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Unit Elastic Supply</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1600" height="950"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Unlike the unit elastic demand curve, the supply curve with unitary elasticity is a straight line through the origin. Each pair of points is 30 units of quantity apart, but in percentage terms, by the midpoint method, the steps shrink from 28.6% to 22.2% to 18.2% as you move right, because the quantities in each average get larger.</p>
+          <p>The price steps of $1.50 are likewise the same in absolute value but shrink in percentage terms, from 28.6% to 22.2% to 18.2%, for the same reason. Along the whole line the percentage increase in quantity exactly matches the percentage increase in price, so this supply curve has constant unitary elasticity at every point.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-start">
+        <div class="control-panel-header" onclick="tog('start')"><div class="panel-title">Starting Point</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-start" onclick="event.stopPropagation();tog('start')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('start')">✕</button></div></div>
+        <div class="control-panel-body" id="body-start"><div data-sliders></div><div class="info-box" id="step-info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Figure 5.7 of the book: the line P = 0.05 Q through the origin with
+// D (90, $4.50), E (120, $6.00), F (150, $7.50) and G (180, $9.00). Between
+// each pair a dashed step up then across, with an arrow along each leg and
+// the midpoint percentage change beside it, as in the book.
+const SLOPE = 0.05, STEP = 30;
+const supply = q => SLOPE * q;
+const pct = (a, b) => Math.abs(b - a) / ((a + b) / 2) * 100;
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'unitary_supply.png',
+  axes: { xMin:0, xMax:200, yMin:0, yMax:10, margin:{top:70, right:110, bottom:130, left:160} },
+  sliders: [
+    { id:'q', label:'Quantity at D', min:30, max:120, value:90, step:10, fmt:v => v },
+  ],
+  toggles: [
+    { id:'show_steps',  label:'Dashed steps with arrows' },
+    { id:'show_pct',    label:'Percentage changes' },
+    { id:'show_annot',  label:'Point letters and coordinates' },
+    { id:'show_curvelabel', label:'Curve label' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Graph', explanation:'Explanation', start:'Start' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['start'],
+  nudgeKeys: ['x','y','s','pt.D','pt.E','pt.F','pt.G','an.DE.p','an.DE.q','an.EF.p','an.EF.q','an.FG.p','an.FG.q'],
+
+  draw(g) {
+    const { S, ctx, tCX, tCY, val, vis, xMax, yMax } = g;
+    const pts = ['D', 'E', 'F', 'G'].map((L, i) => { const q = val('q') + STEP * i; return { L, q, p: supply(q) }; });
+    const PINK = '#a855c7', INK = '#1a202c';
+
+    g.setText('step-info', pts.slice(1).map((b, i) => { const a = pts[i];
+      return `<div class="info-row"><span class="info-label">${a.L} to ${b.L}: quantity ${pct(a.q, b.q).toFixed(1)}%, price ${pct(a.p, b.p).toFixed(1)}%</span><span class="info-value highlight">1.00</span></div>`; }).join(''));
+
+    g.clear();
+    g.axes();
+    g.xTicks([0, 50, 100, 150, 200], v => v);
+    g.yTicks([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], v => '$' + v);
+    g.axisLabels('Q', 'P');
+
+    // Steps: up from each point to the next price, then across to the next quantity
+    if (vis('show_steps')) pts.slice(1).forEach((b, i) => {
+      const a = pts[i];
+      g.dashed(tCX(a.q), tCY(a.p), tCX(a.q), tCY(b.p), PINK, 1.5);
+      g.dashed(tCX(a.q), tCY(b.p), tCX(b.q), tCY(b.p), PINK, 1.5);
+      const ax = tCX(a.q) - 14 * S;
+      g.drawArrow(ax, tCY(a.p), ax, tCY(b.p) - 4 * S, INK);
+      const ay = tCY(b.p) - 14 * S;
+      g.drawArrow(tCX(a.q), ay, tCX(b.q) - 4 * S, ay, INK);
+      if (vis('show_pct')) {
+        const f = { font:`${14 * S}px ${g.font}`, color:'#2b6cb0' };
+        g.label(pct(a.p, b.p).toFixed(1) + '%', ax - 8 * S, tCY(b.p) + (tCY(a.p) - tCY(b.p)) * 0.15 + 5 * S, { key:`an.${a.L}${b.L}.p`, align:'right', ...f });
+        g.label(pct(a.q, b.q).toFixed(1) + '%', (tCX(a.q) + tCX(b.q)) / 2, ay - 10 * S, { key:`an.${a.L}${b.L}.q`, align:'center', ...f });
+      }
+    });
+
+    const qEnd = Math.min(xMax, yMax / SLOPE);
+    g.plotFn(supply, 0, qEnd, { color:'#2b6cb0', lw:2.5 });
+    if (vis('show_curvelabel')) g.label('S', tCX(qEnd) - 10 * S, tCY(supply(qEnd)) + 30 * S, { key:'s', font:`bold ${16 * S}px ${g.font}`, color:'#2b6cb0', align:'center' });
+    pts.forEach(p => {
+      ctx.fillStyle = '#2b6cb0'; ctx.beginPath(); ctx.arc(tCX(p.q), tCY(p.p), 6 * S, 0, Math.PI * 2); ctx.fill();
+      if (vis('show_annot')) g.label(`${p.L} (${p.q}, $${p.p.toFixed(2)})`, tCX(p.q) + 12 * S, tCY(p.p) + 26 * S, { key:'pt.' + p.L, font:`${15 * S}px ${g.font}`, color:'#2b6cb0' });
+    });
+  },
+});
+</script>
+</body>
+</html>

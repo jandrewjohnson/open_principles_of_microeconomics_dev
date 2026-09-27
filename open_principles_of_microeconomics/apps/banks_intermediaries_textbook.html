@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banks as Financial Intermediaries</title>
+<link rel="stylesheet" href="econ_viz_textbook.css">
+<script src="econ_viz_textbook.js"></script>
+</head>
+<body>
+<div class="container">
+  <div id="section-title" class="title-wrapper"><h1>Banks as Financial Intermediaries</h1><div class="panel-header-actions" style="top:50%;transform:translateY(-50%)"><button class="panel-close-btn" onclick="closePanel('title')">✕</button></div></div>
+  <div id="section-subtitle" class="subtitle-wrapper"><p class="subtitle">Banks stand between savers and borrowers: deposits and loans flow one way, withdrawals, repayments and interest flow back</p><div class="panel-header-actions" style="top:4px"><button class="panel-close-btn" onclick="closePanel('subtitle')">✕</button></div></div>
+
+  <div class="main-content">
+    <div class="left-column">
+      <div class="graph-container" id="section-graph">
+        <div class="graph-header" onclick="tog('graph')"><div class="panel-title">A. Between Savers and Borrowers</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-graph" onclick="event.stopPropagation();tog('graph')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('graph')">✕</button></div></div>
+        <div class="graph-body" id="body-graph">
+          <div class="plot-actions"><button class="plot-action-btn" id="copy-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Copy image</span></button><button class="plot-action-btn" id="save-plot-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="save-label">Save PNG</span></button></div>
+          <canvas id="graph" width="1900" height="900"></canvas>
+        </div>
+      </div>
+
+      <div class="left-section" id="section-explanation">
+        <div class="left-section-header" onclick="tog('explanation')"><div class="panel-title">Explanation</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-explanation" onclick="event.stopPropagation();tog('explanation')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('explanation')">✕</button></div></div>
+        <div class="left-section-body" id="body-explanation">
+          <p>Most savers have too little money to lend directly to a business, and no way of checking whether the borrower is sound. Most borrowers need more than any one saver has. A bank solves both problems by pooling many small deposits into a fund it can lend in large amounts, and by doing the work of judging who is worth lending to.</p>
+          <p>Money goes out to savers as withdrawals and interest payments, and comes back from borrowers as loan repayments with interest. The gap between the interest a bank charges borrowers and the interest it pays savers is where it earns its living. The slider spreads the three circles apart or brings them together.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-panel" id="section-layout">
+        <div class="control-panel-header" onclick="tog('layout')"><div class="panel-title">Layout</div><div class="panel-header-actions"><button class="panel-collapse-btn" id="toggle-layout" onclick="event.stopPropagation();tog('layout')">▼</button><button class="panel-close-btn" onclick="event.stopPropagation();closePanel('layout')">✕</button></div></div>
+        <div class="control-panel-body" id="body-layout"><div data-sliders></div><div class="info-box" id="info" style="margin-top:12px"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-options-wrapper">
+    <button class="display-options-toggle" id="display-toggle-btn"><span class="arrow" id="display-arrow">▶</span> Display options</button>
+    <div class="display-options-panel" id="display-panel">
+      <div class="panel-title">Plot Elements <small>drag labels to reposition</small></div>
+      <div data-toggles></div>
+      <div class="restore-bar" id="restore-bar"></div>
+      <div class="url-state-bar">
+        <button id="copy-url-btn">📋 Copy app link</button>
+        <button id="copy-fig-btn">🖼 Copy figure link</button>
+        <button id="open-fig-btn">👁 Preview figure</button>
+        <button id="reset-url-btn">↺ Reset</button>
+        <span class="url-hint">App link opens the full app; figure link is the controls-free embed for a textbook page (click-through opens the app)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BLUE = '#2b6cb0', GREY = '#718096', INK = '#1a202c', PINK = '#a855c7';
+// Years leaning up to the right, the way the book sets them under a crowded axis
+const leaned = (g, txt, x, y, size) => {
+  const { S, ctx } = g;
+  ctx.save(); ctx.translate(x + 4 * S, y); ctx.rotate(-Math.PI / 4);
+  ctx.font = `${(size || 13) * S}px ${g.font}`; ctx.fillStyle = BLUE; ctx.textAlign = 'right'; ctx.fillText(txt, 0, 0); ctx.restore();
+};
+// A series name with a leader line back to its curve
+const called = (g, txt, key, lx, ly, tx, ty, align, color) => {
+  const nd = g.getNudge(key), ax = lx + nd.dx, ay = ly + nd.dy;
+  g.drawArrow(ax + (align === 'right' ? 10 : -10) * g.S, ay - 5 * g.S, tx, ty, color || INK);
+  g.label(txt, lx, ly, { key, align, font:`${15 * g.S}px ${g.font}`, color: color || BLUE });
+};
+
+// Figure 17.3 of the book: three circles, with arrows arching over the top
+// from left to right and sweeping back underneath from right to left.
+const NODES = [
+  { key:'savers',    text:'Savers',    fill:'#eef6ee', edge:'#4a7c59' },
+  { key:'banks',     text:'Banks',     fill:'#e8eff9', edge:'#3d6fb5' },
+  { key:'borrowers', text:'Borrowers', fill:'#f9eeee', edge:'#a33b3b' },
+];
+// from/to index a circle; `up` arches above, otherwise the arrow sweeps below.
+const FLOWS = [
+  { key:'deposits',  from:0, to:1, up:true,  lift:87, text:'Deposits' },
+  { key:'loans',     from:1, to:2, up:true,  lift:87, text:'Loans' },
+  { key:'withdraw',  from:1, to:0, lift:124, ang:96, tip:168, text:'Withdrawals',        above:true },
+  { key:'interest1', from:1, to:0, lift:205, ang:108, tip:152, text:'Interest payments' },
+  { key:'repay',     from:2, to:1, lift:124, ang:96, tip:168, text:'Repayment\nof loans', above:true },
+  { key:'interest2', from:2, to:1, lift:205, ang:108, tip:152, text:'Interest payments' },
+];
+const EDGE = '#3d6fb5';
+
+new EconViz({
+  canvas: 'graph',
+  stateVersion: 1,
+  downloadName: 'banks_intermediaries.png',
+  axes: { xMin:0, xMax:1, yMin:0, yMax:1, margin:{top:0, right:0, bottom:0, left:0} },
+  sliders: [
+    { id:'spread', label:'How far apart the circles sit', min:26, max:34, value:30, step:2, fmt:v => v + '%' },
+  ],
+  toggles: [
+    { id:'show_flows',  label:'The arrows between them' },
+    { id:'show_labels', label:'Labels on each flow' },
+  ],
+  panels: { title:'Title', subtitle:'Subtitle', graph:'Diagram', explanation:'Explanation', layout:'Layout' },
+  leftPanels:  ['graph','explanation'],
+  rightPanels: ['layout'],
+  nudgeKeys: ['n.savers','n.banks','n.borrowers','f.deposits','f.loans','f.withdraw','f.interest1','f.repay','f.interest2'],
+
+  draw(g) {
+    const { S, ctx, val, vis, W, H } = g;
+    const gap = val('spread') / 100, R = 85 * S, cy = 185 * S;
+    const cxs = [W * (0.5 - gap), W * 0.5, W * (0.5 + gap)];
+    g.setText('info',
+      `<div class="info-row"><span class="info-label">Savers give the bank</span><span class="info-value">deposits</span></div>`
+      + `<div class="info-row"><span class="info-label">and get back</span><span class="info-value">withdrawals and interest</span></div>`
+      + `<div class="info-row"><span class="info-label">Borrowers get</span><span class="info-value">loans</span></div>`
+      + `<div class="info-row"><span class="info-label">and pay back</span><span class="info-value">the loan and interest</span></div>`
+      + `<div class="info-row"><span class="info-label">The bank keeps</span><span class="info-value highlight">the gap between the two interest rates</span></div>`);
+
+    g.clear();
+    const at = i => { const n = g.getNudge('n.' + NODES[i].key); return { x: cxs[i] + n.dx, y: cy + n.dy }; };
+    const rad = d => d * Math.PI / 180;
+    const on = (c, deg, r) => ({ x: c.x + r * Math.cos(rad(deg)), y: c.y + r * Math.sin(rad(deg)) });
+
+    // A hollow band along a quadratic curve ending in an open arrowhead, the
+    // way the book draws its flows: white inside, a thin blue outline.
+    const ribbon = (P0, C, P1) => {
+      const bw = 17 * S, hl = 34 * S, hw = 21 * S, lw = 2.2 * S;
+      const ux = P1.x - C.x, uy = P1.y - C.y, L = Math.hypot(ux, uy) || 1;
+      const hx = ux / L, hy = uy / L;
+      const base = { x: P1.x - hx * hl, y: P1.y - hy * hl };
+      const pts = [];
+      for (let i = 0; i <= 90; i++) {
+        const t = i / 90, m = 1 - t;
+        const x = m * m * P0.x + 2 * m * t * C.x + t * t * P1.x;
+        const y = m * m * P0.y + 2 * m * t * C.y + t * t * P1.y;
+        if (Math.hypot(P1.x - x, P1.y - y) < hl * 0.9) break;
+        pts.push([x, y]);
+      }
+      pts.push([base.x, base.y]);
+      const trace = () => { ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); };
+      ctx.lineCap = 'butt'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = EDGE; ctx.lineWidth = bw; trace();
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = bw - 2 * lw; trace();
+      ctx.beginPath();
+      ctx.moveTo(P1.x, P1.y);
+      ctx.lineTo(base.x - hy * hw, base.y + hx * hw);
+      ctx.lineTo(base.x - hy * bw / 2, base.y + hx * bw / 2);
+      ctx.lineTo(base.x + hy * bw / 2, base.y - hx * bw / 2);
+      ctx.lineTo(base.x + hy * hw, base.y - hx * hw);
+      ctx.closePath();
+      ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = EDGE; ctx.lineWidth = lw; ctx.stroke();
+    };
+
+    if (vis('show_flows')) FLOWS.forEach(fl => {
+      const a = at(fl.from), b = at(fl.to);
+      let P0, P1, C;
+      if (fl.up) {
+        P0 = on(a, -42, R + 6 * S); P1 = on(b, -138, R + 18 * S);
+        C = { x:(P0.x + P1.x) / 2, y: Math.min(P0.y, P1.y) - fl.lift * S };
+      } else {
+        P0 = on(a, fl.ang, R + 6 * S); P1 = on(b, fl.tip, R + 18 * S);
+        C = { x:(P0.x + P1.x) / 2, y: Math.max(P0.y, P1.y) + fl.lift * S };
+      }
+      ribbon(P0, C, P1);
+      if (vis('show_labels')) {
+        const apex = { x:0.25 * P0.x + 0.5 * C.x + 0.25 * P1.x, y:0.25 * P0.y + 0.5 * C.y + 0.25 * P1.y };
+        const lines = fl.text.split('\n').length, lineH = 26 * S;
+        const ly = fl.up ? apex.y - 30 * S
+          : fl.above ? apex.y - 26 * S - (lines - 1) * lineH
+          : apex.y + 44 * S;
+        g.label(fl.text, apex.x + (fl.above ? 26 * S : 0), ly, { key:'f.' + fl.key, align:'center', font:`${19 * S}px ${g.font}`, color:BLUE, lineH });
+      }
+    });
+
+    NODES.forEach((n, i) => {
+      const p = at(i);
+      ctx.fillStyle = n.fill; ctx.beginPath(); ctx.arc(p.x, p.y, R, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = n.edge; ctx.lineWidth = 2.5 * S; ctx.stroke();
+      ctx.fillStyle = BLUE; ctx.font = `bold ${21 * S}px ${g.font}`; ctx.textAlign = 'center';
+      ctx.fillText(n.text, p.x, p.y + 7 * S);
+      g.regLabel('n.' + n.key, p.x - R, p.y - R, 2 * R, 2 * R);
+    });
+  },
+});
+</script>
+</body>
+</html>
